@@ -70,9 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         /// <summary>
         /// <para>
         /// <para>The list of IP addresses that are allowed to access the Autonomous Database.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -200,9 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         /// <para>
         /// <para>The list of customer contacts to receive operational notifications from OCI for the
         /// Autonomous Database.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -255,9 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         /// <summary>
         /// <para>
         /// <para>The list of database management tools to enable for the Autonomous Database.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -601,9 +604,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         /// <summary>
         /// <para>
         /// <para>The list of scheduled start and stop times for the Autonomous Database.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -627,9 +631,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         /// <summary>
         /// <para>
         /// <para>The list of IP addresses that are allowed to access the standby Autonomous Database.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -735,6 +740,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             {
                 context.AllowlistedIp = new List<System.String>(this.AllowlistedIp);
             }
+            context.AutoRefreshFrequencyInSecond = this.AutoRefreshFrequencyInSecond;
+            context.AutoRefreshPointLagInSecond = this.AutoRefreshPointLagInSecond;
             context.AutonomousDatabaseId = this.AutonomousDatabaseId;
             #if MODULAR
             if (this.AutonomousDatabaseId == null && ParameterWasBound(nameof(this.AutonomousDatabaseId)))
@@ -743,8 +750,6 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             }
             #endif
             context.AutonomousMaintenanceScheduleType = this.AutonomousMaintenanceScheduleType;
-            context.AutoRefreshFrequencyInSecond = this.AutoRefreshFrequencyInSecond;
-            context.AutoRefreshPointLagInSecond = this.AutoRefreshPointLagInSecond;
             context.BackupRetentionPeriodInDay = this.BackupRetentionPeriodInDay;
             context.ByolComputeCountLimit = this.ByolComputeCountLimit;
             context.ComputeCount = this.ComputeCount;
@@ -753,9 +758,9 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             {
                 context.CustomerContactsToSendToOCI = new List<Amazon.Odb.Model.CustomerContact>(this.CustomerContactsToSendToOCI);
             }
-            context.DatabaseEdition = this.DatabaseEdition;
             context.DataStorageSizeInGBs = this.DataStorageSizeInGBs;
             context.DataStorageSizeInTBs = this.DataStorageSizeInTBs;
+            context.DatabaseEdition = this.DatabaseEdition;
             context.DbName = this.DbName;
             if (this.DbToolsDetail != null)
             {
@@ -886,14 +891,6 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             {
                 request.AllowlistedIps = cmdletContext.AllowlistedIp;
             }
-            if (cmdletContext.AutonomousDatabaseId != null)
-            {
-                request.AutonomousDatabaseId = cmdletContext.AutonomousDatabaseId;
-            }
-            if (cmdletContext.AutonomousMaintenanceScheduleType != null)
-            {
-                request.AutonomousMaintenanceScheduleType = cmdletContext.AutonomousMaintenanceScheduleType;
-            }
             if (cmdletContext.AutoRefreshFrequencyInSecond != null)
             {
                 request.AutoRefreshFrequencyInSeconds = cmdletContext.AutoRefreshFrequencyInSecond.Value;
@@ -901,6 +898,14 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.AutoRefreshPointLagInSecond != null)
             {
                 request.AutoRefreshPointLagInSeconds = cmdletContext.AutoRefreshPointLagInSecond.Value;
+            }
+            if (cmdletContext.AutonomousDatabaseId != null)
+            {
+                request.AutonomousDatabaseId = cmdletContext.AutonomousDatabaseId;
+            }
+            if (cmdletContext.AutonomousMaintenanceScheduleType != null)
+            {
+                request.AutonomousMaintenanceScheduleType = cmdletContext.AutonomousMaintenanceScheduleType;
             }
             if (cmdletContext.BackupRetentionPeriodInDay != null)
             {
@@ -922,10 +927,6 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             {
                 request.CustomerContactsToSendToOCI = cmdletContext.CustomerContactsToSendToOCI;
             }
-            if (cmdletContext.DatabaseEdition != null)
-            {
-                request.DatabaseEdition = cmdletContext.DatabaseEdition;
-            }
             if (cmdletContext.DataStorageSizeInGBs != null)
             {
                 request.DataStorageSizeInGBs = cmdletContext.DataStorageSizeInGBs.Value;
@@ -933,6 +934,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.DataStorageSizeInTBs != null)
             {
                 request.DataStorageSizeInTBs = cmdletContext.DataStorageSizeInTBs.Value;
+            }
+            if (cmdletContext.DatabaseEdition != null)
+            {
+                request.DatabaseEdition = cmdletContext.DatabaseEdition;
             }
             if (cmdletContext.DbName != null)
             {
@@ -1271,18 +1276,18 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             public System.String AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn { get; set; }
             public System.String AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId { get; set; }
             public List<System.String> AllowlistedIp { get; set; }
-            public System.String AutonomousDatabaseId { get; set; }
-            public Amazon.Odb.AutonomousMaintenanceScheduleType AutonomousMaintenanceScheduleType { get; set; }
             public System.Int32? AutoRefreshFrequencyInSecond { get; set; }
             public System.Int32? AutoRefreshPointLagInSecond { get; set; }
+            public System.String AutonomousDatabaseId { get; set; }
+            public Amazon.Odb.AutonomousMaintenanceScheduleType AutonomousMaintenanceScheduleType { get; set; }
             public System.Int32? BackupRetentionPeriodInDay { get; set; }
             public System.Double? ByolComputeCountLimit { get; set; }
             public System.Double? ComputeCount { get; set; }
             public System.Int32? CpuCoreCount { get; set; }
             public List<Amazon.Odb.Model.CustomerContact> CustomerContactsToSendToOCI { get; set; }
-            public Amazon.Odb.DatabaseEdition DatabaseEdition { get; set; }
             public System.Int32? DataStorageSizeInGBs { get; set; }
             public System.Int32? DataStorageSizeInTBs { get; set; }
+            public Amazon.Odb.DatabaseEdition DatabaseEdition { get; set; }
             public System.String DbName { get; set; }
             public List<Amazon.Odb.Model.DatabaseTool> DbToolsDetail { get; set; }
             public System.String DbVersion { get; set; }

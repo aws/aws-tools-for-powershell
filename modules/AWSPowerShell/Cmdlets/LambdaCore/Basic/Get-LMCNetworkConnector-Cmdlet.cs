@@ -57,7 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.LMC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the network connector to retrieve. You can specify the connector
+        /// ID, name, or ARN. Provide an unqualified ARN (or an ID or name) to retrieve the connector's
+        /// latest version, or a version-qualified ARN — one that includes the immutable version
+        /// suffix — to retrieve a specific historical version.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

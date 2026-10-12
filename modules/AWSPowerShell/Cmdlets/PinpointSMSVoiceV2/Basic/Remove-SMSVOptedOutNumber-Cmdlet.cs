@@ -134,18 +134,18 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse, RemoveSMSVOptedOutNumberCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.OptedOutNumber = this.OptedOutNumber;
-            #if MODULAR
-            if (this.OptedOutNumber == null && ParameterWasBound(nameof(this.OptedOutNumber)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OptedOutNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.OptOutListName = this.OptOutListName;
             #if MODULAR
             if (this.OptOutListName == null && ParameterWasBound(nameof(this.OptOutListName)))
             {
                 WriteWarning("You are passing $null as a value for parameter OptOutListName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.OptedOutNumber = this.OptedOutNumber;
+            #if MODULAR
+            if (this.OptedOutNumber == null && ParameterWasBound(nameof(this.OptedOutNumber)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OptedOutNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -164,13 +164,13 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             // create request
             var request = new Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberRequest();
             
-            if (cmdletContext.OptedOutNumber != null)
-            {
-                request.OptedOutNumber = cmdletContext.OptedOutNumber;
-            }
             if (cmdletContext.OptOutListName != null)
             {
                 request.OptOutListName = cmdletContext.OptOutListName;
+            }
+            if (cmdletContext.OptedOutNumber != null)
+            {
+                request.OptedOutNumber = cmdletContext.OptedOutNumber;
             }
             
             CmdletOutput output;
@@ -227,8 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String OptedOutNumber { get; set; }
             public System.String OptOutListName { get; set; }
+            public System.String OptedOutNumber { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse, RemoveSMSVOptedOutNumberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

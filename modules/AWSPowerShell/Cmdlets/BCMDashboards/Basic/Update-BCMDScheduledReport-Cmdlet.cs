@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
         #region Parameter ClearWidgetDateRangeOverride
         /// <summary>
         /// <para>
-        /// <para>Set to true to clear existing widgetDateRangeOverride.</para>
+        /// Set to true to clear existing
+        /// widgetDateRangeOverride.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
         #region Parameter ClearWidgetId
         /// <summary>
         /// <para>
-        /// <para>Set to true to clear existing widgetIds.</para>
+        /// Set to true to clear existing widgetIds.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,9 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.BCMD
         /// <para>
         /// <para>The list of widget identifiers to include in the scheduled report. If not specified,
         /// all widgets in the dashboard are included.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

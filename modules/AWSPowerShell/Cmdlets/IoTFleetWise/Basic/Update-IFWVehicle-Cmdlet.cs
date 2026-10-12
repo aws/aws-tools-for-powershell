@@ -55,9 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>Static information about a vehicle in a key-value pair. For example:</para><para><c>"engineType"</c> : <c>"1.3 L R2"</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -103,9 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>Associate state templates with the vehicle.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -117,9 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>Remove state templates from the vehicle.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -132,9 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <para>
         /// <para>Change the <c>stateTemplateUpdateStrategy</c> of state templates already associated
         /// with the vehicle.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -205,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
                 context.Select = CreateSelectDelegate<Amazon.IoTFleetWise.Model.UpdateVehicleResponse, UpdateIFWVehicleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AttributeUpdateMode = this.AttributeUpdateMode;
             if (this.Attribute != null)
             {
                 context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -213,7 +218,6 @@ namespace Amazon.PowerShell.Cmdlets.IFW
                     context.Attribute.Add((String)hashKey, (System.String)(this.Attribute[hashKey]));
                 }
             }
-            context.AttributeUpdateMode = this.AttributeUpdateMode;
             context.DecoderManifestArn = this.DecoderManifestArn;
             context.ModelManifestArn = this.ModelManifestArn;
             if (this.StateTemplatesToAdd != null)
@@ -251,13 +255,13 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             // create request
             var request = new Amazon.IoTFleetWise.Model.UpdateVehicleRequest();
             
-            if (cmdletContext.Attribute != null)
-            {
-                request.Attributes = cmdletContext.Attribute;
-            }
             if (cmdletContext.AttributeUpdateMode != null)
             {
                 request.AttributeUpdateMode = cmdletContext.AttributeUpdateMode;
+            }
+            if (cmdletContext.Attribute != null)
+            {
+                request.Attributes = cmdletContext.Attribute;
             }
             if (cmdletContext.DecoderManifestArn != null)
             {
@@ -338,8 +342,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, System.String> Attribute { get; set; }
             public Amazon.IoTFleetWise.UpdateMode AttributeUpdateMode { get; set; }
+            public Dictionary<System.String, System.String> Attribute { get; set; }
             public System.String DecoderManifestArn { get; set; }
             public System.String ModelManifestArn { get; set; }
             public List<Amazon.IoTFleetWise.Model.StateTemplateAssociation> StateTemplatesToAdd { get; set; }

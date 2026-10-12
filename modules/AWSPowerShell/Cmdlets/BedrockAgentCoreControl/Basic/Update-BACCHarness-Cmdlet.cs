@@ -324,7 +324,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Memory_OptionalValue_ManagedMemoryConfiguration_EncryptionKeyArn
         /// <summary>
         /// <para>
-        /// <para>Customer-managed KMS key. Defaults to AWS-owned key. Not updatable after creation.</para>
+        /// <para>Customer-managed KMS key. Defaults to Amazon Web Services-owned key. Not updatable
+        /// after creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

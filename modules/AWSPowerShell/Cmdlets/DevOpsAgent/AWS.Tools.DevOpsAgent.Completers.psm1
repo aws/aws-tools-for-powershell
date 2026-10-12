@@ -145,6 +145,16 @@ $DOPS_Completers = {
             break
         }
 
+        # Amazon.DevOpsAgent.IncludedData
+        {
+            ($_ -eq "Get-DOPSAgentSpace/IncludedData") -Or
+            ($_ -eq "Get-DOPSAgentSpaceList/IncludedData")
+        }
+        {
+            $v = "ALL_DATA","METADATA_ONLY"
+            break
+        }
+
         # Amazon.DevOpsAgent.IpAddressType
         "New-DOPSPrivateConnection/Mode_ServiceManaged_IpAddressType"
         {
@@ -306,6 +316,7 @@ $DOPS_map = @{
     "EvaluationSchedule_State"=@("Update-DOPSGoal")
     "FilterServiceType"=@("Get-DOPSServiceList")
     "GoalType"=@("Get-DOPSGoalList")
+    "IncludedData"=@("Get-DOPSAgentSpace","Get-DOPSAgentSpaceList")
     "Mode_ServiceManaged_DnsResolution"=@("New-DOPSPrivateConnection")
     "Mode_ServiceManaged_IpAddressType"=@("New-DOPSPrivateConnection")
     "Order"=@("Get-DOPSBacklogTaskList","Get-DOPSJournalRecordList")

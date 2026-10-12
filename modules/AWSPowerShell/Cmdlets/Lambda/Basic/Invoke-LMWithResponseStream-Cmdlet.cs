@@ -30,8 +30,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Configure your Lambda functions to stream response payloads back to clients. For more
-    /// information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html">Configuring
+    /// Configure your Lambda Event Functions to stream response payloads back to clients.
+    /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html">Configuring
     /// a Lambda function to stream responses</a>.
     /// 
     ///  

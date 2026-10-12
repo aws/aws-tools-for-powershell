@@ -60,9 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>An array of OptedOutFilter objects to filter the results on.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -75,9 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>An array of phone numbers to search for in the OptOutList.</para><para>If you specify an opted out number that isn't valid, an exception is returned.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -177,10 +179,6 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.OptedOutNumber != null)
-            {
-                context.OptedOutNumber = new List<System.String>(this.OptedOutNumber);
-            }
             context.OptOutListName = this.OptOutListName;
             #if MODULAR
             if (this.OptOutListName == null && ParameterWasBound(nameof(this.OptOutListName)))
@@ -188,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 WriteWarning("You are passing $null as a value for parameter OptOutListName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.OptedOutNumber != null)
+            {
+                context.OptedOutNumber = new List<System.String>(this.OptedOutNumber);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -214,13 +216,13 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.OptedOutNumber != null)
-            {
-                request.OptedOutNumbers = cmdletContext.OptedOutNumber;
-            }
             if (cmdletContext.OptOutListName != null)
             {
                 request.OptOutListName = cmdletContext.OptOutListName;
+            }
+            if (cmdletContext.OptedOutNumber != null)
+            {
+                request.OptedOutNumbers = cmdletContext.OptedOutNumber;
             }
             
             // Initialize loop variant and commence piping
@@ -304,8 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public List<Amazon.PinpointSMSVoiceV2.Model.OptedOutFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> OptedOutNumber { get; set; }
             public System.String OptOutListName { get; set; }
+            public List<System.String> OptedOutNumber { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.DescribeOptedOutNumbersResponse, GetSMSVOptedOutNumberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

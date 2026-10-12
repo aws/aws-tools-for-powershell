@@ -30,7 +30,13 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Amazon.Evs.IAmazonEvs.TagResource
+    /// Associates the specified tags to an Amazon EVS resource with the specified <c>resourceArn</c>.
+    /// If existing tags on a resource are not specified in the request parameters, they aren't
+    /// changed. When a resource is deleted, the tags associated with that resource are also
+    /// deleted. Tags that you create for Amazon EVS resources don't propagate to any other
+    /// resources associated with the environment. For example, if you tag an environment
+    /// with this operation, that tag doesn't automatically propagate to the VLAN subnets
+    /// and hosts associated with the environment.
     /// </summary>
     [Cmdlet("Add", "EVSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -68,9 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>Metadata that assists with categorization and organization. Each tag consists of a
         /// key and an optional value. You define both. Tags don't propagate to any other environment
         /// or Amazon Web Services resources.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

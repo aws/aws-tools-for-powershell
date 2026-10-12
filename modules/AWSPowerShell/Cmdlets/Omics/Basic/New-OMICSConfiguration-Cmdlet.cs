@@ -130,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter RunConfigurations_VpcConfig_VpcOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC
+        /// configurations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RunConfigurations_VpcConfig_VpcOwnerAccountId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -193,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             {
                 context.RunConfigurations_VpcConfig_SubnetId = new List<System.String>(this.RunConfigurations_VpcConfig_SubnetId);
             }
+            context.RunConfigurations_VpcConfig_VpcOwnerAccountId = this.RunConfigurations_VpcConfig_VpcOwnerAccountId;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -256,6 +268,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (requestRunConfigurations_runConfigurations_VpcConfig_runConfigurations_VpcConfig_SubnetId != null)
             {
                 requestRunConfigurations_runConfigurations_VpcConfig.SubnetIds = requestRunConfigurations_runConfigurations_VpcConfig_runConfigurations_VpcConfig_SubnetId;
+                requestRunConfigurations_runConfigurations_VpcConfigIsNull = false;
+            }
+            System.String requestRunConfigurations_runConfigurations_VpcConfig_runConfigurations_VpcConfig_VpcOwnerAccountId = null;
+            if (cmdletContext.RunConfigurations_VpcConfig_VpcOwnerAccountId != null)
+            {
+                requestRunConfigurations_runConfigurations_VpcConfig_runConfigurations_VpcConfig_VpcOwnerAccountId = cmdletContext.RunConfigurations_VpcConfig_VpcOwnerAccountId;
+            }
+            if (requestRunConfigurations_runConfigurations_VpcConfig_runConfigurations_VpcConfig_VpcOwnerAccountId != null)
+            {
+                requestRunConfigurations_runConfigurations_VpcConfig.VpcOwnerAccountId = requestRunConfigurations_runConfigurations_VpcConfig_runConfigurations_VpcConfig_VpcOwnerAccountId;
                 requestRunConfigurations_runConfigurations_VpcConfigIsNull = false;
             }
              // determine if requestRunConfigurations_runConfigurations_VpcConfig should be set to null
@@ -337,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String RequestId { get; set; }
             public List<System.String> RunConfigurations_VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> RunConfigurations_VpcConfig_SubnetId { get; set; }
+            public System.String RunConfigurations_VpcConfig_VpcOwnerAccountId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Omics.Model.CreateConfigurationResponse, NewOMICSConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

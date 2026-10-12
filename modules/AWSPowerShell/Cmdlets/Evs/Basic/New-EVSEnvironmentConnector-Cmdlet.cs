@@ -133,10 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para><note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
+        /// <note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
         /// it will have no effect.</para></note><para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
         /// the connector creation request. If you do not specify a client token, a randomly generated
-        /// token is used for the request to ensure idempotency.</para></para>
+        /// token is used for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

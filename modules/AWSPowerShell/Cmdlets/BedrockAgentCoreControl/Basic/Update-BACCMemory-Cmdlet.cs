@@ -188,7 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>A client token is used for keeping track of idempotent requests. It can contain a
-        /// session id which can be around 250 chars, combined with a unique AWS identifier.</para>
+        /// session id which can be around 250 chars, combined with a unique Amazon Web Services
+        /// identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

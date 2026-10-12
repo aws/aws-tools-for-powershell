@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String AgentSpaceId { get; set; }
         #endregion
         
+        #region Parameter IncludedData
+        /// <summary>
+        /// <para>
+        /// <para>How much data to include in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.IncludedData")]
+        public Amazon.DevOpsAgent.IncludedData IncludedData { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -98,6 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludedData = this.IncludedData;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,6 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (cmdletContext.AgentSpaceId != null)
             {
                 request.AgentSpaceId = cmdletContext.AgentSpaceId;
+            }
+            if (cmdletContext.IncludedData != null)
+            {
+                request.IncludedData = cmdletContext.IncludedData;
             }
             
             CmdletOutput output;
@@ -174,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentSpaceId { get; set; }
+            public Amazon.DevOpsAgent.IncludedData IncludedData { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.GetAgentSpaceResponse, GetDOPSAgentSpaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

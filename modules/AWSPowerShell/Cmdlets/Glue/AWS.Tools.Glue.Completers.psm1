@@ -210,6 +210,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.DataQualityEngine
+        "Publish-GLUEDataQualityResultV2/Telemetry_Engine"
+        {
+            $v = "PYTHON","SPARK"
+            break
+        }
+
         # Amazon.Glue.DQCompositeRuleEvaluationMethod
         "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_CompositeRuleEvaluationMethod"
         {
@@ -352,14 +359,20 @@ $GLUE_Completers = {
         }
 
         # Amazon.Glue.ObservationConfiguration
-        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationScope"
+        {
+            ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationScope") -Or
+            ($_ -eq "Publish-GLUEDataQualityResultV2/RunConfiguration_ObservationsEnabled")
+        }
         {
             $v = "ALL","NONE"
             break
         }
 
         # Amazon.Glue.ObservationMode
-        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationMode"
+        {
+            ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationMode") -Or
+            ($_ -eq "Publish-GLUEDataQualityResultV2/RunConfiguration_ObservationMode")
+        }
         {
             $v = "FIXED","SCHEDULED"
             break
@@ -749,6 +762,8 @@ $GLUE_map = @{
     "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_OffsetParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_ValidationEndpointConfiguration_RequestMethod"=@("Register-GLUEConnectionType")
+    "RunConfiguration_ObservationMode"=@("Publish-GLUEDataQualityResultV2")
+    "RunConfiguration_ObservationsEnabled"=@("Publish-GLUEDataQualityResultV2")
     "Schema_Type"=@("New-GLUETable")
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
     "SessionType"=@("New-GLUESession")
@@ -759,6 +774,7 @@ $GLUE_map = @{
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
     "TargetTableConfig_UnnestSpec"=@("New-GLUEIntegrationTableProperty","Update-GLUEIntegrationTableProperty")
+    "Telemetry_Engine"=@("Publish-GLUEDataQualityResultV2")
     "TestConnectionInput_ConnectionType"=@("Test-GLUEConnection")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "ViewUpdateAction"=@("Update-GLUETable")
@@ -825,6 +841,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawlerBatch",
                "Get-GLUEGetCustomEntityType",
                "Get-GLUEDataQualityResultBatch",
+               "Get-GLUEDataQualityResultV2Batch",
                "Get-GLUEDataQualityRulesetEvaluationRunBatch",
                "Get-GLUEDevEndpointBatch",
                "Get-GLUEIterableFormBatch",
@@ -947,6 +964,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataQualityModel",
                "Get-GLUEDataQualityModelResult",
                "Get-GLUEDataQualityResult",
+               "Get-GLUEDataQualityResultV2",
                "Get-GLUEDataQualityRuleRecommendationRun",
                "Get-GLUEDataQualityRuleset",
                "Get-GLUEDataQualityRulesetEvaluationRun",
@@ -1015,6 +1033,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawlList",
                "Get-GLUECustomEntityTypeList",
                "Get-GLUEDataQualityResultList",
+               "Get-GLUEDataQualityResultsV2List",
                "Get-GLUEDataQualityRuleRecommendationRunList",
                "Get-GLUEDataQualityRulesetEvaluationRunList",
                "Get-GLUEDataQualityRulesetList",
@@ -1041,6 +1060,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEUsageProfileList",
                "Get-GLUEWorkflowList",
                "Edit-GLUEIntegration",
+               "Publish-GLUEDataQualityResultV2",
                "Write-GLUEAsset",
                "Write-GLUEAssetType",
                "Write-GLUEAttachment",

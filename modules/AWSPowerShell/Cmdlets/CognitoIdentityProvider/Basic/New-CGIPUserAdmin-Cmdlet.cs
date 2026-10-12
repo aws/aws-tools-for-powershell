@@ -104,9 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
         /// parameter.</para></li></ul></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -120,9 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>Specify <c>EMAIL</c> if email will be used to send the welcome message. Specify <c>SMS</c>
         /// if the phone number will be used. The default value is <c>SMS</c>. You can specify
         /// more than one value.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -198,9 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// to <c>true</c>, or if you set <c>EMAIL</c> in the <c>DesiredDeliveryMediums</c> parameter.</para></dd><dt>phone_number</dt><dd><para>The phone number where you want the user to receive their confirmation code and username.
         /// You must provide a value for <c>phone_number</c> when you want to set <c>phone_number_verified</c>
         /// to <c>true</c>, or if you set <c>SMS</c> in the <c>DesiredDeliveryMediums</c> parameter.</para></dd></dl><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -257,9 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// can automatically confirm and verify select users or perform external API operations
         /// like logging user attributes and validation data to Amazon CloudWatch Logs.</para><para>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre
         /// sign-up Lambda trigger</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -332,18 +336,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.UserAttribute = new List<Amazon.CognitoIdentityProvider.Model.AttributeType>(this.UserAttribute);
             }
-            context.Username = this.Username;
-            #if MODULAR
-            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
             {
                 WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Username = this.Username;
+            #if MODULAR
+            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.ValidationData != null)
@@ -390,13 +394,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.UserAttributes = cmdletContext.UserAttribute;
             }
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
-            }
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
             }
             if (cmdletContext.ValidationData != null)
             {
@@ -463,8 +467,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public Amazon.CognitoIdentityProvider.MessageActionType MessageAction { get; set; }
             public System.String TemporaryPassword { get; set; }
             public List<Amazon.CognitoIdentityProvider.Model.AttributeType> UserAttribute { get; set; }
-            public System.String Username { get; set; }
             public System.String UserPoolId { get; set; }
+            public System.String Username { get; set; }
             public List<Amazon.CognitoIdentityProvider.Model.AttributeType> ValidationData { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.AdminCreateUserResponse, NewCGIPUserAdminCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.User;

@@ -322,7 +322,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNRouterInput/Tier")
         }
         {
-            $v = "INPUT_100","INPUT_20","INPUT_50"
+            $v = "INPUT_100","INPUT_20","INPUT_250","INPUT_50","INPUT_500"
             break
         }
 
@@ -352,7 +352,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNRouterOutput/Tier")
         }
         {
-            $v = "OUTPUT_100","OUTPUT_20","OUTPUT_50"
+            $v = "OUTPUT_100","OUTPUT_20","OUTPUT_250","OUTPUT_50","OUTPUT_500"
             break
         }
 

@@ -40,8 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.LMC
     /// This operation is asynchronous. The network connector starts in <c>PENDING</c> state
     /// while ENIs are provisioned in your VPC (provisioning typically takes up to 10 minutes).
     /// Use <c>GetNetworkConnector</c> to poll the connector state until it reaches <c>ACTIVE</c>.
-    /// Once active, you can attach the connector to Lambda MicroVMs at run time using the
-    /// <c>egressNetworkConnectors</c> parameter on <c>RunMicroVm</c>.
+    /// Once active, you can attach the connector to supported Lambda compute resources —
+    /// such as MicroVMs and WebFunctions — at run time. For how to attach a connector, see
+    /// the documentation for the specific compute type.
     /// </para><para>
     /// This operation is idempotent when you provide a <c>ClientToken</c> — if you retry
     /// a request that completed successfully using the same client token, the operation returns
@@ -63,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.LMC
         #region Parameter Configuration_VpcEgressConfiguration_AssociatedComputeResourceType
         /// <summary>
         /// <para>
-        /// <para>The types of Lambda compute resources that can use this connector. Currently, only
-        /// <c>MicroVm</c> is supported.</para><para />
+        /// <para>The types of Lambda compute resources that can use this connector. Valid values are
+        /// <c>MicroVm</c> and <c>WebFunction</c>. Specify exactly one value.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -122,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.LMC
         #region Parameter Configuration_VpcEgressConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security
-        /// groups. All security groups must be in the same VPC as the subnets.</para><para />
+        /// <para>The IDs of the VPC security groups to attach to the ENIs. All security groups must
+        /// be in the same VPC as the subnets.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

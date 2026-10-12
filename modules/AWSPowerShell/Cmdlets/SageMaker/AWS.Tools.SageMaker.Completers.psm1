@@ -1963,6 +1963,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.TrainingSessionStatus
+        "Get-SMTrainingSessionList/StatusEqual"
+        {
+            $v = "Blocked","Created","Deleting","DeletionFailed","Expired","Failed","Running","Scheduled","Stopped","Stopping"
+            break
+        }
+
         # Amazon.SageMaker.TransformInstanceType
         "New-SMTransformJob/TransformResources_InstanceType"
         {
@@ -2160,7 +2167,7 @@ $SM_map = @{
     "Specification_SchedulingConfig_PlacementStrategy"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
     "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","Get-SMMlflowAppList","New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
-    "StatusEqual"=@("Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
+    "StatusEqual"=@("Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingSessionList","Get-SMTransformJobList")
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
     "StoppingConditions_FlatInvocation"=@("New-SMInferenceRecommendationsJob")
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
@@ -2319,6 +2326,7 @@ $SM_SelectMap = @{
                "New-SMStudioLifecycleConfig",
                "New-SMTrainingJob",
                "New-SMTrainingPlan",
+               "New-SMTrainingSession",
                "New-SMTransformJob",
                "New-SMTrial",
                "New-SMTrialComponent",
@@ -2382,6 +2390,7 @@ $SM_SelectMap = @{
                "Remove-SMStudioLifecycleConfig",
                "Remove-SMResourceTag",
                "Remove-SMTrainingJob",
+               "Remove-SMTrainingSession",
                "Remove-SMTrial",
                "Remove-SMTrialComponent",
                "Remove-SMUserProfile",
@@ -2458,6 +2467,7 @@ $SM_SelectMap = @{
                "Get-SMTrainingJob",
                "Get-SMTrainingPlan",
                "Get-SMTrainingPlanExtensionHistoryDetail",
+               "Get-SMTrainingSessionDetail",
                "Get-SMTransformJob",
                "Get-SMTrial",
                "Get-SMTrialComponent",
@@ -2559,6 +2569,7 @@ $SM_SelectMap = @{
                "Get-SMTrainingJobList",
                "Get-SMTrainingJobsForHyperParameterTuningJobList",
                "Get-SMTrainingPlanList",
+               "Get-SMTrainingSessionList",
                "Get-SMTransformJobList",
                "Get-SMTrialComponentList",
                "Get-SMTrialList",
@@ -2601,6 +2612,7 @@ $SM_SelectMap = @{
                "Stop-SMPipelineExecution",
                "Stop-SMProcessingJob",
                "Stop-SMTrainingJob",
+               "Stop-SMTrainingSession",
                "Stop-SMTransformJob",
                "Update-SMAction",
                "Update-SMAppImageConfig",

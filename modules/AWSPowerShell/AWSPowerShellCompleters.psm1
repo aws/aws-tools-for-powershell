@@ -10012,6 +10012,16 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.RecordExpiryAction
+        {
+            ($_ -eq "New-BACBatchMemoryRecord/RecordExpirySpecification_Action") -Or
+            ($_ -eq "Update-BACBatchMemoryRecord/RecordExpirySpecification_Action")
+        }
+        {
+            $v = "REMOVE"
+            break
+        }
+
         # Amazon.BedrockAgentCore.ResultDestination
         "Start-BACBatchEvaluation/OutputConfig_CloudWatchConfig_ResultDestination"
         {
@@ -10063,6 +10073,7 @@ $BAC_map = @{
     "PaymentInstrumentType"=@("New-BACPaymentInstrument")
     "PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestMethod"=@("Get-BACResourcePaymentToken")
     "PaymentType"=@("Invoke-BACPayment")
+    "RecordExpirySpecification_Action"=@("New-BACBatchMemoryRecord","Update-BACBatchMemoryRecord")
     "Status"=@("Get-BACBrowserSessionList","Get-BACCodeInterpreterSessionList")
     "StatusFilter"=@("Get-BACRecommendationList")
     "Token"=@("Get-BACPaymentInstrumentBalance")
@@ -16017,8 +16028,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16478,9 +16489,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
-               "Search-CSDDocument",
-               "Write-CSDDocument")
+    "Select"=@("Search-CSDDocument",
+               "Write-CSDDocument",
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -27362,6 +27373,16 @@ $DOPS_Completers = {
             break
         }
 
+        # Amazon.DevOpsAgent.IncludedData
+        {
+            ($_ -eq "Get-DOPSAgentSpace/IncludedData") -Or
+            ($_ -eq "Get-DOPSAgentSpaceList/IncludedData")
+        }
+        {
+            $v = "ALL_DATA","METADATA_ONLY"
+            break
+        }
+
         # Amazon.DevOpsAgent.IpAddressType
         "New-DOPSPrivateConnection/Mode_ServiceManaged_IpAddressType"
         {
@@ -27523,6 +27544,7 @@ $DOPS_map = @{
     "EvaluationSchedule_State"=@("Update-DOPSGoal")
     "FilterServiceType"=@("Get-DOPSServiceList")
     "GoalType"=@("Get-DOPSGoalList")
+    "IncludedData"=@("Get-DOPSAgentSpace","Get-DOPSAgentSpaceList")
     "Mode_ServiceManaged_DnsResolution"=@("New-DOPSPrivateConnection")
     "Mode_ServiceManaged_IpAddressType"=@("New-DOPSPrivateConnection")
     "Order"=@("Get-DOPSBacklogTaskList","Get-DOPSJournalRecordList")
@@ -30461,12 +30483,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
-               "New-DDBTableSchema",
                "ConvertTo-DDBItem",
+               "New-DDBTableSchema",
+               "New-DDBTable",
                "Add-DDBKeySchema",
-               "ConvertFrom-DDBItem",
-               "Add-DDBIndexSchema")
+               "Add-DDBIndexSchema",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -41576,6 +41598,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.DataQualityEngine
+        "Publish-GLUEDataQualityResultV2/Telemetry_Engine"
+        {
+            $v = "PYTHON","SPARK"
+            break
+        }
+
         # Amazon.Glue.DQCompositeRuleEvaluationMethod
         "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_CompositeRuleEvaluationMethod"
         {
@@ -41718,14 +41747,20 @@ $GLUE_Completers = {
         }
 
         # Amazon.Glue.ObservationConfiguration
-        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationScope"
+        {
+            ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationScope") -Or
+            ($_ -eq "Publish-GLUEDataQualityResultV2/RunConfiguration_ObservationsEnabled")
+        }
         {
             $v = "ALL","NONE"
             break
         }
 
         # Amazon.Glue.ObservationMode
-        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationMode"
+        {
+            ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationMode") -Or
+            ($_ -eq "Publish-GLUEDataQualityResultV2/RunConfiguration_ObservationMode")
+        }
         {
             $v = "FIXED","SCHEDULED"
             break
@@ -42115,6 +42150,8 @@ $GLUE_map = @{
     "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_OffsetParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_ValidationEndpointConfiguration_RequestMethod"=@("Register-GLUEConnectionType")
+    "RunConfiguration_ObservationMode"=@("Publish-GLUEDataQualityResultV2")
+    "RunConfiguration_ObservationsEnabled"=@("Publish-GLUEDataQualityResultV2")
     "Schema_Type"=@("New-GLUETable")
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
     "SessionType"=@("New-GLUESession")
@@ -42125,6 +42162,7 @@ $GLUE_map = @{
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
     "TargetTableConfig_UnnestSpec"=@("New-GLUEIntegrationTableProperty","Update-GLUEIntegrationTableProperty")
+    "Telemetry_Engine"=@("Publish-GLUEDataQualityResultV2")
     "TestConnectionInput_ConnectionType"=@("Test-GLUEConnection")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "ViewUpdateAction"=@("Update-GLUETable")
@@ -42191,6 +42229,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawlerBatch",
                "Get-GLUEGetCustomEntityType",
                "Get-GLUEDataQualityResultBatch",
+               "Get-GLUEDataQualityResultV2Batch",
                "Get-GLUEDataQualityRulesetEvaluationRunBatch",
                "Get-GLUEDevEndpointBatch",
                "Get-GLUEIterableFormBatch",
@@ -42313,6 +42352,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataQualityModel",
                "Get-GLUEDataQualityModelResult",
                "Get-GLUEDataQualityResult",
+               "Get-GLUEDataQualityResultV2",
                "Get-GLUEDataQualityRuleRecommendationRun",
                "Get-GLUEDataQualityRuleset",
                "Get-GLUEDataQualityRulesetEvaluationRun",
@@ -42381,6 +42421,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawlList",
                "Get-GLUECustomEntityTypeList",
                "Get-GLUEDataQualityResultList",
+               "Get-GLUEDataQualityResultsV2List",
                "Get-GLUEDataQualityRuleRecommendationRunList",
                "Get-GLUEDataQualityRulesetEvaluationRunList",
                "Get-GLUEDataQualityRulesetList",
@@ -42407,6 +42448,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEUsageProfileList",
                "Get-GLUEWorkflowList",
                "Edit-GLUEIntegration",
+               "Publish-GLUEDataQualityResultV2",
                "Write-GLUEAsset",
                "Write-GLUEAssetType",
                "Write-GLUEAttachment",
@@ -52022,7 +52064,10 @@ $LMC_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.LambdaCore.NetworkConnectorState
-        "Get-LMCNetworkConnectorList/State"
+        {
+            ($_ -eq "Get-LMCNetworkConnectorList/State") -Or
+            ($_ -eq "Get-LMCNetworkConnectorVersionList/State")
+        }
         {
             $v = "ACTIVE","DELETE_FAILED","DELETING","FAILED","INACTIVE","PENDING"
             break
@@ -52048,7 +52093,7 @@ $LMC_Completers = {
 
 $LMC_map = @{
     "Configuration_VpcEgressConfiguration_NetworkProtocol"=@("New-LMCNetworkConnector","Update-LMCNetworkConnector")
-    "State"=@("Get-LMCNetworkConnectorList")
+    "State"=@("Get-LMCNetworkConnectorList","Get-LMCNetworkConnectorVersionList")
 }
 
 _awsArgumentCompleterRegistration $LMC_Completers $LMC_map
@@ -52105,6 +52150,7 @@ $LMC_SelectMap = @{
                "Remove-LMCNetworkConnector",
                "Get-LMCNetworkConnector",
                "Get-LMCNetworkConnectorList",
+               "Get-LMCNetworkConnectorVersionList",
                "Update-LMCNetworkConnector")
 }
 
@@ -52258,6 +52304,86 @@ _awsArgumentCompleterRegistration $LMVM2_SelectCompleters $LMVM2_SelectMap
 # Argument completions for service Lambda Web
 
 
+$LWEB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LambdaWeb.ApplicationLogLevel
+        {
+            ($_ -eq "New-LWEBWebFunction/RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel") -Or
+            ($_ -eq "New-LWEBWebFunctionRevision/ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel")
+        }
+        {
+            $v = "DEBUG","ERROR","FATAL","INFO","TRACE","WARN"
+            break
+        }
+
+        # Amazon.LambdaWeb.AuthType
+        {
+            ($_ -eq "New-LWEBWebFunctionEndpoint/AuthType") -Or
+            ($_ -eq "Update-LWEBWebFunctionEndpoint/AuthType") -Or
+            ($_ -eq "New-LWEBWebFunction/EndpointConfig_AuthType")
+        }
+        {
+            $v = "ApplicationManaged","IamAuth"
+            break
+        }
+
+        # Amazon.LambdaWeb.AutoDeploymentMode
+        {
+            ($_ -eq "New-LWEBWebFunctionEndpoint/AutoDeploymentMode") -Or
+            ($_ -eq "Update-LWEBWebFunctionEndpoint/AutoDeploymentMode") -Or
+            ($_ -eq "New-LWEBWebFunction/EndpointConfig_AutoDeploymentMode")
+        }
+        {
+            $v = "Disabled","LatestRevision"
+            break
+        }
+
+        # Amazon.LambdaWeb.EndpointType
+        {
+            ($_ -eq "New-LWEBWebFunction/EndpointConfig_EndpointType") -Or
+            ($_ -eq "New-LWEBWebFunctionEndpoint/EndpointType")
+        }
+        {
+            $v = "HomeRegion","MultiRegion","PerRegion"
+            break
+        }
+
+        # Amazon.LambdaWeb.SystemLogLevel
+        {
+            ($_ -eq "New-LWEBWebFunction/RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel") -Or
+            ($_ -eq "New-LWEBWebFunctionRevision/ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel")
+        }
+        {
+            $v = "DEBUG","INFO","WARN"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LWEB_map = @{
+    "AuthType"=@("New-LWEBWebFunctionEndpoint","Update-LWEBWebFunctionEndpoint")
+    "AutoDeploymentMode"=@("New-LWEBWebFunctionEndpoint","Update-LWEBWebFunctionEndpoint")
+    "EndpointConfig_AuthType"=@("New-LWEBWebFunction")
+    "EndpointConfig_AutoDeploymentMode"=@("New-LWEBWebFunction")
+    "EndpointConfig_EndpointType"=@("New-LWEBWebFunction")
+    "EndpointType"=@("New-LWEBWebFunctionEndpoint")
+    "RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel"=@("New-LWEBWebFunction")
+    "RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel"=@("New-LWEBWebFunction")
+    "ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel"=@("New-LWEBWebFunctionRevision")
+    "ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel"=@("New-LWEBWebFunctionRevision")
+}
+
+_awsArgumentCompleterRegistration $LWEB_Completers $LWEB_map
+
 $LWEB_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -52306,7 +52432,26 @@ $LWEB_SelectCompleters = {
 }
 
 $LWEB_SelectMap = @{
-    "Select"=@("Get-LWEBWebAccountSetting")
+    "Select"=@("New-LWEBWebFunction",
+               "New-LWEBWebFunctionEndpoint",
+               "New-LWEBWebFunctionRevision",
+               "Remove-LWEBResourcePolicy",
+               "Remove-LWEBWebFunction",
+               "Remove-LWEBWebFunctionEndpoint",
+               "Remove-LWEBWebFunctionRevision",
+               "Get-LWEBResourcePolicy",
+               "Get-LWEBWebAccountSetting",
+               "Get-LWEBWebFunction",
+               "Get-LWEBWebFunctionEndpoint",
+               "Get-LWEBWebFunctionRevision",
+               "Get-LWEBTag",
+               "Get-LWEBWebFunctionEndpointList",
+               "Get-LWEBWebFunctionRevisionList",
+               "Get-LWEBWebFunctionList",
+               "Write-LWEBResourcePolicy",
+               "Add-LWEBResourceTag",
+               "Remove-LWEBResourceTag",
+               "Update-LWEBWebFunctionEndpoint")
 }
 
 _awsArgumentCompleterRegistration $LWEB_SelectCompleters $LWEB_SelectMap
@@ -56974,7 +57119,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNRouterInput/Tier")
         }
         {
-            $v = "INPUT_100","INPUT_20","INPUT_50"
+            $v = "INPUT_100","INPUT_20","INPUT_250","INPUT_50","INPUT_500"
             break
         }
 
@@ -57004,7 +57149,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNRouterOutput/Tier")
         }
         {
-            $v = "OUTPUT_100","OUTPUT_20","OUTPUT_50"
+            $v = "OUTPUT_100","OUTPUT_20","OUTPUT_250","OUTPUT_50","OUTPUT_500"
             break
         }
 
@@ -63916,7 +64061,7 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
         }
         {
-            $v = "AWS::Bedrock::KnowledgeBase","AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::PaymentManager","AWS::BedrockAgentCore::Runtime","AWS::BedrockAgentCore::WorkloadIdentity","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::CloudWatch::OTelEnrichment","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::Route53Resolver::ResolverEndpoint","AWS::S3::Bucket","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL"
+            $v = "AWS::Bedrock::KnowledgeBase","AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::PaymentManager","AWS::BedrockAgentCore::Runtime","AWS::BedrockAgentCore::WorkloadIdentity","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::CloudWatch::OTelEnrichment","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::Route53Resolver::ResolverEndpoint","AWS::S3::Bucket","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL","AWS::XRay::TransactionSearchConfig"
             break
         }
 
@@ -80042,18 +80187,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3MultipartUpload",
-               "Mount-S3PSDrive",
-               "Dismount-S3PSDrive",
+               "Copy-S3Object",
                "Test-S3Bucket",
+               "Dismount-S3PSDrive",
                "Read-S3Object",
                "Remove-S3MultipartUpload",
+               "Mount-S3PSDrive",
+               "Get-S3MultipartUpload",
                "Write-S3Object",
-               "Copy-S3Object",
-               "New-S3Bucket",
+               "Remove-S3Object",
                "Get-S3PreSignedURL",
                "Remove-S3Bucket",
-               "Remove-S3Object")
+               "New-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -83411,6 +83556,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.TrainingSessionStatus
+        "Get-SMTrainingSessionList/StatusEqual"
+        {
+            $v = "Blocked","Created","Deleting","DeletionFailed","Expired","Failed","Running","Scheduled","Stopped","Stopping"
+            break
+        }
+
         # Amazon.SageMaker.TransformInstanceType
         "New-SMTransformJob/TransformResources_InstanceType"
         {
@@ -83608,7 +83760,7 @@ $SM_map = @{
     "Specification_SchedulingConfig_PlacementStrategy"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
     "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","Get-SMMlflowAppList","New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
-    "StatusEqual"=@("Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
+    "StatusEqual"=@("Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingSessionList","Get-SMTransformJobList")
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
     "StoppingConditions_FlatInvocation"=@("New-SMInferenceRecommendationsJob")
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
@@ -83767,6 +83919,7 @@ $SM_SelectMap = @{
                "New-SMStudioLifecycleConfig",
                "New-SMTrainingJob",
                "New-SMTrainingPlan",
+               "New-SMTrainingSession",
                "New-SMTransformJob",
                "New-SMTrial",
                "New-SMTrialComponent",
@@ -83830,6 +83983,7 @@ $SM_SelectMap = @{
                "Remove-SMStudioLifecycleConfig",
                "Remove-SMResourceTag",
                "Remove-SMTrainingJob",
+               "Remove-SMTrainingSession",
                "Remove-SMTrial",
                "Remove-SMTrialComponent",
                "Remove-SMUserProfile",
@@ -83906,6 +84060,7 @@ $SM_SelectMap = @{
                "Get-SMTrainingJob",
                "Get-SMTrainingPlan",
                "Get-SMTrainingPlanExtensionHistoryDetail",
+               "Get-SMTrainingSessionDetail",
                "Get-SMTransformJob",
                "Get-SMTrial",
                "Get-SMTrialComponent",
@@ -84007,6 +84162,7 @@ $SM_SelectMap = @{
                "Get-SMTrainingJobList",
                "Get-SMTrainingJobsForHyperParameterTuningJobList",
                "Get-SMTrainingPlanList",
+               "Get-SMTrainingSessionList",
                "Get-SMTransformJobList",
                "Get-SMTrialComponentList",
                "Get-SMTrialList",
@@ -84049,6 +84205,7 @@ $SM_SelectMap = @{
                "Stop-SMPipelineExecution",
                "Stop-SMProcessingJob",
                "Stop-SMTrainingJob",
+               "Stop-SMTrainingSession",
                "Stop-SMTransformJob",
                "Update-SMAction",
                "Update-SMAppImageConfig",
@@ -84182,6 +84339,96 @@ $SMJR_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SMJR_SelectCompleters $SMJR_SelectMap
+# Argument completions for service SageMaker Training Session Runtime
+
+
+$SMTSR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SageMakerTrainingSessionRuntime.LossFnName
+        {
+            ($_ -eq "Invoke-SMTSRTrainingOperation/OperationConfig_Forward_LossFnName") -Or
+            ($_ -eq "Invoke-SMTSRTrainingOperation/OperationConfig_ForwardBackward_LossFnName")
+        }
+        {
+            $v = "cispo","cross_entropy","importance_sampling","ppo"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SMTSR_map = @{
+    "OperationConfig_Forward_LossFnName"=@("Invoke-SMTSRTrainingOperation")
+    "OperationConfig_ForwardBackward_LossFnName"=@("Invoke-SMTSRTrainingOperation")
+}
+
+_awsArgumentCompleterRegistration $SMTSR_Completers $SMTSR_map
+
+$SMTSR_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SMTSR.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SMTSR_SelectMap = @{
+    "Select"=@("Invoke-SMTSRSamplingOperation",
+               "Invoke-SMTSRTrainingOperation",
+               "Get-SMTSRSamplingOperationResult",
+               "Get-SMTSRTrainingOperationResult",
+               "Invoke-SMTSRTrainingSession",
+               "Invoke-SMTSRTrainingSessionWithResponseStream")
+}
+
+_awsArgumentCompleterRegistration $SMTSR_SelectCompleters $SMTSR_SelectMap
 # Argument completions for service AWS Savings Plans
 
 
@@ -84893,14 +85140,14 @@ $SECAG_Completers = {
             ($_ -eq "Start-SECAGProviderRegistration/Provider")
         }
         {
-            $v = "AZURE_DEVOPS","BITBUCKET","CONFLUENCE","GITHUB","GITLAB"
+            $v = "AZURE_DEVOPS","BITBUCKET","CONFLUENCE","GITHUB","GITLAB","JIRA"
             break
         }
 
         # Amazon.SecurityAgent.ProviderType
         "Get-SECAGIntegrationList/Filter_ProviderType"
         {
-            $v = "DOCUMENTATION","SOURCE_CODE"
+            $v = "DOCUMENTATION","ISSUE_TRACKING","SOURCE_CODE"
             break
         }
 
@@ -84914,7 +85161,7 @@ $SECAG_Completers = {
         # Amazon.SecurityAgent.ResourceType
         "Get-SECAGIntegratedResourceList/ResourceType"
         {
-            $v = "CODE_REPOSITORY","DOCUMENT"
+            $v = "CODE_REPOSITORY","DOCUMENT","PROJECT"
             break
         }
 
@@ -85090,6 +85337,8 @@ $SECAG_SelectMap = @{
                "Remove-SECAGPentestBatch",
                "Remove-SECAGSecurityRequirementBatch",
                "Remove-SECAGThreatModelBatch",
+               "Remove-SECAGFindingIssueBatch",
+               "Export-SECAGFindingBatch",
                "Get-SECAGAgentSpaceBatch",
                "Get-SECAGArtifactMetadataBatch",
                "Get-SECAGCodeReviewJobBatch",
@@ -89933,8 +90182,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -96827,44 +97076,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -96904,3 +97115,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

@@ -181,14 +181,14 @@ $SECAG_Completers = {
             ($_ -eq "Start-SECAGProviderRegistration/Provider")
         }
         {
-            $v = "AZURE_DEVOPS","BITBUCKET","CONFLUENCE","GITHUB","GITLAB"
+            $v = "AZURE_DEVOPS","BITBUCKET","CONFLUENCE","GITHUB","GITLAB","JIRA"
             break
         }
 
         # Amazon.SecurityAgent.ProviderType
         "Get-SECAGIntegrationList/Filter_ProviderType"
         {
-            $v = "DOCUMENTATION","SOURCE_CODE"
+            $v = "DOCUMENTATION","ISSUE_TRACKING","SOURCE_CODE"
             break
         }
 
@@ -202,7 +202,7 @@ $SECAG_Completers = {
         # Amazon.SecurityAgent.ResourceType
         "Get-SECAGIntegratedResourceList/ResourceType"
         {
-            $v = "CODE_REPOSITORY","DOCUMENT"
+            $v = "CODE_REPOSITORY","DOCUMENT","PROJECT"
             break
         }
 
@@ -378,6 +378,8 @@ $SECAG_SelectMap = @{
                "Remove-SECAGPentestBatch",
                "Remove-SECAGSecurityRequirementBatch",
                "Remove-SECAGThreatModelBatch",
+               "Remove-SECAGFindingIssueBatch",
+               "Export-SECAGFindingBatch",
                "Get-SECAGAgentSpaceBatch",
                "Get-SECAGArtifactMetadataBatch",
                "Get-SECAGCodeReviewJobBatch",

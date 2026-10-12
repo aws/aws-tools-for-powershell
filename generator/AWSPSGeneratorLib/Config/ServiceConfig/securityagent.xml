@@ -43,6 +43,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDisassociateFindingIssue" OutputProperty="Errors" Verb="Remove" Noun="FindingIssueBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchExportFindings" OutputProperty="*" Verb="Export" Noun="FindingBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetAgentSpaces" OutputProperty="*" Verb="Get" Noun="AgentSpaceBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

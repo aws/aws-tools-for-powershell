@@ -166,46 +166,6 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         public System.String NsxUplink_Cidr { get; set; }
         #endregion
         
-        #region Parameter VmkManagement_Cidr
-        /// <summary>
-        /// <para>
-        /// <para> The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN
-        /// subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS
-        /// VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("InitialVlans_VmkManagement_Cidr")]
-        public System.String VmkManagement_Cidr { get; set; }
-        #endregion
-        
-        #region Parameter VmManagement_Cidr
-        /// <summary>
-        /// <para>
-        /// <para> The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN
-        /// subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS
-        /// VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("InitialVlans_VmManagement_Cidr")]
-        public System.String VmManagement_Cidr { get; set; }
-        #endregion
-        
         #region Parameter VMotion_Cidr
         /// <summary>
         /// <para>
@@ -266,6 +226,46 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         public System.String VTep_Cidr { get; set; }
         #endregion
         
+        #region Parameter VmManagement_Cidr
+        /// <summary>
+        /// <para>
+        /// <para> The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN
+        /// subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS
+        /// VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("InitialVlans_VmManagement_Cidr")]
+        public System.String VmManagement_Cidr { get; set; }
+        #endregion
+        
+        #region Parameter VmkManagement_Cidr
+        /// <summary>
+        /// <para>
+        /// <para> The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN
+        /// subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS
+        /// VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("InitialVlans_VmkManagement_Cidr")]
+        public System.String VmkManagement_Cidr { get; set; }
+        #endregion
+        
         #region Parameter VcfHostnames_CloudBuilder
         /// <summary>
         /// <para>
@@ -308,9 +308,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// EC2 SSH keypair name, and EC2 instance type. Optionally, provide a partition or cluster
         /// placement group, or use Amazon EC2 Dedicated Hosts.</para><note><para>Not supported when <c>vcfVersion</c> is <c>SELF_DEPLOYED</c>. In that case, you can
         /// add hosts using <c>CreateEnvironmentHost</c> after the environment is created.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -349,9 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// minimum capacity requirements for your selected instance type.</para><para>For information about minimum license requirements, see <a href="https://docs.aws.amazon.com/evs/latest/userguide/vcf-license-mgmt.html">the
         /// VCF subscriptions section</a> in the <i>Amazon EVS User Guide</i>.</para><para>VCF licenses can be used for only one Amazon EVS environment. Amazon EVS does not
         /// support reuse of VCF licenses for multiple environments.</para><para>VCF license information can be retrieved from the Broadcom portal.</para><note><para>Not supported when <c>vcfVersion</c> is <c>SELF_DEPLOYED</c>.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -423,9 +425,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <summary>
         /// <para>
         /// <para>The unique IDs for private route server peers.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -448,9 +451,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <summary>
         /// <para>
         /// <para>The security groups that allow service access.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -498,9 +502,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>Metadata that assists with categorization and organization. Each tag consists of a
         /// key and an optional value. You define both. Tags don't propagate to any other cluster
         /// or Amazon Web Services resources.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -586,10 +591,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para><note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
+        /// <note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
         /// it will have no effect.</para></note><para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
         /// the environment creation request. If you do not specify a client token, a randomly
-        /// generated token is used for the request to ensure idempotency.</para></para>
+        /// generated token is used for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -689,20 +694,6 @@ namespace Amazon.PowerShell.Cmdlets.EVS
                 WriteWarning("You are passing $null as a value for parameter NsxUplink_Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.VmkManagement_Cidr = this.VmkManagement_Cidr;
-            #if MODULAR
-            if (this.VmkManagement_Cidr == null && ParameterWasBound(nameof(this.VmkManagement_Cidr)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VmkManagement_Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.VmManagement_Cidr = this.VmManagement_Cidr;
-            #if MODULAR
-            if (this.VmManagement_Cidr == null && ParameterWasBound(nameof(this.VmManagement_Cidr)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VmManagement_Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VMotion_Cidr = this.VMotion_Cidr;
             #if MODULAR
             if (this.VMotion_Cidr == null && ParameterWasBound(nameof(this.VMotion_Cidr)))
@@ -722,6 +713,20 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             if (this.VTep_Cidr == null && ParameterWasBound(nameof(this.VTep_Cidr)))
             {
                 WriteWarning("You are passing $null as a value for parameter VTep_Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.VmManagement_Cidr = this.VmManagement_Cidr;
+            #if MODULAR
+            if (this.VmManagement_Cidr == null && ParameterWasBound(nameof(this.VmManagement_Cidr)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VmManagement_Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.VmkManagement_Cidr = this.VmkManagement_Cidr;
+            #if MODULAR
+            if (this.VmkManagement_Cidr == null && ParameterWasBound(nameof(this.VmkManagement_Cidr)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VmkManagement_Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.KmsKeyId = this.KmsKeyId;
@@ -975,56 +980,6 @@ namespace Amazon.PowerShell.Cmdlets.EVS
                 request.InitialVlans.NsxUplink = requestInitialVlans_initialVlans_NsxUplink;
                 requestInitialVlansIsNull = false;
             }
-            Amazon.Evs.Model.InitialVlanInfo requestInitialVlans_initialVlans_VmkManagement = null;
-            
-             // populate VmkManagement
-            var requestInitialVlans_initialVlans_VmkManagementIsNull = true;
-            requestInitialVlans_initialVlans_VmkManagement = new Amazon.Evs.Model.InitialVlanInfo();
-            System.String requestInitialVlans_initialVlans_VmkManagement_vmkManagement_Cidr = null;
-            if (cmdletContext.VmkManagement_Cidr != null)
-            {
-                requestInitialVlans_initialVlans_VmkManagement_vmkManagement_Cidr = cmdletContext.VmkManagement_Cidr;
-            }
-            if (requestInitialVlans_initialVlans_VmkManagement_vmkManagement_Cidr != null)
-            {
-                requestInitialVlans_initialVlans_VmkManagement.Cidr = requestInitialVlans_initialVlans_VmkManagement_vmkManagement_Cidr;
-                requestInitialVlans_initialVlans_VmkManagementIsNull = false;
-            }
-             // determine if requestInitialVlans_initialVlans_VmkManagement should be set to null
-            if (requestInitialVlans_initialVlans_VmkManagementIsNull)
-            {
-                requestInitialVlans_initialVlans_VmkManagement = null;
-            }
-            if (requestInitialVlans_initialVlans_VmkManagement != null)
-            {
-                request.InitialVlans.VmkManagement = requestInitialVlans_initialVlans_VmkManagement;
-                requestInitialVlansIsNull = false;
-            }
-            Amazon.Evs.Model.InitialVlanInfo requestInitialVlans_initialVlans_VmManagement = null;
-            
-             // populate VmManagement
-            var requestInitialVlans_initialVlans_VmManagementIsNull = true;
-            requestInitialVlans_initialVlans_VmManagement = new Amazon.Evs.Model.InitialVlanInfo();
-            System.String requestInitialVlans_initialVlans_VmManagement_vmManagement_Cidr = null;
-            if (cmdletContext.VmManagement_Cidr != null)
-            {
-                requestInitialVlans_initialVlans_VmManagement_vmManagement_Cidr = cmdletContext.VmManagement_Cidr;
-            }
-            if (requestInitialVlans_initialVlans_VmManagement_vmManagement_Cidr != null)
-            {
-                requestInitialVlans_initialVlans_VmManagement.Cidr = requestInitialVlans_initialVlans_VmManagement_vmManagement_Cidr;
-                requestInitialVlans_initialVlans_VmManagementIsNull = false;
-            }
-             // determine if requestInitialVlans_initialVlans_VmManagement should be set to null
-            if (requestInitialVlans_initialVlans_VmManagementIsNull)
-            {
-                requestInitialVlans_initialVlans_VmManagement = null;
-            }
-            if (requestInitialVlans_initialVlans_VmManagement != null)
-            {
-                request.InitialVlans.VmManagement = requestInitialVlans_initialVlans_VmManagement;
-                requestInitialVlansIsNull = false;
-            }
             Amazon.Evs.Model.InitialVlanInfo requestInitialVlans_initialVlans_VMotion = null;
             
              // populate VMotion
@@ -1098,6 +1053,56 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             if (requestInitialVlans_initialVlans_VTep != null)
             {
                 request.InitialVlans.VTep = requestInitialVlans_initialVlans_VTep;
+                requestInitialVlansIsNull = false;
+            }
+            Amazon.Evs.Model.InitialVlanInfo requestInitialVlans_initialVlans_VmManagement = null;
+            
+             // populate VmManagement
+            var requestInitialVlans_initialVlans_VmManagementIsNull = true;
+            requestInitialVlans_initialVlans_VmManagement = new Amazon.Evs.Model.InitialVlanInfo();
+            System.String requestInitialVlans_initialVlans_VmManagement_vmManagement_Cidr = null;
+            if (cmdletContext.VmManagement_Cidr != null)
+            {
+                requestInitialVlans_initialVlans_VmManagement_vmManagement_Cidr = cmdletContext.VmManagement_Cidr;
+            }
+            if (requestInitialVlans_initialVlans_VmManagement_vmManagement_Cidr != null)
+            {
+                requestInitialVlans_initialVlans_VmManagement.Cidr = requestInitialVlans_initialVlans_VmManagement_vmManagement_Cidr;
+                requestInitialVlans_initialVlans_VmManagementIsNull = false;
+            }
+             // determine if requestInitialVlans_initialVlans_VmManagement should be set to null
+            if (requestInitialVlans_initialVlans_VmManagementIsNull)
+            {
+                requestInitialVlans_initialVlans_VmManagement = null;
+            }
+            if (requestInitialVlans_initialVlans_VmManagement != null)
+            {
+                request.InitialVlans.VmManagement = requestInitialVlans_initialVlans_VmManagement;
+                requestInitialVlansIsNull = false;
+            }
+            Amazon.Evs.Model.InitialVlanInfo requestInitialVlans_initialVlans_VmkManagement = null;
+            
+             // populate VmkManagement
+            var requestInitialVlans_initialVlans_VmkManagementIsNull = true;
+            requestInitialVlans_initialVlans_VmkManagement = new Amazon.Evs.Model.InitialVlanInfo();
+            System.String requestInitialVlans_initialVlans_VmkManagement_vmkManagement_Cidr = null;
+            if (cmdletContext.VmkManagement_Cidr != null)
+            {
+                requestInitialVlans_initialVlans_VmkManagement_vmkManagement_Cidr = cmdletContext.VmkManagement_Cidr;
+            }
+            if (requestInitialVlans_initialVlans_VmkManagement_vmkManagement_Cidr != null)
+            {
+                requestInitialVlans_initialVlans_VmkManagement.Cidr = requestInitialVlans_initialVlans_VmkManagement_vmkManagement_Cidr;
+                requestInitialVlans_initialVlans_VmkManagementIsNull = false;
+            }
+             // determine if requestInitialVlans_initialVlans_VmkManagement should be set to null
+            if (requestInitialVlans_initialVlans_VmkManagementIsNull)
+            {
+                requestInitialVlans_initialVlans_VmkManagement = null;
+            }
+            if (requestInitialVlans_initialVlans_VmkManagement != null)
+            {
+                request.InitialVlans.VmkManagement = requestInitialVlans_initialVlans_VmkManagement;
                 requestInitialVlansIsNull = false;
             }
              // determine if request.InitialVlans should be set to null
@@ -1321,11 +1326,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             public System.String InitialVlans_HcxNetworkAclId { get; set; }
             public System.Boolean? InitialVlans_IsHcxPublic { get; set; }
             public System.String NsxUplink_Cidr { get; set; }
-            public System.String VmkManagement_Cidr { get; set; }
-            public System.String VmManagement_Cidr { get; set; }
             public System.String VMotion_Cidr { get; set; }
             public System.String VSan_Cidr { get; set; }
             public System.String VTep_Cidr { get; set; }
+            public System.String VmManagement_Cidr { get; set; }
+            public System.String VmkManagement_Cidr { get; set; }
             public System.String KmsKeyId { get; set; }
             public List<Amazon.Evs.Model.LicenseInfo> LicenseInfo { get; set; }
             public List<System.String> ServiceAccessSecurityGroups_SecurityGroup { get; set; }

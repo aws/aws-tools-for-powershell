@@ -94,9 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
         /// parameter.</para></li></ul></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -194,18 +195,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                     context.ClientMetadata.Add((String)hashKey, (System.String)(this.ClientMetadata[hashKey]));
                 }
             }
-            context.Username = this.Username;
-            #if MODULAR
-            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
             {
                 WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Username = this.Username;
+            #if MODULAR
+            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -228,13 +229,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.ClientMetadata = cmdletContext.ClientMetadata;
             }
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
-            }
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
             }
             
             CmdletOutput output;
@@ -292,8 +293,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> ClientMetadata { get; set; }
-            public System.String Username { get; set; }
             public System.String UserPoolId { get; set; }
+            public System.String Username { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.AdminResetUserPasswordResponse, ResetCGIPUserPasswordAdminCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

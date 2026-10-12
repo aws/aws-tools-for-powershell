@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter IncludedData
+        /// <summary>
+        /// <para>
+        /// <para>How much data to include in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.IncludedData")]
+        public Amazon.DevOpsAgent.IncludedData IncludedData { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -115,6 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 context.Select = CreateSelectDelegate<Amazon.DevOpsAgent.Model.ListAgentSpacesResponse, GetDOPSAgentSpaceListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IncludedData = this.IncludedData;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -144,6 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             // create request and set iteration invariants
             var request = new Amazon.DevOpsAgent.Model.ListAgentSpacesRequest();
             
+            if (cmdletContext.IncludedData != null)
+            {
+                request.IncludedData = cmdletContext.IncludedData;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -227,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DevOpsAgent.IncludedData IncludedData { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.ListAgentSpacesResponse, GetDOPSAgentSpaceListCmdlet, object> Select { get; set; } =

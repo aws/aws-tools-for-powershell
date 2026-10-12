@@ -30,35 +30,7 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Provides information about a state machine's definition, its IAM role Amazon Resource
-    /// Name (ARN), and configuration.
-    /// 
-    ///  
-    /// <para>
-    /// A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined
-    /// within a state machine, a version ARN, or an alias ARN.
-    /// </para><para>
-    /// The following are some examples of qualified and unqualified state machine ARNs:
-    /// </para><ul><li><para>
-    /// The following qualified state machine ARN refers to a <i>Distributed Map state</i>
-    /// with a label <c>mapStateLabel</c> in a state machine named <c>myStateMachine</c>.
-    /// </para><para><c>arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel</c></para><note><para>
-    /// If you provide a qualified state machine ARN that refers to a <i>Distributed Map state</i>,
-    /// the request fails with <c>ValidationException</c>.
-    /// </para></note></li><li><para>
-    /// The following qualified state machine ARN refers to an alias named <c>PROD</c>.
-    /// </para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine:PROD&gt;</c></para><note><para>
-    /// If you provide a qualified state machine ARN that refers to a version ARN or an alias
-    /// ARN, the request starts execution for that version or alias.
-    /// </para></note></li><li><para>
-    /// The following unqualified state machine ARN refers to a state machine named <c>myStateMachine</c>.
-    /// </para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine&gt;</c></para></li></ul><para>
-    /// This API action returns the details for a state machine version if the <c>stateMachineArn</c>
-    /// you specify is a state machine version ARN.
-    /// </para><note><para>
-    /// This operation is eventually consistent. The results are best effort and may not reflect
-    /// very recent updates and changes.
-    /// </para></note>
+    /// Amazon.StepFunctions.IAmazonStepFunctions.DescribeStateMachine
     /// </summary>
     [Cmdlet("Get", "SFNStateMachine")]
     [OutputType("Amazon.StepFunctions.Model.DescribeStateMachineResponse")]

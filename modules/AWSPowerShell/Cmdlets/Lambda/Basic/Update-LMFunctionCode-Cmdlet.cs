@@ -30,8 +30,9 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Updates a Lambda function's code. If code signing is enabled for the function, the
-    /// code package must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Configuring
+    /// Updates a Lambda Event Function's code. If code signing is enabled for the function,
+    /// the code package must be signed by a trusted publisher. For more information, see
+    /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Configuring
     /// code signing for Lambda</a>.
     /// 
     ///  

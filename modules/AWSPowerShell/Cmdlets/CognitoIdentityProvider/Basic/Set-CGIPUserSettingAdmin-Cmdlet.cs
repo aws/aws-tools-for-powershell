@@ -58,9 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -168,18 +169,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 WriteWarning("You are passing $null as a value for parameter MFAOption which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Username = this.Username;
-            #if MODULAR
-            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
             {
                 WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Username = this.Username;
+            #if MODULAR
+            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -202,13 +203,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.MFAOptions = cmdletContext.MFAOption;
             }
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
-            }
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
             }
             
             CmdletOutput output;
@@ -266,8 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CognitoIdentityProvider.Model.MFAOptionType> MFAOption { get; set; }
-            public System.String Username { get; set; }
             public System.String UserPoolId { get; set; }
+            public System.String Username { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.AdminSetUserSettingsResponse, SetCGIPUserSettingAdminCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

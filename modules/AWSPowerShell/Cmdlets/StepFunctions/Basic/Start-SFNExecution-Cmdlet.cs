@@ -30,41 +30,7 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Starts a state machine execution.
-    /// 
-    ///  
-    /// <para>
-    /// A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined
-    /// within a state machine, a version ARN, or an alias ARN.
-    /// </para><para>
-    /// The following are some examples of qualified and unqualified state machine ARNs:
-    /// </para><ul><li><para>
-    /// The following qualified state machine ARN refers to a <i>Distributed Map state</i>
-    /// with a label <c>mapStateLabel</c> in a state machine named <c>myStateMachine</c>.
-    /// </para><para><c>arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel</c></para><note><para>
-    /// If you provide a qualified state machine ARN that refers to a <i>Distributed Map state</i>,
-    /// the request fails with <c>ValidationException</c>.
-    /// </para></note></li><li><para>
-    /// The following qualified state machine ARN refers to an alias named <c>PROD</c>.
-    /// </para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine:PROD&gt;</c></para><note><para>
-    /// If you provide a qualified state machine ARN that refers to a version ARN or an alias
-    /// ARN, the request starts execution for that version or alias.
-    /// </para></note></li><li><para>
-    /// The following unqualified state machine ARN refers to a state machine named <c>myStateMachine</c>.
-    /// </para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine&gt;</c></para></li></ul><para>
-    /// If you start an execution with an unqualified state machine ARN, Step Functions uses
-    /// the latest revision of the state machine for the execution.
-    /// </para><para>
-    /// To start executions of a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>,
-    /// call <c>StartExecution</c> and provide the version ARN or the ARN of an <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>
-    /// that points to the version.
-    /// </para><note><para><c>StartExecution</c> is idempotent for <c>STANDARD</c> workflows. For a <c>STANDARD</c>
-    /// workflow, if you call <c>StartExecution</c> with the same name and input as a running
-    /// execution, the call succeeds and return the same response as the original request.
-    /// If the execution is closed or if the input is different, it returns a <c>400 ExecutionAlreadyExists</c>
-    /// error. You can reuse the name 90 days after it closes. 
-    /// </para><para><c>StartExecution</c> isn't idempotent for <c>EXPRESS</c> workflows. 
-    /// </para></note>
+    /// Amazon.StepFunctions.IAmazonStepFunctions.StartExecution
     /// </summary>
     [Cmdlet("Start", "SFNExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.StartExecutionResponse")]
@@ -110,17 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter StateMachineArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the state machine to execute.</para><para>The <c>stateMachineArn</c> parameter accepts one of the following inputs:</para><ul><li><para><b>An unqualified state machine ARN</b> – Refers to a state machine ARN that isn't
-        /// qualified with a version or alias ARN. The following is an example of an unqualified
-        /// state machine ARN.</para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine&gt;</c></para><para>Step Functions doesn't associate state machine executions that you start with an unqualified
-        /// ARN with a version. This is true even if that version uses the same revision that
-        /// the execution used.</para></li><li><para><b>A state machine version ARN</b> – Refers to a version ARN, which is a combination
-        /// of state machine ARN and the version number separated by a colon (:). The following
-        /// is an example of the ARN for version 10. </para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine&gt;:10</c></para><para>Step Functions doesn't associate executions that you start with a version ARN with
-        /// any aliases that point to that version.</para></li><li><para><b>A state machine alias ARN</b> – Refers to an alias ARN, which is a combination
-        /// of state machine ARN and the alias name separated by a colon (:). The following is
-        /// an example of the ARN for an alias named <c>PROD</c>.</para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine:PROD&gt;</c></para><para>Step Functions associates executions that you start with an alias ARN with that alias
-        /// and the state machine version used for that execution.</para></li></ul>
+        /// Amazon.StepFunctions.Model.StartExecutionRequest.StateMachineArn
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -192,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier to ensure the idempotency of the request. The
-        /// AWS SDK automatically generates this token, so you don't need to provide it in most
-        /// cases. If you retry a request with the same client token, the service returns the
-        /// same response without creating a duplicate policy.</para>
+        /// Amazon Web Services SDK automatically generates this token, so you don't need to provide
+        /// it in most cases. If you retry a request with the same client token, the service returns
+        /// the same response without creating a duplicate policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

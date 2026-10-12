@@ -30,7 +30,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Creates a capacity provider that manages compute resources for Lambda functions
+    /// Creates a capacity provider that manages compute resources for Lambda Event Functions
     /// </summary>
     [Cmdlet("New", "LMCapacityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.CapacityProvider")]

@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.SetUICustomizationResponse, SetCGIPUICustomizationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ClientId = this.ClientId;
             context.CSS = this.CSS;
+            context.ClientId = this.ClientId;
             context.ImageFile = this.ImageFile;
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
@@ -190,13 +190,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 // create request
                 var request = new Amazon.CognitoIdentityProvider.Model.SetUICustomizationRequest();
                 
-                if (cmdletContext.ClientId != null)
-                {
-                    request.ClientId = cmdletContext.ClientId;
-                }
                 if (cmdletContext.CSS != null)
                 {
                     request.CSS = cmdletContext.CSS;
+                }
+                if (cmdletContext.ClientId != null)
+                {
+                    request.ClientId = cmdletContext.ClientId;
                 }
                 if (cmdletContext.ImageFile != null)
                 {
@@ -270,8 +270,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientId { get; set; }
             public System.String CSS { get; set; }
+            public System.String ClientId { get; set; }
             public byte[] ImageFile { get; set; }
             public System.String UserPoolId { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.SetUICustomizationResponse, SetCGIPUICustomizationCmdlet, object> Select { get; set; } =

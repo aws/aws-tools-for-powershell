@@ -45,6 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter RecordExpirySpecification_Action
+        /// <summary>
+        /// <para>
+        /// <para>The action to apply to the existing record expiry configuration. Set to <c>REMOVE</c>
+        /// to remove a previously configured expiry so that the records no longer expire. This
+        /// value does not apply when creating records.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCore.RecordExpiryAction")]
+        public Amazon.BedrockAgentCore.RecordExpiryAction RecordExpirySpecification_Action { get; set; }
+        #endregion
+        
         #region Parameter MemoryId
         /// <summary>
         /// <para>
@@ -60,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MemoryId { get; set; }
+        #endregion
+        
+        #region Parameter RecordExpirySpecification_RecordExpiryDurationDay
+        /// <summary>
+        /// <para>
+        /// <para>The duration, in days, after which the records in this request expire. The minimum
+        /// is 31 days.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecordExpirySpecification_RecordExpiryDurationDays")]
+        public System.Int32? RecordExpirySpecification_RecordExpiryDurationDay { get; set; }
         #endregion
         
         #region Parameter Record
@@ -149,6 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RecordExpirySpecification_Action = this.RecordExpirySpecification_Action;
+            context.RecordExpirySpecification_RecordExpiryDurationDay = this.RecordExpirySpecification_RecordExpiryDurationDay;
             if (this.Record != null)
             {
                 context.Record = new List<Amazon.BedrockAgentCore.Model.MemoryRecordCreateInput>(this.Record);
@@ -182,6 +209,35 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.MemoryId != null)
             {
                 request.MemoryId = cmdletContext.MemoryId;
+            }
+            
+             // populate RecordExpirySpecification
+            var requestRecordExpirySpecificationIsNull = true;
+            request.RecordExpirySpecification = new Amazon.BedrockAgentCore.Model.RecordExpirySpecification();
+            Amazon.BedrockAgentCore.RecordExpiryAction requestRecordExpirySpecification_recordExpirySpecification_Action = null;
+            if (cmdletContext.RecordExpirySpecification_Action != null)
+            {
+                requestRecordExpirySpecification_recordExpirySpecification_Action = cmdletContext.RecordExpirySpecification_Action;
+            }
+            if (requestRecordExpirySpecification_recordExpirySpecification_Action != null)
+            {
+                request.RecordExpirySpecification.Action = requestRecordExpirySpecification_recordExpirySpecification_Action;
+                requestRecordExpirySpecificationIsNull = false;
+            }
+            System.Int32? requestRecordExpirySpecification_recordExpirySpecification_RecordExpiryDurationDay = null;
+            if (cmdletContext.RecordExpirySpecification_RecordExpiryDurationDay != null)
+            {
+                requestRecordExpirySpecification_recordExpirySpecification_RecordExpiryDurationDay = cmdletContext.RecordExpirySpecification_RecordExpiryDurationDay.Value;
+            }
+            if (requestRecordExpirySpecification_recordExpirySpecification_RecordExpiryDurationDay != null)
+            {
+                request.RecordExpirySpecification.RecordExpiryDurationDays = requestRecordExpirySpecification_recordExpirySpecification_RecordExpiryDurationDay.Value;
+                requestRecordExpirySpecificationIsNull = false;
+            }
+             // determine if request.RecordExpirySpecification should be set to null
+            if (requestRecordExpirySpecificationIsNull)
+            {
+                request.RecordExpirySpecification = null;
             }
             if (cmdletContext.Record != null)
             {
@@ -244,6 +300,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             public System.String ClientToken { get; set; }
             public System.String MemoryId { get; set; }
+            public Amazon.BedrockAgentCore.RecordExpiryAction RecordExpirySpecification_Action { get; set; }
+            public System.Int32? RecordExpirySpecification_RecordExpiryDurationDay { get; set; }
             public List<Amazon.BedrockAgentCore.Model.MemoryRecordCreateInput> Record { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsResponse, NewBACBatchMemoryRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

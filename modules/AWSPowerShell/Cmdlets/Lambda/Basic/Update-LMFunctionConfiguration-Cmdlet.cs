@@ -30,7 +30,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Modify the version-specific settings of a Lambda function.
+    /// Modifies the version-specific settings of a Lambda Event Function.
     /// 
     ///  
     /// <para>

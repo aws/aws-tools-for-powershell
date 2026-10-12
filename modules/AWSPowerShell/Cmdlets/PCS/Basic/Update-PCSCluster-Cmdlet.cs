@@ -58,9 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <summary>
         /// <para>
         /// <para>Additional Cgroup-specific configuration that directly maps to Cgroup settings.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -141,9 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <summary>
         /// <para>
         /// <para>Additional Slurm-specific configuration that directly maps to Slurm settings.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -156,9 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <summary>
         /// <para>
         /// <para>Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -260,11 +263,11 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             {
                 context.SlurmConfiguration_SlurmCustomSetting = new List<Amazon.PCS.Model.SlurmCustomSetting>(this.SlurmConfiguration_SlurmCustomSetting);
             }
+            context.SlurmRest_Mode = this.SlurmRest_Mode;
             if (this.SlurmConfiguration_SlurmdbdCustomSetting != null)
             {
                 context.SlurmConfiguration_SlurmdbdCustomSetting = new List<Amazon.PCS.Model.SlurmdbdCustomSetting>(this.SlurmConfiguration_SlurmdbdCustomSetting);
             }
-            context.SlurmRest_Mode = this.SlurmRest_Mode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -480,8 +483,8 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public List<Amazon.PCS.Model.CgroupCustomSetting> SlurmConfiguration_CgroupCustomSetting { get; set; }
             public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
             public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
-            public List<Amazon.PCS.Model.SlurmdbdCustomSetting> SlurmConfiguration_SlurmdbdCustomSetting { get; set; }
             public Amazon.PCS.SlurmRestMode SlurmRest_Mode { get; set; }
+            public List<Amazon.PCS.Model.SlurmdbdCustomSetting> SlurmConfiguration_SlurmdbdCustomSetting { get; set; }
             public System.Func<Amazon.PCS.Model.UpdateClusterResponse, UpdatePCSClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;
         }

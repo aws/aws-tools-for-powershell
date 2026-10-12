@@ -103,9 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>
         /// <para>The list of VMware vSphere virtual machine managed object IDs to create entitlements
         /// for.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -124,10 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para><note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
+        /// <note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
         /// it will have no effect.</para></note><para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
         /// the entitlement creation request. If you do not specify a client token, a randomly
-        /// generated token is used for the request to ensure idempotency.</para></para>
+        /// generated token is used for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

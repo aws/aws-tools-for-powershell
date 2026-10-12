@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter NdiSourceSettings_AudioReferenceLevel
+        /// <summary>
+        /// <para>
+        /// <para>The audio reference level of the NDI sender, in decibels relative to full scale (dBFS).
+        /// Common values are <c>-20</c> (NDI and SMPTE) and <c>-18</c> (EBU). If you don't specify
+        /// this field, MediaConnect uses <c>-20</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NdiSourceSettings_AudioReferenceLevel { get; set; }
+        #endregion
+        
         #region Parameter EncryptionKeyConfiguration_Automatic
         /// <summary>
         /// <para>
@@ -447,6 +459,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 context.MediaStreamSourceConfiguration = new List<Amazon.MediaConnect.Model.MediaStreamSourceConfigurationRequest>(this.MediaStreamSourceConfiguration);
             }
             context.MinLatency = this.MinLatency;
+            context.NdiSourceSettings_AudioReferenceLevel = this.NdiSourceSettings_AudioReferenceLevel;
             context.NdiSourceSettings_SourceName = this.NdiSourceSettings_SourceName;
             context.Protocol = this.Protocol;
             context.RouterIntegrationState = this.RouterIntegrationState;
@@ -572,6 +585,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
              // populate NdiSourceSettings
             var requestNdiSourceSettingsIsNull = true;
             request.NdiSourceSettings = new Amazon.MediaConnect.Model.NdiSourceSettings();
+            System.Int32? requestNdiSourceSettings_ndiSourceSettings_AudioReferenceLevel = null;
+            if (cmdletContext.NdiSourceSettings_AudioReferenceLevel != null)
+            {
+                requestNdiSourceSettings_ndiSourceSettings_AudioReferenceLevel = cmdletContext.NdiSourceSettings_AudioReferenceLevel.Value;
+            }
+            if (requestNdiSourceSettings_ndiSourceSettings_AudioReferenceLevel != null)
+            {
+                request.NdiSourceSettings.AudioReferenceLevel = requestNdiSourceSettings_ndiSourceSettings_AudioReferenceLevel.Value;
+                requestNdiSourceSettingsIsNull = false;
+            }
             System.String requestNdiSourceSettings_ndiSourceSettings_SourceName = null;
             if (cmdletContext.NdiSourceSettings_SourceName != null)
             {
@@ -773,6 +796,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? MaxSyncBuffer { get; set; }
             public List<Amazon.MediaConnect.Model.MediaStreamSourceConfigurationRequest> MediaStreamSourceConfiguration { get; set; }
             public System.Int32? MinLatency { get; set; }
+            public System.Int32? NdiSourceSettings_AudioReferenceLevel { get; set; }
             public System.String NdiSourceSettings_SourceName { get; set; }
             public Amazon.MediaConnect.Protocol Protocol { get; set; }
             public Amazon.MediaConnect.State RouterIntegrationState { get; set; }

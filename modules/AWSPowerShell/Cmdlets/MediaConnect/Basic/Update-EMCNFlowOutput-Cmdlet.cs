@@ -176,6 +176,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.Int32? MinLatency { get; set; }
         #endregion
         
+        #region Parameter NdiAudioReferenceLevel
+        /// <summary>
+        /// <para>
+        /// <para>The audio reference level of the NDI receiver, in decibels relative to full scale
+        /// (dBFS). Common values are <c>-20</c> (NDI and SMPTE) and <c>-18</c> (EBU). If you
+        /// don't specify this field, MediaConnect leaves the value unchanged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NdiAudioReferenceLevel { get; set; }
+        #endregion
+        
         #region Parameter NdiOutputTimecodeSource
         /// <summary>
         /// <para>
@@ -424,6 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 context.MediaStreamOutputConfiguration = new List<Amazon.MediaConnect.Model.MediaStreamOutputConfigurationRequest>(this.MediaStreamOutputConfiguration);
             }
             context.MinLatency = this.MinLatency;
+            context.NdiAudioReferenceLevel = this.NdiAudioReferenceLevel;
             context.NdiOutputTimecodeSource = this.NdiOutputTimecodeSource;
             context.NdiProgramName = this.NdiProgramName;
             context.NdiSpeedHqQuality = this.NdiSpeedHqQuality;
@@ -495,6 +508,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.MinLatency != null)
             {
                 request.MinLatency = cmdletContext.MinLatency.Value;
+            }
+            if (cmdletContext.NdiAudioReferenceLevel != null)
+            {
+                request.NdiAudioReferenceLevel = cmdletContext.NdiAudioReferenceLevel.Value;
             }
             if (cmdletContext.NdiOutputTimecodeSource != null)
             {
@@ -709,6 +726,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? MaxLatency { get; set; }
             public List<Amazon.MediaConnect.Model.MediaStreamOutputConfigurationRequest> MediaStreamOutputConfiguration { get; set; }
             public System.Int32? MinLatency { get; set; }
+            public System.Int32? NdiAudioReferenceLevel { get; set; }
             public Amazon.MediaConnect.NdiOutputTimecodeSource NdiOutputTimecodeSource { get; set; }
             public System.String NdiProgramName { get; set; }
             public System.Int32? NdiSpeedHqQuality { get; set; }

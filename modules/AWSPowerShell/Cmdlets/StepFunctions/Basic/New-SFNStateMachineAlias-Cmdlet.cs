@@ -102,9 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// contains an array of <c>RoutingConfig</c> objects that specify up to two state machine
         /// versions. Step Functions then randomly choses which version to run an execution with
         /// based on the weight assigned to each <c>RoutingConfig</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

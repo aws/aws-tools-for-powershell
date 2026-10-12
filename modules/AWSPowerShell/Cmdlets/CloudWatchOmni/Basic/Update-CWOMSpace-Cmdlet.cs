@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AgentCoreEvaluationRoleArn
+        /// <summary>
+        /// <para>
+        /// The ARN of the IAM role used
+        /// by AgentCore online evaluation. Must be in the caller's account. Omit if the space
+        /// does not use AgentCore online evaluation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AgentCoreEvaluationRoleArn { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_EncryptionStrategy
         /// <summary>
         /// <para>
@@ -143,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchOmni.Model.UpdateSpaceResponse, UpdateCWOMSpaceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AgentCoreEvaluationRoleArn = this.AgentCoreEvaluationRoleArn;
             context.EncryptionConfiguration_EncryptionStrategy = this.EncryptionConfiguration_EncryptionStrategy;
             context.EncryptionConfiguration_KmsKeyArn = this.EncryptionConfiguration_KmsKeyArn;
             context.Name = this.Name;
@@ -169,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
             // create request
             var request = new Amazon.CloudWatchOmni.Model.UpdateSpaceRequest();
             
+            if (cmdletContext.AgentCoreEvaluationRoleArn != null)
+            {
+                request.AgentCoreEvaluationRoleArn = cmdletContext.AgentCoreEvaluationRoleArn;
+            }
             
              // populate EncryptionConfiguration
             var requestEncryptionConfigurationIsNull = true;
@@ -261,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AgentCoreEvaluationRoleArn { get; set; }
             public Amazon.CloudWatchOmni.EncryptionStrategy EncryptionConfiguration_EncryptionStrategy { get; set; }
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public System.String Name { get; set; }

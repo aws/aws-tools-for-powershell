@@ -30,48 +30,7 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Updates an existing state machine by modifying its <c>definition</c>, <c>roleArn</c>,
-    /// <c>loggingConfiguration</c>, or <c>EncryptionConfiguration</c>. Running executions
-    /// will continue to use the previous <c>definition</c> and <c>roleArn</c>. You must include
-    /// at least one of <c>definition</c> or <c>roleArn</c> or you will receive a <c>MissingRequiredParameter</c>
-    /// error.
-    /// 
-    ///  
-    /// <para>
-    /// A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within
-    /// a state machine. For example, the qualified state machine ARN <c>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</c>
-    /// refers to a <i>Distributed Map state</i> with a label <c>mapStateLabel</c> in the
-    /// state machine named <c>stateMachineName</c>.
-    /// </para><para>
-    /// A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined
-    /// within a state machine, a version ARN, or an alias ARN.
-    /// </para><para>
-    /// The following are some examples of qualified and unqualified state machine ARNs:
-    /// </para><ul><li><para>
-    /// The following qualified state machine ARN refers to a <i>Distributed Map state</i>
-    /// with a label <c>mapStateLabel</c> in a state machine named <c>myStateMachine</c>.
-    /// </para><para><c>arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel</c></para><note><para>
-    /// If you provide a qualified state machine ARN that refers to a <i>Distributed Map state</i>,
-    /// the request fails with <c>ValidationException</c>.
-    /// </para></note></li><li><para>
-    /// The following qualified state machine ARN refers to an alias named <c>PROD</c>.
-    /// </para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine:PROD&gt;</c></para><note><para>
-    /// If you provide a qualified state machine ARN that refers to a version ARN or an alias
-    /// ARN, the request starts execution for that version or alias.
-    /// </para></note></li><li><para>
-    /// The following unqualified state machine ARN refers to a state machine named <c>myStateMachine</c>.
-    /// </para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine&gt;</c></para></li></ul><para>
-    /// After you update your state machine, you can set the <c>publish</c> parameter to <c>true</c>
-    /// in the same action to publish a new <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>.
-    /// This way, you can opt-in to strict versioning of your state machine.
-    /// </para><note><para>
-    /// Step Functions assigns monotonically increasing integers for state machine versions,
-    /// starting at version number 1.
-    /// </para></note><note><para>
-    /// All <c>StartExecution</c> calls within a few seconds use the updated <c>definition</c>
-    /// and <c>roleArn</c>. Executions started immediately after you call <c>UpdateStateMachine</c>
-    /// may use the previous state machine <c>definition</c> and <c>roleArn</c>. 
-    /// </para></note>
+    /// Amazon.StepFunctions.IAmazonStepFunctions.UpdateStateMachine
     /// </summary>
     [Cmdlet("Update", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.DateTime")]
@@ -102,9 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>
         /// <para>An array of objects that describes where your execution history events will be logged.
         /// Limited to size 1. Required, if your log level is not set to <c>OFF</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

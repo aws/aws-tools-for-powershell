@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>
-    /// for a Lambda function version. Use aliases to provide clients with a function identifier
-    /// that you can update to invoke a different version.
+    /// for a Lambda Event Function version. Use aliases to provide clients with a function
+    /// identifier that you can update to invoke a different version.
     /// 
     ///  
     /// <para>

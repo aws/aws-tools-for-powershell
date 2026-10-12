@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter Blueprint
         /// <summary>
         /// <para>
-        /// <para>Blueprint list.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Blueprint list.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -62,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter InputConfiguration_Byte
         /// <summary>
         /// <para>
-        /// <para>Input data as bytes</para>
+        /// Input data as bytes
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -75,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter DataAutomationProfileArn
         /// <summary>
         /// <para>
-        /// <para>Data automation profile ARN</para>
+        /// Data automation profile ARN
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter DataAutomationConfiguration_DataAutomationProjectArn
         /// <summary>
         /// <para>
-        /// <para>Data automation project arn.</para>
+        /// Data automation project arn.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,10 +104,12 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter EncryptionConfiguration_KmsEncryptionContext
         /// <summary>
         /// <para>
-        /// <para>KMS encryption context.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// KMS encryption context.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -116,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter EncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Customer KMS key used for encryption</para>
+        /// Customer KMS key used for encryption
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter InputConfiguration_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 URI of the input data</para>
+        /// S3 URI of the input data
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter OutputConfiguration_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 uri.</para>
+        /// S3 uri.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter DataAutomationConfiguration_Stage
         /// <summary>
         /// <para>
-        /// <para>Data automation stage.</para>
+        /// Data automation stage.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

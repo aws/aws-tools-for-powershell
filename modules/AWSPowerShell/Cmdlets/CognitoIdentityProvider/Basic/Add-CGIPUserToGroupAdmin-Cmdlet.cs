@@ -161,18 +161,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 WriteWarning("You are passing $null as a value for parameter GroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Username = this.Username;
-            #if MODULAR
-            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
             {
                 WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Username = this.Username;
+            #if MODULAR
+            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -195,13 +195,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.GroupName = cmdletContext.GroupName;
             }
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
-            }
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
             }
             
             CmdletOutput output;
@@ -259,8 +259,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String GroupName { get; set; }
-            public System.String Username { get; set; }
             public System.String UserPoolId { get; set; }
+            public System.String Username { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.AdminAddUserToGroupResponse, AddCGIPUserToGroupAdminCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

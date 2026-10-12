@@ -109,6 +109,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String Input_Github_Code { get; set; }
         #endregion
         
+        #region Parameter Input_Jira_Code
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth 2.0 authorization code returned from the consent redirect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Jira_Code { get; set; }
+        #endregion
+        
         #region Parameter Input_Gitlab_GroupId
         /// <summary>
         /// <para>
@@ -151,6 +161,17 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Input_Github_InstallationId { get; set; }
+        #endregion
+        
+        #region Parameter Input_Jira_InstallationId
+        /// <summary>
+        /// <para>
+        /// <para>The Atlassian installation identifier, available from the Atlassian administration
+        /// console.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Jira_InstallationId { get; set; }
         #endregion
         
         #region Parameter IntegrationDisplayName
@@ -238,6 +259,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String Input_Confluence_SiteUrl { get; set; }
         #endregion
         
+        #region Parameter Input_Jira_SiteUrl
+        /// <summary>
+        /// <para>
+        /// <para>The Jira Cloud site URL, for example https://mysite.atlassian.net.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Jira_SiteUrl { get; set; }
+        #endregion
+        
         #region Parameter Input_AzureDevOps_State
         /// <summary>
         /// <para>
@@ -288,6 +319,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Input_Github_State { get; set; }
+        #endregion
+        
+        #region Parameter Input_Jira_State
+        /// <summary>
+        /// <para>
+        /// <para>The CSRF state token echoed back from the OAuth redirect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Jira_State { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -428,6 +469,10 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             context.Input_Gitlab_GroupId = this.Input_Gitlab_GroupId;
             context.Input_Gitlab_TargetUrl = this.Input_Gitlab_TargetUrl;
             context.Input_Gitlab_TokenType = this.Input_Gitlab_TokenType;
+            context.Input_Jira_Code = this.Input_Jira_Code;
+            context.Input_Jira_InstallationId = this.Input_Jira_InstallationId;
+            context.Input_Jira_SiteUrl = this.Input_Jira_SiteUrl;
+            context.Input_Jira_State = this.Input_Jira_State;
             context.IntegrationDisplayName = this.IntegrationDisplayName;
             #if MODULAR
             if (this.IntegrationDisplayName == null && ParameterWasBound(nameof(this.IntegrationDisplayName)))
@@ -727,6 +772,61 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 request.Input.Gitlab = requestInput_input_Gitlab;
                 requestInputIsNull = false;
             }
+            Amazon.SecurityAgent.Model.JiraIntegrationInput requestInput_input_Jira = null;
+            
+             // populate Jira
+            var requestInput_input_JiraIsNull = true;
+            requestInput_input_Jira = new Amazon.SecurityAgent.Model.JiraIntegrationInput();
+            System.String requestInput_input_Jira_input_Jira_Code = null;
+            if (cmdletContext.Input_Jira_Code != null)
+            {
+                requestInput_input_Jira_input_Jira_Code = cmdletContext.Input_Jira_Code;
+            }
+            if (requestInput_input_Jira_input_Jira_Code != null)
+            {
+                requestInput_input_Jira.Code = requestInput_input_Jira_input_Jira_Code;
+                requestInput_input_JiraIsNull = false;
+            }
+            System.String requestInput_input_Jira_input_Jira_InstallationId = null;
+            if (cmdletContext.Input_Jira_InstallationId != null)
+            {
+                requestInput_input_Jira_input_Jira_InstallationId = cmdletContext.Input_Jira_InstallationId;
+            }
+            if (requestInput_input_Jira_input_Jira_InstallationId != null)
+            {
+                requestInput_input_Jira.InstallationId = requestInput_input_Jira_input_Jira_InstallationId;
+                requestInput_input_JiraIsNull = false;
+            }
+            System.String requestInput_input_Jira_input_Jira_SiteUrl = null;
+            if (cmdletContext.Input_Jira_SiteUrl != null)
+            {
+                requestInput_input_Jira_input_Jira_SiteUrl = cmdletContext.Input_Jira_SiteUrl;
+            }
+            if (requestInput_input_Jira_input_Jira_SiteUrl != null)
+            {
+                requestInput_input_Jira.SiteUrl = requestInput_input_Jira_input_Jira_SiteUrl;
+                requestInput_input_JiraIsNull = false;
+            }
+            System.String requestInput_input_Jira_input_Jira_State = null;
+            if (cmdletContext.Input_Jira_State != null)
+            {
+                requestInput_input_Jira_input_Jira_State = cmdletContext.Input_Jira_State;
+            }
+            if (requestInput_input_Jira_input_Jira_State != null)
+            {
+                requestInput_input_Jira.State = requestInput_input_Jira_input_Jira_State;
+                requestInput_input_JiraIsNull = false;
+            }
+             // determine if requestInput_input_Jira should be set to null
+            if (requestInput_input_JiraIsNull)
+            {
+                requestInput_input_Jira = null;
+            }
+            if (requestInput_input_Jira != null)
+            {
+                request.Input.Jira = requestInput_input_Jira;
+                requestInputIsNull = false;
+            }
             Amazon.SecurityAgent.Model.GitHubIntegrationInput requestInput_input_Github = null;
             
              // populate Github
@@ -895,6 +995,10 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             public System.String Input_Gitlab_GroupId { get; set; }
             public System.String Input_Gitlab_TargetUrl { get; set; }
             public Amazon.SecurityAgent.GitLabTokenType Input_Gitlab_TokenType { get; set; }
+            public System.String Input_Jira_Code { get; set; }
+            public System.String Input_Jira_InstallationId { get; set; }
+            public System.String Input_Jira_SiteUrl { get; set; }
+            public System.String Input_Jira_State { get; set; }
             public System.String IntegrationDisplayName { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String PrivateConnectionName { get; set; }

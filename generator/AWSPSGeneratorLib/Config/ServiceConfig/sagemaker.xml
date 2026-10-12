@@ -841,6 +841,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrainingSession" OutputProperty="TrainingSessionArn" Verb="New" Noun="TrainingSession" ShouldProcessTarget="TrainingSessionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTransformJob" OutputProperty="TransformJobArn" Verb="New" Noun="TransformJob" ShouldProcessTarget="TransformJobName" PipelineParameter="TransformJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="TransformInput_DataSource_S3DataSource_S3DataType" NewName="S3DataSource_S3DataType" />
@@ -1096,6 +1100,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTrainingJob" Verb="Remove" Noun="TrainingJob" ShouldProcessTarget="TrainingJobName" PipelineParameter="TrainingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrainingSession" Verb="Remove" Noun="TrainingSession" ShouldProcessTarget="TrainingSessionName" PipelineParameter="TrainingSessionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1400,6 +1408,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTrainingPlanExtensionHistory" OutputProperty="TrainingPlanExtensions" Verb="Get" Noun="TrainingPlanExtensionHistoryDetail" PipelineParameter="TrainingPlanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrainingSession" OutputProperty="TrainingSessionDetail" Verb="Get" Noun="TrainingSessionDetail" PipelineParameter="TrainingSessionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1809,6 +1821,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTrainingSessions" OutputProperty="TrainingSessionSummaries" Verb="Get" Noun="TrainingSessionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTransformJobs" OutputProperty="TransformJobSummaries" Verb="Get" Noun="TransformJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1974,6 +1990,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopTrainingJob" Verb="Stop" Noun="TrainingJob" ShouldProcessTarget="TrainingJobName" PipelineParameter="TrainingJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTrainingSession" Verb="Stop" Noun="TrainingSession" ShouldProcessTarget="TrainingSessionName" PipelineParameter="TrainingSessionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

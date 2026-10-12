@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sagemakertrainingsessionruntime</C2jFilename>
+    <AssemblyName>SageMakerTrainingSessionRuntime</AssemblyName>
+    <ServiceNounPrefix>SMTSR</ServiceNounPrefix>
+    <ServiceName>SageMaker Training Session Runtime</ServiceName>
+    <ServiceId>SageMakerTrainingSessionRuntime</ServiceId>
+    <ServiceClientInterface>IAmazonSageMakerTrainingSessionRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonSageMakerTrainingSessionRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>7afa790d-87c6-4ebe-b2d8-708c0d0e3aaf</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ExecuteSamplingOperation" OutputProperty="OperationId" Verb="Invoke" Noun="SamplingOperation" ShouldProcessTarget="TrainingSessionName" PipelineParameter="TrainingSessionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteTrainingOperation" OutputProperty="OperationId" Verb="Invoke" Noun="TrainingOperation" ShouldProcessTarget="TrainingSessionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSamplingOperationResult" OutputProperty="*" Verb="Get" Noun="SamplingOperationResult" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrainingOperationResult" OutputProperty="*" Verb="Get" Noun="TrainingOperationResult" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SampleTrainingSession" OutputProperty="*" Verb="Invoke" Noun="TrainingSession" ShouldProcessTarget="TrainingSessionName" PipelineParameter="TrainingSessionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SampleTrainingSessionWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="TrainingSessionWithResponseStream" ShouldProcessTarget="TrainingSessionName" PipelineParameter="TrainingSessionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

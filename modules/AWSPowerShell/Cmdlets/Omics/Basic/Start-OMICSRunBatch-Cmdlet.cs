@@ -303,8 +303,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter DefaultRunSetting_SessionPolicy
         /// <summary>
         /// <para>
-        /// Optional inline policy json for scoping
-        /// down permissions via a session policy on the IAM role provided in the roleArn parameter.
+        /// <para>Optional inline policy json for scoping down permissions via a session policy on the
+        /// IAM role provided in the roleArn parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

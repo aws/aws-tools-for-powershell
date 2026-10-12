@@ -1160,6 +1160,9 @@
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerRuntime.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SageMakerTrainingSessionRuntime">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerTrainingSessionRuntime.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SavingsPlans">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SavingsPlans.dll</HintPath>
     </Reference>
@@ -2467,6 +2470,9 @@
     </Reference>
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SageMakerTrainingSessionRuntime">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerTrainingSessionRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SavingsPlans">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SavingsPlans.dll</HintPath>

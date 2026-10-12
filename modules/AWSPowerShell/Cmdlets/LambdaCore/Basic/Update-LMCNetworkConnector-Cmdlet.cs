@@ -42,6 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.LMC
     /// through <c>InProgress</c> to <c>Successful</c> or <c>Failed</c>. If the update fails,
     /// the <c>LastUpdateStatusReasonCode</c> field provides a specific error code for troubleshooting.
     /// This operation is idempotent when you provide a <c>ClientToken</c>.
+    /// </para><para>
+    /// Each successful configuration change creates a new immutable version. A connector
+    /// can have a limited number of versions; once that limit is reached, further updates
+    /// fail with <c>NetworkConnectorLimitExceededException</c> until you delete older versions.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LMCNetworkConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.LMC
         #region Parameter Configuration_VpcEgressConfiguration_AssociatedComputeResourceType
         /// <summary>
         /// <para>
-        /// <para>The types of Lambda compute resources that can use this connector. Currently, only
-        /// <c>MicroVm</c> is supported.</para><para />
+        /// <para>The types of Lambda compute resources that can use this connector. Valid values are
+        /// <c>MicroVm</c> and <c>WebFunction</c>. Specify exactly one value.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -76,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.LMC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the network connector to update. You can specify the connector ID,
+        /// name, or full ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.LMC
         #region Parameter Configuration_VpcEgressConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security
-        /// groups. All security groups must be in the same VPC as the subnets.</para><para />
+        /// <para>The IDs of the VPC security groups to attach to the ENIs. All security groups must
+        /// be in the same VPC as the subnets.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

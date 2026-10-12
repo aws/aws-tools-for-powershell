@@ -1,4 +1,59 @@
-﻿### 5.0.315 (2026-10-09 19:05Z)
+﻿### 5.0.316 (2026-10-12 19:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.351.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet New-BACBatchMemoryRecord: added parameters RecordExpirySpecification_Action and RecordExpirySpecification_RecordExpiryDurationDay.
+    * Modified cmdlet Update-BACBatchMemoryRecord: added parameters RecordExpirySpecification_Action and RecordExpirySpecification_RecordExpiryDurationDay.
+  * Amazon CloudWatch Omni
+    * Modified cmdlet Update-CWOMSpace: added parameter AgentCoreEvaluationRoleArn.
+  * Amazon DevOps Agent Service
+    * Modified cmdlet Get-DOPSAgentSpace: added parameter IncludedData.
+    * Modified cmdlet Get-DOPSAgentSpaceList: added parameter IncludedData.
+    * Modified cmdlet Register-DOPSService: added parameters ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header, ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header and ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet Update-EMCNFlowOutput: added parameter NdiAudioReferenceLevel.
+    * Modified cmdlet Update-EMCNFlowSource: added parameter NdiSourceSettings_AudioReferenceLevel.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEDataQualityResultsV2List leveraging the ListDataQualityResultsV2 service API.
+    * Added cmdlet Get-GLUEDataQualityResultV2 leveraging the GetDataQualityResultV2 service API.
+    * Added cmdlet Get-GLUEDataQualityResultV2Batch leveraging the BatchGetDataQualityResultV2 service API.
+    * Added cmdlet Publish-GLUEDataQualityResultV2 leveraging the PublishDataQualityResultV2 service API.
+  * Amazon Lambda Core
+    * Added cmdlet Get-LMCNetworkConnectorVersionList leveraging the ListNetworkConnectorVersions service API.
+  * Amazon Lambda Web
+    * Added cmdlet Add-LWEBResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-LWEBResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Get-LWEBTag leveraging the ListTags service API.
+    * Added cmdlet Get-LWEBWebFunction leveraging the GetWebFunction service API.
+    * Added cmdlet Get-LWEBWebFunctionEndpoint leveraging the GetWebFunctionEndpoint service API.
+    * Added cmdlet Get-LWEBWebFunctionEndpointList leveraging the ListWebFunctionEndpoints service API.
+    * Added cmdlet Get-LWEBWebFunctionList leveraging the ListWebFunctions service API.
+    * Added cmdlet Get-LWEBWebFunctionRevision leveraging the GetWebFunctionRevision service API.
+    * Added cmdlet Get-LWEBWebFunctionRevisionList leveraging the ListWebFunctionRevisions service API.
+    * Added cmdlet New-LWEBWebFunction leveraging the CreateWebFunction service API.
+    * Added cmdlet New-LWEBWebFunctionEndpoint leveraging the CreateWebFunctionEndpoint service API.
+    * Added cmdlet New-LWEBWebFunctionRevision leveraging the CreateWebFunctionRevision service API.
+    * Added cmdlet Remove-LWEBResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Remove-LWEBResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Remove-LWEBWebFunction leveraging the DeleteWebFunction service API.
+    * Added cmdlet Remove-LWEBWebFunctionEndpoint leveraging the DeleteWebFunctionEndpoint service API.
+    * Added cmdlet Remove-LWEBWebFunctionRevision leveraging the DeleteWebFunctionRevision service API.
+    * Added cmdlet Update-LWEBWebFunctionEndpoint leveraging the UpdateWebFunctionEndpoint service API.
+    * Added cmdlet Write-LWEBResourcePolicy leveraging the PutResourcePolicy service API.
+  * Amazon Omics
+    * Modified cmdlet New-OMICSConfiguration: added parameter RunConfigurations_VpcConfig_VpcOwnerAccountId.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMTrainingSessionDetail leveraging the DescribeTrainingSession service API.
+    * Added cmdlet Get-SMTrainingSessionList leveraging the ListTrainingSessions service API.
+    * Added cmdlet New-SMTrainingSession leveraging the CreateTrainingSession service API.
+    * Added cmdlet Remove-SMTrainingSession leveraging the DeleteTrainingSession service API.
+    * Added cmdlet Stop-SMTrainingSession leveraging the StopTrainingSession service API.
+  * Amazon SageMaker Training Session Runtime. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SMTSR and can be listed using the command 'Get-AWSCmdletName -Service SMTSR'.
+  * Amazon Security Agent
+    * Added cmdlet Export-SECAGFindingBatch leveraging the BatchExportFindings service API.
+    * Added cmdlet Remove-SECAGFindingIssueBatch leveraging the BatchDisassociateFindingIssue service API.
+    * Modified cmdlet New-SECAGIntegration: added parameters Input_Jira_Code, Input_Jira_InstallationId, Input_Jira_SiteUrl and Input_Jira_State.
+
+### 5.0.315 (2026-10-09 19:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.350.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Added cmdlet Get-ADCMembershipList leveraging the ListMemberships service API.

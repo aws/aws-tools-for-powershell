@@ -1,0 +1,348 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.SecurityAgent;
+using Amazon.SecurityAgent.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.SECAG
+{
+    /// <summary>
+    /// Exports a batch of findings to the connected issue tracker as issues.
+    /// </summary>
+    [Cmdlet("Export", "SECAGFindingBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SecurityAgent.Model.BatchExportFindingsResponse")]
+    [AWSCmdlet("Calls the AWS Security Agent BatchExportFindings API operation.", Operation = new[] {"BatchExportFindings"}, SelectReturnType = typeof(Amazon.SecurityAgent.Model.BatchExportFindingsResponse))]
+    [AWSCmdletOutput("Amazon.SecurityAgent.Model.BatchExportFindingsResponse",
+        "This cmdlet returns an Amazon.SecurityAgent.Model.BatchExportFindingsResponse object containing multiple properties."
+    )]
+    public partial class ExportSECAGFindingBatchCmdlet : AmazonSecurityAgentClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AgentSpaceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the agent space where the job exists.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AgentSpaceId { get; set; }
+        #endregion
+        
+        #region Parameter CodeReviewJobId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the code review job. This parameter is mutually exclusive with <c>pentestJobId</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CodeReviewJobId { get; set; }
+        #endregion
+        
+        #region Parameter FindingId
+        /// <summary>
+        /// <para>
+        /// <para>The identifiers of the findings to export. Each must belong to the specified job.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("FindingIds")]
+        public System.String[] FindingId { get; set; }
+        #endregion
+        
+        #region Parameter IssueDestination_IntegrationId
+        /// <summary>
+        /// <para>
+        /// <para>The integration identifier for the issue-tracker provider.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IssueDestination_IntegrationId { get; set; }
+        #endregion
+        
+        #region Parameter PentestJobId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the penetration test job. This parameter is mutually exclusive with
+        /// <c>codeReviewJobId</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PentestJobId { get; set; }
+        #endregion
+        
+        #region Parameter IssueDestination_ProjectKey
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the project the issues are filed under.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IssueDestination_ProjectKey { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityAgent.Model.BatchExportFindingsResponse).
+        /// Specifying the name of a property of type Amazon.SecurityAgent.Model.BatchExportFindingsResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Export-SECAGFindingBatch (BatchExportFindings)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.SecurityAgent.Model.BatchExportFindingsResponse, ExportSECAGFindingBatchCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.AgentSpaceId = this.AgentSpaceId;
+            #if MODULAR
+            if (this.AgentSpaceId == null && ParameterWasBound(nameof(this.AgentSpaceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.CodeReviewJobId = this.CodeReviewJobId;
+            if (this.FindingId != null)
+            {
+                context.FindingId = new List<System.String>(this.FindingId);
+            }
+            #if MODULAR
+            if (this.FindingId == null && ParameterWasBound(nameof(this.FindingId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FindingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.IssueDestination_IntegrationId = this.IssueDestination_IntegrationId;
+            #if MODULAR
+            if (this.IssueDestination_IntegrationId == null && ParameterWasBound(nameof(this.IssueDestination_IntegrationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IssueDestination_IntegrationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.IssueDestination_ProjectKey = this.IssueDestination_ProjectKey;
+            #if MODULAR
+            if (this.IssueDestination_ProjectKey == null && ParameterWasBound(nameof(this.IssueDestination_ProjectKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IssueDestination_ProjectKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.PentestJobId = this.PentestJobId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.SecurityAgent.Model.BatchExportFindingsRequest();
+            
+            if (cmdletContext.AgentSpaceId != null)
+            {
+                request.AgentSpaceId = cmdletContext.AgentSpaceId;
+            }
+            if (cmdletContext.CodeReviewJobId != null)
+            {
+                request.CodeReviewJobId = cmdletContext.CodeReviewJobId;
+            }
+            if (cmdletContext.FindingId != null)
+            {
+                request.FindingIds = cmdletContext.FindingId;
+            }
+            
+             // populate IssueDestination
+            var requestIssueDestinationIsNull = true;
+            request.IssueDestination = new Amazon.SecurityAgent.Model.IssueDestination();
+            System.String requestIssueDestination_issueDestination_IntegrationId = null;
+            if (cmdletContext.IssueDestination_IntegrationId != null)
+            {
+                requestIssueDestination_issueDestination_IntegrationId = cmdletContext.IssueDestination_IntegrationId;
+            }
+            if (requestIssueDestination_issueDestination_IntegrationId != null)
+            {
+                request.IssueDestination.IntegrationId = requestIssueDestination_issueDestination_IntegrationId;
+                requestIssueDestinationIsNull = false;
+            }
+            System.String requestIssueDestination_issueDestination_ProjectKey = null;
+            if (cmdletContext.IssueDestination_ProjectKey != null)
+            {
+                requestIssueDestination_issueDestination_ProjectKey = cmdletContext.IssueDestination_ProjectKey;
+            }
+            if (requestIssueDestination_issueDestination_ProjectKey != null)
+            {
+                request.IssueDestination.ProjectKey = requestIssueDestination_issueDestination_ProjectKey;
+                requestIssueDestinationIsNull = false;
+            }
+             // determine if request.IssueDestination should be set to null
+            if (requestIssueDestinationIsNull)
+            {
+                request.IssueDestination = null;
+            }
+            if (cmdletContext.PentestJobId != null)
+            {
+                request.PentestJobId = cmdletContext.PentestJobId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.SecurityAgent.Model.BatchExportFindingsResponse CallAWSServiceOperation(IAmazonSecurityAgent client, Amazon.SecurityAgent.Model.BatchExportFindingsRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Agent", "BatchExportFindings");
+            try
+            {
+                return client.BatchExportFindingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String AgentSpaceId { get; set; }
+            public System.String CodeReviewJobId { get; set; }
+            public List<System.String> FindingId { get; set; }
+            public System.String IssueDestination_IntegrationId { get; set; }
+            public System.String IssueDestination_ProjectKey { get; set; }
+            public System.String PentestJobId { get; set; }
+            public System.Func<Amazon.SecurityAgent.Model.BatchExportFindingsResponse, ExportSECAGFindingBatchCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

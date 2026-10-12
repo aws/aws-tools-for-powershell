@@ -144,9 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// toward the target level. The access token itself remains valid.</para></li></ul></dd><dt>USER_SRP_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>SRP_A</c> (required)</para></li></ul></dd><dt>USER_PASSWORD_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>PASSWORD</c> (required)</para></li></ul></dd><dt>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</dt><dd><ul><li><para><c>REFRESH_TOKEN</c>(required)</para></li></ul></dd><dt>CUSTOM_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>ChallengeName: SRP_A</c> (when doing SRP authentication before custom challenges)</para></li><li><para><c>SRP_A: (An SRP_A value)</c> (when doing SRP authentication before custom challenges)</para></li></ul></dd></dl><para>For more information about <c>SECRET_HASH</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing
         /// secret hash values</a>. For information about <c>DEVICE_KEY</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
         /// with user devices in your user pool</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -190,9 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
         /// parameter.</para></li></ul></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

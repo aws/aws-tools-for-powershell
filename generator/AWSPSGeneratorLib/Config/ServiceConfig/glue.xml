@@ -62,6 +62,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDataQualityResultV2" OutputProperty="*" Verb="Get" Noun="DataQualityResultV2Batch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetDataQualityRulesetEvaluationRun" OutputProperty="*" Verb="Get" Noun="DataQualityRulesetEvaluationRunBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -605,6 +609,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataQualityResultV2" OutputProperty="*" Verb="Get" Noun="DataQualityResultV2" PipelineParameter="ResultId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataQualityRuleRecommendationRun" OutputProperty="*" Verb="Get" Noun="DataQualityRuleRecommendationRun" PipelineParameter="RunId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -895,6 +903,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDataQualityResultsV2" OutputProperty="Results" Verb="Get" Noun="DataQualityResultsV2List" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDataQualityRuleRecommendationRuns" OutputProperty="Runs" Verb="Get" Noun="DataQualityRuleRecommendationRunList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Filter_DataSource_DataQualityGlueTable_AdditionalOptions" NewName="DataQualityGlueTable_AdditionalOption" />
@@ -1024,6 +1036,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyIntegration" OutputProperty="*" Verb="Edit" Noun="Integration" ShouldProcessTarget="IntegrationIdentifier" PipelineParameter="IntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PublishDataQualityResultV2" OutputProperty="ResultId" Verb="Publish" Noun="DataQualityResultV2" ShouldProcessTarget="RulesetName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -48,10 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter Blueprint
         /// <summary>
         /// <para>
-        /// <para>Blueprint list.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Blueprint list.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -63,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter DataAutomationProfileArn
         /// <summary>
         /// <para>
-        /// <para>Data automation profile ARN</para>
+        /// Data automation profile ARN
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter DataAutomationConfiguration_DataAutomationProjectArn
         /// <summary>
         /// <para>
-        /// <para>Data automation project arn.</para>
+        /// Data automation project arn.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter TimestampSegment_EndTimeMilli
         /// <summary>
         /// <para>
-        /// <para>End timestamp in milliseconds</para>
+        /// End timestamp in milliseconds
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter EventBridgeConfiguration_EventBridgeEnabled
         /// <summary>
         /// <para>
-        /// <para>Event bridge flag.</para>
+        /// Event bridge flag.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,10 +114,12 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter EncryptionConfiguration_KmsEncryptionContext
         /// <summary>
         /// <para>
-        /// <para>KMS encryption context.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// KMS encryption context.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -126,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter EncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Customer KMS key used for encryption</para>
+        /// Customer KMS key used for encryption
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter InputConfiguration_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 uri.</para>
+        /// S3 uri.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter OutputConfiguration_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 uri.</para>
+        /// S3 uri.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -170,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter DataAutomationConfiguration_Stage
         /// <summary>
         /// <para>
-        /// <para>Data automation stage.</para>
+        /// Data automation stage.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter TimestampSegment_StartTimeMilli
         /// <summary>
         /// <para>
-        /// <para>Start timestamp in milliseconds</para>
+        /// Start timestamp in milliseconds
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,10 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>List of tags.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// List of tags.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -207,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token.</para>
+        /// Idempotency token.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -56,9 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         /// <summary>
         /// <para>
         /// <para>The operation types to include in the filter.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -71,9 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         /// <summary>
         /// <para>
         /// <para>The operation statuses to include in the filter.</para><ul><li><para><c>PENDING</c>: The operation has been requested, but not yet initiated.</para></li><li><para><c>IN_PROGRESS</c>: The operation is in progress.</para></li><li><para><c>SUCCESS</c>: The operation completed.</para></li><li><para><c>FAILED</c>: The operation failed.</para></li><li><para><c>CANCEL_IN_PROGRESS</c>: The operation is in the process of being canceled.</para></li><li><para><c>CANCEL_COMPLETE</c>: The operation has been canceled.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -171,13 +173,13 @@ namespace Amazon.PowerShell.Cmdlets.CCA
             }
             #endif
             context.NextToken = this.NextToken;
-            if (this.ResourceRequestStatusFilter_Operation != null)
-            {
-                context.ResourceRequestStatusFilter_Operation = new List<System.String>(this.ResourceRequestStatusFilter_Operation);
-            }
             if (this.ResourceRequestStatusFilter_OperationStatus != null)
             {
                 context.ResourceRequestStatusFilter_OperationStatus = new List<System.String>(this.ResourceRequestStatusFilter_OperationStatus);
+            }
+            if (this.ResourceRequestStatusFilter_Operation != null)
+            {
+                context.ResourceRequestStatusFilter_Operation = new List<System.String>(this.ResourceRequestStatusFilter_Operation);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -205,16 +207,6 @@ namespace Amazon.PowerShell.Cmdlets.CCA
              // populate ResourceRequestStatusFilter
             var requestResourceRequestStatusFilterIsNull = true;
             request.ResourceRequestStatusFilter = new Amazon.CloudControlApi.Model.ResourceRequestStatusFilter();
-            List<System.String> requestResourceRequestStatusFilter_resourceRequestStatusFilter_Operation = null;
-            if (cmdletContext.ResourceRequestStatusFilter_Operation != null)
-            {
-                requestResourceRequestStatusFilter_resourceRequestStatusFilter_Operation = cmdletContext.ResourceRequestStatusFilter_Operation;
-            }
-            if (requestResourceRequestStatusFilter_resourceRequestStatusFilter_Operation != null)
-            {
-                request.ResourceRequestStatusFilter.Operations = requestResourceRequestStatusFilter_resourceRequestStatusFilter_Operation;
-                requestResourceRequestStatusFilterIsNull = false;
-            }
             List<System.String> requestResourceRequestStatusFilter_resourceRequestStatusFilter_OperationStatus = null;
             if (cmdletContext.ResourceRequestStatusFilter_OperationStatus != null)
             {
@@ -223,6 +215,16 @@ namespace Amazon.PowerShell.Cmdlets.CCA
             if (requestResourceRequestStatusFilter_resourceRequestStatusFilter_OperationStatus != null)
             {
                 request.ResourceRequestStatusFilter.OperationStatuses = requestResourceRequestStatusFilter_resourceRequestStatusFilter_OperationStatus;
+                requestResourceRequestStatusFilterIsNull = false;
+            }
+            List<System.String> requestResourceRequestStatusFilter_resourceRequestStatusFilter_Operation = null;
+            if (cmdletContext.ResourceRequestStatusFilter_Operation != null)
+            {
+                requestResourceRequestStatusFilter_resourceRequestStatusFilter_Operation = cmdletContext.ResourceRequestStatusFilter_Operation;
+            }
+            if (requestResourceRequestStatusFilter_resourceRequestStatusFilter_Operation != null)
+            {
+                request.ResourceRequestStatusFilter.Operations = requestResourceRequestStatusFilter_resourceRequestStatusFilter_Operation;
                 requestResourceRequestStatusFilterIsNull = false;
             }
              // determine if request.ResourceRequestStatusFilter should be set to null
@@ -312,8 +314,8 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> ResourceRequestStatusFilter_Operation { get; set; }
             public List<System.String> ResourceRequestStatusFilter_OperationStatus { get; set; }
+            public List<System.String> ResourceRequestStatusFilter_Operation { get; set; }
             public System.Func<Amazon.CloudControlApi.Model.ListResourceRequestsResponse, GetCCAResourceRequestListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResourceRequestStatusSummaries;
         }

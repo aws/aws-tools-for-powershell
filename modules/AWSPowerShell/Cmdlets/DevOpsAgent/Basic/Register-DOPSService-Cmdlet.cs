@@ -1036,6 +1036,54 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Gitlab_GroupId { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header
+        /// <summary>
+        /// <para>
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Headers")]
+        public System.Collections.Hashtable ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header
+        /// <summary>
+        /// <para>
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Headers")]
+        public System.Collections.Hashtable ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header
+        /// <summary>
+        /// <para>
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Headers")]
+        public System.Collections.Hashtable ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header { get; set; }
+        #endregion
+        
         #region Parameter ServiceDetails_Servicenow_InstanceUrl
         /// <summary>
         /// <para>
@@ -1752,6 +1800,14 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.ServiceDetails_Mcpserver_AuthorizationConfig_BearerToken_AuthorizationHeader = this.ServiceDetails_Mcpserver_AuthorizationConfig_BearerToken_AuthorizationHeader;
             context.ServiceDetails_Mcpserver_AuthorizationConfig_BearerToken_TokenName = this.ServiceDetails_Mcpserver_AuthorizationConfig_BearerToken_TokenName;
             context.ServiceDetails_Mcpserver_AuthorizationConfig_BearerToken_TokenValue = this.ServiceDetails_Mcpserver_AuthorizationConfig_BearerToken_TokenValue;
+            if (this.ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header != null)
+            {
+                context.ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header.Keys)
+                {
+                    context.ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header.Add((String)hashKey, (System.String)(this.ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header[hashKey]));
+                }
+            }
             context.ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_AuthorizationUrl = this.ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_AuthorizationUrl;
             context.ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_ClientId = this.ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_ClientId;
             context.ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_ClientName = this.ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_ClientName;
@@ -1801,6 +1857,14 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.ServiceDetails_Mcpservergrafana_AuthorizationConfig_BearerToken_AuthorizationHeader = this.ServiceDetails_Mcpservergrafana_AuthorizationConfig_BearerToken_AuthorizationHeader;
             context.ServiceDetails_Mcpservergrafana_AuthorizationConfig_BearerToken_TokenName = this.ServiceDetails_Mcpservergrafana_AuthorizationConfig_BearerToken_TokenName;
             context.ServiceDetails_Mcpservergrafana_AuthorizationConfig_BearerToken_TokenValue = this.ServiceDetails_Mcpservergrafana_AuthorizationConfig_BearerToken_TokenValue;
+            if (this.ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header != null)
+            {
+                context.ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header.Keys)
+                {
+                    context.ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header.Add((String)hashKey, (System.String)(this.ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header[hashKey]));
+                }
+            }
             context.ServiceDetails_Mcpservergrafana_AuthorizationConfig_OAuth3LO_AuthorizationUrl = this.ServiceDetails_Mcpservergrafana_AuthorizationConfig_OAuth3LO_AuthorizationUrl;
             context.ServiceDetails_Mcpservergrafana_AuthorizationConfig_OAuth3LO_ClientId = this.ServiceDetails_Mcpservergrafana_AuthorizationConfig_OAuth3LO_ClientId;
             context.ServiceDetails_Mcpservergrafana_AuthorizationConfig_OAuth3LO_ClientName = this.ServiceDetails_Mcpservergrafana_AuthorizationConfig_OAuth3LO_ClientName;
@@ -1876,6 +1940,14 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_AuthorizationHeader = this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_AuthorizationHeader;
             context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_TokenName = this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_TokenName;
             context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_TokenValue = this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_TokenValue;
+            if (this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header != null)
+            {
+                context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header.Keys)
+                {
+                    context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header.Add((String)hashKey, (System.String)(this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header[hashKey]));
+                }
+            }
             context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_AuthorizationUrl = this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_AuthorizationUrl;
             context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_ClientId = this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_ClientId;
             context.ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_ClientName = this.ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_ClientName;
@@ -2611,6 +2683,31 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig.AuthorizationDiscovery = requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_AuthorizationDiscovery;
                 requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfigIsNull = false;
             }
+            Amazon.DevOpsAgent.Model.MCPServerCustomHeadersConfig requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders = null;
+            
+             // populate CustomHeaders
+            var requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeadersIsNull = true;
+            requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders = new Amazon.DevOpsAgent.Model.MCPServerCustomHeadersConfig();
+            Dictionary<System.String, System.String> requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header = null;
+            if (cmdletContext.ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header = cmdletContext.ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header;
+            }
+            if (requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders.Headers = requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header;
+                requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeadersIsNull = false;
+            }
+             // determine if requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders should be set to null
+            if (requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeadersIsNull)
+            {
+                requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders = null;
+            }
+            if (requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig.CustomHeaders = requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_CustomHeaders;
+                requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfigIsNull = false;
+            }
             Amazon.DevOpsAgent.Model.MCPServerAPIKeyConfig requestServiceDetails_serviceDetails_Mcpserver_serviceDetails_Mcpserver_AuthorizationConfig_serviceDetails_Mcpserver_AuthorizationConfig_ApiKey = null;
             
              // populate ApiKey
@@ -3049,6 +3146,31 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_AuthorizationDiscovery != null)
             {
                 requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig.AuthorizationDiscovery = requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_AuthorizationDiscovery;
+                requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfigIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.MCPServerCustomHeadersConfig requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders = null;
+            
+             // populate CustomHeaders
+            var requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeadersIsNull = true;
+            requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders = new Amazon.DevOpsAgent.Model.MCPServerCustomHeadersConfig();
+            Dictionary<System.String, System.String> requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header = null;
+            if (cmdletContext.ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header = cmdletContext.ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header;
+            }
+            if (requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders.Headers = requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header;
+                requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeadersIsNull = false;
+            }
+             // determine if requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders should be set to null
+            if (requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeadersIsNull)
+            {
+                requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders = null;
+            }
+            if (requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig.CustomHeaders = requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders;
                 requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfigIsNull = false;
             }
             Amazon.DevOpsAgent.Model.MCPServerAPIKeyConfig requestServiceDetails_serviceDetails_Mcpservergrafana_serviceDetails_Mcpservergrafana_AuthorizationConfig_serviceDetails_Mcpservergrafana_AuthorizationConfig_ApiKey = null;
@@ -3514,6 +3636,31 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_AuthorizationDiscovery != null)
             {
                 requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig.AuthorizationDiscovery = requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_AuthorizationDiscovery;
+                requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfigIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.MCPServerCustomHeadersConfig requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders = null;
+            
+             // populate CustomHeaders
+            var requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeadersIsNull = true;
+            requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders = new Amazon.DevOpsAgent.Model.MCPServerCustomHeadersConfig();
+            Dictionary<System.String, System.String> requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header = null;
+            if (cmdletContext.ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header = cmdletContext.ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header;
+            }
+            if (requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders.Headers = requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header;
+                requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeadersIsNull = false;
+            }
+             // determine if requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders should be set to null
+            if (requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeadersIsNull)
+            {
+                requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders = null;
+            }
+            if (requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders != null)
+            {
+                requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig.CustomHeaders = requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders;
                 requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfigIsNull = false;
             }
             Amazon.DevOpsAgent.Model.MCPServerAPIKeyConfig requestServiceDetails_serviceDetails_Mcpserversplunk_serviceDetails_Mcpserversplunk_AuthorizationConfig_serviceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey = null;
@@ -4215,6 +4362,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String ServiceDetails_Mcpserver_AuthorizationConfig_BearerToken_AuthorizationHeader { get; set; }
             public System.String ServiceDetails_Mcpserver_AuthorizationConfig_BearerToken_TokenName { get; set; }
             public System.String ServiceDetails_Mcpserver_AuthorizationConfig_BearerToken_TokenValue { get; set; }
+            public Dictionary<System.String, System.String> ServiceDetails_Mcpserver_AuthorizationConfig_CustomHeaders_Header { get; set; }
             public System.String ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_AuthorizationUrl { get; set; }
             public System.String ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_ClientId { get; set; }
             public System.String ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_ClientName { get; set; }
@@ -4244,6 +4392,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String ServiceDetails_Mcpservergrafana_AuthorizationConfig_BearerToken_AuthorizationHeader { get; set; }
             public System.String ServiceDetails_Mcpservergrafana_AuthorizationConfig_BearerToken_TokenName { get; set; }
             public System.String ServiceDetails_Mcpservergrafana_AuthorizationConfig_BearerToken_TokenValue { get; set; }
+            public Dictionary<System.String, System.String> ServiceDetails_Mcpservergrafana_AuthorizationConfig_CustomHeaders_Header { get; set; }
             public System.String ServiceDetails_Mcpservergrafana_AuthorizationConfig_OAuth3LO_AuthorizationUrl { get; set; }
             public System.String ServiceDetails_Mcpservergrafana_AuthorizationConfig_OAuth3LO_ClientId { get; set; }
             public System.String ServiceDetails_Mcpservergrafana_AuthorizationConfig_OAuth3LO_ClientName { get; set; }
@@ -4284,6 +4433,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_AuthorizationHeader { get; set; }
             public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_TokenName { get; set; }
             public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_TokenValue { get; set; }
+            public Dictionary<System.String, System.String> ServiceDetails_Mcpserversplunk_AuthorizationConfig_CustomHeaders_Header { get; set; }
             public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_AuthorizationUrl { get; set; }
             public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_ClientId { get; set; }
             public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_ClientName { get; set; }

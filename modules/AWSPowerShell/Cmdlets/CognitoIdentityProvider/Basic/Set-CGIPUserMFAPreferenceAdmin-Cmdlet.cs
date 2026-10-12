@@ -202,18 +202,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.EmailMfaSettings_PreferredMfa = this.EmailMfaSettings_PreferredMfa;
             context.SMSMfaSetting = this.SMSMfaSetting;
             context.SoftwareTokenMfaSetting = this.SoftwareTokenMfaSetting;
-            context.Username = this.Username;
-            #if MODULAR
-            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
             {
                 WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Username = this.Username;
+            #if MODULAR
+            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.WebAuthnMfaSettings_Enabled = this.WebAuthnMfaSettings_Enabled;
@@ -270,13 +270,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.SoftwareTokenMfaSettings = cmdletContext.SoftwareTokenMfaSetting;
             }
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
-            }
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
             }
             
              // populate WebAuthnMfaSettings
@@ -356,8 +356,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.Boolean? EmailMfaSettings_PreferredMfa { get; set; }
             public Amazon.CognitoIdentityProvider.Model.SMSMfaSettingsType SMSMfaSetting { get; set; }
             public Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaSettingsType SoftwareTokenMfaSetting { get; set; }
-            public System.String Username { get; set; }
             public System.String UserPoolId { get; set; }
+            public System.String Username { get; set; }
             public System.Boolean? WebAuthnMfaSettings_Enabled { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.AdminSetUserMFAPreferenceResponse, SetCGIPUserMFAPreferenceAdminCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

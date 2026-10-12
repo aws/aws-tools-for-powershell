@@ -237,6 +237,16 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.RecordExpiryAction
+        {
+            ($_ -eq "New-BACBatchMemoryRecord/RecordExpirySpecification_Action") -Or
+            ($_ -eq "Update-BACBatchMemoryRecord/RecordExpirySpecification_Action")
+        }
+        {
+            $v = "REMOVE"
+            break
+        }
+
         # Amazon.BedrockAgentCore.ResultDestination
         "Start-BACBatchEvaluation/OutputConfig_CloudWatchConfig_ResultDestination"
         {
@@ -288,6 +298,7 @@ $BAC_map = @{
     "PaymentInstrumentType"=@("New-BACPaymentInstrument")
     "PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestMethod"=@("Get-BACResourcePaymentToken")
     "PaymentType"=@("Invoke-BACPayment")
+    "RecordExpirySpecification_Action"=@("New-BACBatchMemoryRecord","Update-BACBatchMemoryRecord")
     "Status"=@("Get-BACBrowserSessionList","Get-BACCodeInterpreterSessionList")
     "StatusFilter"=@("Get-BACRecommendationList")
     "Token"=@("Get-BACPaymentInstrumentBalance")

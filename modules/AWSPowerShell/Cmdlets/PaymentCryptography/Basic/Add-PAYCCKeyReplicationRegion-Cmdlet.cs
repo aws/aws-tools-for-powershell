@@ -85,9 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <para>The list of Amazon Web Services Regions to add to the key's replication configuration.</para><para>Each region must be a valid Amazon Web Services Region where Amazon Web Services Payment
         /// Cryptography is available. The key will be replicated to these regions, allowing cryptographic
         /// operations to be performed closer to your applications.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

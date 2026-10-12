@@ -81,7 +81,10 @@ $LMC_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.LambdaCore.NetworkConnectorState
-        "Get-LMCNetworkConnectorList/State"
+        {
+            ($_ -eq "Get-LMCNetworkConnectorList/State") -Or
+            ($_ -eq "Get-LMCNetworkConnectorVersionList/State")
+        }
         {
             $v = "ACTIVE","DELETE_FAILED","DELETING","FAILED","INACTIVE","PENDING"
             break
@@ -107,7 +110,7 @@ $LMC_Completers = {
 
 $LMC_map = @{
     "Configuration_VpcEgressConfiguration_NetworkProtocol"=@("New-LMCNetworkConnector","Update-LMCNetworkConnector")
-    "State"=@("Get-LMCNetworkConnectorList")
+    "State"=@("Get-LMCNetworkConnectorList","Get-LMCNetworkConnectorVersionList")
 }
 
 _awsArgumentCompleterRegistration $LMC_Completers $LMC_map
@@ -164,6 +167,7 @@ $LMC_SelectMap = @{
                "Remove-LMCNetworkConnector",
                "Get-LMCNetworkConnector",
                "Get-LMCNetworkConnectorList",
+               "Get-LMCNetworkConnectorVersionList",
                "Update-LMCNetworkConnector")
 }
 

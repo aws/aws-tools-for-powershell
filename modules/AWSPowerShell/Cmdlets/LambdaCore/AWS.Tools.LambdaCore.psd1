@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Get-LMCNetworkConnector', 
         'Get-LMCNetworkConnectorList', 
+        'Get-LMCNetworkConnectorVersionList', 
         'New-LMCNetworkConnector', 
         'Remove-LMCNetworkConnector', 
         'Update-LMCNetworkConnector')

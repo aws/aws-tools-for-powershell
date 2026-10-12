@@ -38,8 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.LMC
     /// <para>
     /// This operation is idempotent — calling delete on a connector that is already deleting
     /// or has been deleted succeeds without error. You can delete connectors in <c>ACTIVE</c>
-    /// or <c>FAILED</c> states. Before deleting a connector, ensure that no Lambda MicroVMs
-    /// are using it, as they will lose VPC egress connectivity immediately.
+    /// or <c>FAILED</c> states. Before deleting a connector, ensure that no Lambda compute
+    /// resources are using it, as they will lose VPC egress connectivity immediately.
+    /// </para><para>
+    /// Deleting with an unqualified identifier removes the connector and all of its versions.
+    /// To remove a single historical version, supply its version-qualified ARN; the connector
+    /// and its remaining versions are unaffected. You can't delete the latest version on
+    /// its own — delete the connector to remove it.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMCNetworkConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -57,7 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.LMC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the network connector to delete. Provide an unqualified ARN (or
+        /// an ID or name) to delete the entire connector and all of its versions, or a version-qualified
+        /// ARN — one that includes the immutable version suffix — to delete a specific historical
+        /// version. You can't delete the latest version with a version-qualified identifier;
+        /// delete the connector instead.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

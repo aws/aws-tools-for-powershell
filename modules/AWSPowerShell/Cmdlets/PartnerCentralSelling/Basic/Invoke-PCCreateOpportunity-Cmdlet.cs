@@ -98,9 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// | Migration Acceleration Program | P3 | Partner Launch Initiative | Partner Opportunity
         /// Acceleration Funded | The Next Smart | VMware Cloud on AWS | Well-Architected | Windows
         /// | Workspaces/AppStream Accelerator Program | WWPS NDPP</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -184,9 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>Specifies the <c>Opportunity</c>'s channel that the marketing activity is associated
         /// with or was contacted through. This field provides information about the specific
         /// marketing channel that contributed to the generation of the lead or contact.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -250,9 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <c>Opportunity</c>. This field captures relevant contacts, including decision-makers,
         /// influencers, and technical stakeholders within the customer organization. These contacts
         /// are key to progressing the opportunity.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -353,9 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// support).</para></li><li><para>Professional Services: Offerings to help enterprise end customers achieve specific
         /// business outcomes for enterprise cloud adoption (For example: Advisory or transformation
         /// planning).</para></li><li><para>Resell: Amazon Web Services accounts and billing management for your customers.</para></li><li><para>Other: Delivery model not described above.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -392,9 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>Represents the estimated amount that the customer is expected to spend on AWS services
         /// related to the opportunity. This helps in evaluating the potential financial value
         /// of the opportunity for AWS.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -459,9 +464,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>
         /// <para>Captures a chronological record of the next steps or actions planned or taken for
         /// the current opportunity, along with the timestamp.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -474,9 +480,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>
         /// <para>Represents the internal team handling the opportunity. Specify collaborating members
         /// of this opportunity who are within the partner's organization.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -589,9 +596,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// hosting environment.</para></li><li><para>Cosell—Deal Support: Request Amazon Web Services seller's support to progress the
         /// opportunity (for example: joint customer call, strategic positioning).</para></li><li><para>Cosell—Support for Public Tender/RFx: Opportunity related to the public sector where
         /// the partner needs Amazon Web Services RFx support.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -665,9 +673,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// the customer's business problem.</para></li><li><para>Completed Action Plan: A detailed action plan is complete and outlines the steps for
         /// implementation.</para></li><li><para>Finalized Deployment Need: Both parties agree with and finalized the deployment needs.</para></li><li><para>SOW Signed: Both parties signed a statement of work (SOW), and formalize the agreement
         /// and detail the project scope and deliverables.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -747,9 +756,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>A map of the key-value pairs of the tag or tags to assign.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -804,9 +814,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// Game Tech | IoT | Management &amp; Governance | Media Services | Migration &amp; Transfer
         /// | Networking &amp; Content Delivery | Quantum Technologies | Robotics | Satellite
         /// | Security | Serverless | Storage | VR &amp; AR</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

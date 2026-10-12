@@ -186,18 +186,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             #endif
             context.NextToken = this.NextToken;
-            context.Username = this.Username;
-            #if MODULAR
-            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
             {
                 WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Username = this.Username;
+            #if MODULAR
+            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -223,13 +223,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
-            }
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
             }
             
             // Initialize loop variant and commence piping
@@ -286,13 +286,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             
             // create request and set iteration invariants
             var request = new Amazon.CognitoIdentityProvider.Model.AdminListUserAuthEventsRequest();
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
-            }
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
             }
             
             // Initialize loop variants and commence piping
@@ -413,8 +413,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String Username { get; set; }
             public System.String UserPoolId { get; set; }
+            public System.String Username { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.AdminListUserAuthEventsResponse, GetCGIPUserAuthEventListAdminCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AuthEvents;
         }
