@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>Specifies whether to exclude the following punctuation characters from the password:
-        /// <c>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</c>.
-        /// If you don't include this switch, the password can contain punctuation.</para>
+        /// <c>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</c>. If
+        /// you don't include this switch, the password can contain punctuation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

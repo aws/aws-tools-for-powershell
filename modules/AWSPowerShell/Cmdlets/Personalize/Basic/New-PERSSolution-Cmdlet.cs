@@ -95,9 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>Lists the algorithm hyperparameters and their values.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -110,9 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The categorical hyperparameters and their ranges.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -125,9 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The continuous hyperparameters and their ranges.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -158,9 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>
         /// <para>A list of event parameters, which includes event types and their event value thresholds
         /// and weights.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -201,9 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// uses to generate recommendations.</para><para> For example, you might have a column that you want to use only to filter recommendations.
         /// You can exclude this column from training and Amazon Personalize considers it only
         /// when filtering. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -216,9 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>Lists the feature transformation parameters.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -235,9 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// of 256 characters, must contain only letters and underscores) and each value is an
         /// array of up to 50 column names. Column names can be up to 150 characters long, must
         /// start with a letter or underscore, and can contain only letters, numbers, and underscores.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -250,9 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The integer-valued hyperparameters and their ranges.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -439,9 +447,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The list of candidate recipes.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -471,9 +480,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>
         /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a>
         /// to apply to the solution.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -573,11 +583,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.AutoMLConfig_RecipeList = new List<System.String>(this.AutoMLConfig_RecipeList);
             }
             context.AutoTrainingConfig_SchedulingExpression = this.AutoTrainingConfig_SchedulingExpression;
+            context.SolutionConfig_EventValueThreshold = this.SolutionConfig_EventValueThreshold;
             if (this.EventsConfig_EventParametersList != null)
             {
                 context.EventsConfig_EventParametersList = new List<Amazon.Personalize.Model.EventParameters>(this.EventsConfig_EventParametersList);
             }
-            context.SolutionConfig_EventValueThreshold = this.SolutionConfig_EventValueThreshold;
             if (this.SolutionConfig_FeatureTransformationParameter != null)
             {
                 context.SolutionConfig_FeatureTransformationParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -1102,8 +1112,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String AutoMLConfig_MetricName { get; set; }
             public List<System.String> AutoMLConfig_RecipeList { get; set; }
             public System.String AutoTrainingConfig_SchedulingExpression { get; set; }
-            public List<Amazon.Personalize.Model.EventParameters> EventsConfig_EventParametersList { get; set; }
             public System.String SolutionConfig_EventValueThreshold { get; set; }
+            public List<Amazon.Personalize.Model.EventParameters> EventsConfig_EventParametersList { get; set; }
             public Dictionary<System.String, System.String> SolutionConfig_FeatureTransformationParameter { get; set; }
             public List<Amazon.Personalize.Model.CategoricalHyperParameterRange> AlgorithmHyperParameterRanges_CategoricalHyperParameterRange { get; set; }
             public List<Amazon.Personalize.Model.ContinuousHyperParameterRange> AlgorithmHyperParameterRanges_ContinuousHyperParameterRange { get; set; }

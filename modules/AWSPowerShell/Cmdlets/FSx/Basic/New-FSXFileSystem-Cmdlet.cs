@@ -460,9 +460,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The configuration object for mounting a file system.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -532,9 +533,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// These route tables are tagged with <c>Key: AmazonFSx; Value: ManagedByAmazonFSx</c>.
         /// When creating FSx for ONTAP Multi-AZ file systems using CloudFormation we recommend
         /// that you add the <c>Key: AmazonFSx; Value: ManagedByAmazonFSx</c> tag manually.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -550,9 +552,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// routing traffic to the correct file server. You should specify all virtual private
         /// cloud (VPC) route tables associated with the subnets in which your clients are located.
         /// By default, Amazon FSx selects your VPC's default route table.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -568,9 +571,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// for file system access. This list isn't returned in later requests to describe the
         /// file system.</para><important><para>You must specify a security group if you are creating a Multi-AZ FSx for ONTAP file
         /// system in a VPC subnet that has been shared with you.</para></important><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -653,17 +657,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>Specifies the IDs of the subnets that the file system will be accessible from. For
         /// Windows and ONTAP <c>MULTI_AZ_1</c> deployment types,provide exactly two subnet IDs,
         /// one for the preferred file server and one for the standby file server. You specify
-        /// one of these subnets as the preferred subnet using the <c>WindowsConfiguration &gt;
-        /// PreferredSubnetID</c> or <c>OntapConfiguration &gt; PreferredSubnetID</c> properties.
-        /// For more information about Multi-AZ file system configuration, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
+        /// one of these subnets as the preferred subnet using the <c>WindowsConfiguration &gt; PreferredSubnetID</c>
+        /// or <c>OntapConfiguration &gt; PreferredSubnetID</c> properties. For more information
+        /// about Multi-AZ file system configuration, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
         /// Availability and durability: Single-AZ and Multi-AZ file systems</a> in the <i>Amazon
         /// FSx for Windows User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">
         /// Availability and durability</a> in the <i>Amazon FSx for ONTAP User Guide</i>.</para><para>For Windows <c>SINGLE_AZ_1</c> and <c>SINGLE_AZ_2</c> and all Lustre deployment types,
         /// provide exactly one subnet ID. The file server is launched in that subnet's Availability
         /// Zone.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -684,9 +689,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>The tags to apply to the file system that's being created. The key value of the <c>Name</c>
         /// tag appears in the console as the file system name.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -743,9 +749,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>An object specifying how much storage users or groups can use on the volume.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

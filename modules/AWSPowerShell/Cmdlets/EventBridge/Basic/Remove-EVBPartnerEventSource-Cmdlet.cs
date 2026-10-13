@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// <para>
     /// When you delete an event source, the status of the corresponding partner event bus
     /// in the Amazon Web Services customer account becomes DELETED.
-    /// </para>
+    /// </para><para></para>
     /// </summary>
     [Cmdlet("Remove", "EVBPartnerEventSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

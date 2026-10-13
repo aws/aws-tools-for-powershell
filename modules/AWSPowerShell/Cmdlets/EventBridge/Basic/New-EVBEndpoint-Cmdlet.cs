@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// <summary>
     /// Creates a global endpoint. Global endpoints improve your application's availability
     /// by making it regional-fault tolerant. To do this, you define a primary and secondary
-    /// Region with event buses in each Region. You also create a Amazon Route 53 health check
+    /// Region with event buses in each Region. You also create a Amazon Route 53 health check
     /// that will tell EventBridge to route events to the secondary Region when an "unhealthy"
     /// state is encountered and events will be routed back to the primary Region when the
     /// health check reports a "healthy" state.
@@ -63,9 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>Define the event buses used. </para><important><para>The names of the event buses must be identical in each Region.</para></important><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

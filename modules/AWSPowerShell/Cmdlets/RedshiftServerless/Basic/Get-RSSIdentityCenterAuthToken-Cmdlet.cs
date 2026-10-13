@@ -61,9 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <para>
         /// <para>A list of workgroup names for which to generate the Identity Center authentication
         /// token.</para><para>Constraints:</para><ul><li><para>Must contain between 1 and 20 workgroup names.</para></li><li><para>Each workgroup name must be a valid Amazon Redshift Serverless workgroup identifier.</para></li><li><para>All specified workgroups must have Identity Center integration enabled.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

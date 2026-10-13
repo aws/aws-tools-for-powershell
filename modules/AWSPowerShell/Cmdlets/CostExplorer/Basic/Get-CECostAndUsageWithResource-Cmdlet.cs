@@ -124,9 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <c>TAG</c>, <c>COST_CATEGORY</c>, and <c>PRODUCT_ATTRIBUTE</c>.</para><para><c>PRODUCT_ATTRIBUTE</c> groups work the same way as in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetCostAndUsage.html">GetCostAndUsage</a>.
         /// A <c>PRODUCT_ATTRIBUTE</c> group or a <c>ProductAttributes</c> filter doesn't meet
         /// the requirement to group by or filter by a <c>ResourceId</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -147,9 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// hours and data transfer are measured in different units (for example, hour or GB).
         /// To get more meaningful <c>UsageQuantity</c> metrics, filter by <c>UsageType</c> or
         /// <c>UsageTypeGroups</c>. </para></note><para><c>Metrics</c> is required for <c>GetCostAndUsageWithResources</c> requests.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

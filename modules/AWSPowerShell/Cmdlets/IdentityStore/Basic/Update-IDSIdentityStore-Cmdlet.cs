@@ -53,9 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// required by <c>VpceAccessRequired</c>, and even if it doesn't originate from a VPC
         /// in <c>ApiRestrictSourceVpcs</c>. If you don't specify a value, no such IP address
         /// exception applies.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -72,9 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// list, or from an IP address in <c>ApiAllowSourceIps</c> if you specified one. If you
         /// don't specify a value, access isn't restricted to specific VPCs, but the VPC endpoint
         /// requirement set by <c>VpceAccessRequired</c> still applies.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -111,9 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// requirement set by <c>VpceAccessRequired</c>.</para><para>For example, to allow SCIM traffic from the public internet while still requiring
         /// the identity store API operations to be accessed through a VPC endpoint, set <c>VpceAccessRequired</c>
         /// to <c>true</c> and set this value to <c>0.0.0.0/0</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

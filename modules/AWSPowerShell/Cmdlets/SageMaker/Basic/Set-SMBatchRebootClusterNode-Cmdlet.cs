@@ -87,9 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// 1 and 25 instance IDs.</para><note><ul><li><para>Either <c>NodeIds</c> or <c>NodeLogicalIds</c> must be provided (or both), but at
         /// least one is required.</para></li><li><para>Each instance ID must follow the pattern <c>i-</c> followed by 17 hexadecimal characters
         /// (for example, <c>i-0123456789abcdef0</c>).</para></li></ul></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -107,9 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// yet have an EC2 instance ID assigned.</para><important><ul><li><para>This parameter is only supported for clusters using <c>Continuous</c> as the <c>NodeProvisioningMode</c>.
         /// For clusters using the default provisioning mode, use <c>NodeIds</c> instead.</para></li><li><para>Either <c>NodeIds</c> or <c>NodeLogicalIds</c> must be provided (or both), but at
         /// least one is required.</para></li></ul></important><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

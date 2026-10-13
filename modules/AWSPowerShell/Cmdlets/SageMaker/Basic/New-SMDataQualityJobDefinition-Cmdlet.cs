@@ -61,9 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The arguments to send to the container that the monitoring job runs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -76,9 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The entrypoint for a container used to run a monitoring job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -161,9 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Sets the environment variables in the container that the monitoring job runs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -380,9 +383,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring
         /// jobs is uploaded.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -576,9 +580,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
         /// for the VPC that is specified in the <c>Subnets</c> field.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -619,9 +624,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
         /// model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
         /// Instance Types and Availability Zones</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -636,9 +642,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">
         /// Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
         /// User Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -766,8 +773,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.BatchTransformInput_S3DataDistributionType = this.BatchTransformInput_S3DataDistributionType;
             context.BatchTransformInput_S3InputMode = this.BatchTransformInput_S3InputMode;
             context.BatchTransformInput_StartTimeOffset = this.BatchTransformInput_StartTimeOffset;
-            context.EndpointInput_EndpointName = this.EndpointInput_EndpointName;
             context.EndpointInput_EndTimeOffset = this.EndpointInput_EndTimeOffset;
+            context.EndpointInput_EndpointName = this.EndpointInput_EndpointName;
             context.EndpointInput_ExcludeFeaturesAttribute = this.EndpointInput_ExcludeFeaturesAttribute;
             context.EndpointInput_FeaturesAttribute = this.EndpointInput_FeaturesAttribute;
             context.EndpointInput_InferenceAttribute = this.EndpointInput_InferenceAttribute;
@@ -1002,16 +1009,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate EndpointInput
             var requestDataQualityJobInput_dataQualityJobInput_EndpointInputIsNull = true;
             requestDataQualityJobInput_dataQualityJobInput_EndpointInput = new Amazon.SageMaker.Model.EndpointInput();
-            System.String requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndpointName = null;
-            if (cmdletContext.EndpointInput_EndpointName != null)
-            {
-                requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndpointName = cmdletContext.EndpointInput_EndpointName;
-            }
-            if (requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndpointName != null)
-            {
-                requestDataQualityJobInput_dataQualityJobInput_EndpointInput.EndpointName = requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndpointName;
-                requestDataQualityJobInput_dataQualityJobInput_EndpointInputIsNull = false;
-            }
             System.String requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndTimeOffset = null;
             if (cmdletContext.EndpointInput_EndTimeOffset != null)
             {
@@ -1020,6 +1017,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndTimeOffset != null)
             {
                 requestDataQualityJobInput_dataQualityJobInput_EndpointInput.EndTimeOffset = requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndTimeOffset;
+                requestDataQualityJobInput_dataQualityJobInput_EndpointInputIsNull = false;
+            }
+            System.String requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndpointName = null;
+            if (cmdletContext.EndpointInput_EndpointName != null)
+            {
+                requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndpointName = cmdletContext.EndpointInput_EndpointName;
+            }
+            if (requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndpointName != null)
+            {
+                requestDataQualityJobInput_dataQualityJobInput_EndpointInput.EndpointName = requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_EndpointName;
                 requestDataQualityJobInput_dataQualityJobInput_EndpointInputIsNull = false;
             }
             System.String requestDataQualityJobInput_dataQualityJobInput_EndpointInput_endpointInput_ExcludeFeaturesAttribute = null;
@@ -1593,8 +1600,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.ProcessingS3DataDistributionType BatchTransformInput_S3DataDistributionType { get; set; }
             public Amazon.SageMaker.ProcessingS3InputMode BatchTransformInput_S3InputMode { get; set; }
             public System.String BatchTransformInput_StartTimeOffset { get; set; }
-            public System.String EndpointInput_EndpointName { get; set; }
             public System.String EndpointInput_EndTimeOffset { get; set; }
+            public System.String EndpointInput_EndpointName { get; set; }
             public System.String EndpointInput_ExcludeFeaturesAttribute { get; set; }
             public System.String EndpointInput_FeaturesAttribute { get; set; }
             public System.String EndpointInput_InferenceAttribute { get; set; }

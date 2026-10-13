@@ -30,7 +30,7 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Creates a Route 53 Resolver on an Outpost.
+    /// Creates a Route 53 Resolver on an Outpost.
     /// 
     ///  <note><para>
     /// This operation applies to first-generation Outposts only. On second-generation Outposts,
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A friendly name that lets you easily find a configuration in the Resolver dashboard
-        /// in the Route 53 console.</para>
+        /// in the Route 53 console.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -137,10 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> A string that helps identify the Route 53 Resolvers on Outpost. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// <para> A string that helps identify the Route 53 Resolvers on Outpost. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

@@ -60,9 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// or exclude the resources that match the statement from the list. The match statement
         /// consists of a key and a value.</para><para><b>Filter properties</b></para><ul><li><para><c>Condition</c> - The condition to apply. Valid values are <c>IS</c> and <c>IS_NOT</c>.</para></li><li><para><c>Key</c> - The name of the parameter to filter on. The only valid value is <c>EvaluationState</c>.</para></li><li><para><c>Value</c> - The value to match. Valid values are only <c>SUCCESS</c> or <c>FAILURE</c>.</para></li></ul><para>For example, to list only successful monitor evaluations, you would specify:</para><para><c>"Filters": [ { "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS"
         /// } ]</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

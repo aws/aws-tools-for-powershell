@@ -71,9 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>Specifies the table fields returned by the <c>GetTable</c> call. This parameter doesn't
         /// accept an empty list.</para><para>The following are the valid combinations of values:</para><ul><li><para><c>DEFAULT</c> - Returns the Hive-style table definition only.</para></li><li><para><c>LATEST_ICEBERG_METADATA</c> - Returns only the latest Apache Iceberg table metadata.</para></li><li><para><c>DEFAULT</c>, <c>LATEST_ICEBERG_METADATA</c> - Returns both the Hive-style table
         /// definition and the latest Apache Iceberg table metadata.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -155,9 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The requested columns for audit.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

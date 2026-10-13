@@ -122,9 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.MH
         /// section below for a use case of specifying "VM" related values.</para></li><li><para> If a server you are trying to match has multiple IP or MAC addresses, you should
         /// provide as many as you know in separate type/value pairs passed to the <c>ResourceAttributeList</c>
         /// parameter to maximize the chances of matching.</para></li></ul></important><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

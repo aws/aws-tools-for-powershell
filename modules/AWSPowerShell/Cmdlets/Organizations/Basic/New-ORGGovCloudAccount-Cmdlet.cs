@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// is available only in the management account's event history only for the linked commercial
     /// account. This event includes <c>joinedMethod:Created</c> and <c>joinedTime</c> fields
     /// to provide context on how and when the account joined the organization.
-    /// </para><para>
+    /// </para><para></para><para>
     /// When you call the <c>CreateGovCloudAccount</c> action, you create two accounts: a
     /// standalone account in the Amazon Web Services GovCloud (US) Region and an associated
     /// account in the commercial Region for billing and support purposes. The account in
@@ -246,9 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging
         /// Organizations resources</a> in the Organizations User Guide.</para><note><para>If any one of the tags is not valid or if you exceed the maximum allowed number of
         /// tags for an account, then the entire request fails and the account is not created.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

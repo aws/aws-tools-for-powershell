@@ -336,6 +336,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public Amazon.Route53Domains.CountryCode TechContact_CountryCode { get; set; }
         #endregion
         
+        #region Parameter Consent_Currency
+        /// <summary>
+        /// <para>
+        /// <para> The currency for the <c>MaxPrice</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Consent_Currency { get; set; }
+        #endregion
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>
@@ -602,6 +612,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TechContact_LastName { get; set; }
+        #endregion
+        
+        #region Parameter Consent_MaxPrice
+        /// <summary>
+        /// <para>
+        /// <para> The maximum amount that you agree to accept. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? Consent_MaxPrice { get; set; }
         #endregion
         
         #region Parameter Nameserver
@@ -921,6 +941,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             context.BillingContact_PhoneNumber = this.BillingContact_PhoneNumber;
             context.BillingContact_State = this.BillingContact_State;
             context.BillingContact_ZipCode = this.BillingContact_ZipCode;
+            context.Consent_Currency = this.Consent_Currency;
+            context.Consent_MaxPrice = this.Consent_MaxPrice;
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -1293,6 +1315,35 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestBillingContactIsNull)
             {
                 request.BillingContact = null;
+            }
+            
+             // populate Consent
+            var requestConsentIsNull = true;
+            request.Consent = new Amazon.Route53Domains.Model.Consent();
+            System.String requestConsent_consent_Currency = null;
+            if (cmdletContext.Consent_Currency != null)
+            {
+                requestConsent_consent_Currency = cmdletContext.Consent_Currency;
+            }
+            if (requestConsent_consent_Currency != null)
+            {
+                request.Consent.Currency = requestConsent_consent_Currency;
+                requestConsentIsNull = false;
+            }
+            System.Double? requestConsent_consent_MaxPrice = null;
+            if (cmdletContext.Consent_MaxPrice != null)
+            {
+                requestConsent_consent_MaxPrice = cmdletContext.Consent_MaxPrice.Value;
+            }
+            if (requestConsent_consent_MaxPrice != null)
+            {
+                request.Consent.MaxPrice = requestConsent_consent_MaxPrice.Value;
+                requestConsentIsNull = false;
+            }
+             // determine if request.Consent should be set to null
+            if (requestConsentIsNull)
+            {
+                request.Consent = null;
             }
             if (cmdletContext.DomainName != null)
             {
@@ -1709,6 +1760,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             public System.String BillingContact_PhoneNumber { get; set; }
             public System.String BillingContact_State { get; set; }
             public System.String BillingContact_ZipCode { get; set; }
+            public System.String Consent_Currency { get; set; }
+            public System.Double? Consent_MaxPrice { get; set; }
             public System.String DomainName { get; set; }
             public System.Int32? DurationInYears { get; set; }
             public System.String IdnLangCode { get; set; }

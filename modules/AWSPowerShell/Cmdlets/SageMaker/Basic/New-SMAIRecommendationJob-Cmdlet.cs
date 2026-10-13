@@ -99,9 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>An array of performance constraints that define the optimization objectives.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -133,9 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The list of instance types to consider for recommendations. You can specify up to
         /// 3 instance types.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -178,9 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The list of ML reservation ARNs to use.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -195,9 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>A list of LoRA adapters identified by their model package ARNs. Use this when your
         /// adapters were produced by a SageMaker AI fine-tuning workflow that registers model
         /// packages.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -271,9 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A list of LoRA adapters identified by their Amazon S3 URIs. Use this when your adapters
         /// are stored as raw artifacts in Amazon S3.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -286,9 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The metadata that you apply to Amazon Web Services resources to help you categorize
         /// and organize them.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -343,14 +349,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.CreateAIRecommendationJobResponse, NewSMAIRecommendationJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.AdapterSource_ModelPackageArn != null)
-            {
-                context.AdapterSource_ModelPackageArn = new List<Amazon.SageMaker.Model.AIAdapterModelPackageEntry>(this.AdapterSource_ModelPackageArn);
-            }
-            if (this.AdapterSource_S3Uris != null)
-            {
-                context.AdapterSource_S3Uris = new List<Amazon.SageMaker.Model.AIAdapterS3Entry>(this.AdapterSource_S3Uris);
-            }
             context.AIRecommendationJobName = this.AIRecommendationJobName;
             #if MODULAR
             if (this.AIRecommendationJobName == null && ParameterWasBound(nameof(this.AIRecommendationJobName)))
@@ -365,6 +363,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter AIWorkloadConfigIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.AdapterSource_ModelPackageArn != null)
+            {
+                context.AdapterSource_ModelPackageArn = new List<Amazon.SageMaker.Model.AIAdapterModelPackageEntry>(this.AdapterSource_ModelPackageArn);
+            }
+            if (this.AdapterSource_S3Uris != null)
+            {
+                context.AdapterSource_S3Uris = new List<Amazon.SageMaker.Model.AIAdapterS3Entry>(this.AdapterSource_S3Uris);
+            }
             context.ComputeSpec_CapacityReservationConfig_CapacityReservationPreference = this.ComputeSpec_CapacityReservationConfig_CapacityReservationPreference;
             if (this.ComputeSpec_CapacityReservationConfig_MlReservationArn != null)
             {
@@ -419,6 +425,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateAIRecommendationJobRequest();
             
+            if (cmdletContext.AIRecommendationJobName != null)
+            {
+                request.AIRecommendationJobName = cmdletContext.AIRecommendationJobName;
+            }
+            if (cmdletContext.AIWorkloadConfigIdentifier != null)
+            {
+                request.AIWorkloadConfigIdentifier = cmdletContext.AIWorkloadConfigIdentifier;
+            }
             
              // populate AdapterSource
             var requestAdapterSourceIsNull = true;
@@ -447,14 +461,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAdapterSourceIsNull)
             {
                 request.AdapterSource = null;
-            }
-            if (cmdletContext.AIRecommendationJobName != null)
-            {
-                request.AIRecommendationJobName = cmdletContext.AIRecommendationJobName;
-            }
-            if (cmdletContext.AIWorkloadConfigIdentifier != null)
-            {
-                request.AIWorkloadConfigIdentifier = cmdletContext.AIWorkloadConfigIdentifier;
             }
             
              // populate ComputeSpec
@@ -723,10 +729,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SageMaker.Model.AIAdapterModelPackageEntry> AdapterSource_ModelPackageArn { get; set; }
-            public List<Amazon.SageMaker.Model.AIAdapterS3Entry> AdapterSource_S3Uris { get; set; }
             public System.String AIRecommendationJobName { get; set; }
             public System.String AIWorkloadConfigIdentifier { get; set; }
+            public List<Amazon.SageMaker.Model.AIAdapterModelPackageEntry> AdapterSource_ModelPackageArn { get; set; }
+            public List<Amazon.SageMaker.Model.AIAdapterS3Entry> AdapterSource_S3Uris { get; set; }
             public Amazon.SageMaker.AICapacityReservationPreference ComputeSpec_CapacityReservationConfig_CapacityReservationPreference { get; set; }
             public List<System.String> ComputeSpec_CapacityReservationConfig_MlReservationArn { get; set; }
             public List<System.String> ComputeSpec_InstanceType { get; set; }

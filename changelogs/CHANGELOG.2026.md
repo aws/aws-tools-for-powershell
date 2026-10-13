@@ -1,4 +1,52 @@
-﻿### 5.0.316 (2026-10-12 19:05Z)
+﻿### 5.0.317 (2026-10-13 19:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.352.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppIntegrations Service
+    * Modified cmdlet New-AISApplication: added parameter AuthConfig_AudienceOverride.
+    * Modified cmdlet Update-AISApplication: added parameter AuthConfig_AudienceOverride.
+  * Amazon AppStream
+    * Modified cmdlet New-APSStack: added parameter StorageConnectorAuthentication.
+    * Modified cmdlet Update-APSStack: added parameter StorageConnectorAuthentication.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNContactFlowAliasDetail leveraging the DescribeContactFlowAlias service API.
+    * Added cmdlet Get-CONNContactFlowAliasList leveraging the ListContactFlowAliases service API.
+    * Added cmdlet New-CONNContactFlowAlias leveraging the CreateContactFlowAlias service API.
+    * Added cmdlet Remove-CONNContactFlowAlias leveraging the DeleteContactFlowAlias service API.
+    * Added cmdlet Update-CONNContactFlowAlias leveraging the UpdateContactFlowAlias service API.
+  * Amazon Glue
+    * Modified cmdlet Edit-GLUEIntegration: added parameter IntegrationConfig_TargetNamespace.
+    * Modified cmdlet New-GLUEIntegration: added parameter IntegrationConfig_TargetNamespace.
+  * Amazon Lake Formation
+    * Added cmdlet Dismount-LKFRLSPolicy leveraging the DetachRLSPolicy service API.
+    * Added cmdlet Get-LKFRLSPolicy leveraging the GetRLSPolicy service API.
+    * Added cmdlet Get-LKFRLSPolicyAttachmentList leveraging the ListRLSPolicyAttachments service API.
+    * Added cmdlet Get-LKFRLSPolicyList leveraging the ListRLSPolicies service API.
+    * Added cmdlet Mount-LKFRLSPolicy leveraging the AttachRLSPolicy service API.
+    * Added cmdlet New-LKFRLSPolicy leveraging the CreateRLSPolicy service API.
+    * Added cmdlet Remove-LKFRLSPolicy leveraging the DeleteRLSPolicy service API.
+    * Added cmdlet Update-LKFRLSPolicy leveraging the UpdateRLSPolicy service API.
+    * Modified cmdlet Add-LKFLFTagsToResource: added parameters Resource_RLSPolicy_CatalogId and Resource_RLSPolicy_Name.
+    * Modified cmdlet Get-LKFLakeFormationOptInList: added parameters Resource_RLSPolicy_CatalogId and Resource_RLSPolicy_Name.
+    * Modified cmdlet Get-LKFPermissionList: added parameters Resource_RLSPolicy_CatalogId and Resource_RLSPolicy_Name.
+    * Modified cmdlet Get-LKFResourceLFTag: added parameters Resource_RLSPolicy_CatalogId and Resource_RLSPolicy_Name.
+    * Modified cmdlet Grant-LKFPermission: added parameters Resource_RLSPolicy_CatalogId and Resource_RLSPolicy_Name.
+    * Modified cmdlet New-LKFLakeFormationOptIn: added parameters Resource_RLSPolicy_CatalogId and Resource_RLSPolicy_Name.
+    * Modified cmdlet Remove-LKFLakeFormationOptIn: added parameters Resource_RLSPolicy_CatalogId and Resource_RLSPolicy_Name.
+    * Modified cmdlet Remove-LKFLFTagsFromResource: added parameters Resource_RLSPolicy_CatalogId and Resource_RLSPolicy_Name.
+    * Modified cmdlet Revoke-LKFPermission: added parameters Resource_RLSPolicy_CatalogId and Resource_RLSPolicy_Name.
+  * Amazon Resilience Hub V2
+    * Modified cmdlet New-RH2Service: added parameter DevOpsAgentConfiguration_AgentSpaceArn.
+    * Modified cmdlet Update-RH2Service: added parameter DevOpsAgentConfiguration_AgentSpaceArn.
+  * Amazon Route 53 Domains
+    * Added cmdlet Get-R53DDomainPrice leveraging the GetDomainPrices service API.
+    * Modified cmdlet Get-R53DDomainSuggestion: added parameter OnlyStandardPrice.
+    * Modified cmdlet Invoke-R53DDomainTransfer: added parameters Consent_Currency and Consent_MaxPrice.
+    * Modified cmdlet Register-R53DDomain: added parameters Consent_Currency and Consent_MaxPrice.
+    * Modified cmdlet Update-R53DDomainRenewal: added parameters Consent_Currency and Consent_MaxPrice.
+  * Amazon Security Hub
+    * Modified cmdlet New-SHUBAutomationRuleV2: added parameters Criteria_ResourceCriteria_CompositeFilter and Criteria_ResourceCriteria_CompositeOperator.
+    * Modified cmdlet Update-SHUBAutomationRuleV2: added parameters Criteria_ResourceCriteria_CompositeFilter and Criteria_ResourceCriteria_CompositeOperator.
+
+### 5.0.316 (2026-10-12 19:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.351.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock AgentCore Data Plane Fronting Layer
     * Modified cmdlet New-BACBatchMemoryRecord: added parameters RecordExpirySpecification_Action and RecordExpirySpecification_RecordExpiryDurationDay.

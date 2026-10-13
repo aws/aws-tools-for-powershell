@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// If you provide the same image, specify the same collection, and use the same external
     /// ID in the <c>IndexFaces</c> operation, Amazon Rekognition doesn't save duplicate face
     /// metadata.
-    /// </para><para>
+    /// </para><para></para><para>
     /// The input image is passed either as base64-encoded image bytes, or as a reference
     /// to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition
     /// operations, passing image bytes isn't supported. The image must be formatted as a
@@ -188,9 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// or just <c>["FACE_OCCLUDED"]</c>. You can request for all facial attributes by using
         /// <c>["ALL"]</c>. Requesting more attributes may increase response time.</para><para>If you provide both, <c>["ALL", "DEFAULT"]</c>, the service uses a logical AND operator
         /// to determine which attributes to return (in this case, all attributes). </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

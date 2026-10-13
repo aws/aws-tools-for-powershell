@@ -38,7 +38,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CheckDomainAvailability" OutputProperty="Availability" Verb="Test" Noun="DomainAvailability" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-R53DDomainAvailability" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="CheckDomainAvailability" OutputProperty="Availability" Verb="Test" Noun="DomainAvailability" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-R53DDomainAvailability">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -82,6 +82,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainPrices" OutputProperty="DomainPrice" Verb="Get" Noun="DomainPrice" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDomainSuggestions" OutputProperty="SuggestionsList" Verb="Get" Noun="DomainSuggestion" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -90,11 +94,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyAlias="Get-R53DDomains" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-R53DDomains">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOperations" OutputProperty="Operations" Verb="Get" Noun="OperationList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyAlias="Get-R53DOperations" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListOperations" OutputProperty="Operations" Verb="Get" Noun="OperationList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-R53DOperations">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -154,7 +158,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainNameservers" OutputProperty="OperationId" Verb="Update" Noun="DomainNameserver" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-R53DDomainNameservers" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateDomainNameservers" OutputProperty="OperationId" Verb="Update" Noun="DomainNameserver" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Update-R53DDomainNameservers">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -162,7 +166,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ViewBilling" OutputProperty="BillingRecords" Verb="Get" Noun="BillingRecord" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ViewBilling" OutputProperty="BillingRecords" Verb="Get" Noun="BillingRecord" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextPageMarker" EmitLimit="MaxItems" ServicePageSize="20" PageSizeIsRequired="true" />
             <TypesNotToFlatten />

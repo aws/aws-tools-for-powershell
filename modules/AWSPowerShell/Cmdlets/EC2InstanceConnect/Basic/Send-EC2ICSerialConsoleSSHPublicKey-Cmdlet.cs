@@ -147,7 +147,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IC
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SerialPort = this.SerialPort;
             context.SSHPublicKey = this.SSHPublicKey;
             #if MODULAR
             if (this.SSHPublicKey == null && ParameterWasBound(nameof(this.SSHPublicKey)))
@@ -155,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IC
                 WriteWarning("You are passing $null as a value for parameter SSHPublicKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SerialPort = this.SerialPort;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,13 +175,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IC
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.SerialPort != null)
-            {
-                request.SerialPort = cmdletContext.SerialPort.Value;
-            }
             if (cmdletContext.SSHPublicKey != null)
             {
                 request.SSHPublicKey = cmdletContext.SSHPublicKey;
+            }
+            if (cmdletContext.SerialPort != null)
+            {
+                request.SerialPort = cmdletContext.SerialPort.Value;
             }
             
             CmdletOutput output;
@@ -239,8 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InstanceId { get; set; }
-            public System.Int32? SerialPort { get; set; }
             public System.String SSHPublicKey { get; set; }
+            public System.Int32? SerialPort { get; set; }
             public System.Func<Amazon.EC2InstanceConnect.Model.SendSerialConsoleSSHPublicKeyResponse, SendEC2ICSerialConsoleSSHPublicKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Success;
         }

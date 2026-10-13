@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DevOpsAgentConfiguration_AgentSpaceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the DevOps Agent Agent Space to link to this service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DevOpsAgentConfiguration_AgentSpaceArn { get; set; }
+        #endregion
+        
         #region Parameter AssociatedSystem
         /// <summary>
         /// <para>
@@ -214,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             }
             context.DependencyDiscovery = this.DependencyDiscovery;
             context.Description = this.Description;
+            context.DevOpsAgentConfiguration_AgentSpaceArn = this.DevOpsAgentConfiguration_AgentSpaceArn;
             if (this.PermissionModel_CrossAccountRole != null)
             {
                 context.PermissionModel_CrossAccountRole = new List<Amazon.Resiliencehubv2.Model.CrossAccountRole>(this.PermissionModel_CrossAccountRole);
@@ -262,6 +273,25 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate DevOpsAgentConfiguration
+            var requestDevOpsAgentConfigurationIsNull = true;
+            request.DevOpsAgentConfiguration = new Amazon.Resiliencehubv2.Model.DevOpsAgentConfiguration();
+            System.String requestDevOpsAgentConfiguration_devOpsAgentConfiguration_AgentSpaceArn = null;
+            if (cmdletContext.DevOpsAgentConfiguration_AgentSpaceArn != null)
+            {
+                requestDevOpsAgentConfiguration_devOpsAgentConfiguration_AgentSpaceArn = cmdletContext.DevOpsAgentConfiguration_AgentSpaceArn;
+            }
+            if (requestDevOpsAgentConfiguration_devOpsAgentConfiguration_AgentSpaceArn != null)
+            {
+                request.DevOpsAgentConfiguration.AgentSpaceArn = requestDevOpsAgentConfiguration_devOpsAgentConfiguration_AgentSpaceArn;
+                requestDevOpsAgentConfigurationIsNull = false;
+            }
+             // determine if request.DevOpsAgentConfiguration should be set to null
+            if (requestDevOpsAgentConfigurationIsNull)
+            {
+                request.DevOpsAgentConfiguration = null;
             }
             
              // populate PermissionModel
@@ -381,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             public List<Amazon.Resiliencehubv2.Model.AssociatedSystem> AssociatedSystem { get; set; }
             public Amazon.Resiliencehubv2.DependencyDiscoveryInput DependencyDiscovery { get; set; }
             public System.String Description { get; set; }
+            public System.String DevOpsAgentConfiguration_AgentSpaceArn { get; set; }
             public List<Amazon.Resiliencehubv2.Model.CrossAccountRole> PermissionModel_CrossAccountRole { get; set; }
             public System.String PermissionModel_InvokerRoleName { get; set; }
             public System.String PolicyArn { get; set; }

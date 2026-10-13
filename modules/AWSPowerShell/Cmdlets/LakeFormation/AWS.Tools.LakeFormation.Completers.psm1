@@ -135,7 +135,10 @@ $LKF_Completers = {
             ($_ -eq "New-LKFLakeFormationOptIn/LFTagPolicy_ResourceType") -Or
             ($_ -eq "Remove-LKFLakeFormationOptIn/LFTagPolicy_ResourceType") -Or
             ($_ -eq "Remove-LKFLFTagsFromResource/LFTagPolicy_ResourceType") -Or
-            ($_ -eq "Revoke-LKFPermission/LFTagPolicy_ResourceType")
+            ($_ -eq "Revoke-LKFPermission/LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Dismount-LKFRLSPolicy/Resource_LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Get-LKFRLSPolicyAttachmentList/Resource_LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Mount-LKFRLSPolicy/Resource_LFTagPolicy_ResourceType")
         }
         {
             $v = "DATABASE","TABLE"
@@ -169,6 +172,7 @@ $LKF_map = @{
     "CredentialsScope"=@("Get-LKFTemporaryDataLocationCredential")
     "ExternalFiltering_Status"=@("New-LKFLakeFormationIdentityCenterConfiguration","Update-LKFLakeFormationIdentityCenterConfiguration")
     "LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
+    "Resource_LFTagPolicy_ResourceType"=@("Dismount-LKFRLSPolicy","Get-LKFRLSPolicyAttachmentList","Mount-LKFRLSPolicy")
     "ResourceShareType"=@("Get-LKFLFTagList")
     "ResourceType"=@("Get-LKFPermissionList")
     "StatusFilter"=@("Get-LKFTransactionList")
@@ -227,6 +231,7 @@ $LKF_SelectCompleters = {
 
 $LKF_SelectMap = @{
     "Select"=@("Add-LKFLFTagsToResource",
+               "Mount-LKFRLSPolicy",
                "Grant-LKFPermissionBatch",
                "Revoke-LKFPermissionBatch",
                "Stop-LKFTransaction",
@@ -236,16 +241,19 @@ $LKF_SelectMap = @{
                "New-LKFLakeFormationOptIn",
                "New-LKFLFTag",
                "New-LKFLFTagExpression",
+               "New-LKFRLSPolicy",
                "Remove-LKFDataCellsFilter",
                "Remove-LKFLakeFormationIdentityCenterConfiguration",
                "Remove-LKFLakeFormationOptIn",
                "Remove-LKFLFTag",
                "Remove-LKFLFTagExpression",
                "Remove-LKFObjectsOnCancel",
+               "Remove-LKFRLSPolicy",
                "Unregister-LKFResource",
                "Get-LKFLakeFormationIdentityCenterConfiguration",
                "Get-LKFResource",
                "Get-LKFTransaction",
+               "Dismount-LKFRLSPolicy",
                "Invoke-LKFTransaction",
                "Get-LKFDataCellsFilter",
                "Get-LKFDataLakePrincipal",
@@ -256,6 +264,7 @@ $LKF_SelectMap = @{
                "Get-LKFQueryState",
                "Get-LKFQueryStatistic",
                "Get-LKFResourceLFTag",
+               "Get-LKFRLSPolicy",
                "Get-LKFTableObject",
                "Get-LKFTemporaryDataLocationCredential",
                "Get-LKFTemporaryGluePartitionCredential",
@@ -269,6 +278,8 @@ $LKF_SelectMap = @{
                "Get-LKFLFTagList",
                "Get-LKFPermissionList",
                "Get-LKFResourceList",
+               "Get-LKFRLSPolicyList",
+               "Get-LKFRLSPolicyAttachmentList",
                "Get-LKFTableStorageOptimizerList",
                "Get-LKFTransactionList",
                "Write-LKFDataLakeSetting",
@@ -284,6 +295,7 @@ $LKF_SelectMap = @{
                "Update-LKFLFTag",
                "Update-LKFLFTagExpression",
                "Update-LKFResource",
+               "Update-LKFRLSPolicy",
                "Update-LKFTableObject",
                "Update-LKFTableStorageOptimizer")
 }

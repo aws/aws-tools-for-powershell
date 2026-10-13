@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <para>If <c>OnlyAvailable</c> is <c>true</c>, Route 53 returns only domain names that are
         /// available. If <c>OnlyAvailable</c> is <c>false</c>, Route 53 returns domain names
         /// without checking whether they're available to be registered. To determine whether
-        /// the domain is available, you can call <c>checkDomainAvailability</c> for each suggestion.</para>
+        /// the domain is available, call <c>checkDomainAvailability</c> for each suggestion.</para><para>If <c>OnlyAvailable</c> is <c>false</c>, Route 53 does not return pricing information
+        /// for the suggested domain names.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,6 +87,19 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? OnlyAvailable { get; set; }
+        #endregion
+        
+        #region Parameter OnlyStandardPrice
+        /// <summary>
+        /// <para>
+        /// <para>If <c>true</c>, Route 53 returns only domain names that are priced at the standard
+        /// registration rate for their TLD. If <c>false</c>, Route 53 includes domain names with
+        /// premium pricing in the suggestions list. The default is <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnlyStandardPrices")]
+        public System.Boolean? OnlyStandardPrice { get; set; }
         #endregion
         
         #region Parameter SuggestionCount
@@ -149,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 WriteWarning("You are passing $null as a value for parameter OnlyAvailable which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OnlyStandardPrice = this.OnlyStandardPrice;
             context.SuggestionCount = this.SuggestionCount;
             #if MODULAR
             if (this.SuggestionCount == null && ParameterWasBound(nameof(this.SuggestionCount)))
@@ -179,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (cmdletContext.OnlyAvailable != null)
             {
                 request.OnlyAvailable = cmdletContext.OnlyAvailable.Value;
+            }
+            if (cmdletContext.OnlyStandardPrice != null)
+            {
+                request.OnlyStandardPrices = cmdletContext.OnlyStandardPrice.Value;
             }
             if (cmdletContext.SuggestionCount != null)
             {
@@ -241,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             public System.String DomainName { get; set; }
             public System.Boolean? OnlyAvailable { get; set; }
+            public System.Boolean? OnlyStandardPrice { get; set; }
             public System.Int32? SuggestionCount { get; set; }
             public System.Func<Amazon.Route53Domains.Model.GetDomainSuggestionsResponse, GetR53DDomainSuggestionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SuggestionsList;

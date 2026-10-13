@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter Consent_Currency
         /// <summary>
         /// <para>
-        /// <para> Currency for the <c>MaxPrice</c>. </para>
+        /// <para> The currency for the <c>MaxPrice</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -539,7 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter Consent_MaxPrice
         /// <summary>
         /// <para>
-        /// <para> Maximum amount the customer agreed to accept. </para>
+        /// <para> The maximum amount that you agree to accept. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

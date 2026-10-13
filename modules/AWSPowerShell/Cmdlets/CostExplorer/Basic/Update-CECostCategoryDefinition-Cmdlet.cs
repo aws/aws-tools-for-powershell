@@ -90,9 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>The <c>Expression</c> object used to categorize costs. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule
         /// </a>. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -130,9 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para> The split charge rules used to allocate your charges between your cost category values.
         /// </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -196,6 +198,13 @@ namespace Amazon.PowerShell.Cmdlets.CE
             #endif
             context.DefaultValue = this.DefaultValue;
             context.EffectiveStart = this.EffectiveStart;
+            context.RuleVersion = this.RuleVersion;
+            #if MODULAR
+            if (this.RuleVersion == null && ParameterWasBound(nameof(this.RuleVersion)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RuleVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Rule != null)
             {
                 context.Rule = new List<Amazon.CostExplorer.Model.CostCategoryRule>(this.Rule);
@@ -204,13 +213,6 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (this.Rule == null && ParameterWasBound(nameof(this.Rule)))
             {
                 WriteWarning("You are passing $null as a value for parameter Rule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.RuleVersion = this.RuleVersion;
-            #if MODULAR
-            if (this.RuleVersion == null && ParameterWasBound(nameof(this.RuleVersion)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RuleVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.SplitChargeRule != null)
@@ -245,13 +247,13 @@ namespace Amazon.PowerShell.Cmdlets.CE
             {
                 request.EffectiveStart = cmdletContext.EffectiveStart;
             }
-            if (cmdletContext.Rule != null)
-            {
-                request.Rules = cmdletContext.Rule;
-            }
             if (cmdletContext.RuleVersion != null)
             {
                 request.RuleVersion = cmdletContext.RuleVersion;
+            }
+            if (cmdletContext.Rule != null)
+            {
+                request.Rules = cmdletContext.Rule;
             }
             if (cmdletContext.SplitChargeRule != null)
             {
@@ -315,8 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
             public System.String CostCategoryArn { get; set; }
             public System.String DefaultValue { get; set; }
             public System.String EffectiveStart { get; set; }
-            public List<Amazon.CostExplorer.Model.CostCategoryRule> Rule { get; set; }
             public Amazon.CostExplorer.CostCategoryRuleVersion RuleVersion { get; set; }
+            public List<Amazon.CostExplorer.Model.CostCategoryRule> Rule { get; set; }
             public List<Amazon.CostExplorer.Model.CostCategorySplitChargeRule> SplitChargeRule { get; set; }
             public System.Func<Amazon.CostExplorer.Model.UpdateCostCategoryDefinitionResponse, UpdateCECostCategoryDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

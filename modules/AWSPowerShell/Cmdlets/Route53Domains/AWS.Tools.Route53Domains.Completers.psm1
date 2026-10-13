@@ -231,6 +231,7 @@ $R53D_SelectMap = @{
                "Enable-R53DDomainTransferLock",
                "Get-R53DContactReachabilityStatus",
                "Get-R53DDomainDetail",
+               "Get-R53DDomainPrice",
                "Get-R53DDomainSuggestion",
                "Get-R53DOperationDetail",
                "Get-R53DDomainList",

@@ -76,9 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// uses to generate recommendations.</para><para> For example, you might have a column that you want to use only to filter recommendations.
         /// You can exclude this column from training and Amazon Personalize considers it only
         /// when filtering. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -95,9 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// of 256 characters, must contain only letters and underscores) and each value is an
         /// array of up to 50 column names. Column names can be up to 150 characters long, must
         /// start with a letter or underscore, and can contain only letters, numbers, and underscores.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -114,9 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// exploration Amazon Personalize uses when recommending items. Provide <c>itemExplorationConfig</c>
         /// data only if your recommenders generate personalized recommendations for a user (not
         /// popular items or similar items).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

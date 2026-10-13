@@ -102,9 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// to the account. That means that if the tag policy changes between the invitation and
         /// the acceptance, then that tags could potentially be non-compliant.</para></important><note><para>If any one of the tags is not valid or if you exceed the allowed number of tags for
         /// an account, then the entire request fails and invitations are not sent.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

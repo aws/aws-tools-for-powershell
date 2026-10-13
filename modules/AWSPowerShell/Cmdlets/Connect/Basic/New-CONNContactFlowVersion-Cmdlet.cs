@@ -32,8 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Publishes a new version of the flow provided. Versions are immutable and monotonically
     /// increasing. If the <c>FlowContentSha256</c> provided is different from the <c>FlowContentSha256</c>
-    /// of the <c>$LATEST</c> published flow content, then an error is returned. This API
-    /// only supports creating versions for flows of type <c>Campaign</c>.
+    /// of the <c>$LATEST</c> published flow content, then an error is returned.
     /// </summary>
     [Cmdlet("New", "CONNContactFlowVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateContactFlowVersionResponse")]

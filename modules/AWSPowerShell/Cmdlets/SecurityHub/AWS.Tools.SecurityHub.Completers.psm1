@@ -82,6 +82,8 @@ $SHUB_Completers = {
     {
         # Amazon.SecurityHub.AllowedOperators
         {
+            ($_ -eq "New-SHUBAutomationRuleV2/Criteria_ResourceCriteria_CompositeOperator") -Or
+            ($_ -eq "Update-SHUBAutomationRuleV2/Criteria_ResourceCriteria_CompositeOperator") -Or
             ($_ -eq "Get-SHUBFindingsTrendsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBFindingsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBResourcesTrendsV2/Filters_CompositeOperator") -Or
@@ -325,6 +327,7 @@ $SHUB_map = @{
     "ConnectorStatus"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "ControlFindingGenerator"=@("Enable-SHUBSecurityHub","Update-SHUBSecurityHubConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
+    "Criteria_ResourceCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "DataType"=@("Get-SHUBExportJobsV2List")
     "EnablementStatus"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "Feature"=@("Disable-SHUBOrganizationAdminAccount","Enable-SHUBOrganizationAdminAccount","Get-SHUBOrganizationAdminAccountList")

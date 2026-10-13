@@ -52,9 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// has been created or updated. If provided, the length of this list must equal the <c>ReplicationFactor</c>
         /// parameter. If you omit this parameter, DAX will spread the nodes across Availability
         /// Zones for the highest availability.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -222,9 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// <para>A list of security group IDs to be assigned to each node in the DAX cluster. (Each
         /// of the security group ID is system-generated.)</para><para>If this parameter is not specified, DAX assigns the default VPC security group to
         /// each node.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -248,9 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// <summary>
         /// <para>
         /// <para>A set of tags to associate with the DAX cluster. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -343,11 +346,11 @@ namespace Amazon.PowerShell.Cmdlets.DAX
                 WriteWarning("You are passing $null as a value for parameter ReplicationFactor which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SSESpecification_Enabled = this.SSESpecification_Enabled;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
             }
-            context.SSESpecification_Enabled = this.SSESpecification_Enabled;
             context.SubnetGroupName = this.SubnetGroupName;
             if (this.Tag != null)
             {
@@ -413,10 +416,6 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             {
                 request.ReplicationFactor = cmdletContext.ReplicationFactor.Value;
             }
-            if (cmdletContext.SecurityGroupId != null)
-            {
-                request.SecurityGroupIds = cmdletContext.SecurityGroupId;
-            }
             
              // populate SSESpecification
             var requestSSESpecificationIsNull = true;
@@ -435,6 +434,10 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             if (requestSSESpecificationIsNull)
             {
                 request.SSESpecification = null;
+            }
+            if (cmdletContext.SecurityGroupId != null)
+            {
+                request.SecurityGroupIds = cmdletContext.SecurityGroupId;
             }
             if (cmdletContext.SubnetGroupName != null)
             {
@@ -510,8 +513,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             public System.String ParameterGroupName { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Int32? ReplicationFactor { get; set; }
-            public List<System.String> SecurityGroupId { get; set; }
             public System.Boolean? SSESpecification_Enabled { get; set; }
+            public List<System.String> SecurityGroupId { get; set; }
             public System.String SubnetGroupName { get; set; }
             public List<Amazon.DAX.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.DAX.Model.CreateClusterResponse, NewDAXClusterCmdlet, object> Select { get; set; } =

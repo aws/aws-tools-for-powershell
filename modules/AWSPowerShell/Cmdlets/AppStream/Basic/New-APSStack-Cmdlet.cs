@@ -272,6 +272,21 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String ApplicationSettings_SettingsGroup { get; set; }
         #endregion
         
+        #region Parameter StorageConnectorAuthentication
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether users' cloud storage authentication persists across streaming sessions.
+        /// When you specify FORCE_REAUTHENTICATION, WorkSpaces Applications removes the stored
+        /// authentication for the stack's OneDrive and Google Drive connectors when a user's
+        /// session ends. The user links their cloud storage again on their next session. The
+        /// default is REUSE_CREDENTIALS.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppStream.StorageConnectorAuthentication")]
+        public Amazon.AppStream.StorageConnectorAuthentication StorageConnectorAuthentication { get; set; }
+        #endregion
+        
         #region Parameter StorageConnector
         /// <summary>
         /// <para>
@@ -419,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             #endif
             context.RedirectURL = this.RedirectURL;
+            context.StorageConnectorAuthentication = this.StorageConnectorAuthentication;
             if (this.StorageConnector != null)
             {
                 context.StorageConnector = new List<Amazon.AppStream.Model.StorageConnector>(this.StorageConnector);
@@ -632,6 +648,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.RedirectURL = cmdletContext.RedirectURL;
             }
+            if (cmdletContext.StorageConnectorAuthentication != null)
+            {
+                request.StorageConnectorAuthentication = cmdletContext.StorageConnectorAuthentication;
+            }
             if (cmdletContext.StorageConnector != null)
             {
                 request.StorageConnectors = cmdletContext.StorageConnector;
@@ -736,6 +756,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String FeedbackURL { get; set; }
             public System.String Name { get; set; }
             public System.String RedirectURL { get; set; }
+            public Amazon.AppStream.StorageConnectorAuthentication StorageConnectorAuthentication { get; set; }
             public List<Amazon.AppStream.Model.StorageConnector> StorageConnector { get; set; }
             public Amazon.AppStream.PreferredProtocol StreamingExperienceSettings_PreferredProtocol { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

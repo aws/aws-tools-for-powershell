@@ -182,7 +182,7 @@ $DSYN_Completers = {
             ($_ -eq "Update-DSYNLocationFsxOpenZf/Protocol_NFS_MountOptions_Version")
         }
         {
-            $v = "AUTOMATIC","NFS3","NFS4_0","NFS4_1"
+            $v = "AUTOMATIC","NFS3","NFS4_0","NFS4_1","NFS4_2"
             break
         }
 

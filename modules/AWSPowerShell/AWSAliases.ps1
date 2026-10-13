@@ -7818,6 +7818,8 @@ Set-Alias -Name Create-CONNAuthCode -Value New-CONNAuthCode
 Set-Alias -Name CONN-CreateAuthCode -Value New-CONNAuthCode
 Set-Alias -Name Create-CONNContact -Value New-CONNContact
 Set-Alias -Name CONN-CreateContact -Value New-CONNContact
+Set-Alias -Name Create-CONNContactFlowAlias -Value New-CONNContactFlowAlias
+Set-Alias -Name CONN-CreateContactFlowAlias -Value New-CONNContactFlowAlias
 Set-Alias -Name Create-CONNContactFlow -Value New-CONNContactFlow
 Set-Alias -Name CONN-CreateContactFlow -Value New-CONNContactFlow
 Set-Alias -Name Create-CONNContactFlowModuleAlias -Value New-CONNContactFlowModuleAlias
@@ -7900,6 +7902,8 @@ Set-Alias -Name Delete-CONNContactData -Value Remove-CONNContactData
 Set-Alias -Name CONN-DeleteContactData -Value Remove-CONNContactData
 Set-Alias -Name Delete-CONNContactEvaluation -Value Remove-CONNContactEvaluation
 Set-Alias -Name CONN-DeleteContactEvaluation -Value Remove-CONNContactEvaluation
+Set-Alias -Name Delete-CONNContactFlowAlias -Value Remove-CONNContactFlowAlias
+Set-Alias -Name CONN-DeleteContactFlowAlias -Value Remove-CONNContactFlowAlias
 Set-Alias -Name Delete-CONNContactFlow -Value Remove-CONNContactFlow
 Set-Alias -Name CONN-DeleteContactFlow -Value Remove-CONNContactFlow
 Set-Alias -Name Delete-CONNContactFlowModuleAlias -Value Remove-CONNContactFlowModuleAlias
@@ -7985,6 +7989,9 @@ Set-Alias -Name Describe-CONNContact -Value Get-CONNContact
 Set-Alias -Name CONN-DescribeContact -Value Get-CONNContact
 Set-Alias -Name Describe-CONNContactEvaluation -Value Get-CONNContactEvaluation
 Set-Alias -Name CONN-DescribeContactEvaluation -Value Get-CONNContactEvaluation
+Set-Alias -Name Describe-CONNContactFlowAlias -Value Get-CONNContactFlowAliasDetail
+Set-Alias -Name Describe-CONNContactFlowAliasDetail -Value Get-CONNContactFlowAliasDetail
+Set-Alias -Name CONN-DescribeContactFlowAlias -Value Get-CONNContactFlowAliasDetail
 Set-Alias -Name Describe-CONNContactFlow -Value Get-CONNContactFlow
 Set-Alias -Name CONN-DescribeContactFlow -Value Get-CONNContactFlow
 Set-Alias -Name Describe-CONNContactFlowModuleAlias -Value Get-CONNContactFlowModuleAliasDetail
@@ -8152,6 +8159,9 @@ Set-Alias -Name CONN-ListChildHoursOfOperations -Value Get-CONNChildHoursOfOpera
 Set-Alias -Name List-CONNContactEvaluations -Value Get-CONNContactEvaluationList
 Set-Alias -Name List-CONNContactEvaluationList -Value Get-CONNContactEvaluationList
 Set-Alias -Name CONN-ListContactEvaluations -Value Get-CONNContactEvaluationList
+Set-Alias -Name List-CONNContactFlowAliases -Value Get-CONNContactFlowAliasList
+Set-Alias -Name List-CONNContactFlowAliasList -Value Get-CONNContactFlowAliasList
+Set-Alias -Name CONN-ListContactFlowAliases -Value Get-CONNContactFlowAliasList
 Set-Alias -Name List-CONNContactFlowModuleAliases -Value Get-CONNContactFlowModuleAliasList
 Set-Alias -Name List-CONNContactFlowModuleAliasList -Value Get-CONNContactFlowModuleAliasList
 Set-Alias -Name CONN-ListContactFlowModuleAliases -Value Get-CONNContactFlowModuleAliasList
@@ -8455,6 +8465,7 @@ Set-Alias -Name CONN-UpdateContact -Value Update-CONNContact
 Set-Alias -Name Update-CONNContactAttributes -Value Update-CONNContactAttribute
 Set-Alias -Name CONN-UpdateContactAttributes -Value Update-CONNContactAttribute
 Set-Alias -Name CONN-UpdateContactEvaluation -Value Update-CONNContactEvaluation
+Set-Alias -Name CONN-UpdateContactFlowAlias -Value Update-CONNContactFlowAlias
 Set-Alias -Name CONN-UpdateContactFlowContent -Value Update-CONNContactFlowContent
 Set-Alias -Name CONN-UpdateContactFlowMetadata -Value Update-CONNContactFlowMetadata
 Set-Alias -Name CONN-UpdateContactFlowModuleAlias -Value Update-CONNContactFlowModuleAlias
@@ -20672,6 +20683,8 @@ Set-Alias -Name KMS-Verify -Value Test-KMSSignature
 Set-Alias -Name Verify-KMSMac -Value Test-KMSMac
 Set-Alias -Name KMS-VerifyMac -Value Test-KMSMac
 Set-Alias -Name LKF-AddLFTagsToResource -Value Add-LKFLFTagsToResource
+Set-Alias -Name Attach-LKFRLSPolicy -Value Mount-LKFRLSPolicy
+Set-Alias -Name LKF-AttachRLSPolicy -Value Mount-LKFRLSPolicy
 Set-Alias -Name Grant-LKFPermissions -Value Grant-LKFPermissionBatch
 Set-Alias -Name LKF-BatchGrantPermissions -Value Grant-LKFPermissionBatch
 Set-Alias -Name Revoke-LKFPermissions -Value Revoke-LKFPermissionBatch
@@ -20690,6 +20703,8 @@ Set-Alias -Name Create-LKFLFTag -Value New-LKFLFTag
 Set-Alias -Name LKF-CreateLFTag -Value New-LKFLFTag
 Set-Alias -Name Create-LKFLFTagExpression -Value New-LKFLFTagExpression
 Set-Alias -Name LKF-CreateLFTagExpression -Value New-LKFLFTagExpression
+Set-Alias -Name Create-LKFRLSPolicy -Value New-LKFRLSPolicy
+Set-Alias -Name LKF-CreateRLSPolicy -Value New-LKFRLSPolicy
 Set-Alias -Name Delete-LKFDataCellsFilter -Value Remove-LKFDataCellsFilter
 Set-Alias -Name LKF-DeleteDataCellsFilter -Value Remove-LKFDataCellsFilter
 Set-Alias -Name Delete-LKFLakeFormationIdentityCenterConfiguration -Value Remove-LKFLakeFormationIdentityCenterConfiguration
@@ -20702,6 +20717,8 @@ Set-Alias -Name Delete-LKFLFTagExpression -Value Remove-LKFLFTagExpression
 Set-Alias -Name LKF-DeleteLFTagExpression -Value Remove-LKFLFTagExpression
 Set-Alias -Name Delete-LKFObjectsOnCancel -Value Remove-LKFObjectsOnCancel
 Set-Alias -Name LKF-DeleteObjectsOnCancel -Value Remove-LKFObjectsOnCancel
+Set-Alias -Name Delete-LKFRLSPolicy -Value Remove-LKFRLSPolicy
+Set-Alias -Name LKF-DeleteRLSPolicy -Value Remove-LKFRLSPolicy
 Set-Alias -Name Deregister-LKFResource -Value Unregister-LKFResource
 Set-Alias -Name LKF-DeregisterResource -Value Unregister-LKFResource
 Set-Alias -Name Describe-LKFLakeFormationIdentityCenterConfiguration -Value Get-LKFLakeFormationIdentityCenterConfiguration
@@ -20710,6 +20727,8 @@ Set-Alias -Name Describe-LKFResource -Value Get-LKFResource
 Set-Alias -Name LKF-DescribeResource -Value Get-LKFResource
 Set-Alias -Name Describe-LKFTransaction -Value Get-LKFTransaction
 Set-Alias -Name LKF-DescribeTransaction -Value Get-LKFTransaction
+Set-Alias -Name Detach-LKFRLSPolicy -Value Dismount-LKFRLSPolicy
+Set-Alias -Name LKF-DetachRLSPolicy -Value Dismount-LKFRLSPolicy
 Set-Alias -Name Extend-LKFTransaction -Value Invoke-LKFTransaction
 Set-Alias -Name LKF-ExtendTransaction -Value Invoke-LKFTransaction
 Set-Alias -Name LKF-GetDataCellsFilter -Value Get-LKFDataCellsFilter
@@ -20724,6 +20743,7 @@ Set-Alias -Name Get-LKFQueryStatistics -Value Get-LKFQueryStatistic
 Set-Alias -Name LKF-GetQueryStatistics -Value Get-LKFQueryStatistic
 Set-Alias -Name Get-LKFResourceLFTags -Value Get-LKFResourceLFTag
 Set-Alias -Name LKF-GetResourceLFTags -Value Get-LKFResourceLFTag
+Set-Alias -Name LKF-GetRLSPolicy -Value Get-LKFRLSPolicy
 Set-Alias -Name Get-LKFTableObjects -Value Get-LKFTableObject
 Set-Alias -Name LKF-GetTableObjects -Value Get-LKFTableObject
 Set-Alias -Name Get-LKFTemporaryDataLocationCredentials -Value Get-LKFTemporaryDataLocationCredential
@@ -20756,6 +20776,12 @@ Set-Alias -Name LKF-ListPermissions -Value Get-LKFPermissionList
 Set-Alias -Name List-LKFResources -Value Get-LKFResourceList
 Set-Alias -Name List-LKFResourceList -Value Get-LKFResourceList
 Set-Alias -Name LKF-ListResources -Value Get-LKFResourceList
+Set-Alias -Name List-LKFRLSPolicies -Value Get-LKFRLSPolicyList
+Set-Alias -Name List-LKFRLSPolicyList -Value Get-LKFRLSPolicyList
+Set-Alias -Name LKF-ListRLSPolicies -Value Get-LKFRLSPolicyList
+Set-Alias -Name List-LKFRLSPolicyAttachments -Value Get-LKFRLSPolicyAttachmentList
+Set-Alias -Name List-LKFRLSPolicyAttachmentList -Value Get-LKFRLSPolicyAttachmentList
+Set-Alias -Name LKF-ListRLSPolicyAttachments -Value Get-LKFRLSPolicyAttachmentList
 Set-Alias -Name List-LKFTableStorageOptimizers -Value Get-LKFTableStorageOptimizerList
 Set-Alias -Name List-LKFTableStorageOptimizerList -Value Get-LKFTableStorageOptimizerList
 Set-Alias -Name LKF-ListTableStorageOptimizers -Value Get-LKFTableStorageOptimizerList
@@ -20780,6 +20806,7 @@ Set-Alias -Name LKF-UpdateLakeFormationIdentityCenterConfiguration -Value Update
 Set-Alias -Name LKF-UpdateLFTag -Value Update-LKFLFTag
 Set-Alias -Name LKF-UpdateLFTagExpression -Value Update-LKFLFTagExpression
 Set-Alias -Name LKF-UpdateResource -Value Update-LKFResource
+Set-Alias -Name LKF-UpdateRLSPolicy -Value Update-LKFRLSPolicy
 Set-Alias -Name Update-LKFTableObjects -Value Update-LKFTableObject
 Set-Alias -Name LKF-UpdateTableObjects -Value Update-LKFTableObject
 Set-Alias -Name LKF-UpdateTableStorageOptimizer -Value Update-LKFTableStorageOptimizer
@@ -30518,6 +30545,8 @@ Set-Alias -Name R53D-EnableDomainAutoRenew -Value Enable-R53DDomainAutoRenew
 Set-Alias -Name R53D-EnableDomainTransferLock -Value Enable-R53DDomainTransferLock
 Set-Alias -Name R53D-GetContactReachabilityStatus -Value Get-R53DContactReachabilityStatus
 Set-Alias -Name R53D-GetDomainDetail -Value Get-R53DDomainDetail
+Set-Alias -Name Get-R53DDomainPrices -Value Get-R53DDomainPrice
+Set-Alias -Name R53D-GetDomainPrices -Value Get-R53DDomainPrice
 Set-Alias -Name Get-R53DDomainSuggestions -Value Get-R53DDomainSuggestion
 Set-Alias -Name R53D-GetDomainSuggestions -Value Get-R53DDomainSuggestion
 Set-Alias -Name R53D-GetOperationDetail -Value Get-R53DOperationDetail

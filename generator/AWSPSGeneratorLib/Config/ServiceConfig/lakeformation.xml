@@ -58,6 +58,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AttachRLSPolicy" Verb="Mount" Noun="RLSPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGrantPermissions" OutputProperty="Failures" Verb="Grant" Noun="PermissionBatch" ShouldProcessTarget="CatalogId" PipelineParameter="Entries" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -126,6 +130,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRLSPolicy" Verb="New" Noun="RLSPolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataCellsFilter" Verb="Remove" Noun="DataCellsFilter" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -178,6 +186,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRLSPolicy" Verb="Remove" Noun="RLSPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeregisterResource" Verb="Unregister" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -191,6 +203,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTransaction" OutputProperty="TransactionDescription" Verb="Get" Noun="Transaction" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachRLSPolicy" Verb="Dismount" Noun="RLSPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -260,6 +276,10 @@
                 <Param Name="Resource_TableWithColumns_DatabaseName" NewName="TableWithColumns_DatabaseName" />
                 <Param Name="Resource_TableWithColumns_Name" NewName="TableWithColumns_Name" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRLSPolicy" OutputProperty="RLSPolicy" Verb="Get" Noun="RLSPolicy" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTableObjects" OutputProperty="Objects" Verb="Get" Noun="TableObject" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -398,6 +418,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRLSPolicies" OutputProperty="RLSPolicies" Verb="Get" Noun="RLSPolicyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRLSPolicyAttachments" OutputProperty="RLSPolicyAttachments" Verb="Get" Noun="RLSPolicyAttachmentList" PipelineParameter="PolicyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTableStorageOptimizers" OutputProperty="StorageOptimizerList" Verb="Get" Noun="TableStorageOptimizerList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -515,6 +543,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResource" Verb="Update" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRLSPolicy" Verb="Update" Noun="RLSPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

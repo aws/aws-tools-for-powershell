@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DevOpsAgentConfiguration_AgentSpaceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the DevOps Agent Agent Space to link to this service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DevOpsAgentConfiguration_AgentSpaceArn { get; set; }
+        #endregion
+        
         #region Parameter AssociatedSystem
         /// <summary>
         /// <para>
@@ -264,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             context.ClientToken = this.ClientToken;
             context.DependencyDiscovery = this.DependencyDiscovery;
             context.Description = this.Description;
+            context.DevOpsAgentConfiguration_AgentSpaceArn = this.DevOpsAgentConfiguration_AgentSpaceArn;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             #if MODULAR
@@ -337,6 +348,25 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate DevOpsAgentConfiguration
+            var requestDevOpsAgentConfigurationIsNull = true;
+            request.DevOpsAgentConfiguration = new Amazon.Resiliencehubv2.Model.DevOpsAgentConfiguration();
+            System.String requestDevOpsAgentConfiguration_devOpsAgentConfiguration_AgentSpaceArn = null;
+            if (cmdletContext.DevOpsAgentConfiguration_AgentSpaceArn != null)
+            {
+                requestDevOpsAgentConfiguration_devOpsAgentConfiguration_AgentSpaceArn = cmdletContext.DevOpsAgentConfiguration_AgentSpaceArn;
+            }
+            if (requestDevOpsAgentConfiguration_devOpsAgentConfiguration_AgentSpaceArn != null)
+            {
+                request.DevOpsAgentConfiguration.AgentSpaceArn = requestDevOpsAgentConfiguration_devOpsAgentConfiguration_AgentSpaceArn;
+                requestDevOpsAgentConfigurationIsNull = false;
+            }
+             // determine if request.DevOpsAgentConfiguration should be set to null
+            if (requestDevOpsAgentConfigurationIsNull)
+            {
+                request.DevOpsAgentConfiguration = null;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -465,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             public System.String ClientToken { get; set; }
             public Amazon.Resiliencehubv2.DependencyDiscoveryInput DependencyDiscovery { get; set; }
             public System.String Description { get; set; }
+            public System.String DevOpsAgentConfiguration_AgentSpaceArn { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.Resiliencehubv2.Model.CrossAccountRole> PermissionModel_CrossAccountRole { get; set; }

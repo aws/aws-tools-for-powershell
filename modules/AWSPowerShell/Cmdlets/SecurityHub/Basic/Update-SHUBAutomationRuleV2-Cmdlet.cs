@@ -77,6 +77,23 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public Amazon.SecurityHub.Model.CompositeFilter[] OcsfFindingCriteria_CompositeFilter { get; set; }
         #endregion
         
+        #region Parameter Criteria_ResourceCriteria_CompositeFilter
+        /// <summary>
+        /// <para>
+        /// <para>A collection of complex filtering conditions that can be applied to Amazon Web Services
+        /// resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Criteria_ResourceCriteria_CompositeFilters")]
+        public Amazon.SecurityHub.Model.ResourcesCompositeFilter[] Criteria_ResourceCriteria_CompositeFilter { get; set; }
+        #endregion
+        
         #region Parameter OcsfFindingCriteria_CompositeOperator
         /// <summary>
         /// <para>
@@ -87,6 +104,17 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         [Alias("Criteria_OcsfFindingCriteria_CompositeOperator")]
         [AWSConstantClassSource("Amazon.SecurityHub.AllowedOperators")]
         public Amazon.SecurityHub.AllowedOperators OcsfFindingCriteria_CompositeOperator { get; set; }
+        #endregion
+        
+        #region Parameter Criteria_ResourceCriteria_CompositeOperator
+        /// <summary>
+        /// <para>
+        /// <para>The logical operator used to combine multiple filter conditions in the structure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.AllowedOperators")]
+        public Amazon.SecurityHub.AllowedOperators Criteria_ResourceCriteria_CompositeOperator { get; set; }
         #endregion
         
         #region Parameter Description
@@ -201,6 +229,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 context.OcsfFindingCriteria_CompositeFilter = new List<Amazon.SecurityHub.Model.CompositeFilter>(this.OcsfFindingCriteria_CompositeFilter);
             }
             context.OcsfFindingCriteria_CompositeOperator = this.OcsfFindingCriteria_CompositeOperator;
+            if (this.Criteria_ResourceCriteria_CompositeFilter != null)
+            {
+                context.Criteria_ResourceCriteria_CompositeFilter = new List<Amazon.SecurityHub.Model.ResourcesCompositeFilter>(this.Criteria_ResourceCriteria_CompositeFilter);
+            }
+            context.Criteria_ResourceCriteria_CompositeOperator = this.Criteria_ResourceCriteria_CompositeOperator;
             context.Description = this.Description;
             context.Identifier = this.Identifier;
             #if MODULAR
@@ -269,6 +302,41 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_OcsfFindingCriteria != null)
             {
                 request.Criteria.OcsfFindingCriteria = requestCriteria_criteria_OcsfFindingCriteria;
+                requestCriteriaIsNull = false;
+            }
+            Amazon.SecurityHub.Model.ResourcesFilters requestCriteria_criteria_ResourceCriteria = null;
+            
+             // populate ResourceCriteria
+            var requestCriteria_criteria_ResourceCriteriaIsNull = true;
+            requestCriteria_criteria_ResourceCriteria = new Amazon.SecurityHub.Model.ResourcesFilters();
+            List<Amazon.SecurityHub.Model.ResourcesCompositeFilter> requestCriteria_criteria_ResourceCriteria_criteria_ResourceCriteria_CompositeFilter = null;
+            if (cmdletContext.Criteria_ResourceCriteria_CompositeFilter != null)
+            {
+                requestCriteria_criteria_ResourceCriteria_criteria_ResourceCriteria_CompositeFilter = cmdletContext.Criteria_ResourceCriteria_CompositeFilter;
+            }
+            if (requestCriteria_criteria_ResourceCriteria_criteria_ResourceCriteria_CompositeFilter != null)
+            {
+                requestCriteria_criteria_ResourceCriteria.CompositeFilters = requestCriteria_criteria_ResourceCriteria_criteria_ResourceCriteria_CompositeFilter;
+                requestCriteria_criteria_ResourceCriteriaIsNull = false;
+            }
+            Amazon.SecurityHub.AllowedOperators requestCriteria_criteria_ResourceCriteria_criteria_ResourceCriteria_CompositeOperator = null;
+            if (cmdletContext.Criteria_ResourceCriteria_CompositeOperator != null)
+            {
+                requestCriteria_criteria_ResourceCriteria_criteria_ResourceCriteria_CompositeOperator = cmdletContext.Criteria_ResourceCriteria_CompositeOperator;
+            }
+            if (requestCriteria_criteria_ResourceCriteria_criteria_ResourceCriteria_CompositeOperator != null)
+            {
+                requestCriteria_criteria_ResourceCriteria.CompositeOperator = requestCriteria_criteria_ResourceCriteria_criteria_ResourceCriteria_CompositeOperator;
+                requestCriteria_criteria_ResourceCriteriaIsNull = false;
+            }
+             // determine if requestCriteria_criteria_ResourceCriteria should be set to null
+            if (requestCriteria_criteria_ResourceCriteriaIsNull)
+            {
+                requestCriteria_criteria_ResourceCriteria = null;
+            }
+            if (requestCriteria_criteria_ResourceCriteria != null)
+            {
+                request.Criteria.ResourceCriteria = requestCriteria_criteria_ResourceCriteria;
                 requestCriteriaIsNull = false;
             }
              // determine if request.Criteria should be set to null
@@ -354,6 +422,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             public List<Amazon.SecurityHub.Model.AutomationRulesActionV2> Action { get; set; }
             public List<Amazon.SecurityHub.Model.CompositeFilter> OcsfFindingCriteria_CompositeFilter { get; set; }
             public Amazon.SecurityHub.AllowedOperators OcsfFindingCriteria_CompositeOperator { get; set; }
+            public List<Amazon.SecurityHub.Model.ResourcesCompositeFilter> Criteria_ResourceCriteria_CompositeFilter { get; set; }
+            public Amazon.SecurityHub.AllowedOperators Criteria_ResourceCriteria_CompositeOperator { get; set; }
             public System.String Description { get; set; }
             public System.String Identifier { get; set; }
             public System.String RuleName { get; set; }

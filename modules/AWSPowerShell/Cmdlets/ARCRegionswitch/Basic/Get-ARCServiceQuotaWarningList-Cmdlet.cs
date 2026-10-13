@@ -37,10 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.ARC
     ///  
     /// <para>
     /// Returns the warnings for the plans that you own and for plans that are shared with
-    /// your account through AWS Resource Access Manager (AWS RAM). To return warnings for
-    /// specific plans, provide a list of plan Amazon Resource Names (ARNs). Region switch
-    /// ignores any plan ARN that you can't access. If you don't provide any plan ARNs, Region
-    /// switch returns the warnings for all of your accessible plans.
+    /// your account through Resource Access Manager (RAM). To return warnings for specific
+    /// plans, provide a list of plan Amazon Resource Names (ARNs). Region switch ignores
+    /// any plan ARN that you can't access. If you don't provide any plan ARNs, Region switch
+    /// returns the warnings for all of your accessible plans.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ARCServiceQuotaWarningList")]

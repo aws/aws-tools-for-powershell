@@ -150,9 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>
         /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a>
         /// to apply to the data deletion job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -207,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.Select = CreateSelectDelegate<Amazon.Personalize.Model.CreateDataDeletionJobResponse, NewPERSDataDeletionJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DataSource_DataLocation = this.DataSource_DataLocation;
             context.DatasetGroupArn = this.DatasetGroupArn;
             #if MODULAR
             if (this.DatasetGroupArn == null && ParameterWasBound(nameof(this.DatasetGroupArn)))
@@ -214,7 +216,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter DatasetGroupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DataSource_DataLocation = this.DataSource_DataLocation;
             context.JobName = this.JobName;
             #if MODULAR
             if (this.JobName == null && ParameterWasBound(nameof(this.JobName)))
@@ -249,10 +250,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             // create request
             var request = new Amazon.Personalize.Model.CreateDataDeletionJobRequest();
             
-            if (cmdletContext.DatasetGroupArn != null)
-            {
-                request.DatasetGroupArn = cmdletContext.DatasetGroupArn;
-            }
             
              // populate DataSource
             var requestDataSourceIsNull = true;
@@ -271,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestDataSourceIsNull)
             {
                 request.DataSource = null;
+            }
+            if (cmdletContext.DatasetGroupArn != null)
+            {
+                request.DatasetGroupArn = cmdletContext.DatasetGroupArn;
             }
             if (cmdletContext.JobName != null)
             {
@@ -339,8 +340,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DatasetGroupArn { get; set; }
             public System.String DataSource_DataLocation { get; set; }
+            public System.String DatasetGroupArn { get; set; }
             public System.String JobName { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.Personalize.Model.Tag> Tag { get; set; }

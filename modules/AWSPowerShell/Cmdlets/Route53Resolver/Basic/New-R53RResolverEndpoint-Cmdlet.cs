@@ -112,15 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The subnets and IP addresses in your VPC that DNS queries originate from (for outbound
         /// endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet
-        /// ID uniquely identifies a VPC. </para><note><para>Even though the minimum is 1, Route 53 requires that you create at least two.</para></note><para>We recommend using <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/outpost-resolver-getting-started.html">VPC
+        /// ID uniquely identifies a VPC. </para><note><para>Even though the minimum is 1, Route 53 requires that you create at least two.</para></note><para>We recommend using <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/outpost-resolver-getting-started.html">VPC
         /// Resolver on Outposts</a> to create endpoints on Outposts Racks.</para><important><para>Outposts subnets with <a href="https://docs.aws.amazon.com/outposts/latest/server-userguide/local-network-interface.html">Local
         /// Network Interface (LNI)</a> enabled are not compatible with Route 53 Resolver endpoints.
         /// If you enable LNI on a subnet that contains Route 53 Resolver endpoint elastic network
         /// interfaces (ENIs), those ENIs will stop functioning. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver.html#best-practices-resolver-subnet-compatibility">Subnet
         /// compatibility for Resolver endpoints</a> in the <i>Amazon Route 53 Developer Guide</i>.</para></important><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -191,9 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para> The protocols you want to use for the endpoint. DoH-FIPS is applicable for default
         /// inbound endpoints only. </para><para>For a default inbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 and DoH-FIPS in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>DoH-FIPS alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul><para>For a delegation inbound endpoint you can use Do53 only.</para><para>For an outbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -243,9 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// maximum queries per second per IP address to as low as 1500. To avoid connection tracking
         /// caused by security group, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#untracked-connectionsl">Untracked
         /// connections</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -265,9 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A list of the tag keys and values that you want to associate with the endpoint.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

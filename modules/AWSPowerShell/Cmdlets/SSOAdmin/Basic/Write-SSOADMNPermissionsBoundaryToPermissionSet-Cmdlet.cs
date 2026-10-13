@@ -170,9 +170,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
                 WriteWarning("You are passing $null as a value for parameter InstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.CustomerManagedPolicyReference_Name = this.CustomerManagedPolicyReference_Name;
-            context.CustomerManagedPolicyReference_Path = this.CustomerManagedPolicyReference_Path;
-            context.PermissionsBoundary_ManagedPolicyArn = this.PermissionsBoundary_ManagedPolicyArn;
             context.PermissionSetArn = this.PermissionSetArn;
             #if MODULAR
             if (this.PermissionSetArn == null && ParameterWasBound(nameof(this.PermissionSetArn)))
@@ -180,6 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
                 WriteWarning("You are passing $null as a value for parameter PermissionSetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CustomerManagedPolicyReference_Name = this.CustomerManagedPolicyReference_Name;
+            context.CustomerManagedPolicyReference_Path = this.CustomerManagedPolicyReference_Path;
+            context.PermissionsBoundary_ManagedPolicyArn = this.PermissionsBoundary_ManagedPolicyArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -199,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (cmdletContext.InstanceArn != null)
             {
                 request.InstanceArn = cmdletContext.InstanceArn;
+            }
+            if (cmdletContext.PermissionSetArn != null)
+            {
+                request.PermissionSetArn = cmdletContext.PermissionSetArn;
             }
             
              // populate PermissionsBoundary
@@ -253,10 +257,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (requestPermissionsBoundaryIsNull)
             {
                 request.PermissionsBoundary = null;
-            }
-            if (cmdletContext.PermissionSetArn != null)
-            {
-                request.PermissionSetArn = cmdletContext.PermissionSetArn;
             }
             
             CmdletOutput output;
@@ -314,10 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InstanceArn { get; set; }
+            public System.String PermissionSetArn { get; set; }
             public System.String CustomerManagedPolicyReference_Name { get; set; }
             public System.String CustomerManagedPolicyReference_Path { get; set; }
             public System.String PermissionsBoundary_ManagedPolicyArn { get; set; }
-            public System.String PermissionSetArn { get; set; }
             public System.Func<Amazon.SSOAdmin.Model.PutPermissionsBoundaryToPermissionSetResponse, WriteSSOADMNPermissionsBoundaryToPermissionSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

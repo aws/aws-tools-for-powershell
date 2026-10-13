@@ -191,6 +191,16 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.StorageConnectorAuthentication
+        {
+            ($_ -eq "New-APSStack/StorageConnectorAuthentication") -Or
+            ($_ -eq "Update-APSStack/StorageConnectorAuthentication")
+        }
+        {
+            $v = "FORCE_REAUTHENTICATION","REUSE_CREDENTIALS"
+            break
+        }
+
         # Amazon.AppStream.StreamView
         {
             ($_ -eq "New-APSFleet/StreamView") -Or
@@ -256,6 +266,7 @@ $APS_map = @{
     "PackagingType"=@("New-APSAppBlock")
     "Platform"=@("New-APSAppBlockBuilder","New-APSFleet","Update-APSAppBlockBuilder","Update-APSFleet")
     "State"=@("Update-APSThemeForStack")
+    "StorageConnectorAuthentication"=@("New-APSStack","Update-APSStack")
     "StreamingExperienceSettings_PreferredProtocol"=@("New-APSStack","Update-APSStack")
     "StreamView"=@("New-APSFleet","Update-APSFleet")
     "ThemeStyling"=@("New-APSThemeForStack","Update-APSThemeForStack")

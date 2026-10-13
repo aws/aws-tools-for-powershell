@@ -105,9 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>A key value pair defining the aggregation method for a column, where the key is the
         /// column name and the value is the aggregation method.</para><para>The supported aggregation methods are <c>sum</c> (default), <c>avg</c>, <c>first</c>,
         /// <c>min</c>, <c>max</c>.</para><note><para>Aggregation is only supported for the target column.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -137,9 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// be set and one only.</para><para>If the list of algorithms provided as values for <c>AutoMLAlgorithms</c> is empty,
         /// <c>CandidateGenerationConfig</c> uses the full set of algorithms for time-series forecasting.</para></li><li><para>When <c>AlgorithmsConfig</c> is not provided, <c>CandidateGenerationConfig</c> uses
         /// the full set of algorithms for time-series forecasting.</para></li></ul></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -169,9 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// be set and one only.</para><para>If the list of algorithms provided as values for <c>AutoMLAlgorithms</c> is empty,
         /// <c>CandidateGenerationConfig</c> uses the full set of algorithms for time-series forecasting.</para></li><li><para>When <c>AlgorithmsConfig</c> is not provided, <c>CandidateGenerationConfig</c> uses
         /// the full set of algorithms for time-series forecasting.</para></li></ul></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -198,9 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// is a named input source. Similar to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a>
         /// attribute in the <c>CreateAutoMLJob</c> input parameters. The supported formats depend
         /// on the problem type:</para><ul><li><para>For tabular problem types: <c>S3Prefix</c>, <c>ManifestFile</c>.</para></li><li><para>For image classification: <c>S3Prefix</c>, <c>ManifestFile</c>, <c>AugmentedManifestFile</c>.</para></li><li><para>For text classification: <c>S3Prefix</c>.</para></li><li><para>For time-series forecasting: <c>S3Prefix</c>.</para></li><li><para>For text generation (LLMs fine-tuning): <c>S3Prefix</c>.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -348,9 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// value in an additional parameter prefixed with "_value". For example, to set <c>backfill</c>
         /// to a value of <c>2</c>, you must include two parameters: <c>"backfill": "value"</c>
         /// and <c>"backfill_value":"2"</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -393,9 +398,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// specify quantiles from <c>0.01</c> (p1) to <c>0.99</c> (p99), by increments of 0.01
         /// or higher. Up to five forecast quantiles can be specified. When <c>ForecastQuantiles</c>
         /// is not provided, the AutoML job uses the quantiles p10, p50, and p90 as default.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -421,9 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A set of columns names that can be grouped with the item identifier column to create
         /// a composite key for which a target value is predicted.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -437,9 +444,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The collection of holiday featurization attributes used to incorporate national holiday
         /// information into your forecasting model.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -817,9 +825,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
         /// for the VPC that is specified in the <c>Subnets</c> field.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -834,9 +843,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
         /// model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
         /// Instance Types and Availability Zones</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -852,9 +862,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// resources in different ways, such as by purpose, owner, or environment. For more information,
         /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// Amazon Web ServicesResources</a>. Tag keys must be unique per resource.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -914,9 +925,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// rate gradually increases before reaching its target or maximum value. Its value should
         /// be a string containing an integer value within the range of "0" to "250".</para></li></ul><para>Here is an example where all four hyperparameters are configured.</para><para><c>{ "epochCount":"5", "learningRate":"0.5", "batchSize": "32", "learningRateWarmupSteps":
         /// "10" }</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

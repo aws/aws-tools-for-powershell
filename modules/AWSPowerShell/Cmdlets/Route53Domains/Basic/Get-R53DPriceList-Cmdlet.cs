@@ -40,10 +40,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </para></li><li><para>
     /// Owner change
     /// </para></li><li><para>
-    /// Domain renewal
+    /// Renewal
     /// </para></li><li><para>
-    /// Domain restoration
-    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Restoration
+    /// </para></li></ul><note><para>
+    /// The prices that <c>ListPrices</c> returns are the standard rates for a TLD. <c>ListPrices</c>
+    /// doesn't return registry premium prices, which apply to individual domain names rather
+    /// than to a TLD. To get accurate pricing for a specific domain name, including premium
+    /// prices, call <c>GetDomainPrices</c>.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53DPriceList")]
     [OutputType("Amazon.Route53Domains.Model.DomainPrice")]

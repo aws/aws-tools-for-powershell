@@ -145,9 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter CustomMetadataSchemaConfiguration_DefaultSchema
         /// <summary>
         /// <para>
-        /// <para>The default JSON Schema that applies to record types without a specific override.
-        /// Supported property types are <c>string</c>, <c>string</c> with an <c>enum</c> constraint,
-        /// <c>string</c> with a <c>uri</c> format, and <c>boolean</c>.</para>
+        /// <para>A JSON Schema with the common attributes: fields that records of every record type
+        /// can carry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,10 +246,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride
         /// <summary>
         /// <para>
-        /// <para>A list of per-record-type schema overrides. When a record's type matches an override,
-        /// that override's schema is used instead of the default schema for validation. If you
-        /// don't specify an override for a record type, the default schema applies. If no default
-        /// schema exists, custom metadata on records of that type is rejected.</para><para />
+        /// <para>The fields for individual record types. Records of a record type can carry the common
+        /// attributes defined in <c>defaultSchema</c> plus that record type's fields.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

@@ -84,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Resource Name (ARN) of the security group that allows traffic
-        /// between your agent and VPC service endpoint. You can only specify one ARN.</para><para />
+        /// between your agent and VPC service endpoint. You can only specify one ARN.</para><para>The ARN must specify your own account, even when the security group was shared with
+        /// you from the account that owns the VPC. The security group must belong to the same
+        /// VPC as the subnet that you specify in <c>SubnetArns</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -99,8 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SubnetArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the ARN of the subnet where your VPC service endpoint is located. You can
-        /// only specify one ARN.</para><para />
+        /// <para>Specifies the ARN of the subnet where DataSync creates the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/required-network-interfaces.html">network
+        /// interfaces</a> that handle data transfer traffic for your tasks. You can only specify
+        /// one ARN.</para><para>The subnet doesn't have to be the subnet that contains your VPC service endpoint.
+        /// The subnet can be one that another Amazon Web Services account shared with you through
+        /// <a href="https://docs.aws.amazon.com/ram/latest/userguide/what-is.html">RAM</a>, in
+        /// which case the ARN must specify the account that owns the subnet. For more information,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#vpc-endpoint-multiple-subnets">Using
+        /// a single VPC service endpoint across multiple subnets</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -134,7 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>Specifies the ID of the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#datasync-in-vpc">VPC
         /// service endpoint</a> that you're using. For example, a VPC endpoint ID looks like
         /// <c>vpce-01234d5aff67890e1</c>.</para><important><para>The VPC service endpoint you use must include the DataSync service name (for example,
-        /// <c>com.amazonaws.us-east-2.datasync</c>).</para></important>
+        /// <c>com.amazonaws.us-east-2.datasync</c>).</para></important><para>The endpoint ID is informational. DataSync doesn't verify it or use it to connect
+        /// to your agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#vpc-endpoint-multiple-subnets">Using
+        /// a single VPC service endpoint across multiple subnets</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

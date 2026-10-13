@@ -60,9 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// and <c>Status</c>.</para></li><li><para><c>Value</c> - The value to match.</para></li></ul><para>For example, to list all jobs that export a forecast named <i>electricityWhatIfForecast</i>,
         /// specify the following filter:</para><para><c>"Filters": [ { "Condition": "IS", "Key": "WhatIfForecastArn", "Value": "arn:aws:forecast:us-west-2:&lt;acct-id&gt;:forecast/electricityWhatIfForecast"
         /// } ]</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -86,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>If the result of the previous request was truncated, the response includes a <c>NextToken</c>.
-        /// To retrieve the next set of results, use the token in the next  request. Tokens
-        /// expire after 24 hours.</para>
+        /// To retrieve the next set of results, use the token in the next request. Tokens expire
+        /// after 24 hours.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

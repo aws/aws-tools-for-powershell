@@ -38,8 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// </para><ul><li><para>
     /// CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED
     /// </para></li><li><para>
-    /// STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS
-    /// &gt; ACTIVE
+    /// STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE
     /// </para></li><li><para>
     /// DELETE PENDING &gt; DELETE IN_PROGRESS
     /// </para></li></ul><para>

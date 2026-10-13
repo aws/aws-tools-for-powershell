@@ -55,6 +55,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Consent_Currency
+        /// <summary>
+        /// <para>
+        /// <para> The currency for the <c>MaxPrice</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Consent_Currency { get; set; }
+        #endregion
+        
         #region Parameter CurrentExpiryYear
         /// <summary>
         /// <para>
@@ -104,6 +114,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.Int32? DurationInYear { get; set; }
         #endregion
         
+        #region Parameter Consent_MaxPrice
+        /// <summary>
+        /// <para>
+        /// <para> The maximum amount that you agree to accept. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? Consent_MaxPrice { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'OperationId'.
@@ -150,6 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 context.Select = CreateSelectDelegate<Amazon.Route53Domains.Model.RenewDomainResponse, UpdateR53DDomainRenewalCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Consent_Currency = this.Consent_Currency;
+            context.Consent_MaxPrice = this.Consent_MaxPrice;
             context.CurrentExpiryYear = this.CurrentExpiryYear;
             #if MODULAR
             if (this.CurrentExpiryYear == null && ParameterWasBound(nameof(this.CurrentExpiryYear)))
@@ -181,6 +203,35 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             // create request
             var request = new Amazon.Route53Domains.Model.RenewDomainRequest();
             
+            
+             // populate Consent
+            var requestConsentIsNull = true;
+            request.Consent = new Amazon.Route53Domains.Model.Consent();
+            System.String requestConsent_consent_Currency = null;
+            if (cmdletContext.Consent_Currency != null)
+            {
+                requestConsent_consent_Currency = cmdletContext.Consent_Currency;
+            }
+            if (requestConsent_consent_Currency != null)
+            {
+                request.Consent.Currency = requestConsent_consent_Currency;
+                requestConsentIsNull = false;
+            }
+            System.Double? requestConsent_consent_MaxPrice = null;
+            if (cmdletContext.Consent_MaxPrice != null)
+            {
+                requestConsent_consent_MaxPrice = cmdletContext.Consent_MaxPrice.Value;
+            }
+            if (requestConsent_consent_MaxPrice != null)
+            {
+                request.Consent.MaxPrice = requestConsent_consent_MaxPrice.Value;
+                requestConsentIsNull = false;
+            }
+             // determine if request.Consent should be set to null
+            if (requestConsentIsNull)
+            {
+                request.Consent = null;
+            }
             if (cmdletContext.CurrentExpiryYear != null)
             {
                 request.CurrentExpiryYear = cmdletContext.CurrentExpiryYear.Value;
@@ -248,6 +299,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Consent_Currency { get; set; }
+            public System.Double? Consent_MaxPrice { get; set; }
             public System.Int32? CurrentExpiryYear { get; set; }
             public System.String DomainName { get; set; }
             public System.Int32? DurationInYear { get; set; }

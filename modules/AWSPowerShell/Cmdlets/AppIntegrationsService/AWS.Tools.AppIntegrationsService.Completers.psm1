@@ -97,7 +97,7 @@ $AIS_Completers = {
             ($_ -eq "Update-AISApplication/AuthConfig_AuthType")
         }
         {
-            $v = "API_KEY"
+            $v = "API_KEY","CONNECT_JWT"
             break
         }
 

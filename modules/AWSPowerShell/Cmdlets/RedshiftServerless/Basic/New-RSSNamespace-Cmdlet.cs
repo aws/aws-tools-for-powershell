@@ -101,9 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>A list of IAM roles to associate with the namespace.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -128,9 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <para>
         /// <para>The types of logs the namespace can export. Available export types are <c>userlog</c>,
         /// <c>connectionlog</c>, and <c>useractivitylog</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -183,9 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -241,8 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AdminPasswordSecretKmsKeyId = this.AdminPasswordSecretKmsKeyId;
-            context.AdminUsername = this.AdminUsername;
             context.AdminUserPassword = this.AdminUserPassword;
+            context.AdminUsername = this.AdminUsername;
             context.DbName = this.DbName;
             context.DefaultIamRoleArn = this.DefaultIamRoleArn;
             if (this.IamRole != null)
@@ -287,13 +290,13 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             {
                 request.AdminPasswordSecretKmsKeyId = cmdletContext.AdminPasswordSecretKmsKeyId;
             }
-            if (cmdletContext.AdminUsername != null)
-            {
-                request.AdminUsername = cmdletContext.AdminUsername;
-            }
             if (cmdletContext.AdminUserPassword != null)
             {
                 request.AdminUserPassword = cmdletContext.AdminUserPassword;
+            }
+            if (cmdletContext.AdminUsername != null)
+            {
+                request.AdminUsername = cmdletContext.AdminUsername;
             }
             if (cmdletContext.DbName != null)
             {
@@ -387,8 +390,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AdminPasswordSecretKmsKeyId { get; set; }
-            public System.String AdminUsername { get; set; }
             public System.String AdminUserPassword { get; set; }
+            public System.String AdminUsername { get; set; }
             public System.String DbName { get; set; }
             public System.String DefaultIamRoleArn { get; set; }
             public List<System.String> IamRole { get; set; }

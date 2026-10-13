@@ -134,10 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter CustomMetadata
         /// <summary>
         /// <para>
-        /// <para>The custom metadata to attach to the registry record. Each key must match a property
-        /// defined in the registry's custom metadata schema. Values can be strings (maximum 128
-        /// characters) or native JSON booleans (<c>true</c> or <c>false</c>). Values are validated
-        /// against the schema at creation time.</para>
+        /// <para>The custom metadata for the record. Values are strings or JSON booleans.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

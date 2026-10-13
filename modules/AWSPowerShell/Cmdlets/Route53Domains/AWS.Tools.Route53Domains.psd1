@@ -99,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-R53DDomainAuthCode', 
         'Get-R53DDomainDetail', 
         'Get-R53DDomainList', 
+        'Get-R53DDomainPrice', 
         'Get-R53DDomainSuggestion', 
         'Get-R53DOperationDetail', 
         'Get-R53DOperationList', 

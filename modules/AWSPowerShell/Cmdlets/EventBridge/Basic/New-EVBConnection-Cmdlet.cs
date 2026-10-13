@@ -106,9 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>Any additional body string parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -121,9 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>Any additional body string parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -169,9 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>Any additional header parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -184,9 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>Any additional header parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -253,9 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>Any additional query string parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -268,9 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>Any additional query string parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -360,13 +366,6 @@ namespace Amazon.PowerShell.Cmdlets.EVB
                 context.Select = CreateSelectDelegate<Amazon.EventBridge.Model.CreateConnectionResponse, NewEVBConnectionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AuthorizationType = this.AuthorizationType;
-            #if MODULAR
-            if (this.AuthorizationType == null && ParameterWasBound(nameof(this.AuthorizationType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AuthorizationType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ApiKeyAuthParameters_ApiKeyName = this.ApiKeyAuthParameters_ApiKeyName;
             context.ApiKeyAuthParameters_ApiKeyValue = this.ApiKeyAuthParameters_ApiKeyValue;
             context.BasicAuthParameters_Password = this.BasicAuthParameters_Password;
@@ -400,6 +399,13 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             {
                 context.OAuthHttpParameters_QueryStringParameter = new List<Amazon.EventBridge.Model.ConnectionQueryStringParameter>(this.OAuthHttpParameters_QueryStringParameter);
             }
+            context.AuthorizationType = this.AuthorizationType;
+            #if MODULAR
+            if (this.AuthorizationType == null && ParameterWasBound(nameof(this.AuthorizationType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AuthorizationType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Description = this.Description;
             context.InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn = this.InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn;
             context.KmsKeyIdentifier = this.KmsKeyIdentifier;
@@ -426,10 +432,6 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             // create request
             var request = new Amazon.EventBridge.Model.CreateConnectionRequest();
             
-            if (cmdletContext.AuthorizationType != null)
-            {
-                request.AuthorizationType = cmdletContext.AuthorizationType;
-            }
             
              // populate AuthParameters
             var requestAuthParametersIsNull = true;
@@ -709,6 +711,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             {
                 request.AuthParameters = null;
             }
+            if (cmdletContext.AuthorizationType != null)
+            {
+                request.AuthorizationType = cmdletContext.AuthorizationType;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -810,7 +816,6 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.EventBridge.ConnectionAuthorizationType AuthorizationType { get; set; }
             public System.String ApiKeyAuthParameters_ApiKeyName { get; set; }
             public System.String ApiKeyAuthParameters_ApiKeyValue { get; set; }
             public System.String BasicAuthParameters_Password { get; set; }
@@ -826,6 +831,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             public List<Amazon.EventBridge.Model.ConnectionBodyParameter> OAuthHttpParameters_BodyParameter { get; set; }
             public List<Amazon.EventBridge.Model.ConnectionHeaderParameter> OAuthHttpParameters_HeaderParameter { get; set; }
             public List<Amazon.EventBridge.Model.ConnectionQueryStringParameter> OAuthHttpParameters_QueryStringParameter { get; set; }
+            public Amazon.EventBridge.ConnectionAuthorizationType AuthorizationType { get; set; }
             public System.String Description { get; set; }
             public System.String InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn { get; set; }
             public System.String KmsKeyIdentifier { get; set; }

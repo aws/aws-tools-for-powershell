@@ -119,6 +119,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String LFTagPolicy_CatalogId { get; set; }
         #endregion
         
+        #region Parameter Resource_RLSPolicy_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the Data Catalog that contains the policy. By default, the account
+        /// ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Resource_RLSPolicy_CatalogId { get; set; }
+        #endregion
+        
         #region Parameter Table_CatalogId
         /// <summary>
         /// <para>
@@ -305,6 +316,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Resource_LFTagExpression_Name")]
         public System.String LFTagExpression_Name { get; set; }
+        #endregion
+        
+        #region Parameter Resource_RLSPolicy_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the row-level security policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Resource_RLSPolicy_Name { get; set; }
         #endregion
         
         #region Parameter Table_Name
@@ -495,6 +516,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             }
             context.LFTagPolicy_ExpressionName = this.LFTagPolicy_ExpressionName;
             context.LFTagPolicy_ResourceType = this.LFTagPolicy_ResourceType;
+            context.Resource_RLSPolicy_CatalogId = this.Resource_RLSPolicy_CatalogId;
+            context.Resource_RLSPolicy_Name = this.Resource_RLSPolicy_Name;
             context.Table_CatalogId = this.Table_CatalogId;
             context.Table_DatabaseName = this.Table_DatabaseName;
             context.Table_Name = this.Table_Name;
@@ -666,6 +689,41 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_LFTagExpression != null)
             {
                 request.Resource.LFTagExpression = requestResource_resource_LFTagExpression;
+                requestResourceIsNull = false;
+            }
+            Amazon.LakeFormation.Model.RLSPolicyResource requestResource_resource_RLSPolicy = null;
+            
+             // populate RLSPolicy
+            var requestResource_resource_RLSPolicyIsNull = true;
+            requestResource_resource_RLSPolicy = new Amazon.LakeFormation.Model.RLSPolicyResource();
+            System.String requestResource_resource_RLSPolicy_resource_RLSPolicy_CatalogId = null;
+            if (cmdletContext.Resource_RLSPolicy_CatalogId != null)
+            {
+                requestResource_resource_RLSPolicy_resource_RLSPolicy_CatalogId = cmdletContext.Resource_RLSPolicy_CatalogId;
+            }
+            if (requestResource_resource_RLSPolicy_resource_RLSPolicy_CatalogId != null)
+            {
+                requestResource_resource_RLSPolicy.CatalogId = requestResource_resource_RLSPolicy_resource_RLSPolicy_CatalogId;
+                requestResource_resource_RLSPolicyIsNull = false;
+            }
+            System.String requestResource_resource_RLSPolicy_resource_RLSPolicy_Name = null;
+            if (cmdletContext.Resource_RLSPolicy_Name != null)
+            {
+                requestResource_resource_RLSPolicy_resource_RLSPolicy_Name = cmdletContext.Resource_RLSPolicy_Name;
+            }
+            if (requestResource_resource_RLSPolicy_resource_RLSPolicy_Name != null)
+            {
+                requestResource_resource_RLSPolicy.Name = requestResource_resource_RLSPolicy_resource_RLSPolicy_Name;
+                requestResource_resource_RLSPolicyIsNull = false;
+            }
+             // determine if requestResource_resource_RLSPolicy should be set to null
+            if (requestResource_resource_RLSPolicyIsNull)
+            {
+                requestResource_resource_RLSPolicy = null;
+            }
+            if (requestResource_resource_RLSPolicy != null)
+            {
+                request.Resource.RLSPolicy = requestResource_resource_RLSPolicy;
                 requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.LFTagKeyResource requestResource_resource_LFTag = null;
@@ -1038,6 +1096,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public List<Amazon.LakeFormation.Model.LFTag> LFTagPolicy_Expression { get; set; }
             public System.String LFTagPolicy_ExpressionName { get; set; }
             public Amazon.LakeFormation.ResourceType LFTagPolicy_ResourceType { get; set; }
+            public System.String Resource_RLSPolicy_CatalogId { get; set; }
+            public System.String Resource_RLSPolicy_Name { get; set; }
             public System.String Table_CatalogId { get; set; }
             public System.String Table_DatabaseName { get; set; }
             public System.String Table_Name { get; set; }

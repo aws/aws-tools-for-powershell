@@ -50,9 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>
         /// <para>An optional set of non-secret key–value pairs that contains additional contextual
         /// information for encryption. This can only be provided if <c>KMSKeyId</c> is provided.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -154,9 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para> A collection of key-value pairs that specify additional properties for the integration
         /// source. These properties provide configuration options that can be used to customize
         /// the behavior of the ODB source during data integration operations. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -169,9 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>Metadata assigned to the resource consisting of a list of key-value pairs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -195,6 +198,23 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetArn { get; set; }
+        #endregion
+        
+        #region Parameter IntegrationConfig_TargetNamespace
+        /// <summary>
+        /// <para>
+        /// <para>An optional custom namespace for the integration's target. Supply this parameter only
+        /// when the target is an Amazon S3 Tables table bucket; it is not accepted for other
+        /// target types. The integration replicates data into the namespace you specify, reusing
+        /// it if it already exists. If you omit this parameter, the target namespace defaults
+        /// to <c>zetl_</c> followed by the integration ID, with hyphens converted to underscores.</para><para>The value is immutable after the integration is created; <c>ModifyIntegration</c>
+        /// rejects changes to it. It must be a valid Amazon S3 Tables namespace name: 1 to 255
+        /// characters using lowercase letters, numbers, and underscores, with no leading or trailing
+        /// underscore and no reserved <c>aws</c> prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IntegrationConfig_TargetNamespace { get; set; }
         #endregion
         
         #region Parameter Select
@@ -263,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                     context.IntegrationConfig_SourceProperty.Add((String)hashKey, (System.String)(this.IntegrationConfig_SourceProperty[hashKey]));
                 }
             }
+            context.IntegrationConfig_TargetNamespace = this.IntegrationConfig_TargetNamespace;
             context.IntegrationName = this.IntegrationName;
             #if MODULAR
             if (this.IntegrationName == null && ParameterWasBound(nameof(this.IntegrationName)))
@@ -351,6 +372,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 request.IntegrationConfig.SourceProperties = requestIntegrationConfig_integrationConfig_SourceProperty;
                 requestIntegrationConfigIsNull = false;
             }
+            System.String requestIntegrationConfig_integrationConfig_TargetNamespace = null;
+            if (cmdletContext.IntegrationConfig_TargetNamespace != null)
+            {
+                requestIntegrationConfig_integrationConfig_TargetNamespace = cmdletContext.IntegrationConfig_TargetNamespace;
+            }
+            if (requestIntegrationConfig_integrationConfig_TargetNamespace != null)
+            {
+                request.IntegrationConfig.TargetNamespace = requestIntegrationConfig_integrationConfig_TargetNamespace;
+                requestIntegrationConfigIsNull = false;
+            }
              // determine if request.IntegrationConfig should be set to null
             if (requestIntegrationConfigIsNull)
             {
@@ -437,6 +468,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? IntegrationConfig_ContinuousSync { get; set; }
             public System.String IntegrationConfig_RefreshInterval { get; set; }
             public Dictionary<System.String, System.String> IntegrationConfig_SourceProperty { get; set; }
+            public System.String IntegrationConfig_TargetNamespace { get; set; }
             public System.String IntegrationName { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String SourceArn { get; set; }

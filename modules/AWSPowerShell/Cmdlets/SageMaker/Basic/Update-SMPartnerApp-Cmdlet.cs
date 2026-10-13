@@ -49,9 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The list of users that are given admin access to the SageMaker Partner AI App.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -78,9 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>This is a map of required inputs for a SageMaker Partner AI App. Based on the application
         /// type, the map is populated with a key and value pair that is specific to the user
         /// and application.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -113,9 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// SageMaker Partner AI App. Group names support wildcard matching using <c>*</c>. An
         /// empty list indicates the app will not use Identity Center group features. All groups
         /// specified in <c>RoleGroupAssignments</c> must match patterns in this list.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -193,9 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// but not in this map receive default in-app role depending on app type. Group patterns
         /// support wildcard matching using <c>*</c>. Currently supported by Fiddler version 1.3
         /// and later with roles: <c>ORG_MEMBER</c> (default) and <c>ORG_ADMIN</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -208,9 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -286,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.UpdatePartnerAppResponse, UpdateSMPartnerAppCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AppVersion = this.AppVersion;
             if (this.ApplicationConfig_AdminUser != null)
             {
                 context.ApplicationConfig_AdminUser = new List<System.String>(this.ApplicationConfig_AdminUser);
@@ -306,7 +312,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.ApplicationConfig_RoleGroupAssignment = new List<Amazon.SageMaker.Model.RoleGroupAssignment>(this.ApplicationConfig_RoleGroupAssignment);
             }
-            context.AppVersion = this.AppVersion;
             context.Arn = this.Arn;
             #if MODULAR
             if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
@@ -341,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.UpdatePartnerAppRequest();
             
+            if (cmdletContext.AppVersion != null)
+            {
+                request.AppVersion = cmdletContext.AppVersion;
+            }
             
              // populate ApplicationConfig
             var requestApplicationConfigIsNull = true;
@@ -389,10 +398,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestApplicationConfigIsNull)
             {
                 request.ApplicationConfig = null;
-            }
-            if (cmdletContext.AppVersion != null)
-            {
-                request.AppVersion = cmdletContext.AppVersion;
             }
             if (cmdletContext.Arn != null)
             {
@@ -515,11 +520,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AppVersion { get; set; }
             public List<System.String> ApplicationConfig_AdminUser { get; set; }
             public Dictionary<System.String, System.String> ApplicationConfig_Argument { get; set; }
             public List<System.String> ApplicationConfig_AssignedGroupPattern { get; set; }
             public List<Amazon.SageMaker.Model.RoleGroupAssignment> ApplicationConfig_RoleGroupAssignment { get; set; }
-            public System.String AppVersion { get; set; }
             public System.String Arn { get; set; }
             public Amazon.SageMaker.PartnerAppAuthType AuthType { get; set; }
             public System.String ClientToken { get; set; }

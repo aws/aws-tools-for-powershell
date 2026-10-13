@@ -62,9 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>(Multi-AZ only) A list of IDs of new virtual private cloud (VPC) route tables to associate
         /// (add) with your Amazon FSx for NetApp ONTAP file system.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -78,9 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>(Multi-AZ only) A list of IDs of new virtual private cloud (VPC) route tables to associate
         /// (add) with your Amazon FSx for OpenZFS file system.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -343,9 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>(Multi-AZ only) A list of IDs of existing virtual private cloud (VPC) route tables
         /// to disassociate (remove) from your Amazon FSx for NetApp ONTAP file system. You can
         /// use the API operation to retrieve the list of VPC route table IDs for a file system.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -360,9 +363,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>(Multi-AZ only) A list of IDs of existing virtual private cloud (VPC) route tables
         /// to disassociate (remove) from your Amazon FSx for OpenZFS file system. You can use
         /// the API operation to retrieve the list of VPC route table IDs for a file system.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -458,7 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per
-        /// second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <c>MULTI_AZ_1</c> and <c>SINGLE_AZ_2</c>, valid values are 160, 320, 640, 1280,
+        /// second (MB/s). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <c>MULTI_AZ_1</c> and <c>SINGLE_AZ_2</c>, valid values are 160, 320, 640, 1280,
         /// 2560, 3840, 5120, 7680, or 10240 MB/s.</para></li><li><para>For <c>SINGLE_AZ_1</c>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096
         /// MB/s.</para></li></ul>
         /// </para>

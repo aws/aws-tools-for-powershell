@@ -210,9 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <c>aws</c> as its prefix but the key does not, then Forecast considers it to be a
         /// user tag and will count against the limit of 50 tags. Tags with only the key prefix
         /// of <c>aws</c> do not count against your tags per resource limit.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -306,20 +307,6 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 context.Select = CreateSelectDelegate<Amazon.ForecastService.Model.CreateDatasetImportJobResponse, NewFRCDatasetImportJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DatasetArn = this.DatasetArn;
-            #if MODULAR
-            if (this.DatasetArn == null && ParameterWasBound(nameof(this.DatasetArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DatasetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.DatasetImportJobName = this.DatasetImportJobName;
-            #if MODULAR
-            if (this.DatasetImportJobName == null && ParameterWasBound(nameof(this.DatasetImportJobName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DatasetImportJobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.S3Config_KMSKeyArn = this.S3Config_KMSKeyArn;
             context.S3Config_Path = this.S3Config_Path;
             #if MODULAR
@@ -335,6 +322,20 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 WriteWarning("You are passing $null as a value for parameter S3Config_RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DatasetArn = this.DatasetArn;
+            #if MODULAR
+            if (this.DatasetArn == null && ParameterWasBound(nameof(this.DatasetArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DatasetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.DatasetImportJobName = this.DatasetImportJobName;
+            #if MODULAR
+            if (this.DatasetImportJobName == null && ParameterWasBound(nameof(this.DatasetImportJobName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DatasetImportJobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Format = this.Format;
             context.GeolocationFormat = this.GeolocationFormat;
             context.ImportMode = this.ImportMode;
@@ -342,8 +343,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 context.Tag = new List<Amazon.ForecastService.Model.Tag>(this.Tag);
             }
-            context.TimestampFormat = this.TimestampFormat;
             context.TimeZone = this.TimeZone;
+            context.TimestampFormat = this.TimestampFormat;
             context.UseGeolocationForTimeZone = this.UseGeolocationForTimeZone;
             
             // allow further manipulation of loaded context prior to processing
@@ -361,14 +362,6 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             // create request
             var request = new Amazon.ForecastService.Model.CreateDatasetImportJobRequest();
             
-            if (cmdletContext.DatasetArn != null)
-            {
-                request.DatasetArn = cmdletContext.DatasetArn;
-            }
-            if (cmdletContext.DatasetImportJobName != null)
-            {
-                request.DatasetImportJobName = cmdletContext.DatasetImportJobName;
-            }
             
              // populate DataSource
             var requestDataSourceIsNull = true;
@@ -423,6 +416,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 request.DataSource = null;
             }
+            if (cmdletContext.DatasetArn != null)
+            {
+                request.DatasetArn = cmdletContext.DatasetArn;
+            }
+            if (cmdletContext.DatasetImportJobName != null)
+            {
+                request.DatasetImportJobName = cmdletContext.DatasetImportJobName;
+            }
             if (cmdletContext.Format != null)
             {
                 request.Format = cmdletContext.Format;
@@ -439,13 +440,13 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 request.Tags = cmdletContext.Tag;
             }
-            if (cmdletContext.TimestampFormat != null)
-            {
-                request.TimestampFormat = cmdletContext.TimestampFormat;
-            }
             if (cmdletContext.TimeZone != null)
             {
                 request.TimeZone = cmdletContext.TimeZone;
+            }
+            if (cmdletContext.TimestampFormat != null)
+            {
+                request.TimestampFormat = cmdletContext.TimestampFormat;
             }
             if (cmdletContext.UseGeolocationForTimeZone != null)
             {
@@ -506,17 +507,17 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DatasetArn { get; set; }
-            public System.String DatasetImportJobName { get; set; }
             public System.String S3Config_KMSKeyArn { get; set; }
             public System.String S3Config_Path { get; set; }
             public System.String S3Config_RoleArn { get; set; }
+            public System.String DatasetArn { get; set; }
+            public System.String DatasetImportJobName { get; set; }
             public System.String Format { get; set; }
             public System.String GeolocationFormat { get; set; }
             public Amazon.ForecastService.ImportMode ImportMode { get; set; }
             public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
-            public System.String TimestampFormat { get; set; }
             public System.String TimeZone { get; set; }
+            public System.String TimestampFormat { get; set; }
             public System.Boolean? UseGeolocationForTimeZone { get; set; }
             public System.Func<Amazon.ForecastService.Model.CreateDatasetImportJobResponse, NewFRCDatasetImportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DatasetImportJobArn;
