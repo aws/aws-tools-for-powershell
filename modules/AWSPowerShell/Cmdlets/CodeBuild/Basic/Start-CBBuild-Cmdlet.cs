@@ -262,9 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>A set of environment variables that overrides, for this build only, the latest ones
         /// already defined in the build project.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -434,9 +435,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </para></li><li><para>Symlinks are used to reference cached directories. </para></li><li><para>Cached directories are linked to your build before it downloads its project sources.
         /// Cached items are overridden if a source item has the same name. Directories are specified
         /// using cache paths in the buildspec file. </para></li></ul></dd></dl><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -595,9 +597,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> An array of <c>ProjectArtifacts</c> objects. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -609,9 +612,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> An array of <c>ProjectSource</c> objects. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -624,9 +628,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> An array of <c>ProjectSourceVersion</c> objects that specify one or more versions
         /// of the project's secondary sources to be used for this build only. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -842,9 +847,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.ArtifactsOverride_Path = this.ArtifactsOverride_Path;
             context.ArtifactsOverride_Type = this.ArtifactsOverride_Type;
             context.AutoRetryLimitOverride = this.AutoRetryLimitOverride;
-            context.BuildspecOverride = this.BuildspecOverride;
             context.BuildStatusConfigOverride_Context = this.BuildStatusConfigOverride_Context;
             context.BuildStatusConfigOverride_TargetUrl = this.BuildStatusConfigOverride_TargetUrl;
+            context.BuildspecOverride = this.BuildspecOverride;
             context.CacheOverride_CacheNamespace = this.CacheOverride_CacheNamespace;
             context.CacheOverride_Location = this.CacheOverride_Location;
             if (this.CacheOverride_Mode != null)
@@ -1036,10 +1041,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.AutoRetryLimitOverride = cmdletContext.AutoRetryLimitOverride.Value;
             }
-            if (cmdletContext.BuildspecOverride != null)
-            {
-                request.BuildspecOverride = cmdletContext.BuildspecOverride;
-            }
             
              // populate BuildStatusConfigOverride
             var requestBuildStatusConfigOverrideIsNull = true;
@@ -1068,6 +1069,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestBuildStatusConfigOverrideIsNull)
             {
                 request.BuildStatusConfigOverride = null;
+            }
+            if (cmdletContext.BuildspecOverride != null)
+            {
+                request.BuildspecOverride = cmdletContext.BuildspecOverride;
             }
             
              // populate CacheOverride
@@ -1485,9 +1490,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String ArtifactsOverride_Path { get; set; }
             public Amazon.CodeBuild.ArtifactsType ArtifactsOverride_Type { get; set; }
             public System.Int32? AutoRetryLimitOverride { get; set; }
-            public System.String BuildspecOverride { get; set; }
             public System.String BuildStatusConfigOverride_Context { get; set; }
             public System.String BuildStatusConfigOverride_TargetUrl { get; set; }
+            public System.String BuildspecOverride { get; set; }
             public System.String CacheOverride_CacheNamespace { get; set; }
             public System.String CacheOverride_Location { get; set; }
             public List<System.String> CacheOverride_Mode { get; set; }

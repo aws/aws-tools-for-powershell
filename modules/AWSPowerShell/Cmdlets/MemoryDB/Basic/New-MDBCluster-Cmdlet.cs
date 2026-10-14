@@ -261,9 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         /// <summary>
         /// <para>
         /// <para>A list of security group names to associate with this cluster.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -278,9 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         /// <para>A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files
         /// stored in Amazon S3. The snapshot files are used to populate the new cluster. The
         /// Amazon S3 object name in the ARN cannot contain any commas.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -351,9 +353,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         /// <para>A list of tags to be added to this resource. Tags are comma-separated key,value pairs
         /// (e.g. Key=myKey, Value=myKeyValue. You can include multiple tags as shown following:
         /// Key=myKey, Value=myKeyValue Key=mySecondKey, Value=mySecondKeyValue.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -466,11 +469,11 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             context.SnapshotWindow = this.SnapshotWindow;
             context.SnsTopicArn = this.SnsTopicArn;
             context.SubnetGroupName = this.SubnetGroupName;
+            context.TLSEnabled = this.TLSEnabled;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.MemoryDB.Model.Tag>(this.Tag);
             }
-            context.TLSEnabled = this.TLSEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -583,13 +586,13 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             {
                 request.SubnetGroupName = cmdletContext.SubnetGroupName;
             }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
-            }
             if (cmdletContext.TLSEnabled != null)
             {
                 request.TLSEnabled = cmdletContext.TLSEnabled.Value;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -670,8 +673,8 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             public System.String SnapshotWindow { get; set; }
             public System.String SnsTopicArn { get; set; }
             public System.String SubnetGroupName { get; set; }
-            public List<Amazon.MemoryDB.Model.Tag> Tag { get; set; }
             public System.Boolean? TLSEnabled { get; set; }
+            public List<Amazon.MemoryDB.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.MemoryDB.Model.CreateClusterResponse, NewMDBClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;
         }

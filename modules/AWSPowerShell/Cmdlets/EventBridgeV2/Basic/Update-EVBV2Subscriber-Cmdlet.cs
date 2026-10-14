@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter OnFailureConfiguration_Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the destination that receives events that could not be delivered. An Amazon
-        /// SQS queue is the supported destination.</para>
+        /// The ARN of the destination that receives events that
+        /// could not be delivered. An Amazon SQS queue is the supported destination.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_EventBusV2Parameters_SystemMetadata_DeduplicationId
         /// <summary>
         /// <para>
-        /// <para>Deduplication ID for FIFO deduplication on the downstream bus. Accepts a literal or
-        /// a JSONata expression.</para>
+        /// Deduplication ID for FIFO deduplication
+        /// on the downstream bus. Accepts a literal or a JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SqsParameters_DelaySecond
         /// <summary>
         /// <para>
-        /// <para>Delay in seconds before the message becomes visible, standard queues only. Accepts
-        /// JSONata expression.</para>
+        /// Delay in seconds before the message becomes
+        /// visible, standard queues only. Accepts JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_LambdaParameters_DurableExecutionName
         /// <summary>
         /// <para>
-        /// <para>Durable execution name. Accepts a JSONata expression.</para>
+        /// Durable execution name. Accepts a
+        /// JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_EventBusV2Parameters_SystemMetadata_EventGroupId
         /// <summary>
         /// <para>
-        /// <para>Event group ID for FIFO ordering on the downstream bus. Accepts a literal or a JSONata
-        /// expression.</para>
+        /// Event group ID for FIFO ordering on the downstream
+        /// bus. Accepts a literal or a JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_KinesisParameters_ExplicitHashKey
         /// <summary>
         /// <para>
-        /// <para>Explicit hash key forwarded to PutRecords unchanged. Accepts JSONata expression.</para>
+        /// Explicit hash key forwarded to PutRecords
+        /// unchanged. Accepts JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Transformer_JsonataConfiguration_Expression
         /// <summary>
         /// <para>
-        /// <para>JSONata expression to transform the event. Must be wrapped in {% %} delimiters.</para>
+        /// JSONata expression to transform the event.
+        /// Must be wrapped in {% %} delimiters.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,9 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -159,9 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -173,7 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter LogConfiguration_IncludePayload
         /// <summary>
         /// <para>
-        /// <para>Whether the customer event payload is embedded in log records. Defaults to ON_ERROR_ONLY.</para>
+        /// Whether the customer event payload is embedded
+        /// in log records. Defaults to ON_ERROR_ONLY.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,8 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_UniversalTargetParameters_Input
         /// <summary>
         /// <para>
-        /// <para>JSON string or JSONata expression that produces the API request. Supports {% ... %}
-        /// JSONata expressions for dynamic values from the event.</para>
+        /// JSON string or JSONata expression that produces
+        /// the API request. Supports {% ... %} JSONata expressions for dynamic values from the
+        /// event.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,8 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_HttpParameters_InvocationTimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>Timeout in seconds for each invocation of the target (1-30). String-typed (not integer)
-        /// so the value may be a JSONata expression.</para>
+        /// Timeout in seconds for each invocation
+        /// of the target (1-30). String-typed (not integer) so the value may be a JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,8 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_LambdaParameters_InvocationTimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>Timeout in seconds for each invocation of the target. String-typed so the value may
-        /// be a JSONata expression.</para>
+        /// Timeout in seconds for each invocation
+        /// of the target. String-typed so the value may be a JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,8 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_StepFunctionsParameters_InvocationTimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>Timeout in seconds for each invocation of the target (1-30). String-typed (not integer)
-        /// so the value may be a JSONata expression.</para>
+        /// Timeout in seconds for each invocation
+        /// of the target (1-30). String-typed (not integer) so the value may be a JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,11 +238,11 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_UniversalTargetParameters_InvocationTimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>Timeout in seconds for each invocation of the target (1-30, default 30). Accepts a
-        /// literal integer or a {% ... %} JSONata expression evaluated against the event at invocation
-        /// time. A JSONata expression is syntax-checked at create time. Resolved values outside
-        /// of the range [1, 30] will be constrained to the nearest bound at delivery time. Defaults
-        /// to 30 seconds when unset.</para>
+        /// Timeout in seconds for each invocation
+        /// of the target (1-30, default 30). Accepts a literal integer or a {% ... %} JSONata
+        /// expression evaluated against the event at invocation time. A JSONata expression is
+        /// syntax-checked at create time. Resolved values outside of the range [1, 30] will be
+        /// constrained to the nearest bound at delivery time. Defaults to 30 seconds when unset.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,8 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_LambdaParameters_InvocationType
         /// <summary>
         /// <para>
-        /// <para>Lambda invocation type. EVENT invokes the function asynchronously; REQUEST_RESPONSE
-        /// waits for its result.</para>
+        /// Lambda invocation type. EVENT invokes the
+        /// function asynchronously; REQUEST_RESPONSE waits for its result.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -258,7 +265,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_StepFunctionsParameters_InvocationType
         /// <summary>
         /// <para>
-        /// <para>Selects StartExecution (EVENT) or StartSyncExecution (REQUEST_RESPONSE) at delivery.</para>
+        /// Selects StartExecution (EVENT) or StartSyncExecution
+        /// (REQUEST_RESPONSE) at delivery.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter FilterConfiguration_Language
         /// <summary>
         /// <para>
-        /// <para>Defaults to EVENT_BRIDGE_PATTERN when not specified.</para>
+        /// Defaults to EVENT_BRIDGE_PATTERN when not specified.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,7 +288,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter LogConfiguration_Level
         /// <summary>
         /// <para>
-        /// <para>Minimum log level. Records below this level are not emitted. Defaults to OFF.</para>
+        /// Minimum log level. Records below this level are
+        /// not emitted. Defaults to OFF.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,11 +300,12 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter BatchConfiguration_MaxBatchSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of events to include in a single batch delivered to the target.
-        /// The service delivers up to this many events per batch; fewer may be delivered when
-        /// the batch window elapses or the target's per-batch limit is smaller. This is a maximum,
-        /// not a guaranteed count. Valid range is 1-500 (default: 10, or the target API's per-batch
-        /// maximum). The resolved value applied by the service is returned on read.</para>
+        /// The maximum number of events to include in
+        /// a single batch delivered to the target. The service delivers up to this many events
+        /// per batch; fewer may be delivered when the batch window elapses or the target's per-batch
+        /// limit is smaller. This is a maximum, not a guaranteed count. Valid range is 1-500
+        /// (default: 10, or the target API's per-batch maximum). The resolved value applied by
+        /// the service is returned on read.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -305,10 +315,11 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter BatchConfiguration_MaxBatchWindowInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum time in seconds to wait for a batch to fill before delivering it to the
-        /// target. This is a maximum; a batch may be delivered sooner if it reaches MaxBatchSize
-        /// or another delivery condition is met. Valid range is 0-300 (default: 0, meaning no
-        /// wait). The resolved value applied by the service is always returned on read.</para>
+        /// The maximum time in seconds to
+        /// wait for a batch to fill before delivering it to the target. This is a maximum; a
+        /// batch may be delivered sooner if it reaches MaxBatchSize or another delivery condition
+        /// is met. Valid range is 0-300 (default: 0, meaning no wait). The resolved value applied
+        /// by the service is always returned on read.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,7 +330,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter RetryPolicy_MaxEventAgeInSecond
         /// <summary>
         /// <para>
-        /// <para>Maximum age of an event in seconds before it is discarded (60-86400, default: 300).</para>
+        /// Maximum age of an event in seconds
+        /// before it is discarded (60-86400, default: 300).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -330,7 +342,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter RetryPolicy_MaxRetryAttempt
         /// <summary>
         /// <para>
-        /// <para>Maximum number of retry attempts (0-185, default: 5).</para>
+        /// Maximum number of retry attempts (0-185,
+        /// default: 5).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,10 +354,12 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SnsParameters_MessageAttribute
         /// <summary>
         /// <para>
-        /// <para>Custom message attributes for SNS filtering.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Custom message attributes for SNS filtering.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -356,10 +371,12 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SqsParameters_MessageAttribute
         /// <summary>
         /// <para>
-        /// <para>Custom message attributes (name/type/value).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Custom message attributes (name/type/value).
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -371,7 +388,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SnsParameters_MessageDeduplicationId
         /// <summary>
         /// <para>
-        /// <para>Message deduplication ID for FIFO topics. Accepts JSONata expression.</para>
+        /// Message deduplication ID for FIFO
+        /// topics. Accepts JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -381,7 +399,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SqsParameters_MessageDeduplicationId
         /// <summary>
         /// <para>
-        /// <para>Message deduplication ID for FIFO queues. Accepts JSONata expression.</para>
+        /// Message deduplication ID for FIFO
+        /// queues. Accepts JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -391,7 +410,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SnsParameters_MessageGroupId
         /// <summary>
         /// <para>
-        /// <para>Message group ID for FIFO topics. Accepts JSONata expression.</para>
+        /// Message group ID for FIFO topics. Accepts
+        /// JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,7 +421,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SqsParameters_MessageGroupId
         /// <summary>
         /// <para>
-        /// <para>Message group ID for FIFO queues. Accepts JSONata expression.</para>
+        /// Message group ID for FIFO queues. Accepts
+        /// JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -411,8 +432,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SnsParameters_MessageStructure
         /// <summary>
         /// <para>
-        /// <para>Per-protocol message formatting mode, forwarded to SNS Publish unchanged. Accepts
-        /// JSONata expression.</para>
+        /// Per-protocol message formatting mode,
+        /// forwarded to SNS Publish unchanged. Accepts JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -422,10 +443,13 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SqsParameters_MessageSystemAttribute
         /// <summary>
         /// <para>
-        /// <para>System message attributes (e.g., AWSTraceHeader).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// System message attributes (e.g.,
+        /// AWSTraceHeader).
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -437,10 +461,13 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_EventBusV2Parameters_Metadata
         /// <summary>
         /// <para>
-        /// <para>Customer-defined metadata forwarded with each event.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Customer-defined metadata forwarded with each
+        /// event.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -451,8 +478,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_StepFunctionsParameters_Name
         /// <summary>
         /// <para>
-        /// <para>Name for the execution. Must be unique per account/region/state machine. Accepts JSONata
-        /// expression.</para>
+        /// Name for the execution. Must be unique per account/region/state
+        /// machine. Accepts JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -462,8 +489,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_KinesisParameters_PartitionKey
         /// <summary>
         /// <para>
-        /// <para>Required by PutRecords even when an explicit hash key is supplied. Accepts JSONata
-        /// expression.</para>
+        /// Required by PutRecords even when an explicit
+        /// hash key is supplied. Accepts JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -474,9 +501,10 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -488,8 +516,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_LambdaParameters_Qualifier
         /// <summary>
         /// <para>
-        /// <para>Lambda qualifier: $LATEST, $LATEST.PUBLISHED, a numeric version, or an alias. Accepts
-        /// a JSONata expression.</para>
+        /// Lambda qualifier: $LATEST, $LATEST.PUBLISHED,
+        /// a numeric version, or an alias. Accepts a JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -500,9 +528,10 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -525,7 +554,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter RetryPolicy_RetryStrategy
         /// <summary>
         /// <para>
-        /// <para>Strategy for determining which exceptions are retried. Default: ALL.</para>
+        /// Strategy for determining which exceptions
+        /// are retried. Default: ALL.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -536,7 +566,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>IAM role the service assumes to invoke the target. Must belong to the calling account.</para>
+        /// IAM role the service assumes to invoke the target.
+        /// Must belong to the calling account.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -557,7 +588,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SnsParameters_Subject
         /// <summary>
         /// <para>
-        /// <para>Subject line for email protocol subscriptions. Accepts JSONata expression.</para>
+        /// Subject line for email protocol subscriptions.
+        /// Accepts JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -584,7 +616,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_LambdaParameters_TenantId
         /// <summary>
         /// <para>
-        /// <para>Tenant identifier. Accepts a JSONata expression.</para>
+        /// Tenant identifier. Accepts a JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -594,7 +626,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_StepFunctionsParameters_TraceHeader
         /// <summary>
         /// <para>
-        /// <para>X-Ray trace header for distributed tracing. Accepts JSONata expression.</para>
+        /// X-Ray trace header for distributed tracing.
+        /// Accepts JSONata expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -604,7 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Transformer_Type
         /// <summary>
         /// <para>
-        /// <para>Transform type.</para>
+        /// Transform type.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

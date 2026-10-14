@@ -85,9 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>An array of key-value pairs that represent custom HTTP headers to include in AS2 messages.
         /// These headers are added to the AS2 message when sending files to your trading partner.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -125,9 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>One or more source paths for the partner's SFTP server. Each string represents a source
         /// file path for one inbound file transfer.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -141,9 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>One or more source paths for the Amazon S3 storage. Each string represents a source
         /// file path for one outbound file transfer. For example, <c><i>amzn-s3-demo-bucket</i>/<i>myfile.txt</i></c>.</para><note><para>Replace <c><i>amzn-s3-demo-bucket</i></c> with one of your actual buckets.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

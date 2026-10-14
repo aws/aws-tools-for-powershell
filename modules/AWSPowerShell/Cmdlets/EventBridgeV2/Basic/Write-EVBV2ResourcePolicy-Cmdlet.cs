@@ -32,12 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
     /// <summary>
     /// Attaches a named resource policy to an event bus — the only resource type that supports
     /// policies; other resource ARNs are rejected. Each bus holds two named policies: "default"
-    /// (customer-managed, full IAM policy language including Deny) and "AWS_RAM"
-    /// (written exclusively by AWS Resource Access Manager to reflect resource shares). Both
-    /// policies are evaluated on cross-account authorization; an explicit Deny in either
-    /// overrides an Allow in the other. Operations that omit PolicyName target "default".
-    /// A "default" policy that would grant public access is rejected with PublicPolicyException
-    /// and is not attached; this check is always on and cannot be disabled.
+    /// (customer-managed, full IAM policy language including Deny) and "AWS_RAM" (written
+    /// exclusively by AWS Resource Access Manager to reflect resource shares). Both policies
+    /// are evaluated on cross-account authorization; an explicit Deny in either overrides
+    /// an Allow in the other. Operations that omit PolicyName target "default". A "default"
+    /// policy that would grant public access is rejected with PublicPolicyException and is
+    /// not attached; this check is always on and cannot be disabled.
     /// </summary>
     [Cmdlet("Write", "EVBV2ResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EventBridgeV2.Model.PutResourcePolicyResponse")]
@@ -54,13 +54,13 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter ExpectedRevisionId
         /// <summary>
         /// <para>
-        /// <para>The write succeeds only if the named policy's current revision ID matches this value;
-        /// a policy that does not exist yet matches only the sentinel "NO_POLICY" (create-only).
-        /// On mismatch the operation fails with ConflictException. When omitted, the write is
-        /// unconditional. Every attempt stores a newly generated revision ID, so retrying an
-        /// unanswered request can conflict with the caller's own earlier attempt; read the policy
-        /// back and compare it with the one you intended before treating a conflict as another
-        /// writer's change.</para>
+        /// The write succeeds only if the named
+        /// policy's current revision ID matches this value; a policy that does not exist yet
+        /// matches only the sentinel "NO_POLICY" (create-only). On mismatch the operation fails
+        /// with ConflictException. When omitted, the write is unconditional. Every attempt stores
+        /// a newly generated revision ID, so retrying an unanswered request can conflict with
+        /// the caller's own earlier attempt; read the policy back and compare it with the one
+        /// you intended before treating a conflict as another writer's change.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,12 +87,12 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>Which named policy to write. Defaults to "default", the customer-managed
-        /// policy, when omitted (a write AWS Resource Access Manager makes on the owner's behalf
-        /// resolves to "AWS_RAM" instead). The two writers are exclusive in both directions
-        /// — only Resource Access Manager can write "AWS_RAM", and only the bus owner
-        /// can write "default" — so naming the other party's policy fails with AccessDeniedException.
-        /// A well-formed name that is neither of the two fails with InvalidInputException.</para>
+        /// Which named policy to write. Defaults to "default",
+        /// the customer-managed policy, when omitted (a write AWS Resource Access Manager makes
+        /// on the owner's behalf resolves to "AWS_RAM" instead). The two writers are exclusive
+        /// in both directions — only Resource Access Manager can write "AWS_RAM", and only the
+        /// bus owner can write "default" — so naming the other party's policy fails with AccessDeniedException.
+        /// A well-formed name that is neither of the two fails with InvalidInputException.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

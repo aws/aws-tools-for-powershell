@@ -79,9 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         /// associated with an entitlement granted by the agreement.</para></li></ul><para>A proposer can use any combination of the preceding filters along with <c>AgreementType</c>,
         /// which is required.</para><para>The following filter combinations are supported when the <c>PartyType</c> is <c>Acceptor</c>:</para><ul><li><para><c>AgreementType</c></para></li><li><para><c>AgreementType</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>Status</c> + <c>EndTime</c></para></li></ul><note><para>To filter by <c>EndTime</c>, you can use <c>BeforeEndTime</c>, <c>AfterEndTime</c>,
         /// or both.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

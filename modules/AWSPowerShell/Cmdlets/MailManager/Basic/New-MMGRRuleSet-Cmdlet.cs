@@ -49,9 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         /// <summary>
         /// <para>
         /// <para>Conditional rules that are evaluated for determining actions on email.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -89,9 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         /// <para>
         /// <para>The tags used to organize, track, or control access for the resource. For example,
         /// { "tags": {"key1":"value1", "key2":"value2"} }.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -157,6 +159,13 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.RuleSetName = this.RuleSetName;
+            #if MODULAR
+            if (this.RuleSetName == null && ParameterWasBound(nameof(this.RuleSetName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RuleSetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Rule != null)
             {
                 context.Rule = new List<Amazon.MailManager.Model.Rule>(this.Rule);
@@ -165,13 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             if (this.Rule == null && ParameterWasBound(nameof(this.Rule)))
             {
                 WriteWarning("You are passing $null as a value for parameter Rule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.RuleSetName = this.RuleSetName;
-            #if MODULAR
-            if (this.RuleSetName == null && ParameterWasBound(nameof(this.RuleSetName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RuleSetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.Tag != null)
@@ -198,13 +200,13 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.Rule != null)
-            {
-                request.Rules = cmdletContext.Rule;
-            }
             if (cmdletContext.RuleSetName != null)
             {
                 request.RuleSetName = cmdletContext.RuleSetName;
+            }
+            if (cmdletContext.Rule != null)
+            {
+                request.Rules = cmdletContext.Rule;
             }
             if (cmdletContext.Tag != null)
             {
@@ -266,8 +268,8 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
-            public List<Amazon.MailManager.Model.Rule> Rule { get; set; }
             public System.String RuleSetName { get; set; }
+            public List<Amazon.MailManager.Model.Rule> Rule { get; set; }
             public List<Amazon.MailManager.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.MailManager.Model.CreateRuleSetResponse, NewMMGRRuleSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RuleSetId;

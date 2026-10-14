@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>The name that you want to assign to this namespace. When you create a private DNS
-        /// namespace, Cloud Map automatically creates an Amazon Route 53 private hosted zone
+        /// namespace, Cloud Map automatically creates an Amazon Route 53 private hosted zone
         /// that has the same name as the namespace.</para>
         /// </para>
         /// </summary>
@@ -99,9 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <para>The tags to add to the namespace. Each tag consists of a key and an optional value
         /// that you define. Tags keys can be up to 128 characters in length, and tag values can
         /// be up to 256 characters in length.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

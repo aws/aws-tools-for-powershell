@@ -50,9 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         /// <para>
         /// <para>A new set of rules to replace the current rules of the rule set—these rules will override
         /// all the rules of the rule set.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -133,10 +134,6 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
                 context.Select = CreateSelectDelegate<Amazon.MailManager.Model.UpdateRuleSetResponse, UpdateMMGRRuleSetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Rule != null)
-            {
-                context.Rule = new List<Amazon.MailManager.Model.Rule>(this.Rule);
-            }
             context.RuleSetId = this.RuleSetId;
             #if MODULAR
             if (this.RuleSetId == null && ParameterWasBound(nameof(this.RuleSetId)))
@@ -145,6 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             }
             #endif
             context.RuleSetName = this.RuleSetName;
+            if (this.Rule != null)
+            {
+                context.Rule = new List<Amazon.MailManager.Model.Rule>(this.Rule);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,10 +162,6 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             // create request
             var request = new Amazon.MailManager.Model.UpdateRuleSetRequest();
             
-            if (cmdletContext.Rule != null)
-            {
-                request.Rules = cmdletContext.Rule;
-            }
             if (cmdletContext.RuleSetId != null)
             {
                 request.RuleSetId = cmdletContext.RuleSetId;
@@ -172,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             if (cmdletContext.RuleSetName != null)
             {
                 request.RuleSetName = cmdletContext.RuleSetName;
+            }
+            if (cmdletContext.Rule != null)
+            {
+                request.Rules = cmdletContext.Rule;
             }
             
             CmdletOutput output;
@@ -228,9 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.MailManager.Model.Rule> Rule { get; set; }
             public System.String RuleSetId { get; set; }
             public System.String RuleSetName { get; set; }
+            public List<Amazon.MailManager.Model.Rule> Rule { get; set; }
             public System.Func<Amazon.MailManager.Model.UpdateRuleSetResponse, UpdateMMGRRuleSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

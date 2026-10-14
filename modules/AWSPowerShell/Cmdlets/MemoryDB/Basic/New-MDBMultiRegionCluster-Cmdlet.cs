@@ -139,9 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         /// <summary>
         /// <para>
         /// <para>A list of tags to be applied to the multi-Region cluster.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -225,11 +226,11 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             }
             #endif
             context.NumShard = this.NumShard;
+            context.TLSEnabled = this.TLSEnabled;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.MemoryDB.Model.Tag>(this.Tag);
             }
-            context.TLSEnabled = this.TLSEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -274,13 +275,13 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             {
                 request.NumShards = cmdletContext.NumShard.Value;
             }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
-            }
             if (cmdletContext.TLSEnabled != null)
             {
                 request.TLSEnabled = cmdletContext.TLSEnabled.Value;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -344,8 +345,8 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             public System.String MultiRegionParameterGroupName { get; set; }
             public System.String NodeType { get; set; }
             public System.Int32? NumShard { get; set; }
-            public List<Amazon.MemoryDB.Model.Tag> Tag { get; set; }
             public System.Boolean? TLSEnabled { get; set; }
+            public List<Amazon.MemoryDB.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.MemoryDB.Model.CreateMultiRegionClusterResponse, NewMDBMultiRegionClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MultiRegionCluster;
         }

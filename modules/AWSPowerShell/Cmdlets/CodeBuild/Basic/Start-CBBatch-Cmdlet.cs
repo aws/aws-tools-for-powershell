@@ -174,9 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// build. See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
         /// environment compute types</a> in the <i>CodeBuild User Guide</i> for these values.
         /// </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -276,9 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>An array of <c>EnvironmentVariable</c> objects that override, or add to, the environment
         /// variables defined in the batch build project.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -304,9 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html">Run
         /// builds on reserved capacity fleets</a> in the <i>CodeBuild User Guide</i> for more
         /// information. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -455,9 +458,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </para></li><li><para>Symlinks are used to reference cached directories. </para></li><li><para>Cached directories are linked to your build before it downloads its project sources.
         /// Cached items are overridden if a source item has the same name. Directories are specified
         /// using cache paths in the buildspec file. </para></li></ul></dd></dl><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -613,9 +617,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>An array of <c>ProjectArtifacts</c> objects that override the secondary artifacts
         /// defined in the batch build project.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -628,9 +633,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>An array of <c>ProjectSource</c> objects that override the secondary sources defined
         /// in the batch build project.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -643,9 +649,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>An array of <c>ProjectSourceVersion</c> objects that override the secondary source
         /// versions in the batch build project.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -868,8 +875,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.Restrictions_MaximumBuildsAllowed = this.Restrictions_MaximumBuildsAllowed;
             context.BuildBatchConfigOverride_ServiceRole = this.BuildBatchConfigOverride_ServiceRole;
             context.BuildBatchConfigOverride_TimeoutInMin = this.BuildBatchConfigOverride_TimeoutInMin;
-            context.BuildspecOverride = this.BuildspecOverride;
             context.BuildTimeoutInMinutesOverride = this.BuildTimeoutInMinutesOverride;
+            context.BuildspecOverride = this.BuildspecOverride;
             context.CacheOverride_CacheNamespace = this.CacheOverride_CacheNamespace;
             context.CacheOverride_Location = this.CacheOverride_Location;
             if (this.CacheOverride_Mode != null)
@@ -1148,13 +1155,13 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.BuildBatchConfigOverride = null;
             }
-            if (cmdletContext.BuildspecOverride != null)
-            {
-                request.BuildspecOverride = cmdletContext.BuildspecOverride;
-            }
             if (cmdletContext.BuildTimeoutInMinutesOverride != null)
             {
                 request.BuildTimeoutInMinutesOverride = cmdletContext.BuildTimeoutInMinutesOverride.Value;
+            }
+            if (cmdletContext.BuildspecOverride != null)
+            {
+                request.BuildspecOverride = cmdletContext.BuildspecOverride;
             }
             
              // populate CacheOverride
@@ -1551,8 +1558,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.Int32? Restrictions_MaximumBuildsAllowed { get; set; }
             public System.String BuildBatchConfigOverride_ServiceRole { get; set; }
             public System.Int32? BuildBatchConfigOverride_TimeoutInMin { get; set; }
-            public System.String BuildspecOverride { get; set; }
             public System.Int32? BuildTimeoutInMinutesOverride { get; set; }
+            public System.String BuildspecOverride { get; set; }
             public System.String CacheOverride_CacheNamespace { get; set; }
             public System.String CacheOverride_Location { get; set; }
             public List<System.String> CacheOverride_Mode { get; set; }

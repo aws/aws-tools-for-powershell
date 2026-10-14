@@ -139,9 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>Specifies the Amazon EC2 security groups that provide access to your file system's
         /// preferred subnet.</para><para>The security groups must allow outbound traffic on the following ports (depending
         /// on the protocol you use):</para><ul><li><para><b>Network File System (NFS)</b>: TCP ports 111, 635, and 2049</para></li><li><para><b>Server Message Block (SMB)</b>: TCP port 445</para></li></ul><para>Your file system's security groups must also allow inbound traffic on the same ports.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -196,9 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>Specifies labels that help you categorize, filter, and search for your Amazon Web
         /// Services resources. We recommend creating at least a name tag for your location.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

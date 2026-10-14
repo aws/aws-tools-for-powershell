@@ -1,4 +1,17 @@
-﻿### 5.0.317 (2026-10-13 19:05Z)
+﻿### 5.0.318 (2026-10-14 19:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.353.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFront
+    * Modified cmdlet New-CFVpcOrigin: added parameter VpcOriginEndpointConfig_IpAddressType.
+    * Modified cmdlet Update-CFVpcOrigin: added parameter VpcOriginEndpointConfig_IpAddressType.
+  * Amazon EC2 Image Builder
+    * Modified cmdlet New-EC2IBInfrastructureConfiguration: added parameters ParentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond, ParentInstance_AutoScalingGroup_Name and TerminateInstanceOnCompletion.
+    * Modified cmdlet Update-EC2IBInfrastructureConfiguration: added parameters ParentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond, ParentInstance_AutoScalingGroup_Name and TerminateInstanceOnCompletion.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet Import-TFRHostKey: added parameters KmsKey and StorageType.
+    * Modified cmdlet New-TFRServer: added parameter HostKeyStorageType.
+    * Modified cmdlet Update-TFRHostKey: added parameters KmsKey and StorageType.
+
+### 5.0.317 (2026-10-13 19:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.352.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppIntegrations Service
     * Modified cmdlet New-AISApplication: added parameter AuthConfig_AudienceOverride.

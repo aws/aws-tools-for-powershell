@@ -74,9 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// by the stateless rules in this <c>StatelessRulesAndCustomActions</c> specification.
         /// You name each custom action that you define, and then you can use it by name in your
         /// <a>StatelessRule</a><a>RuleDefinition</a><c>Actions</c> specification.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -131,9 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>The list of IP set references.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -146,9 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>A list of IP addresses and address ranges, in CIDR notation. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -175,9 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>A list of port ranges. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -211,9 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Specifies the selected rule options returned by <a>DescribeRuleGroupSummary</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -300,9 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// source and destination, ports, direction, and rule options. For information about
         /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-7.0.8/rules/intro.html">Rules
         /// Format</a>. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -315,9 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Defines the set of stateless rules for use in a stateless rule group. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -334,9 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// example,<c>.example.com</c> matches <c>example.com</c> and matches all subdomains
         /// of <c>example.com</c>, such as <c>abc.example.com</c> and <c>www.example.com</c>.
         /// </para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -350,9 +358,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>
         /// <para>The protocols you want to inspect. Specify <c>TLS_SNI</c> for <c>HTTPS</c>. Specify
         /// <c>HTTP_HOST</c> for <c>HTTP</c>. You can specify either or both. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -468,28 +477,6 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                     context.ReferenceSets_IPSetReference.Add((String)hashKey, (Amazon.NetworkFirewall.Model.IPSetReference)(this.ReferenceSets_IPSetReference[hashKey]));
                 }
             }
-            context.RulesSourceList_GeneratedRulesType = this.RulesSourceList_GeneratedRulesType;
-            if (this.RulesSourceList_Target != null)
-            {
-                context.RulesSourceList_Target = new List<System.String>(this.RulesSourceList_Target);
-            }
-            if (this.RulesSourceList_TargetType != null)
-            {
-                context.RulesSourceList_TargetType = new List<System.String>(this.RulesSourceList_TargetType);
-            }
-            context.RulesSource_RulesString = this.RulesSource_RulesString;
-            if (this.RulesSource_StatefulRule != null)
-            {
-                context.RulesSource_StatefulRule = new List<Amazon.NetworkFirewall.Model.StatefulRule>(this.RulesSource_StatefulRule);
-            }
-            if (this.StatelessRulesAndCustomActions_CustomAction != null)
-            {
-                context.StatelessRulesAndCustomActions_CustomAction = new List<Amazon.NetworkFirewall.Model.CustomAction>(this.StatelessRulesAndCustomActions_CustomAction);
-            }
-            if (this.StatelessRulesAndCustomActions_StatelessRule != null)
-            {
-                context.StatelessRulesAndCustomActions_StatelessRule = new List<Amazon.NetworkFirewall.Model.StatelessRule>(this.StatelessRulesAndCustomActions_StatelessRule);
-            }
             if (this.RuleVariables_IPSet != null)
             {
                 context.RuleVariables_IPSet = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet>(StringComparer.Ordinal);
@@ -505,6 +492,28 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 {
                     context.RuleVariables_PortSet.Add((String)hashKey, (Amazon.NetworkFirewall.Model.PortSet)(this.RuleVariables_PortSet[hashKey]));
                 }
+            }
+            context.RulesSourceList_GeneratedRulesType = this.RulesSourceList_GeneratedRulesType;
+            if (this.RulesSourceList_TargetType != null)
+            {
+                context.RulesSourceList_TargetType = new List<System.String>(this.RulesSourceList_TargetType);
+            }
+            if (this.RulesSourceList_Target != null)
+            {
+                context.RulesSourceList_Target = new List<System.String>(this.RulesSourceList_Target);
+            }
+            context.RulesSource_RulesString = this.RulesSource_RulesString;
+            if (this.RulesSource_StatefulRule != null)
+            {
+                context.RulesSource_StatefulRule = new List<Amazon.NetworkFirewall.Model.StatefulRule>(this.RulesSource_StatefulRule);
+            }
+            if (this.StatelessRulesAndCustomActions_CustomAction != null)
+            {
+                context.StatelessRulesAndCustomActions_CustomAction = new List<Amazon.NetworkFirewall.Model.CustomAction>(this.StatelessRulesAndCustomActions_CustomAction);
+            }
+            if (this.StatelessRulesAndCustomActions_StatelessRule != null)
+            {
+                context.StatelessRulesAndCustomActions_StatelessRule = new List<Amazon.NetworkFirewall.Model.StatelessRule>(this.StatelessRulesAndCustomActions_StatelessRule);
             }
             context.StatefulRuleOptions_RuleOrder = this.StatefulRuleOptions_RuleOrder;
             context.RuleGroupArn = this.RuleGroupArn;
@@ -745,16 +754,6 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList.GeneratedRulesType = requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_GeneratedRulesType;
                 requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceListIsNull = false;
             }
-            List<System.String> requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_Target = null;
-            if (cmdletContext.RulesSourceList_Target != null)
-            {
-                requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_Target = cmdletContext.RulesSourceList_Target;
-            }
-            if (requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_Target != null)
-            {
-                requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList.Targets = requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_Target;
-                requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceListIsNull = false;
-            }
             List<System.String> requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_TargetType = null;
             if (cmdletContext.RulesSourceList_TargetType != null)
             {
@@ -763,6 +762,16 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_TargetType != null)
             {
                 requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList.TargetTypes = requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_TargetType;
+                requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceListIsNull = false;
+            }
+            List<System.String> requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_Target = null;
+            if (cmdletContext.RulesSourceList_Target != null)
+            {
+                requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_Target = cmdletContext.RulesSourceList_Target;
+            }
+            if (requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_Target != null)
+            {
+                requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList.Targets = requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList_rulesSourceList_Target;
                 requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceListIsNull = false;
             }
              // determine if requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList should be set to null
@@ -919,15 +928,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.String EncryptionConfiguration_KeyId { get; set; }
             public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
             public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference> ReferenceSets_IPSetReference { get; set; }
+            public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> RuleVariables_IPSet { get; set; }
+            public Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet> RuleVariables_PortSet { get; set; }
             public Amazon.NetworkFirewall.GeneratedRulesType RulesSourceList_GeneratedRulesType { get; set; }
-            public List<System.String> RulesSourceList_Target { get; set; }
             public List<System.String> RulesSourceList_TargetType { get; set; }
+            public List<System.String> RulesSourceList_Target { get; set; }
             public System.String RulesSource_RulesString { get; set; }
             public List<Amazon.NetworkFirewall.Model.StatefulRule> RulesSource_StatefulRule { get; set; }
             public List<Amazon.NetworkFirewall.Model.CustomAction> StatelessRulesAndCustomActions_CustomAction { get; set; }
             public List<Amazon.NetworkFirewall.Model.StatelessRule> StatelessRulesAndCustomActions_StatelessRule { get; set; }
-            public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> RuleVariables_IPSet { get; set; }
-            public Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet> RuleVariables_PortSet { get; set; }
             public Amazon.NetworkFirewall.RuleOrder StatefulRuleOptions_RuleOrder { get; set; }
             public System.String RuleGroupArn { get; set; }
             public System.String RuleGroupName { get; set; }

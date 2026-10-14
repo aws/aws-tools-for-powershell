@@ -76,9 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -172,9 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>Parameters specified by the administrator that are required for provisioning the product.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -200,9 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// constraint. To get the list of accounts in the <c>STACKSET</c> constraint, use the
         /// <c>DescribeProvisioningParameters</c> operation.</para><para>If no values are specified, the default value is all acounts from the <c>STACKSET</c>
         /// constraint.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -276,9 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// constraint. To get the list of Regions in the <c>STACKSET</c> constraint, use the
         /// <c>DescribeProvisioningParameters</c> operation.</para><para>If no values are specified, the default value is all Regions from the <c>STACKSET</c>
         /// constraint.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -291,9 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>One or more tags.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -357,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             context.PathName = this.PathName;
             context.ProductId = this.ProductId;
             context.ProductName = this.ProductName;
+            context.ProvisionToken = this.ProvisionToken;
             context.ProvisionedProductName = this.ProvisionedProductName;
             #if MODULAR
             if (this.ProvisionedProductName == null && ParameterWasBound(nameof(this.ProvisionedProductName)))
@@ -382,7 +388,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 context.ProvisioningPreferences_StackSetRegion = new List<System.String>(this.ProvisioningPreferences_StackSetRegion);
             }
-            context.ProvisionToken = this.ProvisionToken;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ServiceCatalog.Model.Tag>(this.Tag);
@@ -426,6 +431,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.ProductName != null)
             {
                 request.ProductName = cmdletContext.ProductName;
+            }
+            if (cmdletContext.ProvisionToken != null)
+            {
+                request.ProvisionToken = cmdletContext.ProvisionToken;
             }
             if (cmdletContext.ProvisionedProductName != null)
             {
@@ -512,10 +521,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 request.ProvisioningPreferences = null;
             }
-            if (cmdletContext.ProvisionToken != null)
-            {
-                request.ProvisionToken = cmdletContext.ProvisionToken;
-            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -581,6 +586,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.String PathName { get; set; }
             public System.String ProductId { get; set; }
             public System.String ProductName { get; set; }
+            public System.String ProvisionToken { get; set; }
             public System.String ProvisionedProductName { get; set; }
             public System.String ProvisioningArtifactId { get; set; }
             public System.String ProvisioningArtifactName { get; set; }
@@ -591,7 +597,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.Int32? ProvisioningPreferences_StackSetMaxConcurrencyCount { get; set; }
             public System.Int32? ProvisioningPreferences_StackSetMaxConcurrencyPercentage { get; set; }
             public List<System.String> ProvisioningPreferences_StackSetRegion { get; set; }
-            public System.String ProvisionToken { get; set; }
             public List<Amazon.ServiceCatalog.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.ProvisionProductResponse, NewSCProvisionedProductCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RecordDetail;

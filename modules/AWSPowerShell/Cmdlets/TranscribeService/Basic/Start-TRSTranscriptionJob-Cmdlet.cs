@@ -119,9 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Specify the output format for your subtitle file; if you select both WebVTT (<c>vtt</c>)
         /// and SubRip (<c>srt</c>) formats, two output files are generated.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -179,9 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS
         /// encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric
         /// keys in KMS</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -227,14 +229,15 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// applied to your transcription. If you include <c>LanguageOptions</c> and include <c>en-US</c>
         /// as the only English language dialect, your custom vocabulary <i>is</i> applied to
         /// your transcription.</para><para>If you want to include a custom language model with your request but <b>do not</b>
-        /// want to use automatic language identification, use instead the <code /> parameter with
+        /// want to use automatic language identification, use instead the <c></c> parameter with
         /// the <c>LanguageModelName</c> sub-parameter. If you want to include a custom vocabulary
         /// or a custom vocabulary filter (or both) with your request but <b>do not</b> want to
-        /// use automatic language identification, use instead the <code /> parameter with the
+        /// use automatic language identification, use instead the <c></c> parameter with the
         /// <c>VocabularyName</c> or <c>VocabularyFilterName</c> (or both) sub-parameter.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -267,9 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// GovCloud (US) (US-West, us-gov-west-1), Amazon Web Services GovCloud (US) (US-East,
         /// us-gov-east-1), in Canada (Calgary) ca-west-1 and Africa (Cape Town) af-south-1, your
         /// media file must be encoded at a sample rate of 16,000 Hz or higher.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -416,9 +420,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// in your transcript. You can include as many types as you'd like, or you can select
         /// <c>ALL</c>. If you do not include <c>PiiEntityTypes</c> in your request, all PII is
         /// redacted.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -503,9 +508,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new transcription
         /// job at the time you start this new job.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
         /// resources</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -520,9 +526,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>Enables toxic speech detection in your transcript. If you include <c>ToxicityDetection</c>
         /// in your request, you must also include <c>ToxicityCategories</c>.</para><para>For information on the types of toxic speech Amazon Transcribe can detect, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/toxic-language.html">Detecting
         /// toxic speech</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

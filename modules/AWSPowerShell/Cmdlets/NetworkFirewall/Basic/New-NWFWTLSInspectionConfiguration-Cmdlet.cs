@@ -94,9 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Lists the server certificate configurations that are associated with the TLS configuration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -109,9 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>The key:value pairs to associate with the resource.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -199,10 +201,6 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             context.Description = this.Description;
             context.EncryptionConfiguration_KeyId = this.EncryptionConfiguration_KeyId;
             context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.NetworkFirewall.Model.Tag>(this.Tag);
-            }
             if (this.TLSInspectionConfiguration_ServerCertificateConfiguration != null)
             {
                 context.TLSInspectionConfiguration_ServerCertificateConfiguration = new List<Amazon.NetworkFirewall.Model.ServerCertificateConfiguration>(this.TLSInspectionConfiguration_ServerCertificateConfiguration);
@@ -214,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 WriteWarning("You are passing $null as a value for parameter TLSInspectionConfigurationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.NetworkFirewall.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -263,10 +265,6 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             {
                 request.EncryptionConfiguration = null;
             }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
-            }
             
              // populate TLSInspectionConfiguration
             var requestTLSInspectionConfigurationIsNull = true;
@@ -289,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.TLSInspectionConfigurationName != null)
             {
                 request.TLSInspectionConfigurationName = cmdletContext.TLSInspectionConfigurationName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -348,9 +350,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.String Description { get; set; }
             public System.String EncryptionConfiguration_KeyId { get; set; }
             public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
-            public List<Amazon.NetworkFirewall.Model.Tag> Tag { get; set; }
             public List<Amazon.NetworkFirewall.Model.ServerCertificateConfiguration> TLSInspectionConfiguration_ServerCertificateConfiguration { get; set; }
             public System.String TLSInspectionConfigurationName { get; set; }
+            public List<Amazon.NetworkFirewall.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.CreateTLSInspectionConfigurationResponse, NewNWFWTLSInspectionConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

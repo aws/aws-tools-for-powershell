@@ -107,9 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon
         /// Web Services General Reference</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -148,9 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// to 100 items. Note that the length constraint requirement applies to each resource
         /// type filter. For example, the following string would limit the response to only Amazon
         /// EC2 instances, Amazon S3 buckets, or any Audit Manager resource:</para><para><c>ec2:instance,s3:bucket,auditmanager</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -177,9 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <c>key2=value3</c> or <c>key2=value4</c></para></li><li><para><c>GetResources({filter3})</c> returns resources tagged with any tag with the key
         /// <c>key3</c>, and with any or no value</para></li><li><para><c>GetResources({filter1,filter2,filter3})</c> returns resources tagged with <c>(key1=value1)
         /// and (key2=value2 or key2=value3 or key2=value4) and (key3, any or no value)</c></para></li></ul></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -273,11 +276,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             {
                 context.ResourceARNList = new List<System.String>(this.ResourceARNList);
             }
-            context.ResourcesPerPage = this.ResourcesPerPage;
             if (this.ResourceTypeFilter != null)
             {
                 context.ResourceTypeFilter = new List<System.String>(this.ResourceTypeFilter);
             }
+            context.ResourcesPerPage = this.ResourcesPerPage;
             if (this.TagFilter != null)
             {
                 context.TagFilter = new List<Amazon.ResourceGroupsTaggingAPI.Model.TagFilter>(this.TagFilter);
@@ -313,13 +316,13 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             {
                 request.ResourceARNList = cmdletContext.ResourceARNList;
             }
-            if (cmdletContext.ResourcesPerPage != null)
-            {
-                request.ResourcesPerPage = cmdletContext.ResourcesPerPage.Value;
-            }
             if (cmdletContext.ResourceTypeFilter != null)
             {
                 request.ResourceTypeFilters = cmdletContext.ResourceTypeFilter;
+            }
+            if (cmdletContext.ResourcesPerPage != null)
+            {
+                request.ResourcesPerPage = cmdletContext.ResourcesPerPage.Value;
             }
             if (cmdletContext.TagFilter != null)
             {
@@ -412,8 +415,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             public System.Boolean? IncludeComplianceDetail { get; set; }
             public System.String PaginationToken { get; set; }
             public List<System.String> ResourceARNList { get; set; }
-            public System.Int32? ResourcesPerPage { get; set; }
             public List<System.String> ResourceTypeFilter { get; set; }
+            public System.Int32? ResourcesPerPage { get; set; }
             public List<Amazon.ResourceGroupsTaggingAPI.Model.TagFilter> TagFilter { get; set; }
             public System.Int32? TagsPerPage { get; set; }
             public System.Func<Amazon.ResourceGroupsTaggingAPI.Model.GetResourcesResponse, GetRGTResourceCmdlet, object> Select { get; set; } =

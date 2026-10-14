@@ -67,9 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// three address allocation IDs.</para></li><li><para>Call the <c>UpdateServer</c> API to set or change this parameter.</para></li><li><para>You can't set address allocation IDs for servers that have an <c>IpAddressType</c>
         /// set to <c>DUALSTACK</c> You can only set this property if <c>IpAddressType</c> is
         /// set to <c>IPV4</c>.</para></li></ul></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -82,9 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -244,9 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>A trigger that starts a workflow if a file is only partially uploaded. You can attach
         /// a workflow to a server that executes whenever there is a partial upload.</para><para>A <i>partial upload</i> occurs when a file is open when the session disconnects.</para><note><para><c>OnPartialUpload</c> can contain a maximum of one <c>WorkflowDetail</c> object.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -260,9 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</para><para>To remove an associated workflow from a server, you can provide an empty <c>OnUpload</c>
         /// object, as in the following example.</para><para><c>aws transfer update-server --server-id s-01234567890abcdef --workflow-details
         /// '{"OnUpload":[]}'</c></para><note><para><c>OnUpload</c> can contain a maximum of one <c>WorkflowDetail</c> object.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -344,9 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// identity types: <c>SERVICE_MANAGED</c>, <c>AWS_DIRECTORY_SERVICE</c>, <c>AWS_LAMBDA</c>,
         /// or <c>API_GATEWAY</c>.</para></li><li><para>If <c>Protocol</c> includes <c>AS2</c>, then the <c>EndpointType</c> must be <c>VPC</c>,
         /// and domain must be Amazon S3.</para></li></ul></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -368,9 +373,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// to <c>VPC</c>. To change security groups associated with your server's VPC endpoint
         /// after creation, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html">ModifyVpcEndpoint</a>
         /// API.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -484,9 +490,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// this mode is more resilient to TCP retransmissions that can occur during the initial
         /// TCP connection.</para></li></ul><para>The following is an <c>SftpPorts</c> example for port 2222 with <c>CLIENT_TALK_FIRST</c>.</para><para><c>[ { "SftpPort": 2222, "CommunicationMode": "CLIENT_TALK_FIRST" } ]</c></para><para>If you don't specify any configurations during <c>CreateServer</c>, the service uses
         /// port 22 with <c>SERVER_TALK_FIRST</c> by default.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -502,9 +509,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// case, the format of the log group is as follows:</para><para><c>arn:partition:logs:region-name:amazon-account-id:log-group:log-group-name:*</c></para><para>For example, <c>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</c></para><para>If you have previously specified a log group for a server, you can clear it, and in
         /// effect turn off structured logging, by providing an empty value for this parameter
         /// in an <c>update-server</c> call. For example:</para><para><c>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -517,9 +525,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>A list of subnet IDs that are required to host your server endpoint in your VPC.</para><note><para>This property can only be set when <c>EndpointType</c> is set to <c>VPC</c>.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

@@ -130,6 +130,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String IfMatch { get; set; }
         #endregion
         
+        #region Parameter VpcOriginEndpointConfig_IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type of the CloudFront VPC origin endpoint configuration. Valid values
+        /// are <c>ipv4</c> and <c>dualstack</c>. IPv6-only is not supported for VPC origins.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFront.VpcIpAddressType")]
+        public Amazon.CloudFront.VpcIpAddressType VpcOriginEndpointConfig_IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter OriginSslProtocols_Item
         /// <summary>
         /// <para>
@@ -272,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 WriteWarning("You are passing $null as a value for parameter VpcOriginEndpointConfig_HTTPSPort which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VpcOriginEndpointConfig_IpAddressType = this.VpcOriginEndpointConfig_IpAddressType;
             context.VpcOriginEndpointConfig_Name = this.VpcOriginEndpointConfig_Name;
             #if MODULAR
             if (this.VpcOriginEndpointConfig_Name == null && ParameterWasBound(nameof(this.VpcOriginEndpointConfig_Name)))
@@ -347,6 +360,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestVpcOriginEndpointConfig_vpcOriginEndpointConfig_HTTPSPort != null)
             {
                 request.VpcOriginEndpointConfig.HTTPSPort = requestVpcOriginEndpointConfig_vpcOriginEndpointConfig_HTTPSPort.Value;
+                requestVpcOriginEndpointConfigIsNull = false;
+            }
+            Amazon.CloudFront.VpcIpAddressType requestVpcOriginEndpointConfig_vpcOriginEndpointConfig_IpAddressType = null;
+            if (cmdletContext.VpcOriginEndpointConfig_IpAddressType != null)
+            {
+                requestVpcOriginEndpointConfig_vpcOriginEndpointConfig_IpAddressType = cmdletContext.VpcOriginEndpointConfig_IpAddressType;
+            }
+            if (requestVpcOriginEndpointConfig_vpcOriginEndpointConfig_IpAddressType != null)
+            {
+                request.VpcOriginEndpointConfig.IpAddressType = requestVpcOriginEndpointConfig_vpcOriginEndpointConfig_IpAddressType;
                 requestVpcOriginEndpointConfigIsNull = false;
             }
             System.String requestVpcOriginEndpointConfig_vpcOriginEndpointConfig_Name = null;
@@ -469,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.String VpcOriginEndpointConfig_Arn { get; set; }
             public System.Int32? VpcOriginEndpointConfig_HTTPPort { get; set; }
             public System.Int32? VpcOriginEndpointConfig_HTTPSPort { get; set; }
+            public Amazon.CloudFront.VpcIpAddressType VpcOriginEndpointConfig_IpAddressType { get; set; }
             public System.String VpcOriginEndpointConfig_Name { get; set; }
             public Amazon.CloudFront.OriginProtocolPolicy VpcOriginEndpointConfig_OriginProtocolPolicy { get; set; }
             public List<System.String> OriginSslProtocols_Item { get; set; }

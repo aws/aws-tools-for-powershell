@@ -152,9 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>The new parameters.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -171,9 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// the <c>STACKSET</c> constraint. To get the list of accounts in the <c>STACKSET</c>
         /// constraint, use the <c>DescribeProvisioningParameters</c> operation.</para><para>If no values are specified, the default value is all accounts from the <c>STACKSET</c>
         /// constraint.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -262,9 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// constraint. To get the list of Regions in the <c>STACKSET</c> constraint, use the
         /// <c>DescribeProvisioningParameters</c> operation.</para><para>If no values are specified, the default value is all Regions from the <c>STACKSET</c>
         /// constraint.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -278,9 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>
         /// <para>One or more tags. Requires the product to have <c>RESOURCE_UPDATE</c> constraint with
         /// <c>TagUpdatesOnProvisionedProduct</c> set to <c>ALLOWED</c> to allow tag updates.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

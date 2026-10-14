@@ -220,9 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// build. See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
         /// environment compute types</a> in the <i>CodeBuild User Guide</i> for these values.
         /// </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -347,9 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A set of environment variables to make available to builds for this build project.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -376,9 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// A <c>ProjectFileSystemLocation</c> object specifies the <c>identifier</c>, <c>location</c>,
         /// <c>mountOptions</c>, <c>mountPoint</c>, and <c>type</c> of a file system created using
         /// Amazon Elastic File System. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -405,9 +408,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html">Run
         /// builds on reserved capacity fleets</a> in the <i>CodeBuild User Guide</i> for more
         /// information. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -649,9 +653,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </para></li><li><para>Symlinks are used to reference cached directories. </para></li><li><para>Cached directories are linked to your build before it downloads its project sources.
         /// Cached items are overridden if a source item has the same name. Directories are specified
         /// using cache paths in the buildspec file. </para></li></ul></dd></dl><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -820,9 +825,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> An array of <c>ProjectArtifact</c> objects. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -835,9 +841,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> An array of <c>ProjectSource</c> objects. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -852,9 +859,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para> An array of <c>ProjectSourceVersion</c> objects. If <c>secondarySourceVersions</c>
         /// is specified at the build level, then they take over these <c>secondarySourceVersions</c>
         /// (at the project level). </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -868,9 +876,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>A list of one or more security groups IDs.</para><note><para>Security groups configured for Docker servers should allow ingress network traffic
         /// from the VPC configured in the project. They should allow ingress on port 9876.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -883,9 +892,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A list of one or more security groups IDs in your Amazon VPC.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -998,9 +1008,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A list of one or more subnet IDs in your Amazon VPC.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1014,9 +1025,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>An updated list of tag key and value pairs associated with this build project.</para><para>These tags are available for use by Amazon Web Services services that support CodeBuild
         /// build project tags.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1276,20 +1288,20 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 context.SecondaryArtifact = new List<Amazon.CodeBuild.Model.ProjectArtifacts>(this.SecondaryArtifact);
             }
-            if (this.SecondarySource != null)
-            {
-                context.SecondarySource = new List<Amazon.CodeBuild.Model.ProjectSource>(this.SecondarySource);
-            }
             if (this.SecondarySourceVersion != null)
             {
                 context.SecondarySourceVersion = new List<Amazon.CodeBuild.Model.ProjectSourceVersion>(this.SecondarySourceVersion);
             }
+            if (this.SecondarySource != null)
+            {
+                context.SecondarySource = new List<Amazon.CodeBuild.Model.ProjectSource>(this.SecondarySource);
+            }
             context.ServiceRole = this.ServiceRole;
             context.Auth_Resource = this.Auth_Resource;
             context.Auth_Type = this.Auth_Type;
-            context.Source_Buildspec = this.Source_Buildspec;
             context.BuildStatusConfig_Context = this.BuildStatusConfig_Context;
             context.BuildStatusConfig_TargetUrl = this.BuildStatusConfig_TargetUrl;
+            context.Source_Buildspec = this.Source_Buildspec;
             context.Source_GitCloneDepth = this.Source_GitCloneDepth;
             context.GitSubmodulesConfig_FetchSubmodule = this.GitSubmodulesConfig_FetchSubmodule;
             context.Source_InsecureSsl = this.Source_InsecureSsl;
@@ -2009,13 +2021,13 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.SecondaryArtifacts = cmdletContext.SecondaryArtifact;
             }
-            if (cmdletContext.SecondarySource != null)
-            {
-                request.SecondarySources = cmdletContext.SecondarySource;
-            }
             if (cmdletContext.SecondarySourceVersion != null)
             {
                 request.SecondarySourceVersions = cmdletContext.SecondarySourceVersion;
+            }
+            if (cmdletContext.SecondarySource != null)
+            {
+                request.SecondarySources = cmdletContext.SecondarySource;
             }
             if (cmdletContext.ServiceRole != null)
             {
@@ -2358,14 +2370,14 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Name { get; set; }
             public System.Int32? QueuedTimeoutInMinute { get; set; }
             public List<Amazon.CodeBuild.Model.ProjectArtifacts> SecondaryArtifact { get; set; }
-            public List<Amazon.CodeBuild.Model.ProjectSource> SecondarySource { get; set; }
             public List<Amazon.CodeBuild.Model.ProjectSourceVersion> SecondarySourceVersion { get; set; }
+            public List<Amazon.CodeBuild.Model.ProjectSource> SecondarySource { get; set; }
             public System.String ServiceRole { get; set; }
             public System.String Auth_Resource { get; set; }
             public Amazon.CodeBuild.SourceAuthType Auth_Type { get; set; }
-            public System.String Source_Buildspec { get; set; }
             public System.String BuildStatusConfig_Context { get; set; }
             public System.String BuildStatusConfig_TargetUrl { get; set; }
+            public System.String Source_Buildspec { get; set; }
             public System.Int32? Source_GitCloneDepth { get; set; }
             public System.Boolean? GitSubmodulesConfig_FetchSubmodule { get; set; }
             public System.Boolean? Source_InsecureSsl { get; set; }

@@ -183,6 +183,17 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.HostKeyStorageType
+        {
+            ($_ -eq "New-TFRServer/HostKeyStorageType") -Or
+            ($_ -eq "Import-TFRHostKey/StorageType") -Or
+            ($_ -eq "Update-TFRHostKey/StorageType")
+        }
+        {
+            $v = "SECRETS_MANAGER","SERVICE_MANAGED"
+            break
+        }
+
         # Amazon.Transfer.IdentityProviderType
         {
             ($_ -eq "New-TFRServer/IdentityProviderType") -Or
@@ -347,6 +358,7 @@ $TFR_map = @{
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "EnforceMessageSigning"=@("New-TFRAgreement","Update-TFRAgreement")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
+    "HostKeyStorageType"=@("New-TFRServer")
     "IdentityProviderDetails_SftpAuthenticationMethod"=@("New-TFRServer","Update-TFRServer")
     "IdentityProviderType"=@("New-TFRServer","Update-TFRServer")
     "IpAddressType"=@("New-TFRConnector","New-TFRServer","Update-TFRConnector","Update-TFRServer")
@@ -358,6 +370,7 @@ $TFR_map = @{
     "S3StorageOptions_DirectoryListingOptimization"=@("New-TFRServer","Update-TFRServer")
     "ServerProtocol"=@("Test-TFRIdentityProvider")
     "Status"=@("New-TFRAgreement","Send-TFRWorkflowStepState","Update-TFRAgreement")
+    "StorageType"=@("Import-TFRHostKey","Update-TFRHostKey")
     "Usage"=@("Import-TFRCertificate")
     "WebAppEndpointPolicy"=@("New-TFRWebApp")
 }

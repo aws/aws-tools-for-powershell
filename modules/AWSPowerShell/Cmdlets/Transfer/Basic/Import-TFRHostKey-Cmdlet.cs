@@ -71,6 +71,20 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String HostKeyBody { get; set; }
         #endregion
         
+        #region Parameter KmsKey
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key used to encrypt the Secrets Manager
+        /// secret that stores the host key. If you specify a customer managed key, its key policy
+        /// must allow the <c>AWSServiceRoleForTransfer</c> service-linked role to decrypt the
+        /// secret. If you don't specify a value, Transfer Family uses the Amazon Web Services
+        /// managed key for Secrets Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKey { get; set; }
+        #endregion
+        
         #region Parameter ServerId
         /// <summary>
         /// <para>
@@ -88,13 +102,27 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String ServerId { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the host key is stored by Transfer Family (<c>SERVICE_MANAGED</c>)
+        /// or in Secrets Manager (<c>SECRETS_MANAGER</c>). When you specify <c>SECRETS_MANAGER</c>,
+        /// Transfer Family stores the private host key material in an Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.HostKeyStorageType")]
+        public Amazon.Transfer.HostKeyStorageType StorageType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>Key-value pairs that can be used to group and search for host keys.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -157,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter HostKeyBody which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KmsKey = this.KmsKey;
             context.ServerId = this.ServerId;
             #if MODULAR
             if (this.ServerId == null && ParameterWasBound(nameof(this.ServerId)))
@@ -164,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter ServerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Transfer.Model.Tag>(this.Tag);
@@ -192,9 +222,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.HostKeyBody = cmdletContext.HostKeyBody;
             }
+            if (cmdletContext.KmsKey != null)
+            {
+                request.KmsKey = cmdletContext.KmsKey;
+            }
             if (cmdletContext.ServerId != null)
             {
                 request.ServerId = cmdletContext.ServerId;
+            }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
             }
             if (cmdletContext.Tag != null)
             {
@@ -257,7 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         {
             public System.String Description { get; set; }
             public System.String HostKeyBody { get; set; }
+            public System.String KmsKey { get; set; }
             public System.String ServerId { get; set; }
+            public Amazon.Transfer.HostKeyStorageType StorageType { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Transfer.Model.ImportHostKeyResponse, ImportTFRHostKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

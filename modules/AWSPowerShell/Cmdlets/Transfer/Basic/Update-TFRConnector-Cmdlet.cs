@@ -231,9 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// credentials from each version stage in the order listed, and uses the first version
         /// it can successfully retrieve. This lets you rotate the user secret without interrupting
         /// connector operations.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -305,9 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>A list of server identifiers that can handle asynchronous MDN responses. You can specify
         /// between 1 and 10 server IDs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -346,9 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// command or into the <b>Trusted host keys</b> field in the console.</para><para>For VPC Lattice type connectors (VPC_LATTICE), remove the hostname from the key and
         /// use only the <c>key-type key-body</c> format. In this example, it should be: <c>ssh-rsa
         /// AAAAB3Nza...&lt;long-string-for-public-key&gt;</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

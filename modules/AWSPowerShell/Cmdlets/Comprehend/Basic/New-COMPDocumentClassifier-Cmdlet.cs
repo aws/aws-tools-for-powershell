@@ -54,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>A list of augmented manifest files that provide training data for your custom model.
         /// An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker
         /// Ground Truth.</para><para>This parameter is required if you set <c>DataFormat</c> to <c>AUGMENTED_MANIFEST</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -176,9 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// as the read action, you must specify one or both of the following values:</para><ul><li><para><c>TABLES</c> - Returns additional information about any tables that are detected
         /// in the input document. </para></li><li><para><c>FORMS</c> - Returns additional information about any forms that are detected in
         /// the input document. </para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -335,9 +337,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
         /// Groups for your VPC</a>. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -354,9 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055".
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs
         /// and Subnets</a>. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -372,9 +376,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales"
         /// as the key might be added to a resource to indicate its use by the sales department.
         /// </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -504,9 +509,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             {
                 context.DocumentReaderConfig_FeatureType = new List<System.String>(this.DocumentReaderConfig_FeatureType);
             }
+            context.InputDataConfig_DocumentType = this.InputDataConfig_DocumentType;
             context.Documents_S3Uri = this.Documents_S3Uri;
             context.Documents_TestS3Uri = this.Documents_TestS3Uri;
-            context.InputDataConfig_DocumentType = this.InputDataConfig_DocumentType;
             context.InputDataConfig_LabelDelimiter = this.InputDataConfig_LabelDelimiter;
             context.InputDataConfig_S3Uri = this.InputDataConfig_S3Uri;
             context.InputDataConfig_TestS3Uri = this.InputDataConfig_TestS3Uri;
@@ -873,9 +878,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public Amazon.Comprehend.DocumentReadAction DocumentReaderConfig_DocumentReadAction { get; set; }
             public Amazon.Comprehend.DocumentReadMode DocumentReaderConfig_DocumentReadMode { get; set; }
             public List<System.String> DocumentReaderConfig_FeatureType { get; set; }
+            public Amazon.Comprehend.DocumentClassifierDocumentTypeFormat InputDataConfig_DocumentType { get; set; }
             public System.String Documents_S3Uri { get; set; }
             public System.String Documents_TestS3Uri { get; set; }
-            public Amazon.Comprehend.DocumentClassifierDocumentTypeFormat InputDataConfig_DocumentType { get; set; }
             public System.String InputDataConfig_LabelDelimiter { get; set; }
             public System.String InputDataConfig_S3Uri { get; set; }
             public System.String InputDataConfig_TestS3Uri { get; set; }

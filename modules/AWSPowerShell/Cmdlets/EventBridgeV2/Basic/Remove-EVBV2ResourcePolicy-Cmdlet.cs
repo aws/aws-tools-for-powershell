@@ -48,14 +48,14 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter ExpectedRevisionId
         /// <summary>
         /// <para>
-        /// <para>The delete succeeds only if the named policy's current revision ID matches this value;
-        /// if it differs or the policy does not exist, the operation fails with ConflictException.
-        /// The "NO_POLICY" sentinel is not valid here. When omitted, deleting an absent
-        /// policy is an idempotent success. Supplying this value makes the delete non-idempotent:
-        /// once it succeeds the expected revision no longer exists, so retrying an unanswered
-        /// request fails with ConflictException even though the policy was deleted. To establish
-        /// the outcome, read the policy back: ResourceNotFoundException means the delete took
-        /// effect.</para>
+        /// The delete succeeds only if the named
+        /// policy's current revision ID matches this value; if it differs or the policy does
+        /// not exist, the operation fails with ConflictException. The "NO_POLICY" sentinel is
+        /// not valid here. When omitted, deleting an absent policy is an idempotent success.
+        /// Supplying this value makes the delete non-idempotent: once it succeeds the expected
+        /// revision no longer exists, so retrying an unanswered request fails with ConflictException
+        /// even though the policy was deleted. To establish the outcome, read the policy back:
+        /// ResourceNotFoundException means the delete took effect.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,12 +65,12 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>Which named policy to delete. Defaults to "default" when omitted (a delete
-        /// AWS Resource Access Manager makes on the owner's behalf resolves to "AWS_RAM"
-        /// instead). The two writers are exclusive in both directions — only Resource Access
-        /// Manager can delete "AWS_RAM", and only the bus owner can delete "default"
-        /// — so naming the other party's policy fails with AccessDeniedException. A well-formed
-        /// name that is neither of the two fails with InvalidInputException.</para>
+        /// Which named policy to delete. Defaults to "default"
+        /// when omitted (a delete AWS Resource Access Manager makes on the owner's behalf resolves
+        /// to "AWS_RAM" instead). The two writers are exclusive in both directions — only Resource
+        /// Access Manager can delete "AWS_RAM", and only the bus owner can delete "default" —
+        /// so naming the other party's policy fails with AccessDeniedException. A well-formed
+        /// name that is neither of the two fails with InvalidInputException.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

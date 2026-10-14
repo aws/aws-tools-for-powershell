@@ -56,9 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.MES
         /// parameters. You must use one or the other, but not both in the same request. </para><note><para>If you're migrating an existing integration, use <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-account.html">Account
         /// Feeds</a> to map <c>CustomerIdentifier</c> to <c>CustomerAWSAccountId</c>, and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-agreements.html">Agreements
         /// Feeds</a> to map <c>CustomerAWSAccountId</c> and <c>LicenseArn</c>.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

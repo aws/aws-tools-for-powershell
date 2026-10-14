@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// 
     ///  <ul><li><para>
     /// For public and private DNS namespaces, one of the following combinations of DNS records
-    /// in Amazon Route 53:
+    /// in Amazon Route 53:
     /// </para><ul><li><para><c>A</c></para></li><li><para><c>AAAA</c></para></li><li><para><c>A</c> and <c>AAAA</c></para></li><li><para><c>SRV</c></para></li><li><para><c>CNAME</c></para></li></ul></li><li><para>
     /// Optionally, a health check
     /// </para></li></ul><para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter DnsConfig
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains information about the Amazon Route 53 records that you
+        /// <para>A complex type that contains information about the Amazon Route 53 records that you
         /// want Cloud Map to create when you register an instance. </para>
         /// </para>
         /// </summary>
@@ -96,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter HealthCheckConfig_FailureThreshold
         /// <summary>
         /// <para>
-        /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route 53
-        /// to change the current status of the endpoint from unhealthy to healthy or the other
+        /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route
+        /// 53 to change the current status of the endpoint from unhealthy to healthy or the other
         /// way around. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
-        /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
+        /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
         /// Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -161,10 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter HealthCheckConfig_ResourcePath
         /// <summary>
         /// <para>
-        /// <para>The path that you want Route 53 to request when performing health checks. The path
+        /// <para>The path that you want Route 53 to request when performing health checks. The path
         /// can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format
         /// for when the endpoint is healthy. An example file is <c>/docs/route53-health-check.html</c>.
-        /// Route 53 automatically adds the DNS name for the service. If you don't specify a value
+        /// Route 53 automatically adds the DNS name for the service. If you don't specify a value
         /// for <c>ResourcePath</c>, the default value is <c>/</c>.</para><para>If you specify <c>TCP</c> for <c>Type</c>, you must <i>not</i> specify a value for
         /// <c>ResourcePath</c>.</para>
         /// </para>
@@ -179,9 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <para>The tags to add to the service. Each tag consists of a key and an optional value that
         /// you define. Tags keys can be up to 128 characters in length, and tag values can be
         /// up to 256 characters in length.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -193,14 +194,14 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter HealthCheckConfig_Type
         /// <summary>
         /// <para>
-        /// <para>The type of health check that you want to create, which indicates how Route 53 determines
-        /// whether an endpoint is healthy.</para><important><para>You can't change the value of <c>Type</c> after you create a health check.</para></important><para>You can create the following types of health checks:</para><ul><li><para><b>HTTP</b>: Route 53 tries to establish a TCP connection. If successful, Route 53
+        /// <para>The type of health check that you want to create, which indicates how Route 53 determines
+        /// whether an endpoint is healthy.</para><important><para>You can't change the value of <c>Type</c> after you create a health check.</para></important><para>You can create the following types of health checks:</para><ul><li><para><b>HTTP</b>: Route 53 tries to establish a TCP connection. If successful, Route 53
         /// submits an HTTP request and waits for an HTTP status code of 200 or greater and less
-        /// than 400.</para></li><li><para><b>HTTPS</b>: Route 53 tries to establish a TCP connection. If successful, Route 53
-        /// submits an HTTPS request and waits for an HTTP status code of 200 or greater and less
-        /// than 400.</para><important><para>If you specify HTTPS for the value of <c>Type</c>, the endpoint must support TLS v1.0
-        /// or later.</para></important></li><li><para><b>TCP</b>: Route 53 tries to establish a TCP connection.</para><para>If you specify <c>TCP</c> for <c>Type</c>, don't specify a value for <c>ResourcePath</c>.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
-        /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
+        /// than 400.</para></li><li><para><b>HTTPS</b>: Route 53 tries to establish a TCP connection. If successful, Route
+        /// 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and
+        /// less than 400.</para><important><para>If you specify HTTPS for the value of <c>Type</c>, the endpoint must support TLS v1.0
+        /// or later.</para></important></li><li><para><b>TCP</b>: Route 53 tries to establish a TCP connection.</para><para>If you specify <c>TCP</c> for <c>Type</c>, don't specify a value for <c>ResourcePath</c>.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
+        /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
         /// Guide</i>.</para>
         /// </para>
         /// </summary>

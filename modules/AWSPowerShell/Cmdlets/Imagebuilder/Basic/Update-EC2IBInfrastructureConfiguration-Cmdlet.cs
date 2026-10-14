@@ -61,6 +61,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String Placement_AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter ParentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds that Image Builder waits for an instance to become available
+        /// in the group before the build fails. If you set this value to 0 or omit it, the build
+        /// fails as soon as the group has no instance available.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ParentInstance_AutoScalingGroup_CapacityWaitTimeoutSeconds")]
+        public System.Int32? ParentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -189,6 +202,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String KeyPair { get; set; }
         #endregion
         
+        #region Parameter ParentInstance_AutoScalingGroup_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Auto Scaling group, in the same account and Amazon Web Services Region
+        /// as the infrastructure configuration. To specify a group, you must have permissions
+        /// to describe it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ParentInstance_AutoScalingGroup_Name { get; set; }
+        #endregion
+        
         #region Parameter ResourceTag
         /// <summary>
         /// <para>
@@ -292,6 +317,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public Amazon.Imagebuilder.TenancyType Placement_Tenancy { get; set; }
         #endregion
         
+        #region Parameter TerminateInstanceOnCompletion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether Image Builder terminates build and test instances when image creation
+        /// ends without a failure (success, cancellation, or expiration). Defaults to <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TerminateInstanceOnCompletion { get; set; }
+        #endregion
+        
         #region Parameter TerminateInstanceOnFailure
         /// <summary>
         /// <para>
@@ -389,6 +425,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             context.KeyPair = this.KeyPair;
             context.S3Logs_S3BucketName = this.S3Logs_S3BucketName;
             context.S3Logs_S3KeyPrefix = this.S3Logs_S3KeyPrefix;
+            context.ParentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond = this.ParentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond;
+            context.ParentInstance_AutoScalingGroup_Name = this.ParentInstance_AutoScalingGroup_Name;
             context.Placement_AvailabilityZone = this.Placement_AvailabilityZone;
             context.Placement_HostId = this.Placement_HostId;
             context.Placement_HostResourceGroupArn = this.Placement_HostResourceGroupArn;
@@ -407,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             context.SnsTopicArn = this.SnsTopicArn;
             context.SubnetId = this.SubnetId;
+            context.TerminateInstanceOnCompletion = this.TerminateInstanceOnCompletion;
             context.TerminateInstanceOnFailure = this.TerminateInstanceOnFailure;
             
             // allow further manipulation of loaded context prior to processing
@@ -522,6 +561,50 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 request.Logging = null;
             }
             
+             // populate ParentInstance
+            var requestParentInstanceIsNull = true;
+            request.ParentInstance = new Amazon.Imagebuilder.Model.ParentInstanceConfiguration();
+            Amazon.Imagebuilder.Model.AutoScalingGroupConfiguration requestParentInstance_parentInstance_AutoScalingGroup = null;
+            
+             // populate AutoScalingGroup
+            var requestParentInstance_parentInstance_AutoScalingGroupIsNull = true;
+            requestParentInstance_parentInstance_AutoScalingGroup = new Amazon.Imagebuilder.Model.AutoScalingGroupConfiguration();
+            System.Int32? requestParentInstance_parentInstance_AutoScalingGroup_parentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond = null;
+            if (cmdletContext.ParentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond != null)
+            {
+                requestParentInstance_parentInstance_AutoScalingGroup_parentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond = cmdletContext.ParentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond.Value;
+            }
+            if (requestParentInstance_parentInstance_AutoScalingGroup_parentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond != null)
+            {
+                requestParentInstance_parentInstance_AutoScalingGroup.CapacityWaitTimeoutSeconds = requestParentInstance_parentInstance_AutoScalingGroup_parentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond.Value;
+                requestParentInstance_parentInstance_AutoScalingGroupIsNull = false;
+            }
+            System.String requestParentInstance_parentInstance_AutoScalingGroup_parentInstance_AutoScalingGroup_Name = null;
+            if (cmdletContext.ParentInstance_AutoScalingGroup_Name != null)
+            {
+                requestParentInstance_parentInstance_AutoScalingGroup_parentInstance_AutoScalingGroup_Name = cmdletContext.ParentInstance_AutoScalingGroup_Name;
+            }
+            if (requestParentInstance_parentInstance_AutoScalingGroup_parentInstance_AutoScalingGroup_Name != null)
+            {
+                requestParentInstance_parentInstance_AutoScalingGroup.Name = requestParentInstance_parentInstance_AutoScalingGroup_parentInstance_AutoScalingGroup_Name;
+                requestParentInstance_parentInstance_AutoScalingGroupIsNull = false;
+            }
+             // determine if requestParentInstance_parentInstance_AutoScalingGroup should be set to null
+            if (requestParentInstance_parentInstance_AutoScalingGroupIsNull)
+            {
+                requestParentInstance_parentInstance_AutoScalingGroup = null;
+            }
+            if (requestParentInstance_parentInstance_AutoScalingGroup != null)
+            {
+                request.ParentInstance.AutoScalingGroup = requestParentInstance_parentInstance_AutoScalingGroup;
+                requestParentInstanceIsNull = false;
+            }
+             // determine if request.ParentInstance should be set to null
+            if (requestParentInstanceIsNull)
+            {
+                request.ParentInstance = null;
+            }
+            
              // populate Placement
             var requestPlacementIsNull = true;
             request.Placement = new Amazon.Imagebuilder.Model.Placement();
@@ -585,6 +668,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.SubnetId != null)
             {
                 request.SubnetId = cmdletContext.SubnetId;
+            }
+            if (cmdletContext.TerminateInstanceOnCompletion != null)
+            {
+                request.TerminateInstanceOnCompletion = cmdletContext.TerminateInstanceOnCompletion.Value;
             }
             if (cmdletContext.TerminateInstanceOnFailure != null)
             {
@@ -655,6 +742,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String KeyPair { get; set; }
             public System.String S3Logs_S3BucketName { get; set; }
             public System.String S3Logs_S3KeyPrefix { get; set; }
+            public System.Int32? ParentInstance_AutoScalingGroup_CapacityWaitTimeoutSecond { get; set; }
+            public System.String ParentInstance_AutoScalingGroup_Name { get; set; }
             public System.String Placement_AvailabilityZone { get; set; }
             public System.String Placement_HostId { get; set; }
             public System.String Placement_HostResourceGroupArn { get; set; }
@@ -663,6 +752,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public List<System.String> SecurityGroupId { get; set; }
             public System.String SnsTopicArn { get; set; }
             public System.String SubnetId { get; set; }
+            public System.Boolean? TerminateInstanceOnCompletion { get; set; }
             public System.Boolean? TerminateInstanceOnFailure { get; set; }
             public System.Func<Amazon.Imagebuilder.Model.UpdateInfrastructureConfigurationResponse, UpdateEC2IBInfrastructureConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InfrastructureConfigurationArn;

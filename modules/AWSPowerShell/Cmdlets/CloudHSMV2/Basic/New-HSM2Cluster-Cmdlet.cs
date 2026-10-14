@@ -111,9 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// <para>The identifiers (IDs) of the subnets where you are creating the cluster. You must
         /// specify at least one subnet. If you specify multiple subnets, they must meet the following
         /// criteria:</para><ul><li><para>All subnets must be in the same virtual private cloud (VPC).</para></li><li><para>You can specify only one subnet per Availability Zone.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -133,9 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// <summary>
         /// <para>
         /// <para>Tags to apply to the CloudHSM cluster during creation.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

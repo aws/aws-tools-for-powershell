@@ -65,9 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// the workflow.</para><note><para>For custom steps, the Lambda function needs to send <c>FAILURE</c> to the call back
         /// API to kick off the exception steps. Additionally, if the Lambda does not send <c>SUCCESS</c>
         /// before it times out, the exception steps are executed.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -82,9 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>Specifies the details for the steps that are in the specified workflow.</para><para> The <c>TYPE</c> specifies which of the following actions is being taken for this
         /// step. </para><ul><li><para><b><c>COPY</c></b> - Copy the file to another location.</para></li><li><para><b><c>CUSTOM</c></b> - Perform a custom step with an Lambda function target.</para></li><li><para><b><c>DECRYPT</c></b> - Decrypt a file that was encrypted before it was uploaded.</para></li><li><para><b><c>DELETE</c></b> - Delete the file.</para></li><li><para><b><c>TAG</c></b> - Add a tag to the file.</para></li></ul><note><para> Currently, copying and tagging are supported only on S3. </para></note><para> For file location, you specify either the Amazon S3 bucket and key, or the Amazon
         /// EFS file system ID and path. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -105,9 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>Specifies the log groups to which your workflow logs are sent.</para><para>To specify a log group, you must provide the ARN for an existing log group. In this
         /// case, the format of the log group is as follows:</para><para><c>arn:partition:logs:region-name:amazon-account-id:log-group:log-group-name:*</c></para><para>For example, <c>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -121,9 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>Key-value pairs that can be used to group and search for workflows. Tags are metadata
         /// attached to workflows for any purpose.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

@@ -429,6 +429,16 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.VpcIpAddressType
+        {
+            ($_ -eq "New-CFVpcOrigin/VpcOriginEndpointConfig_IpAddressType") -Or
+            ($_ -eq "Update-CFVpcOrigin/VpcOriginEndpointConfig_IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
 
     }
 
@@ -469,6 +479,7 @@ $CF_map = @{
     "ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "ViewerCertificate_SSLSupportMethod"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "ViewerMtlsConfig_Mode"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "VpcOriginEndpointConfig_IpAddressType"=@("New-CFVpcOrigin","Update-CFVpcOrigin")
     "VpcOriginEndpointConfig_OriginProtocolPolicy"=@("New-CFVpcOrigin","Update-CFVpcOrigin")
     "WebAcl_Action"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
 }

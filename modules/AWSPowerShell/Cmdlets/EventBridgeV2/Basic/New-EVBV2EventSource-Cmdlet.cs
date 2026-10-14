@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Configuration_AwsServiceEventsConfiguration_OnFailureConfiguration_Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the destination that receives events that could not be delivered. An Amazon
-        /// SQS queue is the supported destination.</para>
+        /// The ARN of the destination that receives events that
+        /// could not be delivered. An Amazon SQS queue is the supported destination.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Configuration_PartnerEventsConfiguration_OnFailureConfiguration_Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the destination that receives events that could not be delivered. An Amazon
-        /// SQS queue is the supported destination.</para>
+        /// The ARN of the destination that receives events that
+        /// could not be delivered. An Amazon SQS queue is the supported destination.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,9 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Configuration_AwsServiceEventsConfiguration_Pattern
         /// <summary>
         /// <para>
-        /// <para>A filter pattern, as a JSON string, that defines which of the service's events are
-        /// forwarded to the event bus. Do not include source, account, or region as top-level
-        /// fields. If no pattern is specified, all events from the service are forwarded.</para>
+        /// A filter pattern, as a JSON string, that defines
+        /// which of the service's events are forwarded to the event bus. Do not include source,
+        /// account, or region as top-level fields. If no pattern is specified, all events from
+        /// the service are forwarded.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,9 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Configuration_PartnerEventsConfiguration_Pattern
         /// <summary>
         /// <para>
-        /// <para>A filter pattern, as a JSON string, that defines which of the partner event source's
-        /// events are forwarded to the event bus. If no pattern is specified, all events from
-        /// the partner event source are forwarded.</para>
+        /// A filter pattern, as a JSON string, that defines
+        /// which of the partner event source's events are forwarded to the event bus. If no pattern
+        /// is specified, all events from the partner event source are forwarded.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,9 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
