@@ -1947,22 +1947,6 @@
             },
             "InPreview"               : false
         },
-        "FinSpaceData"                    : {
-            "Version" : "4.0.100.18",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.102.11"
-            },
-            "InPreview"               : false
-        },
-        "Finspace"                        : {
-            "Version" : "4.0.100.18",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.102.11"
-            },
-            "InPreview"               : false
-        },
         "SSMIncidents"                    : {
             "Version" : "4.0.100.19",
             "AssemblyVersionOverride" : "4.0",
@@ -2493,14 +2477,6 @@
         },
         "CloudTrailData"                      : {
             "Version" : "4.0.100.20",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.102.11"
-            },
-            "InPreview"               : false
-        },
-        "Tnb"                                 : {
-            "Version" : "4.0.100.18",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.11"

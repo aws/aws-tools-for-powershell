@@ -1,3 +1,0 @@
-﻿# Finspace
-
-Export-ModuleMember -Alias *

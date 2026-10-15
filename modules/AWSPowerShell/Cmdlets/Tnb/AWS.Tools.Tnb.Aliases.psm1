@@ -1,3 +1,0 @@
-﻿# Tnb
-
-Export-ModuleMember -Alias *

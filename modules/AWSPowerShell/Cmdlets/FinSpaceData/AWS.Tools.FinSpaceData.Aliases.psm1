@@ -1,3 +1,0 @@
-﻿# FinSpaceData
-
-Export-ModuleMember -Alias *

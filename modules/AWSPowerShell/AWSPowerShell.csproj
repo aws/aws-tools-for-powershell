@@ -569,12 +569,6 @@
     <Reference Include="AWSSDK.Evs">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Evs.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.Finspace">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Finspace.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.FinSpaceData">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.FinSpaceData.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.FIS">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.FIS.dll</HintPath>
     </Reference>
@@ -1301,9 +1295,6 @@
     <Reference Include="AWSSDK.TimestreamWrite">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.TimestreamWrite.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.Tnb">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Tnb.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.TranscribeService">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.TranscribeService.dll</HintPath>
     </Reference>
@@ -1879,12 +1870,6 @@
     </Reference>
     <Reference Include="AWSSDK.Evs">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Evs.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Finspace">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Finspace.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.FinSpaceData">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.FinSpaceData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FIS">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.FIS.dll</HintPath>
@@ -2611,9 +2596,6 @@
     </Reference>
     <Reference Include="AWSSDK.TimestreamWrite">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TimestreamWrite.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Tnb">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Tnb.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TranscribeService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TranscribeService.dll</HintPath>
