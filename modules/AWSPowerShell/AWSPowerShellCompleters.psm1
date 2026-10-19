@@ -8831,6 +8831,13 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.RetrievalInstructionStatus
+        "Get-AABRetrievalInstructionList/Status"
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.BedrockAgent.SalesforceAuthType
         {
             ($_ -eq "New-AABDataSource/DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType") -Or
@@ -8952,6 +8959,7 @@ $AAB_map = @{
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
     "SortBy_Order"=@("Get-AABIngestionJobList")
     "SqlKnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "Status"=@("Get-AABRetrievalInstructionList")
     "StatusFilter"=@("Get-AABVpcConfigurationList")
     "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
 }
@@ -9018,6 +9026,8 @@ $AAB_SelectMap = @{
                "New-AABKnowledgeBase",
                "New-AABPrompt",
                "New-AABPromptVersion",
+               "New-AABRetrievalInstruction",
+               "New-AABRetrievalInstructionVersion",
                "New-AABVpcConfiguration",
                "Remove-AABAgent",
                "Remove-AABAgentActionGroup",
@@ -9031,6 +9041,7 @@ $AAB_SelectMap = @{
                "Remove-AABKnowledgeBaseDocument",
                "Remove-AABPrompt",
                "Remove-AABResourcePolicy",
+               "Remove-AABRetrievalInstruction",
                "Remove-AABVpcConfiguration",
                "Unregister-AABAgentCollaborator",
                "Unregister-AABAgentKnowledgeBase",
@@ -9049,6 +9060,7 @@ $AAB_SelectMap = @{
                "Get-AABKnowledgeBaseDocument",
                "Get-AABPrompt",
                "Get-AABResourcePolicy",
+               "Get-AABRetrievalInstruction",
                "Get-AABVpcConfiguration",
                "Add-AABKnowledgeBaseDocument",
                "Get-AABAgentActionGroupList",
@@ -9065,6 +9077,8 @@ $AAB_SelectMap = @{
                "Get-AABKnowledgeBaseDocumentList",
                "Get-AABKnowledgeBasisList",
                "Get-AABPromptList",
+               "Get-AABRetrievalInstructionList",
+               "Get-AABRetrievalInstructionVersionList",
                "Get-AABResourceTag",
                "Get-AABVpcConfigurationList",
                "Initialize-AABAgent",
@@ -9084,6 +9098,7 @@ $AAB_SelectMap = @{
                "Update-AABFlowAlias",
                "Update-AABKnowledgeBase",
                "Update-AABPrompt",
+               "Update-AABRetrievalInstruction",
                "Confirm-AABFlowDefinition")
 }
 
@@ -16512,8 +16527,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
-               "Get-CSDSuggestion")
+               "Get-CSDSuggestion",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -21803,6 +21818,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ContentDisposition
+        "Get-CONNAttachedFile/UrlContentDisposition"
+        {
+            $v = "ATTACHMENT","INLINE"
+            break
+        }
+
         # Amazon.Connect.DataTableAttributeValueType
         {
             ($_ -eq "New-CONNDataTableAttribute/ValueType") -Or
@@ -22621,6 +22643,7 @@ $CONN_map = @{
     "TriggerEventSource_EventSourceName"=@("New-CONNRule")
     "Type"=@("Get-CONNMetricList","Get-CONNViewList","New-CONNContactFlow")
     "Unit"=@("New-CONNMetric","Update-CONNMetricContent")
+    "UrlContentDisposition"=@("Get-CONNAttachedFile")
     "UseCaseType"=@("New-CONNUseCase")
     "ValueLockLevel"=@("New-CONNDataTable","Update-CONNDataTableMetadata")
     "ValueType"=@("New-CONNDataTableAttribute","Update-CONNDataTableAttribute")
@@ -25526,7 +25549,7 @@ $DZ_Completers = {
         # Amazon.DataZone.ConnectionType
         "Get-DZConnectionList/Type"
         {
-            $v = "AMAZON_Q","ATHENA","BIGQUERY","DATABRICKS","DOCUMENTDB","DYNAMODB","GIT","HYPERPOD","IAM","MLFLOW","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","S3","SAPHANA","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","VERTICA","VPC","WORKFLOWS_MWAA"
+            $v = "AMAZON_Q","ATHENA","BIGQUERY","DATABRICKS","DATABRICKSICEBERGRESTCATALOG","DOCUMENTDB","DYNAMODB","GIT","HYPERPOD","IAM","ICEBERGRESTCATALOG","MLFLOW","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","S3","SAPHANA","SNOWFLAKE","SNOWFLAKEICEBERGRESTCATALOG","SPARK","SQLSERVER","TERADATA","VERTICA","VPC","WORKFLOWS_MWAA"
             break
         }
 
@@ -25672,7 +25695,7 @@ $DZ_Completers = {
         # Amazon.DataZone.GlueConnectionType
         "New-DZConnection/GlueConnectionInput_ConnectionType"
         {
-            $v = "BIGQUERY","DOCUMENTDB","DYNAMODB","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","SAPHANA","SNOWFLAKE","SQLSERVER","TERADATA","VERTICA"
+            $v = "BIGQUERY","DATABRICKSICEBERGRESTCATALOG","DOCUMENTDB","DYNAMODB","ICEBERGRESTCATALOG","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","SAPHANA","SNOWFLAKE","SNOWFLAKEICEBERGRESTCATALOG","SQLSERVER","TERADATA","VERTICA"
             break
         }
 
@@ -30510,11 +30533,11 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem",
                "New-DDBTable",
                "New-DDBTableSchema",
+               "Add-DDBIndexSchema",
                "ConvertTo-DDBItem")
 }
 
@@ -40931,8 +40954,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -63627,6 +63650,16 @@ $CWOADMN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ObservabilityAdmin.DeletionProtection
+        {
+            ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection") -Or
+            ($_ -eq "Update-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection")
+        }
+        {
+            $v = "ENABLED"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.DestinationType
         {
             ($_ -eq "New-CWOADMNTelemetryRule/DestinationConfiguration_DestinationType") -Or
@@ -63759,7 +63792,7 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_TelemetryType")
         }
         {
-            $v = "Logs","Metrics","Traces"
+            $v = "Insights","Logs","Metrics","Traces"
             break
         }
 
@@ -63790,6 +63823,7 @@ $CWOADMN_map = @{
     "LoggingFilter_DefaultBehavior"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
@@ -65101,7 +65135,7 @@ $OS_Completers = {
             ($_ -eq "Update-OSDomainConfig/DomainEndpointOptions_TLSSecurityPolicy")
         }
         {
-            $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07","Policy-Min-TLS-1-2-PFS-2023-10","Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08"
+            $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07","Policy-Min-TLS-1-2-FIPS-PQ-2026-10","Policy-Min-TLS-1-2-PFS-2023-10","Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08"
             break
         }
 
@@ -79850,18 +79884,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Write-S3Object",
-               "Dismount-S3PSDrive",
-               "Get-S3MultipartUpload",
-               "Read-S3Object",
-               "Mount-S3PSDrive",
                "Remove-S3Bucket",
+               "Dismount-S3PSDrive",
                "Test-S3Bucket",
                "Get-S3PreSignedURL",
-               "Copy-S3Object",
                "New-S3Bucket",
+               "Read-S3Object",
+               "Get-S3MultipartUpload",
+               "Write-S3Object",
+               "Remove-S3Object",
+               "Copy-S3Object",
                "Remove-S3MultipartUpload",
-               "Remove-S3Object")
+               "Mount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -89848,8 +89882,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -91095,6 +91129,7 @@ $TIDB_Completers = {
             ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_RetentionCheckInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/ReplicationInterval_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/StorageCacheSnapshotWriteColdDuration_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/StorageCompactFullWriteColdDuration_DurationType") -Or
@@ -91215,6 +91250,7 @@ $TIDB_map = @{
     "InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv3Enterprise_RetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
     "NetworkType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Restore-TIDBFromDbBackup")
+    "Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "ReplicationInterval_DurationType"=@("New-TIDBDbParameterGroup")
     "RestoreMode"=@("Restore-TIDBFromDbBackup")
     "StorageCacheSnapshotWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
@@ -95474,7 +95510,10 @@ $WKSI_Completers = {
         }
 
         # Amazon.WorkspacesInstances.VolumeTypeEnum
-        "New-WKSIVolume/VolumeType"
+        {
+            ($_ -eq "Edit-WKSIVolume/VolumeType") -Or
+            ($_ -eq "New-WKSIVolume/VolumeType")
+        }
         {
             $v = "gp2","gp3","io1","io2","sc1","st1","standard"
             break
@@ -95509,7 +95548,7 @@ $WKSI_map = @{
     "PrivateDnsNameOptions_HostnameType"=@("New-WKSIWorkspaceInstance")
     "SpotOptions_InstanceInterruptionBehavior"=@("New-WKSIWorkspaceInstance")
     "SpotOptions_SpotInstanceType"=@("New-WKSIWorkspaceInstance")
-    "VolumeType"=@("New-WKSIVolume")
+    "VolumeType"=@("Edit-WKSIVolume","New-WKSIVolume")
 }
 
 _awsArgumentCompleterRegistration $WKSI_Completers $WKSI_map
@@ -95573,6 +95612,7 @@ $WKSI_SelectMap = @{
                "Get-WKSIRegionList",
                "Get-WKSIResourceTag",
                "Get-WKSIWorkspaceInstanceList",
+               "Edit-WKSIVolume",
                "Add-WKSIResourceTag",
                "Remove-WKSIResourceTag")
 }
@@ -96140,6 +96180,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.ImageValidationMode
+        "Import-WKSCustomWorkspaceImage/ImageValidationMode"
+        {
+            $v = "CUSTOMER_MANAGED","SERVICE_MANAGED"
+            break
+        }
+
         # Amazon.WorkSpaces.LogUploadEnum
         "Edit-WKSClientProperty/ClientProperties_LogUploadEnabled"
         {
@@ -96276,6 +96323,7 @@ $WKS_map = @{
     "GlobalAccelerator_Mode"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "GlobalAccelerator_PreferredProtocol"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "ImageType"=@("Get-WKSWorkspaceImage")
+    "ImageValidationMode"=@("Import-WKSCustomWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
     "LicenseType"=@("Get-WKSApplication")
     "OsVersion"=@("Import-WKSCustomWorkspaceImage")
@@ -96603,44 +96651,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -96680,3 +96690,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

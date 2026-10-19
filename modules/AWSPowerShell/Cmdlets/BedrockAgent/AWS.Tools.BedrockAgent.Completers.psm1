@@ -399,6 +399,13 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.RetrievalInstructionStatus
+        "Get-AABRetrievalInstructionList/Status"
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.BedrockAgent.SalesforceAuthType
         {
             ($_ -eq "New-AABDataSource/DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType") -Or
@@ -520,6 +527,7 @@ $AAB_map = @{
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
     "SortBy_Order"=@("Get-AABIngestionJobList")
     "SqlKnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "Status"=@("Get-AABRetrievalInstructionList")
     "StatusFilter"=@("Get-AABVpcConfigurationList")
     "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
 }
@@ -586,6 +594,8 @@ $AAB_SelectMap = @{
                "New-AABKnowledgeBase",
                "New-AABPrompt",
                "New-AABPromptVersion",
+               "New-AABRetrievalInstruction",
+               "New-AABRetrievalInstructionVersion",
                "New-AABVpcConfiguration",
                "Remove-AABAgent",
                "Remove-AABAgentActionGroup",
@@ -599,6 +609,7 @@ $AAB_SelectMap = @{
                "Remove-AABKnowledgeBaseDocument",
                "Remove-AABPrompt",
                "Remove-AABResourcePolicy",
+               "Remove-AABRetrievalInstruction",
                "Remove-AABVpcConfiguration",
                "Unregister-AABAgentCollaborator",
                "Unregister-AABAgentKnowledgeBase",
@@ -617,6 +628,7 @@ $AAB_SelectMap = @{
                "Get-AABKnowledgeBaseDocument",
                "Get-AABPrompt",
                "Get-AABResourcePolicy",
+               "Get-AABRetrievalInstruction",
                "Get-AABVpcConfiguration",
                "Add-AABKnowledgeBaseDocument",
                "Get-AABAgentActionGroupList",
@@ -633,6 +645,8 @@ $AAB_SelectMap = @{
                "Get-AABKnowledgeBaseDocumentList",
                "Get-AABKnowledgeBasisList",
                "Get-AABPromptList",
+               "Get-AABRetrievalInstructionList",
+               "Get-AABRetrievalInstructionVersionList",
                "Get-AABResourceTag",
                "Get-AABVpcConfigurationList",
                "Initialize-AABAgent",
@@ -652,6 +666,7 @@ $AAB_SelectMap = @{
                "Update-AABFlowAlias",
                "Update-AABKnowledgeBase",
                "Update-AABPrompt",
+               "Update-AABRetrievalInstruction",
                "Confirm-AABFlowDefinition")
 }
 

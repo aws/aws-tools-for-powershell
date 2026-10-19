@@ -2981,6 +2981,10 @@ Set-Alias -Name Create-AABPrompt -Value New-AABPrompt
 Set-Alias -Name AAB-CreatePrompt -Value New-AABPrompt
 Set-Alias -Name Create-AABPromptVersion -Value New-AABPromptVersion
 Set-Alias -Name AAB-CreatePromptVersion -Value New-AABPromptVersion
+Set-Alias -Name Create-AABRetrievalInstruction -Value New-AABRetrievalInstruction
+Set-Alias -Name AAB-CreateRetrievalInstruction -Value New-AABRetrievalInstruction
+Set-Alias -Name Create-AABRetrievalInstructionVersion -Value New-AABRetrievalInstructionVersion
+Set-Alias -Name AAB-CreateRetrievalInstructionVersion -Value New-AABRetrievalInstructionVersion
 Set-Alias -Name Create-AABVpcConfiguration -Value New-AABVpcConfiguration
 Set-Alias -Name AAB-CreateVpcConfiguration -Value New-AABVpcConfiguration
 Set-Alias -Name Delete-AABAgentActionGroup -Value Remove-AABAgentActionGroup
@@ -3008,6 +3012,8 @@ Set-Alias -Name Delete-AABPrompt -Value Remove-AABPrompt
 Set-Alias -Name AAB-DeletePrompt -Value Remove-AABPrompt
 Set-Alias -Name Delete-AABResourcePolicy -Value Remove-AABResourcePolicy
 Set-Alias -Name AAB-DeleteResourcePolicy -Value Remove-AABResourcePolicy
+Set-Alias -Name Delete-AABRetrievalInstruction -Value Remove-AABRetrievalInstruction
+Set-Alias -Name AAB-DeleteRetrievalInstruction -Value Remove-AABRetrievalInstruction
 Set-Alias -Name Delete-AABVpcConfiguration -Value Remove-AABVpcConfiguration
 Set-Alias -Name AAB-DeleteVpcConfiguration -Value Remove-AABVpcConfiguration
 Set-Alias -Name Disassociate-AABAgentCollaborator -Value Unregister-AABAgentCollaborator
@@ -3030,6 +3036,7 @@ Set-Alias -Name Get-AABKnowledgeBaseDocuments -Value Get-AABKnowledgeBaseDocumen
 Set-Alias -Name AAB-GetKnowledgeBaseDocuments -Value Get-AABKnowledgeBaseDocument
 Set-Alias -Name AAB-GetPrompt -Value Get-AABPrompt
 Set-Alias -Name AAB-GetResourcePolicy -Value Get-AABResourcePolicy
+Set-Alias -Name AAB-GetRetrievalInstruction -Value Get-AABRetrievalInstruction
 Set-Alias -Name AAB-GetVpcConfiguration -Value Get-AABVpcConfiguration
 Set-Alias -Name Ingest-AABKnowledgeBaseDocuments -Value Add-AABKnowledgeBaseDocument
 Set-Alias -Name Ingest-AABKnowledgeBaseDocument -Value Add-AABKnowledgeBaseDocument
@@ -3076,6 +3083,12 @@ Set-Alias -Name AAB-ListKnowledgeBases -Value Get-AABKnowledgeBasisList
 Set-Alias -Name List-AABPrompts -Value Get-AABPromptList
 Set-Alias -Name List-AABPromptList -Value Get-AABPromptList
 Set-Alias -Name AAB-ListPrompts -Value Get-AABPromptList
+Set-Alias -Name List-AABRetrievalInstructions -Value Get-AABRetrievalInstructionList
+Set-Alias -Name List-AABRetrievalInstructionList -Value Get-AABRetrievalInstructionList
+Set-Alias -Name AAB-ListRetrievalInstructions -Value Get-AABRetrievalInstructionList
+Set-Alias -Name List-AABRetrievalInstructionVersions -Value Get-AABRetrievalInstructionVersionList
+Set-Alias -Name List-AABRetrievalInstructionVersionList -Value Get-AABRetrievalInstructionVersionList
+Set-Alias -Name AAB-ListRetrievalInstructionVersions -Value Get-AABRetrievalInstructionVersionList
 Set-Alias -Name AAB-ListTagsForResource -Value Get-AABResourceTag
 Set-Alias -Name List-AABVpcConfigurations -Value Get-AABVpcConfigurationList
 Set-Alias -Name List-AABVpcConfigurationList -Value Get-AABVpcConfigurationList
@@ -3100,6 +3113,7 @@ Set-Alias -Name AAB-UpdateFlowAlias -Value Update-AABFlowAlias
 Set-Alias -Name AAB-UpdateFlow -Value Update-AABFlow
 Set-Alias -Name AAB-UpdateKnowledgeBase -Value Update-AABKnowledgeBase
 Set-Alias -Name AAB-UpdatePrompt -Value Update-AABPrompt
+Set-Alias -Name AAB-UpdateRetrievalInstruction -Value Update-AABRetrievalInstruction
 Set-Alias -Name Validate-AABFlowDefinition -Value Confirm-AABFlowDefinition
 Set-Alias -Name AAB-ValidateFlowDefinition -Value Confirm-AABFlowDefinition
 Set-Alias -Name Add-BACCDatasetExamples -Value Add-BACCDatasetExample
@@ -36709,6 +36723,8 @@ Set-Alias -Name WKSI-ListTagsForResource -Value Get-WKSIResourceTag
 Set-Alias -Name List-WKSIWorkspaceInstances -Value Get-WKSIWorkspaceInstanceList
 Set-Alias -Name List-WKSIWorkspaceInstanceList -Value Get-WKSIWorkspaceInstanceList
 Set-Alias -Name WKSI-ListWorkspaceInstances -Value Get-WKSIWorkspaceInstanceList
+Set-Alias -Name Modify-WKSIVolume -Value Edit-WKSIVolume
+Set-Alias -Name WKSI-ModifyVolume -Value Edit-WKSIVolume
 Set-Alias -Name WKSI-TagResource -Value Add-WKSIResourceTag
 Set-Alias -Name WKSI-UntagResource -Value Remove-WKSIResourceTag
 Set-Alias -Name Create-WSTCEnvironment -Value New-WSTCEnvironment

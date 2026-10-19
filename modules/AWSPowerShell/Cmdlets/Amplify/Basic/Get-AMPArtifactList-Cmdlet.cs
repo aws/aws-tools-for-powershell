@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     /// API.
     /// </para><para>
     /// For more information about Amplify testing support, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/running-tests.html">Setting
-    /// up end-to-end Cypress tests for your Amplify application</a> in the <i>Amplify Hosting
+    /// up end-to-end Cypress tests for your Amplify application</a> in the <i> Amplify Hosting
     /// User Guide</i>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

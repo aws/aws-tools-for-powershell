@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     ///  <ul><li><para><b>Supported actions</b> - Policy only supports <c>logs:PutLogEvents</c> and <c>logs:CreateLogStream
     /// </c> actions
     /// </para></li><li><para><b>Supported principals</b> - Policy only applies when operations are invoked by
-    /// Amazon Web Services service principals (not IAM users, roles, or cross-account principals
+    /// Amazon Web Services service principals (not IAM users, roles, or cross-account principals)
     /// </para></li><li><para><b>Policy limits</b> - An account can have a maximum of 10 policies without resourceARN
     /// and one per LogGroup resourceARN
     /// </para></li></ul><important><para>

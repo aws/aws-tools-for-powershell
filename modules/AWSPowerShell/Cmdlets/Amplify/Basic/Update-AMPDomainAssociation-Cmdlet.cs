@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// Manager in your Amazon Web Services account. Make sure you request (or import) the
         /// certificate in the US East (N. Virginia) Region (us-east-1). For more information
         /// about using ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
-        /// certificates into Certificate Manager</a> in the <i>ACM User guide</i>.</para>
+        /// certificates into Certificate Manager </a> in the <i> ACM User guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

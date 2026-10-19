@@ -93,6 +93,27 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.String DetectorId { get; set; }
         #endregion
         
+        #region Parameter DestinationProperties_ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The 12-digit Amazon Web Services account ID of the account that owns the Amazon S3
+        /// bucket specified in the <c>DestinationArn</c> parameter.</para><para>When you provide this value, GuardDuty verifies that the specified account owns the
+        /// bucket before it exports findings. If the account ID doesn't match the actual owner
+        /// of the bucket, GuardDuty doesn't export findings to that bucket. This helps prevent
+        /// GuardDuty from exporting your findings to a bucket that a different Amazon Web Services
+        /// account owns (for example, if the original bucket was deleted and its name was later
+        /// claimed by another account). If you don't specify this value, GuardDuty doesn't perform
+        /// this verification. GuardDuty strongly recommends that you provide the expected bucket
+        /// owner when possible.</para><para>When you update a publishing destination, omitting this field leaves the currently
+        /// stored value unchanged. This field appears in the response only if it was provided
+        /// when the publishing destination was created or updated.</para><para>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html#guardduty-exportfindings-expected-bucket-owner">Verifying
+        /// the Amazon S3 bucket owner</a> in the <i>Amazon GuardDuty User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationProperties_ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter DestinationProperties_KmsKeyArn
         /// <summary>
         /// <para>
@@ -176,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             context.ClientToken = this.ClientToken;
             context.DestinationProperties_DestinationArn = this.DestinationProperties_DestinationArn;
+            context.DestinationProperties_ExpectedBucketOwner = this.DestinationProperties_ExpectedBucketOwner;
             context.DestinationProperties_KmsKeyArn = this.DestinationProperties_KmsKeyArn;
             context.DestinationType = this.DestinationType;
             #if MODULAR
@@ -231,6 +253,16 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (requestDestinationProperties_destinationProperties_DestinationArn != null)
             {
                 request.DestinationProperties.DestinationArn = requestDestinationProperties_destinationProperties_DestinationArn;
+                requestDestinationPropertiesIsNull = false;
+            }
+            System.String requestDestinationProperties_destinationProperties_ExpectedBucketOwner = null;
+            if (cmdletContext.DestinationProperties_ExpectedBucketOwner != null)
+            {
+                requestDestinationProperties_destinationProperties_ExpectedBucketOwner = cmdletContext.DestinationProperties_ExpectedBucketOwner;
+            }
+            if (requestDestinationProperties_destinationProperties_ExpectedBucketOwner != null)
+            {
+                request.DestinationProperties.ExpectedBucketOwner = requestDestinationProperties_destinationProperties_ExpectedBucketOwner;
                 requestDestinationPropertiesIsNull = false;
             }
             System.String requestDestinationProperties_destinationProperties_KmsKeyArn = null;
@@ -317,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             public System.String ClientToken { get; set; }
             public System.String DestinationProperties_DestinationArn { get; set; }
+            public System.String DestinationProperties_ExpectedBucketOwner { get; set; }
             public System.String DestinationProperties_KmsKeyArn { get; set; }
             public Amazon.GuardDuty.DestinationType DestinationType { get; set; }
             public System.String DetectorId { get; set; }

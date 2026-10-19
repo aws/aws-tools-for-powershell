@@ -80,6 +80,16 @@ $CWOADMN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ObservabilityAdmin.DeletionProtection
+        {
+            ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection") -Or
+            ($_ -eq "Update-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection")
+        }
+        {
+            $v = "ENABLED"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.DestinationType
         {
             ($_ -eq "New-CWOADMNTelemetryRule/DestinationConfiguration_DestinationType") -Or
@@ -212,7 +222,7 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_TelemetryType")
         }
         {
-            $v = "Logs","Metrics","Traces"
+            $v = "Insights","Logs","Metrics","Traces"
             break
         }
 
@@ -243,6 +253,7 @@ $CWOADMN_map = @{
     "LoggingFilter_DefaultBehavior"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")

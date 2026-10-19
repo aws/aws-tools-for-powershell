@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// The SSR Compute role allows the Amplify Hosting compute service to securely access
         /// specific Amazon Web Services resources based on the role's permissions. For more information
         /// about the SSR Compute role, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding
-        /// an SSR Compute role</a> in the <i>Amplify User Guide</i>.</para>
+        /// an SSR Compute role</a> in the <i> Amplify User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// to a branch, you can ensure that your clients always interact with the correct version
         /// of server-side assets, regardless of when a deployment occurs. For more information
         /// about skew protection, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew
-        /// protection for Amplify deployments</a> in the <i>Amplify User Guide</i>.</para>
+        /// protection for Amplify deployments</a> in the <i> Amplify User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

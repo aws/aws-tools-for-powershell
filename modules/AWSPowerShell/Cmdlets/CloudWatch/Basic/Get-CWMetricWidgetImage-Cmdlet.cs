@@ -36,8 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// also retrieve images regularly, such as every minute, and create your own custom live
     /// dashboard.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para><c>GetMetricWidgetImage</c> is not available in the Amazon Web Services GovCloud
+    /// (US) Regions. In those Regions, calls to this operation fail. For the list of Amazon
+    /// CloudWatch features that are not available in Amazon Web Services GovCloud (US), see
+    /// <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-cw.html">Amazon
+    /// CloudWatch in Amazon Web Services GovCloud (US)</a>.
+    /// </para></note><para>
     /// The graph you retrieve can include all CloudWatch metric graph features, including
     /// metric math and horizontal and vertical annotations.
     /// </para><para>

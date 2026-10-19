@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// role allows the Amplify Hosting compute service to securely access specific Amazon
         /// Web Services resources based on the role's permissions. For more information about
         /// the SSR Compute role, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding
-        /// an SSR Compute role</a> in the <i>Amplify User Guide</i>.</para>
+        /// an SSR Compute role</a> in the <i> Amplify User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

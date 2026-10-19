@@ -45,6 +45,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>An array of delivery destination names that filters the results to delivery destinations
+        /// with any specified name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Names")]
+        public System.String[] Name { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -110,6 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Limit = this.Limit;
+            if (this.Name != null)
+            {
+                context.Name = new List<System.String>(this.Name);
+            }
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -132,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Names = cmdletContext.Name;
             }
             
             // Initialize loop variant and commence piping
@@ -213,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? Limit { get; set; }
+            public List<System.String> Name { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.DescribeDeliveryDestinationsResponse, FindCWLDeliveryDestinationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DeliveryDestinations;

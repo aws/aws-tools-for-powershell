@@ -240,6 +240,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.Model.AgenticRetrieveMemoryRetrievalConfig[] MemoryConfiguration_RetrievalConfig { get; set; }
         #endregion
         
+        #region Parameter RetrievalInstructionConfiguration_RetrievalInstructionId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the retrieval instruction. The instruction must exist in the caller's
+        /// account and its status must be ACTIVE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalInstructionConfiguration_RetrievalInstructionId { get; set; }
+        #endregion
+        
         #region Parameter Retriever
         /// <summary>
         /// <para>
@@ -304,6 +315,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UserContext_UserId { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalInstructionConfiguration_Version
+        /// <summary>
+        /// <para>
+        /// <para>The version of the retrieval instruction to apply: a version number, or DRAFT for
+        /// the instruction's current reviewed content. When omitted, DRAFT is used. This default
+        /// is permanent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalInstructionConfiguration_Version { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -393,6 +416,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             context.NextToken = this.NextToken;
             context.PolicyConfiguration_BedrockGuardrailConfiguration_GuardrailId = this.PolicyConfiguration_BedrockGuardrailConfiguration_GuardrailId;
             context.PolicyConfiguration_BedrockGuardrailConfiguration_GuardrailVersion = this.PolicyConfiguration_BedrockGuardrailConfiguration_GuardrailVersion;
+            context.RetrievalInstructionConfiguration_RetrievalInstructionId = this.RetrievalInstructionConfiguration_RetrievalInstructionId;
+            context.RetrievalInstructionConfiguration_Version = this.RetrievalInstructionConfiguration_Version;
             if (this.Retriever != null)
             {
                 context.Retriever = new List<Amazon.BedrockAgentRuntime.Model.AgenticRetriever>(this.Retriever);
@@ -769,6 +794,35 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             {
                 request.PolicyConfiguration = null;
             }
+            
+             // populate RetrievalInstructionConfiguration
+            var requestRetrievalInstructionConfigurationIsNull = true;
+            request.RetrievalInstructionConfiguration = new Amazon.BedrockAgentRuntime.Model.AgenticRetrieveInstructionConfiguration();
+            System.String requestRetrievalInstructionConfiguration_retrievalInstructionConfiguration_RetrievalInstructionId = null;
+            if (cmdletContext.RetrievalInstructionConfiguration_RetrievalInstructionId != null)
+            {
+                requestRetrievalInstructionConfiguration_retrievalInstructionConfiguration_RetrievalInstructionId = cmdletContext.RetrievalInstructionConfiguration_RetrievalInstructionId;
+            }
+            if (requestRetrievalInstructionConfiguration_retrievalInstructionConfiguration_RetrievalInstructionId != null)
+            {
+                request.RetrievalInstructionConfiguration.RetrievalInstructionId = requestRetrievalInstructionConfiguration_retrievalInstructionConfiguration_RetrievalInstructionId;
+                requestRetrievalInstructionConfigurationIsNull = false;
+            }
+            System.String requestRetrievalInstructionConfiguration_retrievalInstructionConfiguration_Version = null;
+            if (cmdletContext.RetrievalInstructionConfiguration_Version != null)
+            {
+                requestRetrievalInstructionConfiguration_retrievalInstructionConfiguration_Version = cmdletContext.RetrievalInstructionConfiguration_Version;
+            }
+            if (requestRetrievalInstructionConfiguration_retrievalInstructionConfiguration_Version != null)
+            {
+                request.RetrievalInstructionConfiguration.Version = requestRetrievalInstructionConfiguration_retrievalInstructionConfiguration_Version;
+                requestRetrievalInstructionConfigurationIsNull = false;
+            }
+             // determine if request.RetrievalInstructionConfiguration should be set to null
+            if (requestRetrievalInstructionConfigurationIsNull)
+            {
+                request.RetrievalInstructionConfiguration = null;
+            }
             if (cmdletContext.Retriever != null)
             {
                 request.Retrievers = cmdletContext.Retriever;
@@ -866,6 +920,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String NextToken { get; set; }
             public System.String PolicyConfiguration_BedrockGuardrailConfiguration_GuardrailId { get; set; }
             public System.String PolicyConfiguration_BedrockGuardrailConfiguration_GuardrailVersion { get; set; }
+            public System.String RetrievalInstructionConfiguration_RetrievalInstructionId { get; set; }
+            public System.String RetrievalInstructionConfiguration_Version { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.AgenticRetriever> Retriever { get; set; }
             public System.String UserContext_UserId { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.AgenticRetrieveStreamResponse, InvokeBARAgenticRetrieveStreamCmdlet, object> Select { get; set; } =

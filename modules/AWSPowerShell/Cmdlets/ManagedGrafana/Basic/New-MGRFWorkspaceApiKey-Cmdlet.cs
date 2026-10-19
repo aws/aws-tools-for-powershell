@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
 {
     /// <summary>
     /// Creates a Grafana API key for the workspace. This key can be used to authenticate
-    /// requests sent to the workspace's HTTP API. See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
+    /// requests sent to the workspace's HTTP API. See &lt;a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html"/&gt;
     /// for available APIs and example requests.
     /// 
     ///  <note><para>

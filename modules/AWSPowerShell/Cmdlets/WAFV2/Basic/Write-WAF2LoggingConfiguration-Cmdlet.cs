@@ -108,9 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The filters that you want to apply to the logs. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -123,9 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The logging destination configuration that you want to associate with the web ACL.</para><note><para>You can associate one logging destination to a web ACL.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -201,9 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <c>SingleHeader</c>, and <c>Method</c>.</para></note><note><para>This setting has no impact on request sampling. You can only exclude fields from request
         /// sampling by disabling sampling in the web ACL visibility configuration or by configuring
         /// data protection for the web ACL.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -285,13 +288,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter LoggingConfiguration_LogDestinationConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LoggingConfiguration_LogScope = this.LoggingConfiguration_LogScope;
+            context.LoggingConfiguration_LogType = this.LoggingConfiguration_LogType;
             context.LoggingFilter_DefaultBehavior = this.LoggingFilter_DefaultBehavior;
             if (this.LoggingFilter_Filter != null)
             {
                 context.LoggingFilter_Filter = new List<Amazon.WAFV2.Model.Filter>(this.LoggingFilter_Filter);
             }
-            context.LoggingConfiguration_LogScope = this.LoggingConfiguration_LogScope;
-            context.LoggingConfiguration_LogType = this.LoggingConfiguration_LogType;
             context.LoggingConfiguration_ManagedByFirewallManager = this.LoggingConfiguration_ManagedByFirewallManager;
             if (this.LoggingConfiguration_RedactedField != null)
             {
@@ -480,10 +483,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> LoggingConfiguration_LogDestinationConfig { get; set; }
-            public Amazon.WAFV2.FilterBehavior LoggingFilter_DefaultBehavior { get; set; }
-            public List<Amazon.WAFV2.Model.Filter> LoggingFilter_Filter { get; set; }
             public Amazon.WAFV2.LogScope LoggingConfiguration_LogScope { get; set; }
             public Amazon.WAFV2.LogType LoggingConfiguration_LogType { get; set; }
+            public Amazon.WAFV2.FilterBehavior LoggingFilter_DefaultBehavior { get; set; }
+            public List<Amazon.WAFV2.Model.Filter> LoggingFilter_Filter { get; set; }
             public System.Boolean? LoggingConfiguration_ManagedByFirewallManager { get; set; }
             public List<Amazon.WAFV2.Model.FieldToMatch> LoggingConfiguration_RedactedField { get; set; }
             public System.String LoggingConfiguration_ResourceArn { get; set; }

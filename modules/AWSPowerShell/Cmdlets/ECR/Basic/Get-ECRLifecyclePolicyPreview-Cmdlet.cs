@@ -48,9 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The list of imageIDs to be included.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -102,14 +103,13 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The maximum number of repository results returned by <c>GetLifecyclePolicyPreviewRequest</c>
-        /// in  paginated output. When this parameter is used, <c>GetLifecyclePolicyPreviewRequest</c>
-        /// only returns  <c>maxResults</c> results in a single page along with a <c>nextToken</c> 
-        /// response element. The remaining results of the initial request can be seen by sending 
-        /// another <c>GetLifecyclePolicyPreviewRequest</c> request with the returned <c>nextToken</c> 
-        /// value. This value can be between 1 and 100. If this  parameter is not used,
-        /// then <c>GetLifecyclePolicyPreviewRequest</c> returns up to 100 results and
-        /// a <c>nextToken</c> value, if  applicable. This option cannot be used when you
-        /// specify images with <c>imageIds</c>.</para>
+        /// in paginated output. When this parameter is used, <c>GetLifecyclePolicyPreviewRequest</c>
+        /// only returns <c>maxResults</c> results in a single page along with a <c>nextToken</c>
+        /// response element. The remaining results of the initial request can be seen by sending
+        /// another <c>GetLifecyclePolicyPreviewRequest</c> request with the returned <c>nextToken</c>
+        /// value. This value can be between 1 and 100. If this parameter is not used, then <c>GetLifecyclePolicyPreviewRequest</c>
+        /// returns up to 100 results and a <c>nextToken</c> value, if applicable. This option
+        /// cannot be used when you specify images with <c>imageIds</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,12 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <c>nextToken</c> value returned from a previous paginated  <c>GetLifecyclePolicyPreviewRequest</c>
-        /// request where <c>maxResults</c> was used and the  results exceeded the value
-        /// of that parameter. Pagination continues from the end of the  previous results
-        /// that returned the <c>nextToken</c> value. This value is  <c>null</c> when there
-        /// are no more results to return. This option cannot be used when you specify images
-        /// with <c>imageIds</c>.</para>
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>GetLifecyclePolicyPreviewRequest</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is <c>null</c> when there are no more results
+        /// to return. This option cannot be used when you specify images with <c>imageIds</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.ECR module, this parameter is only used if you are manually controlling output pagination of the service API call.

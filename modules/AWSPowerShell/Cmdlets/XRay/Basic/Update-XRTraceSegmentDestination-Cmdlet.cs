@@ -58,6 +58,25 @@ namespace Amazon.PowerShell.Cmdlets.XR
         public Amazon.XRay.TraceSegmentDestination Destination { get; set; }
         #endregion
         
+        #region Parameter CloudWatchLogsConfiguration_SpansLogGroupKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para> The ARN of an AWS Key Management Service (AWS KMS) key that you create and manage,
+        /// in the same account and Region, used to encrypt the <c>aws/spans</c> log group. Key
+        /// IDs and alias ARNs are not supported. </para><para> X-Ray applies the key only when it creates <c>aws/spans</c>. If the account already
+        /// has an <c>aws/spans</c> log group, X-Ray fails the request with an <c>InvalidRequestException</c>
+        /// and does not change the log group. To enable Transaction Search with the existing
+        /// log group as it is, call <c>UpdateTraceSegmentDestination</c> again without <c>SpansLogGroupKmsKeyId</c>.
+        /// To set or change the key of the existing log group, use the CloudWatch Logs <c>AssociateKmsKey</c>
+        /// operation. </para><para> You need <c>kms:DescribeKey</c> permission on the key, and the key policy must allow
+        /// CloudWatch Logs to use the key. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html">Encrypt
+        /// log data in CloudWatch Logs using AWS Key Management Service</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CloudWatchLogsConfiguration_SpansLogGroupKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -104,6 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 context.Select = CreateSelectDelegate<Amazon.XRay.Model.UpdateTraceSegmentDestinationResponse, UpdateXRTraceSegmentDestinationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CloudWatchLogsConfiguration_SpansLogGroupKmsKeyId = this.CloudWatchLogsConfiguration_SpansLogGroupKmsKeyId;
             context.Destination = this.Destination;
             
             // allow further manipulation of loaded context prior to processing
@@ -121,6 +141,25 @@ namespace Amazon.PowerShell.Cmdlets.XR
             // create request
             var request = new Amazon.XRay.Model.UpdateTraceSegmentDestinationRequest();
             
+            
+             // populate CloudWatchLogsConfiguration
+            var requestCloudWatchLogsConfigurationIsNull = true;
+            request.CloudWatchLogsConfiguration = new Amazon.XRay.Model.CloudWatchLogsConfiguration();
+            System.String requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_SpansLogGroupKmsKeyId = null;
+            if (cmdletContext.CloudWatchLogsConfiguration_SpansLogGroupKmsKeyId != null)
+            {
+                requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_SpansLogGroupKmsKeyId = cmdletContext.CloudWatchLogsConfiguration_SpansLogGroupKmsKeyId;
+            }
+            if (requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_SpansLogGroupKmsKeyId != null)
+            {
+                request.CloudWatchLogsConfiguration.SpansLogGroupKmsKeyId = requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_SpansLogGroupKmsKeyId;
+                requestCloudWatchLogsConfigurationIsNull = false;
+            }
+             // determine if request.CloudWatchLogsConfiguration should be set to null
+            if (requestCloudWatchLogsConfigurationIsNull)
+            {
+                request.CloudWatchLogsConfiguration = null;
+            }
             if (cmdletContext.Destination != null)
             {
                 request.Destination = cmdletContext.Destination;
@@ -180,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CloudWatchLogsConfiguration_SpansLogGroupKmsKeyId { get; set; }
             public Amazon.XRay.TraceSegmentDestination Destination { get; set; }
             public System.Func<Amazon.XRay.Model.UpdateTraceSegmentDestinationResponse, UpdateXRTraceSegmentDestinationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

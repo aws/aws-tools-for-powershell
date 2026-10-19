@@ -55,6 +55,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DeliverySourceName
+        /// <summary>
+        /// <para>
+        /// <para>An array of delivery source names that filters the results to deliveries associated
+        /// with any specified delivery source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeliverySourceNames")]
+        public System.String[] DeliverySourceName { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -119,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.DescribeDeliveriesResponse, FindCWLDeliveryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.DeliverySourceName != null)
+            {
+                context.DeliverySourceName = new List<System.String>(this.DeliverySourceName);
+            }
             context.Limit = this.Limit;
             context.NextToken = this.NextToken;
             
@@ -139,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request and set iteration invariants
             var request = new Amazon.CloudWatchLogs.Model.DescribeDeliveriesRequest();
             
+            if (cmdletContext.DeliverySourceName != null)
+            {
+                request.DeliverySourceNames = cmdletContext.DeliverySourceName;
+            }
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
@@ -222,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> DeliverySourceName { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.DescribeDeliveriesResponse, FindCWLDeliveryCmdlet, object> Select { get; set; } =

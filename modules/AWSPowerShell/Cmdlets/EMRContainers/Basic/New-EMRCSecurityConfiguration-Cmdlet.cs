@@ -185,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter TlsCertificateConfiguration_PrivateCertificateSecretArn
         /// <summary>
         /// <para>
-        /// <para>Secrets Manager ARN that contains the private TLS certificate contents, used for communication
-        /// between the user job and the system job.</para>
+        /// <para> Secrets Manager ARN that contains the private TLS certificate contents, used for
+        /// communication between the user job and the system job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter TlsCertificateConfiguration_PublicCertificateSecretArn
         /// <summary>
         /// <para>
-        /// <para>Secrets Manager ARN that contains the public TLS certificate contents, used for communication
+        /// <para> Secrets Manager ARN that contains the public TLS certificate contents, used for communication
         /// between the user job and the system job.</para>
         /// </para>
         /// </summary>

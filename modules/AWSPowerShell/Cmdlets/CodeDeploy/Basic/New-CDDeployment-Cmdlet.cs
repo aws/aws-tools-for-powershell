@@ -79,6 +79,32 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String ApplicationName { get; set; }
         #endregion
         
+        #region Parameter Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon EC2 Auto Scaling processes to suspend during the deployment. CodeDeploy
+        /// suspends these processes before it deploys to instances in an Auto Scaling group,
+        /// and resumes them when the deployment succeeds, fails, or is stopped. Valid values
+        /// are <c>Terminate</c>, <c>AZRebalance</c>, <c>InstanceRefresh</c>, and <c>ScheduledActions</c>.</para><para>This parameter applies only to in-place deployments on the EC2/On-premises compute
+        /// platform. If the list is empty, or if the deployment does not target instances in
+        /// an Auto Scaling group, no processes are suspended.</para><para>The service role for the deployment group must have permission to call <c>autoscaling:SuspendProcesses</c>
+        /// and <c>autoscaling:ResumeProcesses</c> on the target Auto Scaling groups. If the processes
+        /// cannot be suspended, the deployment fails before any instance is updated.</para><para>If you suspend <c>ScheduledActions</c>, scheduled actions with a start time during
+        /// the deployment are skipped and do not run after the process resumes.</para><note><para>If CodeDeploy cannot resume the processes, the deployment fails and the processes
+        /// stay suspended until you resume them with the Auto Scaling <c>ResumeProcesses</c>
+        /// action. While <c>Terminate</c> is suspended, Auto Scaling does not replace unhealthy
+        /// instances. If you suspend <c>Terminate</c>, configure a trigger that notifies you
+        /// when a deployment fails.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend { get; set; }
+        #endregion
+        
         #region Parameter TargetInstancesAutoScalingGroup
         /// <summary>
         /// <para>
@@ -488,6 +514,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.DeploymentGroupName = this.DeploymentGroupName;
             context.DeploymentMode = this.DeploymentMode;
             context.Description = this.Description;
+            if (this.Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend != null)
+            {
+                context.Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend = new List<System.String>(this.Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend);
+            }
             context.FileExistsBehavior = this.FileExistsBehavior;
             context.IgnoreApplicationStopFailure = this.IgnoreApplicationStopFailure;
             if (this.OverrideAlarmConfiguration_Alarm != null)
@@ -589,6 +619,25 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate Ec2DeploymentOptions
+            var requestEc2DeploymentOptionsIsNull = true;
+            request.Ec2DeploymentOptions = new Amazon.CodeDeploy.Model.EC2DeploymentOptions();
+            List<System.String> requestEc2DeploymentOptions_ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend = null;
+            if (cmdletContext.Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend != null)
+            {
+                requestEc2DeploymentOptions_ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend = cmdletContext.Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend;
+            }
+            if (requestEc2DeploymentOptions_ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend != null)
+            {
+                request.Ec2DeploymentOptions.AutoScalingGroupProcessesToSuspend = requestEc2DeploymentOptions_ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend;
+                requestEc2DeploymentOptionsIsNull = false;
+            }
+             // determine if request.Ec2DeploymentOptions should be set to null
+            if (requestEc2DeploymentOptionsIsNull)
+            {
+                request.Ec2DeploymentOptions = null;
             }
             if (cmdletContext.FileExistsBehavior != null)
             {
@@ -946,6 +995,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.String DeploymentGroupName { get; set; }
             public Amazon.CodeDeploy.DeploymentMode DeploymentMode { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend { get; set; }
             public Amazon.CodeDeploy.FileExistsBehavior FileExistsBehavior { get; set; }
             public System.Boolean? IgnoreApplicationStopFailure { get; set; }
             public List<Amazon.CodeDeploy.Model.Alarm> OverrideAlarmConfiguration_Alarm { get; set; }

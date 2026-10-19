@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both to authenticate
         /// users for using the Grafana console within a workspace. For more information, see
         /// <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User
-        /// authentication in Amazon Managed Grafana</a>.</para><para />
+        /// authentication in Amazon Managed Grafana </a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

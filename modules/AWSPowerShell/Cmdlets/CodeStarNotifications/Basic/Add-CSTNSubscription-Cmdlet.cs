@@ -91,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         /// <summary>
         /// <para>
         /// <para>The target type. Can be an Amazon Q Developer in chat applications topic or Amazon
-        /// Q Developer in chat applications client.</para><ul><li><para>Amazon Q Developer in chat applications topics are specified as <c>SNS</c>.</para></li><li><para>Amazon Q Developer in chat applications clients are specified as <c>AWSChatbotSlack</c>.</para></li></ul>
+        /// Q Developer in chat applications client.</para><ul><li><para> Amazon Q Developer in chat applications topics are specified as <c>SNS</c>.</para></li><li><para> Amazon Q Developer in chat applications clients are specified as <c>AWSChatbotSlack</c>.</para></li><li><para> Amazon Q Developer in chat applications clients for Microsoft Teams are specified
+        /// as <c>AWSChatbotMicrosoftTeams</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -110,6 +110,16 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.Int64? InfluxDBv3Enterprise_ParquetMemCacheSize_Absolute { get; set; }
         #endregion
         
+        #region Parameter Parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute
+        /// <summary>
+        /// <para>
+        /// <para>Absolute long for InfluxDB parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute { get; set; }
+        #endregion
+        
         #region Parameter InfluxDBv3Enterprise_CompactionMaxNumFilesPerPlan
         /// <summary>
         /// <para>
@@ -876,6 +886,17 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public Amazon.TimestreamInfluxDB.DurationType InfluxDBv3Enterprise_RetentionCheckInterval_DurationType { get; set; }
         #endregion
         
+        #region Parameter Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType
+        /// <summary>
+        /// <para>
+        /// <para>The type of duration for InfluxDB parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TimestreamInfluxDB.DurationType")]
+        public Amazon.TimestreamInfluxDB.DurationType Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType { get; set; }
+        #endregion
+        
         #region Parameter InfluxDBv2_FluxLogEnabled
         /// <summary>
         /// <para>
@@ -1157,6 +1178,16 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Parameters_InfluxDBv3Enterprise_ParquetMemCacheSize_Percent")]
         public System.String InfluxDBv3Enterprise_ParquetMemCacheSize_Percent { get; set; }
+        #endregion
+        
+        #region Parameter Parameters_InfluxDBv3Enterprise_SnapshotSize_Percent
+        /// <summary>
+        /// <para>
+        /// <para>Percent for InfluxDB parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Parameters_InfluxDBv3Enterprise_SnapshotSize_Percent { get; set; }
         #endregion
         
         #region Parameter Parameters_InfluxDBv3Core_PluginRepositorySecretArn
@@ -1577,6 +1608,17 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.Boolean? InfluxDBv2_UiDisabled { get; set; }
         #endregion
         
+        #region Parameter Parameters_InfluxDBv3Enterprise_UpgradePachaTree
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to migrate the cluster from the Parquet storage engine to PachaTree.
+        /// This action cannot be reversed. To create a new cluster on Parquet, set this to false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Parameters_InfluxDBv3Enterprise_UpgradePachaTree { get; set; }
+        #endregion
+        
         #region Parameter HttpIdleTimeout_Value
         /// <summary>
         /// <para>
@@ -1962,6 +2004,28 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.Int64? InfluxDBv3Enterprise_RetentionCheckInterval_Value { get; set; }
         #endregion
         
+        #region Parameter Parameters_InfluxDBv3Enterprise_SnapshotDuration_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value of duration for InfluxDB parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Parameters_InfluxDBv3Enterprise_SnapshotDuration_Value { get; set; }
+        #endregion
+        
+        #region Parameter Parameters_InfluxDBv3Enterprise_WalBufferSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum size, in bytes, of the in-memory WAL buffer before a flush is triggered
+        /// regardless of the flush interval. Increase this value if WAL files are flushed before
+        /// the interval elapses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Parameters_InfluxDBv3Enterprise_WalBufferSize { get; set; }
+        #endregion
+        
         #region Parameter InfluxDBv3Core_WalMaxWriteBufferSize
         /// <summary>
         /// <para>
@@ -2273,9 +2337,15 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             context.ReplicationInterval_Value = this.ReplicationInterval_Value;
             context.InfluxDBv3Enterprise_RetentionCheckInterval_DurationType = this.InfluxDBv3Enterprise_RetentionCheckInterval_DurationType;
             context.InfluxDBv3Enterprise_RetentionCheckInterval_Value = this.InfluxDBv3Enterprise_RetentionCheckInterval_Value;
+            context.Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType = this.Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType;
+            context.Parameters_InfluxDBv3Enterprise_SnapshotDuration_Value = this.Parameters_InfluxDBv3Enterprise_SnapshotDuration_Value;
+            context.Parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute = this.Parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute;
+            context.Parameters_InfluxDBv3Enterprise_SnapshotSize_Percent = this.Parameters_InfluxDBv3Enterprise_SnapshotSize_Percent;
             context.InfluxDBv3Enterprise_SnapshottedWalFilesToKeep = this.InfluxDBv3Enterprise_SnapshottedWalFilesToKeep;
             context.InfluxDBv3Enterprise_TableIndexCacheConcurrencyLimit = this.InfluxDBv3Enterprise_TableIndexCacheConcurrencyLimit;
             context.InfluxDBv3Enterprise_TableIndexCacheMaxEntry = this.InfluxDBv3Enterprise_TableIndexCacheMaxEntry;
+            context.Parameters_InfluxDBv3Enterprise_UpgradePachaTree = this.Parameters_InfluxDBv3Enterprise_UpgradePachaTree;
+            context.Parameters_InfluxDBv3Enterprise_WalBufferSize = this.Parameters_InfluxDBv3Enterprise_WalBufferSize;
             context.InfluxDBv3Enterprise_WalMaxWriteBufferSize = this.InfluxDBv3Enterprise_WalMaxWriteBufferSize;
             context.InfluxDBv3Enterprise_WalReplayConcurrencyLimit = this.InfluxDBv3Enterprise_WalReplayConcurrencyLimit;
             context.InfluxDBv3Enterprise_WalReplayFailOnError = this.InfluxDBv3Enterprise_WalReplayFailOnError;
@@ -3961,6 +4031,26 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
                 requestParameters_parameters_InfluxDBv3Enterprise.TableIndexCacheMaxEntries = requestParameters_parameters_InfluxDBv3Enterprise_influxDBv3Enterprise_TableIndexCacheMaxEntry.Value;
                 requestParameters_parameters_InfluxDBv3EnterpriseIsNull = false;
             }
+            System.Boolean? requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_UpgradePachaTree = null;
+            if (cmdletContext.Parameters_InfluxDBv3Enterprise_UpgradePachaTree != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_UpgradePachaTree = cmdletContext.Parameters_InfluxDBv3Enterprise_UpgradePachaTree.Value;
+            }
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_UpgradePachaTree != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise.UpgradePachaTree = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_UpgradePachaTree.Value;
+                requestParameters_parameters_InfluxDBv3EnterpriseIsNull = false;
+            }
+            System.Int64? requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_WalBufferSize = null;
+            if (cmdletContext.Parameters_InfluxDBv3Enterprise_WalBufferSize != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_WalBufferSize = cmdletContext.Parameters_InfluxDBv3Enterprise_WalBufferSize.Value;
+            }
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_WalBufferSize != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise.WalBufferSize = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_WalBufferSize.Value;
+                requestParameters_parameters_InfluxDBv3EnterpriseIsNull = false;
+            }
             System.Int32? requestParameters_parameters_InfluxDBv3Enterprise_influxDBv3Enterprise_WalMaxWriteBufferSize = null;
             if (cmdletContext.InfluxDBv3Enterprise_WalMaxWriteBufferSize != null)
             {
@@ -4666,6 +4756,76 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
                 requestParameters_parameters_InfluxDBv3Enterprise.RetentionCheckInterval = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_RetentionCheckInterval;
                 requestParameters_parameters_InfluxDBv3EnterpriseIsNull = false;
             }
+            Amazon.TimestreamInfluxDB.Model.Duration requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration = null;
+            
+             // populate SnapshotDuration
+            var requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDurationIsNull = true;
+            requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration = new Amazon.TimestreamInfluxDB.Model.Duration();
+            Amazon.TimestreamInfluxDB.DurationType requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration_parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType = null;
+            if (cmdletContext.Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration_parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType = cmdletContext.Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType;
+            }
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration_parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration.DurationType = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration_parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType;
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDurationIsNull = false;
+            }
+            System.Int64? requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration_parameters_InfluxDBv3Enterprise_SnapshotDuration_Value = null;
+            if (cmdletContext.Parameters_InfluxDBv3Enterprise_SnapshotDuration_Value != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration_parameters_InfluxDBv3Enterprise_SnapshotDuration_Value = cmdletContext.Parameters_InfluxDBv3Enterprise_SnapshotDuration_Value.Value;
+            }
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration_parameters_InfluxDBv3Enterprise_SnapshotDuration_Value != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration.Value = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration_parameters_InfluxDBv3Enterprise_SnapshotDuration_Value.Value;
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDurationIsNull = false;
+            }
+             // determine if requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration should be set to null
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDurationIsNull)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration = null;
+            }
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise.SnapshotDuration = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotDuration;
+                requestParameters_parameters_InfluxDBv3EnterpriseIsNull = false;
+            }
+            Amazon.TimestreamInfluxDB.Model.PercentOrAbsoluteLong requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize = null;
+            
+             // populate SnapshotSize
+            var requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSizeIsNull = true;
+            requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize = new Amazon.TimestreamInfluxDB.Model.PercentOrAbsoluteLong();
+            System.Int64? requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize_parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute = null;
+            if (cmdletContext.Parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize_parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute = cmdletContext.Parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute.Value;
+            }
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize_parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize.Absolute = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize_parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute.Value;
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSizeIsNull = false;
+            }
+            System.String requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize_parameters_InfluxDBv3Enterprise_SnapshotSize_Percent = null;
+            if (cmdletContext.Parameters_InfluxDBv3Enterprise_SnapshotSize_Percent != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize_parameters_InfluxDBv3Enterprise_SnapshotSize_Percent = cmdletContext.Parameters_InfluxDBv3Enterprise_SnapshotSize_Percent;
+            }
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize_parameters_InfluxDBv3Enterprise_SnapshotSize_Percent != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize.Percent = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize_parameters_InfluxDBv3Enterprise_SnapshotSize_Percent;
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSizeIsNull = false;
+            }
+             // determine if requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize should be set to null
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSizeIsNull)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize = null;
+            }
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise.SnapshotSize = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_SnapshotSize;
+                requestParameters_parameters_InfluxDBv3EnterpriseIsNull = false;
+            }
              // determine if requestParameters_parameters_InfluxDBv3Enterprise should be set to null
             if (requestParameters_parameters_InfluxDBv3EnterpriseIsNull)
             {
@@ -4905,9 +5065,15 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             public System.Int64? ReplicationInterval_Value { get; set; }
             public Amazon.TimestreamInfluxDB.DurationType InfluxDBv3Enterprise_RetentionCheckInterval_DurationType { get; set; }
             public System.Int64? InfluxDBv3Enterprise_RetentionCheckInterval_Value { get; set; }
+            public Amazon.TimestreamInfluxDB.DurationType Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType { get; set; }
+            public System.Int64? Parameters_InfluxDBv3Enterprise_SnapshotDuration_Value { get; set; }
+            public System.Int64? Parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute { get; set; }
+            public System.String Parameters_InfluxDBv3Enterprise_SnapshotSize_Percent { get; set; }
             public System.Int32? InfluxDBv3Enterprise_SnapshottedWalFilesToKeep { get; set; }
             public System.Int32? InfluxDBv3Enterprise_TableIndexCacheConcurrencyLimit { get; set; }
             public System.Int32? InfluxDBv3Enterprise_TableIndexCacheMaxEntry { get; set; }
+            public System.Boolean? Parameters_InfluxDBv3Enterprise_UpgradePachaTree { get; set; }
+            public System.Int64? Parameters_InfluxDBv3Enterprise_WalBufferSize { get; set; }
             public System.Int32? InfluxDBv3Enterprise_WalMaxWriteBufferSize { get; set; }
             public System.Int32? InfluxDBv3Enterprise_WalReplayConcurrencyLimit { get; set; }
             public System.Boolean? InfluxDBv3Enterprise_WalReplayFailOnError { get; set; }

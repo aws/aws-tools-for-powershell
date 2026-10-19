@@ -103,6 +103,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVolume" OutputProperty="*" Verb="Edit" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="WorkspaceInstanceId" PipelineParameter="WorkspaceInstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

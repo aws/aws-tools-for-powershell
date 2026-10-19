@@ -171,6 +171,25 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public System.String LogsEncryptionConfiguration_KmsKeyArn { get; set; }
         #endregion
         
+        #region Parameter Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether this centralization rule enables deletion protection on the destination
+        /// log groups that it creates. If you don't specify this setting, the rule doesn't enable
+        /// deletion protection on the log groups that it creates. If you specify a backup Region
+        /// in <c>BackupConfiguration</c>, the setting also applies to the log groups that the
+        /// rule creates in the backup Region.</para><para>When you set this to <c>ENABLED</c>, the rule enables deletion protection only on
+        /// log groups that it creates after you enable the setting. It does not add deletion
+        /// protection to log groups the rule created before you enabled the setting.</para><para>If you remove this setting from the rule or delete the rule, deletion protection stays
+        /// enabled on log groups that already have it. To delete one of these log groups, first
+        /// disable deletion protection on the log group in the destination account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ObservabilityAdmin.DeletionProtection")]
+        public Amazon.ObservabilityAdmin.DeletionProtection Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern
         /// <summary>
         /// <para>
@@ -394,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             context.Destination_Account = this.Destination_Account;
             context.BackupConfiguration_KmsKeyArn = this.BackupConfiguration_KmsKeyArn;
             context.BackupConfiguration_Region = this.BackupConfiguration_Region;
+            context.Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection = this.Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection;
             context.Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern = this.Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern;
             context.LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy = this.LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy;
             context.Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope = this.Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope;
@@ -530,6 +550,16 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
              // populate DestinationLogsConfiguration
             var requestRule_rule_Destination_rule_Destination_DestinationLogsConfigurationIsNull = true;
             requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration = new Amazon.ObservabilityAdmin.Model.DestinationLogsConfiguration();
+            Amazon.ObservabilityAdmin.DeletionProtection requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection = null;
+            if (cmdletContext.Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection = cmdletContext.Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection;
+            }
+            if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration.LogGroupDeletionProtection = requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection;
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfigurationIsNull = false;
+            }
             Amazon.ObservabilityAdmin.Model.LogGroupNameConfiguration requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration = null;
             
              // populate LogGroupNameConfiguration
@@ -886,6 +916,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public System.String Destination_Account { get; set; }
             public System.String BackupConfiguration_KmsKeyArn { get; set; }
             public System.String BackupConfiguration_Region { get; set; }
+            public Amazon.ObservabilityAdmin.DeletionProtection Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection { get; set; }
             public System.String Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern { get; set; }
             public Amazon.ObservabilityAdmin.EncryptionConflictResolutionStrategy LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy { get; set; }
             public Amazon.ObservabilityAdmin.EncryptionScope Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope { get; set; }

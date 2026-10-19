@@ -45,6 +45,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>An array of Amazon Resource Names (ARNs) that filters the results to delivery sources
+        /// associated with any specified ARN.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceArns")]
+        public System.String[] ResourceArn { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -111,6 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             context.Limit = this.Limit;
             context.NextToken = this.NextToken;
+            if (this.ResourceArn != null)
+            {
+                context.ResourceArn = new List<System.String>(this.ResourceArn);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -132,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArns = cmdletContext.ResourceArn;
             }
             
             // Initialize loop variant and commence piping
@@ -214,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> ResourceArn { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.DescribeDeliverySourcesResponse, FindCWLDeliverySourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DeliverySources;
         }

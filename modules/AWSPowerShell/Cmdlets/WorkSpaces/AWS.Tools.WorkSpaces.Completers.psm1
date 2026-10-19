@@ -194,6 +194,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.ImageValidationMode
+        "Import-WKSCustomWorkspaceImage/ImageValidationMode"
+        {
+            $v = "CUSTOMER_MANAGED","SERVICE_MANAGED"
+            break
+        }
+
         # Amazon.WorkSpaces.LogUploadEnum
         "Edit-WKSClientProperty/ClientProperties_LogUploadEnabled"
         {
@@ -330,6 +337,7 @@ $WKS_map = @{
     "GlobalAccelerator_Mode"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "GlobalAccelerator_PreferredProtocol"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "ImageType"=@("Get-WKSWorkspaceImage")
+    "ImageValidationMode"=@("Import-WKSCustomWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
     "LicenseType"=@("Get-WKSApplication")
     "OsVersion"=@("Import-WKSCustomWorkspaceImage")

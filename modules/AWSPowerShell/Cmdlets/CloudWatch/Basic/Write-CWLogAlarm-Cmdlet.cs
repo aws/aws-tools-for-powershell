@@ -188,6 +188,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public Amazon.CloudWatch.ComparisonOperator ComparisonOperator { get; set; }
         #endregion
         
+        #region Parameter ActionConfiguration_AlarmTagsPropagation_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to <c>true</c> to include the alarm's tags. Set to <c>false</c> to stop including
+        /// them.</para><para>When this is <c>true</c>, you must have the <c>cloudwatch:ListTagsForResource</c>
+        /// permission on the alarm to create or update it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ActionConfiguration_AlarmTagsPropagation_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ScheduledQueryConfiguration_ScheduleConfiguration_EndTimeOffset
         /// <summary>
         /// <para>
@@ -198,6 +210,37 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? ScheduledQueryConfiguration_ScheduleConfiguration_EndTimeOffset { get; set; }
+        #endregion
+        
+        #region Parameter ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys to exclude. All of the alarm's tags except those with these keys are
+        /// included.</para><para>You can specify 1 to 50 tag keys. Each tag key must be 1 to 128 characters long.</para><para>You can't specify both <c>IncludedTagKeys</c> and <c>ExcludedTagKeys</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ActionConfiguration_AlarmTagsPropagation_ExcludedTagKeys")]
+        public System.String[] ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey { get; set; }
+        #endregion
+        
+        #region Parameter ActionConfiguration_AlarmTagsPropagation_IncludedTagKey
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys to include. Only the alarm's tags with these keys are included.</para><para>You can specify 1 to 50 tag keys. Each tag key must be 1 to 128 characters long.</para><para>You can't specify both <c>IncludedTagKeys</c> and <c>ExcludedTagKeys</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ActionConfiguration_AlarmTagsPropagation_IncludedTagKeys")]
+        public System.String[] ActionConfiguration_AlarmTagsPropagation_IncludedTagKey { get; set; }
         #endregion
         
         #region Parameter InsufficientDataAction
@@ -501,6 +544,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Select = CreateSelectDelegate<Amazon.CloudWatch.Model.PutLogAlarmResponse, WriteCWLogAlarmCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ActionConfiguration_AlarmTagsPropagation_Enabled = this.ActionConfiguration_AlarmTagsPropagation_Enabled;
+            if (this.ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey != null)
+            {
+                context.ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey = new List<System.String>(this.ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey);
+            }
+            if (this.ActionConfiguration_AlarmTagsPropagation_IncludedTagKey != null)
+            {
+                context.ActionConfiguration_AlarmTagsPropagation_IncludedTagKey = new List<System.String>(this.ActionConfiguration_AlarmTagsPropagation_IncludedTagKey);
+            }
             context.ActionLogLineCount = this.ActionLogLineCount;
             context.ActionLogLineRoleArn = this.ActionLogLineRoleArn;
             context.ActionsEnabled = this.ActionsEnabled;
@@ -620,6 +672,60 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // create request
             var request = new Amazon.CloudWatch.Model.PutLogAlarmRequest();
             
+            
+             // populate ActionConfiguration
+            var requestActionConfigurationIsNull = true;
+            request.ActionConfiguration = new Amazon.CloudWatch.Model.ActionConfiguration();
+            Amazon.CloudWatch.Model.AlarmTagsPropagation requestActionConfiguration_actionConfiguration_AlarmTagsPropagation = null;
+            
+             // populate AlarmTagsPropagation
+            var requestActionConfiguration_actionConfiguration_AlarmTagsPropagationIsNull = true;
+            requestActionConfiguration_actionConfiguration_AlarmTagsPropagation = new Amazon.CloudWatch.Model.AlarmTagsPropagation();
+            System.Boolean? requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_Enabled = null;
+            if (cmdletContext.ActionConfiguration_AlarmTagsPropagation_Enabled != null)
+            {
+                requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_Enabled = cmdletContext.ActionConfiguration_AlarmTagsPropagation_Enabled.Value;
+            }
+            if (requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_Enabled != null)
+            {
+                requestActionConfiguration_actionConfiguration_AlarmTagsPropagation.Enabled = requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_Enabled.Value;
+                requestActionConfiguration_actionConfiguration_AlarmTagsPropagationIsNull = false;
+            }
+            List<System.String> requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_ExcludedTagKey = null;
+            if (cmdletContext.ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey != null)
+            {
+                requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_ExcludedTagKey = cmdletContext.ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey;
+            }
+            if (requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_ExcludedTagKey != null)
+            {
+                requestActionConfiguration_actionConfiguration_AlarmTagsPropagation.ExcludedTagKeys = requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_ExcludedTagKey;
+                requestActionConfiguration_actionConfiguration_AlarmTagsPropagationIsNull = false;
+            }
+            List<System.String> requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_IncludedTagKey = null;
+            if (cmdletContext.ActionConfiguration_AlarmTagsPropagation_IncludedTagKey != null)
+            {
+                requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_IncludedTagKey = cmdletContext.ActionConfiguration_AlarmTagsPropagation_IncludedTagKey;
+            }
+            if (requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_IncludedTagKey != null)
+            {
+                requestActionConfiguration_actionConfiguration_AlarmTagsPropagation.IncludedTagKeys = requestActionConfiguration_actionConfiguration_AlarmTagsPropagation_actionConfiguration_AlarmTagsPropagation_IncludedTagKey;
+                requestActionConfiguration_actionConfiguration_AlarmTagsPropagationIsNull = false;
+            }
+             // determine if requestActionConfiguration_actionConfiguration_AlarmTagsPropagation should be set to null
+            if (requestActionConfiguration_actionConfiguration_AlarmTagsPropagationIsNull)
+            {
+                requestActionConfiguration_actionConfiguration_AlarmTagsPropagation = null;
+            }
+            if (requestActionConfiguration_actionConfiguration_AlarmTagsPropagation != null)
+            {
+                request.ActionConfiguration.AlarmTagsPropagation = requestActionConfiguration_actionConfiguration_AlarmTagsPropagation;
+                requestActionConfigurationIsNull = false;
+            }
+             // determine if request.ActionConfiguration should be set to null
+            if (requestActionConfigurationIsNull)
+            {
+                request.ActionConfiguration = null;
+            }
             if (cmdletContext.ActionLogLineCount != null)
             {
                 request.ActionLogLineCount = cmdletContext.ActionLogLineCount.Value;
@@ -874,6 +980,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ActionConfiguration_AlarmTagsPropagation_Enabled { get; set; }
+            public List<System.String> ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey { get; set; }
+            public List<System.String> ActionConfiguration_AlarmTagsPropagation_IncludedTagKey { get; set; }
             public System.Int32? ActionLogLineCount { get; set; }
             public System.String ActionLogLineRoleArn { get; set; }
             public System.Boolean? ActionsEnabled { get; set; }

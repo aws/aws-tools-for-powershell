@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>The ID of the encryption key. You can view the ID of an encryption key in the KMS
         /// console, or use the KMS APIs to programmatically retrieve a key ID. For more information
         /// about acceptable values for kmsKeyID, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a>
-        /// in the Decrypt API description in the <i>Key Management Service API Reference</i>.</para><para>If no key is specified, the default <c>aws/codecommit</c> Amazon Web Services managed
+        /// in the Decrypt API description in the <i> Key Management Service API Reference</i>.</para><para>If no key is specified, the default <c>aws/codecommit</c> Amazon Web Services managed
         /// key is used.</para>
         /// </para>
         /// </summary>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// Repository names are limited to 100 alphanumeric, dash, and underscore characters,
         /// and cannot include certain characters. For more information about the limits on repository
         /// names, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a>
-        /// in the <i>CodeCommit User Guide</i>. The suffix .git is prohibited.</para></note>
+        /// in the <i> CodeCommit User Guide</i>. The suffix .git is prohibited.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

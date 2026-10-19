@@ -217,7 +217,10 @@ $WKSI_Completers = {
         }
 
         # Amazon.WorkspacesInstances.VolumeTypeEnum
-        "New-WKSIVolume/VolumeType"
+        {
+            ($_ -eq "Edit-WKSIVolume/VolumeType") -Or
+            ($_ -eq "New-WKSIVolume/VolumeType")
+        }
         {
             $v = "gp2","gp3","io1","io2","sc1","st1","standard"
             break
@@ -252,7 +255,7 @@ $WKSI_map = @{
     "PrivateDnsNameOptions_HostnameType"=@("New-WKSIWorkspaceInstance")
     "SpotOptions_InstanceInterruptionBehavior"=@("New-WKSIWorkspaceInstance")
     "SpotOptions_SpotInstanceType"=@("New-WKSIWorkspaceInstance")
-    "VolumeType"=@("New-WKSIVolume")
+    "VolumeType"=@("Edit-WKSIVolume","New-WKSIVolume")
 }
 
 _awsArgumentCompleterRegistration $WKSI_Completers $WKSI_map
@@ -316,6 +319,7 @@ $WKSI_SelectMap = @{
                "Get-WKSIRegionList",
                "Get-WKSIResourceTag",
                "Get-WKSIWorkspaceInstanceList",
+               "Edit-WKSIVolume",
                "Add-WKSIResourceTag",
                "Remove-WKSIResourceTag")
 }

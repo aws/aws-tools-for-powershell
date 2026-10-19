@@ -99,9 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace prefix to filter memory records by. Returns all memory records in namespaces
-        /// that start with the provided prefix. Either <c>namespace</c> or <c>namespacePath</c>
-        /// is required.</para>
+        /// <para>The exact namespace to filter memory records by. Returns all memory records that matches
+        /// the provided namespace. Either <c>namespace</c> or <c>namespacePath</c> is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -104,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// Amazon Web Services account of an organization, and that account is not a delegated
         /// administrator account, and you want the workspace to access data sources in other
         /// Amazon Web Services accounts in the organization, you must choose <c>CUSTOMER_MANAGED</c>.</para><para>If you specify this as <c>CUSTOMER_MANAGED</c>, you must also specify a <c>workspaceRoleArn</c>
-        /// that the workspace will use for accessing Amazon Web Services resources.</para><para>For more information on the role and permissions needed, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon
-        /// Managed Grafana permissions and policies for Amazon Web Services data sources and
-        /// notification channels</a></para><note><para>Do not use this to convert a <c>CUSTOMER_MANAGED</c> workspace to <c>SERVICE_MANAGED</c>.
+        /// that the workspace will use for accessing Amazon Web Services resources.</para><para>For more information on the role and permissions needed, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">
+        /// Amazon Managed Grafana permissions and policies for Amazon Web Services data sources
+        /// and notification channels</a></para><note><para>Do not use this to convert a <c>CUSTOMER_MANAGED</c> workspace to <c>SERVICE_MANAGED</c>.
         /// Do not include this parameter if you want to leave the workspace as <c>SERVICE_MANAGED</c>.</para><para>You can convert a <c>CUSTOMER_MANAGED</c> workspace to <c>SERVICE_MANAGED</c> using
         /// the Amazon Managed Grafana console. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html">Managing
         /// permissions for data sources and notification channels</a>.</para></note>
@@ -124,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// The IP addresses specified are allowed to access your workspace. If the list is not
         /// included in the configuration (passed an empty array) then no IP addresses are allowed
         /// to access the workspace. You create a prefix list using the Amazon VPC console.</para><para>Prefix list IDs have the format <c>pl-<i>1a2b3c4d</i></c>.</para><para>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group
-        /// CIDR blocks using managed prefix lists</a>in the <i>Amazon Virtual Private Cloud User
-        /// Guide</i>.</para><para />
+        /// CIDR blocks using managed prefix lists</a>in the <i> Amazon Virtual Private Cloud
+        /// User Guide</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// to your Amazon Managed Grafana workspace for access from within a VPC. If a <c>NetworkAccessConfiguration</c>
         /// is specified then only VPC endpoints specified here are allowed to access the workspace.
         /// If you pass in an empty array of strings, then no VPCs are allowed to access the workspace.</para><para>VPC endpoint IDs have the format <c>vpce-<i>1a2b3c4d</i></c>.</para><para>For more information about creating an interface VPC endpoint, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints">Interface
-        /// VPC endpoints</a> in the <i>Amazon Managed Grafana User Guide</i>.</para><note><para>The only VPC endpoints that can be specified here are interface VPC endpoints for
+        /// VPC endpoints</a> in the <i> Amazon Managed Grafana User Guide</i>.</para><note><para>The only VPC endpoints that can be specified here are interface VPC endpoints for
         /// Grafana workspaces (using the <c>com.amazonaws.[region].grafana-workspace</c> service
         /// endpoint). Other VPC endpoints are ignored.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data

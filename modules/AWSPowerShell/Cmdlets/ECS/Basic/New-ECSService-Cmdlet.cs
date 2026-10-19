@@ -324,6 +324,27 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Cluster { get; set; }
         #endregion
         
+        #region Parameter ServiceConnectConfiguration_ContainerConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The settings for the Service Connect proxy container that Amazon ECS adds to each
+        /// task in this service. Each object in the list sets exactly one setting, and each setting
+        /// can appear only once in the list.</para><para>Your changes to these settings apply only to tasks that Amazon ECS launches after
+        /// you update the service. Your running tasks keep their existing settings until Amazon
+        /// ECS replaces them. If you update the <c>serviceConnectConfiguration</c> of your service
+        /// and don't include <c>containerConfigurations</c>, the proxy container settings return
+        /// to their defaults.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceConnectConfiguration_ContainerConfigurations")]
+        public Amazon.ECS.Model.ServiceConnectContainerConfiguration[] ServiceConnectConfiguration_ContainerConfiguration { get; set; }
+        #endregion
+        
         #region Parameter DesiredCount
         /// <summary>
         /// <para>
@@ -1345,6 +1366,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.SchedulingStrategy = this.SchedulingStrategy;
             context.AccessLogConfiguration_Format = this.AccessLogConfiguration_Format;
             context.AccessLogConfiguration_IncludeQueryParameter = this.AccessLogConfiguration_IncludeQueryParameter;
+            if (this.ServiceConnectConfiguration_ContainerConfiguration != null)
+            {
+                context.ServiceConnectConfiguration_ContainerConfiguration = new List<Amazon.ECS.Model.ServiceConnectContainerConfiguration>(this.ServiceConnectConfiguration_ContainerConfiguration);
+            }
             context.ServiceConnectConfiguration_Enabled = this.ServiceConnectConfiguration_Enabled;
             context.LogConfiguration_LogDriver = this.LogConfiguration_LogDriver;
             if (this.LogConfiguration_Option != null)
@@ -1863,6 +1888,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
              // populate ServiceConnectConfiguration
             var requestServiceConnectConfigurationIsNull = true;
             request.ServiceConnectConfiguration = new Amazon.ECS.Model.ServiceConnectConfiguration();
+            List<Amazon.ECS.Model.ServiceConnectContainerConfiguration> requestServiceConnectConfiguration_serviceConnectConfiguration_ContainerConfiguration = null;
+            if (cmdletContext.ServiceConnectConfiguration_ContainerConfiguration != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_ContainerConfiguration = cmdletContext.ServiceConnectConfiguration_ContainerConfiguration;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_ContainerConfiguration != null)
+            {
+                request.ServiceConnectConfiguration.ContainerConfigurations = requestServiceConnectConfiguration_serviceConnectConfiguration_ContainerConfiguration;
+                requestServiceConnectConfigurationIsNull = false;
+            }
             System.Boolean? requestServiceConnectConfiguration_serviceConnectConfiguration_Enabled = null;
             if (cmdletContext.ServiceConnectConfiguration_Enabled != null)
             {
@@ -2100,6 +2135,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public Amazon.ECS.SchedulingStrategy SchedulingStrategy { get; set; }
             public Amazon.ECS.ServiceConnectAccessLoggingFormat AccessLogConfiguration_Format { get; set; }
             public Amazon.ECS.ServiceConnectIncludeQueryParameters AccessLogConfiguration_IncludeQueryParameter { get; set; }
+            public List<Amazon.ECS.Model.ServiceConnectContainerConfiguration> ServiceConnectConfiguration_ContainerConfiguration { get; set; }
             public System.Boolean? ServiceConnectConfiguration_Enabled { get; set; }
             public Amazon.ECS.LogDriver LogConfiguration_LogDriver { get; set; }
             public Dictionary<System.String, System.String> LogConfiguration_Option { get; set; }

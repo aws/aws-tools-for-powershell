@@ -1,4 +1,51 @@
-﻿### 5.0.318 (2026-10-14 19:08Z)
+﻿### 5.0.319 (2026-10-19 19:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.354.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon FinSpace Public API
+  * [Breaking Change] Removed support for Amazon FinSpace User Environment Management Service
+  * [Breaking Change] Removed support for Amazon Telco Network Builder
+  * Amazon Agents for Amazon Bedrock
+    * Added cmdlet Get-AABRetrievalInstruction leveraging the GetRetrievalInstruction service API.
+    * Added cmdlet Get-AABRetrievalInstructionList leveraging the ListRetrievalInstructions service API.
+    * Added cmdlet Get-AABRetrievalInstructionVersionList leveraging the ListRetrievalInstructionVersions service API.
+    * Added cmdlet New-AABRetrievalInstruction leveraging the CreateRetrievalInstruction service API.
+    * Added cmdlet New-AABRetrievalInstructionVersion leveraging the CreateRetrievalInstructionVersion service API.
+    * Added cmdlet Remove-AABRetrievalInstruction leveraging the DeleteRetrievalInstruction service API.
+    * Added cmdlet Update-AABRetrievalInstruction leveraging the UpdateRetrievalInstruction service API.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARAgenticRetrieveStream: added parameters RetrievalInstructionConfiguration_RetrievalInstructionId and RetrievalInstructionConfiguration_Version.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWCompositeAlarm: added parameters ActionConfiguration_AlarmTagsPropagation_Enabled, ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey and ActionConfiguration_AlarmTagsPropagation_IncludedTagKey.
+    * Modified cmdlet Write-CWLogAlarm: added parameters ActionConfiguration_AlarmTagsPropagation_Enabled, ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey and ActionConfiguration_AlarmTagsPropagation_IncludedTagKey.
+    * Modified cmdlet Write-CWMetricAlarm: added parameters ActionConfiguration_AlarmTagsPropagation_Enabled, ActionConfiguration_AlarmTagsPropagation_ExcludedTagKey and ActionConfiguration_AlarmTagsPropagation_IncludedTagKey.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Find-CWLDelivery: added parameter DeliverySourceName.
+    * Modified cmdlet Find-CWLDeliveryDestination: added parameter Name.
+    * Modified cmdlet Find-CWLDeliverySource: added parameter ResourceArn.
+  * Amazon CloudWatch Observability Admin Service
+    * Modified cmdlet New-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection.
+    * Modified cmdlet Update-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection.
+  * Amazon CodeDeploy
+    * Modified cmdlet New-CDDeployment: added parameter Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend.
+    * Modified cmdlet New-CDDeploymentGroup: added parameter Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend.
+    * Modified cmdlet Update-CDDeploymentGroup: added parameter Ec2DeploymentOptions_AutoScalingGroupProcessesToSuspend.
+  * Amazon Connect Service
+    * Modified cmdlet Get-CONNAttachedFile: added parameter UrlContentDisposition.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameter ServiceConnectConfiguration_ContainerConfiguration.
+    * Modified cmdlet Update-ECSService: added parameter ServiceConnectConfiguration_ContainerConfiguration.
+  * Amazon GuardDuty
+    * Modified cmdlet New-GDPublishingDestination: added parameter DestinationProperties_ExpectedBucketOwner.
+    * Modified cmdlet Update-GDPublishingDestination: added parameter DestinationProperties_ExpectedBucketOwner.
+  * Amazon Timestream InfluxDB
+    * Modified cmdlet New-TIDBDbParameterGroup: added parameters Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType, Parameters_InfluxDBv3Enterprise_SnapshotDuration_Value, Parameters_InfluxDBv3Enterprise_SnapshotSize_Absolute, Parameters_InfluxDBv3Enterprise_SnapshotSize_Percent, Parameters_InfluxDBv3Enterprise_UpgradePachaTree and Parameters_InfluxDBv3Enterprise_WalBufferSize.
+  * Amazon WorkSpaces
+    * Modified cmdlet Import-WKSCustomWorkspaceImage: added parameter ImageValidationMode.
+  * Amazon Workspaces Instances
+    * Added cmdlet Edit-WKSIVolume leveraging the ModifyVolume service API.
+  * Amazon X-Ray
+    * Modified cmdlet Update-XRTraceSegmentDestination: added parameter CloudWatchLogsConfiguration_SpansLogGroupKmsKeyId.
+
+### 5.0.318 (2026-10-14 19:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.353.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFront
     * Modified cmdlet New-CFVpcOrigin: added parameter VpcOriginEndpointConfig_IpAddressType.

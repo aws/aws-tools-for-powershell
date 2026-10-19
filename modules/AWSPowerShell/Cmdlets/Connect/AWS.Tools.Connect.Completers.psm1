@@ -260,6 +260,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ContentDisposition
+        "Get-CONNAttachedFile/UrlContentDisposition"
+        {
+            $v = "ATTACHMENT","INLINE"
+            break
+        }
+
         # Amazon.Connect.DataTableAttributeValueType
         {
             ($_ -eq "New-CONNDataTableAttribute/ValueType") -Or
@@ -1078,6 +1085,7 @@ $CONN_map = @{
     "TriggerEventSource_EventSourceName"=@("New-CONNRule")
     "Type"=@("Get-CONNMetricList","Get-CONNViewList","New-CONNContactFlow")
     "Unit"=@("New-CONNMetric","Update-CONNMetricContent")
+    "UrlContentDisposition"=@("Get-CONNAttachedFile")
     "UseCaseType"=@("New-CONNUseCase")
     "ValueLockLevel"=@("New-CONNDataTable","Update-CONNDataTableMetadata")
     "ValueType"=@("New-CONNDataTableAttribute","Update-CONNDataTableAttribute")

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter LicenseType
         /// <summary>
         /// <para>
-        /// <para>The type of license to associate with the workspace.</para><note><para>Amazon Managed Grafana workspaces no longer support Grafana Enterprise free trials.</para></note>
+        /// <para>The type of license to associate with the workspace.</para><note><para> Amazon Managed Grafana workspaces no longer support Grafana Enterprise free trials.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

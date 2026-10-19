@@ -42,10 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     /// version 9 and above.
     /// </para><note><para>
     /// For more information about service accounts, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html">Service
-    /// accounts</a> in the <i>Amazon Managed Grafana User Guide</i>.
+    /// accounts</a> in the <i> Amazon Managed Grafana User Guide</i>.
     /// </para><para>
     /// For more information about the Grafana HTTP APIs, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">Using
-    /// Grafana HTTP APIs</a> in the <i>Amazon Managed Grafana User Guide</i>.
+    /// Grafana HTTP APIs</a> in the <i> Amazon Managed Grafana User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "MGRFWorkspaceServiceAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>The permission level to use for this service account.</para><note><para>For more information about the roles and the permissions each has, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html">User
-        /// roles</a> in the <i>Amazon Managed Grafana User Guide</i>.</para></note>
+        /// roles</a> in the <i> Amazon Managed Grafana User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

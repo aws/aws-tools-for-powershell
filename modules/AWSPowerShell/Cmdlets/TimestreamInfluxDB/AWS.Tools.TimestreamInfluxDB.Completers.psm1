@@ -162,6 +162,7 @@ $TIDB_Completers = {
             ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_RetentionCheckInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/ReplicationInterval_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/StorageCacheSnapshotWriteColdDuration_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/StorageCompactFullWriteColdDuration_DurationType") -Or
@@ -282,6 +283,7 @@ $TIDB_map = @{
     "InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv3Enterprise_RetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
     "NetworkType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Restore-TIDBFromDbBackup")
+    "Parameters_InfluxDBv3Enterprise_SnapshotDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "ReplicationInterval_DurationType"=@("New-TIDBDbParameterGroup")
     "RestoreMode"=@("Restore-TIDBFromDbBackup")
     "StorageCacheSnapshotWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")

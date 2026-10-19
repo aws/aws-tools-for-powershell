@@ -129,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.String ImageName { get; set; }
         #endregion
         
+        #region Parameter ImageValidationMode
+        /// <summary>
+        /// <para>
+        /// <para>The image validation mode for the WorkSpace image import.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.ImageValidationMode")]
+        public Amazon.WorkSpaces.ImageValidationMode ImageValidationMode { get; set; }
+        #endregion
+        
         #region Parameter InfrastructureConfigurationArn
         /// <summary>
         /// <para>
@@ -283,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.ImageSource_Ec2ImageId = this.ImageSource_Ec2ImageId;
             context.ImageSource_Ec2ImportTaskId = this.ImageSource_Ec2ImportTaskId;
             context.ImageSource_ImageBuildVersionArn = this.ImageSource_ImageBuildVersionArn;
+            context.ImageValidationMode = this.ImageValidationMode;
             context.InfrastructureConfigurationArn = this.InfrastructureConfigurationArn;
             #if MODULAR
             if (this.InfrastructureConfigurationArn == null && ParameterWasBound(nameof(this.InfrastructureConfigurationArn)))
@@ -382,6 +394,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 request.ImageSource = null;
             }
+            if (cmdletContext.ImageValidationMode != null)
+            {
+                request.ImageValidationMode = cmdletContext.ImageValidationMode;
+            }
             if (cmdletContext.InfrastructureConfigurationArn != null)
             {
                 request.InfrastructureConfigurationArn = cmdletContext.InfrastructureConfigurationArn;
@@ -463,6 +479,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public System.String ImageSource_Ec2ImageId { get; set; }
             public System.String ImageSource_Ec2ImportTaskId { get; set; }
             public System.String ImageSource_ImageBuildVersionArn { get; set; }
+            public Amazon.WorkSpaces.ImageValidationMode ImageValidationMode { get; set; }
             public System.String InfrastructureConfigurationArn { get; set; }
             public Amazon.WorkSpaces.OSVersion OsVersion { get; set; }
             public Amazon.WorkSpaces.Platform Platform { get; set; }

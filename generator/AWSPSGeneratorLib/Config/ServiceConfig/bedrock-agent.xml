@@ -190,6 +190,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRetrievalInstruction" OutputProperty="*" Verb="New" Noun="RetrievalInstruction" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRetrievalInstructionVersion" OutputProperty="*" Verb="New" Noun="RetrievalInstructionVersion" ShouldProcessTarget="RetrievalInstructionId" PipelineParameter="RetrievalInstructionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVpcConfiguration" OutputProperty="*" Verb="New" Noun="VpcConfiguration" ShouldProcessTarget="KnowledgeBaseId,VpcId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -239,6 +247,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="*" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRetrievalInstruction" OutputProperty="*" Verb="Remove" Noun="RetrievalInstruction" ShouldProcessTarget="RetrievalInstructionId" PipelineParameter="RetrievalInstructionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -314,6 +326,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRetrievalInstruction" OutputProperty="*" Verb="Get" Noun="RetrievalInstruction" PipelineParameter="RetrievalInstructionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetVpcConfiguration" OutputProperty="VpcConfiguration" Verb="Get" Noun="VpcConfiguration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -375,6 +391,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPrompts" OutputProperty="PromptSummaries" Verb="Get" Noun="PromptList" PipelineParameter="PromptIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRetrievalInstructions" OutputProperty="RetrievalInstructionSummaries" Verb="Get" Noun="RetrievalInstructionList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRetrievalInstructionVersions" OutputProperty="RetrievalInstructionVersionSummaries" Verb="Get" Noun="RetrievalInstructionVersionList" PipelineParameter="RetrievalInstructionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -574,6 +598,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePrompt" OutputProperty="*" Verb="Update" Noun="Prompt" ShouldProcessTarget="PromptIdentifier" PipelineParameter="PromptIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRetrievalInstruction" OutputProperty="*" Verb="Update" Noun="RetrievalInstruction" ShouldProcessTarget="RetrievalInstructionId" PipelineParameter="RetrievalInstructionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

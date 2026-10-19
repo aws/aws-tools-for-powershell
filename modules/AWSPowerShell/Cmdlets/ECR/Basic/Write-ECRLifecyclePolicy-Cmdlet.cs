@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services account ID associated with the registry that contains the
-        /// repository. If you do  not specify a registry, the default registry is assumed.</para>
+        /// repository. If you do not specify a registry, the default registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
