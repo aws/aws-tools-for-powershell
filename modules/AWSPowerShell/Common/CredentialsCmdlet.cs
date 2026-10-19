@@ -24,6 +24,7 @@ using System.Management.Automation.Host;
 using System.Collections.ObjectModel;
 
 using Amazon.Runtime;
+using Amazon.PowerShell.Common.Internal;
 using Amazon.Runtime.CredentialManagement;
 using Amazon.SecurityToken.SAML;
 
@@ -102,6 +103,11 @@ namespace Amazon.PowerShell.Common
     {
         protected override void ProcessRecord()
         {
+            if (!string.IsNullOrEmpty(StoreAs))
+            {
+                IniValidationUtils.ValidateSectionNameComponent(StoreAs, nameof(StoreAs));
+            }
+
             AWSPSCredentials currentCredentials = null;
 
             if (this.TryGetCredentials(Host, out currentCredentials, SessionState))
@@ -598,6 +604,11 @@ namespace Amazon.PowerShell.Common
 
         protected override void ProcessRecord()
         {
+            if (!StoreAllRoles)
+            {
+                IniValidationUtils.ValidateSectionNameComponent(StoreAs, nameof(StoreAs));
+            }
+
             try
             {
                 string selectedRoleARN = null;
@@ -639,6 +650,12 @@ namespace Amazon.PowerShell.Common
                     }
 
                     var availableRoles = samlAssertion.RoleSet;
+                    // Validate the complete batch before any profile is saved.
+                    foreach (var roleName in availableRoles.Keys)
+                    {
+                        IniValidationUtils.ValidateSectionNameComponent(roleName, nameof(roleName));
+                    }
+
                     foreach (var roleName in availableRoles.Keys)
                     {
                         selectedRoleARN = availableRoles[roleName];

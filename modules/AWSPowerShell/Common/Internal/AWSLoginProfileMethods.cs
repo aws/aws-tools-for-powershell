@@ -2,6 +2,7 @@
 using Amazon.Runtime.Internal.Util;
 using System.IO;
 using System;
+using Amazon.PowerShell.Common.Internal;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -41,10 +42,10 @@ namespace Amazon.PowerShell.Utils
             ThrowOnNullOrWhiteSpace(nameof(profileName), profileName);
             ThrowOnNullOrWhiteSpace(nameof(_loginSessionPropertyName), loginSession);
 
-            SSOProfileMethods.ValidateSectionNameComponent(profileName, nameof(profileName));
+            IniValidationUtils.ValidateSectionNameComponent(profileName, nameof(profileName));
 
-            SSOProfileMethods.ValidatePropertyValue(loginSession, nameof(loginSession));
-            SSOProfileMethods.ValidatePropertyValue(region, nameof(region));
+            IniValidationUtils.ValidatePropertyValue(loginSession, nameof(loginSession));
+            IniValidationUtils.ValidatePropertyValue(region, nameof(region));
 
             if (!string.IsNullOrWhiteSpace(region))
                 profileProperties.Add(_regionPropertyName, region);

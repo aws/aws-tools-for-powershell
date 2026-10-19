@@ -630,7 +630,7 @@ namespace Amazon.PowerShell.Common
             };
 
             // Register sso-session section to the config and then initiate login flow.
-            SSOProfileMethods.ValidateSectionNameComponent(SessionName, nameof(SessionName));
+            IniValidationUtils.ValidateSectionNameComponent(SessionName, nameof(SessionName));
 
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SessionName), MyInvocation.BoundParameters);
 

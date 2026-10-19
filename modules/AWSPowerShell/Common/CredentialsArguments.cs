@@ -885,6 +885,34 @@ namespace Amazon.PowerShell.Common
         public static void RegisterProfile(CredentialProfileOptions profileOptions, string name, string profileLocation, RegionEndpoint region)
         {
             var profile = new CredentialProfile(name, profileOptions);
+
+            // Reject line breaks before any values reach the shared credentials or config file.
+            if (profileOptions != null)
+            {
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.AccessKey, nameof(profileOptions.AccessKey));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.CredentialSource, nameof(profileOptions.CredentialSource));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.EndpointName, nameof(profileOptions.EndpointName));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.ExternalID, nameof(profileOptions.ExternalID));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.MfaSerial, nameof(profileOptions.MfaSerial));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.RoleArn, nameof(profileOptions.RoleArn));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.RoleSessionName, nameof(profileOptions.RoleSessionName));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.SecretKey, nameof(profileOptions.SecretKey));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.SourceProfile, nameof(profileOptions.SourceProfile));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.Token, nameof(profileOptions.Token));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.UserIdentity, nameof(profileOptions.UserIdentity));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.CredentialProcess, nameof(profileOptions.CredentialProcess));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.WebIdentityTokenFile, nameof(profileOptions.WebIdentityTokenFile));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.SsoAccountId, nameof(profileOptions.SsoAccountId));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.SsoRegion, nameof(profileOptions.SsoRegion));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.SsoRegistrationScopes, nameof(profileOptions.SsoRegistrationScopes));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.SsoRoleName, nameof(profileOptions.SsoRoleName));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.SsoSession, nameof(profileOptions.SsoSession));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.SsoStartUrl, nameof(profileOptions.SsoStartUrl));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.LoginSession, nameof(profileOptions.LoginSession));
+                Internal.IniValidationUtils.ValidatePropertyValue(profileOptions.AwsAccountId, nameof(profileOptions.AwsAccountId));
+            }
+
+            Internal.IniValidationUtils.ValidatePropertyValue(region?.SystemName, nameof(region));
             profile.Region = region;
             new CredentialProfileStoreChain(profileLocation).RegisterProfile(profile);
         }
