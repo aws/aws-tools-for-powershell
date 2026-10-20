@@ -30,7 +30,12 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Amazon.ECS.IAmazonECS.SubmitAttachmentStateChanges
+    /// <note><para>
+    /// This action is only used by the Amazon ECS agent, and it is not intended for use outside
+    /// of the agent.
+    /// </para></note><para>
+    /// Sent to acknowledge that an attachment changed states.
+    /// </para>
     /// </summary>
     [Cmdlet("Submit", "ECSAttachmentStateChange", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -49,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Any attachments associated with the state change request.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

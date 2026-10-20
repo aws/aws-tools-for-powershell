@@ -30,7 +30,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Complete the migration of data.
+    /// Completes the migration of data.
     /// </summary>
     [Cmdlet("Complete", "ECMigration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
@@ -63,15 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The ID of the replication group to which data is being migrated.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ReplicationGroupId { get; set; }
+        #endregion
+        
+        #region Parameter ServerlessCacheName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the serverless cache to which data is being migrated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerlessCacheName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -122,12 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             context.Enforce = this.Enforce;
             context.ReplicationGroupId = this.ReplicationGroupId;
-            #if MODULAR
-            if (this.ReplicationGroupId == null && ParameterWasBound(nameof(this.ReplicationGroupId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ReplicationGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ServerlessCacheName = this.ServerlessCacheName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -151,6 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.ReplicationGroupId != null)
             {
                 request.ReplicationGroupId = cmdletContext.ReplicationGroupId;
+            }
+            if (cmdletContext.ServerlessCacheName != null)
+            {
+                request.ServerlessCacheName = cmdletContext.ServerlessCacheName;
             }
             
             CmdletOutput output;
@@ -209,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             public System.Boolean? Enforce { get; set; }
             public System.String ReplicationGroupId { get; set; }
+            public System.String ServerlessCacheName { get; set; }
             public System.Func<Amazon.ElastiCache.Model.CompleteMigrationResponse, CompleteECMigrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplicationGroup;
         }

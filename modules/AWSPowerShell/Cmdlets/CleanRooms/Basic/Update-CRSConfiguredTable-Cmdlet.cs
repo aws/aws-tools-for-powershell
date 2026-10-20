@@ -146,6 +146,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String Snowflake_DatabaseName { get; set; }
         #endregion
         
+        #region Parameter TableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The base URL of a Delta Sharing server that hosts shared datasets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -203,6 +213,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public Amazon.CleanRooms.CommercialRegion Glue_Region { get; set; }
         #endregion
         
+        #region Parameter TableReference_Databricks_SchemaName
+        /// <summary>
+        /// <para>
+        /// <para>Name of the Schema within Databricks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TableReference_Databricks_SchemaName { get; set; }
+        #endregion
+        
         #region Parameter Snowflake_SchemaName
         /// <summary>
         /// <para>
@@ -241,6 +261,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String[] SelectedAnalysisMethod { get; set; }
         #endregion
         
+        #region Parameter TableReference_Databricks_ConnectionType_DeltaSharing_ShareName
+        /// <summary>
+        /// <para>
+        /// <para>Name of the Share used for OpenSharing (Delta Sharing) the Databricks Table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TableReference_Databricks_ConnectionType_DeltaSharing_ShareName { get; set; }
+        #endregion
+        
         #region Parameter Athena_TableName
         /// <summary>
         /// <para>
@@ -250,6 +280,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TableReference_Athena_TableName")]
         public System.String Athena_TableName { get; set; }
+        #endregion
+        
+        #region Parameter TableReference_Databricks_TableName
+        /// <summary>
+        /// <para>
+        /// <para>Name of the Table within Databricks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TableReference_Databricks_TableName { get; set; }
         #endregion
         
         #region Parameter Glue_TableName
@@ -299,6 +339,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TableReference_Athena_WorkGroup")]
         public System.String Athena_WorkGroup { get; set; }
+        #endregion
+        
+        #region Parameter TableReference_Databricks_WorkspaceUrl
+        /// <summary>
+        /// <para>
+        /// <para>URL for the Databricks Workspace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TableReference_Databricks_WorkspaceUrl { get; set; }
         #endregion
         
         #region Parameter Select
@@ -371,6 +421,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.Athena_Region = this.Athena_Region;
             context.Athena_TableName = this.Athena_TableName;
             context.Athena_WorkGroup = this.Athena_WorkGroup;
+            context.TableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint = this.TableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint;
+            context.TableReference_Databricks_ConnectionType_DeltaSharing_ShareName = this.TableReference_Databricks_ConnectionType_DeltaSharing_ShareName;
+            context.TableReference_Databricks_SchemaName = this.TableReference_Databricks_SchemaName;
+            context.TableReference_Databricks_TableName = this.TableReference_Databricks_TableName;
+            context.TableReference_Databricks_WorkspaceUrl = this.TableReference_Databricks_WorkspaceUrl;
             context.Glue_DatabaseName = this.Glue_DatabaseName;
             context.Glue_Region = this.Glue_Region;
             context.Glue_TableName = this.Glue_TableName;
@@ -470,6 +525,101 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestTableReference_tableReference_Glue != null)
             {
                 request.TableReference.Glue = requestTableReference_tableReference_Glue;
+                requestTableReferenceIsNull = false;
+            }
+            Amazon.CleanRooms.Model.DatabricksTableReference requestTableReference_tableReference_Databricks = null;
+            
+             // populate Databricks
+            var requestTableReference_tableReference_DatabricksIsNull = true;
+            requestTableReference_tableReference_Databricks = new Amazon.CleanRooms.Model.DatabricksTableReference();
+            System.String requestTableReference_tableReference_Databricks_tableReference_Databricks_SchemaName = null;
+            if (cmdletContext.TableReference_Databricks_SchemaName != null)
+            {
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_SchemaName = cmdletContext.TableReference_Databricks_SchemaName;
+            }
+            if (requestTableReference_tableReference_Databricks_tableReference_Databricks_SchemaName != null)
+            {
+                requestTableReference_tableReference_Databricks.SchemaName = requestTableReference_tableReference_Databricks_tableReference_Databricks_SchemaName;
+                requestTableReference_tableReference_DatabricksIsNull = false;
+            }
+            System.String requestTableReference_tableReference_Databricks_tableReference_Databricks_TableName = null;
+            if (cmdletContext.TableReference_Databricks_TableName != null)
+            {
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_TableName = cmdletContext.TableReference_Databricks_TableName;
+            }
+            if (requestTableReference_tableReference_Databricks_tableReference_Databricks_TableName != null)
+            {
+                requestTableReference_tableReference_Databricks.TableName = requestTableReference_tableReference_Databricks_tableReference_Databricks_TableName;
+                requestTableReference_tableReference_DatabricksIsNull = false;
+            }
+            System.String requestTableReference_tableReference_Databricks_tableReference_Databricks_WorkspaceUrl = null;
+            if (cmdletContext.TableReference_Databricks_WorkspaceUrl != null)
+            {
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_WorkspaceUrl = cmdletContext.TableReference_Databricks_WorkspaceUrl;
+            }
+            if (requestTableReference_tableReference_Databricks_tableReference_Databricks_WorkspaceUrl != null)
+            {
+                requestTableReference_tableReference_Databricks.WorkspaceUrl = requestTableReference_tableReference_Databricks_tableReference_Databricks_WorkspaceUrl;
+                requestTableReference_tableReference_DatabricksIsNull = false;
+            }
+            Amazon.CleanRooms.Model.DatabricksConnectionType requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType = null;
+            
+             // populate ConnectionType
+            var requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionTypeIsNull = true;
+            requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType = new Amazon.CleanRooms.Model.DatabricksConnectionType();
+            Amazon.CleanRooms.Model.DatabricksDeltaSharingConnection requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing = null;
+            
+             // populate DeltaSharing
+            var requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharingIsNull = true;
+            requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing = new Amazon.CleanRooms.Model.DatabricksDeltaSharingConnection();
+            System.String requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing_tableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint = null;
+            if (cmdletContext.TableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint != null)
+            {
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing_tableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint = cmdletContext.TableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint;
+            }
+            if (requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing_tableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint != null)
+            {
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing.DeltaShareEndpoint = requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing_tableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint;
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharingIsNull = false;
+            }
+            System.String requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing_tableReference_Databricks_ConnectionType_DeltaSharing_ShareName = null;
+            if (cmdletContext.TableReference_Databricks_ConnectionType_DeltaSharing_ShareName != null)
+            {
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing_tableReference_Databricks_ConnectionType_DeltaSharing_ShareName = cmdletContext.TableReference_Databricks_ConnectionType_DeltaSharing_ShareName;
+            }
+            if (requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing_tableReference_Databricks_ConnectionType_DeltaSharing_ShareName != null)
+            {
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing.ShareName = requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing_tableReference_Databricks_ConnectionType_DeltaSharing_ShareName;
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharingIsNull = false;
+            }
+             // determine if requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing should be set to null
+            if (requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharingIsNull)
+            {
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing = null;
+            }
+            if (requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing != null)
+            {
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType.DeltaSharing = requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType_tableReference_Databricks_ConnectionType_DeltaSharing;
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionTypeIsNull = false;
+            }
+             // determine if requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType should be set to null
+            if (requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionTypeIsNull)
+            {
+                requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType = null;
+            }
+            if (requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType != null)
+            {
+                requestTableReference_tableReference_Databricks.ConnectionType = requestTableReference_tableReference_Databricks_tableReference_Databricks_ConnectionType;
+                requestTableReference_tableReference_DatabricksIsNull = false;
+            }
+             // determine if requestTableReference_tableReference_Databricks should be set to null
+            if (requestTableReference_tableReference_DatabricksIsNull)
+            {
+                requestTableReference_tableReference_Databricks = null;
+            }
+            if (requestTableReference_tableReference_Databricks != null)
+            {
+                request.TableReference.Databricks = requestTableReference_tableReference_Databricks;
                 requestTableReferenceIsNull = false;
             }
             Amazon.CleanRooms.Model.AthenaTableReference requestTableReference_tableReference_Athena = null;
@@ -709,6 +859,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public Amazon.CleanRooms.CommercialRegion Athena_Region { get; set; }
             public System.String Athena_TableName { get; set; }
             public System.String Athena_WorkGroup { get; set; }
+            public System.String TableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint { get; set; }
+            public System.String TableReference_Databricks_ConnectionType_DeltaSharing_ShareName { get; set; }
+            public System.String TableReference_Databricks_SchemaName { get; set; }
+            public System.String TableReference_Databricks_TableName { get; set; }
+            public System.String TableReference_Databricks_WorkspaceUrl { get; set; }
             public System.String Glue_DatabaseName { get; set; }
             public Amazon.CleanRooms.CommercialRegion Glue_Region { get; set; }
             public System.String Glue_TableName { get; set; }

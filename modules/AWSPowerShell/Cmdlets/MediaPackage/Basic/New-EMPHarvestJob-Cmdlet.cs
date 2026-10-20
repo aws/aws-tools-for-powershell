@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// <summary>
         /// <para>
         /// The ID of the HarvestJob. The ID must be unique within
-        /// the regionand it cannot be changed after the HarvestJob is submitted
+        /// the region and it cannot be changed after the HarvestJob is submitted
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// <summary>
         /// <para>
         /// The ID of the OriginEndpoint that the
-        /// HarvestJob will harvest from.This cannot be changed after the HarvestJob is submitted.
+        /// HarvestJob will harvest from. This cannot be changed after the HarvestJob is submitted.
         /// </para>
         /// </summary>
         #if !MODULAR

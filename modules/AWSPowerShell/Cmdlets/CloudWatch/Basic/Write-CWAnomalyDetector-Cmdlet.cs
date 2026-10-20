@@ -68,6 +68,20 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String SingleMetricAnomalyDetector_AccountId { get; set; }
         #endregion
         
+        #region Parameter Configuration_AdaptationSpeed
+        /// <summary>
+        /// <para>
+        /// <para>The speed at which the anomaly detection model adapts to sustained changes in the
+        /// metric's baseline. Faster adaptation lets the model track shifting workloads sooner,
+        /// but increases the chance that the model treats a real, lasting change as normal.</para><para>Valid values:</para><ul><li><para><c>FAST</c> - The model adapts quickly to sustained changes in the baseline.</para></li><li><para><c>NORMAL</c> - The model adapts at a moderate pace. This is the default value.</para></li><li><para><c>SLOW</c> - The model adapts slowly, reducing the risk of treating a real change
+        /// as normal.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatch.AnomalyDetectorAdaptationSpeed")]
+        public Amazon.CloudWatch.AnomalyDetectorAdaptationSpeed Configuration_AdaptationSpeed { get; set; }
+        #endregion
+        
         #region Parameter SingleMetricAnomalyDetector_Dimension
         /// <summary>
         /// <para>
@@ -153,6 +167,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SingleMetricAnomalyDetector_Namespace { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_OutlierFilteringStrength
+        /// <summary>
+        /// <para>
+        /// <para>The aggressiveness with which CloudWatch filters outliers from the metric data that
+        /// the anomaly detection model uses. Stronger filtering excludes more extreme values,
+        /// which can produce a tighter band of expected values but may also suppress legitimate
+        /// spikes.</para><para>Valid values:</para><ul><li><para><c>MINIMAL</c> - Excludes only the most extreme outliers.</para></li><li><para><c>MODERATE</c> - Excludes a moderate range of outliers. This is the default value.</para></li><li><para><c>STRICT</c> - Excludes a wider range of outliers, which can suppress legitimate
+        /// spikes.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatch.AnomalyDetectorOutlierFilteringStrength")]
+        public Amazon.CloudWatch.AnomalyDetectorOutlierFilteringStrength Configuration_OutlierFilteringStrength { get; set; }
         #endregion
         
         #region Parameter MetricCharacteristics_PeriodicSpike
@@ -278,11 +307,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Select = CreateSelectDelegate<Amazon.CloudWatch.Model.PutAnomalyDetectorResponse, WriteCWAnomalyDetectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Configuration_AdaptationSpeed = this.Configuration_AdaptationSpeed;
             if (this.Configuration_ExcludedTimeRange != null)
             {
                 context.Configuration_ExcludedTimeRange = new List<Amazon.CloudWatch.Model.Range>(this.Configuration_ExcludedTimeRange);
             }
             context.Configuration_MetricTimezone = this.Configuration_MetricTimezone;
+            context.Configuration_OutlierFilteringStrength = this.Configuration_OutlierFilteringStrength;
             if (this.Dimension != null)
             {
                 context.Dimension = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
@@ -323,6 +354,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.CloudWatch.Model.AnomalyDetectorConfiguration();
+            Amazon.CloudWatch.AnomalyDetectorAdaptationSpeed requestConfiguration_configuration_AdaptationSpeed = null;
+            if (cmdletContext.Configuration_AdaptationSpeed != null)
+            {
+                requestConfiguration_configuration_AdaptationSpeed = cmdletContext.Configuration_AdaptationSpeed;
+            }
+            if (requestConfiguration_configuration_AdaptationSpeed != null)
+            {
+                request.Configuration.AdaptationSpeed = requestConfiguration_configuration_AdaptationSpeed;
+                requestConfigurationIsNull = false;
+            }
             List<Amazon.CloudWatch.Model.Range> requestConfiguration_configuration_ExcludedTimeRange = null;
             if (cmdletContext.Configuration_ExcludedTimeRange != null)
             {
@@ -341,6 +382,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (requestConfiguration_configuration_MetricTimezone != null)
             {
                 request.Configuration.MetricTimezone = requestConfiguration_configuration_MetricTimezone;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.CloudWatch.AnomalyDetectorOutlierFilteringStrength requestConfiguration_configuration_OutlierFilteringStrength = null;
+            if (cmdletContext.Configuration_OutlierFilteringStrength != null)
+            {
+                requestConfiguration_configuration_OutlierFilteringStrength = cmdletContext.Configuration_OutlierFilteringStrength;
+            }
+            if (requestConfiguration_configuration_OutlierFilteringStrength != null)
+            {
+                request.Configuration.OutlierFilteringStrength = requestConfiguration_configuration_OutlierFilteringStrength;
                 requestConfigurationIsNull = false;
             }
              // determine if request.Configuration should be set to null
@@ -516,8 +567,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CloudWatch.AnomalyDetectorAdaptationSpeed Configuration_AdaptationSpeed { get; set; }
             public List<Amazon.CloudWatch.Model.Range> Configuration_ExcludedTimeRange { get; set; }
             public System.String Configuration_MetricTimezone { get; set; }
+            public Amazon.CloudWatch.AnomalyDetectorOutlierFilteringStrength Configuration_OutlierFilteringStrength { get; set; }
             [System.ObsoleteAttribute]
             public List<Amazon.CloudWatch.Model.Dimension> Dimension { get; set; }
             public System.Boolean? MetricCharacteristics_PeriodicSpike { get; set; }

@@ -13352,6 +13352,8 @@ Set-Alias -Name Upload-ECRLayerPart -Value Send-ECRLayerPart
 Set-Alias -Name ECR-UploadLayerPart -Value Send-ECRLayerPart
 Set-Alias -Name Validate-ECRPullThroughCacheRule -Value Test-ECRPullThroughCacheRule
 Set-Alias -Name ECR-ValidatePullThroughCacheRule -Value Test-ECRPullThroughCacheRule
+Set-Alias -Name Associate-ECSGatewayWithCluster -Value Add-ECSGatewayWithCluster
+Set-Alias -Name ECS-AssociateGatewayWithCluster -Value Add-ECSGatewayWithCluster
 Set-Alias -Name Continue-ECSServiceDeployment -Value Resume-ECSServiceDeployment
 Set-Alias -Name ECS-ContinueServiceDeployment -Value Resume-ECSServiceDeployment
 Set-Alias -Name Create-ECSCapacityProvider -Value New-ECSCapacityProvider
@@ -13362,6 +13364,8 @@ Set-Alias -Name Create-ECSDaemon -Value New-ECSDaemon
 Set-Alias -Name ECS-CreateDaemon -Value New-ECSDaemon
 Set-Alias -Name Create-ECSExpressGatewayService -Value New-ECSExpressGatewayService
 Set-Alias -Name ECS-CreateExpressGatewayService -Value New-ECSExpressGatewayService
+Set-Alias -Name Create-ECSGateway -Value New-ECSGateway
+Set-Alias -Name ECS-CreateGateway -Value New-ECSGateway
 Set-Alias -Name Create-ECSService -Value New-ECSService
 Set-Alias -Name ECS-CreateService -Value New-ECSService
 Set-Alias -Name Create-ECSTaskSet -Value New-ECSTaskSet
@@ -13381,6 +13385,8 @@ Set-Alias -Name Delete-ECSDaemonTaskDefinition -Value Remove-ECSDaemonTaskDefini
 Set-Alias -Name ECS-DeleteDaemonTaskDefinition -Value Remove-ECSDaemonTaskDefinition
 Set-Alias -Name Delete-ECSExpressGatewayService -Value Remove-ECSExpressGatewayService
 Set-Alias -Name ECS-DeleteExpressGatewayService -Value Remove-ECSExpressGatewayService
+Set-Alias -Name Delete-ECSGateway -Value Remove-ECSGateway
+Set-Alias -Name ECS-DeleteGateway -Value Remove-ECSGateway
 Set-Alias -Name Delete-ECSService -Value Remove-ECSService
 Set-Alias -Name ECS-DeleteService -Value Remove-ECSService
 Set-Alias -Name Delete-ECSTaskDefinitions -Value Remove-ECSTaskDefinition
@@ -13415,6 +13421,15 @@ Set-Alias -Name Describe-ECSDaemonTaskDefinitionDetail -Value Get-ECSDaemonTaskD
 Set-Alias -Name ECS-DescribeDaemonTaskDefinition -Value Get-ECSDaemonTaskDefinitionDetail
 Set-Alias -Name Describe-ECSExpressGatewayService -Value Get-ECSExpressGatewayService
 Set-Alias -Name ECS-DescribeExpressGatewayService -Value Get-ECSExpressGatewayService
+Set-Alias -Name Describe-ECSGateway -Value Get-ECSGatewayDetail
+Set-Alias -Name Describe-ECSGatewayDetail -Value Get-ECSGatewayDetail
+Set-Alias -Name ECS-DescribeGateway -Value Get-ECSGatewayDetail
+Set-Alias -Name Describe-ECSGatewayResources -Value Get-ECSGatewayResourceDetail
+Set-Alias -Name Describe-ECSGatewayResourceDetail -Value Get-ECSGatewayResourceDetail
+Set-Alias -Name ECS-DescribeGatewayResources -Value Get-ECSGatewayResourceDetail
+Set-Alias -Name Describe-ECSGatewayRoute -Value Get-ECSGatewayRouteDetail
+Set-Alias -Name Describe-ECSGatewayRouteDetail -Value Get-ECSGatewayRouteDetail
+Set-Alias -Name ECS-DescribeGatewayRoute -Value Get-ECSGatewayRouteDetail
 Set-Alias -Name Describe-ECSServiceDeployments -Value Get-ECSServiceDeploymentDetail
 Set-Alias -Name Describe-ECSServiceDeploymentDetail -Value Get-ECSServiceDeploymentDetail
 Set-Alias -Name ECS-DescribeServiceDeployments -Value Get-ECSServiceDeploymentDetail
@@ -13433,6 +13448,8 @@ Set-Alias -Name ECS-DescribeTasks -Value Get-ECSTaskDetail
 Set-Alias -Name Describe-ECSTaskSets -Value Get-ECSTaskSet
 Set-Alias -Name Describe-ECSTaskSet -Value Get-ECSTaskSet
 Set-Alias -Name ECS-DescribeTaskSets -Value Get-ECSTaskSet
+Set-Alias -Name Disassociate-ECSGatewayFromCluster -Value Remove-ECSGatewayFromCluster
+Set-Alias -Name ECS-DisassociateGatewayFromCluster -Value Remove-ECSGatewayFromCluster
 Set-Alias -Name Execute-ECSCommand -Value Invoke-ECSCommand
 Set-Alias -Name ECS-ExecuteCommand -Value Invoke-ECSCommand
 Set-Alias -Name ECS-GetTaskProtection -Value Get-ECSTaskProtection
@@ -13457,6 +13474,15 @@ Set-Alias -Name ECS-ListDaemons -Value Get-ECSDaemonList
 Set-Alias -Name List-ECSDaemonTaskDefinitions -Value Get-ECSDaemonTaskDefinitionList
 Set-Alias -Name List-ECSDaemonTaskDefinitionList -Value Get-ECSDaemonTaskDefinitionList
 Set-Alias -Name ECS-ListDaemonTaskDefinitions -Value Get-ECSDaemonTaskDefinitionList
+Set-Alias -Name List-ECSGatewayClusterAssociations -Value Get-ECSGatewayClusterAssociationList
+Set-Alias -Name List-ECSGatewayClusterAssociationList -Value Get-ECSGatewayClusterAssociationList
+Set-Alias -Name ECS-ListGatewayClusterAssociations -Value Get-ECSGatewayClusterAssociationList
+Set-Alias -Name List-ECSGatewayRoutes -Value Get-ECSGatewayRouteList
+Set-Alias -Name List-ECSGatewayRouteList -Value Get-ECSGatewayRouteList
+Set-Alias -Name ECS-ListGatewayRoutes -Value Get-ECSGatewayRouteList
+Set-Alias -Name List-ECSGateways -Value Get-ECSGatewayList
+Set-Alias -Name List-ECSGatewayList -Value Get-ECSGatewayList
+Set-Alias -Name ECS-ListGateways -Value Get-ECSGatewayList
 Set-Alias -Name List-ECSServiceDeployments -Value Get-ECSServiceDeploymentList
 Set-Alias -Name List-ECSServiceDeploymentList -Value Get-ECSServiceDeploymentList
 Set-Alias -Name ECS-ListServiceDeployments -Value Get-ECSServiceDeploymentList
@@ -13505,6 +13531,7 @@ Set-Alias -Name ECS-UpdateContainerAgent -Value Update-ECSContainerAgent
 Set-Alias -Name ECS-UpdateContainerInstancesState -Value Update-ECSContainerInstancesState
 Set-Alias -Name ECS-UpdateDaemon -Value Update-ECSDaemon
 Set-Alias -Name ECS-UpdateExpressGatewayService -Value Update-ECSExpressGatewayService
+Set-Alias -Name ECS-UpdateGateway -Value Update-ECSGateway
 Set-Alias -Name ECS-UpdateService -Value Update-ECSService
 Set-Alias -Name ECS-UpdateServicePrimaryTaskSet -Value Update-ECSServicePrimaryTaskSet
 Set-Alias -Name ECS-UpdateTaskProtection -Value Update-ECSTaskProtection
@@ -13810,6 +13837,8 @@ Set-Alias -Name Modify-ECUser -Value Edit-ECUser
 Set-Alias -Name EC-ModifyUser -Value Edit-ECUser
 Set-Alias -Name Modify-ECUserGroup -Value Edit-ECUserGroup
 Set-Alias -Name EC-ModifyUserGroup -Value Edit-ECUserGroup
+Set-Alias -Name Prepare-ECMigration -Value Initialize-ECMigration
+Set-Alias -Name EC-PrepareMigration -Value Initialize-ECMigration
 Set-Alias -Name Purchase-ECReservedCacheNodesOffering -Value Request-ECReservedCacheNodesOffering
 Set-Alias -Name EC-PurchaseReservedCacheNodesOffering -Value Request-ECReservedCacheNodesOffering
 Set-Alias -Name Rebalance-ECSlotsInGlobalReplicationGroup -Value Request-ECSlotRebalanceInGlobalReplicationGroup
@@ -13822,6 +13851,7 @@ Set-Alias -Name EC-RemoveTagsFromResource -Value Remove-ECTag
 Set-Alias -Name EC-ResetCacheParameterGroup -Value Reset-ECCacheParameterGroup
 Set-Alias -Name EC-RevokeCacheSecurityGroupIngress -Value Revoke-ECCacheSecurityGroupIngress
 Set-Alias -Name EC-StartMigration -Value Start-ECMigration
+Set-Alias -Name EC-StopMigration -Value Stop-ECMigration
 Set-Alias -Name EC-TestFailover -Value Test-ECFailover
 Set-Alias -Name EC-TestMigration -Value Test-ECMigration
 Set-Alias -Name Abort-EBEnvironmentUpdate -Value Stop-EBEnvironmentUpdate
@@ -28630,6 +28660,8 @@ Set-Alias -Name Authorize-RDSDBSecurityGroupIngress -Value Enable-RDSDBSecurityG
 Set-Alias -Name RDS-AuthorizeDBSecurityGroupIngress -Value Enable-RDSDBSecurityGroupIngress
 Set-Alias -Name Backtrack-RDSDBCluster -Value Reset-RDSDBCluster
 Set-Alias -Name RDS-BacktrackDBCluster -Value Reset-RDSDBCluster
+Set-Alias -Name Cancel-RDSDBCapacityReservation -Value Stop-RDSDBCapacityReservation
+Set-Alias -Name RDS-CancelDBCapacityReservation -Value Stop-RDSDBCapacityReservation
 Set-Alias -Name Cancel-RDSExportTask -Value Stop-RDSExportTask
 Set-Alias -Name RDS-CancelExportTask -Value Stop-RDSExportTask
 Set-Alias -Name RDS-CopyDBClusterParameterGroup -Value Copy-RDSDBClusterParameterGroup
@@ -28641,6 +28673,8 @@ Set-Alias -Name Create-RDSBlueGreenDeployment -Value New-RDSBlueGreenDeployment
 Set-Alias -Name RDS-CreateBlueGreenDeployment -Value New-RDSBlueGreenDeployment
 Set-Alias -Name Create-RDSCustomDBEngineVersion -Value New-RDSCustomDBEngineVersion
 Set-Alias -Name RDS-CreateCustomDBEngineVersion -Value New-RDSCustomDBEngineVersion
+Set-Alias -Name Create-RDSDBCapacityReservation -Value New-RDSDBCapacityReservation
+Set-Alias -Name RDS-CreateDBCapacityReservation -Value New-RDSDBCapacityReservation
 Set-Alias -Name Create-RDSDBCluster -Value New-RDSDBCluster
 Set-Alias -Name RDS-CreateDBCluster -Value New-RDSDBCluster
 Set-Alias -Name Create-RDSDBClusterEndpoint -Value New-RDSDBClusterEndpoint
@@ -28731,6 +28765,9 @@ Set-Alias -Name RDS-DescribeBlueGreenDeployments -Value Get-RDSBlueGreenDeployme
 Set-Alias -Name Describe-RDSCertificates -Value Get-RDSCertificate
 Set-Alias -Name Describe-RDSCertificate -Value Get-RDSCertificate
 Set-Alias -Name RDS-DescribeCertificates -Value Get-RDSCertificate
+Set-Alias -Name Describe-RDSDBCapacityReservations -Value Get-RDSDBCapacityReservationDetail
+Set-Alias -Name Describe-RDSDBCapacityReservationDetail -Value Get-RDSDBCapacityReservationDetail
+Set-Alias -Name RDS-DescribeDBCapacityReservations -Value Get-RDSDBCapacityReservationDetail
 Set-Alias -Name Describe-RDSDBClusterAutomatedBackups -Value Get-RDSDBClusterAutomatedBackup
 Set-Alias -Name Describe-RDSDBClusterAutomatedBackup -Value Get-RDSDBClusterAutomatedBackup
 Set-Alias -Name RDS-DescribeDBClusterAutomatedBackups -Value Get-RDSDBClusterAutomatedBackup
@@ -28884,6 +28921,8 @@ Set-Alias -Name Modify-RDSCurrentDBClusterCapacity -Value Edit-RDSCurrentDBClust
 Set-Alias -Name RDS-ModifyCurrentDBClusterCapacity -Value Edit-RDSCurrentDBClusterCapacity
 Set-Alias -Name Modify-RDSCustomDBEngineVersion -Value Edit-RDSCustomDBEngineVersion
 Set-Alias -Name RDS-ModifyCustomDBEngineVersion -Value Edit-RDSCustomDBEngineVersion
+Set-Alias -Name Modify-RDSDBCapacityReservation -Value Edit-RDSDBCapacityReservation
+Set-Alias -Name RDS-ModifyDBCapacityReservation -Value Edit-RDSDBCapacityReservation
 Set-Alias -Name Modify-RDSDBCluster -Value Edit-RDSDBCluster
 Set-Alias -Name RDS-ModifyDBCluster -Value Edit-RDSDBCluster
 Set-Alias -Name Modify-RDSDBClusterEndpoint -Value Edit-RDSDBClusterEndpoint

@@ -156,6 +156,28 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
         #endregion
         
+        #region Parameter DBCapacityReservationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier or the name of the DB capacity reservation to associate with this DB
+        /// instance. You can specify the identifier, which has the prefix <c>dbcr-</c>, or the
+        /// reservation name. When you specify this parameter, the DB instance uses reserved capacity
+        /// from the specified reservation.</para><para>If you specify <c>AvailabilityZone</c>, Amazon RDS places the DB instance in that
+        /// Availability Zone, and the reservation must cover it.</para><para>Constraints:</para><ul><li><para>The reservation must reserve capacity for the DB instance class and the database engine
+        /// of the DB instance.</para></li><li><para>If the reservation reserves capacity for a specific license model, the license model
+        /// of the DB instance must match it.</para></li><li><para>The reservation must be in the <c>active</c> state, and it must not be past its end
+        /// date.</para></li><li><para>If you specify <c>AvailabilityZone</c>, it must be one of the Availability Zones of
+        /// the reservation.</para></li><li><para>For a Multi-AZ DB instance, the reservation must cover two or more Availability Zones.
+        /// A Multi-AZ DB instance uses one unit of reserved capacity in each of two Availability
+        /// Zones. If the reservation covers more than two Availability Zones, Amazon RDS chooses
+        /// the two that the DB instance uses.</para></li><li><para>The reservation must have available capacity in each Availability Zone that the DB
+        /// instance uses.</para></li><li><para>The DB subnet group must be in a VPC with default tenancy.</para></li><li><para>The DB subnet group must cover each Availability Zone that the DB instance uses.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBCapacityReservationIdentifier { get; set; }
+        #endregion
+        
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
@@ -839,6 +861,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.CACertificateIdentifier = this.CACertificateIdentifier;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DatabaseInsightsMode = this.DatabaseInsightsMode;
+            context.DBCapacityReservationIdentifier = this.DBCapacityReservationIdentifier;
             context.DBInstanceClass = this.DBInstanceClass;
             #if MODULAR
             if (this.DBInstanceClass == null && ParameterWasBound(nameof(this.DBInstanceClass)))
@@ -992,6 +1015,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DatabaseInsightsMode != null)
             {
                 request.DatabaseInsightsMode = cmdletContext.DatabaseInsightsMode;
+            }
+            if (cmdletContext.DBCapacityReservationIdentifier != null)
+            {
+                request.DBCapacityReservationIdentifier = cmdletContext.DBCapacityReservationIdentifier;
             }
             if (cmdletContext.DBInstanceClass != null)
             {
@@ -1240,6 +1267,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String CACertificateIdentifier { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
+            public System.String DBCapacityReservationIdentifier { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBName { get; set; }

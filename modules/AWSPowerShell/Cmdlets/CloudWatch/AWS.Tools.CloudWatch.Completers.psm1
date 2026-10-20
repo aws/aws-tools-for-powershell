@@ -80,6 +80,20 @@ $CW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudWatch.AnomalyDetectorAdaptationSpeed
+        "Write-CWAnomalyDetector/Configuration_AdaptationSpeed"
+        {
+            $v = "FAST","NORMAL","SLOW"
+            break
+        }
+
+        # Amazon.CloudWatch.AnomalyDetectorOutlierFilteringStrength
+        "Write-CWAnomalyDetector/Configuration_OutlierFilteringStrength"
+        {
+            $v = "MINIMAL","MODERATE","STRICT"
+            break
+        }
+
         # Amazon.CloudWatch.ComparisonOperator
         {
             ($_ -eq "Write-CWLogAlarm/ComparisonOperator") -Or
@@ -162,6 +176,8 @@ $CW_Completers = {
 
 $CW_map = @{
     "ComparisonOperator"=@("Write-CWLogAlarm","Write-CWMetricAlarm")
+    "Configuration_AdaptationSpeed"=@("Write-CWAnomalyDetector")
+    "Configuration_OutlierFilteringStrength"=@("Write-CWAnomalyDetector")
     "HistoryItemType"=@("Get-CWAlarmHistory")
     "OutputFormat"=@("Write-CWMetricStream")
     "RecentlyActive"=@("Get-CWMetricList")

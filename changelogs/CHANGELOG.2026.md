@@ -1,4 +1,51 @@
-﻿### 5.0.319 (2026-10-19 19:17Z)
+﻿### 5.0.320 (2026-10-20 19:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.355.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Modified cmdlet New-BDRGuardrail: added parameter ContextualGroundingPolicyConfig_TierConfig_TierName.
+    * Modified cmdlet Update-BDRGuardrail: added parameter ContextualGroundingPolicyConfig_TierConfig_TierName.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSConfiguredTable: added parameters TableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint, TableReference_Databricks_ConnectionType_DeltaSharing_ShareName, TableReference_Databricks_SchemaName, TableReference_Databricks_TableName and TableReference_Databricks_WorkspaceUrl.
+    * Modified cmdlet Update-CRSConfiguredTable: added parameters TableReference_Databricks_ConnectionType_DeltaSharing_DeltaShareEndpoint, TableReference_Databricks_ConnectionType_DeltaSharing_ShareName, TableReference_Databricks_SchemaName, TableReference_Databricks_TableName and TableReference_Databricks_WorkspaceUrl.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWAnomalyDetector: added parameters Configuration_AdaptationSpeed and Configuration_OutlierFilteringStrength.
+  * Amazon DynamoDB
+    * Modified cmdlet Update-DDBTable: added parameter DisassociationProtectionEnabled.
+  * Amazon EC2 Container Service
+    * Added cmdlet Add-ECSGatewayWithCluster leveraging the AssociateGatewayWithCluster service API.
+    * Added cmdlet Get-ECSGatewayClusterAssociationList leveraging the ListGatewayClusterAssociations service API.
+    * Added cmdlet Get-ECSGatewayDetail leveraging the DescribeGateway service API.
+    * Added cmdlet Get-ECSGatewayList leveraging the ListGateways service API.
+    * Added cmdlet Get-ECSGatewayResourceDetail leveraging the DescribeGatewayResources service API.
+    * Added cmdlet Get-ECSGatewayRouteDetail leveraging the DescribeGatewayRoute service API.
+    * Added cmdlet Get-ECSGatewayRouteList leveraging the ListGatewayRoutes service API.
+    * Added cmdlet New-ECSGateway leveraging the CreateGateway service API.
+    * Added cmdlet Remove-ECSGateway leveraging the DeleteGateway service API.
+    * Added cmdlet Remove-ECSGatewayFromCluster leveraging the DisassociateGatewayFromCluster service API.
+    * Added cmdlet Update-ECSGateway leveraging the UpdateGateway service API.
+    * Modified cmdlet New-ECSService: added parameter GatewayConnector.
+    * Modified cmdlet Update-ECSService: added parameter GatewayConnector.
+  * Amazon ElastiCache
+    * Added cmdlet Initialize-ECMigration leveraging the PrepareMigration service API.
+    * Added cmdlet Stop-ECMigration leveraging the StopMigration service API.
+    * Modified cmdlet Complete-ECMigration: added parameter ServerlessCacheName.
+    * Modified cmdlet Start-ECMigration: added parameters AutoCutover, ClearTargetCacheData and ServerlessCacheName.
+  * Amazon Marketplace Catalog Service
+    * Modified cmdlet Get-MCATEntityList: added parameters EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList, EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList, EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList, EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy and EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder.
+  * Amazon Relational Database Service
+    * Added cmdlet Edit-RDSDBCapacityReservation leveraging the ModifyDBCapacityReservation service API.
+    * Added cmdlet Get-RDSDBCapacityReservationDetail leveraging the DescribeDBCapacityReservations service API.
+    * Added cmdlet New-RDSDBCapacityReservation leveraging the CreateDBCapacityReservation service API.
+    * Added cmdlet Stop-RDSDBCapacityReservation leveraging the CancelDBCapacityReservation service API.
+    * Modified cmdlet Edit-RDSDBInstance: added parameter DBCapacityReservationIdentifier.
+    * Modified cmdlet New-RDSDBInstance: added parameter DBCapacityReservationIdentifier.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter DBCapacityReservationIdentifier.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter DBCapacityReservationIdentifier.
+    * Modified cmdlet Restore-RDSDBInstanceFromS3: added parameter DBCapacityReservationIdentifier.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter DBCapacityReservationIdentifier.
+    * Modified cmdlet Start-RDSDBInstance: added parameter DBCapacityReservationIdentifier.
+    * Modified cmdlet Stop-RDSDBInstance: added parameter DetachFromDBCapacityReservation.
+
+### 5.0.319 (2026-10-19 19:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.354.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon FinSpace Public API
   * [Breaking Change] Removed support for Amazon FinSpace User Environment Management Service

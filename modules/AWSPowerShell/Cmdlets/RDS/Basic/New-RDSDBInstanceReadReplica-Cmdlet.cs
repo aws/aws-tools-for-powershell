@@ -175,6 +175,30 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
         #endregion
         
+        #region Parameter DBCapacityReservationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier or the name of the DB capacity reservation to associate with this read
+        /// replica. You can specify the identifier, which has the prefix <c>dbcr-</c>, or the
+        /// reservation name. When you specify this parameter, the read replica uses reserved
+        /// capacity from the specified reservation. A read replica uses one unit of reserved
+        /// capacity, in the same way as any other DB instance.</para><para>If you specify <c>AvailabilityZone</c>, Amazon RDS places the DB instance in that
+        /// Availability Zone, and the reservation must cover it.</para><para>Constraints:</para><ul><li><para>The reservation must reserve capacity for the DB instance class and the database engine
+        /// of the DB instance.</para></li><li><para>If the reservation reserves capacity for a specific license model, the license model
+        /// of the source DB instance must match it. A read replica inherits its license model
+        /// from the source DB instance.</para></li><li><para>The reservation must be in the <c>active</c> state, and it must not be past its end
+        /// date.</para></li><li><para>If you specify <c>AvailabilityZone</c>, it must be one of the Availability Zones of
+        /// the reservation.</para></li><li><para>For a Multi-AZ DB instance, the reservation must cover two or more Availability Zones.
+        /// A Multi-AZ DB instance uses one unit of reserved capacity in each of two Availability
+        /// Zones. If the reservation covers more than two Availability Zones, Amazon RDS chooses
+        /// the two that the DB instance uses.</para></li><li><para>The reservation must have available capacity in each Availability Zone that the DB
+        /// instance uses.</para></li><li><para>The DB subnet group must be in a VPC with default tenancy.</para></li><li><para>The DB subnet group must cover each Availability Zone that the DB instance uses.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBCapacityReservationIdentifier { get; set; }
+        #endregion
+        
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
@@ -413,10 +437,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for an encrypted read replica.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the KMS key.</para><para>If you create an encrypted read replica in the same Amazon Web Services Region as
-        /// the source DB instance or Multi-AZ DB cluster, don't specify a value for this parameter.
-        /// A read replica in the same Amazon Web Services Region is always encrypted with the
-        /// same KMS key as the source DB instance or cluster.</para><para>If you create an encrypted read replica in a different Amazon Web Services Region,
+        /// name for the KMS key.</para><para>For a read replica in the same Amazon Web Services Region as the source DB instance
+        /// or Multi-AZ DB cluster, specifying this parameter is optional. If you specify a KMS
+        /// key identifier, the read replica is encrypted with that KMS key, which can be different
+        /// from the KMS key of the source.</para><para>If you don't specify a value for this parameter, the read replica is encrypted with
+        /// the same KMS key as the source DB instance or Multi-AZ DB cluster.</para><para>If you create an encrypted read replica in a different Amazon Web Services Region,
         /// then you must specify a KMS key identifier for the destination Amazon Web Services
         /// Region. KMS keys are specific to the Amazon Web Services Region that they are created
         /// in, and you can't use KMS keys from one Amazon Web Services Region in another Amazon
@@ -837,6 +862,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.CustomIamInstanceProfile = this.CustomIamInstanceProfile;
             context.DatabaseInsightsMode = this.DatabaseInsightsMode;
+            context.DBCapacityReservationIdentifier = this.DBCapacityReservationIdentifier;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             #if MODULAR
@@ -956,6 +982,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DatabaseInsightsMode != null)
             {
                 request.DatabaseInsightsMode = cmdletContext.DatabaseInsightsMode;
+            }
+            if (cmdletContext.DBCapacityReservationIdentifier != null)
+            {
+                request.DBCapacityReservationIdentifier = cmdletContext.DBCapacityReservationIdentifier;
             }
             if (cmdletContext.DBInstanceClass != null)
             {
@@ -1182,6 +1212,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String CustomIamInstanceProfile { get; set; }
             public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
+            public System.String DBCapacityReservationIdentifier { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBParameterGroupName { get; set; }

@@ -166,6 +166,16 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.GuardrailContextualGroundingTierName
+        {
+            ($_ -eq "New-BDRGuardrail/ContextualGroundingPolicyConfig_TierConfig_TierName") -Or
+            ($_ -eq "Update-BDRGuardrail/ContextualGroundingPolicyConfig_TierConfig_TierName")
+        }
+        {
+            $v = "CLASSIC","STANDARD"
+            break
+        }
+
         # Amazon.Bedrock.GuardrailTopicsTierName
         {
             ($_ -eq "New-BDRGuardrail/TopicPolicyConfig_TierConfig_TierName") -Or
@@ -352,6 +362,7 @@ $BDR_map = @{
     "ByOutputModality"=@("Get-BDRFoundationModelList")
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
     "ContentPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
+    "ContextualGroundingPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "ExpectedAggregatedFindingsResult"=@("New-BDRAutomatedReasoningPolicyTestCase","Update-BDRAutomatedReasoningPolicyTestCase")
     "GuardrailInferenceConfig_SelectiveContentGuarding_Message"=@("Write-BDREnforcedGuardrailConfiguration")

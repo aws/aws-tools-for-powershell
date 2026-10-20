@@ -184,6 +184,13 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.TlsMode
+        "Initialize-ECMigration/SourceTlsConfiguration_SourceTlsMode"
+        {
+            $v = "none","verify-ca"
+            break
+        }
+
         # Amazon.ElastiCache.TransitEncryptionMode
         {
             ($_ -eq "Edit-ECReplicationGroup/TransitEncryptionMode") -Or
@@ -213,6 +220,7 @@ $EC_map = @{
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
     "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup","New-ECServerlessCache")
     "OutpostMode"=@("New-ECCacheCluster")
+    "SourceTlsConfiguration_SourceTlsMode"=@("Initialize-ECMigration")
     "SourceType"=@("Get-ECEvent")
     "TransitEncryptionMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
 }
@@ -333,6 +341,7 @@ $EC_SelectMap = @{
                "Edit-ECServerlessCache",
                "Edit-ECUser",
                "Edit-ECUserGroup",
+               "Initialize-ECMigration",
                "Request-ECReservedCacheNodesOffering",
                "Request-ECSlotRebalanceInGlobalReplicationGroup",
                "Restart-ECCacheCluster",
@@ -340,6 +349,7 @@ $EC_SelectMap = @{
                "Reset-ECCacheParameterGroup",
                "Revoke-ECCacheSecurityGroupIngress",
                "Start-ECMigration",
+               "Stop-ECMigration",
                "Test-ECFailover",
                "Test-ECMigration")
 }

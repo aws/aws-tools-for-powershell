@@ -75,6 +75,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelDBCapacityReservation" OutputProperty="DBCapacityReservation" Verb="Stop" Noun="DBCapacityReservation" ShouldProcessTarget="DBCapacityReservationIdentifier" PipelineParameter="DBCapacityReservationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelExportTask" OutputProperty="*" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="ExportTaskIdentifier" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -104,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomDBEngineVersion" OutputProperty="*" Verb="New" Noun="CustomDBEngineVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBCapacityReservation" OutputProperty="DBCapacityReservation" Verb="New" Noun="DBCapacityReservation" ShouldProcessTarget="DBCapacityReservationName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -276,6 +284,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSCertificates">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBCapacityReservations" OutputProperty="DBCapacityReservations" Verb="Get" Noun="DBCapacityReservationDetail" PipelineParameter="DBCapacityReservationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -496,6 +508,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyCustomDBEngineVersion" OutputProperty="*" Verb="Edit" Noun="CustomDBEngineVersion" ShouldProcessTarget="EngineVersion" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBCapacityReservation" OutputProperty="DBCapacityReservation" Verb="Edit" Noun="DBCapacityReservation" ShouldProcessTarget="DBCapacityReservationIdentifier" PipelineParameter="DBCapacityReservationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

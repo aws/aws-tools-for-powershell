@@ -218,6 +218,68 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
         #endregion
         
+        #region Parameter DBCapacityReservationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier or the name of the DB capacity reservation for the DB instance to use.
+        /// You can specify the identifier, which has the prefix <c>dbcr-</c>, or the reservation
+        /// name. After the modification completes, the DB instance uses reserved capacity from
+        /// this reservation.</para><para>You can't change the DB capacity reservation of a DB instance on its own. A request
+        /// that changes the reservation must also change the DB instance class, the Multi-AZ
+        /// setting, the license model, or the engine. Therefore, this request always changes
+        /// the configuration of the DB instance.</para><para>If the DB instance already uses the reservation that you specify, this requirement
+        /// doesn't apply. You can then change another setting, such as the Multi-AZ setting,
+        /// and keep the reservation.</para><para>For a DB instance that uses no reservation, change <c>DBInstanceClass</c> to the DB
+        /// instance class that the reservation reserves. A reservation reserves capacity for
+        /// one DB instance class, so that change moves the DB instance onto the reserved capacity.
+        /// That change also resizes the DB instance, which interrupts it.</para><para>If the DB instance already runs the DB instance class that the reservation reserves,
+        /// change <c>MultiAZ</c> or <c>LicenseModel</c> instead. Only RDS for Oracle and RDS
+        /// for Microsoft SQL Server accept a change of license model, so <c>MultiAZ</c> is the
+        /// remaining choice for every other engine.</para><important><para>If you don't specify this parameter, Amazon RDS moves the DB instance to unreserved
+        /// capacity, and it releases the reserved capacity that the DB instance holds. A request
+        /// that changes the DB instance class, the Multi-AZ setting, the license model, or the
+        /// engine moves the DB instance to different hardware, and Amazon RDS places the DB instance
+        /// on unreserved capacity. Therefore, to keep the DB instance on reserved capacity, specify
+        /// this parameter in every request that changes any of those settings.</para><para>The DB instance keeps its current reservation until Amazon RDS applies the modification.
+        /// Until then, the <c>DBCapacityReservationIdentifier</c> field of the DB instance still
+        /// reports that reservation, and <c>PendingModifiedValues</c> reports no reservation.
+        /// Amazon RDS releases the reserved capacity when it moves the DB instance.</para></important><para>Constraints:</para><ul><li><para>If the request changes which DB capacity reservation the DB instance uses, it must
+        /// also set a new value for <c>DBInstanceClass</c>, <c>MultiAZ</c>, <c>LicenseModel</c>,
+        /// or <c>Engine</c>. The new value must differ from the current value. The only engine
+        /// change that <c>ModifyDBInstance</c> supports is a conversion to the CDB architecture.
+        /// Repeating the current value doesn't satisfy this requirement. This requirement applies
+        /// both when the DB instance uses no reservation, and when it moves to a different reservation.</para></li><li><para>The reservation must reserve capacity for the DB instance class that the DB instance
+        /// uses after the modification, and for the database engine of the DB instance. Therefore,
+        /// when the request changes <c>DBInstanceClass</c>, the reservation reserves capacity
+        /// for a DB instance class that the DB instance doesn't use today.</para></li><li><para>The reservation must be in the <c>active</c> state, and it must not be past its end
+        /// date.</para></li><li><para>The reservation must have available capacity in each Availability Zone that the DB
+        /// instance uses after the modification.</para></li><li><para>The reservation must cover the Availability Zone of the DB instance, except when the
+        /// request changes the DB instance from Multi-AZ to Single-AZ.</para></li><li><para>For a Multi-AZ DB instance, the reservation must cover two or more Availability Zones.
+        /// A Multi-AZ DB instance uses one unit of reserved capacity in each of two Availability
+        /// Zones.</para></li><li><para>If the DB instance is already Multi-AZ, the reservation must cover both of its Availability
+        /// Zones. If the request converts the DB instance to Multi-AZ, the reservation must cover
+        /// the current Availability Zone of the DB instance, and Amazon RDS chooses the second
+        /// Availability Zone from the reservation.</para></li><li><para>If the reservation reserves capacity for a specific license model, the license model
+        /// of the DB instance must match it. Amazon RDS checks the license model only when the
+        /// request specifies <c>LicenseModel</c>.</para></li><li><para>You can't specify this parameter together with a change to <c>DBSubnetGroupName</c>.</para></li><li><para>You can't specify this parameter together with a change to both <c>DBInstanceClass</c>
+        /// and <c>LicenseModel</c>. Submit those changes as two separate requests.</para></li><li><para>Can't be specified together with a change to <c>DBInstanceClass</c> when the request
+        /// also changes the DB instance from Multi-AZ to Single-AZ.</para></li><li><para>When the request changes the DB instance from Multi-AZ to Single-AZ, the reservation
+        /// must cover either the primary or the secondary Availability Zone of the DB instance.
+        /// Amazon RDS keeps the DB instance in its primary Availability Zone, and it removes
+        /// the standby replica. Therefore, the primary Availability Zone keeps its unit of reserved
+        /// capacity, and the secondary Availability Zone releases its unit.</para></li><li><para>Can't be specified together with <c>LicenseModel</c> while a modification of the DB
+        /// instance class or the Multi-AZ setting is pending.</para></li><li><para>Can't be specified together with <c>DBInstanceClass</c> or <c>MultiAZ</c> while a
+        /// modification of the license model is pending.</para></li><li><para>When a modification is already pending, the reservation must reserve capacity for
+        /// the DB instance as it will be after both the pending modification and the requested
+        /// modification complete.</para></li><li><para>The DB subnet group must be in a VPC with default tenancy.</para></li><li><para>The DB subnet group must cover each Availability Zone that the DB instance uses.</para></li><li><para>Isn't supported for an RDS on Outposts DB instance.</para></li><li><para>If the reservation expires within one week, you must also enable <c>ApplyImmediately</c>.
+        /// Otherwise, choose a reservation with a later end date.</para></li><li><para>Amazon RDS holds a unit of reserved capacity for the DB instance when it accepts the
+        /// request, even when the modification waits for the maintenance window.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBCapacityReservationIdentifier { get; set; }
+        #endregion
+        
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
@@ -1099,6 +1161,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DatabaseInsightsMode = this.DatabaseInsightsMode;
+            context.DBCapacityReservationIdentifier = this.DBCapacityReservationIdentifier;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             #if MODULAR
@@ -1264,6 +1327,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DatabaseInsightsMode != null)
             {
                 request.DatabaseInsightsMode = cmdletContext.DatabaseInsightsMode;
+            }
+            if (cmdletContext.DBCapacityReservationIdentifier != null)
+            {
+                request.DBCapacityReservationIdentifier = cmdletContext.DBCapacityReservationIdentifier;
             }
             if (cmdletContext.DBInstanceClass != null)
             {
@@ -1542,6 +1609,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<System.String> CloudwatchLogsExportConfiguration_EnableLogType { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
+            public System.String DBCapacityReservationIdentifier { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBParameterGroupName { get; set; }

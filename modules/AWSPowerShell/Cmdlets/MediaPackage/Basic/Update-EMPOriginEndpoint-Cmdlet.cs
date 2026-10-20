@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// <summary>
         /// <para>
         /// An Amazon Resource Name (ARN) of a Certificate
-        /// Manager certificatethat MediaPackage will use for enforcing secure end-to-end datatransfer
-        /// with the key provider service.
+        /// Manager certificate that MediaPackage will use for enforcing secure end-to-end data
+        /// transfer with the key provider service.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,9 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// <para>
         /// A list of HLS manifest configurations
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -219,9 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// <summary>
         /// <para>
         /// Control whether origination of video is allowed
-        /// for this OriginEndpoint. If set to ALLOW, the OriginEndpointmay by requested, pursuant
-        /// to any other form of access control. If set to DENY, the OriginEndpoint may not berequested.
-        /// This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+        /// for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant
+        /// to any other form of access control. If set to DENY, the OriginEndpoint may not be
+        /// requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling
+        /// origination
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// <summary>
         /// <para>
         /// An Amazon Resource Name (ARN) of an IAM role that
-        /// AWS ElementalMediaPackage will assume when accessing the key provider service.
+        /// AWS Elemental MediaPackage will assume when accessing the key provider service.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// <summary>
         /// <para>
         /// Duration (in seconds) of each segment.
-        /// Actual segments will berounded to the nearest multiple of the source segment duration.
+        /// Actual segments will be rounded to the nearest multiple of the source segment duration.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// <summary>
         /// <para>
         /// Maximum duration (in seconds) of
-        /// content to retain for startover playback.If not specified, startover playback will
+        /// content to retain for startover playback. If not specified, startover playback will
         /// be disabled for the OriginEndpoint.
         /// </para>
         /// </summary>
@@ -341,9 +343,10 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// <para>
         /// The system IDs to include in key requests.
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -356,8 +359,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// <summary>
         /// <para>
         /// Amount of delay (in seconds) to enforce
-        /// on the playback of live content.If not specified, there will be no time delay in effect
-        /// for the OriginEndpoint.
+        /// on the playback of live content. If not specified, there will be no time delay in
+        /// effect for the OriginEndpoint.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -382,9 +385,10 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         /// A list of source IP CIDR blocks that will be
         /// allowed to access the OriginEndpoint.
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

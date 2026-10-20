@@ -85,6 +85,26 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBSnapshotIdentifier { get; set; }
         #endregion
         
+        #region Parameter DetachFromDBCapacityReservation
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the DB instance stops using its DB capacity reservation when the
+        /// DB instance stops. When you specify <c>true</c>, the DB instance belongs to no reservation
+        /// after it stops, and a later start launches it outside the reservation.</para><para>By default, a stopped DB instance keeps its DB capacity reservation, and a later start
+        /// returns the DB instance to the same reservation.</para><para>Every stop releases the unit of reserved capacity that the DB instance holds, for
+        /// either value of this parameter. Another DB instance can then use that capacity. This
+        /// parameter controls the reservation that the DB instance belongs to, and it does not
+        /// control the release of the capacity.</para><para>If the DB instance uses no DB capacity reservation, this parameter has no effect.</para><important><para>Amazon RDS holds no capacity for a stopped DB instance. When the reservation has no
+        /// available capacity in the Availability Zone of the DB instance, a later start waits
+        /// for capacity in that Availability Zone. When the DB instance belongs to no reservation,
+        /// a later start can fail because the Amazon Web Services Region has insufficient capacity
+        /// for the DB instance class.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DetachFromDBCapacityReservation { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DBInstance'.
@@ -139,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.DBSnapshotIdentifier = this.DBSnapshotIdentifier;
+            context.DetachFromDBCapacityReservation = this.DetachFromDBCapacityReservation;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSnapshotIdentifier != null)
             {
                 request.DBSnapshotIdentifier = cmdletContext.DBSnapshotIdentifier;
+            }
+            if (cmdletContext.DetachFromDBCapacityReservation != null)
+            {
+                request.DetachFromDBCapacityReservation = cmdletContext.DetachFromDBCapacityReservation.Value;
             }
             
             CmdletOutput output;
@@ -220,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBSnapshotIdentifier { get; set; }
+            public System.Boolean? DetachFromDBCapacityReservation { get; set; }
             public System.Func<Amazon.RDS.Model.StopDBInstanceResponse, StopRDSDBInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBInstance;
         }

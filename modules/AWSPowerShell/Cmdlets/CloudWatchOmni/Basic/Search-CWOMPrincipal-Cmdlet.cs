@@ -86,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         /// <summary>
         /// <para>
         /// The maximum number of results to return. Defaults
-        /// to 10. Valid only when searchQuery is *; other searches reject this parameter and
-        /// return at most 10 results.
+        /// to 100.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -104,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         /// <summary>
         /// <para>
         /// A token to retrieve the next page of results.
-        /// Valid only when searchQuery is *; other searches do not paginate and reject this parameter.
-        /// Tokens expire after 24 hours.
+        /// Supply the same searchQuery used on the request that returned it. Tokens expire after
+        /// 24 hours.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -30,7 +30,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Start the migration of data.
+    /// Starts the migration of data.
     /// </summary>
     [Cmdlet("Start", "ECMigration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
@@ -45,25 +45,42 @@ namespace Amazon.PowerShell.Cmdlets.EC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AutoCutover
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether ElastiCache automatically attempts to complete the migration after
+        /// data sync is established.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoCutover { get; set; }
+        #endregion
+        
+        #region Parameter ClearTargetCacheData
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether ElastiCache deletes existing data in the serverless cache before
+        /// migration begins. After <c>StopMigration</c>, <c>StartMigration</c> requires this
+        /// option to restart the data sync.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ClearTargetCacheData { get; set; }
+        #endregion
+        
         #region Parameter CustomerNodeEndpointList
         /// <summary>
         /// <para>
-        /// <para>List of endpoints from which data should be migrated. For Valkey or Redis OSS (cluster
-        /// mode disabled), the list should have only one element.</para><para />
+        /// <para>The list of endpoints from which to migrate data. For Valkey or Redis OSS (cluster
+        /// mode disabled), the list should have only one element. For serverless cache migrations,
+        /// ElastiCache uses the endpoint that you provided in <c>PrepareMigration</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.ElastiCache.Model.CustomerNodeEndpoint[] CustomerNodeEndpointList { get; set; }
         #endregion
         
@@ -73,15 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The ID of the replication group to which data should be migrated.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ReplicationGroupId { get; set; }
+        #endregion
+        
+        #region Parameter ServerlessCacheName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the serverless cache to which data is being migrated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerlessCacheName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -130,23 +150,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.Select = CreateSelectDelegate<Amazon.ElastiCache.Model.StartMigrationResponse, StartECMigrationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AutoCutover = this.AutoCutover;
+            context.ClearTargetCacheData = this.ClearTargetCacheData;
             if (this.CustomerNodeEndpointList != null)
             {
                 context.CustomerNodeEndpointList = new List<Amazon.ElastiCache.Model.CustomerNodeEndpoint>(this.CustomerNodeEndpointList);
             }
-            #if MODULAR
-            if (this.CustomerNodeEndpointList == null && ParameterWasBound(nameof(this.CustomerNodeEndpointList)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CustomerNodeEndpointList which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ReplicationGroupId = this.ReplicationGroupId;
-            #if MODULAR
-            if (this.ReplicationGroupId == null && ParameterWasBound(nameof(this.ReplicationGroupId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ReplicationGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ServerlessCacheName = this.ServerlessCacheName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,6 +174,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             // create request
             var request = new Amazon.ElastiCache.Model.StartMigrationRequest();
             
+            if (cmdletContext.AutoCutover != null)
+            {
+                request.AutoCutover = cmdletContext.AutoCutover.Value;
+            }
+            if (cmdletContext.ClearTargetCacheData != null)
+            {
+                request.ClearTargetCacheData = cmdletContext.ClearTargetCacheData.Value;
+            }
             if (cmdletContext.CustomerNodeEndpointList != null)
             {
                 request.CustomerNodeEndpointList = cmdletContext.CustomerNodeEndpointList;
@@ -170,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.ReplicationGroupId != null)
             {
                 request.ReplicationGroupId = cmdletContext.ReplicationGroupId;
+            }
+            if (cmdletContext.ServerlessCacheName != null)
+            {
+                request.ServerlessCacheName = cmdletContext.ServerlessCacheName;
             }
             
             CmdletOutput output;
@@ -226,8 +249,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoCutover { get; set; }
+            public System.Boolean? ClearTargetCacheData { get; set; }
             public List<Amazon.ElastiCache.Model.CustomerNodeEndpoint> CustomerNodeEndpointList { get; set; }
             public System.String ReplicationGroupId { get; set; }
+            public System.String ServerlessCacheName { get; set; }
             public System.Func<Amazon.ElastiCache.Model.StartMigrationResponse, StartECMigrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplicationGroup;
         }

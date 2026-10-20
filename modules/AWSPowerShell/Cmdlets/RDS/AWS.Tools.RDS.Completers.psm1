@@ -146,6 +146,13 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.EndDateType
+        "Edit-RDSDBCapacityReservation/EndDateType"
+        {
+            $v = "limited","unlimited"
+            break
+        }
+
         # Amazon.RDS.EndpointNetworkType
         {
             ($_ -eq "New-RDSDBProxy/EndpointNetworkType") -Or
@@ -223,6 +230,7 @@ $RDS_map = @{
     "ClusterScalabilityType"=@("New-RDSDBCluster")
     "DatabaseInsightsMode"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance","New-RDSDBInstanceReadReplica","Restore-RDSDBInstanceFromS3")
     "DefaultAuthScheme"=@("Edit-RDSDBProxy","New-RDSDBProxy")
+    "EndDateType"=@("Edit-RDSDBCapacityReservation")
     "EndpointNetworkType"=@("New-RDSDBProxy","New-RDSDBProxyEndpoint")
     "EngineFamily"=@("New-RDSDBProxy")
     "MasterUserAuthenticationType"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance")
@@ -292,6 +300,7 @@ $RDS_SelectMap = @{
                "Submit-RDSPendingMaintenanceAction",
                "Enable-RDSDBSecurityGroupIngress",
                "Reset-RDSDBCluster",
+               "Stop-RDSDBCapacityReservation",
                "Stop-RDSExportTask",
                "Copy-RDSDBClusterParameterGroup",
                "Copy-RDSDBClusterSnapshot",
@@ -300,6 +309,7 @@ $RDS_SelectMap = @{
                "Copy-RDSOptionGroup",
                "New-RDSBlueGreenDeployment",
                "New-RDSCustomDBEngineVersion",
+               "New-RDSDBCapacityReservation",
                "New-RDSDBCluster",
                "New-RDSDBClusterEndpoint",
                "New-RDSDBClusterParameterGroup",
@@ -343,6 +353,7 @@ $RDS_SelectMap = @{
                "Get-RDSAccountAttribute",
                "Get-RDSBlueGreenDeployment",
                "Get-RDSCertificate",
+               "Get-RDSDBCapacityReservationDetail",
                "Get-RDSDBClusterAutomatedBackup",
                "Get-RDSDBClusterBacktrackList",
                "Get-RDSDBClusterEndpoint",
@@ -397,6 +408,7 @@ $RDS_SelectMap = @{
                "Edit-RDSCertificate",
                "Edit-RDSCurrentDBClusterCapacity",
                "Edit-RDSCustomDBEngineVersion",
+               "Edit-RDSDBCapacityReservation",
                "Edit-RDSDBCluster",
                "Edit-RDSDBClusterEndpoint",
                "Edit-RDSDBClusterParameterGroup",

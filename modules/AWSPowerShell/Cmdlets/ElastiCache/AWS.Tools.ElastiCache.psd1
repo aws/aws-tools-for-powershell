@@ -123,6 +123,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ECUpdateAction', 
         'Get-ECUser', 
         'Get-ECUserGroup', 
+        'Initialize-ECMigration', 
         'New-ECCacheCluster', 
         'New-ECCacheParameterGroup', 
         'New-ECCacheSecurityGroup', 
@@ -159,6 +160,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Revoke-ECCacheSecurityGroupIngress', 
         'Start-ECMigration', 
         'Start-ECUpdateActionBatch', 
+        'Stop-ECMigration', 
         'Stop-ECUpdateActionBatch', 
         'Test-ECFailover', 
         'Test-ECMigration')

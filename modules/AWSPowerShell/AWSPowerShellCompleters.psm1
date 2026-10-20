@@ -10930,6 +10930,16 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.GuardrailContextualGroundingTierName
+        {
+            ($_ -eq "New-BDRGuardrail/ContextualGroundingPolicyConfig_TierConfig_TierName") -Or
+            ($_ -eq "Update-BDRGuardrail/ContextualGroundingPolicyConfig_TierConfig_TierName")
+        }
+        {
+            $v = "CLASSIC","STANDARD"
+            break
+        }
+
         # Amazon.Bedrock.GuardrailTopicsTierName
         {
             ($_ -eq "New-BDRGuardrail/TopicPolicyConfig_TierConfig_TierName") -Or
@@ -11116,6 +11126,7 @@ $BDR_map = @{
     "ByOutputModality"=@("Get-BDRFoundationModelList")
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
     "ContentPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
+    "ContextualGroundingPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "ExpectedAggregatedFindingsResult"=@("New-BDRAutomatedReasoningPolicyTestCase","Update-BDRAutomatedReasoningPolicyTestCase")
     "GuardrailInferenceConfig_SelectiveContentGuarding_Message"=@("Write-BDREnforcedGuardrailConfiguration")
@@ -16065,8 +16076,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -30533,12 +30544,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
-               "ConvertFrom-DDBItem",
                "New-DDBTable",
+               "ConvertTo-DDBItem",
                "New-DDBTableSchema",
                "Add-DDBIndexSchema",
-               "ConvertTo-DDBItem")
+               "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -33868,6 +33879,37 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.GatewayAlbDesyncMitigationMode
+        {
+            ($_ -eq "New-ECSGateway/Configuration_HostSharedAlb_HttpDesync") -Or
+            ($_ -eq "Update-ECSGateway/Configuration_HostSharedAlb_HttpDesync")
+        }
+        {
+            $v = "defensive","monitor","strictest"
+            break
+        }
+
+        # Amazon.ECS.GatewayAlbProtocol
+        "New-ECSGateway/Configuration_HostSharedAlb_Protocol"
+        {
+            $v = "HTTP","HTTPS"
+            break
+        }
+
+        # Amazon.ECS.GatewayElbIpAddressType
+        "New-ECSGateway/Configuration_HostSharedAlb_NetworkConfiguration_IpAddressType"
+        {
+            $v = "dualstack","dualstack-without-public-ipv4","ipv4"
+            break
+        }
+
+        # Amazon.ECS.GatewayElbScheme
+        "New-ECSGateway/Configuration_HostSharedAlb_Scheme"
+        {
+            $v = "internal","internet-facing"
+            break
+        }
+
         # Amazon.ECS.IpcMode
         "Register-ECSTaskDefinition/IpcMode"
         {
@@ -33966,6 +34008,16 @@ $ECS_Completers = {
         "Register-ECSTaskDefinition/PidMode"
         {
             $v = "host","task"
+            break
+        }
+
+        # Amazon.ECS.PropagateGatewayTags
+        {
+            ($_ -eq "New-ECSGateway/PropagateTag") -Or
+            ($_ -eq "Update-ECSGateway/PropagateTag")
+        }
+        {
+            $v = "GATEWAY","NONE"
             break
         }
 
@@ -34131,6 +34183,10 @@ $ECS_map = @{
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
     "AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
+    "Configuration_HostSharedAlb_HttpDesync"=@("New-ECSGateway","Update-ECSGateway")
+    "Configuration_HostSharedAlb_NetworkConfiguration_IpAddressType"=@("New-ECSGateway")
+    "Configuration_HostSharedAlb_Protocol"=@("New-ECSGateway")
+    "Configuration_HostSharedAlb_Scheme"=@("New-ECSGateway")
     "CpuArchitecture"=@("New-ECSExpressGatewayService","Update-ECSExpressGatewayService")
     "DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type"=@("New-ECSService","Update-ECSService")
     "DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup"=@("New-ECSService","Update-ECSService")
@@ -34153,7 +34209,7 @@ $ECS_map = @{
     "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "PidMode"=@("Register-ECSDaemonTaskDefinition","Register-ECSTaskDefinition")
-    "PropagateTag"=@("New-ECSDaemon","New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSDaemon","Update-ECSService")
+    "PropagateTag"=@("New-ECSDaemon","New-ECSGateway","New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSDaemon","Update-ECSGateway","Update-ECSService")
     "ProxyConfiguration_Type"=@("Register-ECSTaskDefinition")
     "ResourceManagementType"=@("Get-ECSClusterService")
     "Revision"=@("Get-ECSDaemonTaskDefinitionList")
@@ -34218,11 +34274,13 @@ $ECS_SelectCompleters = {
 }
 
 $ECS_SelectMap = @{
-    "Select"=@("Resume-ECSServiceDeployment",
+    "Select"=@("Add-ECSGatewayWithCluster",
+               "Resume-ECSServiceDeployment",
                "New-ECSCapacityProvider",
                "New-ECSCluster",
                "New-ECSDaemon",
                "New-ECSExpressGatewayService",
+               "New-ECSGateway",
                "New-ECSService",
                "New-ECSTaskSet",
                "Remove-ECSAccountSetting",
@@ -34232,6 +34290,7 @@ $ECS_SelectMap = @{
                "Remove-ECSDaemon",
                "Remove-ECSDaemonTaskDefinition",
                "Remove-ECSExpressGatewayService",
+               "Remove-ECSGateway",
                "Remove-ECSService",
                "Remove-ECSTaskDefinition",
                "Remove-ECSTaskSet",
@@ -34245,12 +34304,16 @@ $ECS_SelectMap = @{
                "Get-ECSDaemonRevisionDetail",
                "Get-ECSDaemonTaskDefinitionDetail",
                "Get-ECSExpressGatewayService",
+               "Get-ECSGatewayDetail",
+               "Get-ECSGatewayResourceDetail",
+               "Get-ECSGatewayRouteDetail",
                "Get-ECSServiceDeploymentDetail",
                "Get-ECSServiceRevision",
                "Get-ECSService",
                "Get-ECSTaskDefinitionDetail",
                "Get-ECSTaskDetail",
                "Get-ECSTaskSet",
+               "Remove-ECSGatewayFromCluster",
                "Invoke-ECSCommand",
                "Get-ECSTaskProtection",
                "Get-ECSAccountSetting",
@@ -34260,6 +34323,9 @@ $ECS_SelectMap = @{
                "Get-ECSDaemonDeploymentList",
                "Get-ECSDaemonList",
                "Get-ECSDaemonTaskDefinitionList",
+               "Get-ECSGatewayClusterAssociationList",
+               "Get-ECSGatewayRouteList",
+               "Get-ECSGatewayList",
                "Get-ECSServiceDeploymentList",
                "Get-ECSClusterService",
                "Get-ECSServicesByNamespace",
@@ -34287,6 +34353,7 @@ $ECS_SelectMap = @{
                "Update-ECSContainerInstancesState",
                "Update-ECSDaemon",
                "Update-ECSExpressGatewayService",
+               "Update-ECSGateway",
                "Update-ECSService",
                "Update-ECSServicePrimaryTaskSet",
                "Update-ECSTaskProtection",
@@ -34786,6 +34853,13 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.TlsMode
+        "Initialize-ECMigration/SourceTlsConfiguration_SourceTlsMode"
+        {
+            $v = "none","verify-ca"
+            break
+        }
+
         # Amazon.ElastiCache.TransitEncryptionMode
         {
             ($_ -eq "Edit-ECReplicationGroup/TransitEncryptionMode") -Or
@@ -34815,6 +34889,7 @@ $EC_map = @{
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
     "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup","New-ECServerlessCache")
     "OutpostMode"=@("New-ECCacheCluster")
+    "SourceTlsConfiguration_SourceTlsMode"=@("Initialize-ECMigration")
     "SourceType"=@("Get-ECEvent")
     "TransitEncryptionMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
 }
@@ -34935,6 +35010,7 @@ $EC_SelectMap = @{
                "Edit-ECServerlessCache",
                "Edit-ECUser",
                "Edit-ECUserGroup",
+               "Initialize-ECMigration",
                "Request-ECReservedCacheNodesOffering",
                "Request-ECSlotRebalanceInGlobalReplicationGroup",
                "Restart-ECCacheCluster",
@@ -34942,6 +35018,7 @@ $EC_SelectMap = @{
                "Reset-ECCacheParameterGroup",
                "Revoke-ECCacheSecurityGroupIngress",
                "Start-ECMigration",
+               "Stop-ECMigration",
                "Test-ECFailover",
                "Test-ECMigration")
 }
@@ -56090,6 +56167,13 @@ $MCAT_Completers = {
             break
         }
 
+        # Amazon.MarketplaceCatalog.ExpressPrivateOfferConfigurationSortBy
+        "Get-MCATEntityList/EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductId","State"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.Intent
         "Start-MCATChangeSet/Intent"
         {
@@ -56144,6 +56228,7 @@ $MCAT_Completers = {
             ($_ -eq "Get-MCATEntityList/AmiProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/ContainerProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/DataProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/MachineLearningProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSetSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSort_SortOrder") -Or
@@ -56172,6 +56257,8 @@ $MCAT_map = @{
     "ContainerProductSort_SortOrder"=@("Get-MCATEntityList")
     "DataProductSort_SortBy"=@("Get-MCATEntityList")
     "DataProductSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder"=@("Get-MCATEntityList")
     "Intent"=@("Start-MCATChangeSet")
     "MachineLearningProductSort_SortBy"=@("Get-MCATEntityList")
     "MachineLearningProductSort_SortOrder"=@("Get-MCATEntityList")
@@ -60845,6 +60932,20 @@ $CW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudWatch.AnomalyDetectorAdaptationSpeed
+        "Write-CWAnomalyDetector/Configuration_AdaptationSpeed"
+        {
+            $v = "FAST","NORMAL","SLOW"
+            break
+        }
+
+        # Amazon.CloudWatch.AnomalyDetectorOutlierFilteringStrength
+        "Write-CWAnomalyDetector/Configuration_OutlierFilteringStrength"
+        {
+            $v = "MINIMAL","MODERATE","STRICT"
+            break
+        }
+
         # Amazon.CloudWatch.ComparisonOperator
         {
             ($_ -eq "Write-CWLogAlarm/ComparisonOperator") -Or
@@ -60927,6 +61028,8 @@ $CW_Completers = {
 
 $CW_map = @{
     "ComparisonOperator"=@("Write-CWLogAlarm","Write-CWMetricAlarm")
+    "Configuration_AdaptationSpeed"=@("Write-CWAnomalyDetector")
+    "Configuration_OutlierFilteringStrength"=@("Write-CWAnomalyDetector")
     "HistoryItemType"=@("Get-CWAlarmHistory")
     "OutputFormat"=@("Write-CWMetricStream")
     "RecentlyActive"=@("Get-CWMetricList")
@@ -75206,6 +75309,13 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.EndDateType
+        "Edit-RDSDBCapacityReservation/EndDateType"
+        {
+            $v = "limited","unlimited"
+            break
+        }
+
         # Amazon.RDS.EndpointNetworkType
         {
             ($_ -eq "New-RDSDBProxy/EndpointNetworkType") -Or
@@ -75283,6 +75393,7 @@ $RDS_map = @{
     "ClusterScalabilityType"=@("New-RDSDBCluster")
     "DatabaseInsightsMode"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance","New-RDSDBInstanceReadReplica","Restore-RDSDBInstanceFromS3")
     "DefaultAuthScheme"=@("Edit-RDSDBProxy","New-RDSDBProxy")
+    "EndDateType"=@("Edit-RDSDBCapacityReservation")
     "EndpointNetworkType"=@("New-RDSDBProxy","New-RDSDBProxyEndpoint")
     "EngineFamily"=@("New-RDSDBProxy")
     "MasterUserAuthenticationType"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance")
@@ -75352,6 +75463,7 @@ $RDS_SelectMap = @{
                "Submit-RDSPendingMaintenanceAction",
                "Enable-RDSDBSecurityGroupIngress",
                "Reset-RDSDBCluster",
+               "Stop-RDSDBCapacityReservation",
                "Stop-RDSExportTask",
                "Copy-RDSDBClusterParameterGroup",
                "Copy-RDSDBClusterSnapshot",
@@ -75360,6 +75472,7 @@ $RDS_SelectMap = @{
                "Copy-RDSOptionGroup",
                "New-RDSBlueGreenDeployment",
                "New-RDSCustomDBEngineVersion",
+               "New-RDSDBCapacityReservation",
                "New-RDSDBCluster",
                "New-RDSDBClusterEndpoint",
                "New-RDSDBClusterParameterGroup",
@@ -75403,6 +75516,7 @@ $RDS_SelectMap = @{
                "Get-RDSAccountAttribute",
                "Get-RDSBlueGreenDeployment",
                "Get-RDSCertificate",
+               "Get-RDSDBCapacityReservationDetail",
                "Get-RDSDBClusterAutomatedBackup",
                "Get-RDSDBClusterBacktrackList",
                "Get-RDSDBClusterEndpoint",
@@ -75457,6 +75571,7 @@ $RDS_SelectMap = @{
                "Edit-RDSCertificate",
                "Edit-RDSCurrentDBClusterCapacity",
                "Edit-RDSCustomDBEngineVersion",
+               "Edit-RDSDBCapacityReservation",
                "Edit-RDSDBCluster",
                "Edit-RDSDBClusterEndpoint",
                "Edit-RDSDBClusterParameterGroup",
@@ -79884,18 +79999,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
+               "Write-S3Object",
+               "Remove-S3MultipartUpload",
+               "Remove-S3Object",
                "Remove-S3Bucket",
-               "Dismount-S3PSDrive",
+               "Get-S3MultipartUpload",
                "Test-S3Bucket",
-               "Get-S3PreSignedURL",
+               "Dismount-S3PSDrive",
                "New-S3Bucket",
                "Read-S3Object",
-               "Get-S3MultipartUpload",
-               "Write-S3Object",
-               "Remove-S3Object",
-               "Copy-S3Object",
-               "Remove-S3MultipartUpload",
-               "Mount-S3PSDrive")
+               "Get-S3PreSignedURL",
+               "Mount-S3PSDrive",
+               "Copy-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

@@ -101,6 +101,13 @@ $MCAT_Completers = {
             break
         }
 
+        # Amazon.MarketplaceCatalog.ExpressPrivateOfferConfigurationSortBy
+        "Get-MCATEntityList/EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","ProductId","State"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.Intent
         "Start-MCATChangeSet/Intent"
         {
@@ -155,6 +162,7 @@ $MCAT_Completers = {
             ($_ -eq "Get-MCATEntityList/AmiProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/ContainerProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/DataProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/MachineLearningProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSetSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSort_SortOrder") -Or
@@ -183,6 +191,8 @@ $MCAT_map = @{
     "ContainerProductSort_SortOrder"=@("Get-MCATEntityList")
     "DataProductSort_SortBy"=@("Get-MCATEntityList")
     "DataProductSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder"=@("Get-MCATEntityList")
     "Intent"=@("Start-MCATChangeSet")
     "MachineLearningProductSort_SortBy"=@("Get-MCATEntityList")
     "MachineLearningProductSort_SortOrder"=@("Get-MCATEntityList")

@@ -269,6 +269,37 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.GatewayAlbDesyncMitigationMode
+        {
+            ($_ -eq "New-ECSGateway/Configuration_HostSharedAlb_HttpDesync") -Or
+            ($_ -eq "Update-ECSGateway/Configuration_HostSharedAlb_HttpDesync")
+        }
+        {
+            $v = "defensive","monitor","strictest"
+            break
+        }
+
+        # Amazon.ECS.GatewayAlbProtocol
+        "New-ECSGateway/Configuration_HostSharedAlb_Protocol"
+        {
+            $v = "HTTP","HTTPS"
+            break
+        }
+
+        # Amazon.ECS.GatewayElbIpAddressType
+        "New-ECSGateway/Configuration_HostSharedAlb_NetworkConfiguration_IpAddressType"
+        {
+            $v = "dualstack","dualstack-without-public-ipv4","ipv4"
+            break
+        }
+
+        # Amazon.ECS.GatewayElbScheme
+        "New-ECSGateway/Configuration_HostSharedAlb_Scheme"
+        {
+            $v = "internal","internet-facing"
+            break
+        }
+
         # Amazon.ECS.IpcMode
         "Register-ECSTaskDefinition/IpcMode"
         {
@@ -367,6 +398,16 @@ $ECS_Completers = {
         "Register-ECSTaskDefinition/PidMode"
         {
             $v = "host","task"
+            break
+        }
+
+        # Amazon.ECS.PropagateGatewayTags
+        {
+            ($_ -eq "New-ECSGateway/PropagateTag") -Or
+            ($_ -eq "Update-ECSGateway/PropagateTag")
+        }
+        {
+            $v = "GATEWAY","NONE"
             break
         }
 
@@ -532,6 +573,10 @@ $ECS_map = @{
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
     "AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
+    "Configuration_HostSharedAlb_HttpDesync"=@("New-ECSGateway","Update-ECSGateway")
+    "Configuration_HostSharedAlb_NetworkConfiguration_IpAddressType"=@("New-ECSGateway")
+    "Configuration_HostSharedAlb_Protocol"=@("New-ECSGateway")
+    "Configuration_HostSharedAlb_Scheme"=@("New-ECSGateway")
     "CpuArchitecture"=@("New-ECSExpressGatewayService","Update-ECSExpressGatewayService")
     "DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type"=@("New-ECSService","Update-ECSService")
     "DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup"=@("New-ECSService","Update-ECSService")
@@ -554,7 +599,7 @@ $ECS_map = @{
     "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "PidMode"=@("Register-ECSDaemonTaskDefinition","Register-ECSTaskDefinition")
-    "PropagateTag"=@("New-ECSDaemon","New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSDaemon","Update-ECSService")
+    "PropagateTag"=@("New-ECSDaemon","New-ECSGateway","New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSDaemon","Update-ECSGateway","Update-ECSService")
     "ProxyConfiguration_Type"=@("Register-ECSTaskDefinition")
     "ResourceManagementType"=@("Get-ECSClusterService")
     "Revision"=@("Get-ECSDaemonTaskDefinitionList")
@@ -619,11 +664,13 @@ $ECS_SelectCompleters = {
 }
 
 $ECS_SelectMap = @{
-    "Select"=@("Resume-ECSServiceDeployment",
+    "Select"=@("Add-ECSGatewayWithCluster",
+               "Resume-ECSServiceDeployment",
                "New-ECSCapacityProvider",
                "New-ECSCluster",
                "New-ECSDaemon",
                "New-ECSExpressGatewayService",
+               "New-ECSGateway",
                "New-ECSService",
                "New-ECSTaskSet",
                "Remove-ECSAccountSetting",
@@ -633,6 +680,7 @@ $ECS_SelectMap = @{
                "Remove-ECSDaemon",
                "Remove-ECSDaemonTaskDefinition",
                "Remove-ECSExpressGatewayService",
+               "Remove-ECSGateway",
                "Remove-ECSService",
                "Remove-ECSTaskDefinition",
                "Remove-ECSTaskSet",
@@ -646,12 +694,16 @@ $ECS_SelectMap = @{
                "Get-ECSDaemonRevisionDetail",
                "Get-ECSDaemonTaskDefinitionDetail",
                "Get-ECSExpressGatewayService",
+               "Get-ECSGatewayDetail",
+               "Get-ECSGatewayResourceDetail",
+               "Get-ECSGatewayRouteDetail",
                "Get-ECSServiceDeploymentDetail",
                "Get-ECSServiceRevision",
                "Get-ECSService",
                "Get-ECSTaskDefinitionDetail",
                "Get-ECSTaskDetail",
                "Get-ECSTaskSet",
+               "Remove-ECSGatewayFromCluster",
                "Invoke-ECSCommand",
                "Get-ECSTaskProtection",
                "Get-ECSAccountSetting",
@@ -661,6 +713,9 @@ $ECS_SelectMap = @{
                "Get-ECSDaemonDeploymentList",
                "Get-ECSDaemonList",
                "Get-ECSDaemonTaskDefinitionList",
+               "Get-ECSGatewayClusterAssociationList",
+               "Get-ECSGatewayRouteList",
+               "Get-ECSGatewayList",
                "Get-ECSServiceDeploymentList",
                "Get-ECSClusterService",
                "Get-ECSServicesByNamespace",
@@ -688,6 +743,7 @@ $ECS_SelectMap = @{
                "Update-ECSContainerInstancesState",
                "Update-ECSDaemon",
                "Update-ECSExpressGatewayService",
+               "Update-ECSGateway",
                "Update-ECSService",
                "Update-ECSServicePrimaryTaskSet",
                "Update-ECSTaskProtection",

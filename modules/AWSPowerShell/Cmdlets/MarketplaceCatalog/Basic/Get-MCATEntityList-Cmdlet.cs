@@ -417,6 +417,18 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public Amazon.MarketplaceCatalog.DataProductSortBy DataProductSort_SortBy { get; set; }
         #endregion
         
+        #region Parameter EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The field to sort by. Valid values are <c>EntityId</c>, <c>LastModifiedDate</c>, <c>ProductId</c>,
+        /// and <c>State</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MarketplaceCatalog.ExpressPrivateOfferConfigurationSortBy")]
+        public Amazon.MarketplaceCatalog.ExpressPrivateOfferConfigurationSortBy EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy { get; set; }
+        #endregion
+        
         #region Parameter MachineLearningProductSort_SortBy
         /// <summary>
         /// <para>
@@ -527,6 +539,17 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         [Alias("EntityTypeSort_DataProductSort_SortOrder")]
         [AWSConstantClassSource("Amazon.MarketplaceCatalog.SortOrder")]
         public Amazon.MarketplaceCatalog.SortOrder DataProductSort_SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The sorting order. Valid values are <c>ASCENDING</c> and <c>DESCENDING</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MarketplaceCatalog.SortOrder")]
+        public Amazon.MarketplaceCatalog.SortOrder EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder { get; set; }
         #endregion
         
         #region Parameter MachineLearningProductSort_SortOrder
@@ -735,6 +758,51 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] EntityTypeFilters_DataProductFilters_Visibility_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>EntityId</c> values to filter on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>ProductId</c> values to filter on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>State</c> values to filter on. Valid values are <c>ACTIVE</c> and <c>INACTIVE</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList { get; set; }
         #endregion
         
         #region Parameter EntityId_ValueList
@@ -1592,6 +1660,18 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             {
                 context.EntityTypeFilters_DataProductFilters_Visibility_ValueList = new List<System.String>(this.EntityTypeFilters_DataProductFilters_Visibility_ValueList);
             }
+            if (this.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList != null)
+            {
+                context.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList = new List<System.String>(this.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList);
+            }
+            if (this.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList != null)
+            {
+                context.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList = new List<System.String>(this.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList);
+            }
+            if (this.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList != null)
+            {
+                context.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList = new List<System.String>(this.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList);
+            }
             if (this.EntityId_ValueList != null)
             {
                 context.EntityId_ValueList = new List<System.String>(this.EntityId_ValueList);
@@ -1773,6 +1853,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             context.ContainerProductSort_SortOrder = this.ContainerProductSort_SortOrder;
             context.DataProductSort_SortBy = this.DataProductSort_SortBy;
             context.DataProductSort_SortOrder = this.DataProductSort_SortOrder;
+            context.EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy = this.EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy;
+            context.EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder = this.EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder;
             context.MachineLearningProductSort_SortBy = this.MachineLearningProductSort_SortBy;
             context.MachineLearningProductSort_SortOrder = this.MachineLearningProductSort_SortOrder;
             context.OfferSetSort_SortBy = this.OfferSetSort_SortBy;
@@ -1822,6 +1904,96 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
              // populate EntityTypeFilters
             var requestEntityTypeFiltersIsNull = true;
             request.EntityTypeFilters = new Amazon.MarketplaceCatalog.Model.EntityTypeFilters();
+            Amazon.MarketplaceCatalog.Model.ExpressPrivateOfferConfigurationFilters requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters = null;
+            
+             // populate ExpressPrivateOfferConfigurationFilters
+            var requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFiltersIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters = new Amazon.MarketplaceCatalog.Model.ExpressPrivateOfferConfigurationFilters();
+            Amazon.MarketplaceCatalog.Model.ExpressPrivateOfferConfigurationEntityIdFilter requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId = null;
+            
+             // populate EntityId
+            var requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityIdIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId = new Amazon.MarketplaceCatalog.Model.ExpressPrivateOfferConfigurationEntityIdFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList = cmdletContext.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId.ValueList = requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityIdIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityIdIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters.EntityId = requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId;
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.ExpressPrivateOfferConfigurationProductIdFilter requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId = null;
+            
+             // populate ProductId
+            var requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductIdIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId = new Amazon.MarketplaceCatalog.Model.ExpressPrivateOfferConfigurationProductIdFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList = cmdletContext.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId.ValueList = requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductIdIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductIdIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters.ProductId = requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId;
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.ExpressPrivateOfferConfigurationStateFilter requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State = null;
+            
+             // populate State
+            var requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_StateIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State = new Amazon.MarketplaceCatalog.Model.ExpressPrivateOfferConfigurationStateFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList = cmdletContext.EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State.ValueList = requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_StateIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_StateIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters.State = requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters_State;
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFiltersIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFiltersIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters != null)
+            {
+                request.EntityTypeFilters.ExpressPrivateOfferConfigurationFilters = requestEntityTypeFilters_entityTypeFilters_ExpressPrivateOfferConfigurationFilters;
+                requestEntityTypeFiltersIsNull = false;
+            }
             Amazon.MarketplaceCatalog.Model.AmiProductFilters requestEntityTypeFilters_entityTypeFilters_AmiProductFilters = null;
             
              // populate AmiProductFilters
@@ -3956,6 +4128,41 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
                 request.EntityTypeSort.DataProductSort = requestEntityTypeSort_entityTypeSort_DataProductSort;
                 requestEntityTypeSortIsNull = false;
             }
+            Amazon.MarketplaceCatalog.Model.ExpressPrivateOfferConfigurationSort requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort = null;
+            
+             // populate ExpressPrivateOfferConfigurationSort
+            var requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSortIsNull = true;
+            requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort = new Amazon.MarketplaceCatalog.Model.ExpressPrivateOfferConfigurationSort();
+            Amazon.MarketplaceCatalog.ExpressPrivateOfferConfigurationSortBy requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy = null;
+            if (cmdletContext.EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy != null)
+            {
+                requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy = cmdletContext.EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy;
+            }
+            if (requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy != null)
+            {
+                requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort.SortBy = requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy;
+                requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSortIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.SortOrder requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder = null;
+            if (cmdletContext.EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder != null)
+            {
+                requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder = cmdletContext.EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder;
+            }
+            if (requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder != null)
+            {
+                requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort.SortOrder = requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_entityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder;
+                requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSortIsNull = false;
+            }
+             // determine if requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort should be set to null
+            if (requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSortIsNull)
+            {
+                requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort = null;
+            }
+            if (requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort != null)
+            {
+                request.EntityTypeSort.ExpressPrivateOfferConfigurationSort = requestEntityTypeSort_entityTypeSort_ExpressPrivateOfferConfigurationSort;
+                requestEntityTypeSortIsNull = false;
+            }
             Amazon.MarketplaceCatalog.Model.MachineLearningProductSort requestEntityTypeSort_entityTypeSort_MachineLearningProductSort = null;
             
              // populate MachineLearningProductSort
@@ -4276,6 +4483,9 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public List<System.String> EntityTypeFilters_DataProductFilters_ProductTitle_ValueList { get; set; }
             public System.String EntityTypeFilters_DataProductFilters_ProductTitle_WildCardValue { get; set; }
             public List<System.String> EntityTypeFilters_DataProductFilters_Visibility_ValueList { get; set; }
+            public List<System.String> EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_EntityId_ValueList { get; set; }
+            public List<System.String> EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_ProductId_ValueList { get; set; }
+            public List<System.String> EntityTypeFilters_ExpressPrivateOfferConfigurationFilters_State_ValueList { get; set; }
             public List<System.String> EntityId_ValueList { get; set; }
             public System.String DateRange_AfterValue { get; set; }
             public System.String DateRange_BeforeValue { get; set; }
@@ -4349,6 +4559,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public Amazon.MarketplaceCatalog.SortOrder ContainerProductSort_SortOrder { get; set; }
             public Amazon.MarketplaceCatalog.DataProductSortBy DataProductSort_SortBy { get; set; }
             public Amazon.MarketplaceCatalog.SortOrder DataProductSort_SortOrder { get; set; }
+            public Amazon.MarketplaceCatalog.ExpressPrivateOfferConfigurationSortBy EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy { get; set; }
+            public Amazon.MarketplaceCatalog.SortOrder EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder { get; set; }
             public Amazon.MarketplaceCatalog.MachineLearningProductSortBy MachineLearningProductSort_SortBy { get; set; }
             public Amazon.MarketplaceCatalog.SortOrder MachineLearningProductSort_SortOrder { get; set; }
             public Amazon.MarketplaceCatalog.OfferSetSortBy OfferSetSort_SortBy { get; set; }

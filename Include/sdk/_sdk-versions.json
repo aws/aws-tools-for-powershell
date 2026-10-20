@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.354.0",
+    "ProductVersion"    : "4.0.355.0",
     "CoreVersion"       : "4.0.102.12",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -80,7 +80,7 @@
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "4.0.106.0",
+            "Version" : "4.0.107.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "4.0.108.0",
+            "Version" : "4.0.109.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -162,7 +162,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "4.0.107.0",
+            "Version" : "4.0.108.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -170,7 +170,7 @@
             "InPreview"               : false
         },
         "ElastiCache"       : {
-            "Version" : "4.0.102.5",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -268,7 +268,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "4.0.106.5",
+            "Version" : "4.0.107.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -828,7 +828,7 @@
             "InPreview"               : false
         },
         "MediaPackage"                    : {
-            "Version" : "4.0.100.19",
+            "Version" : "4.0.100.20",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -1148,7 +1148,7 @@
             "InPreview"               : false
         },
         "RDSDataService"                  : {
-            "Version" : "4.0.100.19",
+            "Version" : "4.0.100.20",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -1452,7 +1452,7 @@
             "InPreview"               : false
         },
         "MarketplaceCatalog"              : {
-            "Version" : "4.0.104.6",
+            "Version" : "4.0.105.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -1916,7 +1916,7 @@
             "InPreview"               : false
         },
         "LexModelsV2"                     : {
-            "Version" : "4.0.101.5",
+            "Version" : "4.0.101.6",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -2468,7 +2468,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "4.0.104.12",
+            "Version" : "4.0.105.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -2612,7 +2612,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "4.0.103.4",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -3132,7 +3132,7 @@
             "InPreview"               : false
         },
         "WorkspacesInstances"                 : {
-            "Version" : "4.0.103.0",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -3348,7 +3348,7 @@
             "InPreview"               : false
         },
         "S3Files"                             : {
-            "Version" : "4.0.100.19",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"
@@ -3460,7 +3460,7 @@
             "InPreview"               : false
         },
         "CloudWatchOmni"                      : {
-            "Version" : "4.0.101.2",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.12"

@@ -295,6 +295,21 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.GuardrailContentFiltersTierName ContentPolicyConfig_TierConfig_TierName { get; set; }
         #endregion
         
+        #region Parameter ContextualGroundingPolicyConfig_TierConfig_TierName
+        /// <summary>
+        /// <para>
+        /// <para>The tier that your guardrail uses for contextual grounding. Valid values include:</para><ul><li><para><c>CLASSIC</c> tier – Provides established contextual grounding functionality supporting
+        /// English, French, and Spanish languages.</para></li><li><para><c>STANDARD</c> tier – Provides a more robust solution than the <c>CLASSIC</c> tier,
+        /// with support for reasoning, conversational content and more comprehensive language
+        /// support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region
+        /// inference</a>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Bedrock.GuardrailContextualGroundingTierName")]
+        public Amazon.Bedrock.GuardrailContextualGroundingTierName ContextualGroundingPolicyConfig_TierConfig_TierName { get; set; }
+        #endregion
+        
         #region Parameter TopicPolicyConfig_TierConfig_TierName
         /// <summary>
         /// <para>
@@ -414,6 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             {
                 context.ContextualGroundingPolicyConfig_FiltersConfig = new List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig>(this.ContextualGroundingPolicyConfig_FiltersConfig);
             }
+            context.ContextualGroundingPolicyConfig_TierConfig_TierName = this.ContextualGroundingPolicyConfig_TierConfig_TierName;
             context.CrossRegionConfig_GuardrailProfileIdentifier = this.CrossRegionConfig_GuardrailProfileIdentifier;
             context.Description = this.Description;
             context.GuardrailIdentifier = this.GuardrailIdentifier;
@@ -561,6 +577,31 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_FiltersConfig != null)
             {
                 request.ContextualGroundingPolicyConfig.FiltersConfig = requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_FiltersConfig;
+                requestContextualGroundingPolicyConfigIsNull = false;
+            }
+            Amazon.Bedrock.Model.GuardrailContextualGroundingTierConfig requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig = null;
+            
+             // populate TierConfig
+            var requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfigIsNull = true;
+            requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig = new Amazon.Bedrock.Model.GuardrailContextualGroundingTierConfig();
+            Amazon.Bedrock.GuardrailContextualGroundingTierName requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig_contextualGroundingPolicyConfig_TierConfig_TierName = null;
+            if (cmdletContext.ContextualGroundingPolicyConfig_TierConfig_TierName != null)
+            {
+                requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig_contextualGroundingPolicyConfig_TierConfig_TierName = cmdletContext.ContextualGroundingPolicyConfig_TierConfig_TierName;
+            }
+            if (requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig_contextualGroundingPolicyConfig_TierConfig_TierName != null)
+            {
+                requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig.TierName = requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig_contextualGroundingPolicyConfig_TierConfig_TierName;
+                requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfigIsNull = false;
+            }
+             // determine if requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig should be set to null
+            if (requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfigIsNull)
+            {
+                requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig = null;
+            }
+            if (requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig != null)
+            {
+                request.ContextualGroundingPolicyConfig.TierConfig = requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_TierConfig;
                 requestContextualGroundingPolicyConfigIsNull = false;
             }
              // determine if request.ContextualGroundingPolicyConfig should be set to null
@@ -767,6 +808,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public List<Amazon.Bedrock.Model.GuardrailContentFilterConfig> ContentPolicyConfig_FiltersConfig { get; set; }
             public Amazon.Bedrock.GuardrailContentFiltersTierName ContentPolicyConfig_TierConfig_TierName { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig> ContextualGroundingPolicyConfig_FiltersConfig { get; set; }
+            public Amazon.Bedrock.GuardrailContextualGroundingTierName ContextualGroundingPolicyConfig_TierConfig_TierName { get; set; }
             public System.String CrossRegionConfig_GuardrailProfileIdentifier { get; set; }
             public System.String Description { get; set; }
             public System.String GuardrailIdentifier { get; set; }

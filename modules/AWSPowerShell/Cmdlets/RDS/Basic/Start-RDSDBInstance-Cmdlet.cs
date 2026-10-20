@@ -55,6 +55,28 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DBCapacityReservationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier or the name of the DB capacity reservation for the DB instance to use
+        /// after it starts. You can specify the identifier, which has the prefix <c>dbcr-</c>,
+        /// or the reservation name.</para><para>Specify this parameter when the DB instance stopped using a reservation, or when you
+        /// want the DB instance to use a different reservation.</para><para>If you omit this parameter, and the DB instance kept a DB capacity reservation when
+        /// it stopped, Amazon RDS starts the DB instance in that reservation.</para><para>If that reservation is deleted, ended, or cancelled, the DB instance still starts.
+        /// Amazon RDS starts the DB instance outside the reservation, on unreserved capacity,
+        /// and it charges on-demand prices for the DB instance.</para><para>If that reservation has no available capacity in the Availability Zone of the DB instance,
+        /// the request fails. Amazon RDS doesn't start the DB instance, and it doesn't wait for
+        /// capacity in that Availability Zone. Specify a reservation that has available capacity
+        /// in that Availability Zone, or retry the request after the reservation has available
+        /// capacity.</para><para>Constraints:</para><ul><li><para>The reservation must be in the <c>active</c> state.</para></li><li><para>The reservation must reserve capacity for the DB instance class and the engine of
+        /// the DB instance.</para></li><li><para>The reservation must cover the Availability Zone of the DB instance, and it must have
+        /// available capacity in that Availability Zone.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBCapacityReservationIdentifier { get; set; }
+        #endregion
+        
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
@@ -118,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = CreateSelectDelegate<Amazon.RDS.Model.StartDBInstanceResponse, StartRDSDBInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DBCapacityReservationIdentifier = this.DBCapacityReservationIdentifier;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             #if MODULAR
             if (this.DBInstanceIdentifier == null && ParameterWasBound(nameof(this.DBInstanceIdentifier)))
@@ -141,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.StartDBInstanceRequest();
             
+            if (cmdletContext.DBCapacityReservationIdentifier != null)
+            {
+                request.DBCapacityReservationIdentifier = cmdletContext.DBCapacityReservationIdentifier;
+            }
             if (cmdletContext.DBInstanceIdentifier != null)
             {
                 request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
@@ -200,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DBCapacityReservationIdentifier { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.Func<Amazon.RDS.Model.StartDBInstanceResponse, StartRDSDBInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBInstance;

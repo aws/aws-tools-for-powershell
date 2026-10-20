@@ -320,6 +320,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PrepareMigration" OutputProperty="ServerlessCache" Verb="Initialize" Noun="Migration" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" OutputProperty="ReservedCacheNode" Verb="Request" Noun="ReservedCacheNodesOffering" ShouldProcessTarget="ReservedCacheNodesOfferingId" PositionalParameters="ReservedCacheNodeId;CacheNodeCount" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -345,6 +349,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartMigration" OutputProperty="ReplicationGroup" Verb="Start" Noun="Migration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopMigration" OutputProperty="ServerlessCache" Verb="Stop" Noun="Migration" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

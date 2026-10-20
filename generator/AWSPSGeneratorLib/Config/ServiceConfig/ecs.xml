@@ -24,6 +24,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateGatewayWithCluster" OutputProperty="*" Verb="Add" Noun="GatewayWithCluster" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ContinueServiceDeployment" OutputProperty="ServiceDeploymentArn" Verb="Resume" Noun="ServiceDeployment" ShouldProcessTarget="ServiceDeploymentArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +107,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateGateway" OutputProperty="*" Verb="New" Noun="Gateway" ShouldProcessTarget="Name,InfrastructureRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateService" OutputProperty="Service" Verb="New" Noun="Service" ShouldProcessTarget="ServiceName" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DeploymentConfiguration_Alarms_AlarmNames" NewName="Alarms_AlarmName" />
@@ -158,6 +166,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteExpressGatewayService" OutputProperty="Service" Verb="Remove" Noun="ExpressGatewayService" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGateway" OutputProperty="*" Verb="Remove" Noun="Gateway" ShouldProcessTarget="Gateway" PipelineParameter="Gateway" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -219,6 +231,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGateway" OutputProperty="Gateway" Verb="Get" Noun="GatewayDetail" PipelineParameter="Gateway" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGatewayResources" OutputProperty="GatewayResources" Verb="Get" Noun="GatewayResourceDetail" PipelineParameter="Gateway" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGatewayRoute" OutputProperty="GatewayRoute" Verb="Get" Noun="GatewayRouteDetail" PipelineParameter="GatewayRouteArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeServiceDeployments" OutputProperty="*" Verb="Get" Noun="ServiceDeploymentDetail" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -240,6 +264,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTaskSets" OutputProperty="*" Verb="Get" Noun="TaskSet" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateGatewayFromCluster" OutputProperty="*" Verb="Remove" Noun="GatewayFromCluster" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -276,6 +304,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDaemonTaskDefinitions" OutputProperty="DaemonTaskDefinitions" Verb="Get" Noun="DaemonTaskDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGatewayClusterAssociations" OutputProperty="GatewayClusterAssociations" Verb="Get" Noun="GatewayClusterAssociationList" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGatewayRoutes" OutputProperty="GatewayRoutes" Verb="Get" Noun="GatewayRouteList" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="GatewayList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -454,6 +494,10 @@
                 <Param Name="PrimaryContainer_AwsLogsConfiguration_LogStreamPrefix" NewName="AwsLogsConfiguration_LogStreamPrefix" />
                 <Param Name="PrimaryContainer_RepositoryCredentials_CredentialsParameter" NewName="RepositoryCredentials_CredentialsParameter" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGateway" OutputProperty="*" Verb="Update" Noun="Gateway" ShouldProcessTarget="Gateway" PipelineParameter="Gateway" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateService" OutputProperty="Service" Verb="Update" Noun="Service" ShouldProcessTarget="Service" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true">

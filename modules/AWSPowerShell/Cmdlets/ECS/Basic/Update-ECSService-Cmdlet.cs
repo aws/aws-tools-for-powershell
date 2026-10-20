@@ -161,9 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>One or more CloudWatch alarm names. Use a "," to separate the alarms.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -249,9 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// you create a cluster, run a task, or update a service.</para><note><para>If you want to use Amazon ECS Managed Instances, you must use the <c>capacityProviderStrategy</c>
         /// request parameter.</para></note><para>When you use Fargate, the capacity providers are <c>FARGATE</c> or <c>FARGATE_SPOT</c>.</para><para>When you use Amazon EC2, the capacity providers are Auto Scaling groups.</para><para>You can change capacity providers for rolling deployments and blue/green deployments.</para><para>The following list provides the valid transitions:</para><ul><li><para>Update the Fargate launch type to an Auto Scaling group capacity provider.</para></li><li><para>Update the Amazon EC2 launch type to a Fargate capacity provider.</para></li><li><para>Update the Fargate capacity provider to an Auto Scaling group capacity provider.</para></li><li><para>Update the Amazon EC2 capacity provider to a Fargate capacity provider. </para></li><li><para>Update the Auto Scaling group or Fargate capacity provider back to the launch type.</para><para>Pass an empty list in the <c>capacityProviderStrategy</c> parameter.</para></li></ul><para>For information about Amazon Web Services CDK considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/update-service-parameters.html">Amazon
         /// Web Services CDK considerations</a>.</para><para>This parameter doesn't trigger a new service deployment.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -280,9 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// ECS replaces them. If you update the <c>serviceConnectConfiguration</c> of your service
         /// and don't include <c>containerConfigurations</c>, the proxy container settings return
         /// to their defaults.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -401,6 +404,23 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.ServiceConnectAccessLoggingFormat AccessLogConfiguration_Format { get; set; }
         #endregion
         
+        #region Parameter GatewayConnector
+        /// <summary>
+        /// <para>
+        /// <para>The updated set of gateway connectors that connect the service to a gateway ingress
+        /// path. A service supports no more than one gateway connector.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GatewayConnectors")]
+        public Amazon.ECS.Model.GatewayConnector[] GatewayConnector { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckGracePeriodSecond
         /// <summary>
         /// <para>
@@ -456,9 +476,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>An array of deployment lifecycle hook objects to run custom logic or pause the deployment
         /// at specific stages of the deployment lifecycle.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -470,7 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LoadBalancer
         /// <summary>
         /// <para>
-        /// <para><note><para>You must have a service-linked role when you update this property</para></note><para>A list of Elastic Load Balancing load balancer objects. It contains the load balancer
+        /// <note><para>You must have a service-linked role when you update this property</para></note><para>A list of Elastic Load Balancing load balancer objects. It contains the load balancer
         /// name, the container name, and the container port to access from the load balancer.
         /// The container name is as it appears in a container definition.</para><para>When you add, update, or remove a load balancer configuration, Amazon ECS starts new
         /// tasks with the updated Elastic Load Balancing configuration, and then stops the old
@@ -485,10 +506,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Note that multiple target groups are not supported for external deployments. For more
         /// information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html">Register
         /// multiple target groups with a service</a> in the <i>Amazon Elastic Container Service
-        /// Developer Guide</i>. </para><para>You can remove existing <c>loadBalancers</c> by passing an empty list.</para><para>This parameter triggers a new service deployment.</para></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Developer Guide</i>. </para><para>You can remove existing <c>loadBalancers</c> by passing an empty list.</para><para>This parameter triggers a new service deployment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -555,9 +577,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The list of metric configurations for the service monitoring.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -702,9 +725,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// instance. To check the Docker Remote API version on your container instance, log in
         /// to your container instance and run the following command: <c>sudo docker version --format
         /// '{{.Server.APIVersion}}'</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -722,9 +746,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// defined for the service. To remove all existing placement constraints, specify an
         /// empty array.</para><para>You can specify a maximum of 10 constraints for each task. This limit includes constraints
         /// in the task definition and those specified at runtime.</para><para>This parameter doesn't trigger a new service deployment.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -740,9 +765,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// the existing placement strategy for the service will remain unchanged. If this value
         /// is specified, it will override the existing placement strategy defined for the service.
         /// To remove an existing placement strategy, specify an empty object.</para><para>You can specify a maximum of five strategy rules for each service.</para><para>This parameter doesn't trigger a new service deployment.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -822,9 +848,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
         /// sensitive data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -839,9 +866,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The IDs of the security groups associated with the task or service. If you don't specify
         /// a security group, the default security group for the VPC is used. There's a limit
         /// of 5 security groups that can be specified.</para><note><para>All specified security groups must be from the same VPC.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -870,15 +898,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ServiceRegistry
         /// <summary>
         /// <para>
-        /// <para><note><para>You must have a service-linked role when you update this property.</para><para>For more information about the role see the <c>CreateService</c> request parameter
+        /// <note><para>You must have a service-linked role when you update this property.</para><para>For more information about the role see the <c>CreateService</c> request parameter
         /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role"><c>role</c></a>. </para></note><para>The details for the service discovery registries to assign to this service. For more
         /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
         /// Discovery</a>.</para><para>When you add, update, or remove the service registries configuration, Amazon ECS starts
         /// new tasks with the updated service registries configuration, and then stops the old
-        /// tasks when the new tasks are running.</para><para>You can remove existing <c>serviceRegistries</c> by passing an empty list.</para><para>This parameter triggers a new service deployment.</para></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// tasks when the new tasks are running.</para><para>You can remove existing <c>serviceRegistries</c> by passing an empty list.</para><para>This parameter triggers a new service deployment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -898,9 +927,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// balancer that's attached to the service or by other means.</para><para>An object selects a port from the task definition, assigns a name for the Cloud Map
         /// service, and a list of aliases (endpoints) and ports for client applications to refer
         /// to this service.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -978,9 +1008,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
         /// subnets that can be specified.</para><note><para>All specified subnets must be from the same VPC.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1075,9 +1106,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// The <c>name</c> of the volume must match the <c>name</c> from the task definition.
         /// If set to null, no new deployment is triggered. Otherwise, if this configuration differs
         /// from the existing one, it triggers a new deployment.</para><para>This parameter triggers a new service deployment.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1090,9 +1122,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>An object representing the VPC Lattice configuration for the service being updated.</para><para>This parameter triggers a new service deployment.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1184,6 +1217,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.EnableECSManagedTag = this.EnableECSManagedTag;
             context.EnableExecuteCommand = this.EnableExecuteCommand;
             context.ForceNewDeployment = this.ForceNewDeployment;
+            if (this.GatewayConnector != null)
+            {
+                context.GatewayConnector = new List<Amazon.ECS.Model.GatewayConnector>(this.GatewayConnector);
+            }
             context.HealthCheckGracePeriodSecond = this.HealthCheckGracePeriodSecond;
             if (this.LoadBalancer != null)
             {
@@ -1619,6 +1656,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.ForceNewDeployment = cmdletContext.ForceNewDeployment.Value;
             }
+            if (cmdletContext.GatewayConnector != null)
+            {
+                request.GatewayConnectors = cmdletContext.GatewayConnector;
+            }
             if (cmdletContext.HealthCheckGracePeriodSecond != null)
             {
                 request.HealthCheckGracePeriodSeconds = cmdletContext.HealthCheckGracePeriodSecond.Value;
@@ -1948,6 +1989,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Boolean? EnableECSManagedTag { get; set; }
             public System.Boolean? EnableExecuteCommand { get; set; }
             public System.Boolean? ForceNewDeployment { get; set; }
+            public List<Amazon.ECS.Model.GatewayConnector> GatewayConnector { get; set; }
             public System.Int32? HealthCheckGracePeriodSecond { get; set; }
             public List<Amazon.ECS.Model.LoadBalancer> LoadBalancer { get; set; }
             public List<Amazon.ECS.Model.MetricConfiguration> Monitoring_MetricConfiguration { get; set; }
