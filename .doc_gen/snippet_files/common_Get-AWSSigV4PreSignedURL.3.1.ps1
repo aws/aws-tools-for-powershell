@@ -1,0 +1,1 @@
+Get-AWSSigV4PreSignedURL -Uri "https://abc123.execute-api.us-west-2.amazonaws.com/prod/items" -Service execute-api -Header @{ "x-custom" = "1" } -Expire (Get-Date).AddMinutes(15)
