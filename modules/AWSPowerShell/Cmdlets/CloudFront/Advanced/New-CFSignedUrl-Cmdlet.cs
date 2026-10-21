@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             using (var fs = File.OpenRead(PrivateKeyFile))
             using (var reader = new StreamReader(fs))
             {
-                var signedUrl = AmazonCloudFrontUrlSigner.GetCannedSignedURL(ResourceUri.ToString(),
+                var signedUrl = AmazonCloudFrontUrlSigner.GetCannedSignedURL(ResourceUri.OriginalString,
                                                                              reader,
                                                                              KeyPairId,
                                                                              ExpiresOn);
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             using (var fs = File.OpenRead(PrivateKeyFile))
             using (var reader = new StreamReader(fs))
             {
-                var signedUrl = AmazonCloudFrontUrlSigner.GetCustomSignedURL(ResourceUri.ToString(),
+                var signedUrl = AmazonCloudFrontUrlSigner.GetCustomSignedURL(ResourceUri.OriginalString,
                                                                              reader,
                                                                              KeyPairId,
                                                                              ExpiresOn,

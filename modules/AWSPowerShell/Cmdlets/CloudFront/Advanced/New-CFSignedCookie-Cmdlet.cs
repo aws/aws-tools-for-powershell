@@ -137,9 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var privateKeyFileInfo = new FileInfo(PrivateKeyFile);
 
-            return AmazonCloudFrontCookieSigner.GetCookiesForCannedPolicy(ResourceUri.ToString(), 
-                                                                          KeyPairId, 
-                                                                          privateKeyFileInfo, 
+            return AmazonCloudFrontCookieSigner.GetCookiesForCannedPolicy(ResourceUri.OriginalString,
+                                                                          KeyPairId,
+                                                                          privateKeyFileInfo,
                                                                           ExpiresOn);
         }
 
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             using (var fs = File.OpenRead(PrivateKeyFile))
             using (var reader = new StreamReader(fs))
             {
-                return AmazonCloudFrontCookieSigner.GetCookiesForCustomPolicy(ResourceUri.ToString(),
+                return AmazonCloudFrontCookieSigner.GetCookiesForCustomPolicy(ResourceUri.OriginalString,
                                                                                 reader,
                                                                                 KeyPairId,
                                                                                 ExpiresOn,
