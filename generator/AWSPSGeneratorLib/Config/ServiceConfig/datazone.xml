@@ -235,6 +235,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDesignation" OutputProperty="*" Verb="New" Noun="Designation" ShouldProcessTarget="Name,DomainIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -359,6 +363,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataSource" OutputProperty="*" Verb="Remove" Noun="DataSource" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDesignation" Verb="Remove" Noun="Designation" ShouldProcessTarget="DomainIdentifier,Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -487,6 +495,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDataSourceRun" OutputProperty="*" Verb="Get" Noun="DataSourceRun" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDesignation" OutputProperty="*" Verb="Get" Noun="Designation" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -648,6 +660,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDataSources" OutputProperty="Items" Verb="Get" Noun="DataSourceList" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDesignations" OutputProperty="Items" Verb="Get" Noun="DesignationList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -971,6 +987,10 @@
                 <Param Name="Configuration_RedshiftRunConfiguration_RelationalFilterConfigurations" NewName="RedshiftRunConfiguration_RelationalFilterConfiguration" />
                 <Param Name="Configuration_SageMakerRunConfiguration_TrackingAssets" NewName="SageMakerRunConfiguration_TrackingAsset" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDesignation" OutputProperty="*" Verb="Update" Noun="Designation" ShouldProcessTarget="DomainIdentifier,Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDomain" OutputProperty="*" Verb="Update" Noun="Domain" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter GrantType
         /// <summary>
         /// <para>
-        /// <para>OAuth 2.0 grant type. Must be "client_credentials".</para>
+        /// OAuth 2.0 grant type. Must be "client_credentials".
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The OAuth resource for which the access token is requested. Example: "aws-mcp.amazonaws.com".</para>
+        /// The OAuth resource for which the access token
+        /// is requested. Example: "aws-mcp.amazonaws.com".
         /// </para>
         /// </summary>
         #if !MODULAR

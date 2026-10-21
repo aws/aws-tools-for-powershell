@@ -90,6 +90,16 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.DNSExpiryExceptionPolicy
+        {
+            ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy")
+        }
+        {
+            $v = "CONTINUE","DROP","REJECT"
+            break
+        }
+
         # Amazon.NetworkFirewall.EnabledAnalysisType
         "Start-NWFWAnalysisReport/AnalysisType"
         {
@@ -163,6 +173,16 @@ $NWFW_Completers = {
         "Get-NWFWRuleGroupList/ManagedType"
         {
             $v = "ACTIVE_THREAT_DEFENSE","AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES","PARTNER_MANAGED"
+            break
+        }
+
+        # Amazon.NetworkFirewall.Route53ResolvedIPValidationAction
+        {
+            ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action")
+        }
+        {
+            $v = "ALERT","DROP","REJECT"
             break
         }
 
@@ -242,6 +262,8 @@ $NWFW_map = @{
     "DefaultRulePhaseActions_PreDNS"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
     "DefaultRulePhaseActions_PreREQUEST"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
+    "FirewallPolicy_Route53ResolvedIPValidation_Action"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
+    "FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "FlowOperationType"=@("Get-NWFWFlowOperationList")
     "ManagedType"=@("Get-NWFWRuleGroupList")
     "RuleGroupRequestPhase"=@("Update-NWFWProxyRulePriority")

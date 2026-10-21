@@ -1,4 +1,40 @@
-﻿### 5.0.320 (2026-10-20 19:13Z)
+﻿### 5.0.321 (2026-10-21 19:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.356.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * 
+    * Added cmdlet Get-AWSSigV4PreSignedURL.
+    * Added cmdlet Get-AWSSigV4Signature.
+    * Added cmdlet Get-AWSSigV4SignedRequest.
+  * Amazon Auto Scaling
+    * Added cmdlet Get-ASAccountSettingDetail leveraging the DescribeAccountSettings service API.
+    * Added cmdlet Write-ASAccountSetting leveraging the PutAccountSetting service API.
+  * Amazon DataZone
+    * Added cmdlet Get-DZDesignation leveraging the GetDesignation service API.
+    * Added cmdlet Get-DZDesignationList leveraging the ListDesignations service API.
+    * Added cmdlet New-DZDesignation leveraging the CreateDesignation service API.
+    * Added cmdlet Remove-DZDesignation leveraging the DeleteDesignation service API.
+    * Added cmdlet Update-DZDesignation leveraging the UpdateDesignation service API.
+    * Modified cmdlet Add-DZPolicyGrant: added parameter Principal_Project_UserCreatedDesignationId.
+    * Modified cmdlet New-DZProjectMembership: added parameter UserCreatedDesignationId.
+    * Modified cmdlet Remove-DZPolicyGrant: added parameter Principal_Project_UserCreatedDesignationId.
+  * Amazon DevOps Agent Service
+    * Modified cmdlet Add-DOPSService: added parameters Configuration_Msteams_TeamId, Configuration_Msteams_TeamName, Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId, Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName, Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId and Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName.
+    * Modified cmdlet Update-DOPSAssociation: added parameters Configuration_Msteams_TeamId, Configuration_Msteams_TeamName, Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId, Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelName, Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelId and Configuration_Msteams_TransmissionTarget_OpsSRETarget_ChannelName.
+  * AHL
+    * [Breaking Change] Removed cmdlet Update-AHLProfileWithAgent.
+  * Amazon Network Firewall
+    * Modified cmdlet Get-NWFWFlowOperation: added parameter AvailabilityZoneId.
+    * Modified cmdlet Get-NWFWFlowOperationList: added parameter AvailabilityZoneId.
+    * Modified cmdlet Get-NWFWFlowOperationResultList: added parameter AvailabilityZoneId.
+    * Modified cmdlet New-NWFWFirewallPolicy: added parameters FirewallPolicy_Route53ResolvedIPValidation_Action, FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange, FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy, FirewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId and FirewallPolicy_Route53ResolvedIPValidation_SourceIPRange.
+    * Modified cmdlet Start-NWFWFlowCapture: added parameter AvailabilityZoneId.
+    * Modified cmdlet Start-NWFWFlowFlush: added parameter AvailabilityZoneId.
+    * Modified cmdlet Update-NWFWFirewallPolicy: added parameters FirewallPolicy_Route53ResolvedIPValidation_Action, FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange, FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy, FirewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId and FirewallPolicy_Route53ResolvedIPValidation_SourceIPRange.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSDataSource: added parameters Credentials_OneDriveClientCredentials_CertThumbprint, Credentials_OneDriveClientCredentials_KmsKeyArn, Credentials_ServiceAccountCredentials_AdminAccountEmail, Credentials_ServiceAccountCredentials_ClientEmail, Credentials_ServiceAccountCredentials_ServiceAccountPrivateKey, Credentials_SharePointClientCredentials_CertThumbprint and Credentials_SharePointClientCredentials_KmsKeyArn.
+    * Modified cmdlet Update-QSDataSource: added parameters Credentials_OneDriveClientCredentials_CertThumbprint, Credentials_OneDriveClientCredentials_KmsKeyArn, Credentials_ServiceAccountCredentials_AdminAccountEmail, Credentials_ServiceAccountCredentials_ClientEmail, Credentials_ServiceAccountCredentials_ServiceAccountPrivateKey, Credentials_SharePointClientCredentials_CertThumbprint and Credentials_SharePointClientCredentials_KmsKeyArn.
+  * Added Get-AWSSigV4Signature, Get-AWSSigV4SignedRequest and Get-AWSSigV4PreSignedURL cmdlets to sign arbitrary HTTP requests with AWS Signature Version 4, for example to call Amazon API Gateway APIs with IAM authorization using Invoke-RestMethod.
+
+### 5.0.320 (2026-10-20 19:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.355.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Modified cmdlet New-BDRGuardrail: added parameter ContextualGroundingPolicyConfig_TierConfig_TierName.

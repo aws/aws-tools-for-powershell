@@ -1147,7 +1147,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>Specifies whether assisted slot resolution is turned on for the slot or not. If the
         /// value is <c>EnhancedFallback</c>, assisted slot resolution is activated when Amazon
-        /// Lex defaults to the <c>AMAZON.FallbackIntent</c>. If the value is <c>Default</c>,
+        /// Lex V2 defaults to the <c>AMAZON.FallbackIntent</c>. If the value is <c>Default</c>,
         /// assisted slot resolution is turned off.</para>
         /// </para>
         /// </summary>

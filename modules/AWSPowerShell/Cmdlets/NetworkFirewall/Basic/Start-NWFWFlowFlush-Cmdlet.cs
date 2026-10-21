@@ -55,12 +55,25 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The ID of the Availability Zone where the firewall is located. For example, <c>us-east-2a</c>.</para><para>Defines the scope a flow operation. You can use up to 20 filters to configure a single
+        /// <para>The name of the Availability Zone where the firewall is located. For example, <c>us-east-2a</c>.</para><para>Defines the scope a flow operation. You can use up to 20 filters to configure a single
         /// flow operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Availability Zone where the firewall is located. For example, <c>use2-az1</c>.
+        /// Availability Zone IDs are the same in every Amazon Web Services account, so use this
+        /// parameter when you coordinate resources across accounts. Specify either <c>AvailabilityZone</c>
+        /// or <c>AvailabilityZoneId</c>, not both. If you specify both, the request fails.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZoneId { get; set; }
         #endregion
         
         #region Parameter FirewallArn
@@ -183,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AvailabilityZone = this.AvailabilityZone;
+            context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.FirewallArn = this.FirewallArn;
             #if MODULAR
             if (this.FirewallArn == null && ParameterWasBound(nameof(this.FirewallArn)))
@@ -222,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneId = cmdletContext.AvailabilityZoneId;
             }
             if (cmdletContext.FirewallArn != null)
             {
@@ -299,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AvailabilityZone { get; set; }
+            public System.String AvailabilityZoneId { get; set; }
             public System.String FirewallArn { get; set; }
             public List<Amazon.NetworkFirewall.Model.FlowFilter> FlowFilter { get; set; }
             public System.Int32? MinimumFlowAgeInSecond { get; set; }

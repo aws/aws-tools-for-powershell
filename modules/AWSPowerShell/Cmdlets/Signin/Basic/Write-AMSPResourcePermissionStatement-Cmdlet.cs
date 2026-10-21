@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter ConsoleSourceVpce
         /// <summary>
         /// <para>
-        /// <para>Console VPC endpoint identifier</para>
+        /// Console VPC endpoint identifier
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter ExcludedPrincipal
         /// <summary>
         /// <para>
-        /// <para>Principal to exclude from the permission statement</para>
+        /// Principal to exclude from the permission
+        /// statement
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter RequestedRegion
         /// <summary>
         /// <para>
-        /// <para>AWS region where the VPC and VPC endpoint reside Required when sourceVpc or signinSourceVpce/consoleSourceVpce
-        /// is provided</para>
+        /// AWS region where the VPC and VPC endpoint
+        /// reside Required when sourceVpc or signinSourceVpce/consoleSourceVpce is provided
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter SigninSourceVpce
         /// <summary>
         /// <para>
-        /// <para>SignIn VPC endpoint identifier</para>
+        /// SignIn VPC endpoint identifier
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter SourceIp
         /// <summary>
         /// <para>
-        /// <para>Source IP address</para>
+        /// Source IP address
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter SourceVpc
         /// <summary>
         /// <para>
-        /// <para>VPC identifier to restrict console access</para>
+        /// VPC identifier to restrict console access
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter VpcSourceIp
         /// <summary>
         /// <para>
-        /// <para>Source IP address within VPC</para>
+        /// Source IP address within VPC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for the request</para>
+        /// Idempotency token for the request
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

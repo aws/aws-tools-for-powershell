@@ -161,7 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>The name of the metric to associate with the alarm.</para><para>You can configure up to two alarms per metric.</para><para>The following metrics are available for each resource type:</para><ul><li><para><b>Instances</b>: <c>BurstCapacityPercentage</c>, <c>BurstCapacityTime</c>, <c>CPUUtilization</c>,
         /// <c>NetworkIn</c>, <c>NetworkOut</c>, <c>StatusCheckFailed</c>, <c>StatusCheckFailed_Instance</c>,
-        /// and <c>StatusCheckFailed_System</c>.</para></li><li><para><b>Load balancers</b>: <c>ClientTLSNegotiationErrorCount</c>, <c>HealthyHostCount</c>,
+        /// <c>StatusCheckFailed_System</c>, <c>DiskReadOps</c>, <c>DiskWriteOps</c>, <c>DiskReadBytes</c>,
+        /// <c>DiskWriteBytes</c>, <c>DiskTotalReadTime</c>, <c>DiskTotalWriteTime</c>, and <c>DiskQueueLength</c>.</para></li><li><para><b>Load balancers</b>: <c>ClientTLSNegotiationErrorCount</c>, <c>HealthyHostCount</c>,
         /// <c>UnhealthyHostCount</c>, <c>HTTPCode_LB_4XX_Count</c>, <c>HTTPCode_LB_5XX_Count</c>,
         /// <c>HTTPCode_Instance_2XX_Count</c>, <c>HTTPCode_Instance_3XX_Count</c>, <c>HTTPCode_Instance_4XX_Count</c>,
         /// <c>HTTPCode_Instance_5XX_Count</c>, <c>InstanceResponseTime</c>, <c>RejectedConnectionCount</c>,

@@ -451,7 +451,7 @@ $DZ_Completers = {
             ($_ -eq "Remove-DZPolicyGrant/Project_ProjectDesignation")
         }
         {
-            $v = "CONTRIBUTOR","OWNER","PROJECT_CATALOG_STEWARD"
+            $v = "CONTRIBUTOR","OWNER","PROJECT_CATALOG_STEWARD","USER_CREATED_DESIGNATION"
             break
         }
 
@@ -667,7 +667,7 @@ $DZ_Completers = {
         # Amazon.DataZone.UserDesignation
         "New-DZProjectMembership/Designation"
         {
-            $v = "PROJECT_CATALOG_CONSUMER","PROJECT_CATALOG_STEWARD","PROJECT_CATALOG_VIEWER","PROJECT_CONTRIBUTOR","PROJECT_OWNER"
+            $v = "PROJECT_CATALOG_CONSUMER","PROJECT_CATALOG_STEWARD","PROJECT_CATALOG_VIEWER","PROJECT_CONTRIBUTOR","PROJECT_OWNER","USER_CREATED_DESIGNATION"
             break
         }
 
@@ -825,6 +825,7 @@ $DZ_SelectMap = @{
                "New-DZDataProduct",
                "New-DZDataProductRevision",
                "New-DZDataSource",
+               "New-DZDesignation",
                "New-DZDomain",
                "New-DZDomainUnit",
                "New-DZEnvironment",
@@ -853,6 +854,7 @@ $DZ_SelectMap = @{
                "Remove-DZDataExportConfiguration",
                "Remove-DZDataProduct",
                "Remove-DZDataSource",
+               "Remove-DZDesignation",
                "Remove-DZDomain",
                "Remove-DZDomainUnit",
                "Remove-DZEnvironment",
@@ -885,6 +887,7 @@ $DZ_SelectMap = @{
                "Get-DZDataProduct",
                "Get-DZDataSource",
                "Get-DZDataSourceRun",
+               "Get-DZDesignation",
                "Get-DZDomain",
                "Get-DZDomainUnit",
                "Get-DZEnvironment",
@@ -924,6 +927,7 @@ $DZ_SelectMap = @{
                "Get-DZDataSourceRunActivityList",
                "Get-DZDataSourceRunList",
                "Get-DZDataSourceList",
+               "Get-DZDesignationList",
                "Get-DZDomainList",
                "Get-DZDomainUnitsForParentList",
                "Get-DZEntityOwnerList",
@@ -978,6 +982,7 @@ $DZ_SelectMap = @{
                "Update-DZAssetFilter",
                "Update-DZConnection",
                "Update-DZDataSource",
+               "Update-DZDesignation",
                "Update-DZDomain",
                "Update-DZDomainUnit",
                "Update-DZEnvironment",

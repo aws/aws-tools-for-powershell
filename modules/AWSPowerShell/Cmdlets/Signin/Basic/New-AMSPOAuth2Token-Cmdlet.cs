@@ -30,25 +30,23 @@ using Amazon.Signin.Model;
 namespace Amazon.PowerShell.Cmdlets.AMSP
 {
     /// <summary>
-    /// CreateOAuth2Token API
-    /// 
-    ///  
-    /// <para>
-    /// Path: /v1/token Request Method: POST Content-Type: application/json or application/x-www-form-urlencoded
-    /// </para><para>
-    /// This API implements OAuth 2.0 flows for AWS Sign-In CLI clients, supporting both:
-    /// </para><ol><li>Authorization code redemption (grant_type=authorization_code) - NOT idempotent</li><li>Token refresh (grant_type=refresh_token) - Idempotent within token validity window</li></ol><para>
-    /// The operation behavior is determined by the grant_type parameter in the request body:
-    /// </para><para><strong>Authorization Code Flow (NOT Idempotent):</strong></para><ul><li>JSON or form-encoded body with client_id, grant_type=authorization_code,
-    /// code, redirect_uri, code_verifier</li><li>Returns access_token, token_type, expires_in,
-    /// refresh_token, and id_token</li><li>Each authorization code can only be used ONCE
-    /// for security (prevents replay attacks)</li></ul><para><strong>Token Refresh Flow (Idempotent):</strong></para><ul><li>JSON or form-encoded body with client_id, grant_type=refresh_token, refresh_token</li><li>Returns access_token, token_type, expires_in, and refresh_token (no id_token)</li><li>Multiple calls with same refresh_token return consistent results within validity
-    /// window</li></ul><para>
-    /// Authentication and authorization:
-    /// </para><ul><li>Confidential clients: sigv4 signing required with signin:ExchangeToken permissions</li><li>CLI clients (public): authn/authz skipped based on client_id &amp; grant_type</li></ul><para>
-    /// Note: This operation cannot be marked as @idempotent because it handles both idempotent
-    /// (token refresh) and non-idempotent (auth code redemption) flows in a single endpoint.
-    /// </para>
+    /// CreateOAuth2Token API Path: /v1/token Request Method: POST Content-Type: application/json
+    /// or application/x-www-form-urlencoded This API implements OAuth 2.0 flows for AWS Sign-In
+    /// CLI clients, supporting both: 1. Authorization code redemption (grant_type=authorization_code)
+    /// - NOT idempotent 2. Token refresh (grant_type=refresh_token) - Idempotent within token
+    /// validity window The operation behavior is determined by the grant_type parameter in
+    /// the request body: **Authorization Code Flow (NOT Idempotent):** - JSON or form-encoded
+    /// body with client_id, grant_type=authorization_code, code, redirect_uri, code_verifier
+    /// - Returns access_token, token_type, expires_in, refresh_token, and id_token - Each
+    /// authorization code can only be used ONCE for security (prevents replay attacks) **Token
+    /// Refresh Flow (Idempotent):** - JSON or form-encoded body with client_id, grant_type=refresh_token,
+    /// refresh_token - Returns access_token, token_type, expires_in, and refresh_token (no
+    /// id_token) - Multiple calls with same refresh_token return consistent results within
+    /// validity window Authentication and authorization: - Confidential clients: sigv4 signing
+    /// required with signin:ExchangeToken permissions - CLI clients (public): authn/authz
+    /// skipped based on client_id &amp; grant_type Note: This operation cannot be marked
+    /// as @idempotent because it handles both idempotent (token refresh) and non-idempotent
+    /// (auth code redemption) flows in a single endpoint.
     /// </summary>
     [Cmdlet("New", "AMSPOAuth2Token", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Signin.Model.CreateOAuth2TokenResponseBody")]
@@ -66,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter TokenInput_ClientId
         /// <summary>
         /// <para>
-        /// <para>The client identifier (ARN) used during Sign-In onboarding Required for both authorization
-        /// code and refresh token flows</para>
+        /// The client identifier (ARN) used during Sign-In
+        /// onboarding Required for both authorization code and refresh token flows
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter TokenInput_Code
         /// <summary>
         /// <para>
-        /// <para>The authorization code received from /v1/authorize Required only when grant_type=authorization_code</para>
+        /// The authorization code received from /v1/authorize
+        /// Required only when grant_type=authorization_code
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter TokenInput_CodeVerifier
         /// <summary>
         /// <para>
-        /// <para>PKCE code verifier to prove possession of the original code challenge Required only
-        /// when grant_type=authorization_code</para>
+        /// PKCE code verifier to prove possession of
+        /// the original code challenge Required only when grant_type=authorization_code
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter TokenInput_GrantType
         /// <summary>
         /// <para>
-        /// <para>OAuth 2.0 grant type - determines which flow is used Must be "authorization_code"
-        /// or "refresh_token"</para>
+        /// OAuth 2.0 grant type - determines which flow
+        /// is used Must be "authorization_code" or "refresh_token"
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter TokenInput_RedirectUri
         /// <summary>
         /// <para>
-        /// <para>The redirect URI that must match the original authorization request Required only
-        /// when grant_type=authorization_code</para>
+        /// The redirect URI that must match the original
+        /// authorization request Required only when grant_type=authorization_code
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter TokenInput_RefreshToken
         /// <summary>
         /// <para>
-        /// <para>The refresh token returned from auth_code redemption Required only when grant_type=refresh_token</para>
+        /// The refresh token returned from auth_code
+        /// redemption Required only when grant_type=refresh_token
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

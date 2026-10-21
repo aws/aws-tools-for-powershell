@@ -80,13 +80,6 @@ $AHL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.HealthLake.AgentInputMessageType
-        "Update-AHLProfileWithAgent/InputMessage_Type"
-        {
-            $v = "confirmation_response","normal"
-            break
-        }
-
         # Amazon.HealthLake.AnalyticsStatus
         {
             ($_ -eq "New-AHLFHIRDatastore/AnalyticsConfiguration_Status") -Or
@@ -186,8 +179,7 @@ $AHL_Completers = {
             ($_ -eq "Start-AHLDataTransformationJob/InputDataConfig_SourceFormat") -Or
             ($_ -eq "Get-AHLDataTransformationProfileList/SourceFormat") -Or
             ($_ -eq "New-AHLDataTransformationProfile/SourceFormat") -Or
-            ($_ -eq "Publish-AHLDataTransformationProfile/SourceFormat") -Or
-            ($_ -eq "Update-AHLProfileWithAgent/SourceFormat")
+            ($_ -eq "Publish-AHLDataTransformationProfile/SourceFormat")
         }
         {
             $v = "CCDA","CSV"
@@ -224,12 +216,11 @@ $AHL_map = @{
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
     "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore","Restore-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "InputDataConfig_SourceFormat"=@("Start-AHLDataTransformationJob")
-    "InputMessage_Type"=@("Update-AHLProfileWithAgent")
     "JobStatus"=@("Get-AHLDataTransformationJobList","Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
     "NlpConfiguration_Status"=@("New-AHLFHIRDatastore","Restore-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
-    "SourceFormat"=@("Get-AHLDataTransformationProfileList","New-AHLDataTransformationProfile","Publish-AHLDataTransformationProfile","Update-AHLProfileWithAgent")
+    "SourceFormat"=@("Get-AHLDataTransformationProfileList","New-AHLDataTransformationProfile","Publish-AHLDataTransformationProfile")
     "SseConfiguration_KmsEncryptionConfig_CmkType"=@("Restore-AHLFHIRDatastore")
     "ValidationLevel"=@("Start-AHLFHIRImportJob")
 }
@@ -308,8 +299,7 @@ $AHL_SelectMap = @{
                "Add-AHLResourceTag",
                "Remove-AHLResourceTag",
                "Update-AHLDataTransformationProfile",
-               "Update-AHLFHIRDatastore",
-               "Update-AHLProfileWithAgent")
+               "Update-AHLFHIRDatastore")
 }
 
 _awsArgumentCompleterRegistration $AHL_SelectCompleters $AHL_SelectMap

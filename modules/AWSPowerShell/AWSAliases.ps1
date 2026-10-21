@@ -2159,6 +2159,9 @@ Set-Alias -Name AS-DeleteWarmPool -Value Remove-ASWarmPool
 Set-Alias -Name Describe-ASAccountLimits -Value Get-ASAccountLimit
 Set-Alias -Name Describe-ASAccountLimit -Value Get-ASAccountLimit
 Set-Alias -Name AS-DescribeAccountLimits -Value Get-ASAccountLimit
+Set-Alias -Name Describe-ASAccountSettings -Value Get-ASAccountSettingDetail
+Set-Alias -Name Describe-ASAccountSettingDetail -Value Get-ASAccountSettingDetail
+Set-Alias -Name AS-DescribeAccountSettings -Value Get-ASAccountSettingDetail
 Set-Alias -Name Describe-ASAdjustmentTypes -Value Get-ASAdjustmentType
 Set-Alias -Name Describe-ASAdjustmentType -Value Get-ASAdjustmentType
 Set-Alias -Name AS-DescribeAdjustmentTypes -Value Get-ASAdjustmentType
@@ -2240,6 +2243,8 @@ Set-Alias -Name AS-GetPredictiveScalingForecast -Value Get-ASPredictiveScalingFo
 Set-Alias -Name Launch-ASInstances -Value Add-ASInstance
 Set-Alias -Name Launch-ASInstance -Value Add-ASInstance
 Set-Alias -Name AS-LaunchInstances -Value Add-ASInstance
+Set-Alias -Name Put-ASAccountSetting -Value Write-ASAccountSetting
+Set-Alias -Name AS-PutAccountSetting -Value Write-ASAccountSetting
 Set-Alias -Name Put-ASLifecycleHook -Value Write-ASLifecycleHook
 Set-Alias -Name AS-PutLifecycleHook -Value Write-ASLifecycleHook
 Set-Alias -Name Put-ASNotificationConfiguration -Value Write-ASNotificationConfiguration
@@ -9396,6 +9401,8 @@ Set-Alias -Name Create-DZDataProductRevision -Value New-DZDataProductRevision
 Set-Alias -Name DZ-CreateDataProductRevision -Value New-DZDataProductRevision
 Set-Alias -Name Create-DZDataSource -Value New-DZDataSource
 Set-Alias -Name DZ-CreateDataSource -Value New-DZDataSource
+Set-Alias -Name Create-DZDesignation -Value New-DZDesignation
+Set-Alias -Name DZ-CreateDesignation -Value New-DZDesignation
 Set-Alias -Name Create-DZDomain -Value New-DZDomain
 Set-Alias -Name DZ-CreateDomain -Value New-DZDomain
 Set-Alias -Name Create-DZDomainUnit -Value New-DZDomainUnit
@@ -9452,6 +9459,8 @@ Set-Alias -Name Delete-DZDataProduct -Value Remove-DZDataProduct
 Set-Alias -Name DZ-DeleteDataProduct -Value Remove-DZDataProduct
 Set-Alias -Name Delete-DZDataSource -Value Remove-DZDataSource
 Set-Alias -Name DZ-DeleteDataSource -Value Remove-DZDataSource
+Set-Alias -Name Delete-DZDesignation -Value Remove-DZDesignation
+Set-Alias -Name DZ-DeleteDesignation -Value Remove-DZDesignation
 Set-Alias -Name Delete-DZDomain -Value Remove-DZDomain
 Set-Alias -Name DZ-DeleteDomain -Value Remove-DZDomain
 Set-Alias -Name Delete-DZDomainUnit -Value Remove-DZDomainUnit
@@ -9509,6 +9518,7 @@ Set-Alias -Name DZ-GetDataExportConfiguration -Value Get-DZDataExportConfigurati
 Set-Alias -Name DZ-GetDataProduct -Value Get-DZDataProduct
 Set-Alias -Name DZ-GetDataSource -Value Get-DZDataSource
 Set-Alias -Name DZ-GetDataSourceRun -Value Get-DZDataSourceRun
+Set-Alias -Name DZ-GetDesignation -Value Get-DZDesignation
 Set-Alias -Name DZ-GetDomain -Value Get-DZDomain
 Set-Alias -Name DZ-GetDomainUnit -Value Get-DZDomainUnit
 Set-Alias -Name DZ-GetEnvironmentAction -Value Get-DZEnvironmentAction
@@ -9568,6 +9578,9 @@ Set-Alias -Name DZ-ListDataSourceRuns -Value Get-DZDataSourceRunList
 Set-Alias -Name List-DZDataSources -Value Get-DZDataSourceList
 Set-Alias -Name List-DZDataSourceList -Value Get-DZDataSourceList
 Set-Alias -Name DZ-ListDataSources -Value Get-DZDataSourceList
+Set-Alias -Name List-DZDesignations -Value Get-DZDesignationList
+Set-Alias -Name List-DZDesignationList -Value Get-DZDesignationList
+Set-Alias -Name DZ-ListDesignations -Value Get-DZDesignationList
 Set-Alias -Name List-DZDomains -Value Get-DZDomainList
 Set-Alias -Name List-DZDomainList -Value Get-DZDomainList
 Set-Alias -Name DZ-ListDomains -Value Get-DZDomainList
@@ -9686,6 +9699,7 @@ Set-Alias -Name DZ-UpdateAccountPool -Value Update-DZAccountPool
 Set-Alias -Name DZ-UpdateAssetFilter -Value Update-DZAssetFilter
 Set-Alias -Name DZ-UpdateConnection -Value Update-DZConnection
 Set-Alias -Name DZ-UpdateDataSource -Value Update-DZDataSource
+Set-Alias -Name DZ-UpdateDesignation -Value Update-DZDesignation
 Set-Alias -Name DZ-UpdateDomain -Value Update-DZDomain
 Set-Alias -Name DZ-UpdateDomainUnit -Value Update-DZDomainUnit
 Set-Alias -Name DZ-UpdateEnvironmentAction -Value Update-DZEnvironmentAction
@@ -17351,7 +17365,6 @@ Set-Alias -Name AHL-TagResource -Value Add-AHLResourceTag
 Set-Alias -Name AHL-UntagResource -Value Remove-AHLResourceTag
 Set-Alias -Name AHL-UpdateDataTransformationProfile -Value Update-AHLDataTransformationProfile
 Set-Alias -Name AHL-UpdateFHIRDatastore -Value Update-AHLFHIRDatastore
-Set-Alias -Name AHL-UpdateProfileWithAgent -Value Update-AHLProfileWithAgent
 Set-Alias -Name Get-IAMTBRequestAuthorizationDetails -Value Get-IAMTBRequestAuthorizationDetail
 Set-Alias -Name IAMTB-GetRequestAuthorizationDetails -Value Get-IAMTBRequestAuthorizationDetail
 Set-Alias -Name Accept-IAMDelegationRequest -Value Approve-IAMDelegationRequest

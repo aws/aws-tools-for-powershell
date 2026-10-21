@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter StatementId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the permission statement to delete</para>
+        /// Unique identifier of the permission statement
+        /// to delete
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for the request</para>
+        /// Idempotency token for the request
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

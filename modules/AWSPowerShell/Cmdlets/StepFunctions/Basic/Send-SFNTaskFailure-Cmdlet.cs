@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TaskToken), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TaskToken), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.TaskToken) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-SFNTaskFailure (SendTaskFailure)"))
             {
                 return;

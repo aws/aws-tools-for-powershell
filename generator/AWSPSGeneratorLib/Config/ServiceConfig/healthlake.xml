@@ -131,7 +131,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProfileWithAgent" OutputProperty="*" Verb="Update" Noun="ProfileWithAgent" ShouldProcessTarget="ProfileId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateProfileWithAgent" OutputProperty="*" Verb="Update" Noun="ProfileWithAgent" Exclude="true" ShouldProcessTarget="ProfileId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

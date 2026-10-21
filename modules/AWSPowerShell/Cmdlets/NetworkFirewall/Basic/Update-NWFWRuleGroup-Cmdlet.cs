@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>An array of individual stateful rules inspection criteria to be used together in a
         /// stateful rule group. Use this option to specify simple Suricata rules with protocol,
         /// source and destination, ports, direction, and rule options. For information about
-        /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-7.0.8/rules/intro.html">Rules
+        /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html">Rules
         /// Format</a>. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
@@ -356,8 +356,27 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter RulesSourceList_TargetType
         /// <summary>
         /// <para>
-        /// <para>The protocols you want to inspect. Specify <c>TLS_SNI</c> for <c>HTTPS</c>. Specify
-        /// <c>HTTP_HOST</c> for <c>HTTP</c>. You can specify either or both. </para><para />
+        /// <para>The types of matching to perform against the domains in <c>Targets</c>. You can specify
+        /// any combination of the following:</para><ul><li><para><c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> – Match the domain against the domain that the
+        /// Amazon Route 53 Resolver resolved the connection's destination IP address for.</para></li><li><para><c>HTTP_HOST</c> – Match the domain against the <c>Host</c> header of HTTP traffic.</para></li><li><para><c>TLS_SNI</c> – Match the domain against the Server Name Indication (SNI) of HTTPS
+        /// traffic.</para></li></ul><para><c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> matches on how the destination IP address was
+        /// resolved, rather than on the domain that the client asserts in its TLS SNI or HTTP
+        /// <c>Host</c> header. This target type takes effect when you configure resolved IP validation
+        /// on the firewall policy. For more information, see <a>Route53ResolvedIPValidation</a>.</para><para>Whether you include <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> changes what the generated
+        /// rules match, together with <c>GeneratedRulesType</c>:</para><ul><li><para>Combining <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> with <c>TLS_SNI</c> or <c>HTTP_HOST</c>
+        /// in an <c>ALLOWLIST</c> requires both conditions to match. The SNI or <c>Host</c> header
+        /// must match the domain, <b>and</b> the Route 53 Resolver must have resolved the destination
+        /// IP address for that domain. Network Firewall allows traffic only in that case. Traffic
+        /// that matches one condition, such as a spoofed <c>Host</c> header sent to an unresolved
+        /// IP address, is not allowed.</para></li><li><para>In a <c>DENYLIST</c>, or when <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> is the only target
+        /// type, Network Firewall evaluates each condition independently: a match on either the
+        /// domain (SNI or <c>Host</c>) or the resolved destination IP address triggers the rule.</para></li><li><para>When you don't include <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c>, the generated rules match
+        /// only on the SNI or <c>Host</c> header, without checking how the destination IP address
+        /// was resolved.</para></li></ul><para>An <c>ALLOWLIST</c> whose only target type is <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c>
+        /// is additive: it allows matching traffic but doesn't generate a default rule that drops
+        /// non-matching traffic. Only the <c>TLS_SNI</c> and <c>HTTP_HOST</c> target types generate
+        /// that default drop. To allow only the resolved domains and drop all other traffic,
+        /// include a protocol target type as well.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

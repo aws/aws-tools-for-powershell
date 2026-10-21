@@ -106,6 +106,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String ProjectIdentifier { get; set; }
         #endregion
         
+        #region Parameter UserCreatedDesignationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the user-created designation to assign to the project member. Required when
+        /// <c>designation</c> is <c>USER_CREATED_DESIGNATION</c>; must not be provided otherwise.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserCreatedDesignationId { get; set; }
+        #endregion
+        
         #region Parameter Member_UserIdentifier
         /// <summary>
         /// <para>
@@ -184,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter ProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UserCreatedDesignationId = this.UserCreatedDesignationId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -240,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.ProjectIdentifier != null)
             {
                 request.ProjectIdentifier = cmdletContext.ProjectIdentifier;
+            }
+            if (cmdletContext.UserCreatedDesignationId != null)
+            {
+                request.UserCreatedDesignationId = cmdletContext.UserCreatedDesignationId;
             }
             
             CmdletOutput output;
@@ -301,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String Member_GroupIdentifier { get; set; }
             public System.String Member_UserIdentifier { get; set; }
             public System.String ProjectIdentifier { get; set; }
+            public System.String UserCreatedDesignationId { get; set; }
             public System.Func<Amazon.DataZone.Model.CreateProjectMembershipResponse, NewDZProjectMembershipCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -51,6 +51,48 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter FirewallPolicy_Route53ResolvedIPValidation_Action
+        /// <summary>
+        /// <para>
+        /// <para>The action that Network Firewall takes for a connection whose destination IP address
+        /// fails resolved IP validation. A destination IP address fails validation when the Route
+        /// 53 Resolver didn't return it in a DNS response in an associated VPC. Valid values
+        /// are the following:</para><ul><li><para><c>ALERT</c> – Tags the matching connection in the firewall's flow logs without blocking
+        /// it, when you enable logging. Use this to observe the effect of resolved IP validation
+        /// before you enforce it.</para></li><li><para><c>DROP</c> – Silently blocks the connection without sending any response to the
+        /// client.</para></li><li><para><c>REJECT</c> – Blocks the connection and sends a TCP reset (RST) to the client.
+        /// Because a TCP reset applies only to TCP connections, Network Firewall drops non-TCP
+        /// traffic instead of resetting it.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.Route53ResolvedIPValidationAction")]
+        public Amazon.NetworkFirewall.Route53ResolvedIPValidationAction FirewallPolicy_Route53ResolvedIPValidation_Action { get; set; }
+        #endregion
+        
+        #region Parameter FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange
+        /// <summary>
+        /// <para>
+        /// <para>The destination IP address ranges that are exempt from the policy-level resolved IP
+        /// check. Network Firewall doesn't apply the <c>Action</c> in this configuration to a
+        /// connection whose destination falls in these ranges, even if the Route 53 Resolver
+        /// didn't return that IP address in an associated VPC. Specify each entry as an IPv4
+        /// or IPv6 address or CIDR range, up to 100 entries.</para><para>This exemption applies only to the policy-level check. Stateful rules that use the
+        /// <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> target type or the <c>aws_route_53_resolved_domain</c>
+        /// keyword still evaluate connections to these destinations and match them independently
+        /// of this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRanges")]
+        public Amazon.NetworkFirewall.Model.Address[] FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -59,6 +101,43 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The action that Network Firewall takes when the DNS resolution recorded for a destination
+        /// IP address has expired from the resolved IP cache. This applies when Network Firewall
+        /// still sees traffic to that IP address after the expiry. Network Firewall keeps a resolution
+        /// for longer than the DNS record's time to live (TTL). Valid values are the following:</para><ul><li><para><c>CONTINUE</c> – Treats the expired resolution as still valid and doesn't block
+        /// the connection because of expiry.</para></li><li><para><c>DROP</c> – Silently blocks traffic to the IP address after its resolution has
+        /// expired, without sending any response to the client.</para></li><li><para><c>REJECT</c> – Blocks traffic to the IP address after its resolution has expired
+        /// and sends a TCP reset (RST) to the client. Network Firewall drops non-TCP traffic
+        /// instead of resetting it.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.DNSExpiryExceptionPolicy")]
+        public Amazon.NetworkFirewall.DNSExpiryExceptionPolicy FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy { get; set; }
+        #endregion
+        
+        #region Parameter FirewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Route 53 Resolver DNS Firewall rule group that determines which VPCs'
+        /// DNS resolutions count for resolved IP validation. A destination IP address counts
+        /// as resolved for a domain only when the Route 53 Resolver returned it in a DNS response
+        /// within a VPC that's associated with this rule group. Associate the rule group with
+        /// the VPCs that send traffic to the firewall. The ID must match the pattern <c>^rslvr-frg-[0-9a-f]+$</c>.
+        /// It must also exist and be accessible from your account. Network Firewall validates
+        /// this when you create or update the policy.</para><para>Changing this value swaps the managed rule group association. Network Firewall processes
+        /// the swap asynchronously. Each policy can have only one managed Route 53 Resolver DNS
+        /// Firewall association. While a swap is in progress, Network Firewall rejects further
+        /// changes to this setting. Wait until the swap completes, then retry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId { get; set; }
         #endregion
         
         #region Parameter DryRun
@@ -161,6 +240,29 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("FirewallPolicy_PolicyVariables_RuleVariables")]
         public System.Collections.Hashtable PolicyVariables_RuleVariable { get; set; }
+        #endregion
+        
+        #region Parameter FirewallPolicy_Route53ResolvedIPValidation_SourceIPRange
+        /// <summary>
+        /// <para>
+        /// <para>The client source IP address ranges whose connections are subject to resolved IP validation.
+        /// Specify each entry as an IPv4 or IPv6 address or CIDR range, up to 100 entries. If
+        /// you omit this field, resolved IP validation applies to the CIDR ranges of the firewall's
+        /// VPC and of any additional VPCs attached to the firewall. Specifying an empty list
+        /// is not the same as omitting the field: an empty list means that Network Firewall doesn't
+        /// validate any source addresses.</para><para>This scope applies to the policy-level check only. Stateful rules that use the <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c>
+        /// target type or the <c>aws_route_53_resolved_domain</c> keyword still evaluate their
+        /// destinations regardless of <c>SourceIPRanges</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallPolicy_Route53ResolvedIPValidation_SourceIPRanges")]
+        public Amazon.NetworkFirewall.Model.Address[] FirewallPolicy_Route53ResolvedIPValidation_SourceIPRange { get; set; }
         #endregion
         
         #region Parameter FirewallPolicy_StatefulDefaultAction
@@ -431,6 +533,17 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 {
                     context.PolicyVariables_RuleVariable.Add((String)hashKey, (Amazon.NetworkFirewall.Model.IPSet)(this.PolicyVariables_RuleVariable[hashKey]));
                 }
+            }
+            context.FirewallPolicy_Route53ResolvedIPValidation_Action = this.FirewallPolicy_Route53ResolvedIPValidation_Action;
+            if (this.FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange != null)
+            {
+                context.FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange = new List<Amazon.NetworkFirewall.Model.Address>(this.FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange);
+            }
+            context.FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy = this.FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy;
+            context.FirewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId = this.FirewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId;
+            if (this.FirewallPolicy_Route53ResolvedIPValidation_SourceIPRange != null)
+            {
+                context.FirewallPolicy_Route53ResolvedIPValidation_SourceIPRange = new List<Amazon.NetworkFirewall.Model.Address>(this.FirewallPolicy_Route53ResolvedIPValidation_SourceIPRange);
             }
             if (this.FirewallPolicy_StatefulDefaultAction != null)
             {
@@ -705,6 +818,71 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 request.FirewallPolicy.StatefulEngineOptions = requestFirewallPolicy_firewallPolicy_StatefulEngineOptions;
                 requestFirewallPolicyIsNull = false;
             }
+            Amazon.NetworkFirewall.Model.Route53ResolvedIPValidation requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation = null;
+            
+             // populate Route53ResolvedIPValidation
+            var requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidationIsNull = true;
+            requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation = new Amazon.NetworkFirewall.Model.Route53ResolvedIPValidation();
+            Amazon.NetworkFirewall.Route53ResolvedIPValidationAction requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_Action = null;
+            if (cmdletContext.FirewallPolicy_Route53ResolvedIPValidation_Action != null)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_Action = cmdletContext.FirewallPolicy_Route53ResolvedIPValidation_Action;
+            }
+            if (requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_Action != null)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation.Action = requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_Action;
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidationIsNull = false;
+            }
+            List<Amazon.NetworkFirewall.Model.Address> requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange = null;
+            if (cmdletContext.FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange != null)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange = cmdletContext.FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange;
+            }
+            if (requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange != null)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation.BypassDestinationValidationIPRanges = requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange;
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidationIsNull = false;
+            }
+            Amazon.NetworkFirewall.DNSExpiryExceptionPolicy requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy = null;
+            if (cmdletContext.FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy != null)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy = cmdletContext.FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy;
+            }
+            if (requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy != null)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation.DNSExpiryExceptionPolicy = requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy;
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidationIsNull = false;
+            }
+            System.String requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId = null;
+            if (cmdletContext.FirewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId != null)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId = cmdletContext.FirewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId;
+            }
+            if (requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId != null)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation.DNSFirewallRuleGroupId = requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId;
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidationIsNull = false;
+            }
+            List<Amazon.NetworkFirewall.Model.Address> requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_SourceIPRange = null;
+            if (cmdletContext.FirewallPolicy_Route53ResolvedIPValidation_SourceIPRange != null)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_SourceIPRange = cmdletContext.FirewallPolicy_Route53ResolvedIPValidation_SourceIPRange;
+            }
+            if (requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_SourceIPRange != null)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation.SourceIPRanges = requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation_firewallPolicy_Route53ResolvedIPValidation_SourceIPRange;
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidationIsNull = false;
+            }
+             // determine if requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation should be set to null
+            if (requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidationIsNull)
+            {
+                requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation = null;
+            }
+            if (requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation != null)
+            {
+                request.FirewallPolicy.Route53ResolvedIPValidation = requestFirewallPolicy_firewallPolicy_Route53ResolvedIPValidation;
+                requestFirewallPolicyIsNull = false;
+            }
              // determine if request.FirewallPolicy should be set to null
             if (requestFirewallPolicyIsNull)
             {
@@ -779,6 +957,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
             public System.Boolean? FirewallPolicy_EnableTLSSessionHolding { get; set; }
             public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> PolicyVariables_RuleVariable { get; set; }
+            public Amazon.NetworkFirewall.Route53ResolvedIPValidationAction FirewallPolicy_Route53ResolvedIPValidation_Action { get; set; }
+            public List<Amazon.NetworkFirewall.Model.Address> FirewallPolicy_Route53ResolvedIPValidation_BypassDestinationValidationIPRange { get; set; }
+            public Amazon.NetworkFirewall.DNSExpiryExceptionPolicy FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy { get; set; }
+            public System.String FirewallPolicy_Route53ResolvedIPValidation_DNSFirewallRuleGroupId { get; set; }
+            public List<Amazon.NetworkFirewall.Model.Address> FirewallPolicy_Route53ResolvedIPValidation_SourceIPRange { get; set; }
             public List<System.String> FirewallPolicy_StatefulDefaultAction { get; set; }
             public System.Int32? FlowTimeouts_TcpIdleTimeoutSecond { get; set; }
             public Amazon.NetworkFirewall.RuleOrder StatefulEngineOptions_RuleOrder { get; set; }

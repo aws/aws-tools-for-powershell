@@ -62,8 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Specifies the mode for Assisted NLU operation. Use <c>Primary</c> to make Assisted
-        /// NLU the primary intent recognition method, or <c>Fallback</c> to use it only when
-        /// standard NLU confidence is low.</para>
+        /// NLU the primary intent recognition method, <c>Fallback</c> to use it only when standard
+        /// NLU confidence is low, or <c>DialogManager</c> to use a large language model to manage
+        /// the conversation, including intent recognition, slot elicitation, and confirmation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

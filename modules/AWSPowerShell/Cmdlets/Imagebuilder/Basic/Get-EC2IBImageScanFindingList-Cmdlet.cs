@@ -54,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// scanned.</para></li><li><para><c>imagePipelineArn</c> – Filters findings by the pipeline that created the scanned
         /// image.</para></li><li><para><c>vulnerabilityId</c> – Filters findings by vulnerability ID, for example a CVE
         /// ID.</para></li><li><para><c>severity</c> – Filters findings by severity level.</para></li></ul><para>If you don't request a filter, then all findings in your account are listed.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

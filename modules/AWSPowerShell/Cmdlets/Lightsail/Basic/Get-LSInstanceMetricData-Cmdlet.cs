@@ -122,7 +122,22 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// service was successfully accessed without a token. This metric determines if there
         /// are any processes accessing instance metadata by using Instance Metadata Service Version
         /// 1, which doesn't use a token. If all requests use token-backed sessions, such as Instance
-        /// Metadata Service Version 2, then the value is 0.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Count</c>.</para></li></ul>
+        /// Metadata Service Version 2, then the value is 0.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Count</c>.</para></li><li><para><b><c>DiskReadOps</c></b> - The number of read operations completed on the system
+        /// disk of the instance during the period. This metric doesn't include activity on additional
+        /// disks that you attach to the instance.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Count</c>.</para></li><li><para><b><c>DiskWriteOps</c></b> - The number of write operations completed on the system
+        /// disk of the instance during the period. This metric doesn't include activity on additional
+        /// disks that you attach to the instance.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Count</c>.</para></li><li><para><b><c>DiskReadBytes</c></b> - The number of bytes read from the system disk of
+        /// the instance during the period. This metric doesn't include activity on additional
+        /// disks that you attach to the instance.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Bytes</c>.</para></li><li><para><b><c>DiskWriteBytes</c></b> - The number of bytes written to the system disk of
+        /// the instance during the period. This metric doesn't include activity on additional
+        /// disks that you attach to the instance.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Bytes</c>.</para></li><li><para><b><c>DiskTotalReadTime</c></b> - The total number of seconds spent by all read
+        /// operations that completed on the system disk of the instance during the period. This
+        /// metric doesn't include activity on additional disks that you attach to the instance.</para><para><c>Statistics</c>: The most useful statistic is <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Seconds</c>.</para></li><li><para><b><c>DiskTotalWriteTime</c></b> - The total number of seconds spent by all write
+        /// operations that completed on the system disk of the instance during the period. This
+        /// metric doesn't include activity on additional disks that you attach to the instance.</para><para><c>Statistics</c>: The most useful statistic is <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Seconds</c>.</para></li><li><para><b><c>DiskQueueLength</c></b> - The number of read and write requests that are
+        /// waiting to access the system disk of the instance. This metric doesn't include activity
+        /// on additional disks that you attach to the instance.</para><para><c>Statistics</c>: The most useful statistic is <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Count</c>.</para></li></ul><para>For more information about system disk performance metrics, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-viewing-instance-disk-performance-metrics">View
+        /// system disk performance metrics for your Lightsail instance</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

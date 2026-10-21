@@ -384,6 +384,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String[] CreateProjectFromProjectProfile_ProjectProfile { get; set; }
         #endregion
         
+        #region Parameter Principal_Project_UserCreatedDesignationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the user-created designation granted to the project principal. Required
+        /// when <c>projectDesignation</c> is <c>USER_CREATED_DESIGNATION</c>; must not be provided
+        /// otherwise.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Principal_Project_UserCreatedDesignationId { get; set; }
+        #endregion
+        
         #region Parameter User_UserIdentifier
         /// <summary>
         /// <para>
@@ -507,6 +519,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.DomainUnitFilter_DomainUnit = this.DomainUnitFilter_DomainUnit;
             context.DomainUnitFilter_IncludeChildDomainUnit = this.DomainUnitFilter_IncludeChildDomainUnit;
             context.Project_ProjectIdentifier = this.Project_ProjectIdentifier;
+            context.Principal_Project_UserCreatedDesignationId = this.Principal_Project_UserCreatedDesignationId;
             context.User_AllUsersGrantFilter = this.User_AllUsersGrantFilter;
             context.User_UserIdentifier = this.User_UserIdentifier;
             
@@ -1018,6 +1031,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 requestPrincipal_principal_Project.ProjectIdentifier = requestPrincipal_principal_Project_project_ProjectIdentifier;
                 requestPrincipal_principal_ProjectIsNull = false;
             }
+            System.String requestPrincipal_principal_Project_principal_Project_UserCreatedDesignationId = null;
+            if (cmdletContext.Principal_Project_UserCreatedDesignationId != null)
+            {
+                requestPrincipal_principal_Project_principal_Project_UserCreatedDesignationId = cmdletContext.Principal_Project_UserCreatedDesignationId;
+            }
+            if (requestPrincipal_principal_Project_principal_Project_UserCreatedDesignationId != null)
+            {
+                requestPrincipal_principal_Project.UserCreatedDesignationId = requestPrincipal_principal_Project_principal_Project_UserCreatedDesignationId;
+                requestPrincipal_principal_ProjectIsNull = false;
+            }
             Amazon.DataZone.Model.ProjectGrantFilter requestPrincipal_principal_Project_principal_Project_ProjectGrantFilter = null;
             
              // populate ProjectGrantFilter
@@ -1166,6 +1189,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainUnitFilter_DomainUnit { get; set; }
             public System.Boolean? DomainUnitFilter_IncludeChildDomainUnit { get; set; }
             public System.String Project_ProjectIdentifier { get; set; }
+            public System.String Principal_Project_UserCreatedDesignationId { get; set; }
             public Amazon.DataZone.Model.AllUsersGrantFilter User_AllUsersGrantFilter { get; set; }
             public System.String User_UserIdentifier { get; set; }
             public System.Func<Amazon.DataZone.Model.AddPolicyGrantResponse, AddDZPolicyGrantCmdlet, object> Select { get; set; } =

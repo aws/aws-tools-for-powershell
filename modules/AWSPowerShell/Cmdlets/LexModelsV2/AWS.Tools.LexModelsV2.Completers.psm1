@@ -124,7 +124,7 @@ $LMBV2_Completers = {
             ($_ -eq "Update-LMBV2BotLocale/NluImprovement_AssistedNluMode")
         }
         {
-            $v = "Fallback","Primary"
+            $v = "DialogManager","Fallback","Primary"
             break
         }
 

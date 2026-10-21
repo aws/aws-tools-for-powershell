@@ -229,7 +229,7 @@ $LS_Completers = {
         # Amazon.Lightsail.InstanceMetricName
         "Get-LSInstanceMetricData/MetricName"
         {
-            $v = "BurstCapacityPercentage","BurstCapacityTime","CPUUtilization","MetadataNoToken","NetworkIn","NetworkOut","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System"
+            $v = "BurstCapacityPercentage","BurstCapacityTime","CPUUtilization","DiskQueueLength","DiskReadBytes","DiskReadOps","DiskTotalReadTime","DiskTotalWriteTime","DiskWriteBytes","DiskWriteOps","MetadataNoToken","NetworkIn","NetworkOut","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System"
             break
         }
 
@@ -263,7 +263,7 @@ $LS_Completers = {
         # Amazon.Lightsail.MetricName
         "Add-LSAlarm/MetricName"
         {
-            $v = "BurstCapacityPercentage","BurstCapacityTime","ClientTLSNegotiationErrorCount","CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeableMemory","FreeStorageSpace","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","NetworkIn","NetworkOut","NetworkReceiveThroughput","NetworkTransmitThroughput","RejectedConnectionCount","RequestCount","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System","SwapUsage","UnhealthyHostCount"
+            $v = "BurstCapacityPercentage","BurstCapacityTime","ClientTLSNegotiationErrorCount","CPUUtilization","DatabaseConnections","DiskQueueDepth","DiskQueueLength","DiskReadBytes","DiskReadOps","DiskTotalReadTime","DiskTotalWriteTime","DiskWriteBytes","DiskWriteOps","FreeableMemory","FreeStorageSpace","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","NetworkIn","NetworkOut","NetworkReceiveThroughput","NetworkTransmitThroughput","RejectedConnectionCount","RequestCount","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System","SwapUsage","UnhealthyHostCount"
             break
         }
 

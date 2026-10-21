@@ -6341,6 +6341,7 @@ $AS_SelectMap = @{
                "Remove-ASTag",
                "Remove-ASWarmPool",
                "Get-ASAccountLimit",
+               "Get-ASAccountSettingDetail",
                "Get-ASAdjustmentType",
                "Get-ASAutoScalingGroup",
                "Get-ASAutoScalingInstance",
@@ -6372,6 +6373,7 @@ $AS_SelectMap = @{
                "Exit-ASStandby",
                "Get-ASPredictiveScalingForecast",
                "Add-ASInstance",
+               "Write-ASAccountSetting",
                "Write-ASLifecycleHook",
                "Write-ASNotificationConfiguration",
                "Write-ASScalingPolicy",
@@ -16076,8 +16078,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16537,9 +16539,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
-               "Write-CSDDocument")
+    "Select"=@("Get-CSDSuggestion",
+               "Write-CSDDocument",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -25864,7 +25866,7 @@ $DZ_Completers = {
             ($_ -eq "Remove-DZPolicyGrant/Project_ProjectDesignation")
         }
         {
-            $v = "CONTRIBUTOR","OWNER","PROJECT_CATALOG_STEWARD"
+            $v = "CONTRIBUTOR","OWNER","PROJECT_CATALOG_STEWARD","USER_CREATED_DESIGNATION"
             break
         }
 
@@ -26080,7 +26082,7 @@ $DZ_Completers = {
         # Amazon.DataZone.UserDesignation
         "New-DZProjectMembership/Designation"
         {
-            $v = "PROJECT_CATALOG_CONSUMER","PROJECT_CATALOG_STEWARD","PROJECT_CATALOG_VIEWER","PROJECT_CONTRIBUTOR","PROJECT_OWNER"
+            $v = "PROJECT_CATALOG_CONSUMER","PROJECT_CATALOG_STEWARD","PROJECT_CATALOG_VIEWER","PROJECT_CONTRIBUTOR","PROJECT_OWNER","USER_CREATED_DESIGNATION"
             break
         }
 
@@ -26238,6 +26240,7 @@ $DZ_SelectMap = @{
                "New-DZDataProduct",
                "New-DZDataProductRevision",
                "New-DZDataSource",
+               "New-DZDesignation",
                "New-DZDomain",
                "New-DZDomainUnit",
                "New-DZEnvironment",
@@ -26266,6 +26269,7 @@ $DZ_SelectMap = @{
                "Remove-DZDataExportConfiguration",
                "Remove-DZDataProduct",
                "Remove-DZDataSource",
+               "Remove-DZDesignation",
                "Remove-DZDomain",
                "Remove-DZDomainUnit",
                "Remove-DZEnvironment",
@@ -26298,6 +26302,7 @@ $DZ_SelectMap = @{
                "Get-DZDataProduct",
                "Get-DZDataSource",
                "Get-DZDataSourceRun",
+               "Get-DZDesignation",
                "Get-DZDomain",
                "Get-DZDomainUnit",
                "Get-DZEnvironment",
@@ -26337,6 +26342,7 @@ $DZ_SelectMap = @{
                "Get-DZDataSourceRunActivityList",
                "Get-DZDataSourceRunList",
                "Get-DZDataSourceList",
+               "Get-DZDesignationList",
                "Get-DZDomainList",
                "Get-DZDomainUnitsForParentList",
                "Get-DZEntityOwnerList",
@@ -26391,6 +26397,7 @@ $DZ_SelectMap = @{
                "Update-DZAssetFilter",
                "Update-DZConnection",
                "Update-DZDataSource",
+               "Update-DZDesignation",
                "Update-DZDomain",
                "Update-DZDomainUnit",
                "Update-DZEnvironment",
@@ -27523,7 +27530,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.Service
         "Get-DOPSServiceList/FilterServiceType"
         {
-            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","remoteagent","remoteagentsigv4","servicenow","slack"
+            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","msteams","pagerduty","remoteagent","remoteagentsigv4","servicenow","slack"
             break
         }
 
@@ -30544,12 +30551,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
                "ConvertTo-DDBItem",
+               "ConvertFrom-DDBItem",
+               "Add-DDBKeySchema",
                "New-DDBTableSchema",
                "Add-DDBIndexSchema",
-               "Add-DDBKeySchema",
-               "ConvertFrom-DDBItem")
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -43445,13 +43452,6 @@ $AHL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.HealthLake.AgentInputMessageType
-        "Update-AHLProfileWithAgent/InputMessage_Type"
-        {
-            $v = "confirmation_response","normal"
-            break
-        }
-
         # Amazon.HealthLake.AnalyticsStatus
         {
             ($_ -eq "New-AHLFHIRDatastore/AnalyticsConfiguration_Status") -Or
@@ -43551,8 +43551,7 @@ $AHL_Completers = {
             ($_ -eq "Start-AHLDataTransformationJob/InputDataConfig_SourceFormat") -Or
             ($_ -eq "Get-AHLDataTransformationProfileList/SourceFormat") -Or
             ($_ -eq "New-AHLDataTransformationProfile/SourceFormat") -Or
-            ($_ -eq "Publish-AHLDataTransformationProfile/SourceFormat") -Or
-            ($_ -eq "Update-AHLProfileWithAgent/SourceFormat")
+            ($_ -eq "Publish-AHLDataTransformationProfile/SourceFormat")
         }
         {
             $v = "CCDA","CSV"
@@ -43589,12 +43588,11 @@ $AHL_map = @{
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
     "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore","Restore-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "InputDataConfig_SourceFormat"=@("Start-AHLDataTransformationJob")
-    "InputMessage_Type"=@("Update-AHLProfileWithAgent")
     "JobStatus"=@("Get-AHLDataTransformationJobList","Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
     "NlpConfiguration_Status"=@("New-AHLFHIRDatastore","Restore-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
-    "SourceFormat"=@("Get-AHLDataTransformationProfileList","New-AHLDataTransformationProfile","Publish-AHLDataTransformationProfile","Update-AHLProfileWithAgent")
+    "SourceFormat"=@("Get-AHLDataTransformationProfileList","New-AHLDataTransformationProfile","Publish-AHLDataTransformationProfile")
     "SseConfiguration_KmsEncryptionConfig_CmkType"=@("Restore-AHLFHIRDatastore")
     "ValidationLevel"=@("Start-AHLFHIRImportJob")
 }
@@ -43673,8 +43671,7 @@ $AHL_SelectMap = @{
                "Add-AHLResourceTag",
                "Remove-AHLResourceTag",
                "Update-AHLDataTransformationProfile",
-               "Update-AHLFHIRDatastore",
-               "Update-AHLProfileWithAgent")
+               "Update-AHLFHIRDatastore")
 }
 
 _awsArgumentCompleterRegistration $AHL_SelectCompleters $AHL_SelectMap
@@ -53546,7 +53543,7 @@ $LS_Completers = {
         # Amazon.Lightsail.InstanceMetricName
         "Get-LSInstanceMetricData/MetricName"
         {
-            $v = "BurstCapacityPercentage","BurstCapacityTime","CPUUtilization","MetadataNoToken","NetworkIn","NetworkOut","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System"
+            $v = "BurstCapacityPercentage","BurstCapacityTime","CPUUtilization","DiskQueueLength","DiskReadBytes","DiskReadOps","DiskTotalReadTime","DiskTotalWriteTime","DiskWriteBytes","DiskWriteOps","MetadataNoToken","NetworkIn","NetworkOut","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System"
             break
         }
 
@@ -53580,7 +53577,7 @@ $LS_Completers = {
         # Amazon.Lightsail.MetricName
         "Add-LSAlarm/MetricName"
         {
-            $v = "BurstCapacityPercentage","BurstCapacityTime","ClientTLSNegotiationErrorCount","CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeableMemory","FreeStorageSpace","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","NetworkIn","NetworkOut","NetworkReceiveThroughput","NetworkTransmitThroughput","RejectedConnectionCount","RequestCount","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System","SwapUsage","UnhealthyHostCount"
+            $v = "BurstCapacityPercentage","BurstCapacityTime","ClientTLSNegotiationErrorCount","CPUUtilization","DatabaseConnections","DiskQueueDepth","DiskQueueLength","DiskReadBytes","DiskReadOps","DiskTotalReadTime","DiskTotalWriteTime","DiskWriteBytes","DiskWriteOps","FreeableMemory","FreeStorageSpace","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","NetworkIn","NetworkOut","NetworkReceiveThroughput","NetworkTransmitThroughput","RejectedConnectionCount","RequestCount","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System","SwapUsage","UnhealthyHostCount"
             break
         }
 
@@ -60256,7 +60253,7 @@ $LMBV2_Completers = {
             ($_ -eq "Update-LMBV2BotLocale/NluImprovement_AssistedNluMode")
         }
         {
-            $v = "Fallback","Primary"
+            $v = "DialogManager","Fallback","Primary"
             break
         }
 
@@ -62357,6 +62354,16 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.DNSExpiryExceptionPolicy
+        {
+            ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy")
+        }
+        {
+            $v = "CONTINUE","DROP","REJECT"
+            break
+        }
+
         # Amazon.NetworkFirewall.EnabledAnalysisType
         "Start-NWFWAnalysisReport/AnalysisType"
         {
@@ -62430,6 +62437,16 @@ $NWFW_Completers = {
         "Get-NWFWRuleGroupList/ManagedType"
         {
             $v = "ACTIVE_THREAT_DEFENSE","AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES","PARTNER_MANAGED"
+            break
+        }
+
+        # Amazon.NetworkFirewall.Route53ResolvedIPValidationAction
+        {
+            ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action")
+        }
+        {
+            $v = "ALERT","DROP","REJECT"
             break
         }
 
@@ -62509,6 +62526,8 @@ $NWFW_map = @{
     "DefaultRulePhaseActions_PreDNS"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
     "DefaultRulePhaseActions_PreREQUEST"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
+    "FirewallPolicy_Route53ResolvedIPValidation_Action"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
+    "FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "FlowOperationType"=@("Get-NWFWFlowOperationList")
     "ManagedType"=@("Get-NWFWRuleGroupList")
     "RuleGroupRequestPhase"=@("Update-NWFWProxyRulePriority")
@@ -70183,7 +70202,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Adriano","Ambre","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Beatrice","Bianca","Brian","Burcu","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Danielle","Dora","Elin","Emma","Enrique","Ewa","Filiz","Florian","Gabrielle","Geraint","Giorgio","Gregory","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Jasmine","Jihye","Jitka","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Lennart","Liam","Lisa","Liv","Lorenzo","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Sabrina","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tiffany","Tomoko","Vicki","Vitoria","Zayd","Zeina","Zhiyu"
+            $v = "Aditi","Adriano","Ambre","Amy","Andres","Aria","Arjun","Arlet","Arthur","Astrid","Ayanda","Beatrice","Bianca","Brian","Burcu","Camila","Carla","Carlos","Carmen","Carolina","Celine","Chantal","Conchita","Cristiano","Curtis","Daniel","Danielle","Dora","Elin","Emma","Enrique","Ewa","Filiz","Florian","Gabrielle","Geraint","Giorgio","Gregory","Gwyneth","Hala","Hannah","Hans","Hiujin","Hyunduk","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Jasmine","Jihye","Jitka","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kenneth","Kevin","Kiara","Kimberly","Laura","Lea","Lennart","Leo","Liam","Lisa","Liv","Lorenzo","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nate","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Sabrina","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tiffany","Tina","Tomoko","Vicki","Vitoria","Zayd","Zeina","Zhiyu"
             break
         }
 
@@ -79999,17 +80018,17 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Write-S3Object",
-               "Remove-S3MultipartUpload",
-               "Remove-S3Object",
-               "Remove-S3Bucket",
-               "Get-S3MultipartUpload",
                "Test-S3Bucket",
+               "Get-S3MultipartUpload",
+               "Remove-S3MultipartUpload",
                "Dismount-S3PSDrive",
-               "New-S3Bucket",
-               "Read-S3Object",
-               "Get-S3PreSignedURL",
                "Mount-S3PSDrive",
+               "Get-S3PreSignedURL",
+               "Read-S3Object",
+               "New-S3Bucket",
+               "Write-S3Object",
+               "Remove-S3Bucket",
+               "Remove-S3Object",
                "Copy-S3Object")
 }
 
@@ -89997,8 +90016,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -96766,6 +96785,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -96805,41 +96862,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

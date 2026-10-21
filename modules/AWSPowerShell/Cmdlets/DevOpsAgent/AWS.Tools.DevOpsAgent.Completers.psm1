@@ -234,7 +234,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.Service
         "Get-DOPSServiceList/FilterServiceType"
         {
-            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","remoteagent","remoteagentsigv4","servicenow","slack"
+            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","msteams","pagerduty","remoteagent","remoteagentsigv4","servicenow","slack"
             break
         }
 

@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Credentials_ServiceAccountCredentials_AdminAccountEmail
+        /// <summary>
+        /// <para>
+        /// <para>The email address of the Google Workspace administrator account that the service account
+        /// impersonates through domain-wide delegation. This field is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_ServiceAccountCredentials_AdminAccountEmail { get; set; }
+        #endregion
+        
         #region Parameter CredentialPair_AlternateDataSourceParameter
         /// <summary>
         /// <para>
@@ -237,6 +248,39 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_TrinoParameters_Catalog")]
         public System.String TrinoParameters_Catalog { get; set; }
+        #endregion
+        
+        #region Parameter Credentials_OneDriveClientCredentials_CertThumbprint
+        /// <summary>
+        /// <para>
+        /// <para>The thumbprint of the certificate used for two-legged OAuth (2LO) authentication to
+        /// OneDrive. This field is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_OneDriveClientCredentials_CertThumbprint { get; set; }
+        #endregion
+        
+        #region Parameter Credentials_SharePointClientCredentials_CertThumbprint
+        /// <summary>
+        /// <para>
+        /// <para>The thumbprint of the certificate used for two-legged OAuth (2LO) authentication to
+        /// SharePoint. This field is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_SharePointClientCredentials_CertThumbprint { get; set; }
+        #endregion
+        
+        #region Parameter Credentials_ServiceAccountCredentials_ClientEmail
+        /// <summary>
+        /// <para>
+        /// <para>The client email address of the Google service account used for domain-wide delegation.
+        /// This field is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_ServiceAccountCredentials_ClientEmail { get; set; }
         #endregion
         
         #region Parameter Credentials_OAuthClientCredentials_ClientId
@@ -907,6 +951,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String KeyPairCredentials_KeyPairUsername { get; set; }
         #endregion
         
+        #region Parameter Credentials_OneDriveClientCredentials_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used
+        /// to encrypt the OneDrive certificate credentials. This field is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_OneDriveClientCredentials_KmsKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter Credentials_SharePointClientCredentials_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used
+        /// to encrypt the SharePoint certificate credentials. This field is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_SharePointClientCredentials_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter DataSourceParameters_FMKBParameters_KnowledgeBaseArn
         /// <summary>
         /// <para>
@@ -1353,6 +1419,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String Credentials_SecretArn { get; set; }
         #endregion
         
+        #region Parameter Credentials_ServiceAccountCredentials_ServiceAccountPrivateKey
+        /// <summary>
+        /// <para>
+        /// <para>The private key of the Google service account used for domain-wide delegation. This
+        /// field is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_ServiceAccountCredentials_ServiceAccountPrivateKey { get; set; }
+        #endregion
+        
         #region Parameter DataSourceParameters_SharePointParameters_SharePointDomain
         /// <summary>
         /// <para>
@@ -1708,7 +1785,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Credentials_OAuthClientCredentials_ClientId = this.Credentials_OAuthClientCredentials_ClientId;
             context.Credentials_OAuthClientCredentials_ClientSecret = this.Credentials_OAuthClientCredentials_ClientSecret;
             context.Credentials_OAuthClientCredentials_Username = this.Credentials_OAuthClientCredentials_Username;
+            context.Credentials_OneDriveClientCredentials_CertThumbprint = this.Credentials_OneDriveClientCredentials_CertThumbprint;
+            context.Credentials_OneDriveClientCredentials_KmsKeyArn = this.Credentials_OneDriveClientCredentials_KmsKeyArn;
             context.Credentials_SecretArn = this.Credentials_SecretArn;
+            context.Credentials_ServiceAccountCredentials_AdminAccountEmail = this.Credentials_ServiceAccountCredentials_AdminAccountEmail;
+            context.Credentials_ServiceAccountCredentials_ClientEmail = this.Credentials_ServiceAccountCredentials_ClientEmail;
+            context.Credentials_ServiceAccountCredentials_ServiceAccountPrivateKey = this.Credentials_ServiceAccountCredentials_ServiceAccountPrivateKey;
+            context.Credentials_SharePointClientCredentials_CertThumbprint = this.Credentials_SharePointClientCredentials_CertThumbprint;
+            context.Credentials_SharePointClientCredentials_KmsKeyArn = this.Credentials_SharePointClientCredentials_KmsKeyArn;
             context.WebProxyCredentials_WebProxyPassword = this.WebProxyCredentials_WebProxyPassword;
             context.WebProxyCredentials_WebProxyUsername = this.WebProxyCredentials_WebProxyUsername;
             context.DataSourceId = this.DataSourceId;
@@ -1898,6 +1982,76 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Credentials.SecretArn = requestCredentials_credentials_SecretArn;
                 requestCredentialsIsNull = false;
             }
+            Amazon.QuickSight.Model.OneDriveClientCredentials requestCredentials_credentials_OneDriveClientCredentials = null;
+            
+             // populate OneDriveClientCredentials
+            var requestCredentials_credentials_OneDriveClientCredentialsIsNull = true;
+            requestCredentials_credentials_OneDriveClientCredentials = new Amazon.QuickSight.Model.OneDriveClientCredentials();
+            System.String requestCredentials_credentials_OneDriveClientCredentials_credentials_OneDriveClientCredentials_CertThumbprint = null;
+            if (cmdletContext.Credentials_OneDriveClientCredentials_CertThumbprint != null)
+            {
+                requestCredentials_credentials_OneDriveClientCredentials_credentials_OneDriveClientCredentials_CertThumbprint = cmdletContext.Credentials_OneDriveClientCredentials_CertThumbprint;
+            }
+            if (requestCredentials_credentials_OneDriveClientCredentials_credentials_OneDriveClientCredentials_CertThumbprint != null)
+            {
+                requestCredentials_credentials_OneDriveClientCredentials.CertThumbprint = requestCredentials_credentials_OneDriveClientCredentials_credentials_OneDriveClientCredentials_CertThumbprint;
+                requestCredentials_credentials_OneDriveClientCredentialsIsNull = false;
+            }
+            System.String requestCredentials_credentials_OneDriveClientCredentials_credentials_OneDriveClientCredentials_KmsKeyArn = null;
+            if (cmdletContext.Credentials_OneDriveClientCredentials_KmsKeyArn != null)
+            {
+                requestCredentials_credentials_OneDriveClientCredentials_credentials_OneDriveClientCredentials_KmsKeyArn = cmdletContext.Credentials_OneDriveClientCredentials_KmsKeyArn;
+            }
+            if (requestCredentials_credentials_OneDriveClientCredentials_credentials_OneDriveClientCredentials_KmsKeyArn != null)
+            {
+                requestCredentials_credentials_OneDriveClientCredentials.KmsKeyArn = requestCredentials_credentials_OneDriveClientCredentials_credentials_OneDriveClientCredentials_KmsKeyArn;
+                requestCredentials_credentials_OneDriveClientCredentialsIsNull = false;
+            }
+             // determine if requestCredentials_credentials_OneDriveClientCredentials should be set to null
+            if (requestCredentials_credentials_OneDriveClientCredentialsIsNull)
+            {
+                requestCredentials_credentials_OneDriveClientCredentials = null;
+            }
+            if (requestCredentials_credentials_OneDriveClientCredentials != null)
+            {
+                request.Credentials.OneDriveClientCredentials = requestCredentials_credentials_OneDriveClientCredentials;
+                requestCredentialsIsNull = false;
+            }
+            Amazon.QuickSight.Model.SharePointClientCredentials requestCredentials_credentials_SharePointClientCredentials = null;
+            
+             // populate SharePointClientCredentials
+            var requestCredentials_credentials_SharePointClientCredentialsIsNull = true;
+            requestCredentials_credentials_SharePointClientCredentials = new Amazon.QuickSight.Model.SharePointClientCredentials();
+            System.String requestCredentials_credentials_SharePointClientCredentials_credentials_SharePointClientCredentials_CertThumbprint = null;
+            if (cmdletContext.Credentials_SharePointClientCredentials_CertThumbprint != null)
+            {
+                requestCredentials_credentials_SharePointClientCredentials_credentials_SharePointClientCredentials_CertThumbprint = cmdletContext.Credentials_SharePointClientCredentials_CertThumbprint;
+            }
+            if (requestCredentials_credentials_SharePointClientCredentials_credentials_SharePointClientCredentials_CertThumbprint != null)
+            {
+                requestCredentials_credentials_SharePointClientCredentials.CertThumbprint = requestCredentials_credentials_SharePointClientCredentials_credentials_SharePointClientCredentials_CertThumbprint;
+                requestCredentials_credentials_SharePointClientCredentialsIsNull = false;
+            }
+            System.String requestCredentials_credentials_SharePointClientCredentials_credentials_SharePointClientCredentials_KmsKeyArn = null;
+            if (cmdletContext.Credentials_SharePointClientCredentials_KmsKeyArn != null)
+            {
+                requestCredentials_credentials_SharePointClientCredentials_credentials_SharePointClientCredentials_KmsKeyArn = cmdletContext.Credentials_SharePointClientCredentials_KmsKeyArn;
+            }
+            if (requestCredentials_credentials_SharePointClientCredentials_credentials_SharePointClientCredentials_KmsKeyArn != null)
+            {
+                requestCredentials_credentials_SharePointClientCredentials.KmsKeyArn = requestCredentials_credentials_SharePointClientCredentials_credentials_SharePointClientCredentials_KmsKeyArn;
+                requestCredentials_credentials_SharePointClientCredentialsIsNull = false;
+            }
+             // determine if requestCredentials_credentials_SharePointClientCredentials should be set to null
+            if (requestCredentials_credentials_SharePointClientCredentialsIsNull)
+            {
+                requestCredentials_credentials_SharePointClientCredentials = null;
+            }
+            if (requestCredentials_credentials_SharePointClientCredentials != null)
+            {
+                request.Credentials.SharePointClientCredentials = requestCredentials_credentials_SharePointClientCredentials;
+                requestCredentialsIsNull = false;
+            }
             Amazon.QuickSight.Model.WebProxyCredentials requestCredentials_credentials_WebProxyCredentials = null;
             
              // populate WebProxyCredentials
@@ -2066,6 +2220,51 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCredentials_credentials_OAuthClientCredentials != null)
             {
                 request.Credentials.OAuthClientCredentials = requestCredentials_credentials_OAuthClientCredentials;
+                requestCredentialsIsNull = false;
+            }
+            Amazon.QuickSight.Model.ServiceAccountCredentials requestCredentials_credentials_ServiceAccountCredentials = null;
+            
+             // populate ServiceAccountCredentials
+            var requestCredentials_credentials_ServiceAccountCredentialsIsNull = true;
+            requestCredentials_credentials_ServiceAccountCredentials = new Amazon.QuickSight.Model.ServiceAccountCredentials();
+            System.String requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_AdminAccountEmail = null;
+            if (cmdletContext.Credentials_ServiceAccountCredentials_AdminAccountEmail != null)
+            {
+                requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_AdminAccountEmail = cmdletContext.Credentials_ServiceAccountCredentials_AdminAccountEmail;
+            }
+            if (requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_AdminAccountEmail != null)
+            {
+                requestCredentials_credentials_ServiceAccountCredentials.AdminAccountEmail = requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_AdminAccountEmail;
+                requestCredentials_credentials_ServiceAccountCredentialsIsNull = false;
+            }
+            System.String requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_ClientEmail = null;
+            if (cmdletContext.Credentials_ServiceAccountCredentials_ClientEmail != null)
+            {
+                requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_ClientEmail = cmdletContext.Credentials_ServiceAccountCredentials_ClientEmail;
+            }
+            if (requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_ClientEmail != null)
+            {
+                requestCredentials_credentials_ServiceAccountCredentials.ClientEmail = requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_ClientEmail;
+                requestCredentials_credentials_ServiceAccountCredentialsIsNull = false;
+            }
+            System.String requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_ServiceAccountPrivateKey = null;
+            if (cmdletContext.Credentials_ServiceAccountCredentials_ServiceAccountPrivateKey != null)
+            {
+                requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_ServiceAccountPrivateKey = cmdletContext.Credentials_ServiceAccountCredentials_ServiceAccountPrivateKey;
+            }
+            if (requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_ServiceAccountPrivateKey != null)
+            {
+                requestCredentials_credentials_ServiceAccountCredentials.ServiceAccountPrivateKey = requestCredentials_credentials_ServiceAccountCredentials_credentials_ServiceAccountCredentials_ServiceAccountPrivateKey;
+                requestCredentials_credentials_ServiceAccountCredentialsIsNull = false;
+            }
+             // determine if requestCredentials_credentials_ServiceAccountCredentials should be set to null
+            if (requestCredentials_credentials_ServiceAccountCredentialsIsNull)
+            {
+                requestCredentials_credentials_ServiceAccountCredentials = null;
+            }
+            if (requestCredentials_credentials_ServiceAccountCredentials != null)
+            {
+                request.Credentials.ServiceAccountCredentials = requestCredentials_credentials_ServiceAccountCredentials;
                 requestCredentialsIsNull = false;
             }
              // determine if request.Credentials should be set to null
@@ -4109,7 +4308,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String Credentials_OAuthClientCredentials_ClientId { get; set; }
             public System.String Credentials_OAuthClientCredentials_ClientSecret { get; set; }
             public System.String Credentials_OAuthClientCredentials_Username { get; set; }
+            public System.String Credentials_OneDriveClientCredentials_CertThumbprint { get; set; }
+            public System.String Credentials_OneDriveClientCredentials_KmsKeyArn { get; set; }
             public System.String Credentials_SecretArn { get; set; }
+            public System.String Credentials_ServiceAccountCredentials_AdminAccountEmail { get; set; }
+            public System.String Credentials_ServiceAccountCredentials_ClientEmail { get; set; }
+            public System.String Credentials_ServiceAccountCredentials_ServiceAccountPrivateKey { get; set; }
+            public System.String Credentials_SharePointClientCredentials_CertThumbprint { get; set; }
+            public System.String Credentials_SharePointClientCredentials_KmsKeyArn { get; set; }
             public System.String WebProxyCredentials_WebProxyPassword { get; set; }
             public System.String WebProxyCredentials_WebProxyUsername { get; set; }
             public System.String DataSourceId { get; set; }

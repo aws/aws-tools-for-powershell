@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter TargetId
         /// <summary>
         /// <para>
-        /// <para>Target account identifier</para>
+        /// Target account identifier
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -143,9 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter NotificationConfiguration_NotifyOn
         /// <summary>
         /// <para>
-        /// Notebook run states that trigger notifications.
-        /// Ordering is not significant.
-        /// <para />
+        /// <para>The notebook run states that trigger notifications. You can specify up to 7 states,
+        /// and the ordering of the states is not significant.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
