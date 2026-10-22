@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     ///  <note><para>
     /// You must delete any migration tasks that are associated with the replication instance
     /// before you can delete it.
-    /// </para></note>
+    /// </para></note><para></para>
     /// </summary>
     [Cmdlet("Remove", "DMSReplicationInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationInstance")]

@@ -67,9 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <para>A list of the intended recipients of the JWT. A valid JWT must provide an aud that
         /// matches at least one entry in this list. See <a href="https://tools.ietf.org/html/rfc7519#section-4.1.3">RFC
         /// 7519</a>. Supported only for HTTP APIs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -141,11 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <para>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this
         /// must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations.
         /// In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
-        ///               , where <replaceable></replaceable>{region} is the same as the region
-        /// hosting the Lambda function, path indicates that the remaining substring in the URI
-        /// should be treated as the path to the resource, including the initial /. For Lambda
-        /// functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations.
-        /// Supported only for REQUEST authorizers.</para>
+        /// , where <replaceable></replaceable>{region} is the same as the region hosting the
+        /// Lambda function, path indicates that the remaining substring in the URI should be
+        /// treated as the path to the resource, including the initial /. For Lambda functions,
+        /// this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported
+        /// only for REQUEST authorizers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,9 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// with AWS Lambda authorizers for HTTP APIs</a>.</para><para>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from
         /// inbound requests. Currently only header-based and query parameter-based selections
         /// are supported, for example $request.header.Authorization.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -217,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <para>
         /// <para>The base domain of the identity provider that issues JSON Web Tokens. For example,
         /// an Amazon Cognito user pool has the following format: https://cognito-idp.<replaceable>{region}</replaceable>.amazonaws.com/<replaceable>{userPoolId}</replaceable>
-        ///               . Required for the JWT authorizer type. Supported only for HTTP APIs.</para>
+        /// . Required for the JWT authorizer type. Supported only for HTTP APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

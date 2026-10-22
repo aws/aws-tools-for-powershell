@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// volume. Exported disk snapshots appear in Amazon EC2 as Amazon EBS volumes. Snapshots
     /// are exported to the same Amazon Web Services Region in Amazon EC2 as the source Lightsail
     /// snapshot.
-    /// </para><para>
+    /// </para><para></para><para>
     /// The <c>export snapshot</c> operation supports tag-based access control via resource
     /// tags applied to the resource identified by <c>source snapshot name</c>. For more information,
     /// see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon

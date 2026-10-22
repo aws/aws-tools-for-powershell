@@ -78,9 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <summary>
         /// <para>
         /// <para>The IP addresses for an accelerator.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -167,11 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             }
             #endif
             context.Enabled = this.Enabled;
+            context.IpAddressType = this.IpAddressType;
             if (this.IpAddress != null)
             {
                 context.IpAddress = new List<System.String>(this.IpAddress);
             }
-            context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -197,13 +198,13 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             {
                 request.Enabled = cmdletContext.Enabled.Value;
             }
-            if (cmdletContext.IpAddress != null)
-            {
-                request.IpAddresses = cmdletContext.IpAddress;
-            }
             if (cmdletContext.IpAddressType != null)
             {
                 request.IpAddressType = cmdletContext.IpAddressType;
+            }
+            if (cmdletContext.IpAddress != null)
+            {
+                request.IpAddresses = cmdletContext.IpAddress;
             }
             if (cmdletContext.Name != null)
             {
@@ -266,8 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         {
             public System.String AcceleratorArn { get; set; }
             public System.Boolean? Enabled { get; set; }
-            public List<System.String> IpAddress { get; set; }
             public Amazon.GlobalAccelerator.IpAddressType IpAddressType { get; set; }
+            public List<System.String> IpAddress { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.GlobalAccelerator.Model.UpdateCustomRoutingAcceleratorResponse, UpdateGACLCustomRoutingAcceleratorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Accelerator;

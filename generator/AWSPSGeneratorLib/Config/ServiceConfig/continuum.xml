@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>continuum</C2jFilename>
+    <AssemblyName>Continuum</AssemblyName>
+    <ServiceNounPrefix>CONT</ServiceNounPrefix>
+    <ServiceName>AWS Continuum</ServiceName>
+    <ServiceId>Continuum</ServiceId>
+    <ServiceClientInterface>IAmazonContinuum</ServiceClientInterface>
+    <ServiceClient>AmazonContinuumClient</ServiceClient>
+    <ServiceModuleGuid>70ad3523-1176-4285-b5a2-4a1acbe41c5f</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateCollector" OutputProperty="*" Verb="Register" Noun="Collector" ShouldProcessTarget="CollectorArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCodeFinding" OutputProperty="*" Verb="New" Noun="CodeFinding" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCodeScan" OutputProperty="Scan" Verb="New" Noun="CodeScan" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCollector" OutputProperty="*" Verb="New" Noun="Collector" ShouldProcessTarget="Type" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="*" Verb="New" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIntegration" OutputProperty="*" Verb="New" Noun="Integration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCollector" Verb="Remove" Noun="Collector" ShouldProcessTarget="CollectorId" PipelineParameter="CollectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntegration" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationId" PipelineParameter="IntegrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateCollector" Verb="Unregister" Noun="Collector" ShouldProcessTarget="CollectorArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCodeFinding" OutputProperty="*" Verb="Get" Noun="CodeFinding" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCodeIssue" OutputProperty="*" Verb="Get" Noun="CodeIssue" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCodeIssueArtifact" OutputProperty="*" Verb="Get" Noun="CodeIssueArtifact" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCodeScan" OutputProperty="Scan" Verb="Get" Noun="CodeScan" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCollector" OutputProperty="*" Verb="Get" Noun="Collector" PipelineParameter="CollectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCollectorDataAccessAuthorization" Verb="Get" Noun="CollectorDataAccessAuthorization" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironment" OutputProperty="*" Verb="Get" Noun="Environment" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIntegration" OutputProperty="*" Verb="Get" Noun="Integration" PipelineParameter="IntegrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociatedCollectors" OutputProperty="AssociatedCollectors" Verb="Get" Noun="AssociatedCollectorList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociatedEnvironments" OutputProperty="AssociatedEnvironments" Verb="Get" Noun="AssociatedEnvironmentList" PipelineParameter="CollectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeFindings" OutputProperty="Items" Verb="Get" Noun="CodeFindingList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeIssueArtifacts" OutputProperty="Items" Verb="Get" Noun="CodeIssueArtifactList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeIssues" OutputProperty="Items" Verb="Get" Noun="CodeIssueList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeScans" OutputProperty="Scans" Verb="Get" Noun="CodeScanList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollectors" OutputProperty="Items" Verb="Get" Noun="CollectorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironments" OutputProperty="Items" Verb="Get" Noun="EnvironmentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIntegrations" OutputProperty="Items" Verb="Get" Noun="IntegrationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartIntegrationAuthorization" OutputProperty="*" Verb="Start" Noun="IntegrationAuthorization" ShouldProcessTarget="ProviderType" PipelineParameter="ProviderType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCollector" OutputProperty="*" Verb="Update" Noun="Collector" ShouldProcessTarget="CollectorId" PipelineParameter="CollectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="*" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIntegration" OutputProperty="*" Verb="Update" Noun="Integration" ShouldProcessTarget="IntegrationId" PipelineParameter="IntegrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -655,7 +655,7 @@ $GLUE_Completers = {
             ($_ -eq "Update-GLUEMLTransform/WorkerType")
         }
         {
-            $v = "G.025X","G.1X","G.2X","G.4X","G.8X","Standard","Z.2X"
+            $v = "G.025X","G.12X","G.16X","G.1X","G.2X","G.4X","G.8X","R.1X","R.2X","R.4X","R.8X","Standard","Z.2X"
             break
         }
 

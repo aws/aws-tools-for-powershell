@@ -250,6 +250,7 @@ $IVSRT_SelectMap = @{
                "Get-IVSRTStageSessionList",
                "Get-IVSRTStorageConfigurationList",
                "Get-IVSRTResourceTag",
+               "Revoke-IVSRTConnectionToken",
                "Start-IVSRTComposition",
                "Start-IVSRTParticipantReplication",
                "Stop-IVSRTComposition",

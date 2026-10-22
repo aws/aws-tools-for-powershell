@@ -57,9 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The filters to apply to the metadata model assessment requests.</para><para>The following filter names are supported:</para><ul><li><para><c>request-id</c> – The request identifier.</para></li><li><para><c>status</c> – The request status. Valid values: <c>RECEIVED</c>, <c>IN_PROGRESS</c>,
         /// <c>SUCCESS</c>, <c>FAILED</c>.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

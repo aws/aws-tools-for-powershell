@@ -63,6 +63,51 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         public System.String CoreNetworkId { get; set; }
         #endregion
         
+        #region Parameter NatGatewayRule
+        /// <summary>
+        /// <para>
+        /// <para>The NAT rules for the Site-to-Site VPN attachment, up to 50 rules.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NatGatewayRules")]
+        public Amazon.NetworkManager.Model.NatRuleRequest[] NatGatewayRule { get; set; }
+        #endregion
+        
+        #region Parameter NatGatewaySupport
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable NAT gateway support on the Site-to-Site VPN attachment.
+        /// To enable NAT gateway support, you must also specify at least one NAT rule. If you
+        /// don't specify a value, NAT gateway support is disabled. Only the core network owner
+        /// can configure NAT on an attachment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkManager.NatGatewaySupportValue")]
+        public Amazon.NetworkManager.NatGatewaySupportValue NatGatewaySupport { get; set; }
+        #endregion
+        
+        #region Parameter NatSystemRouteSupport
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the core network installs system routes for the NAT CIDR blocks
+        /// of the attachment's NAT rules. System routes have a route type of <c>SYSTEM</c>. NAT
+        /// is applied to traffic whether or not this option is enabled. The default is <c>true</c>
+        /// for VPN connections that use BGP and <c>false</c> for VPN connections that use static
+        /// routing. If the VPN connection uses static routing, you must specify <c>false</c>
+        /// or omit this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? NatSystemRouteSupport { get; set; }
+        #endregion
+        
         #region Parameter RoutingPolicyLabel
         /// <summary>
         /// <para>
@@ -171,6 +216,12 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
                 WriteWarning("You are passing $null as a value for parameter CoreNetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.NatGatewayRule != null)
+            {
+                context.NatGatewayRule = new List<Amazon.NetworkManager.Model.NatRuleRequest>(this.NatGatewayRule);
+            }
+            context.NatGatewaySupport = this.NatGatewaySupport;
+            context.NatSystemRouteSupport = this.NatSystemRouteSupport;
             context.RoutingPolicyLabel = this.RoutingPolicyLabel;
             if (this.Tag != null)
             {
@@ -206,6 +257,18 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (cmdletContext.CoreNetworkId != null)
             {
                 request.CoreNetworkId = cmdletContext.CoreNetworkId;
+            }
+            if (cmdletContext.NatGatewayRule != null)
+            {
+                request.NatGatewayRules = cmdletContext.NatGatewayRule;
+            }
+            if (cmdletContext.NatGatewaySupport != null)
+            {
+                request.NatGatewaySupport = cmdletContext.NatGatewaySupport;
+            }
+            if (cmdletContext.NatSystemRouteSupport != null)
+            {
+                request.NatSystemRouteSupport = cmdletContext.NatSystemRouteSupport.Value;
             }
             if (cmdletContext.RoutingPolicyLabel != null)
             {
@@ -276,6 +339,9 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         {
             public System.String ClientToken { get; set; }
             public System.String CoreNetworkId { get; set; }
+            public List<Amazon.NetworkManager.Model.NatRuleRequest> NatGatewayRule { get; set; }
+            public Amazon.NetworkManager.NatGatewaySupportValue NatGatewaySupport { get; set; }
+            public System.Boolean? NatSystemRouteSupport { get; set; }
             public System.String RoutingPolicyLabel { get; set; }
             public List<Amazon.NetworkManager.Model.Tag> Tag { get; set; }
             public System.String VpnConnectionArn { get; set; }

@@ -1400,6 +1400,20 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.TransitGatewayAttachmentNatGatewaySupportValue
+        "Edit-EC2TransitGatewayAttachmentNatConfiguration/NatGatewaySupport"
+        {
+            $v = "disable","enable"
+            break
+        }
+
+        # Amazon.EC2.TransitGatewayAttachmentNatSystemRouteSupportValue
+        "Edit-EC2TransitGatewayAttachmentNatConfiguration/NatSystemRouteSupport"
+        {
+            $v = "disable","enable"
+            break
+        }
+
         # Amazon.EC2.TransitGatewayAttachmentResourceType
         {
             ($_ -eq "New-EC2TransitGatewayMeteringPolicyEntry/DestinationTransitGatewayAttachmentType") -Or
@@ -1719,6 +1733,8 @@ $EC2_map = @{
     "Mode"=@("Edit-EC2AccountVpcEncryptionControl","Edit-EC2VpcEncryptionControl","New-EC2LocalGatewayRouteTable")
     "NatGateway"=@("Edit-EC2AccountVpcEncryptionControl")
     "NatGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "NatGatewaySupport"=@("Edit-EC2TransitGatewayAttachmentNatConfiguration")
+    "NatSystemRouteSupport"=@("Edit-EC2TransitGatewayAttachmentNatConfiguration")
     "NestedVirtualization"=@("Edit-EC2InstanceCpuOption")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "NetworkPerformanceOptions_BandwidthWeighting"=@("New-EC2Instance")
@@ -2483,6 +2499,7 @@ $EC2_SelectMap = @{
                "Get-EC2SnapshotBlockPublicAccessState",
                "Get-EC2SpotPlacementScore",
                "Get-EC2SubnetCidrReservation",
+               "Get-EC2TransitGatewayAttachmentNatConfiguration",
                "Get-EC2TransitGatewayAttachmentPropagation",
                "Get-EC2TransitGatewayMeteringPolicyEntry",
                "Get-EC2TransitGatewayMulticastDomainAssociation",
@@ -2562,6 +2579,7 @@ $EC2_SelectMap = @{
                "Edit-EC2TrafficMirrorFilterRule",
                "Edit-EC2TrafficMirrorSession",
                "Edit-EC2TransitGateway",
+               "Edit-EC2TransitGatewayAttachmentNatConfiguration",
                "Edit-EC2TransitGatewayMeteringPolicy",
                "Edit-EC2TransitGatewayPolicyTableEntry",
                "Edit-EC2TransitGatewayPrefixListReference",

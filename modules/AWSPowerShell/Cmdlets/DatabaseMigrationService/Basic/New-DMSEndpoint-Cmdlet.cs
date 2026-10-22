@@ -1407,9 +1407,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// see <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-data-repair-concepts.html#GUID-1805CCF7-4AF2-482D-B65A-998192F89C2B">
         /// RMAN Data Repair Concepts</a> in the <i>Oracle Database Backup and Recovery User's
         /// Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -3581,9 +3582,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>One or more tags to be assigned to the endpoint.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -4098,8 +4100,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.DocDbSettings_SecretsManagerAccessRoleArn = this.DocDbSettings_SecretsManagerAccessRoleArn;
             context.DocDbSettings_SecretsManagerSecretId = this.DocDbSettings_SecretsManagerSecretId;
             context.DocDbSettings_ServerName = this.DocDbSettings_ServerName;
-            context.DocDbSettings_Username = this.DocDbSettings_Username;
             context.DocDbSettings_UseUpdateLookUp = this.DocDbSettings_UseUpdateLookUp;
+            context.DocDbSettings_Username = this.DocDbSettings_Username;
             context.DynamoDbSettings_ServiceAccessRoleArn = this.DynamoDbSettings_ServiceAccessRoleArn;
             context.ElasticsearchSettings_EndpointUri = this.ElasticsearchSettings_EndpointUri;
             context.ElasticsearchSettings_ErrorRetryDuration = this.ElasticsearchSettings_ErrorRetryDuration;
@@ -4206,8 +4208,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MicrosoftSQLServerSettings_TlogAccessMode = this.MicrosoftSQLServerSettings_TlogAccessMode;
             context.MicrosoftSQLServerSettings_TrimSpaceInChar = this.MicrosoftSQLServerSettings_TrimSpaceInChar;
             context.MicrosoftSQLServerSettings_UseBcpFullLoad = this.MicrosoftSQLServerSettings_UseBcpFullLoad;
-            context.MicrosoftSQLServerSettings_Username = this.MicrosoftSQLServerSettings_Username;
             context.MicrosoftSQLServerSettings_UseThirdPartyBackupDevice = this.MicrosoftSQLServerSettings_UseThirdPartyBackupDevice;
+            context.MicrosoftSQLServerSettings_Username = this.MicrosoftSQLServerSettings_Username;
             context.MongoDbSettings_AuthMechanism = this.MongoDbSettings_AuthMechanism;
             context.MongoDbSettings_AuthSource = this.MongoDbSettings_AuthSource;
             context.MongoDbSettings_AuthType = this.MongoDbSettings_AuthType;
@@ -4222,8 +4224,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MongoDbSettings_SecretsManagerAccessRoleArn = this.MongoDbSettings_SecretsManagerAccessRoleArn;
             context.MongoDbSettings_SecretsManagerSecretId = this.MongoDbSettings_SecretsManagerSecretId;
             context.MongoDbSettings_ServerName = this.MongoDbSettings_ServerName;
-            context.MongoDbSettings_Username = this.MongoDbSettings_Username;
             context.MongoDbSettings_UseUpdateLookUp = this.MongoDbSettings_UseUpdateLookUp;
+            context.MongoDbSettings_Username = this.MongoDbSettings_Username;
             context.MySQLSettings_AfterConnectScript = this.MySQLSettings_AfterConnectScript;
             context.MySQLSettings_AuthenticationMethod = this.MySQLSettings_AuthenticationMethod;
             context.MySQLSettings_CleanSourceMetadataOnMismatch = this.MySQLSettings_CleanSourceMetadataOnMismatch;
@@ -4249,8 +4251,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.NeptuneSettings_S3BucketName = this.NeptuneSettings_S3BucketName;
             context.NeptuneSettings_ServiceAccessRoleArn = this.NeptuneSettings_ServiceAccessRoleArn;
             context.OracleSettings_AccessAlternateDirectly = this.OracleSettings_AccessAlternateDirectly;
-            context.OracleSettings_AdditionalArchivedLogDestId = this.OracleSettings_AdditionalArchivedLogDestId;
             context.OracleSettings_AddSupplementalLogging = this.OracleSettings_AddSupplementalLogging;
+            context.OracleSettings_AdditionalArchivedLogDestId = this.OracleSettings_AdditionalArchivedLogDestId;
             context.OracleSettings_AllowSelectNestedTable = this.OracleSettings_AllowSelectNestedTable;
             context.OracleSettings_ArchivedLogDestId = this.OracleSettings_ArchivedLogDestId;
             context.OracleSettings_ArchivedLogsOnly = this.OracleSettings_ArchivedLogsOnly;
@@ -4591,16 +4593,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.DocDbSettings.ServerName = requestDocDbSettings_docDbSettings_ServerName;
                 requestDocDbSettingsIsNull = false;
             }
-            System.String requestDocDbSettings_docDbSettings_Username = null;
-            if (cmdletContext.DocDbSettings_Username != null)
-            {
-                requestDocDbSettings_docDbSettings_Username = cmdletContext.DocDbSettings_Username;
-            }
-            if (requestDocDbSettings_docDbSettings_Username != null)
-            {
-                request.DocDbSettings.Username = requestDocDbSettings_docDbSettings_Username;
-                requestDocDbSettingsIsNull = false;
-            }
             System.Boolean? requestDocDbSettings_docDbSettings_UseUpdateLookUp = null;
             if (cmdletContext.DocDbSettings_UseUpdateLookUp != null)
             {
@@ -4609,6 +4601,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestDocDbSettings_docDbSettings_UseUpdateLookUp != null)
             {
                 request.DocDbSettings.UseUpdateLookUp = requestDocDbSettings_docDbSettings_UseUpdateLookUp.Value;
+                requestDocDbSettingsIsNull = false;
+            }
+            System.String requestDocDbSettings_docDbSettings_Username = null;
+            if (cmdletContext.DocDbSettings_Username != null)
+            {
+                requestDocDbSettings_docDbSettings_Username = cmdletContext.DocDbSettings_Username;
+            }
+            if (requestDocDbSettings_docDbSettings_Username != null)
+            {
+                request.DocDbSettings.Username = requestDocDbSettings_docDbSettings_Username;
                 requestDocDbSettingsIsNull = false;
             }
              // determine if request.DocDbSettings should be set to null
@@ -5518,16 +5520,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.MicrosoftSQLServerSettings.UseBcpFullLoad = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseBcpFullLoad.Value;
                 requestMicrosoftSQLServerSettingsIsNull = false;
             }
-            System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username = null;
-            if (cmdletContext.MicrosoftSQLServerSettings_Username != null)
-            {
-                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username = cmdletContext.MicrosoftSQLServerSettings_Username;
-            }
-            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username != null)
-            {
-                request.MicrosoftSQLServerSettings.Username = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username;
-                requestMicrosoftSQLServerSettingsIsNull = false;
-            }
             System.Boolean? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseThirdPartyBackupDevice = null;
             if (cmdletContext.MicrosoftSQLServerSettings_UseThirdPartyBackupDevice != null)
             {
@@ -5536,6 +5528,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseThirdPartyBackupDevice != null)
             {
                 request.MicrosoftSQLServerSettings.UseThirdPartyBackupDevice = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseThirdPartyBackupDevice.Value;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_Username != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username = cmdletContext.MicrosoftSQLServerSettings_Username;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username != null)
+            {
+                request.MicrosoftSQLServerSettings.Username = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username;
                 requestMicrosoftSQLServerSettingsIsNull = false;
             }
              // determine if request.MicrosoftSQLServerSettings should be set to null
@@ -5687,16 +5689,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.MongoDbSettings.ServerName = requestMongoDbSettings_mongoDbSettings_ServerName;
                 requestMongoDbSettingsIsNull = false;
             }
-            System.String requestMongoDbSettings_mongoDbSettings_Username = null;
-            if (cmdletContext.MongoDbSettings_Username != null)
-            {
-                requestMongoDbSettings_mongoDbSettings_Username = cmdletContext.MongoDbSettings_Username;
-            }
-            if (requestMongoDbSettings_mongoDbSettings_Username != null)
-            {
-                request.MongoDbSettings.Username = requestMongoDbSettings_mongoDbSettings_Username;
-                requestMongoDbSettingsIsNull = false;
-            }
             System.Boolean? requestMongoDbSettings_mongoDbSettings_UseUpdateLookUp = null;
             if (cmdletContext.MongoDbSettings_UseUpdateLookUp != null)
             {
@@ -5705,6 +5697,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMongoDbSettings_mongoDbSettings_UseUpdateLookUp != null)
             {
                 request.MongoDbSettings.UseUpdateLookUp = requestMongoDbSettings_mongoDbSettings_UseUpdateLookUp.Value;
+                requestMongoDbSettingsIsNull = false;
+            }
+            System.String requestMongoDbSettings_mongoDbSettings_Username = null;
+            if (cmdletContext.MongoDbSettings_Username != null)
+            {
+                requestMongoDbSettings_mongoDbSettings_Username = cmdletContext.MongoDbSettings_Username;
+            }
+            if (requestMongoDbSettings_mongoDbSettings_Username != null)
+            {
+                request.MongoDbSettings.Username = requestMongoDbSettings_mongoDbSettings_Username;
                 requestMongoDbSettingsIsNull = false;
             }
              // determine if request.MongoDbSettings should be set to null
@@ -5984,16 +5986,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.OracleSettings.AccessAlternateDirectly = requestOracleSettings_oracleSettings_AccessAlternateDirectly.Value;
                 requestOracleSettingsIsNull = false;
             }
-            System.Int32? requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId = null;
-            if (cmdletContext.OracleSettings_AdditionalArchivedLogDestId != null)
-            {
-                requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId = cmdletContext.OracleSettings_AdditionalArchivedLogDestId.Value;
-            }
-            if (requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId != null)
-            {
-                request.OracleSettings.AdditionalArchivedLogDestId = requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId.Value;
-                requestOracleSettingsIsNull = false;
-            }
             System.Boolean? requestOracleSettings_oracleSettings_AddSupplementalLogging = null;
             if (cmdletContext.OracleSettings_AddSupplementalLogging != null)
             {
@@ -6002,6 +5994,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestOracleSettings_oracleSettings_AddSupplementalLogging != null)
             {
                 request.OracleSettings.AddSupplementalLogging = requestOracleSettings_oracleSettings_AddSupplementalLogging.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Int32? requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId = null;
+            if (cmdletContext.OracleSettings_AdditionalArchivedLogDestId != null)
+            {
+                requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId = cmdletContext.OracleSettings_AdditionalArchivedLogDestId.Value;
+            }
+            if (requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId != null)
+            {
+                request.OracleSettings.AdditionalArchivedLogDestId = requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId.Value;
                 requestOracleSettingsIsNull = false;
             }
             System.Boolean? requestOracleSettings_oracleSettings_AllowSelectNestedTable = null;
@@ -7755,8 +7757,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String DocDbSettings_SecretsManagerAccessRoleArn { get; set; }
             public System.String DocDbSettings_SecretsManagerSecretId { get; set; }
             public System.String DocDbSettings_ServerName { get; set; }
-            public System.String DocDbSettings_Username { get; set; }
             public System.Boolean? DocDbSettings_UseUpdateLookUp { get; set; }
+            public System.String DocDbSettings_Username { get; set; }
             public System.String DynamoDbSettings_ServiceAccessRoleArn { get; set; }
             public System.String ElasticsearchSettings_EndpointUri { get; set; }
             public System.Int32? ElasticsearchSettings_ErrorRetryDuration { get; set; }
@@ -7845,8 +7847,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public Amazon.DatabaseMigrationService.TlogAccessMode MicrosoftSQLServerSettings_TlogAccessMode { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_TrimSpaceInChar { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_UseBcpFullLoad { get; set; }
-            public System.String MicrosoftSQLServerSettings_Username { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_UseThirdPartyBackupDevice { get; set; }
+            public System.String MicrosoftSQLServerSettings_Username { get; set; }
             public Amazon.DatabaseMigrationService.AuthMechanismValue MongoDbSettings_AuthMechanism { get; set; }
             public System.String MongoDbSettings_AuthSource { get; set; }
             public Amazon.DatabaseMigrationService.AuthTypeValue MongoDbSettings_AuthType { get; set; }
@@ -7861,8 +7863,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String MongoDbSettings_SecretsManagerAccessRoleArn { get; set; }
             public System.String MongoDbSettings_SecretsManagerSecretId { get; set; }
             public System.String MongoDbSettings_ServerName { get; set; }
-            public System.String MongoDbSettings_Username { get; set; }
             public System.Boolean? MongoDbSettings_UseUpdateLookUp { get; set; }
+            public System.String MongoDbSettings_Username { get; set; }
             public System.String MySQLSettings_AfterConnectScript { get; set; }
             public Amazon.DatabaseMigrationService.MySQLAuthenticationMethod MySQLSettings_AuthenticationMethod { get; set; }
             public System.Boolean? MySQLSettings_CleanSourceMetadataOnMismatch { get; set; }
@@ -7888,8 +7890,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String NeptuneSettings_S3BucketName { get; set; }
             public System.String NeptuneSettings_ServiceAccessRoleArn { get; set; }
             public System.Boolean? OracleSettings_AccessAlternateDirectly { get; set; }
-            public System.Int32? OracleSettings_AdditionalArchivedLogDestId { get; set; }
             public System.Boolean? OracleSettings_AddSupplementalLogging { get; set; }
+            public System.Int32? OracleSettings_AdditionalArchivedLogDestId { get; set; }
             public System.Boolean? OracleSettings_AllowSelectNestedTable { get; set; }
             public System.Int32? OracleSettings_ArchivedLogDestId { get; set; }
             public System.Boolean? OracleSettings_ArchivedLogsOnly { get; set; }

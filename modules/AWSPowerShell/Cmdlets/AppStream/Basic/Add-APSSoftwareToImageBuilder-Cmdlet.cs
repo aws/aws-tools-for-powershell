@@ -66,9 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The list of license included applications to associate with the image builder.</para><para>Possible values include the following:</para><ul><li><para>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</para></li><li><para>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Professional_32Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Professional_64Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Professional_32Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Professional_64Bit</para></li><li><para>Microsoft_Project_2021_Professional_32Bit</para></li><li><para>Microsoft_Project_2021_Professional_64Bit</para></li><li><para>Microsoft_Project_2024_Professional_32Bit</para></li><li><para>Microsoft_Project_2024_Professional_64Bit</para></li><li><para>Microsoft_Office_2021_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Office_2021_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Project_2021_Standard_32Bit</para></li><li><para>Microsoft_Project_2021_Standard_64Bit</para></li><li><para>Microsoft_Project_2024_Standard_32Bit</para></li><li><para>Microsoft_Project_2024_Standard_64Bit</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

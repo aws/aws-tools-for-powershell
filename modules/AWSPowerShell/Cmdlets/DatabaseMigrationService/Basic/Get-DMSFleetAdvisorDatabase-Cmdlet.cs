@@ -58,9 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para> If you specify any of the following filters, the output includes information for
         /// only those databases that meet the filter criteria: </para><ul><li><para><c>database-id</c> – The ID of the database.</para></li><li><para><c>database-name</c> – The name of the database.</para></li><li><para><c>database-engine</c> – The name of the database engine.</para></li><li><para><c>server-ip-address</c> – The IP address of the database server.</para></li><li><para><c>database-ip-address</c> – The IP address of the database.</para></li><li><para><c>collector-name</c> – The name of the associated Fleet Advisor collector.</para></li></ul><para>An example is: <c>describe-fleet-advisor-databases --filter Name="database-id",Values="45"</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

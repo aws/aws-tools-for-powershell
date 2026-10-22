@@ -30,10 +30,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes the specified transit gateway route table. If there are any route tables associated
-    /// with the transit gateway route table, you must first run <a>DisassociateRouteTable</a>
-    /// before you can delete the transit gateway route table. This removes any route tables
-    /// associated with the transit gateway route table.
+    /// Deletes the specified transit gateway route table. Before you can delete a transit
+    /// gateway route table, you must disassociate all attachments from it by using <a>DisassociateTransitGatewayRouteTable</a>
+    /// and wait for the disassociations to complete. You can't delete a transit gateway route
+    /// table that is the default association route table or default propagation route table
+    /// for the transit gateway. To change the default route tables, use <a>ModifyTransitGateway</a>.
     /// </summary>
     [Cmdlet("Remove", "EC2TransitGatewayRouteTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.TransitGatewayRouteTable")]

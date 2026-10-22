@@ -58,9 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para> If you specify any of the following filters, the output includes information for
         /// only those schema objects that meet the filter criteria:</para><ul><li><para><c>schema-id</c> – The ID of the schema, for example <c>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</c>.</para></li></ul><para>Example: <c>describe-fleet-advisor-schema-object-summary --filter Name="schema-id",Values="50"</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

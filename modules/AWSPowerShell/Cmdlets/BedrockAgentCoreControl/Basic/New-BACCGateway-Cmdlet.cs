@@ -176,10 +176,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProtocolConfiguration_Mcp_DisableMcpListToolsPagination
         /// <summary>
         /// <para>
-        /// <para>Specifies whether pagination is disabled for the Model Context Protocol (MCP) <c>tools/list</c>
-        /// operation. When set to <c>true</c>, the gateway returns the complete list of tools
-        /// in a single response without a pagination cursor. When set to <c>false</c> or omitted,
-        /// the gateway returns tools in paginated responses.</para>
+        /// <para>Specifies whether the gateway disables pagination for the Model Context Protocol (MCP)
+        /// <c>tools/list</c> operation. When set to <c>true</c>, the gateway returns the complete
+        /// list of tools in a single response without a pagination cursor. When set to <c>false</c>
+        /// or omitted, the gateway returns tools in paginated responses. For information about
+        /// changing this value on an existing gateway, see <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html">UpdateGateway</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

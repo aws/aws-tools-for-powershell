@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Result
         /// <summary>
         /// <para>
-        /// <para>The result data from the successful callback operation. Maximum size is 256 KB.</para>
+        /// <para>The result data from the successful callback operation. Maximum size is 1 MB.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

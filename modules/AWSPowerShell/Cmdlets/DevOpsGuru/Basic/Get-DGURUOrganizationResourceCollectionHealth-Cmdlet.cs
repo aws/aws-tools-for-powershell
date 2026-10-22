@@ -49,9 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para>The ID of the Amazon Web Services account.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -64,9 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para>The ID of the organizational unit.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -171,10 +173,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.OrganizationalUnitId != null)
-            {
-                context.OrganizationalUnitId = new List<System.String>(this.OrganizationalUnitId);
-            }
             context.OrganizationResourceCollectionType = this.OrganizationResourceCollectionType;
             #if MODULAR
             if (this.OrganizationResourceCollectionType == null && ParameterWasBound(nameof(this.OrganizationResourceCollectionType)))
@@ -182,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
                 WriteWarning("You are passing $null as a value for parameter OrganizationResourceCollectionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.OrganizationalUnitId != null)
+            {
+                context.OrganizationalUnitId = new List<System.String>(this.OrganizationalUnitId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -208,13 +210,13 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.OrganizationalUnitId != null)
-            {
-                request.OrganizationalUnitIds = cmdletContext.OrganizationalUnitId;
-            }
             if (cmdletContext.OrganizationResourceCollectionType != null)
             {
                 request.OrganizationResourceCollectionType = cmdletContext.OrganizationResourceCollectionType;
+            }
+            if (cmdletContext.OrganizationalUnitId != null)
+            {
+                request.OrganizationalUnitIds = cmdletContext.OrganizationalUnitId;
             }
             
             // Initialize loop variant and commence piping
@@ -298,8 +300,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             public List<System.String> AccountId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> OrganizationalUnitId { get; set; }
             public Amazon.DevOpsGuru.OrganizationResourceCollectionType OrganizationResourceCollectionType { get; set; }
+            public List<System.String> OrganizationalUnitId { get; set; }
             public System.Func<Amazon.DevOpsGuru.Model.DescribeOrganizationResourceCollectionHealthResponse, GetDGURUOrganizationResourceCollectionHealthCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

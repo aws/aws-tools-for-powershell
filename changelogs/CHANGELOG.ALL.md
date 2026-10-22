@@ -1,4 +1,45 @@
-﻿### 5.0.321 (2026-10-21 19:06Z)
+﻿### 5.0.322 (2026-10-22 19:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.357.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCEvaluator: added parameter EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional.
+    * Modified cmdlet Update-BACCEvaluator: added parameter EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNReplicationFindingList leveraging the ListReplicationFindings service API.
+  * Amazon Continuum. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CONT and can be listed using the command 'Get-AWSCmdletName -Service CONT'.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2TransitGatewayAttachmentNatConfiguration leveraging the ModifyTransitGatewayAttachmentNatConfiguration service API.
+    * Added cmdlet Get-EC2TransitGatewayAttachmentNatConfiguration leveraging the GetTransitGatewayAttachmentNatConfiguration service API.
+  * Amazon Elemental Inference
+    * Added cmdlet Get-EMIScheduleActionList leveraging the ListScheduleActions service API.
+    * Added cmdlet New-EMIScheduleAction leveraging the CreateScheduleAction service API.
+    * Added cmdlet Remove-EMIScheduleAction leveraging the DeleteScheduleAction service API.
+  * Amazon Interactive Video Service RealTime
+    * Added cmdlet Revoke-IVSRTConnectionToken leveraging the RevokeConnectionToken service API.
+  * Amazon Managed Streaming for Kafka Connect
+    * Added cmdlet Resume-MSKCConnector leveraging the ResumeConnector service API.
+    * Added cmdlet Suspend-MSKCConnector leveraging the PauseConnector service API.
+    * Modified cmdlet Update-MSKCConnector: added parameter SkipHealthValidation.
+  * Amazon Network Manager
+    * Added cmdlet Get-NMGRAttachmentNatConfigurationList leveraging the ListAttachmentNatConfigurations service API.
+    * Added cmdlet Update-NMGRAttachmentNatConfiguration leveraging the UpdateAttachmentNatConfiguration service API.
+    * Modified cmdlet Get-NMGRCoreNetworkRoutingInformationList: added parameters ExactPrefixMatch, LongestPrefixMatch, SubnetOfMatch and SupernetOfMatch.
+    * Modified cmdlet Get-NMGRNetworkRoute: added parameters MaxResult, NextToken and NoAutoIteration.
+    * Modified cmdlet New-NMGRConnectAttachment: added parameters NatGatewayRule and NatGatewaySupport.
+    * Modified cmdlet New-NMGRDirectConnectGatewayAttachment: added parameters NatGatewayRule, NatGatewaySupport and NatSystemRouteSupport.
+    * Modified cmdlet New-NMGRSiteToSiteVpnAttachment: added parameters NatGatewayRule, NatGatewaySupport and NatSystemRouteSupport.
+    * Modified cmdlet New-NMGRVpcAttachment: added parameters NatGatewayRule and NatGatewaySupport.
+  * Amazon OpenSearch Serverless
+    * Added cmdlet Get-OSSIngestionJob leveraging the GetIngestionJob service API.
+    * Added cmdlet Get-OSSIngestionJobList leveraging the ListIngestionJobs service API.
+    * Added cmdlet Get-OSSIngestionStream leveraging the GetIngestionStream service API.
+    * Added cmdlet Get-OSSIngestionStreamList leveraging the ListIngestionStreams service API.
+    * Added cmdlet New-OSSIngestionJob leveraging the CreateIngestionJob service API.
+    * Added cmdlet New-OSSIngestionStream leveraging the CreateIngestionStream service API.
+    * Added cmdlet Remove-OSSIngestionStream leveraging the DeleteIngestionStream service API.
+    * Added cmdlet Stop-OSSIngestionJob leveraging the CancelIngestionJob service API.
+    * Modified cmdlet Update-OSSCollection: added parameters EncryptionConfig_AWSOwnedKey and EncryptionConfig_KmsKeyArn.
+
+### 5.0.321 (2026-10-21 19:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.356.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * 
     * Added cmdlet Get-AWSSigV4PreSignedURL.

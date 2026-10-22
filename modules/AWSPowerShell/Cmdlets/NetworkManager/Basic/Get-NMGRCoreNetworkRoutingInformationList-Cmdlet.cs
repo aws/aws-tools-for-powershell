@@ -111,6 +111,22 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         public System.String[] ExactAsPathMatch { get; set; }
         #endregion
         
+        #region Parameter ExactPrefixMatch
+        /// <summary>
+        /// <para>
+        /// <para>Exact prefix values to match when filtering routing information.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExactPrefixMatches")]
+        public System.String[] ExactPrefixMatch { get; set; }
+        #endregion
+        
         #region Parameter LocalPreferenceMatch
         /// <summary>
         /// <para>
@@ -125,6 +141,23 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LocalPreferenceMatches")]
         public System.String[] LocalPreferenceMatch { get; set; }
+        #endregion
+        
+        #region Parameter LongestPrefixMatch
+        /// <summary>
+        /// <para>
+        /// <para>Filters routing information based on the longest prefix that matches each provided
+        /// IP address.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LongestPrefixMatches")]
+        public System.String[] LongestPrefixMatch { get; set; }
         #endregion
         
         #region Parameter MedMatch
@@ -146,7 +179,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter NextHopFilter
         /// <summary>
         /// <para>
-        /// <para>Filters to apply based on next hop information.</para><para />
+        /// <para>Filters to apply based on next hop information. Each filter value must exactly match
+        /// the corresponding next hop value. Values for the same filter are joined with OR, and
+        /// different filters are joined with AND. The following filters are supported:</para><ul><li><para><c>core-network-attachment-id</c>: The ID of the core network attachment for the
+        /// next hop, for example <c>attachment-0123456789abcdef0</c>.</para></li><li><para><c>segment-name</c>: The name of the segment for the next hop.</para></li><li><para><c>edge-location</c>: The edge location for the next hop, for example <c>us-east-1</c>.</para></li><li><para><c>resource-id</c>: The ID of the resource for the next hop.</para></li><li><para><c>resource-type</c>: The type of resource for the next hop. The possible values
+        /// are <c>vpc</c>, <c>vpn</c>, <c>connect-peer</c>, <c>direct-connect-gateway</c>, <c>transit-gateway-route-table</c>,
+        /// <c>attachment</c>, and <c>blackhole</c>.</para></li><li><para><c>ip-address</c>: The IP address of the next hop. For a Site-to-Site VPN next hop,
+        /// this is the outside IP address of the AWS side of the VPN tunnel. For a Connect peer
+        /// next hop, this is the core network BGP address of the Connect peer. The value must
+        /// be a single IPv4 or IPv6 address.</para></li></ul><para>You can specify up to 10 filter values in total across <c>NextHopFilters</c> and the
+        /// other match parameters in the request. Each filter value can be up to 256 characters.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -174,6 +216,40 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SegmentName { get; set; }
+        #endregion
+        
+        #region Parameter SubnetOfMatch
+        /// <summary>
+        /// <para>
+        /// <para>Prefix values to filter routing information whose prefix is a subnet of the prefixes
+        /// provided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SubnetOfMatches")]
+        public System.String[] SubnetOfMatch { get; set; }
+        #endregion
+        
+        #region Parameter SupernetOfMatch
+        /// <summary>
+        /// <para>
+        /// <para>Prefix values to filter routing information whose prefix is a supernet of the prefixes
+        /// provided.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SupernetOfMatches")]
+        public System.String[] SupernetOfMatch { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -268,9 +344,17 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             {
                 context.ExactAsPathMatch = new List<System.String>(this.ExactAsPathMatch);
             }
+            if (this.ExactPrefixMatch != null)
+            {
+                context.ExactPrefixMatch = new List<System.String>(this.ExactPrefixMatch);
+            }
             if (this.LocalPreferenceMatch != null)
             {
                 context.LocalPreferenceMatch = new List<System.String>(this.LocalPreferenceMatch);
+            }
+            if (this.LongestPrefixMatch != null)
+            {
+                context.LongestPrefixMatch = new List<System.String>(this.LongestPrefixMatch);
             }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -314,6 +398,14 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
                 WriteWarning("You are passing $null as a value for parameter SegmentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SubnetOfMatch != null)
+            {
+                context.SubnetOfMatch = new List<System.String>(this.SubnetOfMatch);
+            }
+            if (this.SupernetOfMatch != null)
+            {
+                context.SupernetOfMatch = new List<System.String>(this.SupernetOfMatch);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -348,9 +440,17 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             {
                 request.ExactAsPathMatches = cmdletContext.ExactAsPathMatch;
             }
+            if (cmdletContext.ExactPrefixMatch != null)
+            {
+                request.ExactPrefixMatches = cmdletContext.ExactPrefixMatch;
+            }
             if (cmdletContext.LocalPreferenceMatch != null)
             {
                 request.LocalPreferenceMatches = cmdletContext.LocalPreferenceMatch;
+            }
+            if (cmdletContext.LongestPrefixMatch != null)
+            {
+                request.LongestPrefixMatches = cmdletContext.LongestPrefixMatch;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -367,6 +467,14 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (cmdletContext.SegmentName != null)
             {
                 request.SegmentName = cmdletContext.SegmentName;
+            }
+            if (cmdletContext.SubnetOfMatch != null)
+            {
+                request.SubnetOfMatches = cmdletContext.SubnetOfMatch;
+            }
+            if (cmdletContext.SupernetOfMatch != null)
+            {
+                request.SupernetOfMatches = cmdletContext.SupernetOfMatch;
             }
             
             // Initialize loop variant and commence piping
@@ -451,12 +559,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             public System.String CoreNetworkId { get; set; }
             public System.String EdgeLocation { get; set; }
             public List<System.String> ExactAsPathMatch { get; set; }
+            public List<System.String> ExactPrefixMatch { get; set; }
             public List<System.String> LocalPreferenceMatch { get; set; }
+            public List<System.String> LongestPrefixMatch { get; set; }
             public int? MaxResult { get; set; }
             public List<System.String> MedMatch { get; set; }
             public Dictionary<System.String, List<System.String>> NextHopFilter { get; set; }
             public System.String NextToken { get; set; }
             public System.String SegmentName { get; set; }
+            public List<System.String> SubnetOfMatch { get; set; }
+            public List<System.String> SupernetOfMatch { get; set; }
             public System.Func<Amazon.NetworkManager.Model.ListCoreNetworkRoutingInformationResponse, GetNMGRCoreNetworkRoutingInformationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CoreNetworkRoutingInformation;
         }

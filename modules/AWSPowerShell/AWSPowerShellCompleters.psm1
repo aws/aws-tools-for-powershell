@@ -15384,8 +15384,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16078,8 +16078,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16539,9 +16539,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
+    "Select"=@("Search-CSDDocument",
                "Write-CSDDocument",
-               "Search-CSDDocument")
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -22953,6 +22953,7 @@ $CONN_SelectMap = @{
                "Get-CONNQueueList",
                "Get-CONNQuickConnectList",
                "Get-CONNRealtimeContactAnalysisSegmentsV2List",
+               "Get-CONNReplicationFindingList",
                "Get-CONNRoutingProfileManualAssignmentQueueList",
                "Get-CONNRoutingProfileQueueList",
                "Get-CONNRoutingProfileList",
@@ -23803,6 +23804,154 @@ $CONNP_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CONNP_SelectCompleters $CONNP_SelectMap
+# Argument completions for service AWS Continuum
+
+
+$CONT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Continuum.CollectorType
+        "New-CONTCollector/Type"
+        {
+            $v = "AWS_COLLECTOR"
+            break
+        }
+
+        # Amazon.Continuum.GitLabTargetType
+        "New-CONTIntegration/ProviderConfiguration_Gitlab_TargetType"
+        {
+            $v = "GROUP","PROJECT"
+            break
+        }
+
+        # Amazon.Continuum.IntegrationAuthorizationProviderType
+        "Start-CONTIntegrationAuthorization/ProviderType"
+        {
+            $v = "GITHUB"
+            break
+        }
+
+        # Amazon.Continuum.IssueArtifactType
+        "Get-CONTCodeIssueArtifactList/ArtifactType"
+        {
+            $v = "AGENT_COMMUNICATION","DECISION","EVIDENCE","PATCH","REMEDIATION_PROPOSAL","VALIDATION_EVIDENCE"
+            break
+        }
+
+        # Amazon.Continuum.PatchCreationPolicy
+        {
+            ($_ -eq "New-CONTEnvironment/Configuration_CodeConfiguration_EnvironmentConfiguration_PatchCreationPolicy") -Or
+            ($_ -eq "Update-CONTEnvironment/Configuration_CodeConfiguration_EnvironmentConfiguration_PatchCreationPolicy")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CONT_map = @{
+    "ArtifactType"=@("Get-CONTCodeIssueArtifactList")
+    "Configuration_CodeConfiguration_EnvironmentConfiguration_PatchCreationPolicy"=@("New-CONTEnvironment","Update-CONTEnvironment")
+    "ProviderConfiguration_Gitlab_TargetType"=@("New-CONTIntegration")
+    "ProviderType"=@("Start-CONTIntegrationAuthorization")
+    "Type"=@("New-CONTCollector")
+}
+
+_awsArgumentCompleterRegistration $CONT_Completers $CONT_map
+
+$CONT_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CONT.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CONT_SelectMap = @{
+    "Select"=@("Register-CONTCollector",
+               "New-CONTCodeFinding",
+               "New-CONTCodeScan",
+               "New-CONTCollector",
+               "New-CONTEnvironment",
+               "New-CONTIntegration",
+               "Remove-CONTCollector",
+               "Remove-CONTEnvironment",
+               "Remove-CONTIntegration",
+               "Unregister-CONTCollector",
+               "Get-CONTCodeFinding",
+               "Get-CONTCodeIssue",
+               "Get-CONTCodeIssueArtifact",
+               "Get-CONTCodeScan",
+               "Get-CONTCollector",
+               "Get-CONTCollectorDataAccessAuthorization",
+               "Get-CONTEnvironment",
+               "Get-CONTIntegration",
+               "Get-CONTResourcePolicy",
+               "Get-CONTAssociatedCollectorList",
+               "Get-CONTAssociatedEnvironmentList",
+               "Get-CONTCodeFindingList",
+               "Get-CONTCodeIssueArtifactList",
+               "Get-CONTCodeIssueList",
+               "Get-CONTCodeScanList",
+               "Get-CONTCollectorList",
+               "Get-CONTEnvironmentList",
+               "Get-CONTIntegrationList",
+               "Write-CONTResourcePolicy",
+               "Start-CONTIntegrationAuthorization",
+               "Update-CONTCollector",
+               "Update-CONTEnvironment",
+               "Update-CONTIntegration")
+}
+
+_awsArgumentCompleterRegistration $CONT_SelectCompleters $CONT_SelectMap
 # Argument completions for service AWS Control Catalog
 
 
@@ -30551,12 +30700,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
+               "New-DDBTable",
+               "Add-DDBIndexSchema",
                "ConvertTo-DDBItem",
                "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
-               "New-DDBTableSchema",
-               "Add-DDBIndexSchema",
-               "New-DDBTable")
+               "New-DDBTableSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32123,6 +32272,20 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.TransitGatewayAttachmentNatGatewaySupportValue
+        "Edit-EC2TransitGatewayAttachmentNatConfiguration/NatGatewaySupport"
+        {
+            $v = "disable","enable"
+            break
+        }
+
+        # Amazon.EC2.TransitGatewayAttachmentNatSystemRouteSupportValue
+        "Edit-EC2TransitGatewayAttachmentNatConfiguration/NatSystemRouteSupport"
+        {
+            $v = "disable","enable"
+            break
+        }
+
         # Amazon.EC2.TransitGatewayAttachmentResourceType
         {
             ($_ -eq "New-EC2TransitGatewayMeteringPolicyEntry/DestinationTransitGatewayAttachmentType") -Or
@@ -32442,6 +32605,8 @@ $EC2_map = @{
     "Mode"=@("Edit-EC2AccountVpcEncryptionControl","Edit-EC2VpcEncryptionControl","New-EC2LocalGatewayRouteTable")
     "NatGateway"=@("Edit-EC2AccountVpcEncryptionControl")
     "NatGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "NatGatewaySupport"=@("Edit-EC2TransitGatewayAttachmentNatConfiguration")
+    "NatSystemRouteSupport"=@("Edit-EC2TransitGatewayAttachmentNatConfiguration")
     "NestedVirtualization"=@("Edit-EC2InstanceCpuOption")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "NetworkPerformanceOptions_BandwidthWeighting"=@("New-EC2Instance")
@@ -33206,6 +33371,7 @@ $EC2_SelectMap = @{
                "Get-EC2SnapshotBlockPublicAccessState",
                "Get-EC2SpotPlacementScore",
                "Get-EC2SubnetCidrReservation",
+               "Get-EC2TransitGatewayAttachmentNatConfiguration",
                "Get-EC2TransitGatewayAttachmentPropagation",
                "Get-EC2TransitGatewayMeteringPolicyEntry",
                "Get-EC2TransitGatewayMulticastDomainAssociation",
@@ -33285,6 +33451,7 @@ $EC2_SelectMap = @{
                "Edit-EC2TrafficMirrorFilterRule",
                "Edit-EC2TrafficMirrorSession",
                "Edit-EC2TransitGateway",
+               "Edit-EC2TransitGatewayAttachmentNatConfiguration",
                "Edit-EC2TransitGatewayMeteringPolicy",
                "Edit-EC2TransitGatewayPolicyTableEntry",
                "Edit-EC2TransitGatewayPrefixListReference",
@@ -36116,9 +36283,11 @@ $EMI_SelectMap = @{
     "Select"=@("Add-EMIFeed",
                "New-EMIDictionary",
                "New-EMIFeed",
+               "New-EMIScheduleAction",
                "Remove-EMIDictionary",
                "Remove-EMIFeed",
                "Remove-EMIFeedPolicy",
+               "Remove-EMIScheduleAction",
                "Unregister-EMIFeed",
                "Export-EMIDictionaryEntry",
                "Get-EMIDictionary",
@@ -36127,6 +36296,7 @@ $EMI_SelectMap = @{
                "Get-EMIFixture",
                "Get-EMIDictionaryList",
                "Get-EMIFeedList",
+               "Get-EMIScheduleActionList",
                "Get-EMIResourceTag",
                "Write-EMIFeedPolicy",
                "Search-EMIFixture",
@@ -41038,8 +41208,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -41800,7 +41970,7 @@ $GLUE_Completers = {
             ($_ -eq "Update-GLUEMLTransform/WorkerType")
         }
         {
-            $v = "G.025X","G.1X","G.2X","G.4X","G.8X","Standard","Z.2X"
+            $v = "G.025X","G.12X","G.16X","G.1X","G.2X","G.4X","G.8X","R.1X","R.2X","R.4X","R.8X","Standard","Z.2X"
             break
         }
 
@@ -49128,6 +49298,7 @@ $IVSRT_SelectMap = @{
                "Get-IVSRTStageSessionList",
                "Get-IVSRTStorageConfigurationList",
                "Get-IVSRTResourceTag",
+               "Revoke-IVSRTConnectionToken",
                "Start-IVSRTComposition",
                "Start-IVSRTParticipantReplication",
                "Stop-IVSRTComposition",
@@ -49784,7 +49955,9 @@ $MSKC_SelectMap = @{
                "Get-MSKCCustomPluginList",
                "Get-MSKCResourceTag",
                "Get-MSKCWorkerConfigurationList",
+               "Suspend-MSKCConnector",
                "Restart-MSKCConnector",
+               "Resume-MSKCConnector",
                "Add-MSKCResourceTag",
                "Remove-MSKCResourceTag",
                "Update-MSKCConnector")
@@ -63055,6 +63228,19 @@ $NMGR_Completers = {
             break
         }
 
+        # Amazon.NetworkManager.NatGatewaySupportValue
+        {
+            ($_ -eq "New-NMGRConnectAttachment/NatGatewaySupport") -Or
+            ($_ -eq "New-NMGRDirectConnectGatewayAttachment/NatGatewaySupport") -Or
+            ($_ -eq "New-NMGRSiteToSiteVpnAttachment/NatGatewaySupport") -Or
+            ($_ -eq "New-NMGRVpcAttachment/NatGatewaySupport") -Or
+            ($_ -eq "Update-NMGRAttachmentNatConfiguration/NatGatewaySupport")
+        }
+        {
+            $v = "DISABLE","ENABLE"
+            break
+        }
+
         # Amazon.NetworkManager.PeeringState
         "Get-NMGRPeeringList/State"
         {
@@ -63087,6 +63273,7 @@ $NMGR_Completers = {
 $NMGR_map = @{
     "Alias"=@("Get-NMGRCoreNetworkPolicy")
     "AttachmentType"=@("Get-NMGRAttachmentList")
+    "NatGatewaySupport"=@("New-NMGRConnectAttachment","New-NMGRDirectConnectGatewayAttachment","New-NMGRSiteToSiteVpnAttachment","New-NMGRVpcAttachment","Update-NMGRAttachmentNatConfiguration")
     "Options_Protocol"=@("New-NMGRConnectAttachment")
     "PeeringType"=@("Get-NMGRPeeringList")
     "State"=@("Get-NMGRAttachmentList","Get-NMGRPeeringList")
@@ -63207,6 +63394,7 @@ $NMGR_SelectMap = @{
                "Get-NMGRTransitGatewayRegistration",
                "Get-NMGRTransitGatewayRouteTableAttachment",
                "Get-NMGRVpcAttachment",
+               "Get-NMGRAttachmentNatConfigurationList",
                "Get-NMGRAttachmentRoutingPolicyAssociationList",
                "Get-NMGRAttachmentList",
                "Get-NMGRConnectPeerList",
@@ -63228,6 +63416,7 @@ $NMGR_SelectMap = @{
                "Start-NMGRRouteAnalysis",
                "Add-NMGRResourceTag",
                "Remove-NMGRResourceTag",
+               "Update-NMGRAttachmentNatConfiguration",
                "Update-NMGRConnection",
                "Update-NMGRCoreNetwork",
                "Update-NMGRDevice",
@@ -65674,10 +65863,13 @@ $OSS_SelectMap = @{
                "Get-OSSGetEffectiveLifecyclePolicy",
                "Get-OSSGetLifecyclePolicy",
                "Get-OSSGetVpcEndpoint",
+               "Stop-OSSIngestionJob",
                "New-OSSAccessPolicy",
                "New-OSSCollection",
                "New-OSSCollectionGroup",
                "New-OSSIndex",
+               "New-OSSIngestionJob",
+               "New-OSSIngestionStream",
                "New-OSSLifecyclePolicy",
                "New-OSSSecurityConfig",
                "New-OSSSecurityPolicy",
@@ -65686,6 +65878,7 @@ $OSS_SelectMap = @{
                "Remove-OSSCollection",
                "Remove-OSSCollectionGroup",
                "Remove-OSSIndex",
+               "Remove-OSSIngestionStream",
                "Remove-OSSLifecyclePolicy",
                "Remove-OSSSecurityConfig",
                "Remove-OSSSecurityPolicy",
@@ -65693,12 +65886,16 @@ $OSS_SelectMap = @{
                "Get-OSSAccessPolicy",
                "Get-OSSAccountSetting",
                "Get-OSSIndex",
+               "Get-OSSIngestionJob",
+               "Get-OSSIngestionStream",
                "Get-OSSPoliciesStat",
                "Get-OSSSecurityConfig",
                "Get-OSSSecurityPolicy",
                "Get-OSSAccessPolicyList",
                "Get-OSSCollectionGroupList",
                "Get-OSSCollectionList",
+               "Get-OSSIngestionJobList",
+               "Get-OSSIngestionStreamList",
                "Get-OSSLifecyclePolicyList",
                "Get-OSSSecurityConfigList",
                "Get-OSSSecurityPolicyList",
@@ -80018,18 +80215,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
+               "New-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Write-S3Object",
+               "Copy-S3Object",
+               "Mount-S3PSDrive",
+               "Remove-S3Bucket",
+               "Dismount-S3PSDrive",
                "Test-S3Bucket",
                "Get-S3MultipartUpload",
-               "Remove-S3MultipartUpload",
-               "Dismount-S3PSDrive",
-               "Mount-S3PSDrive",
                "Get-S3PreSignedURL",
-               "Read-S3Object",
-               "New-S3Bucket",
-               "Write-S3Object",
-               "Remove-S3Bucket",
                "Remove-S3Object",
-               "Copy-S3Object")
+               "Read-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -96785,44 +96982,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -96862,3 +97021,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

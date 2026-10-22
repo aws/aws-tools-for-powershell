@@ -59,9 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>An alias that defines access for a preconfigured range of IP addresses.</para><para>The only alias currently supported is <c>lightsail-connect</c>, which allows IP addresses
         /// of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -78,9 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// to an instance.</para></note><para>Examples:</para><ul><li><para>To allow the IP address <c>192.0.2.44</c>, specify <c>192.0.2.44</c> or <c>192.0.2.44/32</c>.
         /// </para></li><li><para>To allow the IP addresses <c>192.0.2.0</c> to <c>192.0.2.255</c>, specify <c>192.0.2.0/24</c>.</para></li></ul><para>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
         /// Inter-Domain Routing</a> on <i>Wikipedia</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -130,9 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// address can connect to an instance through IPv6; otherwise, IPv4 should be used.</para><note><para>The <c>cidrs</c> parameter lists the IPv4 addresses that are allowed to connect to
         /// an instance.</para></note><para>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
         /// Inter-Domain Routing</a> on <i>Wikipedia</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

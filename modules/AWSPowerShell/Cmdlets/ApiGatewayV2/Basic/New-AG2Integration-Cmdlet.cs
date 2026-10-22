@@ -224,9 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// name and the associated value is a method request parameter value or static value
         /// that must be enclosed within single quotes and pre-encoded as required by the backend.
         /// The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
-        ///               , where                   <replaceable>{location}</replaceable>    
-        ///            is querystring, path, or header; and                   <replaceable>{name}</replaceable>
-        ///                must be a valid and unique method request parameter name.</para><para>For HTTP API integrations with a specified integrationSubtype, request parameters
+        /// , where <replaceable>{location}</replaceable> is querystring, path, or header; and
+        /// <replaceable>{name}</replaceable> must be a valid and unique method request parameter
+        /// name.</para><para>For HTTP API integrations with a specified integrationSubtype, request parameters
         /// are a key-value map specifying parameters that are passed to AWS_PROXY integrations.
         /// You can provide static values, or map request data, stage variables, or context variables
         /// that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working
@@ -237,9 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// values, or map request data, stage variables, or context variables that are evaluated
         /// at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming
         /// API requests and responses</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -255,9 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// on the value of the Content-Type header sent by the client. The content type value
         /// is the key in this map, and the template (as a String) is the value. Supported only
         /// for WebSocket APIs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -278,9 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// be a static value, or map to response data, stage variables, or context variables
         /// that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming
         /// API requests and responses</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

@@ -62,9 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>The protocols used to send notifications, such as <c>Email</c>, or <c>SMS</c> (text
         /// messaging).</para><para>Specify a protocol in your request to return information about a specific contact
         /// method protocol.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

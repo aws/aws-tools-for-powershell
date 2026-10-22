@@ -1382,6 +1382,7 @@ $CONN_SelectMap = @{
                "Get-CONNQueueList",
                "Get-CONNQuickConnectList",
                "Get-CONNRealtimeContactAnalysisSegmentsV2List",
+               "Get-CONNReplicationFindingList",
                "Get-CONNRoutingProfileManualAssignmentQueueList",
                "Get-CONNRoutingProfileQueueList",
                "Get-CONNRoutingProfileList",

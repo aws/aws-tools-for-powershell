@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter EncryptionConfig_AWSOwnedKey
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to use an Amazon Web Services-owned key for encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EncryptionConfig_AWSOwnedKey { get; set; }
+        #endregion
+        
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
@@ -82,6 +92,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfig_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon Web Services Key Management Service key used to encrypt the
+        /// collection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfig_KmsKeyArn { get; set; }
         #endregion
         
         #region Parameter VectorOptions_ServerlessVectorAcceleration
@@ -154,6 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             context.ClientToken = this.ClientToken;
             context.DeletionProtection = this.DeletionProtection;
             context.Description = this.Description;
+            context.EncryptionConfig_AWSOwnedKey = this.EncryptionConfig_AWSOwnedKey;
+            context.EncryptionConfig_KmsKeyArn = this.EncryptionConfig_KmsKeyArn;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -189,6 +212,35 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate EncryptionConfig
+            var requestEncryptionConfigIsNull = true;
+            request.EncryptionConfig = new Amazon.OpenSearchServerless.Model.EncryptionConfig();
+            System.Boolean? requestEncryptionConfig_encryptionConfig_AWSOwnedKey = null;
+            if (cmdletContext.EncryptionConfig_AWSOwnedKey != null)
+            {
+                requestEncryptionConfig_encryptionConfig_AWSOwnedKey = cmdletContext.EncryptionConfig_AWSOwnedKey.Value;
+            }
+            if (requestEncryptionConfig_encryptionConfig_AWSOwnedKey != null)
+            {
+                request.EncryptionConfig.AWSOwnedKey = requestEncryptionConfig_encryptionConfig_AWSOwnedKey.Value;
+                requestEncryptionConfigIsNull = false;
+            }
+            System.String requestEncryptionConfig_encryptionConfig_KmsKeyArn = null;
+            if (cmdletContext.EncryptionConfig_KmsKeyArn != null)
+            {
+                requestEncryptionConfig_encryptionConfig_KmsKeyArn = cmdletContext.EncryptionConfig_KmsKeyArn;
+            }
+            if (requestEncryptionConfig_encryptionConfig_KmsKeyArn != null)
+            {
+                request.EncryptionConfig.KmsKeyArn = requestEncryptionConfig_encryptionConfig_KmsKeyArn;
+                requestEncryptionConfigIsNull = false;
+            }
+             // determine if request.EncryptionConfig should be set to null
+            if (requestEncryptionConfigIsNull)
+            {
+                request.EncryptionConfig = null;
             }
             if (cmdletContext.Id != null)
             {
@@ -271,6 +323,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             public System.String ClientToken { get; set; }
             public Amazon.OpenSearchServerless.DeletionProtection DeletionProtection { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? EncryptionConfig_AWSOwnedKey { get; set; }
+            public System.String EncryptionConfig_KmsKeyArn { get; set; }
             public System.String Id { get; set; }
             public Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus VectorOptions_ServerlessVectorAcceleration { get; set; }
             public System.Func<Amazon.OpenSearchServerless.Model.UpdateCollectionResponse, UpdateOSSCollectionCmdlet, object> Select { get; set; } =

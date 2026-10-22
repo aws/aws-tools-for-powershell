@@ -299,6 +299,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId { get; set; }
         #endregion
         
+        #region Parameter EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional
+        /// <summary>
+        /// <para>
+        /// <para> A list of dimensions that lets an LLM-as-a-judge evaluator score several dimensions
+        /// of the same target in a single evaluation. Each dimension has its own instruction
+        /// and rating scale, and produces its own result. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.BedrockAgentCoreControl.Model.EvaluationDimension[] EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional { get; set; }
+        #endregion
+        
         #region Parameter RatingScale_Numerical
         /// <summary>
         /// <para>
@@ -534,6 +550,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (this.RatingScale_Categorical != null)
             {
                 context.RatingScale_Categorical = new List<Amazon.BedrockAgentCoreControl.Model.CategoricalScaleDefinition>(this.RatingScale_Categorical);
+            }
+            if (this.EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional != null)
+            {
+                context.EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional = new List<Amazon.BedrockAgentCoreControl.Model.EvaluationDimension>(this.EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional);
             }
             if (this.RatingScale_Numerical != null)
             {
@@ -1051,6 +1071,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_RatingScale.Categorical = requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_RatingScale_ratingScale_Categorical;
                 requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_RatingScaleIsNull = false;
             }
+            List<Amazon.BedrockAgentCoreControl.Model.EvaluationDimension> requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_RatingScale_evaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional = null;
+            if (cmdletContext.EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_RatingScale_evaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional = cmdletContext.EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_RatingScale_evaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_RatingScale.MultiDimensional = requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_RatingScale_evaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional;
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_RatingScaleIsNull = false;
+            }
             List<Amazon.BedrockAgentCoreControl.Model.NumericalScaleDefinition> requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_RatingScale_ratingScale_Numerical = null;
             if (cmdletContext.RatingScale_Numerical != null)
             {
@@ -1182,6 +1212,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.Single? EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature { get; set; }
             public System.Single? EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.CategoricalScaleDefinition> RatingScale_Categorical { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.EvaluationDimension> EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.NumericalScaleDefinition> RatingScale_Numerical { get; set; }
             public System.String EvaluatorId { get; set; }
             public System.String KmsKeyArn { get; set; }

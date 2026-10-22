@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
     /// Enables Shield Advanced for a specific Amazon Web Services resource. The resource
-    /// can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, Global Accelerator
+    /// can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, Global Accelerator
     /// standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic
     /// Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by
     /// association with protected Amazon EC2 Elastic IP addresses.
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the resource to be protected.</para><para>The ARN should be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <c>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></c></para></li><li><para>For an Elastic Load Balancer (Classic Load Balancer): <c>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i></c></para></li><li><para>For an Amazon CloudFront distribution: <c>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i></c></para></li><li><para>For an Global Accelerator standard accelerator: <c>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i></c></para></li><li><para>For Amazon Route 53: <c>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i></c></para></li><li><para>For an Elastic IP address: <c>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i></c></para></li></ul>
+        /// <para>The ARN (Amazon Resource Name) of the resource to be protected.</para><para>The ARN should be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <c>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></c></para></li><li><para>For an Elastic Load Balancer (Classic Load Balancer): <c>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i></c></para></li><li><para>For an Amazon CloudFront distribution: <c>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i></c></para></li><li><para>For an Global Accelerator standard accelerator: <c>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i></c></para></li><li><para>For Amazon Route 53: <c>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i></c></para></li><li><para>For an Elastic IP address: <c>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i></c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,9 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         /// <summary>
         /// <para>
         /// <para>One or more tag key-value pairs for the <a>Protection</a> object that is created.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

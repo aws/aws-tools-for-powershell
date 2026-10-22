@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateScheduleAction" OutputProperty="*" Verb="New" Noun="ScheduleAction" ShouldProcessTarget="Id,ActionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDictionary" OutputProperty="*" Verb="Remove" Noun="Dictionary" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -40,6 +44,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFeedPolicy" Verb="Remove" Noun="FeedPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScheduleAction" OutputProperty="ActionName" Verb="Remove" Noun="ScheduleAction" ShouldProcessTarget="Id,ActionName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,6 +80,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFeeds" OutputProperty="Feeds" Verb="Get" Noun="FeedList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListScheduleActions" OutputProperty="ScheduleActions" Verb="Get" Noun="ScheduleActionList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

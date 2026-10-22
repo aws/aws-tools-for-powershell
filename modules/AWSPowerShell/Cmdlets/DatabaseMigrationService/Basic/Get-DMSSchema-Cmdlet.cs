@@ -30,7 +30,10 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Returns information about the schema for the specified endpoint.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about the schema for the specified endpoint.
+    /// 
+    ///  
+    /// <para></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DMSSchema")]
     [OutputType("System.String")]

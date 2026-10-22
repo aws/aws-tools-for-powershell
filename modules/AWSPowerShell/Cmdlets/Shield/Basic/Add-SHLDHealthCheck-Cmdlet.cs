@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// 
     ///  
     /// <para>
-    /// You define the health check in Route 53 and then associate it with your Shield Advanced
+    /// You define the health check in Route 53 and then associate it with your Shield Advanced
     /// protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield
     /// Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. 
     /// </para>

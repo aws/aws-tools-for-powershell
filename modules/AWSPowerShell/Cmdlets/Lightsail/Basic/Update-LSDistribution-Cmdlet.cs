@@ -89,9 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>An array of objects that describe the per-path cache behavior for the distribution.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -128,9 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The specific cookies to forward to your distribution's origin.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -146,9 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// With a custom error response, you can specify the page to return when the origin responds
         /// with a given HTTP error code. You can also specify the HTTP status code to send to
         /// the viewer.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -221,9 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The specific headers to forward to your distribution's origin.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -346,9 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>The specific query strings that the distribution forwards to the origin.</para><para>Your distribution will cache content based on the specified query strings.</para><para>If the <c>option</c> parameter is true, then your distribution forwards all query
         /// strings, regardless of what you specify using the <c>queryStringsAllowList</c> parameter.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -450,10 +455,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.UpdateDistributionResponse, UpdateLSDistributionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.CacheBehavior != null)
-            {
-                context.CacheBehavior = new List<Amazon.Lightsail.Model.CacheBehaviorPerPath>(this.CacheBehavior);
-            }
             context.CacheBehaviorSettings_AllowedHTTPMethod = this.CacheBehaviorSettings_AllowedHTTPMethod;
             context.CacheBehaviorSettings_CachedHTTPMethod = this.CacheBehaviorSettings_CachedHTTPMethod;
             context.CacheBehaviorSettings_DefaultTTL = this.CacheBehaviorSettings_DefaultTTL;
@@ -474,6 +475,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             context.CacheBehaviorSettings_MaximumTTL = this.CacheBehaviorSettings_MaximumTTL;
             context.CacheBehaviorSettings_MinimumTTL = this.CacheBehaviorSettings_MinimumTTL;
+            if (this.CacheBehavior != null)
+            {
+                context.CacheBehavior = new List<Amazon.Lightsail.Model.CacheBehaviorPerPath>(this.CacheBehavior);
+            }
             context.CertificateName = this.CertificateName;
             if (this.CustomErrorResponse != null)
             {
@@ -513,10 +518,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // create request
             var request = new Amazon.Lightsail.Model.UpdateDistributionRequest();
             
-            if (cmdletContext.CacheBehavior != null)
-            {
-                request.CacheBehaviors = cmdletContext.CacheBehavior;
-            }
             
              // populate CacheBehaviorSettings
             var requestCacheBehaviorSettingsIsNull = true;
@@ -680,6 +681,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestCacheBehaviorSettingsIsNull)
             {
                 request.CacheBehaviorSettings = null;
+            }
+            if (cmdletContext.CacheBehavior != null)
+            {
+                request.CacheBehaviors = cmdletContext.CacheBehavior;
             }
             if (cmdletContext.CertificateName != null)
             {
@@ -846,7 +851,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.Lightsail.Model.CacheBehaviorPerPath> CacheBehavior { get; set; }
             public System.String CacheBehaviorSettings_AllowedHTTPMethod { get; set; }
             public System.String CacheBehaviorSettings_CachedHTTPMethod { get; set; }
             public System.Int64? CacheBehaviorSettings_DefaultTTL { get; set; }
@@ -858,6 +862,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public List<System.String> ForwardedQueryStrings_QueryStringsAllowList { get; set; }
             public System.Int64? CacheBehaviorSettings_MaximumTTL { get; set; }
             public System.Int64? CacheBehaviorSettings_MinimumTTL { get; set; }
+            public List<Amazon.Lightsail.Model.CacheBehaviorPerPath> CacheBehavior { get; set; }
             public System.String CertificateName { get; set; }
             public List<Amazon.Lightsail.Model.DistributionCustomErrorResponse> CustomErrorResponse { get; set; }
             public Amazon.Lightsail.BehaviorEnum DefaultCacheBehavior_Behavior { get; set; }

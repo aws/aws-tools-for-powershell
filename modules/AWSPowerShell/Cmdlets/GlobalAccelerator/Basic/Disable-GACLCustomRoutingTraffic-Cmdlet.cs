@@ -78,9 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <para>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet
         /// that you want to prevent from receiving traffic. The IP addresses must be a subset
         /// of the IP addresses allowed for the VPC subnet associated with the endpoint group.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -94,9 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <para>
         /// <para>A list of specific Amazon EC2 instance ports (destination ports) in a subnet endpoint
         /// that you want to prevent from receiving traffic.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

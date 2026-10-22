@@ -287,6 +287,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAttachmentNatConfigurations" OutputProperty="AttachmentNatConfigurations" Verb="Get" Noun="AttachmentNatConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAttachmentRoutingPolicyAssociations" OutputProperty="AttachmentRoutingPolicyAssociations" Verb="Get" Noun="AttachmentRoutingPolicyAssociationList" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -368,6 +372,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAttachmentNatConfiguration" OutputProperty="*" Verb="Update" Noun="AttachmentNatConfiguration" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -67,11 +67,13 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         #region Parameter Server
         /// <summary>
         /// <para>
-        /// <para>Full replacement of the server list. Only allowed when the step is in NOT_STARTED
-        /// status (Server type steps only).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Full replacement of the server list. Only allowed
+        /// when the step is in NOT_STARTED status (Server type steps only).
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -83,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Only SKIPPED is accepted. Step must be in NOT_STARTED or FAILED status.</para>
+        /// Only SKIPPED is accepted. Step must be in NOT_STARTED
+        /// or FAILED status.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         #region Parameter WaitDurationMinute
         /// <summary>
         /// <para>
-        /// <para>Updated wait duration. Only allowed when the step is in NOT_STARTED status (Wait type
-        /// steps only).</para>
+        /// Updated wait duration. Only allowed
+        /// when the step is in NOT_STARTED status (Wait type steps only).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

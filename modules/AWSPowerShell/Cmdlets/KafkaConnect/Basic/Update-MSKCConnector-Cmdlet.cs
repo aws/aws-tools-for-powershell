@@ -175,6 +175,22 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         public System.Int32? AutoScaling_MinWorkerCount { get; set; }
         #endregion
         
+        #region Parameter SkipHealthValidation
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the update bypasses connector-level and task-level health checks.
+        /// If <c>true</c>, the update skips the health checks. The update stays in effect even
+        /// if the connector or its tasks are unhealthy, and Amazon MSK Connect doesn't roll it
+        /// back. If <c>false</c> or not specified, the health checks run. If they fail, MSK Connect
+        /// automatically rolls the connector back to its previous configuration, and the update
+        /// doesn't take effect. To update a connector that is in the <c>PAUSED</c> state, you
+        /// must set this parameter to <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SkipHealthValidation { get; set; }
+        #endregion
+        
         #region Parameter ProvisionedCapacity_WorkerCount
         /// <summary>
         /// <para>
@@ -262,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
                 WriteWarning("You are passing $null as a value for parameter CurrentVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SkipHealthValidation = this.SkipHealthValidation;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -439,6 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             {
                 request.CurrentVersion = cmdletContext.CurrentVersion;
             }
+            if (cmdletContext.SkipHealthValidation != null)
+            {
+                request.SkipHealthValidation = cmdletContext.SkipHealthValidation.Value;
+            }
             
             CmdletOutput output;
             
@@ -505,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             public System.String ConnectorArn { get; set; }
             public Dictionary<System.String, System.String> ConnectorConfiguration { get; set; }
             public System.String CurrentVersion { get; set; }
+            public System.Boolean? SkipHealthValidation { get; set; }
             public System.Func<Amazon.KafkaConnect.Model.UpdateConnectorResponse, UpdateMSKCConnectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

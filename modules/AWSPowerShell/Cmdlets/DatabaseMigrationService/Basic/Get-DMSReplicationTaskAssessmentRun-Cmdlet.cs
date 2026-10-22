@@ -60,9 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>Filters applied to the premigration assessment runs described in the form of key-value
         /// pairs.</para><para>Valid filter names: <c>replication-task-assessment-run-arn</c>, <c>replication-task-arn</c>,
         /// <c>replication-instance-arn</c>, <c>status</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

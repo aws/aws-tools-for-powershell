@@ -55,9 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The filters to apply to the migration projects.</para><para>The following filter names are supported:</para><ul><li><para><c>migration-project-identifier</c> – The migration project name or ARN.</para></li><li><para><c>instance-profile-identifier</c> – The instance profile name or ARN.</para></li><li><para><c>data-provider-identifier</c> – The source or target data provider name or ARN.</para></li><li><para><c>source-data-provider-identifier</c> – The source data provider name or ARN.</para></li><li><para><c>target-data-provider-identifier</c> – The target data provider name or ARN.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

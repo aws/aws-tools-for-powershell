@@ -201,6 +201,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CONNQuickConnect', 
         'Get-CONNQuickConnectList', 
         'Get-CONNRealtimeContactAnalysisSegmentsV2List', 
+        'Get-CONNReplicationFindingList', 
         'Get-CONNResourceTag', 
         'Get-CONNRoutingProfile', 
         'Get-CONNRoutingProfileList', 

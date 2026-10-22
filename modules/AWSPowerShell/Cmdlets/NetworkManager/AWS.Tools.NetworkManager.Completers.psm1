@@ -101,6 +101,19 @@ $NMGR_Completers = {
             break
         }
 
+        # Amazon.NetworkManager.NatGatewaySupportValue
+        {
+            ($_ -eq "New-NMGRConnectAttachment/NatGatewaySupport") -Or
+            ($_ -eq "New-NMGRDirectConnectGatewayAttachment/NatGatewaySupport") -Or
+            ($_ -eq "New-NMGRSiteToSiteVpnAttachment/NatGatewaySupport") -Or
+            ($_ -eq "New-NMGRVpcAttachment/NatGatewaySupport") -Or
+            ($_ -eq "Update-NMGRAttachmentNatConfiguration/NatGatewaySupport")
+        }
+        {
+            $v = "DISABLE","ENABLE"
+            break
+        }
+
         # Amazon.NetworkManager.PeeringState
         "Get-NMGRPeeringList/State"
         {
@@ -133,6 +146,7 @@ $NMGR_Completers = {
 $NMGR_map = @{
     "Alias"=@("Get-NMGRCoreNetworkPolicy")
     "AttachmentType"=@("Get-NMGRAttachmentList")
+    "NatGatewaySupport"=@("New-NMGRConnectAttachment","New-NMGRDirectConnectGatewayAttachment","New-NMGRSiteToSiteVpnAttachment","New-NMGRVpcAttachment","Update-NMGRAttachmentNatConfiguration")
     "Options_Protocol"=@("New-NMGRConnectAttachment")
     "PeeringType"=@("Get-NMGRPeeringList")
     "State"=@("Get-NMGRAttachmentList","Get-NMGRPeeringList")
@@ -253,6 +267,7 @@ $NMGR_SelectMap = @{
                "Get-NMGRTransitGatewayRegistration",
                "Get-NMGRTransitGatewayRouteTableAttachment",
                "Get-NMGRVpcAttachment",
+               "Get-NMGRAttachmentNatConfigurationList",
                "Get-NMGRAttachmentRoutingPolicyAssociationList",
                "Get-NMGRAttachmentList",
                "Get-NMGRConnectPeerList",
@@ -274,6 +289,7 @@ $NMGR_SelectMap = @{
                "Start-NMGRRouteAnalysis",
                "Add-NMGRResourceTag",
                "Remove-NMGRResourceTag",
+               "Update-NMGRAttachmentNatConfiguration",
                "Update-NMGRConnection",
                "Update-NMGRCoreNetwork",
                "Update-NMGRDevice",

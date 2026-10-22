@@ -102,7 +102,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PauseConnector" OutputProperty="*" Verb="Suspend" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RestartConnector" OutputProperty="*" Verb="Restart" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeConnector" OutputProperty="*" Verb="Resume" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
