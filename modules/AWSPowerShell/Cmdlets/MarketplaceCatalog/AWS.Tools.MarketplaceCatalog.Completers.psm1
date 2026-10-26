@@ -163,6 +163,7 @@ $MCAT_Completers = {
             ($_ -eq "Get-MCATEntityList/ContainerProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/DataProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/MachineLearningProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSetSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSort_SortOrder") -Or
@@ -173,6 +174,13 @@ $MCAT_Completers = {
         }
         {
             $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+        # Amazon.MarketplaceCatalog.SubsidiaryAuthorizationSortBy
+        "Get-MCATEntityList/EntityTypeSort_SubsidiaryAuthorizationSort_SortBy"
+        {
+            $v = "CreatedDate","EntityId","LastModifiedDate","ResourceId","Status","SubsidiaryAccountId"
             break
         }
 
@@ -193,6 +201,8 @@ $MCAT_map = @{
     "DataProductSort_SortOrder"=@("Get-MCATEntityList")
     "EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy"=@("Get-MCATEntityList")
     "EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_SubsidiaryAuthorizationSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder"=@("Get-MCATEntityList")
     "Intent"=@("Start-MCATChangeSet")
     "MachineLearningProductSort_SortBy"=@("Get-MCATEntityList")
     "MachineLearningProductSort_SortOrder"=@("Get-MCATEntityList")

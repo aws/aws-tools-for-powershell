@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm.</para>
+        /// The farm ID of the farm.
         /// </para>
         /// </summary>
         #if !MODULAR

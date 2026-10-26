@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the farm that contains the limit to delete.</para>
+        /// The unique identifier of the farm that contains
+        /// the limit to delete.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter LimitId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the limit to delete.</para>
+        /// The unique identifier of the limit to delete.
         /// </para>
         /// </summary>
         #if !MODULAR

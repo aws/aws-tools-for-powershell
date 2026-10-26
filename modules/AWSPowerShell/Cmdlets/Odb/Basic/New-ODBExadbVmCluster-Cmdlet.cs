@@ -225,8 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter ScanListenerPortTcpSsl
         /// <summary>
         /// <para>
-        /// <para>The port number for TCP connections with SSL to the Single Client Access Name (SCAN)
-        /// listener.</para>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

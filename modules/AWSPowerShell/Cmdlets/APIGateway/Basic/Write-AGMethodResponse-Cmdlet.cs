@@ -84,9 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>Specifies the Model resources used for the response's content type. Response models
         /// are represented as a key/value map, with a content type as the key and a Model name
         /// as the value.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -108,9 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// enclosed within a pair of single quotes (e.g., <c>'application/json'</c>), or a JSON
         /// expression from the back-end response payload in the form of <c>integration.response.body.{JSON-expression}</c>,
         /// where <c>JSON-expression</c> is a valid JSON expression without the <c>$</c> prefix.)</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

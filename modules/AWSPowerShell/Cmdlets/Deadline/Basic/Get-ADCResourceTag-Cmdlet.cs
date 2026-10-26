@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The resource ARN to list tags for.</para>
+        /// The resource ARN to list tags for.
         /// </para>
         /// </summary>
         #if !MODULAR

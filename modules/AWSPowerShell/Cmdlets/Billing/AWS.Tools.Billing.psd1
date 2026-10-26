@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-AWSBContract', 
         'Add-AWSBResourceTag', 
         'Add-AWSBSourceView', 
         'Get-AWSBBillingPreference', 
@@ -95,6 +96,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AWSBBillingViewSegmentList', 
         'Get-AWSBBusinessSupportAccountChargeList', 
         'Get-AWSBBusinessSupportSubscriptionHistoryList', 
+        'Get-AWSBContractInformation', 
+        'Get-AWSBContractList', 
+        'Get-AWSBContractualInvestmentAttestationList', 
+        'Get-AWSBContractualInvestmentList', 
+        'Get-AWSBContractualInvestmentSummaryList', 
         'Get-AWSBCredit', 
         'Get-AWSBCreditAllocationHistory', 
         'Get-AWSBEnterpriseSupportChargeSummary', 
@@ -105,9 +111,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AWSBSourceViewsForBillingViewList', 
         'Invoke-AWSBCreditRedemption', 
         'New-AWSBBillingView', 
+        'New-AWSBContractualInvestmentAttestation', 
         'Remove-AWSBBillingView', 
+        'Remove-AWSBContract', 
         'Remove-AWSBResourceTag', 
         'Remove-AWSBSourceView', 
+        'Stop-AWSBContractualInvestmentAttestation', 
         'Update-AWSBBillingPreference', 
         'Update-AWSBBillingView')
 

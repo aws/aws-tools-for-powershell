@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter BudgetId
         /// <summary>
         /// <para>
-        /// <para>The budget ID of the budget to delete.</para>
+        /// The budget ID of the budget to delete.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm to remove from the budget.</para>
+        /// The farm ID of the farm to remove from the budget.
         /// </para>
         /// </summary>
         #if !MODULAR

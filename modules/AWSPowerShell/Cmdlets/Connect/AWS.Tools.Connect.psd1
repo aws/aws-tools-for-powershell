@@ -448,6 +448,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CONNMetricContent', 
         'Update-CONNMetricMetadata', 
         'Update-CONNNotificationContent', 
+        'Update-CONNOutboundEmailContactMessage', 
         'Update-CONNParticipantAuthentication', 
         'Update-CONNParticipantRoleConfig', 
         'Update-CONNPhoneNumber', 

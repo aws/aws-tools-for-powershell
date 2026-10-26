@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID for the job to disassociate from the member.</para>
+        /// The farm ID for the job to disassociate from the
+        /// member.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID to disassociate from a member in a job.</para>
+        /// The job ID to disassociate from a member in a job.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
-        /// <para>A member's principal ID to disassociate from a job.</para>
+        /// A member's principal ID to disassociate from
+        /// a job.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID connected to a job for which you're disassociating a member.</para>
+        /// The queue ID connected to a job for which you're
+        /// disassociating a member.
         /// </para>
         /// </summary>
         #if !MODULAR

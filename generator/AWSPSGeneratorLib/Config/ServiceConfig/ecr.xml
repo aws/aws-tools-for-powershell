@@ -112,6 +112,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationBackfillResults" OutputProperty="*" Verb="Get" Noun="ReplicationBackfillResultDetail" PipelineParameter="ReplicationBackfillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRepositories" OutputProperty="Repositories" Verb="Get" Noun="Repository" PipelineParameter="RepositoryNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="MaxResults" NewName="MaxResult" Alias="MaxItems" />
@@ -174,6 +178,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListReplicationBackfills" OutputProperty="*" Verb="Get" Noun="ReplicationBackfillList" PipelineParameter="RegistryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -229,6 +237,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartLifecyclePolicyPreview" OutputProperty="*" Verb="Start" Noun="LifecyclePolicyPreview" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartReplicationBackfill" OutputProperty="*" Verb="Start" Noun="ReplicationBackfill" ShouldProcessTarget="Destination_RegistryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopReplicationBackfill" OutputProperty="*" Verb="Stop" Noun="ReplicationBackfill" ShouldProcessTarget="ReplicationBackfillId" PipelineParameter="ReplicationBackfillId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

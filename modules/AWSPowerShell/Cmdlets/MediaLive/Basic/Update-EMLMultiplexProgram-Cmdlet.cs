@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// <summary>
         /// <para>
         /// The constant bitrate configuration for
-        /// the video encode.When this field is defined, StatmuxSettings must be undefined.
+        /// the video encode. When this field is defined, StatmuxSettings must be undefined.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID to update.</para>
+        /// The farm ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>The fleet ID to update.</para>
+        /// The fleet ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID to update.</para>
+        /// The queue ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status to update.</para>
+        /// The status to update.
         /// </para>
         /// </summary>
         #if !MODULAR

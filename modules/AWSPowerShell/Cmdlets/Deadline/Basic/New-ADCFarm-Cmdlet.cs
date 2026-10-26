@@ -51,9 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter CostScaleFactor
         /// <summary>
         /// <para>
-        /// <para>A multiplier applied to the farm's calculated costs for usage data and budget tracking.
-        /// A value less than 1 represents a discount, a value greater than 1 represents a premium,
-        /// and a value of 1 represents no adjustment. The default value is 1.</para>
+        /// A multiplier applied to the farm's calculated
+        /// costs for usage data and budget tracking. A value less than 1 represents a discount,
+        /// a value greater than 1 represents a premium, and a value of 1 represents no adjustment.
+        /// The default value is 1.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the KMS key to use on the farm.</para>
+        /// The ARN of the KMS key to use on the farm.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to your farm. Each tag consists of a tag key and a tag value. Tag
-        /// keys and values are both required, but tag values can be empty strings.</para><para />
+        /// The tags to add to your farm. Each tag consists of
+        /// a tag key and a tag value. Tag keys and values are both required, but tag values can
+        /// be empty strings.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -119,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

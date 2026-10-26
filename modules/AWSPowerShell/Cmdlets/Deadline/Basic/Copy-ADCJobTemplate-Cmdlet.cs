@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TargetS3Location_BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon S3 bucket.</para>
+        /// The name of the Amazon S3 bucket.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID to copy.</para>
+        /// The farm ID to copy.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID to copy.</para>
+        /// The job ID to copy.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TargetS3Location_Key
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 object key that uniquely identifies the Amazon S3 bucket.</para>
+        /// The Amazon S3 object key that uniquely identifies
+        /// the Amazon S3 bucket.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID to copy.</para>
+        /// The queue ID to copy.
         /// </para>
         /// </summary>
         #if !MODULAR

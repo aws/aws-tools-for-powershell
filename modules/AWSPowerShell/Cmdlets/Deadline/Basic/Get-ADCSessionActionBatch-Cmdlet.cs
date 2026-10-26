@@ -31,15 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
 {
     /// <summary>
     /// Retrieves multiple session actions in a single request. This is a batch version of
-    /// the <c>GetSessionAction</c> API.
-    /// 
-    ///  
-    /// <para>
-    /// The result of getting each session action is reported individually in the response.
-    /// Because the batch request can result in a combination of successful and unsuccessful
-    /// actions, you should check for batch errors even when the call returns an HTTP status
-    /// code of 200.
-    /// </para>
+    /// the <c>GetSessionAction</c> API. The result of getting each session action is reported
+    /// individually in the response. Because the batch request can result in a combination
+    /// of successful and unsuccessful actions, you should check for batch errors even when
+    /// the call returns an HTTP status code of 200.
     /// </summary>
     [Cmdlet("Get", "ADCSessionActionBatch")]
     [OutputType("Amazon.Deadline.Model.BatchGetSessionActionResponse")]
@@ -56,8 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The list of session action identifiers to retrieve. You can specify up to 100 identifiers
-        /// per request.</para><para />
+        /// The list of session action identifiers to
+        /// retrieve. You can specify up to 100 identifiers per request.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

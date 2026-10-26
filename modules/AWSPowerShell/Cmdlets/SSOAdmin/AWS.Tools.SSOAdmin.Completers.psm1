@@ -168,6 +168,13 @@ $SSOADMN_Completers = {
             break
         }
 
+        # Amazon.SSOAdmin.RegionScope
+        "Get-SSOADMNInstanceList/RegionScope"
+        {
+            $v = "ALL_REGIONS","CURRENT_REGION"
+            break
+        }
+
         # Amazon.SSOAdmin.SignInOrigin
         {
             ($_ -eq "New-SSOADMNApplication/SignInOptions_Origin") -Or
@@ -230,6 +237,7 @@ $SSOADMN_map = @{
     "PortalOptions_Visibility"=@("New-SSOADMNApplication")
     "PrincipalType"=@("Get-SSOADMNAccountAssignmentsForPrincipalList","Get-SSOADMNApplicationAssignment","Get-SSOADMNApplicationAssignmentsForPrincipalList","New-SSOADMNAccountAssignment","New-SSOADMNApplicationAssignment","Remove-SSOADMNAccountAssignment","Remove-SSOADMNApplicationAssignment")
     "ProvisioningStatus"=@("Get-SSOADMNAccountsForProvisionedPermissionSetList","Get-SSOADMNPermissionSetsProvisionedToAccountList")
+    "RegionScope"=@("Get-SSOADMNInstanceList")
     "SignInOptions_Origin"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
     "Status"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
     "TargetType"=@("Add-SSOADMNPermissionSetProvision","New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")

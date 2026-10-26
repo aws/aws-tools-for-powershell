@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the job to associate with the member.</para>
+        /// The farm ID of the job to associate with the member.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityCenterRegion
         /// <summary>
         /// <para>
-        /// <para>The Region of the IAM Identity Center instance. If not provided, the service defaults
-        /// to the Region of the farm.</para>
+        /// The Region of the IAM Identity Center
+        /// instance. If not provided, the service defaults to the Region of the farm.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The member's identity store ID to associate with the job.</para>
+        /// The member's identity store ID to associate
+        /// with the job.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID to associate with the member.</para>
+        /// The job ID to associate with the member.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MembershipLevel
         /// <summary>
         /// <para>
-        /// <para>The principal's membership level for the associated job.</para>
+        /// The principal's membership level for the
+        /// associated job.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -127,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
-        /// <para>The member's principal ID to associate with the job.</para>
+        /// The member's principal ID to associate with
+        /// the job.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,7 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PrincipalType
         /// <summary>
         /// <para>
-        /// <para>The member's principal type to associate with the job.</para>
+        /// The member's principal type to associate
+        /// with the job.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID to associate to the member.</para>
+        /// The queue ID to associate to the member.
         /// </para>
         /// </summary>
         #if !MODULAR

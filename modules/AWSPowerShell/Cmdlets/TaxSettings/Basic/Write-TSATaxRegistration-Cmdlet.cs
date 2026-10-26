@@ -47,6 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </para></li><li><para>
     /// For Amazon Web Services accounts created through Organizations, you can call this
     /// API operation when you don't have a billing address.
+    /// </para></li></ul><para><b>Colombia</b></para><ul><li><para>
+    /// You can provide a Registro Único Tributario (RUT) document in the <b>verificationDetails</b>
+    /// field.
+    /// </para></li><li><para>
+    /// If you provide the RUT document, you do not need to provide address and legal name.
+    /// These will be populated based on your document.
     /// </para></li></ul><para><b>Georgia</b></para><ul><li><para>
     /// The valid <c>personType</c> values are <c>Physical Person</c> and <c>Business</c>.
     /// </para></li></ul><para><b>Indonesia</b></para><ul><li><para><c>PutTaxRegistration</c>: The use of this operation to submit tax information is
@@ -189,6 +195,13 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </para></li></ul><para><b>Monaco</b></para><ul><li><para>
     /// You must specify the <c>businessNumber</c> in the <c>monacoAdditionalInfo</c> field
     /// of the <c>additionalTaxInformation</c> object.
+    /// </para></li></ul><para><b>Germany</b></para><ul><li><para>
+    /// You must provide at least one of the following: a Tax Registration Number (TRN) (<c>registrationId</c>),
+    /// the <c>economicIdentificationNumber</c>, or the <c>steuernummer</c>.
+    /// </para></li><li><para>
+    /// You can optionally specify the <c>economicIdentificationNumber</c> (Wirtschafts-Identifikationsnummer,
+    /// or W-IdNr) and the <c>steuernummer</c> (tax number issued by the local tax office)
+    /// in the <c>germanyAdditionalInfo</c> field of the <c>additionalTaxInformation</c> object.
     /// </para></li></ul><para><b>Poland</b></para><ul><li><para>
     /// You can optionally specify the <c>taxRegistrationNumberType</c> in the <c>polandAdditionalInfo</c>
     /// field of the <c>additionalTaxInformation</c> object. Valid values are <c>EUTaxRegistrationNumber</c>,
@@ -345,6 +358,17 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         public System.String TaxRegistrationEntry_CertifiedEmailId { get; set; }
         #endregion
         
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode
+        /// <summary>
+        /// <para>
+        /// <para>The SAT CFDI usage code that identifies the purpose of the invoice in Mexico (for
+        /// example, <c>G01</c> for goods acquisition, <c>S01</c> for no tax effects).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode { get; set; }
+        #endregion
+        
         #region Parameter ItalyAdditionalInfo_CigNumber
         /// <summary>
         /// <para>
@@ -486,6 +510,17 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.TaxSettings.ChileDocumentType")]
         public Amazon.TaxSettings.ChileDocumentType TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_DocumentType { get; set; }
+        #endregion
+        
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber
+        /// <summary>
+        /// <para>
+        /// <para>The economic identification number (Wirtschafts-Identifikationsnummer, or W-IdNr)
+        /// in Germany.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber { get; set; }
         #endregion
         
         #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_EInvoiceRoutingCode
@@ -877,6 +912,16 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         public System.String LegalAddress_StateOrRegion { get; set; }
         #endregion
         
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer
+        /// <summary>
+        /// <para>
+        /// <para>The Steuernummer (tax number issued by the local tax office) in Germany.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer { get; set; }
+        #endregion
+        
         #region Parameter ItalyAdditionalInfo_TaxCode
         /// <summary>
         /// <para>
@@ -920,6 +965,27 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TaxRegistrationEntry_AdditionalTaxInformation_TurkeyAdditionalInfo_TaxOffice")]
         public System.String TurkeyAdditionalInfo_TaxOffice { get; set; }
+        #endregion
+        
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime
+        /// <summary>
+        /// <para>
+        /// <para>The SAT-assigned tax regime code for your business in Mexico. Must be a 3-digit number
+        /// (for example, <c>601</c> for General de Ley Personas Morales).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime { get; set; }
+        #endregion
+        
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName
+        /// <summary>
+        /// <para>
+        /// <para>The full name of the SAT tax regime associated with your business in Mexico.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName { get; set; }
         #endregion
         
         #region Parameter VerificationDetails_TaxRegistrationDocument
@@ -1109,6 +1175,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             context.TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_EInvoiceRoutingCode = this.TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_EInvoiceRoutingCode;
             context.TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_SirenNumber = this.TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_SirenNumber;
             context.GeorgiaAdditionalInfo_PersonType = this.GeorgiaAdditionalInfo_PersonType;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber = this.TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer = this.TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer;
             context.GreeceAdditionalInfo_ContractingAuthorityCode = this.GreeceAdditionalInfo_ContractingAuthorityCode;
             context.IndonesiaAdditionalInfo_DecisionNumber = this.IndonesiaAdditionalInfo_DecisionNumber;
             context.IndonesiaAdditionalInfo_PpnExceptionDesignationCode = this.IndonesiaAdditionalInfo_PpnExceptionDesignationCode;
@@ -1127,6 +1195,9 @@ namespace Amazon.PowerShell.Cmdlets.TSA
                 context.MalaysiaAdditionalInfo_ServiceTaxCode = new List<System.String>(this.MalaysiaAdditionalInfo_ServiceTaxCode);
             }
             context.MalaysiaAdditionalInfo_TaxInformationNumber = this.MalaysiaAdditionalInfo_TaxInformationNumber;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode = this.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime = this.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName = this.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName;
             context.TaxRegistrationEntry_AdditionalTaxInformation_MonacoAdditionalInfo_BusinessNumber = this.TaxRegistrationEntry_AdditionalTaxInformation_MonacoAdditionalInfo_BusinessNumber;
             context.TaxRegistrationEntry_AdditionalTaxInformation_PhilippinesAdditionalInfo_IsVatRegistered = this.TaxRegistrationEntry_AdditionalTaxInformation_PhilippinesAdditionalInfo_IsVatRegistered;
             context.PolandAdditionalInfo_IndividualRegistrationNumber = this.PolandAdditionalInfo_IndividualRegistrationNumber;
@@ -1778,6 +1849,41 @@ namespace Amazon.PowerShell.Cmdlets.TSA
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.FranceAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
+            Amazon.TaxSettings.Model.GermanyAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo = null;
+            
+             // populate GermanyAdditionalInfo
+            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfoIsNull = true;
+            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo = new Amazon.TaxSettings.Model.GermanyAdditionalInfo();
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo.EconomicIdentificationNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfoIsNull = false;
+            }
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo.Steuernummer = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfoIsNull = false;
+            }
+             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo should be set to null
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfoIsNull)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo = null;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.GermanyAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
+            }
             Amazon.TaxSettings.Model.IsraelAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IsraelAdditionalInfo = null;
             
              // populate IsraelAdditionalInfo
@@ -1936,6 +2042,51 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo != null)
             {
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.MalaysiaAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
+            }
+            Amazon.TaxSettings.Model.MexicoAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo = null;
+            
+             // populate MexicoAdditionalInfo
+            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfoIsNull = true;
+            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo = new Amazon.TaxSettings.Model.MexicoAdditionalInfo();
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo.CfdiUsageCode = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfoIsNull = false;
+            }
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo.TaxRegime = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfoIsNull = false;
+            }
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo.TaxRegimeFullName = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfoIsNull = false;
+            }
+             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo should be set to null
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfoIsNull)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo = null;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.MexicoAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
             Amazon.TaxSettings.Model.PolandAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo = null;
@@ -2343,6 +2494,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             public System.String TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_EInvoiceRoutingCode { get; set; }
             public System.String TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_SirenNumber { get; set; }
             public Amazon.TaxSettings.PersonType GeorgiaAdditionalInfo_PersonType { get; set; }
+            public System.String TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber { get; set; }
+            public System.String TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer { get; set; }
             public System.String GreeceAdditionalInfo_ContractingAuthorityCode { get; set; }
             public System.String IndonesiaAdditionalInfo_DecisionNumber { get; set; }
             public System.String IndonesiaAdditionalInfo_PpnExceptionDesignationCode { get; set; }
@@ -2358,6 +2511,9 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             public System.String MalaysiaAdditionalInfo_BusinessRegistrationNumber { get; set; }
             public List<System.String> MalaysiaAdditionalInfo_ServiceTaxCode { get; set; }
             public System.String MalaysiaAdditionalInfo_TaxInformationNumber { get; set; }
+            public System.String TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode { get; set; }
+            public System.String TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime { get; set; }
+            public System.String TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName { get; set; }
             public System.String TaxRegistrationEntry_AdditionalTaxInformation_MonacoAdditionalInfo_BusinessNumber { get; set; }
             public System.Boolean? TaxRegistrationEntry_AdditionalTaxInformation_PhilippinesAdditionalInfo_IsVatRegistered { get; set; }
             public System.String PolandAdditionalInfo_IndividualRegistrationNumber { get; set; }

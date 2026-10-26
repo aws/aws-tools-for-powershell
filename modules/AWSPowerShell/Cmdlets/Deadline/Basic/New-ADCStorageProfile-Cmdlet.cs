@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm to connect to the storage profile.</para>
+        /// The farm ID of the farm to connect to the storage
+        /// profile.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FileSystemLocation
         /// <summary>
         /// <para>
-        /// <para>File system paths to include in the storage profile.</para><para />
+        /// File system paths to include in the
+        /// storage profile.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -100,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter OsFamily
         /// <summary>
         /// <para>
-        /// <para>The type of operating system (OS) for the storage profile.</para>
+        /// The type of operating system (OS) for the storage
+        /// profile.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -117,7 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

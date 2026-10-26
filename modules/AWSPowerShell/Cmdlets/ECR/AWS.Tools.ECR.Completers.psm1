@@ -120,6 +120,13 @@ $ECR_Completers = {
             break
         }
 
+        # Amazon.ECR.ReplicationBackfillResultStatus
+        "Get-ECRReplicationBackfillResultDetail/ResultStatusFilter"
+        {
+            $v = "COMPLETE","FAILED"
+            break
+        }
+
         # Amazon.ECR.ScanType
         "Write-ECRRegistryScanningConfiguration/ScanType"
         {
@@ -166,6 +173,7 @@ $ECR_map = @{
     "Filter_ImageStatus"=@("Get-ECRImage","Get-ECRImageMetadata")
     "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata","Get-ECRLifecyclePolicyPreview")
     "ImageTagMutability"=@("New-ECRRepository","New-ECRRepositoryCreationTemplate","Update-ECRRepositoryCreationTemplate","Write-ECRImageTagMutability")
+    "ResultStatusFilter"=@("Get-ECRReplicationBackfillResultDetail")
     "ScanType"=@("Write-ECRRegistryScanningConfiguration")
     "TargetStorageClass"=@("Update-ECRImageStorageClass")
     "UpstreamRegistry"=@("New-ECRPullThroughCacheRule")
@@ -243,6 +251,7 @@ $ECR_SelectMap = @{
                "Get-ECRImageSigningStatusDetail",
                "Get-ECRPullThroughCacheRule",
                "Get-ECRRegistry",
+               "Get-ECRReplicationBackfillResultDetail",
                "Get-ECRRepository",
                "Get-ECRRepositoryCreationTemplate",
                "Get-ECRAccountSetting",
@@ -258,6 +267,7 @@ $ECR_SelectMap = @{
                "Get-ECRImageReferrerList",
                "Get-ECRImage",
                "Get-ECRPullTimeUpdateExclusionList",
+               "Get-ECRReplicationBackfillList",
                "Get-ECRResourceTag",
                "Write-ECRAccountSetting",
                "Write-ECRImage",
@@ -272,6 +282,8 @@ $ECR_SelectMap = @{
                "Set-ECRRepositoryPolicy",
                "Start-ECRImageScan",
                "Start-ECRLifecyclePolicyPreview",
+               "Start-ECRReplicationBackfill",
+               "Stop-ECRReplicationBackfill",
                "Add-ECRResourceTag",
                "Remove-ECRResourceTag",
                "Update-ECRImageStorageClass",

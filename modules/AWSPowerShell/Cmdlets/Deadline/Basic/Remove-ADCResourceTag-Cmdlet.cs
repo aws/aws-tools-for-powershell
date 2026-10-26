@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to remove the tag from.</para>
+        /// The ARN of the resource to remove the tag
+        /// from.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>They keys of the tag.</para><para />
+        /// They keys of the tag.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

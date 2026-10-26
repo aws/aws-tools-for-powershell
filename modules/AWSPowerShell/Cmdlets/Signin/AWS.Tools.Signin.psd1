@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Invoke-AMSPIntrospectOAuth2TokenWithIAM', 
         'New-AMSPOAuth2Token', 
         'New-AMSPOAuth2TokenWithIAM', 
+        'New-AMSPOAuth2TokenWithTokenExchange', 
         'Remove-AMSPConsoleAuthorizationConfiguration', 
         'Remove-AMSPResourcePermissionStatement', 
         'Revoke-AMSPOAuth2TokenWithIAM', 

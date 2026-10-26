@@ -46,6 +46,36 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CloudExadataInfrastructureId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier or Amazon Resource Name (ARN) of an Exadata infrastructure.
+        /// If you specify this value, the operation returns only the Exascale storage vaults
+        /// on that infrastructure that you own or that are shared with you. The infrastructure
+        /// can be one that's shared with you through Amazon Web Services Resource Access Manager
+        /// (Amazon Web Services RAM). You can't combine this filter with a <c>vaultType</c> of
+        /// <c>EXASCALE_INFRASTRUCTURE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CloudExadataInfrastructureId { get; set; }
+        #endregion
+        
+        #region Parameter VaultType
+        /// <summary>
+        /// <para>
+        /// <para>The type of Exascale storage vaults to return. Specify <c>DEDICATED_INFRASTRUCTURE</c>
+        /// to return Exascale storage vaults on dedicated Exadata infrastructure, or <c>EXASCALE_INFRASTRUCTURE</c>
+        /// to return Exascale storage vaults for Exascale VM clusters. If you don't specify a
+        /// value, the operation returns both types. You can't combine <c>EXASCALE_INFRASTRUCTURE</c>
+        /// with the <c>cloudExadataInfrastructureId</c> filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Odb.ExascaleDbStorageVaultType")]
+        public Amazon.Odb.ExascaleDbStorageVaultType VaultType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -118,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
                 context.Select = CreateSelectDelegate<Amazon.Odb.Model.ListExascaleDbStorageVaultsResponse, GetODBExascaleDbStorageVaultListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CloudExadataInfrastructureId = this.CloudExadataInfrastructureId;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -129,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             }
             #endif
             context.NextToken = this.NextToken;
+            context.VaultType = this.VaultType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,9 +179,17 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             // create request and set iteration invariants
             var request = new Amazon.Odb.Model.ListExascaleDbStorageVaultsRequest();
             
+            if (cmdletContext.CloudExadataInfrastructureId != null)
+            {
+                request.CloudExadataInfrastructureId = cmdletContext.CloudExadataInfrastructureId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.VaultType != null)
+            {
+                request.VaultType = cmdletContext.VaultType;
             }
             
             // Initialize loop variant and commence piping
@@ -230,8 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CloudExadataInfrastructureId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.Odb.ExascaleDbStorageVaultType VaultType { get; set; }
             public System.Func<Amazon.Odb.Model.ListExascaleDbStorageVaultsResponse, GetODBExascaleDbStorageVaultListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ExascaleDbStorageVaults;
         }

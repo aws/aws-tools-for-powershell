@@ -188,6 +188,13 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.ExascaleDbStorageVaultType
+        "Get-ODBExascaleDbStorageVaultList/VaultType"
+        {
+            $v = "DEDICATED_INFRASTRUCTURE","EXASCALE_INFRASTRUCTURE"
+            break
+        }
+
         # Amazon.Odb.ExternalIdType
         {
             ($_ -eq "New-ODBAutonomousDatabase/AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType") -Or
@@ -312,6 +319,16 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.VmStorageType
+        {
+            ($_ -eq "New-ODBCloudVmCluster/VmBackupStorageType") -Or
+            ($_ -eq "New-ODBCloudVmCluster/VmFileSystemStorageType")
+        }
+        {
+            $v = "EXASCALE","LOCAL"
+            break
+        }
+
         # Amazon.Odb.WalletPasswordSource
         "New-ODBAutonomousDatabaseWallet/PasswordSource"
         {
@@ -370,6 +387,9 @@ $ODB_map = @{
     "StsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
     "Type"=@("Get-ODBAutonomousDatabaseBackupList")
     "UpdateAction"=@("Update-ODBExadbVmCluster")
+    "VaultType"=@("Get-ODBExascaleDbStorageVaultList")
+    "VmBackupStorageType"=@("New-ODBCloudVmCluster")
+    "VmFileSystemStorageType"=@("New-ODBCloudVmCluster")
     "WalletType"=@("New-ODBAutonomousDatabaseWallet")
     "ZeroEtlAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
 }
@@ -501,6 +521,7 @@ $ODB_SelectMap = @{
                "Update-ODBAutonomousDatabaseBackup",
                "Update-ODBCloudExadataInfrastructure",
                "Update-ODBExadbVmCluster",
+               "Update-ODBExascaleCloudExadataInfrastructure",
                "Update-ODBExascaleDbStorageVault",
                "Update-ODBOdbNetwork",
                "Update-ODBOdbPeeringConnection")

@@ -30,8 +30,8 @@ using Amazon.Signin.Model;
 namespace Amazon.PowerShell.Cmdlets.AMSP
 {
     /// <summary>
-    /// Grants permission to exchange client credentials for an OAuth 2.0 access token scoped
-    /// to a resource that can be used to access AWS services from applications
+    /// Exchanges client credentials for an OAuth 2.0 access token scoped to a resource, which
+    /// you can use to access AWS services from applications.
     /// </summary>
     [Cmdlet("New", "AMSPOAuth2TokenWithIAM", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Signin.Model.CreateOAuth2TokenWithIAMResponse")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter GrantType
         /// <summary>
         /// <para>
-        /// OAuth 2.0 grant type. Must be "client_credentials".
+        /// The OAuth 2.0 grant type. Must be "client_credentials".
         /// </para>
         /// </summary>
         #if !MODULAR

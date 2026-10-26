@@ -164,6 +164,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-ODBAutonomousDatabaseBackup', 
         'Update-ODBCloudExadataInfrastructure', 
         'Update-ODBExadbVmCluster', 
+        'Update-ODBExascaleCloudExadataInfrastructure', 
         'Update-ODBExascaleDbStorageVault', 
         'Update-ODBOdbNetwork', 
         'Update-ODBOdbPeeringConnection')

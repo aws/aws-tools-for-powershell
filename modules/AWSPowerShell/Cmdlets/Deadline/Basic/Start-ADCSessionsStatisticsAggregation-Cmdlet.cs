@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The Linux timestamp of the date and time that the statistics end.</para>
+        /// The Linux timestamp of the date and time that
+        /// the statistics end.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the farm that contains queues or fleets to return statistics for.</para>
+        /// The identifier of the farm that contains queues
+        /// or fleets to return statistics for.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,8 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ResourceIds_FleetId
         /// <summary>
         /// <para>
-        /// <para>One to 10 fleet IDs that specify the fleets to return statistics for. If you specify
-        /// the <c>fleetIds</c> field, you can't specify the <c>queueIds</c> field.</para><para />
+        /// One to 10 fleet IDs that specify the fleets to
+        /// return statistics for. If you specify the <c>fleetIds</c> field, you can't specify
+        /// the <c>queueIds</c> field.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -103,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter GroupBy
         /// <summary>
         /// <para>
-        /// <para>The field to use to group the statistics.</para><para />
+        /// The field to use to group the statistics.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -125,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The period to aggregate the statistics.</para>
+        /// The period to aggregate the statistics.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,8 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ResourceIds_QueueId
         /// <summary>
         /// <para>
-        /// <para>One to 10 queue IDs that specify the queues to return statistics for. If you specify
-        /// the <c>queueIds</c> field, you can't specify the <c>fleetIds</c> field.</para><para />
+        /// One to 10 queue IDs that specify the queues to
+        /// return statistics for. If you specify the <c>queueIds</c> field, you can't specify
+        /// the <c>fleetIds</c> field.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -153,7 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The Linux timestamp of the date and time that the statistics start.</para>
+        /// The Linux timestamp of the date and time that
+        /// the statistics start.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -169,7 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para>One to four statistics to return.</para><para />
+        /// One to four statistics to return.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The ID of the farm to associate with the member.</para>
+        /// The ID of the farm to associate with the member.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityCenterRegion
         /// <summary>
         /// <para>
-        /// <para>The Region of the IAM Identity Center instance. If not provided, the service defaults
-        /// to the Region of the farm.</para>
+        /// The Region of the IAM Identity Center
+        /// instance. If not provided, the service defaults to the Region of the farm.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The identity store ID of the member to associate with the farm.</para>
+        /// The identity store ID of the member to
+        /// associate with the farm.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MembershipLevel
         /// <summary>
         /// <para>
-        /// <para>The principal's membership level for the associated farm.</para>
+        /// The principal's membership level for the
+        /// associated farm.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,7 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
-        /// <para>The member's principal ID to associate with the farm.</para>
+        /// The member's principal ID to associate with
+        /// the farm.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -127,7 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PrincipalType
         /// <summary>
         /// <para>
-        /// <para>The principal type of the member to associate with the farm.</para>
+        /// The principal type of the member to associate
+        /// with the farm.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter LicenseEndpointId
         /// <summary>
         /// <para>
-        /// <para>The license endpoint ID.</para>
+        /// The license endpoint ID.
         /// </para>
         /// </summary>
         #if !MODULAR

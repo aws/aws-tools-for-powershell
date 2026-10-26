@@ -327,6 +327,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExascaleCloudExadataInfrastructure" OutputProperty="*" Verb="Update" Noun="ExascaleCloudExadataInfrastructure" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateExascaleDbStorageVault" OutputProperty="*" Verb="Update" Noun="ExascaleDbStorageVault" ShouldProcessTarget="ExascaleDbStorageVaultId" PipelineParameter="ExascaleDbStorageVaultId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

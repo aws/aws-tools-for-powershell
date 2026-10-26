@@ -58,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// request. The bytes in the key are not related to the caller or KMS key that is used
     /// to encrypt the private key. The public key is a DER-encoded X.509 SubjectPublicKeyInfo,
     /// as specified in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.
-    /// </para><para>
+    /// </para><note><para>
+    /// For ML-KEM data key pairs, the DER-encoded PKCS8 PrivateKeyInfo contains the private
+    /// key in seed format. As a result, the length of the private key is the same for all
+    /// ML-KEM key pair specs.
+    /// </para></note><para>
     /// You can use an optional encryption context to add additional security to the encryption
     /// operation. If you specify an <c>EncryptionContext</c>, you must specify the same encryption
     /// context (a case-sensitive exact match) when decrypting the encrypted data key. Otherwise,
@@ -172,7 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// and decrypt or to sign and verify (but not both), the rule that permits you to use
         /// ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA
         /// key pairs to sign and verify only are not effective on data key pairs, which are used
-        /// outside of KMS. The SM2 key spec is only available in China Regions.</para>
+        /// outside of KMS. The SM2 key spec is only available in China Regions. The ML-KEM key
+        /// specs are not available in China Regions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

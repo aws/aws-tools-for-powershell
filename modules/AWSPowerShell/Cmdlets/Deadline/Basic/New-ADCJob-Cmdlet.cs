@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter DescriptionOverride
         /// <summary>
         /// <para>
-        /// <para>A custom description to override the job description derived from the job template.</para>
+        /// A custom description to override the
+        /// job description derived from the job template.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm to connect to the job.</para>
+        /// The farm ID of the farm to connect to the job.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Attachments_FileSystem
         /// <summary>
         /// <para>
-        /// <para>The file system location for the attachments.</para>
+        /// The file system location for the attachments.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Attachments_Manifest
         /// <summary>
         /// <para>
-        /// <para>The manifest properties for the attachments.</para><para />
+        /// The manifest properties for the attachments.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -104,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxFailedTasksCount
         /// <summary>
         /// <para>
-        /// <para>The number of task failures before the job stops running and is marked as <c>FAILED</c>.</para>
+        /// The number of task failures before
+        /// the job stops running and is marked as <c>FAILED</c>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxRetriesPerTask
         /// <summary>
         /// <para>
-        /// <para>The maximum number of retries for each task.</para>
+        /// The maximum number of retries for each
+        /// task.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,11 +128,12 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxWorkerCount
         /// <summary>
         /// <para>
-        /// <para>The maximum number of worker hosts that can concurrently process a job. When the <c>maxWorkerCount</c>
-        /// is reached, no more workers will be assigned to process the job, even if the fleets
-        /// assigned to the job's queue has available workers.</para><para>You can't set the <c>maxWorkerCount</c> to 0. If you set it to -1, there is no maximum
-        /// number of workers.</para><para>If you don't specify the <c>maxWorkerCount</c>, Deadline Cloud won't throttle the
-        /// number of workers used to process the job.</para>
+        /// The maximum number of worker hosts that
+        /// can concurrently process a job. When the <c>maxWorkerCount</c> is reached, no more
+        /// workers will be assigned to process the job, even if the fleets assigned to the job's
+        /// queue has available workers. You can't set the <c>maxWorkerCount</c> to 0. If you
+        /// set it to -1, there is no maximum number of workers. If you don't specify the <c>maxWorkerCount</c>,
+        /// Deadline Cloud won't throttle the number of workers used to process the job.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter NameOverride
         /// <summary>
         /// <para>
-        /// <para>A custom name to override the job name derived from the job template.</para>
+        /// A custom name to override the job name derived
+        /// from the job template.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the job.</para><para />
+        /// The parameters for the job.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -164,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>The priority of the job. The highest priority (first scheduled) is 100. When two jobs
-        /// have the same priority, the oldest job is scheduled first.</para>
+        /// The priority of the job. The highest priority
+        /// (first scheduled) is 100. When two jobs have the same priority, the oldest job is
+        /// scheduled first.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -181,7 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The ID of the queue that the job is submitted to.</para>
+        /// The ID of the queue that the job is submitted
+        /// to.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -198,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SourceJobId
         /// <summary>
         /// <para>
-        /// <para>The job ID for the source job.</para>
+        /// The job ID for the source job.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,7 +217,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter StorageProfileId
         /// <summary>
         /// <para>
-        /// <para>The storage profile ID for the storage profile to connect to the job.</para>
+        /// The storage profile ID for the storage
+        /// profile to connect to the job.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,8 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to your job. Each tag consists of a tag key and a tag value. Tag keys
-        /// and values are both required, but tag values can be empty strings.</para><para />
+        /// The tags to add to your job. Each tag consists of
+        /// a tag key and a tag value. Tag keys and values are both required, but tag values can
+        /// be empty strings.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -235,8 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TargetTaskRunStatus
         /// <summary>
         /// <para>
-        /// <para>The initial job status when it is created. Jobs that are created with a <c>SUSPENDED</c>
-        /// status will not run until manually requeued.</para>
+        /// The initial job status when it is
+        /// created. Jobs that are created with a <c>SUSPENDED</c> status will not run until manually
+        /// requeued.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Template
         /// <summary>
         /// <para>
-        /// <para>The job template to use for this job.</para>
+        /// The job template to use for this job.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TemplateType
         /// <summary>
         /// <para>
-        /// <para>The file type for the job template.</para>
+        /// The file type for the job template.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,7 +281,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

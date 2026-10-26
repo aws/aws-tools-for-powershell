@@ -48,8 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ActionsToAdd
         /// <summary>
         /// <para>
-        /// <para>The budget actions to add. Budget actions specify what happens when the budget runs
-        /// out.</para><para />
+        /// The budget actions to add. Budget actions
+        /// specify what happens when the budget runs out.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -64,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ActionsToRemove
         /// <summary>
         /// <para>
-        /// <para>The budget actions to remove from the budget.</para><para />
+        /// The budget actions to remove from the
+        /// budget.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -79,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ApproximateDollarLimit
         /// <summary>
         /// <para>
-        /// <para>The dollar limit to update on the budget. Based on consumed usage.</para>
+        /// The dollar limit to update on the
+        /// budget. Based on consumed usage.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter BudgetId
         /// <summary>
         /// <para>
-        /// <para>The budget ID to update.</para>
+        /// The budget ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Fixed_EndTime
         /// <summary>
         /// <para>
-        /// <para>When the budget ends.</para>
+        /// When the budget ends.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the budget to update.</para>
+        /// The farm ID of the budget to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Fixed_StartTime
         /// <summary>
         /// <para>
-        /// <para>When the budget starts.</para>
+        /// When the budget starts.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

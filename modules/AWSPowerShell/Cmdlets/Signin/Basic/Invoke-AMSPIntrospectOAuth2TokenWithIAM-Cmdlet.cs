@@ -30,13 +30,9 @@ using Amazon.Signin.Model;
 namespace Amazon.PowerShell.Cmdlets.AMSP
 {
     /// <summary>
-    /// Grants permission to inspect the metadata and state of an OAuth 2.0 access token or
-    /// refresh token Implements RFC 7662 OAuth 2.0 Token Introspection over a SigV4-authenticated
-    /// endpoint. Inspects the metadata of an access_token or refresh_token issued by AWS
-    /// Sign-In and returns the claims associated with it. Inactive token semantics (RFC 7662
-    /// §2.2): when the supplied token is unknown, expired, revoked, malformed, or owned by
-    /// a different account, the response body is exactly { "active": false } with all other
-    /// claims omitted.
+    /// Inspects the metadata and active state of an OAuth 2.0 access token or refresh token.
+    /// Implements RFC 7662 OAuth 2.0 Token Introspection over a SigV4-authenticated endpoint.
+    /// Returns the claims associated with a token issued by AWS Sign-In.
     /// </summary>
     [Cmdlet("Invoke", "AMSPIntrospectOAuth2TokenWithIAM", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Signin.Model.IntrospectOAuth2TokenWithIAMResponse")]
@@ -53,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter Token
         /// <summary>
         /// <para>
-        /// The string value of the token to introspect. May
-        /// be either an access_token or a refresh_token issued by AWS Sign-In.
+        /// The access token or refresh token issued by AWS
+        /// Sign-In.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter TokenTypeHint
         /// <summary>
         /// <para>
-        /// Optional hint about the type of the token
-        /// submitted for introspection. The server uses this hint to optimize lookup, but still
-        /// falls back to the other token type on miss. Allowed values: access_token, refresh_token.
+        /// An optional hint about the type of the token
+        /// submitted for introspection, as defined in RFC 7662 §2.1. The server checks both token
+        /// types regardless of the hint. Allowed values: "access_token", "refresh_token".
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

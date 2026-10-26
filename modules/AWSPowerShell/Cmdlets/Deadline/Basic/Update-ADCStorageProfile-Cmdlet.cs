@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID to update.</para>
+        /// The farm ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FileSystemLocationsToAdd
         /// <summary>
         /// <para>
-        /// <para>The file system location names to add.</para><para />
+        /// The file system location names
+        /// to add.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -91,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FileSystemLocationsToRemove
         /// <summary>
         /// <para>
-        /// <para>The file system location names to remove.</para><para />
+        /// The file system location names
+        /// to remove.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -106,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter OsFamily
         /// <summary>
         /// <para>
-        /// <para>The OS system to update.</para>
+        /// The OS system to update.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter StorageProfileId
         /// <summary>
         /// <para>
-        /// <para>The storage profile ID to update.</para>
+        /// The storage profile ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,7 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

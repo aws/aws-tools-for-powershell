@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID for the storage profile.</para>
+        /// The farm ID for the storage profile.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter StorageProfileId
         /// <summary>
         /// <para>
-        /// <para>The storage profile ID.</para>
+        /// The storage profile ID.
         /// </para>
         /// </summary>
         #if !MODULAR

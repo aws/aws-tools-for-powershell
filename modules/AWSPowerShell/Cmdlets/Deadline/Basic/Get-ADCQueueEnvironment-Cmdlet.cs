@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID for the queue environment.</para>
+        /// The farm ID for the queue environment.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueEnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The queue environment ID.</para>
+        /// The queue environment ID.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID for the queue environment.</para>
+        /// The queue ID for the queue environment.
         /// </para>
         /// </summary>
         #if !MODULAR

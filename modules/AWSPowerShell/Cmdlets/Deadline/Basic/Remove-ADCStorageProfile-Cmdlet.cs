@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm from which to remove the storage profile.</para>
+        /// The farm ID of the farm from which to remove the
+        /// storage profile.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter StorageProfileId
         /// <summary>
         /// <para>
-        /// <para>The storage profile ID of the storage profile to delete.</para>
+        /// The storage profile ID of the storage
+        /// profile to delete.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The security group IDs.</para><para />
+        /// The security group IDs.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -72,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The subnet IDs.</para><para />
+        /// The subnet IDs.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -95,8 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Each tag consists of a tag key and a tag value. Tag keys and values are both required,
-        /// but tag values can be empty strings.</para><para />
+        /// Each tag consists of a tag key and a tag value. Tag
+        /// keys and values are both required, but tag values can be empty strings.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -112,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The VPC (virtual private cloud) ID to use with the license endpoint.</para>
+        /// The VPC (virtual private cloud) ID to use with the
+        /// license endpoint.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

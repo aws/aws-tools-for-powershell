@@ -1,4 +1,76 @@
-﻿### 5.0.322 (2026-10-22 19:08Z)
+﻿### 5.0.323 (2026-10-26 19:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.358.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Billing
+    * Added cmdlet Add-AWSBContract leveraging the AssociateContract service API.
+    * Added cmdlet Get-AWSBContractInformation leveraging the GetContractInformation service API.
+    * Added cmdlet Get-AWSBContractList leveraging the ListContracts service API.
+    * Added cmdlet Get-AWSBContractualInvestmentAttestationList leveraging the ListContractualInvestmentAttestations service API.
+    * Added cmdlet Get-AWSBContractualInvestmentList leveraging the ListContractualInvestments service API.
+    * Added cmdlet Get-AWSBContractualInvestmentSummaryList leveraging the ListContractualInvestmentSummaries service API.
+    * Added cmdlet New-AWSBContractualInvestmentAttestation leveraging the CreateContractualInvestmentAttestation service API.
+    * Added cmdlet Remove-AWSBContract leveraging the DisassociateContract service API.
+    * Added cmdlet Stop-AWSBContractualInvestmentAttestation leveraging the CancelContractualInvestmentAttestation service API.
+  * Amazon Connect Service
+    * Added cmdlet Update-CONNOutboundEmailContactMessage leveraging the UpdateOutboundEmailContactMessage service API.
+    * Modified cmdlet Update-CONNContact: added parameter AdditionalRecipients_CcEmailAddress.
+  * Amazon EC2 Container Registry
+    * Added cmdlet Get-ECRReplicationBackfillList leveraging the ListReplicationBackfills service API.
+    * Added cmdlet Get-ECRReplicationBackfillResultDetail leveraging the DescribeReplicationBackfillResults service API.
+    * Added cmdlet Start-ECRReplicationBackfill leveraging the StartReplicationBackfill service API.
+    * Added cmdlet Stop-ECRReplicationBackfill leveraging the StopReplicationBackfill service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameter KubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed.
+    * Modified cmdlet Update-EKSClusterConfig: added parameter KubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed.
+  * Amazon Elemental MediaConnect
+    * Added cmdlet Connect-EMCNEndpoint leveraging the ConnectEndpoints service API.
+    * Added cmdlet Disconnect-EMCNEndpoint leveraging the DisconnectEndpoints service API.
+    * Added cmdlet Get-EMCNDestinationEndpoint leveraging the GetDestinationEndpoint service API.
+    * Added cmdlet Get-EMCNDestinationEndpointBatch leveraging the BatchGetDestinationEndpoint service API.
+    * Added cmdlet Get-EMCNDestinationEndpointList leveraging the ListDestinationEndpoints service API.
+    * Added cmdlet Get-EMCNSourceEndpoint leveraging the GetSourceEndpoint service API.
+    * Added cmdlet Get-EMCNSourceEndpointBatch leveraging the BatchGetSourceEndpoint service API.
+    * Added cmdlet Get-EMCNSourceEndpointList leveraging the ListSourceEndpoints service API.
+    * Added cmdlet Register-EMCNDestinationEndpoint leveraging the RegisterDestinationEndpoint service API.
+    * Added cmdlet Register-EMCNSourceEndpoint leveraging the RegisterSourceEndpoint service API.
+    * Added cmdlet Unregister-EMCNDestinationEndpoint leveraging the DeregisterDestinationEndpoint service API.
+    * Added cmdlet Unregister-EMCNSourceEndpoint leveraging the DeregisterSourceEndpoint service API.
+    * Added cmdlet Update-EMCNDestinationEndpoint leveraging the UpdateDestinationEndpoint service API.
+    * Added cmdlet Update-EMCNSourceEndpoint leveraging the UpdateSourceEndpoint service API.
+    * Modified cmdlet New-EMCNRouterInput: added parameters Configuration_DestinationEndpoint_EndpointLifecycleManagement, Configuration_DestinationEndpoint_SourceTransitDecryption_Automatic, Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn, Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType and Configuration_DestinationEndpoint_SourceTransitDecryptionType.
+    * Modified cmdlet New-EMCNRouterOutput: added parameters Configuration_SourceEndpoint_DestinationTransitEncryption_Automatic, Configuration_SourceEndpoint_DestinationTransitEncryption_SecretsManager_EncryptionSecret_SecretArn, Configuration_SourceEndpoint_DestinationTransitEncryption_SecretsManager_EncryptionSecretType, Configuration_SourceEndpoint_DestinationTransitEncryptionType and Configuration_SourceEndpoint_EndpointLifecycleManagement.
+    * Modified cmdlet Update-EMCNRouterInput: added parameters Configuration_DestinationEndpoint_EndpointLifecycleManagement, Configuration_DestinationEndpoint_SourceTransitDecryption_Automatic, Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn, Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType and Configuration_DestinationEndpoint_SourceTransitDecryptionType.
+    * Modified cmdlet Update-EMCNRouterOutput: added parameters Configuration_SourceEndpoint_DestinationTransitEncryption_Automatic, Configuration_SourceEndpoint_DestinationTransitEncryption_SecretsManager_EncryptionSecret_SecretArn, Configuration_SourceEndpoint_DestinationTransitEncryption_SecretsManager_EncryptionSecretType, Configuration_SourceEndpoint_DestinationTransitEncryptionType and Configuration_SourceEndpoint_EndpointLifecycleManagement.
+  * Amazon Interactive Video Service
+    * Added cmdlet Get-IVSFailoverSlateConfiguration leveraging the GetFailoverSlateConfiguration service API.
+    * Added cmdlet Get-IVSFailoverSlateConfigurationList leveraging the ListFailoverSlateConfigurations service API.
+    * Added cmdlet New-IVSFailoverSlateConfiguration leveraging the CreateFailoverSlateConfiguration service API.
+    * Added cmdlet Remove-IVSFailoverSlateConfiguration leveraging the DeleteFailoverSlateConfiguration service API.
+    * Added cmdlet Update-IVSFailoverSlateConfiguration leveraging the UpdateFailoverSlateConfiguration service API.
+    * Modified cmdlet Get-IVSChannelList: added parameter FilterByFailoverSlateConfigurationArn.
+    * Modified cmdlet New-IVSChannel: added parameter FailoverSlateConfigurationArn.
+    * Modified cmdlet Update-IVSChannel: added parameter FailoverSlateConfigurationArn.
+  * Amazon Key Management Service
+    * Added cmdlet Invoke-KMSDecapsulate leveraging the Decapsulate service API.
+    * Added cmdlet Invoke-KMSEncapsulate leveraging the Encapsulate service API.
+  * Amazon Lightsail
+    * Modified cmdlet New-LSDistribution: added parameters EnableWaf and WafRule.
+    * Modified cmdlet Update-LSDistribution: added parameters EnableWaf and WafRule.
+  * Amazon Marketplace Catalog Service
+    * Modified cmdlet Get-MCATEntityList: added parameters EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue, EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue, EntityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList, EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue, EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue, EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList, EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue, EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList, EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList, EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue, EntityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList, EntityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList, EntityTypeSort_SubsidiaryAuthorizationSort_SortBy and EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder.
+  * Amazon Oracle Database@Amazon Web Services
+    * Added cmdlet Update-ODBExascaleCloudExadataInfrastructure leveraging the UpdateExascaleCloudExadataInfrastructure service API.
+    * Modified cmdlet Get-ODBExascaleDbStorageVaultList: added parameters CloudExadataInfrastructureId and VaultType.
+    * Modified cmdlet New-ODBCloudVmCluster: added parameters ExascaleDbStorageVaultId, FileSystemConfigurationDetail, VmBackupStorageType and VmFileSystemStorageType.
+    * Modified cmdlet New-ODBExascaleDbStorageVault: added parameter CloudExadataInfrastructureId.
+  * Amazon Sign-In Data Plane
+    * Added cmdlet New-AMSPOAuth2TokenWithTokenExchange leveraging the CreateOAuth2TokenWithTokenExchange service API.
+  * Amazon Single Sign-On Admin
+    * Modified cmdlet Get-SSOADMNInstanceList: added parameter RegionScope.
+  * Amazon Tax Settings
+    * Modified cmdlet Write-TSATaxRegistration: added parameters TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber, TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer, TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode, TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime and TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName.
+    * Modified cmdlet Write-TSATaxRegistrationBatch: added parameters TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_EconomicIdentificationNumber, TaxRegistrationEntry_AdditionalTaxInformation_GermanyAdditionalInfo_Steuernummer, TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_CfdiUsageCode, TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime and TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName.
+
+### 5.0.322 (2026-10-22 19:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.357.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCEvaluator: added parameter EvaluatorConfig_LlmAsAJudge_RatingScale_MultiDimensional.

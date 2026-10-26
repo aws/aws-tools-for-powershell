@@ -182,7 +182,7 @@ $LS_Completers = {
         # Amazon.Lightsail.DistributionMetricName
         "Get-LSDistributionMetricData/MetricName"
         {
-            $v = "BytesDownloaded","BytesUploaded","Http4xxErrorRate","Http5xxErrorRate","Requests","TotalErrorRate"
+            $v = "BytesDownloaded","BytesUploaded","Http4xxErrorRate","Http5xxErrorRate","Requests","TotalErrorRate","WafAllowedRequests","WafBlockedRequests"
             break
         }
 

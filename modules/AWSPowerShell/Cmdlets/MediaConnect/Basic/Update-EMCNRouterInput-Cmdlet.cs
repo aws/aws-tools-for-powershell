@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter Configuration_DestinationEndpoint_SourceTransitDecryption_Automatic
+        /// <summary>
+        /// <para>
+        /// <para>The configuration for automatic encryption, where MediaConnect determines the encryption
+        /// key when the endpoint connects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaConnect.Model.AutomaticEndpointEncryptionConfiguration Configuration_DestinationEndpoint_SourceTransitDecryption_Automatic { get; set; }
+        #endregion
+        
         #region Parameter SourceTransitDecryption_EncryptionKeyConfiguration_Automatic
         /// <summary>
         /// <para>
@@ -147,6 +158,30 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaConnect.RouterInputTransitEncryptionKeyType")]
         public Amazon.MediaConnect.RouterInputTransitEncryptionKeyType TransitEncryption_EncryptionKeyType { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType
+        /// <summary>
+        /// <para>
+        /// <para>The type of secret used to encrypt the connection. Valid values include the following:</para><ul><li><para><c>AES_128_KEY</c> – A 128-bit AES encryption key.</para></li><li><para><c>AES_192_KEY</c> – A 192-bit AES encryption key.</para></li><li><para><c>AES_256_KEY</c> – A 256-bit AES encryption key.</para></li><li><para><c>SRT_PASSPHRASE</c> – An SRT passphrase.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.EndpointEncryptionSecretType")]
+        public Amazon.MediaConnect.EndpointEncryptionSecretType Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_DestinationEndpoint_EndpointLifecycleManagement
+        /// <summary>
+        /// <para>
+        /// <para>The entity that manages the lifecycle of the associated destination endpoint. Valid
+        /// values include the following:</para><ul><li><para><c>MANAGED</c> – MediaConnect manages the lifecycle of the associated destination
+        /// endpoint.</para></li><li><para><c>UNMANAGED</c> – You manage the lifecycle of the associated destination endpoint.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.EndpointLifecycle")]
+        public Amazon.MediaConnect.EndpointLifecycle Configuration_DestinationEndpoint_EndpointLifecycleManagement { get; set; }
         #endregion
         
         #region Parameter MediaConnectFlow_FlowArn
@@ -470,6 +505,19 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.RoutingScope RoutingScope { get; set; }
         #endregion
         
+        #region Parameter Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Secrets Manager secret that holds the key or passphrase. The secret
+        /// must be encrypted with a customer managed Amazon Web Services KMS key that is enabled
+        /// and symmetric; it cannot use the Amazon Web Services managed key <c>aws/secretsmanager</c>.
+        /// The secret must be in the same Amazon Web Services account and Region as the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn { get; set; }
+        #endregion
+        
         #region Parameter SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn
         /// <summary>
         /// <para>
@@ -555,6 +603,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [Alias("Configuration_Failover_SourcePriorityMode")]
         [AWSConstantClassSource("Amazon.MediaConnect.FailoverInputSourcePriorityMode")]
         public Amazon.MediaConnect.FailoverInputSourcePriorityMode Failover_SourcePriorityMode { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_DestinationEndpoint_SourceTransitDecryptionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of transit decryption applied to the source content that this router input
+        /// receives. Valid values include the following:</para><ul><li><para><c>SECRETS_MANAGER</c> – The decryption key or passphrase is stored in Secrets Manager.</para></li><li><para><c>AUTOMATIC</c> – MediaConnect determines the decryption key when the endpoint connects.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.EndpointEncryptionType")]
+        public Amazon.MediaConnect.EndpointEncryptionType Configuration_DestinationEndpoint_SourceTransitDecryptionType { get; set; }
         #endregion
         
         #region Parameter ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State
@@ -714,6 +774,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Configuration_DestinationEndpoint_EndpointLifecycleManagement = this.Configuration_DestinationEndpoint_EndpointLifecycleManagement;
+            context.Configuration_DestinationEndpoint_SourceTransitDecryption_Automatic = this.Configuration_DestinationEndpoint_SourceTransitDecryption_Automatic;
+            context.Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn = this.Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn;
+            context.Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType = this.Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType;
+            context.Configuration_DestinationEndpoint_SourceTransitDecryptionType = this.Configuration_DestinationEndpoint_SourceTransitDecryptionType;
             context.Failover_NetworkInterfaceArn = this.Failover_NetworkInterfaceArn;
             context.Failover_PrimarySourceIndex = this.Failover_PrimarySourceIndex;
             if (this.Failover_ProtocolConfiguration != null)
@@ -797,6 +862,116 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.MediaConnect.Model.RouterInputConfiguration();
+            Amazon.MediaConnect.Model.DestinationEndpointRouterInputConfiguration requestConfiguration_configuration_DestinationEndpoint = null;
+            
+             // populate DestinationEndpoint
+            var requestConfiguration_configuration_DestinationEndpointIsNull = true;
+            requestConfiguration_configuration_DestinationEndpoint = new Amazon.MediaConnect.Model.DestinationEndpointRouterInputConfiguration();
+            Amazon.MediaConnect.EndpointLifecycle requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_EndpointLifecycleManagement = null;
+            if (cmdletContext.Configuration_DestinationEndpoint_EndpointLifecycleManagement != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_EndpointLifecycleManagement = cmdletContext.Configuration_DestinationEndpoint_EndpointLifecycleManagement;
+            }
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_EndpointLifecycleManagement != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint.EndpointLifecycleManagement = requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_EndpointLifecycleManagement;
+                requestConfiguration_configuration_DestinationEndpointIsNull = false;
+            }
+            Amazon.MediaConnect.EndpointEncryptionType requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryptionType = null;
+            if (cmdletContext.Configuration_DestinationEndpoint_SourceTransitDecryptionType != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryptionType = cmdletContext.Configuration_DestinationEndpoint_SourceTransitDecryptionType;
+            }
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryptionType != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint.SourceTransitDecryptionType = requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryptionType;
+                requestConfiguration_configuration_DestinationEndpointIsNull = false;
+            }
+            Amazon.MediaConnect.Model.EndpointEncryptionConfiguration requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption = null;
+            
+             // populate SourceTransitDecryption
+            var requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryptionIsNull = true;
+            requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption = new Amazon.MediaConnect.Model.EndpointEncryptionConfiguration();
+            Amazon.MediaConnect.Model.AutomaticEndpointEncryptionConfiguration requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_Automatic = null;
+            if (cmdletContext.Configuration_DestinationEndpoint_SourceTransitDecryption_Automatic != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_Automatic = cmdletContext.Configuration_DestinationEndpoint_SourceTransitDecryption_Automatic;
+            }
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_Automatic != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption.Automatic = requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_Automatic;
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryptionIsNull = false;
+            }
+            Amazon.MediaConnect.Model.SecretsManagerEndpointEncryptionConfiguration requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager = null;
+            
+             // populate SecretsManager
+            var requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManagerIsNull = true;
+            requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager = new Amazon.MediaConnect.Model.SecretsManagerEndpointEncryptionConfiguration();
+            Amazon.MediaConnect.EndpointEncryptionSecretType requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType = null;
+            if (cmdletContext.Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType = cmdletContext.Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType;
+            }
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager.EncryptionSecretType = requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType;
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManagerIsNull = false;
+            }
+            Amazon.MediaConnect.Model.EndpointEncryptionSecretConfiguration requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret = null;
+            
+             // populate EncryptionSecret
+            var requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretIsNull = true;
+            requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret = new Amazon.MediaConnect.Model.EndpointEncryptionSecretConfiguration();
+            System.String requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn = null;
+            if (cmdletContext.Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn = cmdletContext.Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn;
+            }
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret.SecretArn = requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn;
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret should be set to null
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretIsNull)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret = null;
+            }
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager.EncryptionSecret = requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret;
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManagerIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager should be set to null
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManagerIsNull)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager = null;
+            }
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption.SecretsManager = requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption_configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager;
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryptionIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption should be set to null
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryptionIsNull)
+            {
+                requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption = null;
+            }
+            if (requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption != null)
+            {
+                requestConfiguration_configuration_DestinationEndpoint.SourceTransitDecryption = requestConfiguration_configuration_DestinationEndpoint_configuration_DestinationEndpoint_SourceTransitDecryption;
+                requestConfiguration_configuration_DestinationEndpointIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_DestinationEndpoint should be set to null
+            if (requestConfiguration_configuration_DestinationEndpointIsNull)
+            {
+                requestConfiguration_configuration_DestinationEndpoint = null;
+            }
+            if (requestConfiguration_configuration_DestinationEndpoint != null)
+            {
+                request.Configuration.DestinationEndpoint = requestConfiguration_configuration_DestinationEndpoint;
+                requestConfigurationIsNull = false;
+            }
             Amazon.MediaConnect.Model.MediaConnectFlowRouterInputConfiguration requestConfiguration_configuration_MediaConnectFlow = null;
             
              // populate MediaConnectFlow
@@ -1796,6 +1971,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public Amazon.MediaConnect.EndpointLifecycle Configuration_DestinationEndpoint_EndpointLifecycleManagement { get; set; }
+            public Amazon.MediaConnect.Model.AutomaticEndpointEncryptionConfiguration Configuration_DestinationEndpoint_SourceTransitDecryption_Automatic { get; set; }
+            public System.String Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecret_SecretArn { get; set; }
+            public Amazon.MediaConnect.EndpointEncryptionSecretType Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType { get; set; }
+            public Amazon.MediaConnect.EndpointEncryptionType Configuration_DestinationEndpoint_SourceTransitDecryptionType { get; set; }
             public System.String Failover_NetworkInterfaceArn { get; set; }
             public System.Int32? Failover_PrimarySourceIndex { get; set; }
             public List<Amazon.MediaConnect.Model.FailoverRouterInputProtocolConfiguration> Failover_ProtocolConfiguration { get; set; }

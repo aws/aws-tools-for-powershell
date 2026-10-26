@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the worker assuming the queue role.</para>
+        /// The farm ID of the worker assuming the queue role.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>The fleet ID of the worker assuming the queue role.</para>
+        /// The fleet ID of the worker assuming the queue
+        /// role.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID of the worker assuming the queue role.</para>
+        /// The queue ID of the worker assuming the queue
+        /// role.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerId
         /// <summary>
         /// <para>
-        /// <para>The worker ID of the worker assuming the queue role.</para>
+        /// The worker ID of the worker assuming the queue
+        /// role.
         /// </para>
         /// </summary>
         #if !MODULAR

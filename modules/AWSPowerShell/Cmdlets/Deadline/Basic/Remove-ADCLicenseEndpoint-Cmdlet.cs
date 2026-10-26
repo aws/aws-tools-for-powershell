@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter LicenseEndpointId
         /// <summary>
         /// <para>
-        /// <para>The license endpoint ID of the license endpoint to delete.</para>
+        /// The license endpoint ID of the license
+        /// endpoint to delete.
         /// </para>
         /// </summary>
         #if !MODULAR

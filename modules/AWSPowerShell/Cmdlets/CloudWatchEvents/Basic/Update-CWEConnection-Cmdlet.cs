@@ -93,9 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>Contains additional body string parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -108,9 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>Contains additional body string parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -155,9 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>Contains additional header parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -170,9 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>Contains additional header parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -225,9 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>Contains additional query string parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -240,9 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>Contains additional query string parameters for the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -308,7 +314,6 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchEvents.Model.UpdateConnectionResponse, UpdateCWEConnectionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AuthorizationType = this.AuthorizationType;
             context.ApiKeyAuthParameters_ApiKeyName = this.ApiKeyAuthParameters_ApiKeyName;
             context.ApiKeyAuthParameters_ApiKeyValue = this.ApiKeyAuthParameters_ApiKeyValue;
             context.BasicAuthParameters_Password = this.BasicAuthParameters_Password;
@@ -341,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             {
                 context.OAuthHttpParameters_QueryStringParameter = new List<Amazon.CloudWatchEvents.Model.ConnectionQueryStringParameter>(this.OAuthHttpParameters_QueryStringParameter);
             }
+            context.AuthorizationType = this.AuthorizationType;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -365,10 +371,6 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             // create request
             var request = new Amazon.CloudWatchEvents.Model.UpdateConnectionRequest();
             
-            if (cmdletContext.AuthorizationType != null)
-            {
-                request.AuthorizationType = cmdletContext.AuthorizationType;
-            }
             
              // populate AuthParameters
             var requestAuthParametersIsNull = true;
@@ -608,6 +610,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             {
                 request.AuthParameters = null;
             }
+            if (cmdletContext.AuthorizationType != null)
+            {
+                request.AuthorizationType = cmdletContext.AuthorizationType;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -671,7 +677,6 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.CloudWatchEvents.ConnectionAuthorizationType AuthorizationType { get; set; }
             public System.String ApiKeyAuthParameters_ApiKeyName { get; set; }
             public System.String ApiKeyAuthParameters_ApiKeyValue { get; set; }
             public System.String BasicAuthParameters_Password { get; set; }
@@ -686,6 +691,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             public List<Amazon.CloudWatchEvents.Model.ConnectionBodyParameter> OAuthHttpParameters_BodyParameter { get; set; }
             public List<Amazon.CloudWatchEvents.Model.ConnectionHeaderParameter> OAuthHttpParameters_HeaderParameter { get; set; }
             public List<Amazon.CloudWatchEvents.Model.ConnectionQueryStringParameter> OAuthHttpParameters_QueryStringParameter { get; set; }
+            public Amazon.CloudWatchEvents.ConnectionAuthorizationType AuthorizationType { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.CloudWatchEvents.Model.UpdateConnectionResponse, UpdateCWEConnectionCmdlet, object> Select { get; set; } =

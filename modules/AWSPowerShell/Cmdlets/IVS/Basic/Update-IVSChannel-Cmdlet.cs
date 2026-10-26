@@ -112,6 +112,18 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.Boolean? MultitrackInputConfiguration_Enabled { get; set; }
         #endregion
         
+        #region Parameter FailoverSlateConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>Failover-slate-configuration ARN. A valid ARN value here both specifies the ARN and
+        /// enables failover slate. If this is set to an empty string, failover slate configuration
+        /// is disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FailoverSlateConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter InsecureIngest
         /// <summary>
         /// <para>
@@ -274,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             #endif
             context.Authorized = this.Authorized;
             context.ContainerFormat = this.ContainerFormat;
+            context.FailoverSlateConfigurationArn = this.FailoverSlateConfigurationArn;
             context.InsecureIngest = this.InsecureIngest;
             context.LatencyMode = this.LatencyMode;
             context.MultitrackInputConfiguration_Enabled = this.MultitrackInputConfiguration_Enabled;
@@ -315,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.ContainerFormat != null)
             {
                 request.ContainerFormat = cmdletContext.ContainerFormat;
+            }
+            if (cmdletContext.FailoverSlateConfigurationArn != null)
+            {
+                request.FailoverSlateConfigurationArn = cmdletContext.FailoverSlateConfigurationArn;
             }
             if (cmdletContext.InsecureIngest != null)
             {
@@ -442,6 +459,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             public System.String Arn { get; set; }
             public System.Boolean? Authorized { get; set; }
             public Amazon.IVS.ContainerFormat ContainerFormat { get; set; }
+            public System.String FailoverSlateConfigurationArn { get; set; }
             public System.Boolean? InsecureIngest { get; set; }
             public Amazon.IVS.ChannelLatencyMode LatencyMode { get; set; }
             public System.Boolean? MultitrackInputConfiguration_Enabled { get; set; }

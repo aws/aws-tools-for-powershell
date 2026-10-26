@@ -51,9 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>
         /// <para>Optional list of credential provider configurations for authenticating with the MCP
         /// server. At most one credential provider configuration can be specified.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -334,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description_OptionalValue = this.Description_OptionalValue;
+            context.DescriptorType = this.DescriptorType;
             context.Descriptors_OptionalValue_A2a_OptionalValue_AgentCard_InlineContent = this.Descriptors_OptionalValue_A2a_OptionalValue_AgentCard_InlineContent;
             context.Descriptors_OptionalValue_A2a_OptionalValue_AgentCard_SchemaVersion = this.Descriptors_OptionalValue_A2a_OptionalValue_AgentCard_SchemaVersion;
             context.Descriptors_OptionalValue_AgentSkills_OptionalValue_SkillDefinition_OptionalValue_InlineContent = this.Descriptors_OptionalValue_AgentSkills_OptionalValue_SkillDefinition_OptionalValue_InlineContent;
@@ -344,7 +346,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.Descriptors_OptionalValue_Mcp_OptionalValue_Server_OptionalValue_SchemaVersion = this.Descriptors_OptionalValue_Mcp_OptionalValue_Server_OptionalValue_SchemaVersion;
             context.Descriptors_OptionalValue_Mcp_OptionalValue_Tools_OptionalValue_InlineContent = this.Descriptors_OptionalValue_Mcp_OptionalValue_Tools_OptionalValue_InlineContent;
             context.Descriptors_OptionalValue_Mcp_OptionalValue_Tools_OptionalValue_ProtocolVersion = this.Descriptors_OptionalValue_Mcp_OptionalValue_Tools_OptionalValue_ProtocolVersion;
-            context.DescriptorType = this.DescriptorType;
             context.Name = this.Name;
             context.RecordId = this.RecordId;
             #if MODULAR
@@ -402,6 +403,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestDescriptionIsNull)
             {
                 request.Description = null;
+            }
+            if (cmdletContext.DescriptorType != null)
+            {
+                request.DescriptorType = cmdletContext.DescriptorType;
             }
             
              // populate Descriptors
@@ -782,10 +787,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Descriptors = null;
             }
-            if (cmdletContext.DescriptorType != null)
-            {
-                request.DescriptorType = cmdletContext.DescriptorType;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -940,6 +941,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description_OptionalValue { get; set; }
+            public Amazon.BedrockAgentCoreControl.DescriptorType DescriptorType { get; set; }
             public System.String Descriptors_OptionalValue_A2a_OptionalValue_AgentCard_InlineContent { get; set; }
             public System.String Descriptors_OptionalValue_A2a_OptionalValue_AgentCard_SchemaVersion { get; set; }
             public System.String Descriptors_OptionalValue_AgentSkills_OptionalValue_SkillDefinition_OptionalValue_InlineContent { get; set; }
@@ -950,7 +952,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Descriptors_OptionalValue_Mcp_OptionalValue_Server_OptionalValue_SchemaVersion { get; set; }
             public System.String Descriptors_OptionalValue_Mcp_OptionalValue_Tools_OptionalValue_InlineContent { get; set; }
             public System.String Descriptors_OptionalValue_Mcp_OptionalValue_Tools_OptionalValue_ProtocolVersion { get; set; }
-            public Amazon.BedrockAgentCoreControl.DescriptorType DescriptorType { get; set; }
             public System.String Name { get; set; }
             public System.String RecordId { get; set; }
             public System.String RecordVersion { get; set; }

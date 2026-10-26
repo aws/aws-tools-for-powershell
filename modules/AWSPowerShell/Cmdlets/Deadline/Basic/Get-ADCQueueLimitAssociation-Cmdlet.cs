@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the farm that contains the associated queue and limit.</para>
+        /// The unique identifier of the farm that contains
+        /// the associated queue and limit.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter LimitId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the limit associated with the queue.</para>
+        /// The unique identifier of the limit associated
+        /// with the queue.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the queue associated with the limit.</para>
+        /// The unique identifier of the queue associated
+        /// with the limit.
         /// </para>
         /// </summary>
         #if !MODULAR

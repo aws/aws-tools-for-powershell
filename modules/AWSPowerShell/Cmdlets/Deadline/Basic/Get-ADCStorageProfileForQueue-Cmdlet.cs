@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID for the queue in storage profile.</para>
+        /// The farm ID for the queue in storage profile.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID the queue in the storage profile.</para>
+        /// The queue ID the queue in the storage profile.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter StorageProfileId
         /// <summary>
         /// <para>
-        /// <para>The storage profile ID for the storage profile in the queue.</para>
+        /// The storage profile ID for the storage
+        /// profile in the queue.
         /// </para>
         /// </summary>
         #if !MODULAR

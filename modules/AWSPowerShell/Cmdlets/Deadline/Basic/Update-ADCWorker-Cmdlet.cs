@@ -48,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Capabilities_Amount
         /// <summary>
         /// <para>
-        /// <para>The worker capabilities amounts on a list of worker capabilities.</para><para />
+        /// The worker capabilities amounts on a list of worker
+        /// capabilities.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Capabilities_Attribute
         /// <summary>
         /// <para>
-        /// <para>The worker attribute capabilities in the list of attribute capabilities.</para><para />
+        /// The worker attribute capabilities in the list
+        /// of attribute capabilities.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -80,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID to update.</para>
+        /// The farm ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>The fleet ID to update.</para>
+        /// The fleet ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter HostProperties_HostName
         /// <summary>
         /// <para>
-        /// <para>The host name.</para>
+        /// The host name.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IpAddresses_IpV4Address
         /// <summary>
         /// <para>
-        /// <para>The IpV4 address of the network.</para><para />
+        /// The IpV4 address of the network.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -140,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IpAddresses_IpV6Address
         /// <summary>
         /// <para>
-        /// <para>The IpV6 address for the network and node component.</para><para />
+        /// The IpV6 address for the network and node
+        /// component.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -156,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The worker status to update.</para>
+        /// The worker status to update.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerId
         /// <summary>
         /// <para>
-        /// <para>The worker ID to update.</para>
+        /// The worker ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR

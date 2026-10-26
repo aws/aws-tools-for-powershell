@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID to update in the session.</para>
+        /// The farm ID to update in the session.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID to update in the session.</para>
+        /// The job ID to update in the session.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID to update in the session.</para>
+        /// The queue ID to update in the session.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The session ID to update.</para>
+        /// The session ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,7 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TargetLifecycleStatus
         /// <summary>
         /// <para>
-        /// <para>The life cycle status to update in the session.</para>
+        /// The life cycle status to update
+        /// in the session.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,7 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

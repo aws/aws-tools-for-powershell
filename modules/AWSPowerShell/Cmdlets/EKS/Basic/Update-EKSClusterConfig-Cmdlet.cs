@@ -230,6 +230,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
         #endregion
         
+        #region Parameter KubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if Gateway API CRD management is enabled on your EKS Auto Mode cluster.
+        /// If CRD management is enabled, EKS Auto Mode will create and update the Gateway API
+        /// CRDs in your EKS Auto Mode cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed { get; set; }
+        #endregion
+        
         #region Parameter KubeApiServerConfig_ServiceNodePortRange_MaxPort
         /// <summary>
         /// <para>
@@ -507,6 +519,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             context.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type = this.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type;
             context.ElasticLoadBalancing_Enabled = this.ElasticLoadBalancing_Enabled;
+            context.KubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed = this.KubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed;
             context.KubernetesNetworkConfig_IpFamily = this.KubernetesNetworkConfig_IpFamily;
             context.KubernetesNetworkConfig_ServiceIpv4Cidr = this.KubernetesNetworkConfig_ServiceIpv4Cidr;
             if (this.Logging_ClusterLogging != null)
@@ -844,6 +857,46 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing.Enabled = requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_elasticLoadBalancing_Enabled.Value;
                 requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancingIsNull = false;
             }
+            Amazon.EKS.Model.GatewayApiConfiguration requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi = null;
+            
+             // populate GatewayApi
+            var requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApiIsNull = true;
+            requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi = new Amazon.EKS.Model.GatewayApiConfiguration();
+            Amazon.EKS.Model.CrdManagementConfiguration requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds = null;
+            
+             // populate Crds
+            var requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_CrdsIsNull = true;
+            requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds = new Amazon.EKS.Model.CrdManagementConfiguration();
+            System.Boolean? requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed = null;
+            if (cmdletContext.KubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed = cmdletContext.KubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed.Value;
+            }
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds.Managed = requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed.Value;
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_CrdsIsNull = false;
+            }
+             // determine if requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds should be set to null
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_CrdsIsNull)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds = null;
+            }
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi.Crds = requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds;
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApiIsNull = false;
+            }
+             // determine if requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi should be set to null
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApiIsNull)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi = null;
+            }
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing.GatewayApi = requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_kubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi;
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancingIsNull = false;
+            }
              // determine if requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing should be set to null
             if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancingIsNull)
             {
@@ -1057,6 +1110,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public List<Amazon.EKS.Model.ResourceWeight> KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource { get; set; }
             public Amazon.EKS.ScoringStrategyType KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type { get; set; }
             public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }
+            public System.Boolean? KubernetesNetworkConfig_ElasticLoadBalancing_GatewayApi_Crds_Managed { get; set; }
             public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
             public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }

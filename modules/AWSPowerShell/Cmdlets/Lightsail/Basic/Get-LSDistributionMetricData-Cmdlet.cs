@@ -101,7 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// requested an object that could not be found.</para><para><c>Statistics</c>: The most useful statistic is <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Percent</c>.</para></li><li><para><b><c>5xxErrorRate</c></b> - The percentage of all viewer requests for which the
         /// response's HTTP status code was 5xx. In these cases, the origin server did not satisfy
         /// the requests. For example, a status code of 503 (Service Unavailable) means that the
-        /// origin server is currently unavailable.</para><para><c>Statistics</c>: The most useful statistic is <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Percent</c>.</para></li></ul>
+        /// origin server is currently unavailable.</para><para><c>Statistics</c>: The most useful statistic is <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Percent</c>.</para></li><li><para><b><c>WafAllowedRequests</c></b> - The number of viewer requests that Web Application
+        /// Firewall (WAF) allowed. This metric is available only when WAF is enabled for the
+        /// distribution.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>None</c>.</para></li><li><para><b><c>WafBlockedRequests</c></b> - The number of viewer requests that WAF blocked.
+        /// This metric is available only when WAF is enabled for the distribution.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>None</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

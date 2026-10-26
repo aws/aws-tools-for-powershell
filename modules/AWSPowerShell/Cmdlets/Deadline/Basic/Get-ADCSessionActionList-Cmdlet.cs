@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID for the session actions list.</para>
+        /// The farm ID for the session actions list.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID for the session actions list.</para>
+        /// The job ID for the session actions list.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID for the session actions list.</para>
+        /// The queue ID for the session actions list.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The session ID to include on the sessions action list.</para>
+        /// The session ID to include on the sessions action
+        /// list.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TaskId
         /// <summary>
         /// <para>
-        /// <para>The task ID for the session actions list.</para>
+        /// The task ID for the session actions list.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
-        /// to get results as a set of sequential pages.</para>
+        /// The maximum number of results to return. Use
+        /// this parameter with <c>NextToken</c> to get results as a set of sequential pages.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -136,7 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results, or <c>null</c> to start from the beginning.</para>
+        /// The token for the next set of results, or <c>null</c>
+        /// to start from the beginning.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

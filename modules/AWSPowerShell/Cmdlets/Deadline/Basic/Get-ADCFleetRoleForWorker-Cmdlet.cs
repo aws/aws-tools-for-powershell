@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID for the fleet's farm.</para>
+        /// The farm ID for the fleet's farm.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>The fleet ID that contains the worker.</para>
+        /// The fleet ID that contains the worker.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerId
         /// <summary>
         /// <para>
-        /// <para>The ID of the worker assuming the fleet role.</para>
+        /// The ID of the worker assuming the fleet role.
         /// </para>
         /// </summary>
         #if !MODULAR

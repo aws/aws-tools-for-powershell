@@ -74,6 +74,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String SystemEndpoint_Address { get; set; }
         #endregion
         
+        #region Parameter AdditionalRecipients_CcEmailAddress
+        /// <summary>
+        /// <para>
+        /// <para>The additional CC email address recipients. You can specify up to 50 addresses. Provide
+        /// an empty list to clear the existing CC recipients.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalRecipients_CcEmailAddresses")]
+        public Amazon.Connect.Model.EmailAddressInfo[] AdditionalRecipients_CcEmailAddress { get; set; }
+        #endregion
+        
         #region Parameter ContactId
         /// <summary>
         /// <para>
@@ -250,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateContactResponse, UpdateCONNContactCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AdditionalRecipients_CcEmailAddress != null)
+            {
+                context.AdditionalRecipients_CcEmailAddress = new List<Amazon.Connect.Model.EmailAddressInfo>(this.AdditionalRecipients_CcEmailAddress);
+            }
             context.ContactId = this.ContactId;
             #if MODULAR
             if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
@@ -304,6 +324,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.UpdateContactRequest();
             
+            
+             // populate AdditionalRecipients
+            var requestAdditionalRecipientsIsNull = true;
+            request.AdditionalRecipients = new Amazon.Connect.Model.NullableAdditionalRecipients();
+            List<Amazon.Connect.Model.EmailAddressInfo> requestAdditionalRecipients_additionalRecipients_CcEmailAddress = null;
+            if (cmdletContext.AdditionalRecipients_CcEmailAddress != null)
+            {
+                requestAdditionalRecipients_additionalRecipients_CcEmailAddress = cmdletContext.AdditionalRecipients_CcEmailAddress;
+            }
+            if (requestAdditionalRecipients_additionalRecipients_CcEmailAddress != null)
+            {
+                request.AdditionalRecipients.CcEmailAddresses = requestAdditionalRecipients_additionalRecipients_CcEmailAddress;
+                requestAdditionalRecipientsIsNull = false;
+            }
+             // determine if request.AdditionalRecipients should be set to null
+            if (requestAdditionalRecipientsIsNull)
+            {
+                request.AdditionalRecipients = null;
+            }
             if (cmdletContext.ContactId != null)
             {
                 request.ContactId = cmdletContext.ContactId;
@@ -479,6 +518,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Connect.Model.EmailAddressInfo> AdditionalRecipients_CcEmailAddress { get; set; }
             public System.String ContactId { get; set; }
             public System.String CustomerEndpoint_Address { get; set; }
             public Amazon.Connect.EndpointType CustomerEndpoint_Type { get; set; }

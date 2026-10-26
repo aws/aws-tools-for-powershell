@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm to connect to the environment.</para>
+        /// The farm ID of the farm to connect to the environment.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,9 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the
-        /// highest priority (activated first and deactivated last). If two environments share
-        /// the same priority value, the environment created first takes higher priority.</para>
+        /// Sets the priority of the environments in the
+        /// queue from 0 to 10,000, where 0 is the highest priority (activated first and deactivated
+        /// last). If two environments share the same priority value, the environment created
+        /// first takes higher priority.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID to connect the queue and environment.</para>
+        /// The queue ID to connect the queue and environment.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Template
         /// <summary>
         /// <para>
-        /// <para>The environment template to use in the queue.</para>
+        /// The environment template to use in the queue.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -117,7 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TemplateType
         /// <summary>
         /// <para>
-        /// <para>The template's file type, <c>JSON</c> or <c>YAML</c>.</para>
+        /// The template's file type, <c>JSON</c> or
+        /// <c>YAML</c>.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,7 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -204,8 +204,6 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             context.ChannelClass = this.ChannelClass;
             context.Codec = this.Codec;
-            context.MaximumBitrate = this.MaximumBitrate;
-            context.MaximumFramerate = this.MaximumFramerate;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -216,6 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.MaximumBitrate = this.MaximumBitrate;
+            context.MaximumFramerate = this.MaximumFramerate;
             context.NextToken = this.NextToken;
             context.Resolution = this.Resolution;
             context.ResourceType = this.ResourceType;
@@ -248,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.Codec = cmdletContext.Codec;
             }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
             if (cmdletContext.MaximumBitrate != null)
             {
                 request.MaximumBitrate = cmdletContext.MaximumBitrate;
@@ -255,10 +259,6 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.MaximumFramerate != null)
             {
                 request.MaximumFramerate = cmdletContext.MaximumFramerate;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             if (cmdletContext.Resolution != null)
             {
@@ -471,9 +471,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
         {
             public System.String ChannelClass { get; set; }
             public System.String Codec { get; set; }
+            public int? MaxResult { get; set; }
             public System.String MaximumBitrate { get; set; }
             public System.String MaximumFramerate { get; set; }
-            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String Resolution { get; set; }
             public System.String ResourceType { get; set; }

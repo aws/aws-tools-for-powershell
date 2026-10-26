@@ -31,15 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
 {
     /// <summary>
     /// Updates multiple tasks in a single request. This is a batch version of the <c>UpdateTask</c>
-    /// API.
-    /// 
-    ///  
-    /// <para>
-    /// The result of updating each task is reported individually in the response. Because
+    /// API. The result of updating each task is reported individually in the response. Because
     /// the batch request can result in a combination of successful and unsuccessful actions,
     /// you should check for batch errors even when the call returns an HTTP status code of
     /// 200.
-    /// </para>
     /// </summary>
     [Cmdlet("Update", "ADCTaskBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Deadline.Model.BatchUpdateTaskError")]
@@ -57,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Task
         /// <summary>
         /// <para>
-        /// <para>The list of tasks to update. You can specify up to 100 tasks per request.</para><para />
+        /// The list of tasks to update. You can specify up
+        /// to 100 tasks per request.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -80,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,11 +30,7 @@ using Amazon.Signin.Model;
 namespace Amazon.PowerShell.Cmdlets.AMSP
 {
     /// <summary>
-    /// Grants permission to revoke an OAuth 2.0 refresh token and its associated refresh
-    /// tokens Revokes a refresh_token issued by AWS Sign-In, invalidating the entire token
-    /// chain so that the refresh_token can no longer be used to mint new access_tokens. Idempotency:
-    /// revoking an already-revoked, expired, or otherwise invalid token still returns 200
-    /// OK with an empty body. Only the refresh_token type is accepted.
+    /// Revokes an OAuth 2.0 refresh token and its associated token chain.
     /// </summary>
     [Cmdlet("Revoke", "AMSPOAuth2TokenWithIAM", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -52,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter Token
         /// <summary>
         /// <para>
-        /// The refresh_token to revoke. Must be a refresh_token
-        /// issued by AWS Sign-In (prefix "ASOR"); access_tokens are not accepted for revocation.
+        /// The refresh token to revoke. Must be a refresh token
+        /// issued by AWS Sign-In. Access tokens are not accepted for revocation.
         /// </para>
         /// </summary>
         #if !MODULAR

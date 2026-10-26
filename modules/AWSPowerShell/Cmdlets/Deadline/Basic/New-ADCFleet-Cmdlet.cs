@@ -50,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerCapabilities_AcceleratorType
         /// <summary>
         /// <para>
-        /// <para>The accelerator types for the customer managed worker capabilities.</para><para />
+        /// The accelerator types for the customer
+        /// managed worker capabilities.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -66,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceCapabilities_AllowedInstanceType
         /// <summary>
         /// <para>
-        /// <para>The allowable Amazon EC2 instance types.</para><para />
+        /// <para>The allowable Amazon EC2 instance types.</para><note><para>If you specify <c>allowedInstanceTypes</c>, you can't specify <c>excludedInstanceTypes</c>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -82,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerCapabilities_CpuArchitectureType
         /// <summary>
         /// <para>
-        /// <para>The CPU architecture type for the customer managed worker capabilities.</para>
+        /// The CPU architecture type for the
+        /// customer managed worker capabilities.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceCapabilities_CpuArchitectureType
         /// <summary>
         /// <para>
-        /// <para>The CPU architecture type.</para>
+        /// The CPU architecture type.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerCapabilities_CustomAmount
         /// <summary>
         /// <para>
-        /// <para>Custom requirement ranges for customer managed worker capabilities.</para><para />
+        /// Custom requirement ranges for customer managed
+        /// worker capabilities.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -122,7 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceCapabilities_CustomAmount
         /// <summary>
         /// <para>
-        /// <para>The custom capability amounts to require for instances in this fleet.</para><para />
+        /// The custom capability amounts to require
+        /// for instances in this fleet.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -138,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerCapabilities_CustomAttribute
         /// <summary>
         /// <para>
-        /// <para>Custom attributes for the customer manged worker capabilities.</para><para />
+        /// Custom attributes for the customer manged
+        /// worker capabilities.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -154,7 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceCapabilities_CustomAttribute
         /// <summary>
         /// <para>
-        /// <para>The custom capability attributes to require for instances in this fleet.</para><para />
+        /// The custom capability attributes to require
+        /// for instances in this fleet.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -199,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceCapabilities_ExcludedInstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance types to exclude from the fleet.</para><para />
+        /// <para>The instance types to exclude from the fleet.</para><note><para>If you specify <c>excludedInstanceTypes</c>, you can't specify <c>allowedInstanceTypes</c>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -215,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm to connect to the fleet.</para>
+        /// The farm ID of the farm to connect to the fleet.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -232,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter RootEbsVolume_Iops
         /// <summary>
         /// <para>
-        /// <para>The IOPS per volume.</para>
+        /// The IOPS per volume.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_Iops
         /// <summary>
         /// <para>
-        /// <para>The IOPS per persistent volume. The default is 3000.</para>
+        /// The IOPS per persistent volume. The default is 3000.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,8 +264,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_LastUsedTtlHour
         /// <summary>
         /// <para>
-        /// <para>The number of hours a persistent volume can remain unused before it is deleted. The
-        /// default is 168 (7 days).</para>
+        /// The number of hours a persistent volume
+        /// can remain unused before it is deleted. The default is 12.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,7 +276,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AcceleratorCount_Max
         /// <summary>
         /// <para>
-        /// <para>The maximum number of GPU accelerators in the worker host.</para>
+        /// The maximum number of GPU accelerators in the worker
+        /// host.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,7 +288,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AcceleratorTotalMemoryMiB_Max
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of memory to use for the accelerator, measured in MiB.</para>
+        /// The maximum amount of memory to use for the accelerator,
+        /// measured in MiB.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Max
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of memory (in MiB).</para>
+        /// The maximum amount of memory (in MiB).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of vCPU.</para>
+        /// The maximum amount of vCPU.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -309,7 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Count_Max
         /// <summary>
         /// <para>
-        /// <para>The maximum number of GPU accelerators in the worker host.</para>
+        /// The maximum number of GPU accelerators in the worker
+        /// host.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -320,7 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_InstanceCapabilities_MemoryMiB_Max
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of memory (in MiB).</para>
+        /// The maximum amount of memory (in MiB).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of vCPU.</para>
+        /// The maximum amount of vCPU.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -342,12 +356,13 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxWorkerCount
         /// <summary>
         /// <para>
-        /// <para>The maximum number of workers for the fleet.</para><para>Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum
+        /// The maximum number of workers for the fleet.
+        /// Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum
         /// worker count. The service maintains eventual consistency for the worker count. If
         /// you make multiple rapid calls to <c>CreateWorker</c> before the field updates, you
         /// might exceed your fleet's maximum worker count. For example, if your <c>maxWorkerCount</c>
         /// is 10 and you currently have 9 workers, making two quick <c>CreateWorker</c> calls
-        /// might successfully create 2 workers instead of 1, resulting in 11 total workers.</para>
+        /// might successfully create 2 workers instead of 1, resulting in 11 total workers.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -363,7 +378,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AcceleratorCount_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum number of GPU accelerators in the worker host.</para>
+        /// The minimum number of GPU accelerators in the worker
+        /// host.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -374,7 +390,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AcceleratorTotalMemoryMiB_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum amount of memory to use for the accelerator, measured in MiB.</para>
+        /// The minimum amount of memory to use for the accelerator,
+        /// measured in MiB.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -385,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_WorkerCapabilities_MemoryMiB_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum amount of memory (in MiB).</para>
+        /// The minimum amount of memory (in MiB).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -396,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum amount of vCPU.</para>
+        /// The minimum amount of vCPU.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -407,7 +424,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Count_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum number of GPU accelerators in the worker host.</para>
+        /// The minimum number of GPU accelerators in the worker
+        /// host.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,7 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_InstanceCapabilities_MemoryMiB_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum amount of memory (in MiB).</para>
+        /// The minimum amount of memory (in MiB).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -429,7 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum amount of vCPU.</para>
+        /// The minimum amount of vCPU.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -440,7 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MinWorkerCount
         /// <summary>
         /// <para>
-        /// <para>The minimum number of workers for the fleet.</para>
+        /// The minimum number of workers for the fleet.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -450,7 +468,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter CustomerManaged_Mode
         /// <summary>
         /// <para>
-        /// <para>The Auto Scaling mode for the customer managed fleet.</para>
+        /// The Auto Scaling mode for the customer managed fleet.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -462,7 +480,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_MountPath
         /// <summary>
         /// <para>
-        /// <para>The file system path where the persistent volume is mounted on the worker instance.</para>
+        /// The file system path where the persistent volume
+        /// is mounted on the worker instance.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -472,7 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerCapabilities_OsFamily
         /// <summary>
         /// <para>
-        /// <para>The operating system (OS) family.</para>
+        /// The operating system (OS) family.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -484,7 +503,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceCapabilities_OsFamily
         /// <summary>
         /// <para>
-        /// <para>The operating system (OS) family.</para>
+        /// The operating system (OS) family.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -496,7 +515,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter VpcConfiguration_ResourceConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs of the VPC Lattice resource configurations attached to the fleet.</para><para />
+        /// The ARNs of the VPC Lattice
+        /// resource configurations attached to the fleet.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -512,7 +533,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM role ARN for the role that the fleet's workers will use.</para>
+        /// The IAM role ARN for the role that the fleet's
+        /// workers will use.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -529,8 +551,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_ScaleOutWorkersPerMinute
         /// <summary>
         /// <para>
-        /// <para>The number of workers that can be added per minute to the fleet. The default is 10
-        /// workers per minute.</para>
+        /// The number of workers that can
+        /// be added per minute to the fleet. The default is 10 workers per minute.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -540,8 +562,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_AutoScalingConfiguration_ScaleOutWorkersPerMinute
         /// <summary>
         /// <para>
-        /// <para>The number of workers that can be added per minute to the fleet. The default is 10
-        /// workers per minute.</para>
+        /// The number of workers that can
+        /// be added per minute to the fleet. The default is 10 workers per minute.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -599,7 +621,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter RootEbsVolume_SizeGiB
         /// <summary>
         /// <para>
-        /// <para>The EBS volume size in GiB.</para>
+        /// The EBS volume size in GiB.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -610,7 +632,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB
         /// <summary>
         /// <para>
-        /// <para>The persistent volume size in GiB. The default is 250.</para>
+        /// The persistent volume size in GiB. The default
+        /// is 250.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -620,7 +643,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn
         /// <summary>
         /// <para>
-        /// <para>The software add-ons that the service installs on worker hosts when they launch.</para><para />
+        /// The software add-ons that the service installs
+        /// on worker hosts when they launch.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -636,8 +661,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount
         /// <summary>
         /// <para>
-        /// <para>The number of idle workers maintained and ready to process incoming tasks. The default
-        /// is 0.</para>
+        /// The number of idle workers maintained
+        /// and ready to process incoming tasks. The default is 0.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -647,8 +672,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_AutoScalingConfiguration_StandbyWorkerCount
         /// <summary>
         /// <para>
-        /// <para>The number of idle workers maintained and ready to process incoming tasks. The default
-        /// is 0.</para>
+        /// The number of idle workers maintained
+        /// and ready to process incoming tasks. The default is 0.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -658,7 +683,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter CustomerManaged_StorageProfileId
         /// <summary>
         /// <para>
-        /// <para>The storage profile ID for the customer managed fleet.</para>
+        /// The storage profile ID for the customer
+        /// managed fleet.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -669,7 +695,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ServiceManagedEc2_StorageProfileId
         /// <summary>
         /// <para>
-        /// <para>The storage profile ID for the service managed EC2 fleet.</para>
+        /// The storage profile ID for the service
+        /// managed EC2 fleet.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -680,7 +707,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter CustomerManaged_TagPropagationMode
         /// <summary>
         /// <para>
-        /// <para>The tag propagation mode for the customer managed fleet.</para>
+        /// The tag propagation mode for the customer
+        /// managed fleet.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -692,8 +720,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Each tag consists of a tag key and a tag value. Tag keys and values are both required,
-        /// but tag values can be empty strings.</para><para />
+        /// Each tag consists of a tag key and a tag value. Tag
+        /// keys and values are both required, but tag values can be empty strings.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -709,7 +738,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter RootEbsVolume_ThroughputMiB
         /// <summary>
         /// <para>
-        /// <para>The throughput per volume in MiB.</para>
+        /// The throughput per volume in MiB.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -720,7 +749,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_ThroughputMiB
         /// <summary>
         /// <para>
-        /// <para>The throughput per persistent volume in MiB. The default is 125.</para>
+        /// The throughput per persistent volume in
+        /// MiB. The default is 125.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -730,7 +760,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter InstanceMarketOptions_Type
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 instance type.</para>
+        /// The Amazon EC2 instance type.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -742,8 +772,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_WorkerIdleDurationSecond
         /// <summary>
         /// <para>
-        /// <para>The number of seconds that a worker can remain idle before it is shut down. The default
-        /// is 300 seconds (5 minutes).</para>
+        /// The number of seconds that a
+        /// worker can remain idle before it is shut down. The default is 300 seconds (5 minutes).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -754,8 +784,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Configuration_ServiceManagedEc2_AutoScalingConfiguration_WorkerIdleDurationSecond
         /// <summary>
         /// <para>
-        /// <para>The number of seconds that a worker can remain idle before it is shut down. The default
-        /// is 300 seconds (5 minutes).</para>
+        /// The number of seconds that a
+        /// worker can remain idle before it is shut down. The default is 300 seconds (5 minutes).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -766,7 +796,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

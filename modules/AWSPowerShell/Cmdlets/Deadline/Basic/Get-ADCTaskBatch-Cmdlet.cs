@@ -31,15 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
 {
     /// <summary>
     /// Retrieves multiple tasks in a single request. This is a batch version of the <c>GetTask</c>
-    /// API.
-    /// 
-    ///  
-    /// <para>
-    /// The result of getting each task is reported individually in the response. Because
+    /// API. The result of getting each task is reported individually in the response. Because
     /// the batch request can result in a combination of successful and unsuccessful actions,
     /// you should check for batch errors even when the call returns an HTTP status code of
     /// 200.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "ADCTaskBatch")]
     [OutputType("Amazon.Deadline.Model.BatchGetTaskResponse")]
@@ -56,8 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The list of task identifiers to retrieve. You can specify up to 100 identifiers per
-        /// request.</para><para />
+        /// The list of task identifiers to retrieve.
+        /// You can specify up to 100 identifiers per request.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

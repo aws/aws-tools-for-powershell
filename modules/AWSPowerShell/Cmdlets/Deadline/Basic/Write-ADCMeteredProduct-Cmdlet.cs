@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter LicenseEndpointId
         /// <summary>
         /// <para>
-        /// <para>The license endpoint ID to add to the metered product.</para>
+        /// The license endpoint ID to add to the
+        /// metered product.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ProductId
         /// <summary>
         /// <para>
-        /// <para>The product ID to add to the metered product.</para>
+        /// The product ID to add to the metered product.
         /// </para>
         /// </summary>
         #if !MODULAR

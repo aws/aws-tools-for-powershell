@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MonitorId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the monitor to update.</para>
+        /// The unique identifier of the monitor to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name of the new IAM role to use with the monitor.</para>
+        /// The Amazon Resource Name of the new IAM role to
+        /// use with the monitor.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Subdomain
         /// <summary>
         /// <para>
-        /// <para>The new value of the subdomain to use when forming the monitor URL.</para>
+        /// The new value of the subdomain to use when forming
+        /// the monitor URL.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

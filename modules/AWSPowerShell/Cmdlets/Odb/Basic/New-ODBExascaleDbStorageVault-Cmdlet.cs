@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.ODB
 {
     /// <summary>
     /// Creates an Exascale storage vault.
+    /// 
+    ///  
+    /// <para>
+    /// To create the Exascale storage vault on dedicated Exadata infrastructure, specify
+    /// <c>cloudExadataInfrastructureId</c>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ODBExascaleDbStorageVault", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.CreateExascaleDbStorageVaultResponse")]
@@ -82,6 +88,21 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AvailabilityZoneId { get; set; }
+        #endregion
+        
+        #region Parameter CloudExadataInfrastructureId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier or Amazon Resource Name (ARN) of the Exadata infrastructure
+        /// on which to create the Exascale storage vault. Specify this value to create the Exascale
+        /// storage vault on dedicated Exadata infrastructure that has Exascale storage configured.
+        /// If you specify <c>availabilityZone</c> or <c>availabilityZoneId</c>, the value must
+        /// match the Availability Zone of the Exadata infrastructure. If you specify neither,
+        /// the service uses the Availability Zone of the Exadata infrastructure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CloudExadataInfrastructureId { get; set; }
         #endregion
         
         #region Parameter Description
@@ -229,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             context.AvailabilityZone = this.AvailabilityZone;
             context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.ClientToken = this.ClientToken;
+            context.CloudExadataInfrastructureId = this.CloudExadataInfrastructureId;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             #if MODULAR
@@ -289,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.CloudExadataInfrastructureId != null)
+            {
+                request.CloudExadataInfrastructureId = cmdletContext.CloudExadataInfrastructureId;
             }
             if (cmdletContext.Description != null)
             {
@@ -374,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             public System.String AvailabilityZone { get; set; }
             public System.String AvailabilityZoneId { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String CloudExadataInfrastructureId { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.Int32? HighCapacityDatabaseStorageTotalSizeInGBs { get; set; }

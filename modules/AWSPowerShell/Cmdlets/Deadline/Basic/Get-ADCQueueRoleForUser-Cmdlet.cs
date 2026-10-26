@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the queue that the user assumes the role for.</para>
+        /// The farm ID of the queue that the user assumes
+        /// the role for.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID of the queue that the user assumes the role for.</para>
+        /// The queue ID of the queue that the user assumes
+        /// the role for.
         /// </para>
         /// </summary>
         #if !MODULAR

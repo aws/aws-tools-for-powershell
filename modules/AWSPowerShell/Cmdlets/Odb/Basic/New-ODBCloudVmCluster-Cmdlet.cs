@@ -140,6 +140,35 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter ExascaleDbStorageVaultId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier or Amazon Resource Name (ARN) of the Exascale storage vault
+        /// to use for the VM cluster. Specify this value to create a VM cluster that uses Exascale
+        /// storage on dedicated Exadata infrastructure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExascaleDbStorageVaultId { get; set; }
+        #endregion
+        
+        #region Parameter FileSystemConfigurationDetail
+        /// <summary>
+        /// <para>
+        /// <para>The list of file system configurations for the VM cluster. Each entry specifies the
+        /// mount point of a file system and its size, in gigabytes (GB).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FileSystemConfigurationDetails")]
+        public Amazon.Odb.Model.FileSystemConfigurationDetails[] FileSystemConfigurationDetail { get; set; }
+        #endregion
+        
         #region Parameter GiVersion
         /// <summary>
         /// <para>
@@ -336,6 +365,32 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public System.String TimeZone { get; set; }
         #endregion
         
+        #region Parameter VmBackupStorageType
+        /// <summary>
+        /// <para>
+        /// <para>The type of storage to use for VM backups. Specify <c>EXASCALE</c> to store VM backups
+        /// in Exascale storage on the storage servers, or <c>LOCAL</c> to store them on the database
+        /// servers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Odb.VmStorageType")]
+        public Amazon.Odb.VmStorageType VmBackupStorageType { get; set; }
+        #endregion
+        
+        #region Parameter VmFileSystemStorageType
+        /// <summary>
+        /// <para>
+        /// <para>The type of storage to use for the VM file systems. Specify <c>EXASCALE</c> to store
+        /// the VM file systems in Exascale storage on the storage servers, or <c>LOCAL</c> to
+        /// store them on the database servers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Odb.VmStorageType")]
+        public Amazon.Odb.VmStorageType VmFileSystemStorageType { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -427,6 +482,11 @@ namespace Amazon.PowerShell.Cmdlets.ODB
                 WriteWarning("You are passing $null as a value for parameter DisplayName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExascaleDbStorageVaultId = this.ExascaleDbStorageVaultId;
+            if (this.FileSystemConfigurationDetail != null)
+            {
+                context.FileSystemConfigurationDetail = new List<Amazon.Odb.Model.FileSystemConfigurationDetails>(this.FileSystemConfigurationDetail);
+            }
             context.GiVersion = this.GiVersion;
             #if MODULAR
             if (this.GiVersion == null && ParameterWasBound(nameof(this.GiVersion)))
@@ -473,6 +533,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
                 }
             }
             context.TimeZone = this.TimeZone;
+            context.VmBackupStorageType = this.VmBackupStorageType;
+            context.VmFileSystemStorageType = this.VmFileSystemStorageType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -560,6 +622,14 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             {
                 request.DisplayName = cmdletContext.DisplayName;
             }
+            if (cmdletContext.ExascaleDbStorageVaultId != null)
+            {
+                request.ExascaleDbStorageVaultId = cmdletContext.ExascaleDbStorageVaultId;
+            }
+            if (cmdletContext.FileSystemConfigurationDetail != null)
+            {
+                request.FileSystemConfigurationDetails = cmdletContext.FileSystemConfigurationDetail;
+            }
             if (cmdletContext.GiVersion != null)
             {
                 request.GiVersion = cmdletContext.GiVersion;
@@ -607,6 +677,14 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.TimeZone != null)
             {
                 request.TimeZone = cmdletContext.TimeZone;
+            }
+            if (cmdletContext.VmBackupStorageType != null)
+            {
+                request.VmBackupStorageType = cmdletContext.VmBackupStorageType;
+            }
+            if (cmdletContext.VmFileSystemStorageType != null)
+            {
+                request.VmFileSystemStorageType = cmdletContext.VmFileSystemStorageType;
             }
             
             CmdletOutput output;
@@ -674,6 +752,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             public System.Int32? DbNodeStorageSizeInGBs { get; set; }
             public List<System.String> DbServer { get; set; }
             public System.String DisplayName { get; set; }
+            public System.String ExascaleDbStorageVaultId { get; set; }
+            public List<Amazon.Odb.Model.FileSystemConfigurationDetails> FileSystemConfigurationDetail { get; set; }
             public System.String GiVersion { get; set; }
             public System.String Hostname { get; set; }
             public System.Boolean? IsLocalBackupEnabled { get; set; }
@@ -686,6 +766,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             public System.String SystemVersion { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TimeZone { get; set; }
+            public Amazon.Odb.VmStorageType VmBackupStorageType { get; set; }
+            public Amazon.Odb.VmStorageType VmFileSystemStorageType { get; set; }
             public System.Func<Amazon.Odb.Model.CreateCloudVmClusterResponse, NewODBCloudVmClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

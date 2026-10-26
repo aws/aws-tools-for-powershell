@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm to delete.</para>
+        /// The farm ID of the farm to delete.
         /// </para>
         /// </summary>
         #if !MODULAR

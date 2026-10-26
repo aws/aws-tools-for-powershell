@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityCenterInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name of the IAM Identity Center instance that authenticates monitor
-        /// users.</para>
+        /// The Amazon Resource Name of
+        /// the IAM Identity Center instance that authenticates monitor users.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityCenterRegion
         /// <summary>
         /// <para>
-        /// <para>The Region where IAM Identity Center is enabled. Required when IAM Identity Center
-        /// is in a different Region than the monitor.</para>
+        /// The Region where IAM Identity Center
+        /// is enabled. Required when IAM Identity Center is in a different Region than the monitor.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name of the IAM role that the monitor uses to connect to Deadline
-        /// Cloud. Every user that signs in to the monitor using IAM Identity Center uses this
-        /// role to access Deadline Cloud resources.</para>
+        /// The Amazon Resource Name of the IAM role that
+        /// the monitor uses to connect to Deadline Cloud. Every user that signs in to the monitor
+        /// using IAM Identity Center uses this role to access Deadline Cloud resources.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Subdomain
         /// <summary>
         /// <para>
-        /// <para>The subdomain to use when creating the monitor URL. The full URL of the monitor is
-        /// subdomain.Region.deadlinecloud.amazonaws.com.</para>
+        /// The subdomain to use when creating the monitor
+        /// URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,8 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to your monitor. Each tag consists of a tag key and a tag value. Tag
-        /// keys and values are both required, but tag values can be empty strings.</para><para />
+        /// The tags to add to your monitor. Each tag consists
+        /// of a tag key and a tag value. Tag keys and values are both required, but tag values
+        /// can be empty strings.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -150,7 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

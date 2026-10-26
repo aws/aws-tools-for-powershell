@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The ID of the farm that the queue and fleet belong to.</para>
+        /// The ID of the farm that the queue and fleet belong
+        /// to.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>The fleet ID.</para>
+        /// The fleet ID.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID.</para>
+        /// The queue ID.
         /// </para>
         /// </summary>
         #if !MODULAR

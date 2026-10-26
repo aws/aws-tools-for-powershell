@@ -61,9 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// to 25 characters. The characters can be letters, numbers, spaces, underscores (_),
         /// or hyphens (-).</para></li></ul><para>This object is required if the configuration invokes an AWS Lambda function (RecommendationTransformerUri)
         /// to process recommendation data. Otherwise, don't include this object in your request.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -265,9 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 WriteWarning("You are passing $null as a value for parameter CreateRecommenderConfiguration_RecommendationProviderUri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CreateRecommenderConfiguration_RecommendationTransformerUri = this.CreateRecommenderConfiguration_RecommendationTransformerUri;
             context.CreateRecommenderConfiguration_RecommendationsDisplayName = this.CreateRecommenderConfiguration_RecommendationsDisplayName;
             context.CreateRecommenderConfiguration_RecommendationsPerMessage = this.CreateRecommenderConfiguration_RecommendationsPerMessage;
-            context.CreateRecommenderConfiguration_RecommendationTransformerUri = this.CreateRecommenderConfiguration_RecommendationTransformerUri;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -348,6 +349,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.CreateRecommenderConfiguration.RecommendationProviderUri = requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationProviderUri;
                 requestCreateRecommenderConfigurationIsNull = false;
             }
+            System.String requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationTransformerUri = null;
+            if (cmdletContext.CreateRecommenderConfiguration_RecommendationTransformerUri != null)
+            {
+                requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationTransformerUri = cmdletContext.CreateRecommenderConfiguration_RecommendationTransformerUri;
+            }
+            if (requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationTransformerUri != null)
+            {
+                request.CreateRecommenderConfiguration.RecommendationTransformerUri = requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationTransformerUri;
+                requestCreateRecommenderConfigurationIsNull = false;
+            }
             System.String requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationsDisplayName = null;
             if (cmdletContext.CreateRecommenderConfiguration_RecommendationsDisplayName != null)
             {
@@ -366,16 +377,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationsPerMessage != null)
             {
                 request.CreateRecommenderConfiguration.RecommendationsPerMessage = requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationsPerMessage.Value;
-                requestCreateRecommenderConfigurationIsNull = false;
-            }
-            System.String requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationTransformerUri = null;
-            if (cmdletContext.CreateRecommenderConfiguration_RecommendationTransformerUri != null)
-            {
-                requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationTransformerUri = cmdletContext.CreateRecommenderConfiguration_RecommendationTransformerUri;
-            }
-            if (requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationTransformerUri != null)
-            {
-                request.CreateRecommenderConfiguration.RecommendationTransformerUri = requestCreateRecommenderConfiguration_createRecommenderConfiguration_RecommendationTransformerUri;
                 requestCreateRecommenderConfigurationIsNull = false;
             }
              // determine if request.CreateRecommenderConfiguration should be set to null
@@ -444,9 +445,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String CreateRecommenderConfiguration_RecommendationProviderIdType { get; set; }
             public System.String CreateRecommenderConfiguration_RecommendationProviderRoleArn { get; set; }
             public System.String CreateRecommenderConfiguration_RecommendationProviderUri { get; set; }
+            public System.String CreateRecommenderConfiguration_RecommendationTransformerUri { get; set; }
             public System.String CreateRecommenderConfiguration_RecommendationsDisplayName { get; set; }
             public System.Int32? CreateRecommenderConfiguration_RecommendationsPerMessage { get; set; }
-            public System.String CreateRecommenderConfiguration_RecommendationTransformerUri { get; set; }
             public System.Func<Amazon.Pinpoint.Model.CreateRecommenderConfigurationResponse, NewPINRecommenderConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RecommenderConfigurationResponse;
         }

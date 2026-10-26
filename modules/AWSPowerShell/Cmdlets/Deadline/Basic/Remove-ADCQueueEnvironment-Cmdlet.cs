@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm from which to remove the queue environment.</para>
+        /// The farm ID of the farm from which to remove the
+        /// queue environment.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueEnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The queue environment ID of the queue environment to delete.</para>
+        /// The queue environment ID of the queue
+        /// environment to delete.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID of the queue environment to delete.</para>
+        /// The queue ID of the queue environment to delete.
         /// </para>
         /// </summary>
         #if !MODULAR

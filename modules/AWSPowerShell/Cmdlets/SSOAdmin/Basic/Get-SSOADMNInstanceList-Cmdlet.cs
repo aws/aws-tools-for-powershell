@@ -46,6 +46,20 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter RegionScope
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which Amazon Web Services Regions to list IAM Identity Center instances
+        /// from. Valid values:</para><ul><li><para><c>CURRENT_REGION</c> - Lists only the instances in the Region that you call this
+        /// API from.</para></li><li><para><c>ALL_REGIONS</c> - Lists the instances that the caller owns or that are shared
+        /// with the caller across all Regions.</para></li></ul><para>If you don't specify a value, the default is <c>CURRENT_REGION</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SSOAdmin.RegionScope")]
+        public Amazon.SSOAdmin.RegionScope RegionScope { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -114,6 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.RegionScope = this.RegionScope;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -135,6 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.RegionScope != null)
+            {
+                request.RegionScope = cmdletContext.RegionScope;
             }
             
             // Initialize loop variant and commence piping
@@ -217,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.SSOAdmin.RegionScope RegionScope { get; set; }
             public System.Func<Amazon.SSOAdmin.Model.ListInstancesResponse, GetSSOADMNInstanceListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Instances;
         }

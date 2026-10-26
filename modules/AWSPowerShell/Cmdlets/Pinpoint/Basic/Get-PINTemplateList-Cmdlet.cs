@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The  string that specifies which page of results to return in a paginated response.
+        /// <para>The string that specifies which page of results to return in a paginated response.
         /// This parameter is not supported for application, campaign, and journey metrics.</para>
         /// </para>
         /// </summary>

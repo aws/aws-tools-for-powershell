@@ -46,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDestinationEndpoint" OutputProperty="*" Verb="Get" Noun="DestinationEndpointBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetRouterInput" OutputProperty="*" Verb="Get" Noun="BatchRouterInput" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -55,6 +59,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchGetRouterOutput" OutputProperty="*" Verb="Get" Noun="BatchRouterOutput" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetSourceEndpoint" OutputProperty="*" Verb="Get" Noun="SourceEndpointBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConnectEndpoints" OutputProperty="*" Verb="Connect" Noun="Endpoint" ShouldProcessTarget="DestinationEndpointArn,SourceEndpointArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -183,10 +195,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterDestinationEndpoint" OutputProperty="*" Verb="Unregister" Noun="DestinationEndpoint" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeregisterGatewayInstance" OutputProperty="*" Verb="Remove" Noun="GatewayInstance" ShouldProcessTarget="GatewayInstanceArn" PipelineParameter="GatewayInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="ForceRemove" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterSourceEndpoint" OutputProperty="*" Verb="Unregister" Noun="SourceEndpoint" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeBridge" OutputProperty="Bridge" Verb="Get" Noun="Bridge" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -221,6 +241,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisconnectEndpoints" OutputProperty="*" Verb="Disconnect" Noun="Endpoint" ShouldProcessTarget="DestinationEndpointArn,SourceEndpointArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDestinationEndpoint" OutputProperty="DestinationEndpoint" Verb="Get" Noun="DestinationEndpoint" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRouterInput" OutputProperty="RouterInput" Verb="Get" Noun="RouterInput" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -241,11 +269,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSourceEndpoint" OutputProperty="SourceEndpoint" Verb="Get" Noun="SourceEndpoint" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GrantFlowEntitlements" OutputProperty="Entitlements" Verb="Grant" Noun="FlowEntitlement" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBridges" OutputProperty="Bridges" Verb="Get" Noun="BridgeList" PipelineParameter="FilterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDestinationEndpoints" OutputProperty="DestinationEndpoints" Verb="Get" Noun="DestinationEndpointList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -285,6 +321,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSourceEndpoints" OutputProperty="SourceEndpoints" Verb="Get" Noun="SourceEndpointList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForGlobalResource" OutputProperty="Tags" Verb="Get" Noun="TagsForGlobalResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -294,6 +334,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PurchaseOffering" OutputProperty="Reservation" Verb="New" Noun="Offering" ShouldProcessTarget="OfferingArn" PipelineParameter="OfferingArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterDestinationEndpoint" OutputProperty="DestinationEndpoint" Verb="Register" Noun="DestinationEndpoint" ShouldProcessTarget="RegionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterSourceEndpoint" OutputProperty="SourceEndpoint" Verb="Register" Noun="SourceEndpoint" ShouldProcessTarget="RegionName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -395,6 +443,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBridgeState" OutputProperty="*" Verb="Update" Noun="BridgeState" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDestinationEndpoint" OutputProperty="DestinationEndpoint" Verb="Update" Noun="DestinationEndpoint" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -522,6 +574,10 @@
                 <Param Name="MaintenanceConfiguration_PreferredDayTime_Day" NewName="PreferredDayTime_Day" />
                 <Param Name="MaintenanceConfiguration_PreferredDayTime_Time" NewName="PreferredDayTime_Time" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSourceEndpoint" OutputProperty="SourceEndpoint" Verb="Update" Noun="SourceEndpoint" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -58,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.String FilterByAdConfigurationArn { get; set; }
         #endregion
         
+        #region Parameter FilterByFailoverSlateConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>Filters the channel list to match the specified failover-slate-configuration ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterByFailoverSlateConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter FilterByName
         /// <summary>
         /// <para>
@@ -161,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.FilterByAdConfigurationArn = this.FilterByAdConfigurationArn;
+            context.FilterByFailoverSlateConfigurationArn = this.FilterByFailoverSlateConfigurationArn;
             context.FilterByName = this.FilterByName;
             context.FilterByPlaybackRestrictionPolicyArn = this.FilterByPlaybackRestrictionPolicyArn;
             context.FilterByRecordingConfigurationArn = this.FilterByRecordingConfigurationArn;
@@ -196,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.FilterByAdConfigurationArn != null)
             {
                 request.FilterByAdConfigurationArn = cmdletContext.FilterByAdConfigurationArn;
+            }
+            if (cmdletContext.FilterByFailoverSlateConfigurationArn != null)
+            {
+                request.FilterByFailoverSlateConfigurationArn = cmdletContext.FilterByFailoverSlateConfigurationArn;
             }
             if (cmdletContext.FilterByName != null)
             {
@@ -294,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FilterByAdConfigurationArn { get; set; }
+            public System.String FilterByFailoverSlateConfigurationArn { get; set; }
             public System.String FilterByName { get; set; }
             public System.String FilterByPlaybackRestrictionPolicyArn { get; set; }
             public System.String FilterByRecordingConfigurationArn { get; set; }

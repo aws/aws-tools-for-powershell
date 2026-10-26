@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the queue to associate with the member.</para>
+        /// The farm ID of the queue to associate with the
+        /// member.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityCenterRegion
         /// <summary>
         /// <para>
-        /// <para>The Region of the IAM Identity Center instance. If not provided, the service defaults
-        /// to the Region of the farm.</para>
+        /// The Region of the IAM Identity Center
+        /// instance. If not provided, the service defaults to the Region of the farm.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The member's identity store ID to associate with the queue.</para>
+        /// The member's identity store ID to associate
+        /// with the queue.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MembershipLevel
         /// <summary>
         /// <para>
-        /// <para>The principal's membership level for the associated queue.</para>
+        /// The principal's membership level for the
+        /// associated queue.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,7 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
-        /// <para>The member's principal ID to associate with the queue.</para>
+        /// The member's principal ID to associate with
+        /// the queue.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -127,7 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PrincipalType
         /// <summary>
         /// <para>
-        /// <para>The member's principal type to associate with the queue.</para>
+        /// The member's principal type to associate
+        /// with the queue.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The ID of the queue to associate to the member.</para>
+        /// The ID of the queue to associate to the member.
         /// </para>
         /// </summary>
         #if !MODULAR

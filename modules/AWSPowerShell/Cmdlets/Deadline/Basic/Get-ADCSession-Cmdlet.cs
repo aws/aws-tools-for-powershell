@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID for the session.</para>
+        /// The farm ID for the session.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID for the session.</para>
+        /// The job ID for the session.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID for the session.</para>
+        /// The queue ID for the session.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The session ID.</para>
+        /// The session ID.
         /// </para>
         /// </summary>
         #if !MODULAR

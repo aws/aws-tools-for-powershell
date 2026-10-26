@@ -129,6 +129,26 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.DestinationEndpointNetworkingType
+        {
+            ($_ -eq "Register-EMCNDestinationEndpoint/Configuration_Standard_DestinationNetworkingType") -Or
+            ($_ -eq "Update-EMCNDestinationEndpoint/Configuration_Standard_DestinationNetworkingType")
+        }
+        {
+            $v = "PUBLIC","VPC"
+            break
+        }
+
+        # Amazon.MediaConnect.DestinationEndpointProtocol
+        {
+            ($_ -eq "Register-EMCNDestinationEndpoint/Configuration_Standard_Protocol") -Or
+            ($_ -eq "Update-EMCNDestinationEndpoint/Configuration_Standard_Protocol")
+        }
+        {
+            $v = "RIST","RTP","SRT_CALLER","SRT_LISTENER"
+            break
+        }
+
         # Amazon.MediaConnect.EncodingProfile
         {
             ($_ -eq "New-EMCNFlow/EncodingConfig_EncodingProfile") -Or
@@ -136,6 +156,42 @@ $EMCN_Completers = {
         }
         {
             $v = "CONTRIBUTION_H264_DEFAULT","DISTRIBUTION_H264_DEFAULT"
+            break
+        }
+
+        # Amazon.MediaConnect.EndpointEncryptionSecretType
+        {
+            ($_ -eq "New-EMCNRouterInput/Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType") -Or
+            ($_ -eq "New-EMCNRouterOutput/Configuration_SourceEndpoint_DestinationTransitEncryption_SecretsManager_EncryptionSecretType") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Configuration_SourceEndpoint_DestinationTransitEncryption_SecretsManager_EncryptionSecretType")
+        }
+        {
+            $v = "AES_128_KEY","AES_192_KEY","AES_256_KEY","SRT_PASSPHRASE"
+            break
+        }
+
+        # Amazon.MediaConnect.EndpointEncryptionType
+        {
+            ($_ -eq "New-EMCNRouterInput/Configuration_DestinationEndpoint_SourceTransitDecryptionType") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_DestinationEndpoint_SourceTransitDecryptionType") -Or
+            ($_ -eq "New-EMCNRouterOutput/Configuration_SourceEndpoint_DestinationTransitEncryptionType") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Configuration_SourceEndpoint_DestinationTransitEncryptionType")
+        }
+        {
+            $v = "AUTOMATIC","SECRETS_MANAGER"
+            break
+        }
+
+        # Amazon.MediaConnect.EndpointLifecycle
+        {
+            ($_ -eq "New-EMCNRouterInput/Configuration_DestinationEndpoint_EndpointLifecycleManagement") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_DestinationEndpoint_EndpointLifecycleManagement") -Or
+            ($_ -eq "New-EMCNRouterOutput/Configuration_SourceEndpoint_EndpointLifecycleManagement") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Configuration_SourceEndpoint_EndpointLifecycleManagement")
+        }
+        {
+            $v = "MANAGED","UNMANAGED"
             break
         }
 
@@ -204,6 +260,10 @@ $EMCN_Completers = {
 
         # Amazon.MediaConnect.ForwardErrorCorrectionState
         {
+            ($_ -eq "Register-EMCNDestinationEndpoint/Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState") -Or
+            ($_ -eq "Register-EMCNSourceEndpoint/Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState") -Or
+            ($_ -eq "Update-EMCNDestinationEndpoint/Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState") -Or
+            ($_ -eq "Update-EMCNSourceEndpoint/Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState") -Or
             ($_ -eq "New-EMCNRouterInput/Rtp_ForwardErrorCorrection") -Or
             ($_ -eq "New-EMCNRouterOutput/Rtp_ForwardErrorCorrection") -Or
             ($_ -eq "Update-EMCNRouterInput/Rtp_ForwardErrorCorrection") -Or
@@ -375,6 +435,26 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.SourceEndpointNetworkingType
+        {
+            ($_ -eq "Register-EMCNSourceEndpoint/Configuration_Standard_SourceNetworkingType") -Or
+            ($_ -eq "Update-EMCNSourceEndpoint/Configuration_Standard_SourceNetworkingType")
+        }
+        {
+            $v = "PUBLIC","VPC"
+            break
+        }
+
+        # Amazon.MediaConnect.SourceEndpointProtocol
+        {
+            ($_ -eq "Register-EMCNSourceEndpoint/Configuration_Standard_Protocol") -Or
+            ($_ -eq "Update-EMCNSourceEndpoint/Configuration_Standard_Protocol")
+        }
+        {
+            $v = "RIST","RTP","SRT_CALLER","SRT_LISTENER"
+            break
+        }
+
         # Amazon.MediaConnect.State
         {
             ($_ -eq "Update-EMCNFlowOutput/RouterIntegrationState") -Or
@@ -426,9 +506,19 @@ $EMCN_Completers = {
 
 $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
+    "Configuration_DestinationEndpoint_EndpointLifecycleManagement"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Configuration_DestinationEndpoint_SourceTransitDecryptionType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "Configuration_MediaLiveChannel_MediaLivePipelineId"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Configuration_SourceEndpoint_DestinationTransitEncryption_SecretsManager_EncryptionSecretType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "Configuration_SourceEndpoint_DestinationTransitEncryptionType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "Configuration_SourceEndpoint_EndpointLifecycleManagement"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "Configuration_Standard_DestinationNetworkingType"=@("Register-EMCNDestinationEndpoint","Update-EMCNDestinationEndpoint")
+    "Configuration_Standard_Protocol"=@("Register-EMCNDestinationEndpoint","Register-EMCNSourceEndpoint","Update-EMCNDestinationEndpoint","Update-EMCNSourceEndpoint")
     "Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState"=@("Register-EMCNDestinationEndpoint","Register-EMCNSourceEndpoint","Update-EMCNDestinationEndpoint","Update-EMCNSourceEndpoint")
+    "Configuration_Standard_SourceNetworkingType"=@("Register-EMCNSourceEndpoint","Update-EMCNSourceEndpoint")
     "ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
@@ -525,9 +615,12 @@ $EMCN_SelectMap = @{
                "Add-EMCNFlowOutput",
                "Add-EMCNFlowSource",
                "Add-EMCNFlowVpcInterface",
+               "Get-EMCNDestinationEndpointBatch",
                "Get-EMCNBatchRouterInput",
                "Get-EMCNBatchRouterNetworkInterface",
                "Get-EMCNBatchRouterOutput",
+               "Get-EMCNSourceEndpointBatch",
+               "Connect-EMCNEndpoint",
                "New-EMCNBridge",
                "New-EMCNFlow",
                "New-EMCNGateway",
@@ -540,7 +633,9 @@ $EMCN_SelectMap = @{
                "Remove-EMCNRouterInput",
                "Remove-EMCNRouterNetworkInterface",
                "Remove-EMCNRouterOutput",
+               "Unregister-EMCNDestinationEndpoint",
                "Remove-EMCNGatewayInstance",
+               "Unregister-EMCNSourceEndpoint",
                "Get-EMCNBridge",
                "Get-EMCNFlow",
                "Get-EMCNFlowSourceMetadata",
@@ -549,13 +644,17 @@ $EMCN_SelectMap = @{
                "Get-EMCNGatewayInstance",
                "Get-EMCNOffering",
                "Get-EMCNReservation",
+               "Disconnect-EMCNEndpoint",
+               "Get-EMCNDestinationEndpoint",
                "Get-EMCNRouterInput",
                "Get-EMCNRouterInputSourceMetadata",
                "Get-EMCNRouterInputThumbnail",
                "Get-EMCNRouterNetworkInterface",
                "Get-EMCNRouterOutput",
+               "Get-EMCNSourceEndpoint",
                "Grant-EMCNFlowEntitlement",
                "Get-EMCNBridgeList",
+               "Get-EMCNDestinationEndpointList",
                "Get-EMCNEntitlementList",
                "Get-EMCNFlowList",
                "Get-EMCNGatewayInstanceList",
@@ -565,9 +664,12 @@ $EMCN_SelectMap = @{
                "Get-EMCNRouterInputList",
                "Get-EMCNRouterNetworkInterfaceList",
                "Get-EMCNRouterOutputList",
+               "Get-EMCNSourceEndpointList",
                "Get-EMCNTagsForGlobalResourceList",
                "Get-EMCNResourceTag",
                "New-EMCNOffering",
+               "Register-EMCNDestinationEndpoint",
+               "Register-EMCNSourceEndpoint",
                "Remove-EMCNBridgeOutput",
                "Remove-EMCNBridgeSource",
                "Remove-EMCNFlowMediaStream",
@@ -592,6 +694,7 @@ $EMCN_SelectMap = @{
                "Update-EMCNBridgeOutput",
                "Update-EMCNBridgeSource",
                "Update-EMCNBridgeState",
+               "Update-EMCNDestinationEndpoint",
                "Update-EMCNFlow",
                "Update-EMCNFlowEntitlement",
                "Update-EMCNFlowMediaStream",
@@ -600,7 +703,8 @@ $EMCN_SelectMap = @{
                "Update-EMCNGatewayInstance",
                "Update-EMCNRouterInput",
                "Update-EMCNRouterNetworkInterface",
-               "Update-EMCNRouterOutput")
+               "Update-EMCNRouterOutput",
+               "Update-EMCNSourceEndpoint")
 }
 
 _awsArgumentCompleterRegistration $EMCN_SelectCompleters $EMCN_SelectMap

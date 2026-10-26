@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the worker that's fetching job details. The worker must have an assignment
-        /// on a job to fetch job details.</para>
+        /// The farm ID of the worker that's fetching job details.
+        /// The worker must have an assignment on a job to fetch job details.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>The fleet ID of the worker that's fetching job details. The worker must have an assignment
-        /// on a job to fetch job details.</para>
+        /// The fleet ID of the worker that's fetching job
+        /// details. The worker must have an assignment on a job to fetch job details.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The job identifiers to include within the job entity batch details.</para><para />
+        /// The job identifiers to include within the
+        /// job entity batch details.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -106,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter WorkerId
         /// <summary>
         /// <para>
-        /// <para>The worker ID of the worker containing the job details to get.</para>
+        /// The worker ID of the worker containing the job
+        /// details to get.
         /// </para>
         /// </summary>
         #if !MODULAR

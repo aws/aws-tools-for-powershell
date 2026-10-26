@@ -179,6 +179,28 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String EntityTypeFilters_SaaSProductFilters_LastModifiedDate_DateRange_AfterValue { get; set; }
         #endregion
         
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue
+        /// <summary>
+        /// <para>
+        /// <para>The start date (inclusive) of the date range. The operation returns subsidiary authorizations
+        /// created on or after this date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue
+        /// <summary>
+        /// <para>
+        /// <para>The start date (inclusive) of the date range. The operation returns subsidiary authorizations
+        /// last modified on or after this date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue { get; set; }
+        #endregion
+        
         #region Parameter EntityTypeFilters_AmiProductFilters_LastModifiedDate_DateRange_BeforeValue
         /// <summary>
         /// <para>
@@ -314,6 +336,28 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String EntityTypeFilters_SaaSProductFilters_LastModifiedDate_DateRange_BeforeValue { get; set; }
         #endregion
         
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue
+        /// <summary>
+        /// <para>
+        /// <para>The end date (inclusive) of the date range. The operation returns subsidiary authorizations
+        /// created on or before this date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue
+        /// <summary>
+        /// <para>
+        /// <para>The end date (inclusive) of the date range. The operation returns subsidiary authorizations
+        /// last modified on or before this date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue { get; set; }
+        #endregion
+        
         #region Parameter Catalog
         /// <summary>
         /// <para>
@@ -337,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// <para>The type of entities to retrieve. Valid values are: <c>AmiProduct</c>, <c>ContainerProduct</c>,
         /// <c>DataProduct</c>, <c>SaaSProduct</c>, <c>ProcurementPolicy</c>, <c>Experience</c>,
         /// <c>Audience</c>, <c>BrandingSettings</c>, <c>Offer</c>, <c>OfferSet</c>, <c>Seller</c>,
-        /// <c>ResaleAuthorization</c>, <c>Solution</c>.</para>
+        /// <c>ResaleAuthorization</c>, <c>Solution</c>, <c>SubsidiaryAuthorization</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -490,6 +534,19 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public Amazon.MarketplaceCatalog.SaaSProductSortBy SaaSProductSort_SortBy { get; set; }
         #endregion
         
+        #region Parameter EntityTypeSort_SubsidiaryAuthorizationSort_SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The field to sort subsidiary authorizations by. Valid values are <c>EntityId</c>,
+        /// <c>Status</c>, <c>ResourceId</c>, <c>SubsidiaryAccountId</c>, <c>CreatedDate</c>,
+        /// and <c>LastModifiedDate</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MarketplaceCatalog.SubsidiaryAuthorizationSortBy")]
+        public Amazon.MarketplaceCatalog.SubsidiaryAuthorizationSortBy EntityTypeSort_SubsidiaryAuthorizationSort_SortBy { get; set; }
+        #endregion
+        
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
@@ -611,6 +668,18 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         [Alias("EntityTypeSort_SaaSProductSort_SortOrder")]
         [AWSConstantClassSource("Amazon.MarketplaceCatalog.SortOrder")]
         public Amazon.MarketplaceCatalog.SortOrder SaaSProductSort_SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The sorting order. Can be <c>ASCENDING</c> or <c>DESCENDING</c>. The default value
+        /// is <c>DESCENDING</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MarketplaceCatalog.SortOrder")]
+        public Amazon.MarketplaceCatalog.SortOrder EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder { get; set; }
         #endregion
         
         #region Parameter Sort_SortOrder
@@ -1377,6 +1446,111 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String[] EntityTypeFilters_SaaSProductFilters_Visibility_ValueList { get; set; }
         #endregion
         
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of entity IDs to filter by. The operation returns subsidiary authorizations
+        /// with an entity ID that matches any value in this list. You can include up to 10 entity
+        /// IDs in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of names to filter by. The operation returns subsidiary authorizations with
+        /// a name that matches any value in this list. You can include up to 10 names in this
+        /// list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of resource IDs to filter by. The operation returns subsidiary authorizations
+        /// for resources with an ID that matches any value in this list. You can include up to
+        /// 10 resource IDs in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of resource names to filter by. The operation returns subsidiary authorizations
+        /// for resources with a name that matches any value in this list. You can include up
+        /// to 10 resource names in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of statuses to filter by. The operation returns subsidiary authorizations with
+        /// a status that matches a value in this list. Valid values are:</para><ul><li><para><c>Draft</c> - The subsidiary authorization was created but not yet released. The
+        /// subsidiary account can't see it.</para></li><li><para><c>Active</c> - The subsidiary account can use the subsidiary authorization to create
+        /// offers for the authorized product.</para></li><li><para><c>Restricted</c> - The subsidiary authorization was discarded while in <c>Draft</c>
+        /// or revoked while <c>Active</c>. It can't be used to create new offers. This status
+        /// is final.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of AWS account IDs to filter by. The operation returns subsidiary authorizations
+        /// whose subsidiary account ID matches any value in this list. You can include up to
+        /// 10 account IDs in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList { get; set; }
+        #endregion
+        
         #region Parameter EntityTypeFilters_AmiProductFilters_ProductTitle_WildCardValue
         /// <summary>
         /// <para>
@@ -1533,6 +1707,28 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EntityTypeFilters_SaaSProductFilters_ProductTitle_WildCardValue { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue
+        /// <summary>
+        /// <para>
+        /// <para>A partial name to filter by. The operation returns subsidiary authorizations whose
+        /// name contains this value. The value must be at least 3 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue
+        /// <summary>
+        /// <para>
+        /// <para>A partial resource name to filter by. The operation returns subsidiary authorizations
+        /// for resources whose name contains this value. The value must be at least 3 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -1847,6 +2043,36 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             {
                 context.EntityTypeFilters_SaaSProductFilters_Visibility_ValueList = new List<System.String>(this.EntityTypeFilters_SaaSProductFilters_Visibility_ValueList);
             }
+            context.EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue = this.EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue;
+            context.EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue = this.EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue;
+            if (this.EntityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList != null)
+            {
+                context.EntityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList = new List<System.String>(this.EntityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList);
+            }
+            context.EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue = this.EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue;
+            context.EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue = this.EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue;
+            if (this.EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList != null)
+            {
+                context.EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList = new List<System.String>(this.EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList);
+            }
+            context.EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue = this.EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue;
+            if (this.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList != null)
+            {
+                context.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList = new List<System.String>(this.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList);
+            }
+            if (this.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList != null)
+            {
+                context.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList = new List<System.String>(this.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList);
+            }
+            context.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue = this.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue;
+            if (this.EntityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList != null)
+            {
+                context.EntityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList = new List<System.String>(this.EntityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList);
+            }
+            if (this.EntityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList != null)
+            {
+                context.EntityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList = new List<System.String>(this.EntityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList);
+            }
             context.AmiProductSort_SortBy = this.AmiProductSort_SortBy;
             context.AmiProductSort_SortOrder = this.AmiProductSort_SortOrder;
             context.ContainerProductSort_SortBy = this.ContainerProductSort_SortBy;
@@ -1865,6 +2091,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             context.ResaleAuthorizationSort_SortOrder = this.ResaleAuthorizationSort_SortOrder;
             context.SaaSProductSort_SortBy = this.SaaSProductSort_SortBy;
             context.SaaSProductSort_SortOrder = this.SaaSProductSort_SortOrder;
+            context.EntityTypeSort_SubsidiaryAuthorizationSort_SortBy = this.EntityTypeSort_SubsidiaryAuthorizationSort_SortBy;
+            context.EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder = this.EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder;
             if (this.FilterList != null)
             {
                 context.FilterList = new List<Amazon.MarketplaceCatalog.Model.Filter>(this.FilterList);
@@ -2982,6 +3210,291 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (requestEntityTypeFilters_entityTypeFilters_OfferSetFilters != null)
             {
                 request.EntityTypeFilters.OfferSetFilters = requestEntityTypeFilters_entityTypeFilters_OfferSetFilters;
+                requestEntityTypeFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationFilters requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters = null;
+            
+             // populate SubsidiaryAuthorizationFilters
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFiltersIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationFilters();
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationCreatedDateFilter requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate = null;
+            
+             // populate CreatedDate
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDateIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationCreatedDateFilter();
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationCreatedDateFilterDateRange requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange = null;
+            
+             // populate DateRange
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRangeIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationCreatedDateFilterDateRange();
+            System.String requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange.AfterValue = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRangeIsNull = false;
+            }
+            System.String requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange.BeforeValue = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRangeIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRangeIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate.DateRange = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDateIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDateIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters.CreatedDate = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationEntityIdFilter requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId = null;
+            
+             // populate EntityId
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityIdIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationEntityIdFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId.ValueList = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityIdIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityIdIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters.EntityId = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_EntityId;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationLastModifiedDateFilter requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate = null;
+            
+             // populate LastModifiedDate
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDateIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationLastModifiedDateFilter();
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationLastModifiedDateFilterDateRange requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange = null;
+            
+             // populate DateRange
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRangeIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationLastModifiedDateFilterDateRange();
+            System.String requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange.AfterValue = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRangeIsNull = false;
+            }
+            System.String requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange.BeforeValue = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRangeIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRangeIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate.DateRange = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDateIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDateIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters.LastModifiedDate = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationResourceIdFilter requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId = null;
+            
+             // populate ResourceId
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceIdIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationResourceIdFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId.ValueList = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceIdIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceIdIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters.ResourceId = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationStatusFilter requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status = null;
+            
+             // populate Status
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_StatusIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationStatusFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status_entityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status_entityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status_entityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status.ValueList = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status_entityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_StatusIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_StatusIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters.Status = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Status;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationSubsidiaryAccountIdFilter requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId = null;
+            
+             // populate SubsidiaryAccountId
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountIdIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationSubsidiaryAccountIdFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId.ValueList = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountIdIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountIdIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters.SubsidiaryAccountId = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationNameFilter requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name = null;
+            
+             // populate Name
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_NameIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationNameFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name.ValueList = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_NameIsNull = false;
+            }
+            System.String requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name.WildCardValue = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_entityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_NameIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_NameIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters.Name = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_Name;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationResourceNameFilter requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName = null;
+            
+             // populate ResourceName
+            var requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceNameIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationResourceNameFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName.ValueList = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceNameIsNull = false;
+            }
+            System.String requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue = null;
+            if (cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue = cmdletContext.EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName.WildCardValue = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceNameIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceNameIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters.ResourceName = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_entityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName;
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFiltersIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFiltersIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters != null)
+            {
+                request.EntityTypeFilters.SubsidiaryAuthorizationFilters = requestEntityTypeFilters_entityTypeFilters_SubsidiaryAuthorizationFilters;
                 requestEntityTypeFiltersIsNull = false;
             }
             Amazon.MarketplaceCatalog.Model.OfferFilters requestEntityTypeFilters_entityTypeFilters_OfferFilters = null;
@@ -4338,6 +4851,41 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
                 request.EntityTypeSort.SaaSProductSort = requestEntityTypeSort_entityTypeSort_SaaSProductSort;
                 requestEntityTypeSortIsNull = false;
             }
+            Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationSort requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort = null;
+            
+             // populate SubsidiaryAuthorizationSort
+            var requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSortIsNull = true;
+            requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort = new Amazon.MarketplaceCatalog.Model.SubsidiaryAuthorizationSort();
+            Amazon.MarketplaceCatalog.SubsidiaryAuthorizationSortBy requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort_entityTypeSort_SubsidiaryAuthorizationSort_SortBy = null;
+            if (cmdletContext.EntityTypeSort_SubsidiaryAuthorizationSort_SortBy != null)
+            {
+                requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort_entityTypeSort_SubsidiaryAuthorizationSort_SortBy = cmdletContext.EntityTypeSort_SubsidiaryAuthorizationSort_SortBy;
+            }
+            if (requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort_entityTypeSort_SubsidiaryAuthorizationSort_SortBy != null)
+            {
+                requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort.SortBy = requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort_entityTypeSort_SubsidiaryAuthorizationSort_SortBy;
+                requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSortIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.SortOrder requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort_entityTypeSort_SubsidiaryAuthorizationSort_SortOrder = null;
+            if (cmdletContext.EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder != null)
+            {
+                requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort_entityTypeSort_SubsidiaryAuthorizationSort_SortOrder = cmdletContext.EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder;
+            }
+            if (requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort_entityTypeSort_SubsidiaryAuthorizationSort_SortOrder != null)
+            {
+                requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort.SortOrder = requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort_entityTypeSort_SubsidiaryAuthorizationSort_SortOrder;
+                requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSortIsNull = false;
+            }
+             // determine if requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort should be set to null
+            if (requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSortIsNull)
+            {
+                requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort = null;
+            }
+            if (requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort != null)
+            {
+                request.EntityTypeSort.SubsidiaryAuthorizationSort = requestEntityTypeSort_entityTypeSort_SubsidiaryAuthorizationSort;
+                requestEntityTypeSortIsNull = false;
+            }
              // determine if request.EntityTypeSort should be set to null
             if (requestEntityTypeSortIsNull)
             {
@@ -4553,6 +5101,18 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public List<System.String> EntityTypeFilters_SaaSProductFilters_ProductTitle_ValueList { get; set; }
             public System.String EntityTypeFilters_SaaSProductFilters_ProductTitle_WildCardValue { get; set; }
             public List<System.String> EntityTypeFilters_SaaSProductFilters_Visibility_ValueList { get; set; }
+            public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_AfterValue { get; set; }
+            public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_CreatedDate_DateRange_BeforeValue { get; set; }
+            public List<System.String> EntityTypeFilters_SubsidiaryAuthorizationFilters_EntityId_ValueList { get; set; }
+            public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_AfterValue { get; set; }
+            public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue { get; set; }
+            public List<System.String> EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_ValueList { get; set; }
+            public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_Name_WildCardValue { get; set; }
+            public List<System.String> EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceId_ValueList { get; set; }
+            public List<System.String> EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_ValueList { get; set; }
+            public System.String EntityTypeFilters_SubsidiaryAuthorizationFilters_ResourceName_WildCardValue { get; set; }
+            public List<System.String> EntityTypeFilters_SubsidiaryAuthorizationFilters_Status_ValueList { get; set; }
+            public List<System.String> EntityTypeFilters_SubsidiaryAuthorizationFilters_SubsidiaryAccountId_ValueList { get; set; }
             public Amazon.MarketplaceCatalog.AmiProductSortBy AmiProductSort_SortBy { get; set; }
             public Amazon.MarketplaceCatalog.SortOrder AmiProductSort_SortOrder { get; set; }
             public Amazon.MarketplaceCatalog.ContainerProductSortBy ContainerProductSort_SortBy { get; set; }
@@ -4571,6 +5131,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public Amazon.MarketplaceCatalog.SortOrder ResaleAuthorizationSort_SortOrder { get; set; }
             public Amazon.MarketplaceCatalog.SaaSProductSortBy SaaSProductSort_SortBy { get; set; }
             public Amazon.MarketplaceCatalog.SortOrder SaaSProductSort_SortOrder { get; set; }
+            public Amazon.MarketplaceCatalog.SubsidiaryAuthorizationSortBy EntityTypeSort_SubsidiaryAuthorizationSort_SortBy { get; set; }
+            public Amazon.MarketplaceCatalog.SortOrder EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder { get; set; }
             public List<Amazon.MarketplaceCatalog.Model.Filter> FilterList { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

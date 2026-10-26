@@ -48,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AllowedStorageProfileIdsToAdd
         /// <summary>
         /// <para>
-        /// <para>The storage profile IDs to add.</para><para />
+        /// The storage profile IDs
+        /// to add.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -63,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AllowedStorageProfileIdsToRemove
         /// <summary>
         /// <para>
-        /// <para>The storage profile ID to remove.</para><para />
+        /// The storage profile ID
+        /// to remove.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -78,9 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SchedulingConfiguration_WeightedBalanced_MaxPriorityOverride_AlwaysScheduleFirst
         /// <summary>
         /// <para>
-        /// <para>Jobs at the maximum priority (100) are always scheduled before other jobs, regardless
-        /// of the weighted scheduling formula. If multiple jobs have priority 100, ties are broken
-        /// using the standard weighted formula.</para>
+        /// Jobs at the maximum priority (100)
+        /// are always scheduled before other jobs, regardless of the weighted scheduling formula.
+        /// If multiple jobs have priority 100, ties are broken using the standard weighted formula.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SchedulingConfiguration_WeightedBalanced_MinPriorityOverride_AlwaysScheduleLast
         /// <summary>
         /// <para>
-        /// <para>Jobs at the minimum priority (0) are always scheduled after all other jobs, regardless
-        /// of the weighted scheduling formula. If multiple jobs have priority 0, ties are broken
-        /// using the standard weighted formula.</para>
+        /// Jobs at the minimum priority (0) are
+        /// always scheduled after all other jobs, regardless of the weighted scheduling formula.
+        /// If multiple jobs have priority 0, ties are broken using the standard weighted formula.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter DefaultBudgetAction
         /// <summary>
         /// <para>
-        /// <para>The default action to take for a queue update if a budget isn't configured.</para>
+        /// The default action to take for a queue
+        /// update if a budget isn't configured.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,9 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SchedulingConfiguration_WeightedBalanced_ErrorWeight
         /// <summary>
         /// <para>
-        /// <para>The weight applied to the number of errors on a job. A negative value means jobs without
-        /// errors are scheduled first. A value of <c>0</c> means errors are ignored. The default
-        /// value is <c>-10.0</c>.</para>
+        /// The weight applied to the number of errors
+        /// on a job. A negative value means jobs without errors are scheduled first. A value
+        /// of <c>0</c> means errors are ignored. The default value is <c>-10.0</c>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID to update in the queue.</para>
+        /// The farm ID to update in the queue.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -164,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Posix_Group
         /// <summary>
         /// <para>
-        /// <para>The name of the POSIX user's group.</para>
+        /// The name of the POSIX user's group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Windows_PasswordArn
         /// <summary>
         /// <para>
-        /// <para>The password ARN for the Windows user.</para>
+        /// The password ARN for the Windows user.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,9 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SchedulingConfiguration_PriorityFifo
         /// <summary>
         /// <para>
-        /// <para>Workers are assigned to the highest-priority job first. When multiple jobs share the
-        /// same priority, the job submitted earliest receives workers first. This is the default
-        /// scheduling configuration for new queues.</para>
+        /// Workers are assigned to the highest-priority
+        /// job first. When multiple jobs share the same priority, the job submitted earliest
+        /// receives workers first. This is the default scheduling configuration for new queues.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,9 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SchedulingConfiguration_WeightedBalanced_PriorityWeight
         /// <summary>
         /// <para>
-        /// <para>The weight applied to job priority in the scheduling formula. Higher values give more
-        /// influence to job priority. A value of <c>0</c> means priority is ignored. The default
-        /// value is <c>100.0</c>.</para>
+        /// The weight applied to job priority in the
+        /// scheduling formula. Higher values give more influence to job priority. A value of
+        /// <c>0</c> means priority is ignored. The default value is <c>100.0</c>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID to update.</para>
+        /// The queue ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -227,10 +232,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SchedulingConfiguration_PriorityBalanced_RenderingTaskBuffer
         /// <summary>
         /// <para>
-        /// <para>The rendering task buffer controls worker stickiness. A worker only switches from
-        /// its current job to another job at the same priority if the other job has fewer rendering
-        /// tasks by more than this buffer value. Higher values make workers stickier to their
-        /// current jobs. The default value is <c>1</c>.</para>
+        /// The rendering task buffer controls
+        /// worker stickiness. A worker only switches from its current job to another job at the
+        /// same priority if the other job has fewer rendering tasks by more than this buffer
+        /// value. Higher values make workers stickier to their current jobs. The default value
+        /// is <c>1</c>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,11 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SchedulingConfiguration_WeightedBalanced_RenderingTaskBuffer
         /// <summary>
         /// <para>
-        /// <para>The rendering task buffer is subtracted from the number of rendering tasks before
-        /// applying the rendering task weight. This creates a stickiness effect where workers
-        /// prefer to stay with their current job. Higher values make workers stickier. The default
-        /// value is <c>1</c>. The buffer is only applied in the weight calculation for a job
-        /// if the worker is currently assigned to that job.</para>
+        /// The rendering task buffer is subtracted
+        /// from the number of rendering tasks before applying the rendering task weight. This
+        /// creates a stickiness effect where workers prefer to stay with their current job. Higher
+        /// values make workers stickier. The default value is <c>1</c>. The buffer is only applied
+        /// in the weight calculation for a job if the worker is currently assigned to that job.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,9 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SchedulingConfiguration_WeightedBalanced_RenderingTaskWeight
         /// <summary>
         /// <para>
-        /// <para>The weight applied to the number of tasks currently rendering on a job. A negative
-        /// value means jobs that are not already rendering are scheduled next. A value of <c>0</c>
-        /// means the rendering state is ignored. The default value is <c>-100.0</c>.</para>
+        /// The weight applied to the number of
+        /// tasks currently rendering on a job. A negative value means jobs that are not already
+        /// rendering are scheduled next. A value of <c>0</c> means the rendering state is ignored.
+        /// The default value is <c>-100.0</c>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,7 +273,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter RequiredFileSystemLocationNamesToAdd
         /// <summary>
         /// <para>
-        /// <para>The required file system location names to add to the queue.</para><para />
+        /// The required file
+        /// system location names to add to the queue.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -281,7 +290,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter RequiredFileSystemLocationNamesToRemove
         /// <summary>
         /// <para>
-        /// <para>The required file system location names to remove from the queue.</para><para />
+        /// The required file
+        /// system location names to remove from the queue.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -296,7 +307,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM role ARN that's used to run jobs from this queue.</para>
+        /// The IAM role ARN that's used to run jobs from
+        /// this queue.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobAttachmentSettings_RootPrefix
         /// <summary>
         /// <para>
-        /// <para>The root prefix.</para>
+        /// The root prefix.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,8 +328,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobRunAsUser_RunAs
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the job should run using the queue's system user or if the job should
-        /// run using the worker agent system user.</para>
+        /// Specifies whether the job should run using the queue's
+        /// system user or if the job should run using the worker agent system user.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -328,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobAttachmentSettings_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket name.</para>
+        /// The Amazon S3 bucket name.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -338,9 +350,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SchedulingConfiguration_WeightedBalanced_SubmissionTimeWeight
         /// <summary>
         /// <para>
-        /// <para>The weight applied to job submission time. A positive value means earlier jobs are
-        /// scheduled first. A value of <c>0</c> means submission time is ignored. The default
-        /// value is <c>3.0</c>.</para>
+        /// The weight applied to job submission
+        /// time. A positive value means earlier jobs are scheduled first. A value of <c>0</c>
+        /// means submission time is ignored. The default value is <c>3.0</c>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Posix_User
         /// <summary>
         /// <para>
-        /// <para>The name of the POSIX user.</para>
+        /// The name of the POSIX user.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Windows_User
         /// <summary>
         /// <para>
-        /// <para>The user.</para>
+        /// The user.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The idempotency token to update in the queue.</para>
+        /// The idempotency token to update in the queue.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

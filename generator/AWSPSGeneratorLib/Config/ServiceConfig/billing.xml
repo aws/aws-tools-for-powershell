@@ -20,7 +20,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateContract" Verb="Add" Noun="Contract" ShouldProcessTarget="ContractDocumentId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateSourceViews" OutputProperty="Arn" Verb="Add" Noun="SourceView" ShouldProcessTarget="SourceViews" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelContractualInvestmentAttestation" Verb="Stop" Noun="ContractualInvestmentAttestation" ShouldProcessTarget="AttestationId,ContractArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -35,10 +43,18 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContractualInvestmentAttestation" OutputProperty="AttestationId" Verb="New" Noun="ContractualInvestmentAttestation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBillingView" OutputProperty="Arn" Verb="Remove" Noun="BillingView" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="ForceDelete" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateContract" Verb="Remove" Noun="Contract" ShouldProcessTarget="ContractArn" PipelineParameter="ContractArn" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateSourceViews" OutputProperty="Arn" Verb="Remove" Noun="SourceView" ShouldProcessTarget="SourceViews" PipelineParameter="Arn" NoPipelineParameter="false">
@@ -50,6 +66,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBillingView" OutputProperty="BillingView" Verb="Get" Noun="BillingView" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContractInformation" OutputProperty="Contract" Verb="Get" Noun="ContractInformation" PipelineParameter="ContractArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -86,6 +106,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBusinessSupportSubscriptionHistory" OutputProperty="SubscriptionContracts" Verb="Get" Noun="BusinessSupportSubscriptionHistoryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContracts" OutputProperty="Items" Verb="Get" Noun="ContractList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContractualInvestmentAttestations" OutputProperty="Items" Verb="Get" Noun="ContractualInvestmentAttestationList" PipelineParameter="ContractArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContractualInvestments" OutputProperty="Items" Verb="Get" Noun="ContractualInvestmentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContractualInvestmentSummaries" OutputProperty="Items" Verb="Get" Noun="ContractualInvestmentSummaryList" PipelineParameter="ContractArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

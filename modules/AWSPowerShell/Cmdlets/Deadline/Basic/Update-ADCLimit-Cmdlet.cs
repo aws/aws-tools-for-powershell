@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the farm that contains the limit.</para>
+        /// The unique identifier of the farm that contains
+        /// the limit.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter LimitId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the limit to update.</para>
+        /// The unique identifier of the limit to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,12 +105,13 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxCount
         /// <summary>
         /// <para>
-        /// <para>The maximum number of resources constrained by this limit. When all of the resources
-        /// are in use, steps that require the limit won't be scheduled until the resource is
-        /// available.</para><para>If more than the new maximum number is currently in use, running jobs finish but no
-        /// new jobs are started until the number of resources in use is below the new maximum
-        /// number.</para><para>The <c>maxCount</c> must not be 0. If the value is -1, there is no restriction on
-        /// the number of resources that can be acquired for this limit.</para>
+        /// The maximum number of resources constrained by
+        /// this limit. When all of the resources are in use, steps that require the limit won't
+        /// be scheduled until the resource is available. If more than the new maximum number
+        /// is currently in use, running jobs finish but no new jobs are started until the number
+        /// of resources in use is below the new maximum number. The <c>maxCount</c> must not
+        /// be 0. If the value is -1, there is no restriction on the number of resources that
+        /// can be acquired for this limit.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

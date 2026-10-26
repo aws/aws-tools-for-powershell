@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter BudgetId
         /// <summary>
         /// <para>
-        /// <para>The budget ID.</para>
+        /// The budget ID.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm connected to the budget.</para>
+        /// The farm ID of the farm connected to the budget.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID to use for the step search.</para>
+        /// The farm ID to use for the step search.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FilterExpressions_Filter
         /// <summary>
         /// <para>
-        /// <para>The filters to use for the search.</para><para />
+        /// The filters to use for the search.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ItemOffset
         /// <summary>
         /// <para>
-        /// <para>The offset for the search results.</para>
+        /// The offset for the search results.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID to use in the step search.</para>
+        /// The job ID to use in the step search.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FilterExpressions_Operator
         /// <summary>
         /// <para>
-        /// <para>The operators to include in the search.</para>
+        /// The operators to include in the search.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue IDs in the step search.</para><para />
+        /// The queue IDs in the step search.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -140,7 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter SortExpression
         /// <summary>
         /// <para>
-        /// <para>The search terms for a resource.</para><para />
+        /// The search terms for a resource.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -156,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of results to return.</para>
+        /// Specifies the number of results to return.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

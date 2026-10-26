@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the farm that contains the limits.</para>
+        /// The unique identifier of the farm that contains
+        /// the limits.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of limits to return in each page of results.</para>
+        /// The maximum number of limits to return in each
+        /// page of results.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -81,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results, or <c>null</c> to start from the beginning.</para>
+        /// The token for the next set of results, or <c>null</c>
+        /// to start from the beginning.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

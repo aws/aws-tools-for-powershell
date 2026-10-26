@@ -49,8 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityCenterRegion
         /// <summary>
         /// <para>
-        /// <para>The Region of the IAM Identity Center instance. If not provided, the service defaults
-        /// to the Amazon Web Services Region in which you make the request.</para>
+        /// The Region of the IAM Identity Center
+        /// instance. If not provided, the service defaults to the Amazon Web Services Region
+        /// in which you make the request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The identity store ID that contains the principal. This parameter is required for
-        /// callers that do not use a monitor session.</para>
+        /// The identity store ID that contains the
+        /// principal. This parameter is required for callers that do not use a monitor session.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
-        /// <para>The ID of the IAM Identity Center principal whose Deadline Cloud resource memberships
-        /// you want to list.</para>
+        /// The ID of the IAM Identity Center principal
+        /// whose Deadline Cloud resource memberships you want to list.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,8 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource types to include when listing the principal's memberships. If not specified,
-        /// memberships for all supported resource types are returned.</para><para />
+        /// The resource types to include when listing
+        /// the principal's memberships. If not specified, memberships for all supported resource
+        /// types are returned.
+        /// <para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -106,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
-        /// to get results as a set of sequential pages.</para>
+        /// The maximum number of results to return. Use
+        /// this parameter with <c>NextToken</c> to get results as a set of sequential pages.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -123,7 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results, or <c>null</c> to start from the beginning.</para>
+        /// The token for the next set of results, or <c>null</c>
+        /// to start from the beginning.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

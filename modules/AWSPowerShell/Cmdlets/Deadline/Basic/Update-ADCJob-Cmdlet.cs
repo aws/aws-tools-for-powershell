@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated job description.</para>
+        /// The updated job description.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the job to update.</para>
+        /// The farm ID of the job to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID to update.</para>
+        /// The job ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,7 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxFailedTasksCount
         /// <summary>
         /// <para>
-        /// <para>The number of task failures before the job stops running and is marked as <c>FAILED</c>.</para>
+        /// The number of task failures before
+        /// the job stops running and is marked as <c>FAILED</c>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxRetriesPerTask
         /// <summary>
         /// <para>
-        /// <para>The maximum number of retries for a job.</para>
+        /// The maximum number of retries for a
+        /// job.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,10 +136,12 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxWorkerCount
         /// <summary>
         /// <para>
-        /// <para>The maximum number of worker hosts that can concurrently process a job. When the <c>maxWorkerCount</c>
-        /// is reached, no more workers will be assigned to process the job, even if the fleets
-        /// assigned to the job's queue has available workers.</para><para>You can't set the <c>maxWorkerCount</c> to 0. If you set it to -1, there is no maximum
-        /// number of workers.</para><para>If you don't specify the <c>maxWorkerCount</c>, the default is -1.</para><para>The maximum number of workers that can process tasks in the job.</para>
+        /// The maximum number of worker hosts that
+        /// can concurrently process a job. When the <c>maxWorkerCount</c> is reached, no more
+        /// workers will be assigned to process the job, even if the fleets assigned to the job's
+        /// queue has available workers. You can't set the <c>maxWorkerCount</c> to 0. If you
+        /// set it to -1, there is no maximum number of workers. If you don't specify the <c>maxWorkerCount</c>,
+        /// the default is -1. The maximum number of workers that can process tasks in the job.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The updated job name.</para>
+        /// The updated job name.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>The updated job priority.</para>
+        /// The updated job priority.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID of the job to update.</para>
+        /// The queue ID of the job to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -184,7 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TargetTaskRunStatus
         /// <summary>
         /// <para>
-        /// <para>The task status to update the job's tasks to.</para>
+        /// The task status to update the job's
+        /// tasks to.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -57,9 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>
         /// <para>Optional list of credential provider configurations for authenticating with the MCP
         /// server. At most one credential provider configuration can be specified.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -337,6 +338,13 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.DescriptorType = this.DescriptorType;
+            #if MODULAR
+            if (this.DescriptorType == null && ParameterWasBound(nameof(this.DescriptorType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DescriptorType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Descriptors_A2a_AgentCard_InlineContent = this.Descriptors_A2a_AgentCard_InlineContent;
             context.Descriptors_A2a_AgentCard_SchemaVersion = this.Descriptors_A2a_AgentCard_SchemaVersion;
             context.Descriptors_AgentSkills_SkillDefinition_InlineContent = this.Descriptors_AgentSkills_SkillDefinition_InlineContent;
@@ -347,13 +355,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.Descriptors_Mcp_Server_SchemaVersion = this.Descriptors_Mcp_Server_SchemaVersion;
             context.Descriptors_Mcp_Tools_InlineContent = this.Descriptors_Mcp_Tools_InlineContent;
             context.Descriptors_Mcp_Tools_ProtocolVersion = this.Descriptors_Mcp_Tools_ProtocolVersion;
-            context.DescriptorType = this.DescriptorType;
-            #if MODULAR
-            if (this.DescriptorType == null && ParameterWasBound(nameof(this.DescriptorType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DescriptorType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -398,6 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DescriptorType != null)
+            {
+                request.DescriptorType = cmdletContext.DescriptorType;
             }
             
              // populate Descriptors
@@ -643,10 +648,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Descriptors = null;
             }
-            if (cmdletContext.DescriptorType != null)
-            {
-                request.DescriptorType = cmdletContext.DescriptorType;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -764,6 +765,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public Amazon.BedrockAgentCoreControl.DescriptorType DescriptorType { get; set; }
             public System.String Descriptors_A2a_AgentCard_InlineContent { get; set; }
             public System.String Descriptors_A2a_AgentCard_SchemaVersion { get; set; }
             public System.String Descriptors_AgentSkills_SkillDefinition_InlineContent { get; set; }
@@ -774,7 +776,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Descriptors_Mcp_Server_SchemaVersion { get; set; }
             public System.String Descriptors_Mcp_Tools_InlineContent { get; set; }
             public System.String Descriptors_Mcp_Tools_ProtocolVersion { get; set; }
-            public Amazon.BedrockAgentCoreControl.DescriptorType DescriptorType { get; set; }
             public System.String Name { get; set; }
             public System.String RecordVersion { get; set; }
             public System.String RegistryId { get; set; }

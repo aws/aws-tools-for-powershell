@@ -107,7 +107,7 @@ $KMS_Completers = {
             ($_ -eq "New-KMSDataKeyPairWithoutPlaintext/KeyPairSpec")
         }
         {
-            $v = "ECC_NIST_EDWARDS25519","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SM2"
+            $v = "ECC_NIST_EDWARDS25519","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","ML_KEM_1024","ML_KEM_512","ML_KEM_768","RSA_2048","RSA_3072","RSA_4096","SM2"
             break
         }
 
@@ -118,6 +118,16 @@ $KMS_Completers = {
         }
         {
             $v = "AES_128","AES_256"
+            break
+        }
+
+        # Amazon.KeyManagementService.EncapsulationAlgorithmSpec
+        {
+            ($_ -eq "Invoke-KMSDecapsulate/EncapsulationAlgorithm") -Or
+            ($_ -eq "Invoke-KMSEncapsulate/EncapsulationAlgorithm")
+        }
+        {
+            $v = "ML_KEM"
             break
         }
 
@@ -177,14 +187,14 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeySpec
         "New-KMSKey/KeySpec"
         {
-            $v = "ECC_NIST_EDWARDS25519","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","ML_DSA_44","ML_DSA_65","ML_DSA_87","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_EDWARDS25519","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","ML_DSA_44","ML_DSA_65","ML_DSA_87","ML_KEM_1024","ML_KEM_512","ML_KEM_768","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
             break
         }
 
         # Amazon.KeyManagementService.KeyUsageType
         "New-KMSKey/KeyUsage"
         {
-            $v = "ENCRYPT_DECRYPT","GENERATE_VERIFY_MAC","KEY_AGREEMENT","SIGN_VERIFY"
+            $v = "ENCAPSULATE_DECAPSULATE","ENCRYPT_DECRYPT","GENERATE_VERIFY_MAC","KEY_AGREEMENT","SIGN_VERIFY"
             break
         }
 
@@ -254,6 +264,7 @@ $KMS_map = @{
     "CustomerMasterKeySpec"=@("New-KMSKey")
     "CustomKeyStoreType"=@("New-KMSCustomKeyStore")
     "DestinationEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
+    "EncapsulationAlgorithm"=@("Invoke-KMSDecapsulate","Invoke-KMSEncapsulate")
     "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
     "ImportType"=@("Import-KMSKeyMaterial")
@@ -329,6 +340,7 @@ $KMS_SelectMap = @{
                "New-KMSCustomKeyStore",
                "New-KMSGrant",
                "New-KMSKey",
+               "Invoke-KMSDecapsulate",
                "Invoke-KMSDecrypt",
                "Remove-KMSAlias",
                "Remove-KMSCustomKeyStore",
@@ -341,6 +353,7 @@ $KMS_SelectMap = @{
                "Disconnect-KMSCustomKeyStore",
                "Enable-KMSKey",
                "Enable-KMSKeyRotation",
+               "Invoke-KMSEncapsulate",
                "Invoke-KMSEncrypt",
                "New-KMSDataKey",
                "New-KMSDataKeyPair",

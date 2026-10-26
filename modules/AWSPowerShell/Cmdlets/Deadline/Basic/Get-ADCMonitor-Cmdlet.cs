@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MonitorId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the monitor. This ID is returned by the <c>CreateMonitor</c>
-        /// operation.</para>
+        /// The unique identifier for the monitor. This
+        /// ID is returned by the <c>CreateMonitor</c> operation.
         /// </para>
         /// </summary>
         #if !MODULAR

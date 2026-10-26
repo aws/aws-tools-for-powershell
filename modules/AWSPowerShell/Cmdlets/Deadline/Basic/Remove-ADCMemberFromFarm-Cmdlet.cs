@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm to disassociate from the member.</para>
+        /// The farm ID of the farm to disassociate from the
+        /// member.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
-        /// <para>A member's principal ID to disassociate from a farm.</para>
+        /// A member's principal ID to disassociate from
+        /// a farm.
         /// </para>
         /// </summary>
         #if !MODULAR

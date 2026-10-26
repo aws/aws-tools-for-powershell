@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the farm connected to the task.</para>
+        /// The farm ID of the farm connected to the task.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID of the job connected to the task.</para>
+        /// The job ID of the job connected to the task.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID for the queue connected to the task.</para>
+        /// The queue ID for the queue connected to the task.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter StepId
         /// <summary>
         /// <para>
-        /// <para>The step ID for the step connected to the task.</para>
+        /// The step ID for the step connected to the task.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TaskId
         /// <summary>
         /// <para>
-        /// <para>The task ID.</para>
+        /// The task ID.
         /// </para>
         /// </summary>
         #if !MODULAR

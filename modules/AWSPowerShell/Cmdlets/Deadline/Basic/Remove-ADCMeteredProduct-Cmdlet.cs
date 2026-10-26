@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter LicenseEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the license endpoint from which to remove the metered product.</para>
+        /// The ID of the license endpoint from
+        /// which to remove the metered product.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ProductId
         /// <summary>
         /// <para>
-        /// <para>The product ID to remove from the license endpoint.</para>
+        /// The product ID to remove from the license endpoint.
         /// </para>
         /// </summary>
         #if !MODULAR

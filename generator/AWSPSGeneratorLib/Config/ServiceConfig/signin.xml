@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateOAuth2TokenWithTokenExchange" OutputProperty="*" Verb="New" Noun="OAuth2TokenWithTokenExchange" ShouldProcessTarget="GrantType" PipelineParameter="GrantType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteConsoleAuthorizationConfiguration" OutputProperty="*" Verb="Remove" Noun="ConsoleAuthorizationConfiguration" ShouldProcessTarget="TargetId" PipelineParameter="TargetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

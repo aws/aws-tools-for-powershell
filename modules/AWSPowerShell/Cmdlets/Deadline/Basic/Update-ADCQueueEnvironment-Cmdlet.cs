@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the queue environment to update.</para>
+        /// The farm ID of the queue environment to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>The priority to update.</para>
+        /// The priority to update.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueEnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The queue environment ID to update.</para>
+        /// The queue environment ID to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID of the queue environment to update.</para>
+        /// The queue ID of the queue environment to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Template
         /// <summary>
         /// <para>
-        /// <para>The template to update.</para>
+        /// The template to update.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TemplateType
         /// <summary>
         /// <para>
-        /// <para>The template type to update.</para>
+        /// The template type to update.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
+        /// The unique token which the server uses to
+        /// recognize retries of the same request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

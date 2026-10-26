@@ -42,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// </para></li><li><para>
     /// Enable permission sets for the instance by specifying <c>PermissionSetsEnabled</c>.
     /// </para></li></ul><para>
-    /// A request that specifies both <c>EncryptionConfiguration</c> and <c>PermissionSetsEnabled</c>
-    /// returns a <c>ValidationException</c>. To perform both operations, call <c>UpdateInstance</c>
-    /// separately for each. The two calls can be made in parallel.
+    /// If you specify both <c>EncryptionConfiguration</c> and <c>PermissionSetsEnabled</c>
+    /// in a request, the request returns a <c>ValidationException</c>. To perform both operations,
+    /// call <c>UpdateInstance</c> separately for each. You can make the two calls in parallel.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SSOADMNInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <para>
         /// <para>Enables permission sets for this Identity Center instance. The only accepted value
         /// is <c>true </c>. After permission sets are enabled, they cannot be disabled.</para><note><para>You can't set <c>EncryptionConfiguration</c> and <c>PermissionSetsEnabled</c> in the
-        /// same request. To configure both, make two separate <c>UpdateInstance</c> calls. These
-        /// calls can be made in parallel.</para></note>
+        /// same request. To configure both, make two separate <c>UpdateInstance</c> calls. You
+        /// can make these calls in parallel.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

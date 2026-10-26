@@ -886,6 +886,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.UpdateOutboundEmailMessageSourceType
+        "Update-CONNOutboundEmailContactMessage/EmailMessage_MessageSourceType"
+        {
+            $v = "RAW"
+            break
+        }
+
         # Amazon.Connect.UseCaseType
         "New-CONNUseCase/UseCaseType"
         {
@@ -1006,7 +1013,7 @@ $CONN_map = @{
     "DecimalCondition_ComparisonType"=@("Search-CONNContactEvaluation")
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "DeviceType"=@("New-CONNPushNotificationRegistration")
-    "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
+    "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact","Update-CONNOutboundEmailContactMessage")
     "EntityType"=@("Add-CONNSecurityProfile","Get-CONNEntitySecurityProfileList","Unregister-CONNSecurityProfile")
     "EntryPoint_Type"=@("New-CONNTestCase","Update-CONNTestCase")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
@@ -1507,6 +1514,7 @@ $CONN_SelectMap = @{
                "Update-CONNMetricContent",
                "Update-CONNMetricMetadata",
                "Update-CONNNotificationContent",
+               "Update-CONNOutboundEmailContactMessage",
                "Update-CONNParticipantAuthentication",
                "Update-CONNParticipantRoleConfig",
                "Update-CONNPhoneNumber",

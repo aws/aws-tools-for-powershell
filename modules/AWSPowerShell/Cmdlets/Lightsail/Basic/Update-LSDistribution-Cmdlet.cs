@@ -220,6 +220,21 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.Boolean? EnablePrivateOriginAccess { get; set; }
         #endregion
         
+        #region Parameter EnableWaf
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable Web Application Firewall (WAF) for the distribution. WAF
+        /// inspects viewer requests and blocks requests that match the WAF rule groups that you
+        /// enable.</para><para>When you enable WAF without specifying the <c>wafRules</c> parameter, the distribution
+        /// has no WAF rule groups enabled and doesn't block any requests.</para><note><para>WAF is available only for distributions that use the <c>medium_1_0</c> or <c>large_1_0</c>
+        /// bundle.</para><para>Setting this parameter to <c>false</c> disables WAF for the distribution and removes
+        /// its WAF rule groups. You must enable the WAF rule groups again if you enable WAF again.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableWaf { get; set; }
+        #endregion
+        
         #region Parameter ForwardedHeaders_HeadersAllowList
         /// <summary>
         /// <para>
@@ -409,6 +424,29 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public Amazon.Lightsail.ViewerMinimumTlsProtocolVersionEnum ViewerMinimumTlsProtocolVersion { get; set; }
         #endregion
         
+        #region Parameter WafRule
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects that describe the WAF rule groups to enable for the distribution.</para><para>The array that you specify replaces the existing WAF rule groups of the distribution.
+        /// To keep a WAF rule group enabled, include it in the array. To disable all WAF rule
+        /// groups, specify an empty array.</para><para>You can specify this parameter only when WAF is enabled for the distribution.</para><para>The WAF rule groups that you can specify depend on the bundle of the distribution:</para><ul><li><para><c>medium_1_0</c> – Supports the <c>AWSManagedRulesCommonRuleSet</c>, <c>AWSManagedRulesKnownBadInputsRuleSet</c>,
+        /// and <c>AWSManagedRulesAnonymousIpList</c> rule groups.</para></li><li><para><c>large_1_0</c> – Supports the rule groups for <c>medium_1_0</c>, plus <c>AWSManagedRulesAdminProtectionRuleSet</c>,
+        /// <c>AWSManagedRulesSQLiRuleSet</c>, <c>AWSManagedRulesLinuxRuleSet</c>, <c>AWSManagedRulesUnixRuleSet</c>,
+        /// <c>AWSManagedRulesWindowsRuleSet</c>, <c>AWSManagedRulesPHPRuleSet</c>, <c>AWSManagedRulesWordPressRuleSet</c>,
+        /// <c>AWSManagedRulesAmazonIpReputationList</c>, <c>AWSManagedRulesATPRuleSet</c>, <c>AWSManagedRulesACFPRuleSet</c>,
+        /// and <c>AWSManagedRulesBotControlRuleSet</c> rule groups.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WafRules")]
+        public Amazon.Lightsail.Model.WafRule[] WafRule { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Operation'.
@@ -494,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             #endif
             context.EnablePrivateOriginAccess = this.EnablePrivateOriginAccess;
+            context.EnableWaf = this.EnableWaf;
             context.IsEnabled = this.IsEnabled;
             context.Origin_IpAddressType = this.Origin_IpAddressType;
             context.Origin_Name = this.Origin_Name;
@@ -502,6 +541,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             context.Origin_ResponseTimeout = this.Origin_ResponseTimeout;
             context.UseDefaultCertificate = this.UseDefaultCertificate;
             context.ViewerMinimumTlsProtocolVersion = this.ViewerMinimumTlsProtocolVersion;
+            if (this.WafRule != null)
+            {
+                context.WafRule = new List<Amazon.Lightsail.Model.WafRule>(this.WafRule);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -725,6 +768,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 request.EnablePrivateOriginAccess = cmdletContext.EnablePrivateOriginAccess.Value;
             }
+            if (cmdletContext.EnableWaf != null)
+            {
+                request.EnableWaf = cmdletContext.EnableWaf.Value;
+            }
             if (cmdletContext.IsEnabled != null)
             {
                 request.IsEnabled = cmdletContext.IsEnabled.Value;
@@ -795,6 +842,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.ViewerMinimumTlsProtocolVersion != null)
             {
                 request.ViewerMinimumTlsProtocolVersion = cmdletContext.ViewerMinimumTlsProtocolVersion;
+            }
+            if (cmdletContext.WafRule != null)
+            {
+                request.WafRules = cmdletContext.WafRule;
             }
             
             CmdletOutput output;
@@ -869,6 +920,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String DefaultRootObject { get; set; }
             public System.String DistributionName { get; set; }
             public System.Boolean? EnablePrivateOriginAccess { get; set; }
+            public System.Boolean? EnableWaf { get; set; }
             public System.Boolean? IsEnabled { get; set; }
             public Amazon.Lightsail.OriginIpAddressTypeEnum Origin_IpAddressType { get; set; }
             public System.String Origin_Name { get; set; }
@@ -877,6 +929,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.Int32? Origin_ResponseTimeout { get; set; }
             public System.Boolean? UseDefaultCertificate { get; set; }
             public Amazon.Lightsail.ViewerMinimumTlsProtocolVersionEnum ViewerMinimumTlsProtocolVersion { get; set; }
+            public List<Amazon.Lightsail.Model.WafRule> WafRule { get; set; }
             public System.Func<Amazon.Lightsail.Model.UpdateDistributionResponse, UpdateLSDistributionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Operation;
         }

@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the farm that contains the queue and limit to disassociate.</para>
+        /// The unique identifier of the farm that contains
+        /// the queue and limit to disassociate.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter LimitId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the limit to disassociate.</para>
+        /// The unique identifier of the limit to disassociate.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the queue to disassociate.</para>
+        /// The unique identifier of the queue to disassociate.
         /// </para>
         /// </summary>
         #if !MODULAR

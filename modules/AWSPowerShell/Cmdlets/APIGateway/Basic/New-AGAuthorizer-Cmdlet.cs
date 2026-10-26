@@ -163,9 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>A list of the Amazon Cognito user pool ARNs for the <c>COGNITO_USER_POOLS</c> authorizer.
         /// Each element is of this format: <c>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</c>.
         /// For a <c>TOKEN</c> or <c>REQUEST</c> authorizer, this is not defined. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -256,10 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.Select = CreateSelectDelegate<Amazon.APIGateway.Model.CreateAuthorizerResponse, NewAGAuthorizerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AuthType = this.AuthType;
             context.AuthorizerCredential = this.AuthorizerCredential;
             context.AuthorizerResultTtlInSecond = this.AuthorizerResultTtlInSecond;
             context.AuthorizerUri = this.AuthorizerUri;
-            context.AuthType = this.AuthType;
             context.IdentitySource = this.IdentitySource;
             context.IdentityValidationExpression = this.IdentityValidationExpression;
             context.Name = this.Name;
@@ -303,6 +304,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // create request
             var request = new Amazon.APIGateway.Model.CreateAuthorizerRequest();
             
+            if (cmdletContext.AuthType != null)
+            {
+                request.AuthType = cmdletContext.AuthType;
+            }
             if (cmdletContext.AuthorizerCredential != null)
             {
                 request.AuthorizerCredentials = cmdletContext.AuthorizerCredential;
@@ -314,10 +319,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.AuthorizerUri != null)
             {
                 request.AuthorizerUri = cmdletContext.AuthorizerUri;
-            }
-            if (cmdletContext.AuthType != null)
-            {
-                request.AuthType = cmdletContext.AuthType;
             }
             if (cmdletContext.IdentitySource != null)
             {
@@ -398,10 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AuthType { get; set; }
             public System.String AuthorizerCredential { get; set; }
             public System.Int32? AuthorizerResultTtlInSecond { get; set; }
             public System.String AuthorizerUri { get; set; }
-            public System.String AuthType { get; set; }
             public System.String IdentitySource { get; set; }
             public System.String IdentityValidationExpression { get; set; }
             public System.String Name { get; set; }

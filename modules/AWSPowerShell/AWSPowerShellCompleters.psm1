@@ -4357,7 +4357,7 @@ $APS_Completers = {
             ($_ -eq "Update-APSFleet/Platform")
         }
         {
-            $v = "AMAZON_LINUX2","RHEL8","ROCKY_LINUX8","UBUNTU_PRO_2404","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022","WINDOWS_SERVER_2025"
+            $v = "AMAZON_LINUX2","RHEL8","ROCKY_LINUX8","UBUNTU_PRO_2404","WINDOWS","WINDOWS_11","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022","WINDOWS_SERVER_2025"
             break
         }
 
@@ -11396,12 +11396,17 @@ $AWSB_SelectCompleters = {
 }
 
 $AWSB_SelectMap = @{
-    "Select"=@("Add-AWSBSourceView",
+    "Select"=@("Add-AWSBContract",
+               "Add-AWSBSourceView",
+               "Stop-AWSBContractualInvestmentAttestation",
                "New-AWSBBillingView",
+               "New-AWSBContractualInvestmentAttestation",
                "Remove-AWSBBillingView",
+               "Remove-AWSBContract",
                "Remove-AWSBSourceView",
                "Get-AWSBBillingPreference",
                "Get-AWSBBillingView",
+               "Get-AWSBContractInformation",
                "Get-AWSBCreditAllocationHistory",
                "Get-AWSBCredit",
                "Get-AWSBEnterpriseSupportChargeSummary",
@@ -11411,6 +11416,10 @@ $AWSB_SelectMap = @{
                "Get-AWSBBillingViewSegmentList",
                "Get-AWSBBusinessSupportAccountChargeList",
                "Get-AWSBBusinessSupportSubscriptionHistoryList",
+               "Get-AWSBContractList",
+               "Get-AWSBContractualInvestmentAttestationList",
+               "Get-AWSBContractualInvestmentList",
+               "Get-AWSBContractualInvestmentSummaryList",
                "Get-AWSBEnterpriseSupportLinkedAccountChargeList",
                "Get-AWSBSourceViewsForBillingViewList",
                "Get-AWSBResourceTag",
@@ -15384,8 +15393,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16078,8 +16087,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16539,9 +16548,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
-               "Get-CSDSuggestion")
+    "Select"=@("Get-CSDSuggestion",
+               "Search-CSDDocument",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -22457,6 +22466,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.UpdateOutboundEmailMessageSourceType
+        "Update-CONNOutboundEmailContactMessage/EmailMessage_MessageSourceType"
+        {
+            $v = "RAW"
+            break
+        }
+
         # Amazon.Connect.UseCaseType
         "New-CONNUseCase/UseCaseType"
         {
@@ -22577,7 +22593,7 @@ $CONN_map = @{
     "DecimalCondition_ComparisonType"=@("Search-CONNContactEvaluation")
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "DeviceType"=@("New-CONNPushNotificationRegistration")
-    "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
+    "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact","Update-CONNOutboundEmailContactMessage")
     "EntityType"=@("Add-CONNSecurityProfile","Get-CONNEntitySecurityProfileList","Unregister-CONNSecurityProfile")
     "EntryPoint_Type"=@("New-CONNTestCase","Update-CONNTestCase")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
@@ -23078,6 +23094,7 @@ $CONN_SelectMap = @{
                "Update-CONNMetricContent",
                "Update-CONNMetricMetadata",
                "Update-CONNNotificationContent",
+               "Update-CONNOutboundEmailContactMessage",
                "Update-CONNParticipantAuthentication",
                "Update-CONNParticipantRoleConfig",
                "Update-CONNPhoneNumber",
@@ -30701,11 +30718,11 @@ $DDB_SelectMap = @{
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
                "New-DDBTable",
-               "Add-DDBIndexSchema",
-               "ConvertTo-DDBItem",
                "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
-               "New-DDBTableSchema")
+               "Add-DDBIndexSchema",
+               "New-DDBTableSchema",
+               "ConvertTo-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -33563,8 +33580,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -33693,6 +33710,13 @@ $ECR_Completers = {
             break
         }
 
+        # Amazon.ECR.ReplicationBackfillResultStatus
+        "Get-ECRReplicationBackfillResultDetail/ResultStatusFilter"
+        {
+            $v = "COMPLETE","FAILED"
+            break
+        }
+
         # Amazon.ECR.ScanType
         "Write-ECRRegistryScanningConfiguration/ScanType"
         {
@@ -33739,6 +33763,7 @@ $ECR_map = @{
     "Filter_ImageStatus"=@("Get-ECRImage","Get-ECRImageMetadata")
     "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata","Get-ECRLifecyclePolicyPreview")
     "ImageTagMutability"=@("New-ECRRepository","New-ECRRepositoryCreationTemplate","Update-ECRRepositoryCreationTemplate","Write-ECRImageTagMutability")
+    "ResultStatusFilter"=@("Get-ECRReplicationBackfillResultDetail")
     "ScanType"=@("Write-ECRRegistryScanningConfiguration")
     "TargetStorageClass"=@("Update-ECRImageStorageClass")
     "UpstreamRegistry"=@("New-ECRPullThroughCacheRule")
@@ -33816,6 +33841,7 @@ $ECR_SelectMap = @{
                "Get-ECRImageSigningStatusDetail",
                "Get-ECRPullThroughCacheRule",
                "Get-ECRRegistry",
+               "Get-ECRReplicationBackfillResultDetail",
                "Get-ECRRepository",
                "Get-ECRRepositoryCreationTemplate",
                "Get-ECRAccountSetting",
@@ -33831,6 +33857,7 @@ $ECR_SelectMap = @{
                "Get-ECRImageReferrerList",
                "Get-ECRImage",
                "Get-ECRPullTimeUpdateExclusionList",
+               "Get-ECRReplicationBackfillList",
                "Get-ECRResourceTag",
                "Write-ECRAccountSetting",
                "Write-ECRImage",
@@ -33845,6 +33872,8 @@ $ECR_SelectMap = @{
                "Set-ECRRepositoryPolicy",
                "Start-ECRImageScan",
                "Start-ECRLifecyclePolicyPreview",
+               "Start-ECRReplicationBackfill",
+               "Stop-ECRReplicationBackfill",
                "Add-ECRResourceTag",
                "Remove-ECRResourceTag",
                "Update-ECRImageStorageClass",
@@ -49482,17 +49511,20 @@ $IVS_SelectMap = @{
                "Start-IVSStartViewerSessionRevocation",
                "New-IVSAdConfiguration",
                "New-IVSChannel",
+               "New-IVSFailoverSlateConfiguration",
                "New-IVSPlaybackRestrictionPolicy",
                "New-IVSRecordingConfiguration",
                "New-IVSStreamKey",
                "Remove-IVSAdConfiguration",
                "Remove-IVSChannel",
+               "Remove-IVSFailoverSlateConfiguration",
                "Remove-IVSPlaybackKeyPair",
                "Remove-IVSPlaybackRestrictionPolicy",
                "Remove-IVSRecordingConfiguration",
                "Remove-IVSStreamKey",
                "Get-IVSAdConfiguration",
                "Get-IVSChannel",
+               "Get-IVSFailoverSlateConfiguration",
                "Get-IVSPlaybackKeyPair",
                "Get-IVSPlaybackRestrictionPolicy",
                "Get-IVSRecordingConfiguration",
@@ -49503,6 +49535,7 @@ $IVS_SelectMap = @{
                "Add-IVSAdBreak",
                "Get-IVSAdConfigurationList",
                "Get-IVSChannelList",
+               "Get-IVSFailoverSlateConfigurationList",
                "Get-IVSPlaybackKeyPairList",
                "Get-IVSPlaybackRestrictionPolicyList",
                "Get-IVSRecordingConfigurationList",
@@ -49517,6 +49550,7 @@ $IVS_SelectMap = @{
                "Remove-IVSResourceTag",
                "Update-IVSAdConfiguration",
                "Update-IVSChannel",
+               "Update-IVSFailoverSlateConfiguration",
                "Update-IVSPlaybackRestrictionPolicy")
 }
 
@@ -51485,7 +51519,7 @@ $KMS_Completers = {
             ($_ -eq "New-KMSDataKeyPairWithoutPlaintext/KeyPairSpec")
         }
         {
-            $v = "ECC_NIST_EDWARDS25519","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SM2"
+            $v = "ECC_NIST_EDWARDS25519","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","ML_KEM_1024","ML_KEM_512","ML_KEM_768","RSA_2048","RSA_3072","RSA_4096","SM2"
             break
         }
 
@@ -51496,6 +51530,16 @@ $KMS_Completers = {
         }
         {
             $v = "AES_128","AES_256"
+            break
+        }
+
+        # Amazon.KeyManagementService.EncapsulationAlgorithmSpec
+        {
+            ($_ -eq "Invoke-KMSDecapsulate/EncapsulationAlgorithm") -Or
+            ($_ -eq "Invoke-KMSEncapsulate/EncapsulationAlgorithm")
+        }
+        {
+            $v = "ML_KEM"
             break
         }
 
@@ -51555,14 +51599,14 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeySpec
         "New-KMSKey/KeySpec"
         {
-            $v = "ECC_NIST_EDWARDS25519","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","ML_DSA_44","ML_DSA_65","ML_DSA_87","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_EDWARDS25519","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","ML_DSA_44","ML_DSA_65","ML_DSA_87","ML_KEM_1024","ML_KEM_512","ML_KEM_768","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
             break
         }
 
         # Amazon.KeyManagementService.KeyUsageType
         "New-KMSKey/KeyUsage"
         {
-            $v = "ENCRYPT_DECRYPT","GENERATE_VERIFY_MAC","KEY_AGREEMENT","SIGN_VERIFY"
+            $v = "ENCAPSULATE_DECAPSULATE","ENCRYPT_DECRYPT","GENERATE_VERIFY_MAC","KEY_AGREEMENT","SIGN_VERIFY"
             break
         }
 
@@ -51632,6 +51676,7 @@ $KMS_map = @{
     "CustomerMasterKeySpec"=@("New-KMSKey")
     "CustomKeyStoreType"=@("New-KMSCustomKeyStore")
     "DestinationEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
+    "EncapsulationAlgorithm"=@("Invoke-KMSDecapsulate","Invoke-KMSEncapsulate")
     "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
     "ImportType"=@("Import-KMSKeyMaterial")
@@ -51707,6 +51752,7 @@ $KMS_SelectMap = @{
                "New-KMSCustomKeyStore",
                "New-KMSGrant",
                "New-KMSKey",
+               "Invoke-KMSDecapsulate",
                "Invoke-KMSDecrypt",
                "Remove-KMSAlias",
                "Remove-KMSCustomKeyStore",
@@ -51719,6 +51765,7 @@ $KMS_SelectMap = @{
                "Disconnect-KMSCustomKeyStore",
                "Enable-KMSKey",
                "Enable-KMSKeyRotation",
+               "Invoke-KMSEncapsulate",
                "Invoke-KMSEncrypt",
                "New-KMSDataKey",
                "New-KMSDataKeyPair",
@@ -53669,7 +53716,7 @@ $LS_Completers = {
         # Amazon.Lightsail.DistributionMetricName
         "Get-LSDistributionMetricData/MetricName"
         {
-            $v = "BytesDownloaded","BytesUploaded","Http4xxErrorRate","Http5xxErrorRate","Requests","TotalErrorRate"
+            $v = "BytesDownloaded","BytesUploaded","Http4xxErrorRate","Http5xxErrorRate","Requests","TotalErrorRate","WafAllowedRequests","WafBlockedRequests"
             break
         }
 
@@ -56399,6 +56446,7 @@ $MCAT_Completers = {
             ($_ -eq "Get-MCATEntityList/ContainerProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/DataProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/MachineLearningProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSetSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSort_SortOrder") -Or
@@ -56409,6 +56457,13 @@ $MCAT_Completers = {
         }
         {
             $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+        # Amazon.MarketplaceCatalog.SubsidiaryAuthorizationSortBy
+        "Get-MCATEntityList/EntityTypeSort_SubsidiaryAuthorizationSort_SortBy"
+        {
+            $v = "CreatedDate","EntityId","LastModifiedDate","ResourceId","Status","SubsidiaryAccountId"
             break
         }
 
@@ -56429,6 +56484,8 @@ $MCAT_map = @{
     "DataProductSort_SortOrder"=@("Get-MCATEntityList")
     "EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortBy"=@("Get-MCATEntityList")
     "EntityTypeSort_ExpressPrivateOfferConfigurationSort_SortOrder"=@("Get-MCATEntityList")
+    "EntityTypeSort_SubsidiaryAuthorizationSort_SortBy"=@("Get-MCATEntityList")
+    "EntityTypeSort_SubsidiaryAuthorizationSort_SortOrder"=@("Get-MCATEntityList")
     "Intent"=@("Start-MCATChangeSet")
     "MachineLearningProductSort_SortBy"=@("Get-MCATEntityList")
     "MachineLearningProductSort_SortOrder"=@("Get-MCATEntityList")
@@ -56868,6 +56925,26 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.DestinationEndpointNetworkingType
+        {
+            ($_ -eq "Register-EMCNDestinationEndpoint/Configuration_Standard_DestinationNetworkingType") -Or
+            ($_ -eq "Update-EMCNDestinationEndpoint/Configuration_Standard_DestinationNetworkingType")
+        }
+        {
+            $v = "PUBLIC","VPC"
+            break
+        }
+
+        # Amazon.MediaConnect.DestinationEndpointProtocol
+        {
+            ($_ -eq "Register-EMCNDestinationEndpoint/Configuration_Standard_Protocol") -Or
+            ($_ -eq "Update-EMCNDestinationEndpoint/Configuration_Standard_Protocol")
+        }
+        {
+            $v = "RIST","RTP","SRT_CALLER","SRT_LISTENER"
+            break
+        }
+
         # Amazon.MediaConnect.EncodingProfile
         {
             ($_ -eq "New-EMCNFlow/EncodingConfig_EncodingProfile") -Or
@@ -56875,6 +56952,42 @@ $EMCN_Completers = {
         }
         {
             $v = "CONTRIBUTION_H264_DEFAULT","DISTRIBUTION_H264_DEFAULT"
+            break
+        }
+
+        # Amazon.MediaConnect.EndpointEncryptionSecretType
+        {
+            ($_ -eq "New-EMCNRouterInput/Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType") -Or
+            ($_ -eq "New-EMCNRouterOutput/Configuration_SourceEndpoint_DestinationTransitEncryption_SecretsManager_EncryptionSecretType") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Configuration_SourceEndpoint_DestinationTransitEncryption_SecretsManager_EncryptionSecretType")
+        }
+        {
+            $v = "AES_128_KEY","AES_192_KEY","AES_256_KEY","SRT_PASSPHRASE"
+            break
+        }
+
+        # Amazon.MediaConnect.EndpointEncryptionType
+        {
+            ($_ -eq "New-EMCNRouterInput/Configuration_DestinationEndpoint_SourceTransitDecryptionType") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_DestinationEndpoint_SourceTransitDecryptionType") -Or
+            ($_ -eq "New-EMCNRouterOutput/Configuration_SourceEndpoint_DestinationTransitEncryptionType") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Configuration_SourceEndpoint_DestinationTransitEncryptionType")
+        }
+        {
+            $v = "AUTOMATIC","SECRETS_MANAGER"
+            break
+        }
+
+        # Amazon.MediaConnect.EndpointLifecycle
+        {
+            ($_ -eq "New-EMCNRouterInput/Configuration_DestinationEndpoint_EndpointLifecycleManagement") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_DestinationEndpoint_EndpointLifecycleManagement") -Or
+            ($_ -eq "New-EMCNRouterOutput/Configuration_SourceEndpoint_EndpointLifecycleManagement") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Configuration_SourceEndpoint_EndpointLifecycleManagement")
+        }
+        {
+            $v = "MANAGED","UNMANAGED"
             break
         }
 
@@ -56943,6 +57056,10 @@ $EMCN_Completers = {
 
         # Amazon.MediaConnect.ForwardErrorCorrectionState
         {
+            ($_ -eq "Register-EMCNDestinationEndpoint/Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState") -Or
+            ($_ -eq "Register-EMCNSourceEndpoint/Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState") -Or
+            ($_ -eq "Update-EMCNDestinationEndpoint/Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState") -Or
+            ($_ -eq "Update-EMCNSourceEndpoint/Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState") -Or
             ($_ -eq "New-EMCNRouterInput/Rtp_ForwardErrorCorrection") -Or
             ($_ -eq "New-EMCNRouterOutput/Rtp_ForwardErrorCorrection") -Or
             ($_ -eq "Update-EMCNRouterInput/Rtp_ForwardErrorCorrection") -Or
@@ -57114,6 +57231,26 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.SourceEndpointNetworkingType
+        {
+            ($_ -eq "Register-EMCNSourceEndpoint/Configuration_Standard_SourceNetworkingType") -Or
+            ($_ -eq "Update-EMCNSourceEndpoint/Configuration_Standard_SourceNetworkingType")
+        }
+        {
+            $v = "PUBLIC","VPC"
+            break
+        }
+
+        # Amazon.MediaConnect.SourceEndpointProtocol
+        {
+            ($_ -eq "Register-EMCNSourceEndpoint/Configuration_Standard_Protocol") -Or
+            ($_ -eq "Update-EMCNSourceEndpoint/Configuration_Standard_Protocol")
+        }
+        {
+            $v = "RIST","RTP","SRT_CALLER","SRT_LISTENER"
+            break
+        }
+
         # Amazon.MediaConnect.State
         {
             ($_ -eq "Update-EMCNFlowOutput/RouterIntegrationState") -Or
@@ -57165,9 +57302,19 @@ $EMCN_Completers = {
 
 $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
+    "Configuration_DestinationEndpoint_EndpointLifecycleManagement"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Configuration_DestinationEndpoint_SourceTransitDecryption_SecretsManager_EncryptionSecretType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Configuration_DestinationEndpoint_SourceTransitDecryptionType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "Configuration_MediaLiveChannel_MediaLivePipelineId"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Configuration_SourceEndpoint_DestinationTransitEncryption_SecretsManager_EncryptionSecretType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "Configuration_SourceEndpoint_DestinationTransitEncryptionType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "Configuration_SourceEndpoint_EndpointLifecycleManagement"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "Configuration_Standard_DestinationNetworkingType"=@("Register-EMCNDestinationEndpoint","Update-EMCNDestinationEndpoint")
+    "Configuration_Standard_Protocol"=@("Register-EMCNDestinationEndpoint","Register-EMCNSourceEndpoint","Update-EMCNDestinationEndpoint","Update-EMCNSourceEndpoint")
     "Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState"=@("Register-EMCNDestinationEndpoint","Register-EMCNSourceEndpoint","Update-EMCNDestinationEndpoint","Update-EMCNSourceEndpoint")
+    "Configuration_Standard_SourceNetworkingType"=@("Register-EMCNSourceEndpoint","Update-EMCNSourceEndpoint")
     "ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
@@ -57264,9 +57411,12 @@ $EMCN_SelectMap = @{
                "Add-EMCNFlowOutput",
                "Add-EMCNFlowSource",
                "Add-EMCNFlowVpcInterface",
+               "Get-EMCNDestinationEndpointBatch",
                "Get-EMCNBatchRouterInput",
                "Get-EMCNBatchRouterNetworkInterface",
                "Get-EMCNBatchRouterOutput",
+               "Get-EMCNSourceEndpointBatch",
+               "Connect-EMCNEndpoint",
                "New-EMCNBridge",
                "New-EMCNFlow",
                "New-EMCNGateway",
@@ -57279,7 +57429,9 @@ $EMCN_SelectMap = @{
                "Remove-EMCNRouterInput",
                "Remove-EMCNRouterNetworkInterface",
                "Remove-EMCNRouterOutput",
+               "Unregister-EMCNDestinationEndpoint",
                "Remove-EMCNGatewayInstance",
+               "Unregister-EMCNSourceEndpoint",
                "Get-EMCNBridge",
                "Get-EMCNFlow",
                "Get-EMCNFlowSourceMetadata",
@@ -57288,13 +57440,17 @@ $EMCN_SelectMap = @{
                "Get-EMCNGatewayInstance",
                "Get-EMCNOffering",
                "Get-EMCNReservation",
+               "Disconnect-EMCNEndpoint",
+               "Get-EMCNDestinationEndpoint",
                "Get-EMCNRouterInput",
                "Get-EMCNRouterInputSourceMetadata",
                "Get-EMCNRouterInputThumbnail",
                "Get-EMCNRouterNetworkInterface",
                "Get-EMCNRouterOutput",
+               "Get-EMCNSourceEndpoint",
                "Grant-EMCNFlowEntitlement",
                "Get-EMCNBridgeList",
+               "Get-EMCNDestinationEndpointList",
                "Get-EMCNEntitlementList",
                "Get-EMCNFlowList",
                "Get-EMCNGatewayInstanceList",
@@ -57304,9 +57460,12 @@ $EMCN_SelectMap = @{
                "Get-EMCNRouterInputList",
                "Get-EMCNRouterNetworkInterfaceList",
                "Get-EMCNRouterOutputList",
+               "Get-EMCNSourceEndpointList",
                "Get-EMCNTagsForGlobalResourceList",
                "Get-EMCNResourceTag",
                "New-EMCNOffering",
+               "Register-EMCNDestinationEndpoint",
+               "Register-EMCNSourceEndpoint",
                "Remove-EMCNBridgeOutput",
                "Remove-EMCNBridgeSource",
                "Remove-EMCNFlowMediaStream",
@@ -57331,6 +57490,7 @@ $EMCN_SelectMap = @{
                "Update-EMCNBridgeOutput",
                "Update-EMCNBridgeSource",
                "Update-EMCNBridgeState",
+               "Update-EMCNDestinationEndpoint",
                "Update-EMCNFlow",
                "Update-EMCNFlowEntitlement",
                "Update-EMCNFlowMediaStream",
@@ -57339,7 +57499,8 @@ $EMCN_SelectMap = @{
                "Update-EMCNGatewayInstance",
                "Update-EMCNRouterInput",
                "Update-EMCNRouterNetworkInterface",
-               "Update-EMCNRouterOutput")
+               "Update-EMCNRouterOutput",
+               "Update-EMCNSourceEndpoint")
 }
 
 _awsArgumentCompleterRegistration $EMCN_SelectCompleters $EMCN_SelectMap
@@ -64359,6 +64520,13 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.ExascaleDbStorageVaultType
+        "Get-ODBExascaleDbStorageVaultList/VaultType"
+        {
+            $v = "DEDICATED_INFRASTRUCTURE","EXASCALE_INFRASTRUCTURE"
+            break
+        }
+
         # Amazon.Odb.ExternalIdType
         {
             ($_ -eq "New-ODBAutonomousDatabase/AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType") -Or
@@ -64483,6 +64651,16 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.VmStorageType
+        {
+            ($_ -eq "New-ODBCloudVmCluster/VmBackupStorageType") -Or
+            ($_ -eq "New-ODBCloudVmCluster/VmFileSystemStorageType")
+        }
+        {
+            $v = "EXASCALE","LOCAL"
+            break
+        }
+
         # Amazon.Odb.WalletPasswordSource
         "New-ODBAutonomousDatabaseWallet/PasswordSource"
         {
@@ -64541,6 +64719,9 @@ $ODB_map = @{
     "StsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
     "Type"=@("Get-ODBAutonomousDatabaseBackupList")
     "UpdateAction"=@("Update-ODBExadbVmCluster")
+    "VaultType"=@("Get-ODBExascaleDbStorageVaultList")
+    "VmBackupStorageType"=@("New-ODBCloudVmCluster")
+    "VmFileSystemStorageType"=@("New-ODBCloudVmCluster")
     "WalletType"=@("New-ODBAutonomousDatabaseWallet")
     "ZeroEtlAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
 }
@@ -64672,6 +64853,7 @@ $ODB_SelectMap = @{
                "Update-ODBAutonomousDatabaseBackup",
                "Update-ODBCloudExadataInfrastructure",
                "Update-ODBExadbVmCluster",
+               "Update-ODBExascaleCloudExadataInfrastructure",
                "Update-ODBExascaleDbStorageVault",
                "Update-ODBOdbNetwork",
                "Update-ODBOdbPeeringConnection")
@@ -80216,17 +80398,17 @@ $S3_SelectMap = @{
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
                "New-S3Bucket",
+               "Read-S3Object",
                "Remove-S3MultipartUpload",
-               "Write-S3Object",
-               "Copy-S3Object",
-               "Mount-S3PSDrive",
-               "Remove-S3Bucket",
-               "Dismount-S3PSDrive",
-               "Test-S3Bucket",
-               "Get-S3MultipartUpload",
-               "Get-S3PreSignedURL",
                "Remove-S3Object",
-               "Read-S3Object")
+               "Remove-S3Bucket",
+               "Copy-S3Object",
+               "Dismount-S3PSDrive",
+               "Mount-S3PSDrive",
+               "Get-S3PreSignedURL",
+               "Get-S3MultipartUpload",
+               "Test-S3Bucket",
+               "Write-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -87513,6 +87695,7 @@ $AMSP_SelectCompleters = {
 $AMSP_SelectMap = @{
     "Select"=@("New-AMSPOAuth2Token",
                "New-AMSPOAuth2TokenWithIAM",
+               "New-AMSPOAuth2TokenWithTokenExchange",
                "Remove-AMSPConsoleAuthorizationConfiguration",
                "Remove-AMSPResourcePermissionStatement",
                "Get-AMSPConsoleAuthorizationConfiguration",
@@ -89395,6 +89578,13 @@ $SSOADMN_Completers = {
             break
         }
 
+        # Amazon.SSOAdmin.RegionScope
+        "Get-SSOADMNInstanceList/RegionScope"
+        {
+            $v = "ALL_REGIONS","CURRENT_REGION"
+            break
+        }
+
         # Amazon.SSOAdmin.SignInOrigin
         {
             ($_ -eq "New-SSOADMNApplication/SignInOptions_Origin") -Or
@@ -89457,6 +89647,7 @@ $SSOADMN_map = @{
     "PortalOptions_Visibility"=@("New-SSOADMNApplication")
     "PrincipalType"=@("Get-SSOADMNAccountAssignmentsForPrincipalList","Get-SSOADMNApplicationAssignment","Get-SSOADMNApplicationAssignmentsForPrincipalList","New-SSOADMNAccountAssignment","New-SSOADMNApplicationAssignment","Remove-SSOADMNAccountAssignment","Remove-SSOADMNApplicationAssignment")
     "ProvisioningStatus"=@("Get-SSOADMNAccountsForProvisionedPermissionSetList","Get-SSOADMNPermissionSetsProvisionedToAccountList")
+    "RegionScope"=@("Get-SSOADMNInstanceList")
     "SignInOptions_Origin"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
     "Status"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
     "TargetType"=@("Add-SSOADMNPermissionSetProvision","New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")
