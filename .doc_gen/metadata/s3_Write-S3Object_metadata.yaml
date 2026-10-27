@@ -29,7 +29,7 @@ s3_PutObject:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/s3_Write-S3Object.4.1.ps1
-        - description: "<emphasis role=\"bold\">Example 5: This command uploads all *.ps1 files in the local director \"Scripts\" to bucket \"amzn-s3-demo-bucket\" and applies the common key prefix \"SampleScripts\" to each object. Each uploaded file will have a key of \"SampleScripts/filename.ps1\" where 'filename' varies.</emphasis>"
+        - description: "<emphasis role=\"bold\">Example 5: This command uploads all *.ps1 files in the local directory \"Scripts\" to bucket \"amzn-s3-demo-bucket\" and applies the common key prefix \"SampleScripts\" to each object. Each uploaded file will have a key of \"SampleScripts/filename.ps1\" where 'filename' varies.</emphasis>"
           snippet_files: []
         - description:
           snippet_files:

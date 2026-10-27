@@ -19,7 +19,7 @@ s3_DeleteObjects:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/s3_Remove-S3Object.2.1.ps1
-        - description: '<emphasis role="bold">Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "amzn-s3-demo-bucket" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet.</emphasis>'
+        - description: '<emphasis role="bold">Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "amzn-s3-demo-bucket" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet).</emphasis>'
           snippet_files: []
         - description:
           snippet_files:

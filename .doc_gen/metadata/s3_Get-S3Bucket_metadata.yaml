@@ -15,7 +15,7 @@ s3_ListBuckets:
           - .doc_gen/snippet_files/s3_Get-S3Bucket.1.1.ps1
           description:
         - snippet_files: []
-          description: '<emphasis role="bold">Example 2: This command returns bucket named "amzn-s3-demo-bucket"</emphasis>'
+          description: '<emphasis role="bold">Example 2: This command returns bucket named "amzn-s3-demo-bucket".</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3Bucket.2.1.ps1
           description:
