@@ -1145,6 +1145,22 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ServerlessFunctionAggregation_Runtime { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_AmiAggregation_ScanSource
+        /// <summary>
+        /// <para>
+        /// <para>The scan sources to filter the aggregation results by.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_AmiAggregation_ScanSources")]
+        public System.String[] AggregationRequest_AmiAggregation_ScanSource { get; set; }
+        #endregion
+        
         #region Parameter AccountAggregation_SortBy
         /// <summary>
         /// <para>
@@ -1639,6 +1655,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.AmiAggregation_Ami = new List<Amazon.Inspector2.Model.StringFilter>(this.AmiAggregation_Ami);
             }
+            if (this.AggregationRequest_AmiAggregation_ScanSource != null)
+            {
+                context.AggregationRequest_AmiAggregation_ScanSource = new List<System.String>(this.AggregationRequest_AmiAggregation_ScanSource);
+            }
             context.AmiAggregation_SortBy = this.AmiAggregation_SortBy;
             context.AmiAggregation_SortOrder = this.AmiAggregation_SortOrder;
             if (this.AwsEcrContainerAggregation_Architecture != null)
@@ -1971,51 +1991,6 @@ namespace Amazon.PowerShell.Cmdlets.INS2
              // populate AggregationRequest
             var requestAggregationRequestIsNull = true;
             request.AggregationRequest = new Amazon.Inspector2.Model.AggregationRequest();
-            Amazon.Inspector2.Model.AmiAggregation requestAggregationRequest_aggregationRequest_AmiAggregation = null;
-            
-             // populate AmiAggregation
-            var requestAggregationRequest_aggregationRequest_AmiAggregationIsNull = true;
-            requestAggregationRequest_aggregationRequest_AmiAggregation = new Amazon.Inspector2.Model.AmiAggregation();
-            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_Ami = null;
-            if (cmdletContext.AmiAggregation_Ami != null)
-            {
-                requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_Ami = cmdletContext.AmiAggregation_Ami;
-            }
-            if (requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_Ami != null)
-            {
-                requestAggregationRequest_aggregationRequest_AmiAggregation.Amis = requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_Ami;
-                requestAggregationRequest_aggregationRequest_AmiAggregationIsNull = false;
-            }
-            Amazon.Inspector2.AmiSortBy requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortBy = null;
-            if (cmdletContext.AmiAggregation_SortBy != null)
-            {
-                requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortBy = cmdletContext.AmiAggregation_SortBy;
-            }
-            if (requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortBy != null)
-            {
-                requestAggregationRequest_aggregationRequest_AmiAggregation.SortBy = requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortBy;
-                requestAggregationRequest_aggregationRequest_AmiAggregationIsNull = false;
-            }
-            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortOrder = null;
-            if (cmdletContext.AmiAggregation_SortOrder != null)
-            {
-                requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortOrder = cmdletContext.AmiAggregation_SortOrder;
-            }
-            if (requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortOrder != null)
-            {
-                requestAggregationRequest_aggregationRequest_AmiAggregation.SortOrder = requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortOrder;
-                requestAggregationRequest_aggregationRequest_AmiAggregationIsNull = false;
-            }
-             // determine if requestAggregationRequest_aggregationRequest_AmiAggregation should be set to null
-            if (requestAggregationRequest_aggregationRequest_AmiAggregationIsNull)
-            {
-                requestAggregationRequest_aggregationRequest_AmiAggregation = null;
-            }
-            if (requestAggregationRequest_aggregationRequest_AmiAggregation != null)
-            {
-                request.AggregationRequest.AmiAggregation = requestAggregationRequest_aggregationRequest_AmiAggregation;
-                requestAggregationRequestIsNull = false;
-            }
             Amazon.Inspector2.Model.PackageAggregation requestAggregationRequest_aggregationRequest_PackageAggregation = null;
             
              // populate PackageAggregation
@@ -2159,6 +2134,61 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestAggregationRequest_aggregationRequest_AccountAggregation != null)
             {
                 request.AggregationRequest.AccountAggregation = requestAggregationRequest_aggregationRequest_AccountAggregation;
+                requestAggregationRequestIsNull = false;
+            }
+            Amazon.Inspector2.Model.AmiAggregation requestAggregationRequest_aggregationRequest_AmiAggregation = null;
+            
+             // populate AmiAggregation
+            var requestAggregationRequest_aggregationRequest_AmiAggregationIsNull = true;
+            requestAggregationRequest_aggregationRequest_AmiAggregation = new Amazon.Inspector2.Model.AmiAggregation();
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_Ami = null;
+            if (cmdletContext.AmiAggregation_Ami != null)
+            {
+                requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_Ami = cmdletContext.AmiAggregation_Ami;
+            }
+            if (requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_Ami != null)
+            {
+                requestAggregationRequest_aggregationRequest_AmiAggregation.Amis = requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_Ami;
+                requestAggregationRequest_aggregationRequest_AmiAggregationIsNull = false;
+            }
+            List<System.String> requestAggregationRequest_aggregationRequest_AmiAggregation_aggregationRequest_AmiAggregation_ScanSource = null;
+            if (cmdletContext.AggregationRequest_AmiAggregation_ScanSource != null)
+            {
+                requestAggregationRequest_aggregationRequest_AmiAggregation_aggregationRequest_AmiAggregation_ScanSource = cmdletContext.AggregationRequest_AmiAggregation_ScanSource;
+            }
+            if (requestAggregationRequest_aggregationRequest_AmiAggregation_aggregationRequest_AmiAggregation_ScanSource != null)
+            {
+                requestAggregationRequest_aggregationRequest_AmiAggregation.ScanSources = requestAggregationRequest_aggregationRequest_AmiAggregation_aggregationRequest_AmiAggregation_ScanSource;
+                requestAggregationRequest_aggregationRequest_AmiAggregationIsNull = false;
+            }
+            Amazon.Inspector2.AmiSortBy requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortBy = null;
+            if (cmdletContext.AmiAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortBy = cmdletContext.AmiAggregation_SortBy;
+            }
+            if (requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_AmiAggregation.SortBy = requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortBy;
+                requestAggregationRequest_aggregationRequest_AmiAggregationIsNull = false;
+            }
+            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortOrder = null;
+            if (cmdletContext.AmiAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortOrder = cmdletContext.AmiAggregation_SortOrder;
+            }
+            if (requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_AmiAggregation.SortOrder = requestAggregationRequest_aggregationRequest_AmiAggregation_amiAggregation_SortOrder;
+                requestAggregationRequest_aggregationRequest_AmiAggregationIsNull = false;
+            }
+             // determine if requestAggregationRequest_aggregationRequest_AmiAggregation should be set to null
+            if (requestAggregationRequest_aggregationRequest_AmiAggregationIsNull)
+            {
+                requestAggregationRequest_aggregationRequest_AmiAggregation = null;
+            }
+            if (requestAggregationRequest_aggregationRequest_AmiAggregation != null)
+            {
+                request.AggregationRequest.AmiAggregation = requestAggregationRequest_aggregationRequest_AmiAggregation;
                 requestAggregationRequestIsNull = false;
             }
             Amazon.Inspector2.Model.FindingTypeAggregation requestAggregationRequest_aggregationRequest_FindingTypeAggregation = null;
@@ -3305,6 +3335,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public Amazon.Inspector2.AccountSortBy AccountAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder AccountAggregation_SortOrder { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> AmiAggregation_Ami { get; set; }
+            public List<System.String> AggregationRequest_AmiAggregation_ScanSource { get; set; }
             public Amazon.Inspector2.AmiSortBy AmiAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder AmiAggregation_SortOrder { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> AwsEcrContainerAggregation_Architecture { get; set; }

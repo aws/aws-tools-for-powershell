@@ -2461,6 +2461,7 @@ $EC2_SelectMap = @{
                "Get-EC2HostReservationPurchasePreview",
                "Get-EC2ImageAncestry",
                "Get-EC2ImageBlockPublicAccessState",
+               "Get-EC2ImageFinding",
                "Get-EC2InstanceMetadataDefault",
                "Get-EC2InstanceTpmEkPub",
                "Get-EC2InstanceTypesFromInstanceRequirement",
@@ -2691,8 +2692,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap

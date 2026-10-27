@@ -225,6 +225,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BACCResourcePolicy', 
         'Remove-BACCResourceTag', 
         'Remove-BACCWorkloadIdentity', 
+        'Reset-BACCTokenVaultKeyMaterial', 
         'Set-BACCTokenVaultCMK', 
         'Start-BACCPolicyGeneration', 
         'Submit-BACCRegistryRecordForApproval', 

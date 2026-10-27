@@ -40,23 +40,23 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// <para>
     /// The actions are completed atomically so that either all of them succeed, or all of
     /// them fail. They are defined by the following objects:
-    /// </para><ul><li><para><c>Put</c>  —   Initiates a <c>PutItem</c> operation to write a new item. This structure
+    /// </para><ul><li><para><c>Put</c> — Initiates a <c>PutItem</c> operation to write a new item. This structure
     /// specifies the primary key of the item to be written, the name of the table to write
     /// it in, an optional condition expression that must be satisfied for the write to succeed,
     /// a list of the item's attributes, and a field indicating whether to retrieve the item's
     /// attributes if the condition is not met.
-    /// </para></li><li><para><c>Update</c>  —   Initiates an <c>UpdateItem</c> operation to update an existing
-    /// item. This structure specifies the primary key of the item to be updated, the name
-    /// of the table where it resides, an optional condition expression that must be satisfied
-    /// for the update to succeed, an expression that defines one or more attributes to be
-    /// updated, and a field indicating whether to retrieve the item's attributes if the condition
+    /// </para></li><li><para><c>Update</c> — Initiates an <c>UpdateItem</c> operation to update an existing item.
+    /// This structure specifies the primary key of the item to be updated, the name of the
+    /// table where it resides, an optional condition expression that must be satisfied for
+    /// the update to succeed, an expression that defines one or more attributes to be updated,
+    /// and a field indicating whether to retrieve the item's attributes if the condition
     /// is not met.
-    /// </para></li><li><para><c>Delete</c>  —   Initiates a <c>DeleteItem</c> operation to delete an existing
-    /// item. This structure specifies the primary key of the item to be deleted, the name
-    /// of the table where it resides, an optional condition expression that must be satisfied
-    /// for the deletion to succeed, and a field indicating whether to retrieve the item's
-    /// attributes if the condition is not met.
-    /// </para></li><li><para><c>ConditionCheck</c>  —   Applies a condition to an item that is not being modified
+    /// </para></li><li><para><c>Delete</c> — Initiates a <c>DeleteItem</c> operation to delete an existing item.
+    /// This structure specifies the primary key of the item to be deleted, the name of the
+    /// table where it resides, an optional condition expression that must be satisfied for
+    /// the deletion to succeed, and a field indicating whether to retrieve the item's attributes
+    /// if the condition is not met.
+    /// </para></li><li><para><c>ConditionCheck</c> — Applies a condition to an item that is not being modified
     /// by the transaction. This structure specifies the primary key of the item to be checked,
     /// the name of the table where it resides, a condition expression that must be satisfied
     /// for the transaction to succeed, and a field indicating whether to retrieve the item's
@@ -148,9 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// can operate on items in different tables, but the tables must reside in the same Amazon
         /// Web Services account and Region, and no two of them can operate on the same item.
         /// </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

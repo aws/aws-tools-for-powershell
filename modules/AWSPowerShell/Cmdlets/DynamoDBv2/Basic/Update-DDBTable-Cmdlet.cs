@@ -88,9 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>An array of attributes that describe the key schema for the table and indexes. If
         /// you are adding a new global secondary index to the table, <c>AttributeDefinitions</c>
         /// must include the key element(s) of the new index.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -165,9 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// the array, you can request one action:</para><ul><li><para><c>Create</c> - add a new global secondary index to the table.</para></li><li><para><c>Update</c> - modify the provisioned throughput settings of an existing global
         /// secondary index.</para></li><li><para><c>Delete</c> - remove a global secondary index from the table.</para></li></ul><para>You can create or delete only one global secondary index per <c>UpdateTable</c> operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
         /// Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -199,9 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// data written to global table replicas. You cannot perform read or write operations
         /// on a witness. For each witness, you can request one action:</para><ul><li><para><c>Create</c> - add a new witness to the global table.</para></li><li><para><c>Delete</c> - remove a witness from the global table.</para></li></ul><para>You can create or delete only one witness per <c>UpdateTable</c> operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Multi-Region
         /// strong consistency (MRSC)</a> in the Amazon DynamoDB Developer Guide</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -295,9 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>A list of replica update actions (create, delete, update, or disassociate) for the
         /// table.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -380,9 +384,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// remove one vector index for each <c>UpdateTable</c> operation.</para><para>To add a vector index, specify <c>IndexName</c>, <c>VectorAttribute</c>, <c>Dimensions</c>,
         /// <c>DistanceFunction</c>, and <c>Projection</c>. To remove a vector index, specify
         /// only the <c>IndexName</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

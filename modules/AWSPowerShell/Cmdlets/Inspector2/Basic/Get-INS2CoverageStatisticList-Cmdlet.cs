@@ -454,6 +454,22 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_LastScannedCommitId { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_MachineImageTag
+        /// <summary>
+        /// <para>
+        /// <para>The machine image tags to filter coverage results by.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterCriteria_MachineImageTags")]
+        public Amazon.Inspector2.Model.CoverageMapFilter[] FilterCriteria_MachineImageTag { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_ResourceId
         /// <summary>
         /// <para>
@@ -709,6 +725,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (this.FilterCriteria_LastScannedCommitId != null)
             {
                 context.FilterCriteria_LastScannedCommitId = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_LastScannedCommitId);
+            }
+            if (this.FilterCriteria_MachineImageTag != null)
+            {
+                context.FilterCriteria_MachineImageTag = new List<Amazon.Inspector2.Model.CoverageMapFilter>(this.FilterCriteria_MachineImageTag);
             }
             if (this.FilterCriteria_ResourceId != null)
             {
@@ -1018,6 +1038,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.FilterCriteria.LastScannedCommitId = requestFilterCriteria_filterCriteria_LastScannedCommitId;
                 requestFilterCriteriaIsNull = false;
             }
+            List<Amazon.Inspector2.Model.CoverageMapFilter> requestFilterCriteria_filterCriteria_MachineImageTag = null;
+            if (cmdletContext.FilterCriteria_MachineImageTag != null)
+            {
+                requestFilterCriteria_filterCriteria_MachineImageTag = cmdletContext.FilterCriteria_MachineImageTag;
+            }
+            if (requestFilterCriteria_filterCriteria_MachineImageTag != null)
+            {
+                request.FilterCriteria.MachineImageTags = requestFilterCriteria_filterCriteria_MachineImageTag;
+                requestFilterCriteriaIsNull = false;
+            }
             List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_ResourceId = null;
             if (cmdletContext.FilterCriteria_ResourceId != null)
             {
@@ -1193,6 +1223,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.CoverageMapFilter> FilterCriteria_LambdaFunctionTag { get; set; }
             public List<Amazon.Inspector2.Model.CoverageDateFilter> FilterCriteria_LastScannedAt { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_LastScannedCommitId { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageMapFilter> FilterCriteria_MachineImageTag { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ResourceId { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ResourceType { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ScanMode { get; set; }

@@ -148,7 +148,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// associated with the AMI. The parameter must be in a trusted Amazon Web Services namespace
         /// under <c>aws/service/</c>. Returns all AMIs that have ever been associated with the
         /// parameter, including previous versions.</para></li><li><para><c>ramdisk-id</c> - The RAM disk ID.</para></li><li><para><c>root-device-name</c> - The device name of the root device volume (for example,
-        /// <c>/dev/sda1</c>).</para></li><li><para><c>root-device-type</c> - The type of the root device volume (<c>ebs</c> | <c>instance-store</c>).</para></li><li><para><c>source-image-id</c> - The ID of the source AMI from which the AMI was created.</para></li><li><para><c>source-image-region</c> - The Region of the source AMI.</para></li><li><para><c>source-instance-id</c> - The ID of the instance that the AMI was created from
+        /// <c>/dev/sda1</c>).</para></li><li><para><c>root-device-type</c> - The type of the root device volume (<c>ebs</c> | <c>instance-store</c>).</para></li><li><para><c>scan-result.critical-fix-available-since</c> - The earliest date and time, in
+        /// the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon
+        /// Inspector reported a fix as available for a <c>critical</c> severity finding on the
+        /// AMI.</para></li><li><para><c>scan-result.finding-scan-date</c> - The date and time, in the ISO 8601 format
+        /// in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), of the most recent Amazon Inspector
+        /// scan of the AMI.</para></li><li><para><c>scan-result.high-fix-available-since</c> - The earliest date and time, in the
+        /// ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon Inspector
+        /// reported a fix as available for a <c>high</c> severity finding on the AMI.</para></li><li><para><c>scan-result.highest-finding-severity-label</c> - The highest severity among the
+        /// AMI's Amazon Inspector findings, whether or not a fix is available. The valid values
+        /// are the following Amazon Inspector severity levels:</para><ul><li><para><c>informational</c> - CVSS score of 0.</para></li><li><para><c>low</c> - CVSS score of 0.1 to 3.9.</para></li><li><para><c>medium</c> - CVSS score of 4.0 to 6.9.</para></li><li><para><c>high</c> - CVSS score of 7.0 to 8.9.</para></li><li><para><c>critical</c> - CVSS score of 9.0 to 10.0.</para></li></ul></li><li><para><c>scan-result.informational-fix-available-since</c> - The earliest date and time,
+        /// in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon
+        /// Inspector reported a fix as available for an <c>informational</c> severity finding
+        /// on the AMI.</para></li><li><para><c>scan-result.low-fix-available-since</c> - The earliest date and time, in the ISO
+        /// 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon Inspector
+        /// reported a fix as available for a <c>low</c> severity finding on the AMI.</para></li><li><para><c>scan-result.medium-fix-available-since</c> - The earliest date and time, in the
+        /// ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), at which Amazon Inspector
+        /// reported a fix as available for a <c>medium</c> severity finding on the AMI.</para></li><li><para><c>source-image-id</c> - The ID of the source AMI from which the AMI was created.</para></li><li><para><c>source-image-region</c> - The Region of the source AMI.</para></li><li><para><c>source-instance-id</c> - The ID of the instance that the AMI was created from
         /// if the AMI was created using CreateImage. This filter is applicable only if the AMI
         /// was created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</para></li><li><para><c>state</c> - The state of the image (<c>available</c> | <c>pending</c> | <c>failed</c>).</para></li><li><para><c>state-reason-code</c> - The reason code for the state change.</para></li><li><para><c>state-reason-message</c> - The message for the state change.</para></li><li><para><c>sriov-net-support</c> - A value of <c>simple</c> indicates that enhanced networking
         /// with the Intel 82599 VF interface is enabled.</para></li><li><para><c>tag:&lt;key&gt;</c> - The key/value combination of a tag assigned to the resource.

@@ -3400,6 +3400,7 @@ Set-Alias -Name List-BACCWorkloadIdentityList -Value Get-BACCWorkloadIdentityLis
 Set-Alias -Name BACC-ListWorkloadIdentities -Value Get-BACCWorkloadIdentityList
 Set-Alias -Name Put-BACCResourcePolicy -Value Write-BACCResourcePolicy
 Set-Alias -Name BACC-PutResourcePolicy -Value Write-BACCResourcePolicy
+Set-Alias -Name BACC-ResetTokenVaultKeyMaterial -Value Reset-BACCTokenVaultKeyMaterial
 Set-Alias -Name Rotate-BACCPaymentConnectorCredentials -Value Invoke-BACCPaymentConnectorCredentialRotation
 Set-Alias -Name Rotate-BACCPaymentConnectorCredentialRotation -Value Invoke-BACCPaymentConnectorCredentialRotation
 Set-Alias -Name BACC-RotatePaymentConnectorCredentials -Value Invoke-BACCPaymentConnectorCredentialRotation
@@ -12857,6 +12858,8 @@ Set-Alias -Name EC2-GetGroupsForCapacityReservation -Value Get-EC2GroupsForCapac
 Set-Alias -Name EC2-GetHostReservationPurchasePreview -Value Get-EC2HostReservationPurchasePreview
 Set-Alias -Name EC2-GetImageAncestry -Value Get-EC2ImageAncestry
 Set-Alias -Name EC2-GetImageBlockPublicAccessState -Value Get-EC2ImageBlockPublicAccessState
+Set-Alias -Name Get-EC2ImageFindings -Value Get-EC2ImageFinding
+Set-Alias -Name EC2-GetImageFindings -Value Get-EC2ImageFinding
 Set-Alias -Name Get-EC2InstanceMetadataDefaults -Value Get-EC2InstanceMetadataDefault
 Set-Alias -Name EC2-GetInstanceMetadataDefaults -Value Get-EC2InstanceMetadataDefault
 Set-Alias -Name EC2-GetInstanceTpmEkPub -Value Get-EC2InstanceTpmEkPub
@@ -18194,6 +18197,7 @@ Set-Alias -Name INS2-GetEc2DeepInspectionConfiguration -Value Get-INS2Ec2DeepIns
 Set-Alias -Name INS2-GetEncryptionKey -Value Get-INS2EncryptionKey
 Set-Alias -Name INS2-GetFindingsReportStatus -Value Get-INS2FindingsReportStatus
 Set-Alias -Name INS2-GetMember -Value Get-INS2Member
+Set-Alias -Name INS2-GetOnDemandScanStatus -Value Get-INS2OnDemandScanStatus
 Set-Alias -Name INS2-GetSbomExport -Value Get-INS2SbomExport
 Set-Alias -Name List-INS2AccountPermissions -Value Get-INS2AccountPermissionList
 Set-Alias -Name List-INS2AccountPermissionList -Value Get-INS2AccountPermissionList
@@ -18246,6 +18250,9 @@ Set-Alias -Name INS2-ListFindings -Value Get-INS2FindingList
 Set-Alias -Name List-INS2Members -Value Get-INS2MemberList
 Set-Alias -Name List-INS2MemberList -Value Get-INS2MemberList
 Set-Alias -Name INS2-ListMembers -Value Get-INS2MemberList
+Set-Alias -Name List-INS2OnDemandScans -Value Get-INS2OnDemandScanList
+Set-Alias -Name List-INS2OnDemandScanList -Value Get-INS2OnDemandScanList
+Set-Alias -Name INS2-ListOnDemandScans -Value Get-INS2OnDemandScanList
 Set-Alias -Name INS2-ListTagsForResource -Value Get-INS2ResourceTag
 Set-Alias -Name List-INS2UsageTotals -Value Get-INS2UsageTotalList
 Set-Alias -Name List-INS2UsageTotalList -Value Get-INS2UsageTotalList
@@ -18257,6 +18264,7 @@ Set-Alias -Name INS2-SendCisSessionHealth -Value Send-INS2CisSessionHealth
 Set-Alias -Name INS2-SendCisSessionTelemetry -Value Send-INS2CisSessionTelemetry
 Set-Alias -Name INS2-StartCisSession -Value Start-INS2CisSession
 Set-Alias -Name INS2-StartCodeSecurityScan -Value Start-INS2CodeSecurityScan
+Set-Alias -Name INS2-StartOnDemandScan -Value Start-INS2OnDemandScan
 Set-Alias -Name INS2-StopCisSession -Value Stop-INS2CisSession
 Set-Alias -Name INS2-TagResource -Value Add-INS2ResourceTag
 Set-Alias -Name INS2-UntagResource -Value Remove-INS2ResourceTag

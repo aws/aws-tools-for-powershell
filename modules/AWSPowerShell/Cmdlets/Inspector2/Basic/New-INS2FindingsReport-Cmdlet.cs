@@ -662,6 +662,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.NumberFilter[] FilterCriteria_EpssScore { get; set; }
         #endregion
         
+        #region Parameter S3Destination_ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID of the expected owner of the Amazon S3 bucket.
+        /// If the actual bucket owner does not match, the export request fails.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3Destination_ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_ExploitAvailable
         /// <summary>
         /// <para>
@@ -890,6 +901,67 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.Inspector2.Model.DateFilter[] FilterCriteria_LastObservedAt { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_MachineImageId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Machine Image (AMI) used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_MachineImageId { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_MachineImageName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Machine Image (AMI) used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_MachineImageName { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_MachineImageOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services account that owns the Amazon Machine Image (AMI)
+        /// used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_MachineImageOwnerAccountId { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_MachineImagePlatform
+        /// <summary>
+        /// <para>
+        /// <para>The platform of the Amazon Machine Image (AMI) used to filter findings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_MachineImagePlatform { get; set; }
         #endregion
         
         #region Parameter FilterCriteria_NetworkProtocol
@@ -1361,6 +1433,22 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_LastObservedAt = new List<Amazon.Inspector2.Model.DateFilter>(this.FilterCriteria_LastObservedAt);
             }
+            if (this.FilterCriteria_MachineImageId != null)
+            {
+                context.FilterCriteria_MachineImageId = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_MachineImageId);
+            }
+            if (this.FilterCriteria_MachineImageName != null)
+            {
+                context.FilterCriteria_MachineImageName = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_MachineImageName);
+            }
+            if (this.FilterCriteria_MachineImageOwnerAccountId != null)
+            {
+                context.FilterCriteria_MachineImageOwnerAccountId = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_MachineImageOwnerAccountId);
+            }
+            if (this.FilterCriteria_MachineImagePlatform != null)
+            {
+                context.FilterCriteria_MachineImagePlatform = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_MachineImagePlatform);
+            }
             if (this.FilterCriteria_NetworkProtocol != null)
             {
                 context.FilterCriteria_NetworkProtocol = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_NetworkProtocol);
@@ -1427,6 +1515,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 WriteWarning("You are passing $null as a value for parameter S3Destination_BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.S3Destination_ExpectedBucketOwner = this.S3Destination_ExpectedBucketOwner;
             context.S3Destination_KeyPrefix = this.S3Destination_KeyPrefix;
             context.S3Destination_KmsKeyArn = this.S3Destination_KmsKeyArn;
             #if MODULAR
@@ -1975,6 +2064,46 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.FilterCriteria.LastObservedAt = requestFilterCriteria_filterCriteria_LastObservedAt;
                 requestFilterCriteriaIsNull = false;
             }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_MachineImageId = null;
+            if (cmdletContext.FilterCriteria_MachineImageId != null)
+            {
+                requestFilterCriteria_filterCriteria_MachineImageId = cmdletContext.FilterCriteria_MachineImageId;
+            }
+            if (requestFilterCriteria_filterCriteria_MachineImageId != null)
+            {
+                request.FilterCriteria.MachineImageId = requestFilterCriteria_filterCriteria_MachineImageId;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_MachineImageName = null;
+            if (cmdletContext.FilterCriteria_MachineImageName != null)
+            {
+                requestFilterCriteria_filterCriteria_MachineImageName = cmdletContext.FilterCriteria_MachineImageName;
+            }
+            if (requestFilterCriteria_filterCriteria_MachineImageName != null)
+            {
+                request.FilterCriteria.MachineImageName = requestFilterCriteria_filterCriteria_MachineImageName;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_MachineImageOwnerAccountId = null;
+            if (cmdletContext.FilterCriteria_MachineImageOwnerAccountId != null)
+            {
+                requestFilterCriteria_filterCriteria_MachineImageOwnerAccountId = cmdletContext.FilterCriteria_MachineImageOwnerAccountId;
+            }
+            if (requestFilterCriteria_filterCriteria_MachineImageOwnerAccountId != null)
+            {
+                request.FilterCriteria.MachineImageOwnerAccountId = requestFilterCriteria_filterCriteria_MachineImageOwnerAccountId;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_MachineImagePlatform = null;
+            if (cmdletContext.FilterCriteria_MachineImagePlatform != null)
+            {
+                requestFilterCriteria_filterCriteria_MachineImagePlatform = cmdletContext.FilterCriteria_MachineImagePlatform;
+            }
+            if (requestFilterCriteria_filterCriteria_MachineImagePlatform != null)
+            {
+                request.FilterCriteria.MachineImagePlatform = requestFilterCriteria_filterCriteria_MachineImagePlatform;
+                requestFilterCriteriaIsNull = false;
+            }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_NetworkProtocol = null;
             if (cmdletContext.FilterCriteria_NetworkProtocol != null)
             {
@@ -2128,6 +2257,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.S3Destination.BucketName = requestS3Destination_s3Destination_BucketName;
                 requestS3DestinationIsNull = false;
             }
+            System.String requestS3Destination_s3Destination_ExpectedBucketOwner = null;
+            if (cmdletContext.S3Destination_ExpectedBucketOwner != null)
+            {
+                requestS3Destination_s3Destination_ExpectedBucketOwner = cmdletContext.S3Destination_ExpectedBucketOwner;
+            }
+            if (requestS3Destination_s3Destination_ExpectedBucketOwner != null)
+            {
+                request.S3Destination.ExpectedBucketOwner = requestS3Destination_s3Destination_ExpectedBucketOwner;
+                requestS3DestinationIsNull = false;
+            }
             System.String requestS3Destination_s3Destination_KeyPrefix = null;
             if (cmdletContext.S3Destination_KeyPrefix != null)
             {
@@ -2260,6 +2399,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_LambdaFunctionName { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_LambdaFunctionRuntime { get; set; }
             public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_LastObservedAt { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_MachineImageId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_MachineImageName { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_MachineImageOwnerAccountId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_MachineImagePlatform { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_NetworkProtocol { get; set; }
             public List<Amazon.Inspector2.Model.PortRangeFilter> FilterCriteria_PortRange { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_RelatedVulnerability { get; set; }
@@ -2275,6 +2418,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.PackageFilter> FilterCriteria_VulnerablePackage { get; set; }
             public Amazon.Inspector2.ReportFormat ReportFormat { get; set; }
             public System.String S3Destination_BucketName { get; set; }
+            public System.String S3Destination_ExpectedBucketOwner { get; set; }
             public System.String S3Destination_KeyPrefix { get; set; }
             public System.String S3Destination_KmsKeyArn { get; set; }
             public System.Func<Amazon.Inspector2.Model.CreateFindingsReportResponse, NewINS2FindingsReportCmdlet, object> Select { get; set; } =

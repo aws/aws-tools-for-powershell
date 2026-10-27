@@ -34,6 +34,22 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     /// with a specific Amazon Web Services account, an organization, or an organizational
     /// unit (OU). For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted
     /// licenses in License Manager</a> in the <i>License Manager User Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// Set the type of grant with the <c>GrantType</c> field:
+    /// </para><ul><li><para><c>BuyerGrant</c> - The default grant type, created by the seller when a customer
+    /// subscribes to a product. The seller creates a license for the subscription and a buyer
+    /// grant for the customer. With a buyer grant, the customer can use, consume, and distribute
+    /// the license, according to the permissions the seller sets in the product contract.
+    /// </para></li><li><para><c>DelegateGrant</c> - A delegate grant gives the grantee read-only visibility into
+    /// the licenses and grants that you have distributed to buyers for a product. The grantee
+    /// can monitor that activity on your behalf, and can also listen for the related Amazon
+    /// EventBridge events. A delegate grant conveys no entitlement to use the licenses, and
+    /// its only allowed operation is <c>ListReceivedLicenses</c>. You must create the delegate
+    /// grant, and its license, from the same Amazon Web Services account that you used to
+    /// create those buyer licenses and grants.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "LICMGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LicenseManager.Model.CreateGrantResponse")]
@@ -46,6 +62,28 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter Options_ActivationOverrideBehavior
+        /// <summary>
+        /// <para>
+        /// <para>An activation option for your grant that determines the behavior of activating a grant.
+        /// Activation options can only be used with granted licenses sourced from the Amazon
+        /// Web Services Marketplace. Additionally, the operation must activate the grant. For
+        /// the <c>CreateGrantVersion</c> operation, specify <c>ACTIVE</c> for the <c>Status</c>
+        /// parameter. For the <c>CreateGrant</c> operation, specify <c>ACTIVE</c> for the <c>DesiredStatus</c>
+        /// option.</para><ul><li><para>As a license administrator, you can optionally specify an <c>ActivationOverrideBehavior</c>
+        /// when activating a grant.</para></li><li><para>As a grantor, you can optionally specify an <c>ActivationOverrideBehavior</c> when
+        /// you activate a grant for a grantee account in your organization.</para></li><li><para>As a grantee, if the grantor creating the distributed grant doesn’t specify an <c>ActivationOverrideBehavior</c>,
+        /// you can optionally specify one when you are activating the grant.</para></li></ul><dl><dt>DISTRIBUTED_GRANTS_ONLY</dt><dd><para>Use this value to activate a grant without replacing any member account’s active grants
+        /// for the same product.</para></dd><dt>ALL_GRANTS_PERMITTED_BY_ISSUER</dt><dd><para>Use this value to activate a grant and disable other active grants in any member accounts
+        /// for the same product. This action will also replace their previously activated grants
+        /// with this activated grant.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LicenseManager.ActivationOverrideBehavior")]
+        public Amazon.LicenseManager.ActivationOverrideBehavior Options_ActivationOverrideBehavior { get; set; }
+        #endregion
         
         #region Parameter AllowedOperation
         /// <summary>
@@ -70,6 +108,21 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public System.String[] AllowedOperation { get; set; }
         #endregion
         
+        #region Parameter Options_DesiredStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the grant after License Manager creates it. The only supported value
+        /// is <c>ACTIVE</c>. Specify <c>ACTIVE</c> to create and activate the grant in one request.</para><para>You can specify this option only for the <c>CreateGrant</c> operation, and only when
+        /// the grant principal is an organization or an organizational unit (OU). To change the
+        /// status of an existing grant, use the <c>Status</c> parameter of the <c>CreateGrantVersion</c>
+        /// operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LicenseManager.GrantStatus")]
+        public Amazon.LicenseManager.GrantStatus Options_DesiredStatus { get; set; }
+        #endregion
+        
         #region Parameter GrantName
         /// <summary>
         /// <para>
@@ -85,6 +138,20 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String GrantName { get; set; }
+        #endregion
+        
+        #region Parameter GrantType
+        /// <summary>
+        /// <para>
+        /// <para>The type of grant to create. For more information about each type, see the preceding
+        /// description of this operation. Valid values:</para><ul><li><para><c>BuyerGrant</c> - The default grant type if you don't specify a value. Conveys
+        /// the entitlement to use the license.</para></li><li><para><c>DelegateGrant</c> - Gives the grantee read-only visibility into the licenses and
+        /// grants that you have distributed to buyers, with no entitlement to use them.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LicenseManager.GrantType")]
+        public Amazon.LicenseManager.GrantType GrantType { get; set; }
         #endregion
         
         #region Parameter HomeRegion
@@ -251,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 WriteWarning("You are passing $null as a value for parameter GrantName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GrantType = this.GrantType;
             context.HomeRegion = this.HomeRegion;
             #if MODULAR
             if (this.HomeRegion == null && ParameterWasBound(nameof(this.HomeRegion)))
@@ -265,6 +333,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 WriteWarning("You are passing $null as a value for parameter LicenseArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Options_ActivationOverrideBehavior = this.Options_ActivationOverrideBehavior;
+            context.Options_DesiredStatus = this.Options_DesiredStatus;
             if (this.Principal != null)
             {
                 context.Principal = new List<System.String>(this.Principal);
@@ -307,6 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             {
                 request.GrantName = cmdletContext.GrantName;
             }
+            if (cmdletContext.GrantType != null)
+            {
+                request.GrantType = cmdletContext.GrantType;
+            }
             if (cmdletContext.HomeRegion != null)
             {
                 request.HomeRegion = cmdletContext.HomeRegion;
@@ -314,6 +388,35 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.LicenseArn != null)
             {
                 request.LicenseArn = cmdletContext.LicenseArn;
+            }
+            
+             // populate Options
+            var requestOptionsIsNull = true;
+            request.Options = new Amazon.LicenseManager.Model.Options();
+            Amazon.LicenseManager.ActivationOverrideBehavior requestOptions_options_ActivationOverrideBehavior = null;
+            if (cmdletContext.Options_ActivationOverrideBehavior != null)
+            {
+                requestOptions_options_ActivationOverrideBehavior = cmdletContext.Options_ActivationOverrideBehavior;
+            }
+            if (requestOptions_options_ActivationOverrideBehavior != null)
+            {
+                request.Options.ActivationOverrideBehavior = requestOptions_options_ActivationOverrideBehavior;
+                requestOptionsIsNull = false;
+            }
+            Amazon.LicenseManager.GrantStatus requestOptions_options_DesiredStatus = null;
+            if (cmdletContext.Options_DesiredStatus != null)
+            {
+                requestOptions_options_DesiredStatus = cmdletContext.Options_DesiredStatus;
+            }
+            if (requestOptions_options_DesiredStatus != null)
+            {
+                request.Options.DesiredStatus = requestOptions_options_DesiredStatus;
+                requestOptionsIsNull = false;
+            }
+             // determine if request.Options should be set to null
+            if (requestOptionsIsNull)
+            {
+                request.Options = null;
             }
             if (cmdletContext.Principal != null)
             {
@@ -381,8 +484,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public List<System.String> AllowedOperation { get; set; }
             public System.String ClientToken { get; set; }
             public System.String GrantName { get; set; }
+            public Amazon.LicenseManager.GrantType GrantType { get; set; }
             public System.String HomeRegion { get; set; }
             public System.String LicenseArn { get; set; }
+            public Amazon.LicenseManager.ActivationOverrideBehavior Options_ActivationOverrideBehavior { get; set; }
+            public Amazon.LicenseManager.GrantStatus Options_DesiredStatus { get; set; }
             public List<System.String> Principal { get; set; }
             public List<Amazon.LicenseManager.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.LicenseManager.Model.CreateGrantResponse, NewLICMGrantCmdlet, object> Select { get; set; } =

@@ -348,6 +348,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2ImageAncestry', 
         'Get-EC2ImageAttribute', 
         'Get-EC2ImageBlockPublicAccessState', 
+        'Get-EC2ImageFinding', 
         'Get-EC2ImageReference', 
         'Get-EC2ImagesInRecycleBinList', 
         'Get-EC2ImageUsageReport', 

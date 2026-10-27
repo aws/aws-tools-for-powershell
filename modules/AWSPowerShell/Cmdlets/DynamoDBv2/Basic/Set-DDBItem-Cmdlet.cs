@@ -94,8 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>A condition that must be satisfied in order for a conditional <c>PutItem</c> operation
         /// to succeed.</para><para>An expression can contain any of the following:</para><ul><li><para>Functions: <c>attribute_exists | attribute_not_exists | attribute_type | contains
-        /// | begins_with | size</c></para><para>These function names are case-sensitive.</para></li><li><para>Comparison operators: <c>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN
-        /// </c></para></li><li><para> Logical operators: <c>AND | OR | NOT</c></para></li></ul><para>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition
+        /// | begins_with | size</c></para><para>These function names are case-sensitive.</para></li><li><para>Comparison operators: <c>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </c></para></li><li><para> Logical operators: <c>AND | OR | NOT</c></para></li></ul><para>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition
         /// Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -109,9 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>This is a legacy parameter. Use <c>ConditionExpression</c> instead. For more information,
         /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a>
         /// in the <i>Amazon DynamoDB Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -131,9 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// could specify the following for <c>ExpressionAttributeNames</c>:</para><ul><li><para><c>{"#P":"Percentile"}</c></para></li></ul><para>You could then use this substitution in an expression, as in this example:</para><ul><li><para><c>#P = :val</c></para></li></ul><note><para>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>,
         /// which are placeholders for the actual value at runtime.</para></note><para>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying
         /// Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -150,9 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// attribute was one of the following: </para><para><c>Available | Backordered | Discontinued</c></para><para>You would first need to specify <c>ExpressionAttributeValues</c> as follows:</para><para><c>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"}
         /// }</c></para><para>You could then use these values in an expression, such as this:</para><para><c>ProductStatus IN (:avail, :back, :disc)</c></para><para>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition
         /// Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -177,9 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// and Binary must have a length greater than zero if the attribute is used as a key
         /// attribute for a table or index.</para><para>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary
         /// Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>Each element in the <c>Item</c> map is an <c>AttributeValue</c> object.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -317,8 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.PutItemResponse, SetDDBItemCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ConditionalOperator = this.ConditionalOperator;
             context.ConditionExpression = this.ConditionExpression;
+            context.ConditionalOperator = this.ConditionalOperator;
             if (this.Expected != null)
             {
                 context.Expected = new Dictionary<System.String, Amazon.DynamoDBv2.Model.ExpectedAttributeValue>(StringComparer.Ordinal);
@@ -384,13 +387,13 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             // create request
             var request = new Amazon.DynamoDBv2.Model.PutItemRequest();
             
-            if (cmdletContext.ConditionalOperator != null)
-            {
-                request.ConditionalOperator = cmdletContext.ConditionalOperator;
-            }
             if (cmdletContext.ConditionExpression != null)
             {
                 request.ConditionExpression = cmdletContext.ConditionExpression;
+            }
+            if (cmdletContext.ConditionalOperator != null)
+            {
+                request.ConditionalOperator = cmdletContext.ConditionalOperator;
             }
             if (cmdletContext.Expected != null)
             {
@@ -483,8 +486,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.DynamoDBv2.ConditionalOperator ConditionalOperator { get; set; }
             public System.String ConditionExpression { get; set; }
+            public Amazon.DynamoDBv2.ConditionalOperator ConditionalOperator { get; set; }
             public Dictionary<System.String, Amazon.DynamoDBv2.Model.ExpectedAttributeValue> Expected { get; set; }
             public Dictionary<System.String, System.String> ExpressionAttributeName { get; set; }
             public Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue> ExpressionAttributeValue { get; set; }

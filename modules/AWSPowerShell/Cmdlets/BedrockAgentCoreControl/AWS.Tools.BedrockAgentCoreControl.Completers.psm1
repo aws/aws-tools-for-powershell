@@ -328,6 +328,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.OnBehalfOfClientAuthenticationMethod
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_OnBehalfOfAuthenticationConfig_ClientAuthenticationMethod") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_OnBehalfOfAuthenticationConfig_ClientAuthenticationMethod")
+        }
+        {
+            $v = "NO_CLIENT"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.OnBehalfOfTokenExchangeGrantTypeType
         {
             ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType") -Or
@@ -584,6 +594,7 @@ $BACC_map = @{
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_OnBehalfOfAuthenticationConfig_ClientAuthenticationMethod"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
@@ -805,6 +816,7 @@ $BACC_SelectMap = @{
                "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
                "Write-BACCResourcePolicy",
+               "Reset-BACCTokenVaultKeyMaterial",
                "Invoke-BACCPaymentConnectorCredentialRotation",
                "Set-BACCTokenVaultCMK",
                "Start-BACCPolicyGeneration",

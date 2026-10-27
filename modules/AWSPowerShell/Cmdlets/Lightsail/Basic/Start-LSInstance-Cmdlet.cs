@@ -58,6 +58,22 @@ namespace Amazon.PowerShell.Cmdlets.LS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AttributeUpdates_BundleId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the bundle to update the instance to.</para><para>Specify one of the following values for the bundle ID:</para><ul><li><para><b><c>auto</c></b> – Updates an instance that runs on a previous-generation bundle
+        /// to the newer-generation equivalent of that bundle. For example, specify <c>auto</c>
+        /// to update an instance that runs on <c>small_2_0</c> to <c>small_3_0</c>.</para></li><li><para><b>Newer-generation bundle ID</b> – Updates an instance that runs on a previous-generation
+        /// bundle to the specified bundle. For example, specify <c>small_3_0</c> to update an
+        /// instance that runs on <c>small_2_0</c> to <c>small_3_0</c>.</para></li><li><para><b>Original bundle ID</b> – Updates an instance to the previous-generation bundle
+        /// that it ran on before an earlier update. For example, specify <c>small_2_0</c> to
+        /// return an instance that runs on <c>small_3_0</c> to <c>small_2_0</c>.</para></li></ul><note><para>The instance must be in the <c>stopped</c> state to update its bundle.</para><para>There is no additional cost to update an instance to a newer-generation bundle.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AttributeUpdates_BundleId { get; set; }
+        #endregion
+        
         #region Parameter InstanceName
         /// <summary>
         /// <para>
@@ -121,6 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.StartInstanceResponse, StartLSInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AttributeUpdates_BundleId = this.AttributeUpdates_BundleId;
             context.InstanceName = this.InstanceName;
             #if MODULAR
             if (this.InstanceName == null && ParameterWasBound(nameof(this.InstanceName)))
@@ -144,6 +161,25 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // create request
             var request = new Amazon.Lightsail.Model.StartInstanceRequest();
             
+            
+             // populate AttributeUpdates
+            var requestAttributeUpdatesIsNull = true;
+            request.AttributeUpdates = new Amazon.Lightsail.Model.InstanceAttributeUpdates();
+            System.String requestAttributeUpdates_attributeUpdates_BundleId = null;
+            if (cmdletContext.AttributeUpdates_BundleId != null)
+            {
+                requestAttributeUpdates_attributeUpdates_BundleId = cmdletContext.AttributeUpdates_BundleId;
+            }
+            if (requestAttributeUpdates_attributeUpdates_BundleId != null)
+            {
+                request.AttributeUpdates.BundleId = requestAttributeUpdates_attributeUpdates_BundleId;
+                requestAttributeUpdatesIsNull = false;
+            }
+             // determine if request.AttributeUpdates should be set to null
+            if (requestAttributeUpdatesIsNull)
+            {
+                request.AttributeUpdates = null;
+            }
             if (cmdletContext.InstanceName != null)
             {
                 request.InstanceName = cmdletContext.InstanceName;
@@ -203,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AttributeUpdates_BundleId { get; set; }
             public System.String InstanceName { get; set; }
             public System.Func<Amazon.Lightsail.Model.StartInstanceResponse, StartLSInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Operations;

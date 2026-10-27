@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AutoEnable_Ami
+        /// <summary>
+        /// <para>
+        /// <para>Represents whether Amazon Machine Image (AMI) scans are automatically enabled for
+        /// new members of your Amazon Inspector organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoEnable_Ami { get; set; }
+        #endregion
+        
         #region Parameter AutoEnable_CodeRepository
         /// <summary>
         /// <para>
@@ -158,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.UpdateOrganizationConfigurationResponse, UpdateINS2OrganizationConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AutoEnable_Ami = this.AutoEnable_Ami;
             context.AutoEnable_CodeRepository = this.AutoEnable_CodeRepository;
             context.AutoEnable_Ec2 = this.AutoEnable_Ec2;
             #if MODULAR
@@ -195,6 +207,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
              // populate AutoEnable
             var requestAutoEnableIsNull = true;
             request.AutoEnable = new Amazon.Inspector2.Model.AutoEnable();
+            System.Boolean? requestAutoEnable_autoEnable_Ami = null;
+            if (cmdletContext.AutoEnable_Ami != null)
+            {
+                requestAutoEnable_autoEnable_Ami = cmdletContext.AutoEnable_Ami.Value;
+            }
+            if (requestAutoEnable_autoEnable_Ami != null)
+            {
+                request.AutoEnable.Ami = requestAutoEnable_autoEnable_Ami.Value;
+                requestAutoEnableIsNull = false;
+            }
             System.Boolean? requestAutoEnable_autoEnable_CodeRepository = null;
             if (cmdletContext.AutoEnable_CodeRepository != null)
             {
@@ -305,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoEnable_Ami { get; set; }
             public System.Boolean? AutoEnable_CodeRepository { get; set; }
             public System.Boolean? AutoEnable_Ec2 { get; set; }
             public System.Boolean? AutoEnable_Ecr { get; set; }

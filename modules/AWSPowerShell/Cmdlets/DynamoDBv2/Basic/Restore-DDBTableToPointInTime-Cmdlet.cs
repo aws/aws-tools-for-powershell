@@ -120,9 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// you use <c>RestoreTableToPointInTime</c>. Although <c>WarmThroughput</c> appears in
         /// the shared index definition, including it in a <c>GlobalSecondaryIndexOverride</c>
         /// entry causes the request to fail with a validation error.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -149,9 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>List of local secondary indexes for the restored table. The indexes provided should
         /// match existing secondary indexes. You can choose to exclude some or all of the indexes
         /// at the time of restore.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -275,9 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// the source table are restored. The indexes provided must match existing vector indexes
         /// from the source table. You can choose to exclude some or all of the vector indexes
         /// at the time of restore.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -358,11 +361,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             context.ProvisionedThroughputOverride_ReadCapacityUnit = this.ProvisionedThroughputOverride_ReadCapacityUnit;
             context.ProvisionedThroughputOverride_WriteCapacityUnit = this.ProvisionedThroughputOverride_WriteCapacityUnit;
             context.RestoreDateTime = this.RestoreDateTime;
-            context.SourceTableArn = this.SourceTableArn;
-            context.SourceTableName = this.SourceTableName;
             context.SSESpecificationOverride_Enabled = this.SSESpecificationOverride_Enabled;
             context.SSESpecificationOverride_KMSMasterKeyId = this.SSESpecificationOverride_KMSMasterKeyId;
             context.SSESpecificationOverride_SSEType = this.SSESpecificationOverride_SSEType;
+            context.SourceTableArn = this.SourceTableArn;
+            context.SourceTableName = this.SourceTableName;
             context.TargetTableName = this.TargetTableName;
             #if MODULAR
             if (this.TargetTableName == null && ParameterWasBound(nameof(this.TargetTableName)))
@@ -465,14 +468,6 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 request.RestoreDateTime = cmdletContext.RestoreDateTime.Value;
             }
-            if (cmdletContext.SourceTableArn != null)
-            {
-                request.SourceTableArn = cmdletContext.SourceTableArn;
-            }
-            if (cmdletContext.SourceTableName != null)
-            {
-                request.SourceTableName = cmdletContext.SourceTableName;
-            }
             
              // populate SSESpecificationOverride
             var requestSSESpecificationOverrideIsNull = true;
@@ -511,6 +506,14 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (requestSSESpecificationOverrideIsNull)
             {
                 request.SSESpecificationOverride = null;
+            }
+            if (cmdletContext.SourceTableArn != null)
+            {
+                request.SourceTableArn = cmdletContext.SourceTableArn;
+            }
+            if (cmdletContext.SourceTableName != null)
+            {
+                request.SourceTableName = cmdletContext.SourceTableName;
             }
             if (cmdletContext.TargetTableName != null)
             {
@@ -587,11 +590,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public System.Int64? ProvisionedThroughputOverride_ReadCapacityUnit { get; set; }
             public System.Int64? ProvisionedThroughputOverride_WriteCapacityUnit { get; set; }
             public System.DateTime? RestoreDateTime { get; set; }
-            public System.String SourceTableArn { get; set; }
-            public System.String SourceTableName { get; set; }
             public System.Boolean? SSESpecificationOverride_Enabled { get; set; }
             public System.String SSESpecificationOverride_KMSMasterKeyId { get; set; }
             public Amazon.DynamoDBv2.SSEType SSESpecificationOverride_SSEType { get; set; }
+            public System.String SourceTableArn { get; set; }
+            public System.String SourceTableName { get; set; }
             public System.String TargetTableName { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
             public List<Amazon.DynamoDBv2.Model.VectorIndex> VectorIndexOverride { get; set; }

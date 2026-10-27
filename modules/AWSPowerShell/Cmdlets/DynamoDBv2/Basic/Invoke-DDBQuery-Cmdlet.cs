@@ -100,9 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>This is a legacy parameter. Use <c>ProjectionExpression</c> instead. For more information,
         /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a>
         /// in the <i>Amazon DynamoDB Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -148,9 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// could specify the following for <c>ExpressionAttributeNames</c>:</para><ul><li><para><c>{"#P":"Percentile"}</c></para></li></ul><para>You could then use this substitution in an expression, as in this example:</para><ul><li><para><c>#P = :val</c></para></li></ul><note><para>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>,
         /// which are placeholders for the actual value at runtime.</para></note><para>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying
         /// Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -167,9 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// attribute was one of the following: </para><para><c>Available | Backordered | Discontinued</c></para><para>You would first need to specify <c>ExpressionAttributeValues</c> as follows:</para><para><c>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"}
         /// }</c></para><para>You could then use these values in an expression, such as this:</para><para><c>ProductStatus IN (:avail, :back, :disc)</c></para><para>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying
         /// Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -233,9 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <b>=</b> comparison operator for the sort key:</para><para><c>partitionKeyName</c><c>=</c><c>:partitionkeyval</c><c>AND</c><c>sortKeyName</c><c>=</c><c>:sortkeyval</c></para><para>Valid comparisons for the sort key condition are as follows:</para><ul><li><para><c>sortKeyName</c><c>=</c><c>:sortkeyval</c> - true if the sort key value is equal
         /// to <c>:sortkeyval</c>.</para></li><li><para><c>sortKeyName</c><c>&lt;</c><c>:sortkeyval</c> - true if the sort key value is
         /// less than <c>:sortkeyval</c>.</para></li><li><para><c>sortKeyName</c><c>&lt;=</c><c>:sortkeyval</c> - true if the sort key value is
-        /// less than or equal to <c>:sortkeyval</c>.</para></li><li><para><c>sortKeyName</c><c>&gt;</c><c>:sortkeyval</c> - true if the sort key value is
-        /// greater than <c>:sortkeyval</c>.</para></li><li><para><c>sortKeyName</c><c>&gt;= </c><c>:sortkeyval</c> - true if the sort key value
-        /// is greater than or equal to <c>:sortkeyval</c>.</para></li><li><para><c>sortKeyName</c><c>BETWEEN</c><c>:sortkeyval1</c><c>AND</c><c>:sortkeyval2</c>
+        /// less than or equal to <c>:sortkeyval</c>.</para></li><li><para><c>sortKeyName</c><c>&gt;</c><c>:sortkeyval</c> - true if the sort key value is greater
+        /// than <c>:sortkeyval</c>.</para></li><li><para><c>sortKeyName</c><c>&gt;= </c><c>:sortkeyval</c> - true if the sort key value is
+        /// greater than or equal to <c>:sortkeyval</c>.</para></li><li><para><c>sortKeyName</c><c>BETWEEN</c><c>:sortkeyval1</c><c>AND</c><c>:sortkeyval2</c>
         /// - true if the sort key value is greater than or equal to <c>:sortkeyval1</c>, and
         /// less than or equal to <c>:sortkeyval2</c>.</para></li><li><para><c>begins_with (</c><c>sortKeyName</c>, <c>:sortkeyval</c><c>)</c> - true if the
         /// sort key value begins with a particular operand. (You cannot use this function with
@@ -263,9 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>This is a legacy parameter. Use <c>KeyConditionExpression</c> instead. For more information,
         /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a>
         /// in the <i>Amazon DynamoDB Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -294,9 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>This is a legacy parameter. Use <c>FilterExpression</c> instead. For more information,
         /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a>
         /// in the <i>Amazon DynamoDB Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -393,9 +398,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>The primary key of the first item that this operation will evaluate. Use the value
         /// that was returned for <c>LastEvaluatedKey</c> in the previous operation.</para><para>The data type for <c>ExclusiveStartKey</c> must be String, Number, or Binary. No set
         /// data types are allowed.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// <para>

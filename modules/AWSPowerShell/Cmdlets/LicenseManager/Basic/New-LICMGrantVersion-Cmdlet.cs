@@ -50,8 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <para>
         /// <para>An activation option for your grant that determines the behavior of activating a grant.
         /// Activation options can only be used with granted licenses sourced from the Amazon
-        /// Web Services Marketplace. Additionally, the operation must specify the value of <c>ACTIVE</c>
-        /// for the <c>Status</c> parameter.</para><ul><li><para>As a license administrator, you can optionally specify an <c>ActivationOverrideBehavior</c>
+        /// Web Services Marketplace. Additionally, the operation must activate the grant. For
+        /// the <c>CreateGrantVersion</c> operation, specify <c>ACTIVE</c> for the <c>Status</c>
+        /// parameter. For the <c>CreateGrant</c> operation, specify <c>ACTIVE</c> for the <c>DesiredStatus</c>
+        /// option.</para><ul><li><para>As a license administrator, you can optionally specify an <c>ActivationOverrideBehavior</c>
         /// when activating a grant.</para></li><li><para>As a grantor, you can optionally specify an <c>ActivationOverrideBehavior</c> when
         /// you activate a grant for a grantee account in your organization.</para></li><li><para>As a grantee, if the grantor creating the distributed grant doesn’t specify an <c>ActivationOverrideBehavior</c>,
         /// you can optionally specify one when you are activating the grant.</para></li></ul><dl><dt>DISTRIBUTED_GRANTS_ONLY</dt><dd><para>Use this value to activate a grant without replacing any member account’s active grants
@@ -79,6 +81,21 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AllowedOperations")]
         public System.String[] AllowedOperation { get; set; }
+        #endregion
+        
+        #region Parameter Options_DesiredStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the grant after License Manager creates it. The only supported value
+        /// is <c>ACTIVE</c>. Specify <c>ACTIVE</c> to create and activate the grant in one request.</para><para>You can specify this option only for the <c>CreateGrant</c> operation, and only when
+        /// the grant principal is an organization or an organizational unit (OU). To change the
+        /// status of an existing grant, use the <c>Status</c> parameter of the <c>CreateGrantVersion</c>
+        /// operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LicenseManager.GrantStatus")]
+        public Amazon.LicenseManager.GrantStatus Options_DesiredStatus { get; set; }
         #endregion
         
         #region Parameter GrantArn
@@ -223,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             #endif
             context.GrantName = this.GrantName;
             context.Options_ActivationOverrideBehavior = this.Options_ActivationOverrideBehavior;
+            context.Options_DesiredStatus = this.Options_DesiredStatus;
             context.SourceVersion = this.SourceVersion;
             context.Status = this.Status;
             context.StatusReason = this.StatusReason;
@@ -270,6 +288,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestOptions_options_ActivationOverrideBehavior != null)
             {
                 request.Options.ActivationOverrideBehavior = requestOptions_options_ActivationOverrideBehavior;
+                requestOptionsIsNull = false;
+            }
+            Amazon.LicenseManager.GrantStatus requestOptions_options_DesiredStatus = null;
+            if (cmdletContext.Options_DesiredStatus != null)
+            {
+                requestOptions_options_DesiredStatus = cmdletContext.Options_DesiredStatus;
+            }
+            if (requestOptions_options_DesiredStatus != null)
+            {
+                request.Options.DesiredStatus = requestOptions_options_DesiredStatus;
                 requestOptionsIsNull = false;
             }
              // determine if request.Options should be set to null
@@ -349,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public System.String GrantArn { get; set; }
             public System.String GrantName { get; set; }
             public Amazon.LicenseManager.ActivationOverrideBehavior Options_ActivationOverrideBehavior { get; set; }
+            public Amazon.LicenseManager.GrantStatus Options_DesiredStatus { get; set; }
             public System.String SourceVersion { get; set; }
             public Amazon.LicenseManager.GrantStatus Status { get; set; }
             public System.String StatusReason { get; set; }

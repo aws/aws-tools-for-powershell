@@ -116,6 +116,23 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.AmiScanDuration
+        {
+            ($_ -eq "Update-INS2Configuration/AmiConfiguration_CreatedWithin") -Or
+            ($_ -eq "Update-INS2Configuration/AmiConfiguration_LastLaunchedWithin")
+        }
+        {
+            $v = "DAYS_14","DAYS_180","DAYS_30","DAYS_60","DAYS_7","DAYS_90"
+            break
+        }
+
+        # Amazon.Inspector2.AmiScanMode
+        "Update-INS2Configuration/AmiConfiguration_ScanModeConfiguration_ScanMode"
+        {
+            $v = "SCAN_ALL","TARGET_SCANNING"
+            break
+        }
+
         # Amazon.Inspector2.AmiSortBy
         "Get-INS2FindingAggregationList/AmiAggregation_SortBy"
         {
@@ -309,6 +326,7 @@ $INS2_Completers = {
 
         # Amazon.Inspector2.InheritanceMode
         {
+            ($_ -eq "Update-INS2Configuration/UpdateConfigurationInheritance_AmiConfiguration") -Or
             ($_ -eq "Update-INS2Configuration/UpdateConfigurationInheritance_Ec2Configuration") -Or
             ($_ -eq "Update-INS2Configuration/UpdateConfigurationInheritance_EcrConfiguration")
         }
@@ -349,6 +367,17 @@ $INS2_Completers = {
         "Get-INS2CisScanList/SortBy"
         {
             $v = "FAILED_CHECKS","SCAN_START_DATE","SCHEDULED_BY","STATUS"
+            break
+        }
+
+        # Amazon.Inspector2.OnDemandResourceType
+        {
+            ($_ -eq "Get-INS2OnDemandScanList/ResourceType") -Or
+            ($_ -eq "Get-INS2OnDemandScanStatus/ResourceType") -Or
+            ($_ -eq "Start-INS2OnDemandScan/ResourceType")
+        }
+        {
+            $v = "AMI"
             break
         }
 
@@ -397,7 +426,7 @@ $INS2_Completers = {
             ($_ -eq "Update-INS2EncryptionKey/ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
+            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","MACHINE_IMAGE","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
             break
         }
 
@@ -522,6 +551,9 @@ $INS2_map = @{
     "AggregationType"=@("Get-INS2FindingAggregationList")
     "AmiAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AmiAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "AmiConfiguration_CreatedWithin"=@("Update-INS2Configuration")
+    "AmiConfiguration_LastLaunchedWithin"=@("Update-INS2Configuration")
+    "AmiConfiguration_ScanModeConfiguration_ScanMode"=@("Update-INS2Configuration")
     "AwsEcrContainerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AwsEcrContainerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "CodeRepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
@@ -557,7 +589,7 @@ $INS2_map = @{
     "ReportFormat"=@("Get-INS2CisScanReport","New-INS2FindingsReport","New-INS2SbomExport")
     "RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "ResourceType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
+    "ResourceType"=@("Get-INS2EncryptionKey","Get-INS2OnDemandScanList","Get-INS2OnDemandScanStatus","Reset-INS2EncryptionKey","Start-INS2OnDemandScan","Update-INS2EncryptionKey")
     "ScanConfiguration_ContainerImageScanning_PullDuration"=@("Update-INS2ConnectorScanConfiguration")
     "ScanConfiguration_ContainerImageScanning_PushDuration"=@("Update-INS2ConnectorScanConfiguration")
     "ScanType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
@@ -573,6 +605,7 @@ $INS2_map = @{
     "TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "Type"=@("New-INS2CodeSecurityIntegration")
+    "UpdateConfigurationInheritance_AmiConfiguration"=@("Update-INS2Configuration")
     "UpdateConfigurationInheritance_Ec2Configuration"=@("Update-INS2Configuration")
     "UpdateConfigurationInheritance_EcrConfiguration"=@("Update-INS2Configuration")
 }
@@ -668,6 +701,7 @@ $INS2_SelectMap = @{
                "Get-INS2EncryptionKey",
                "Get-INS2FindingsReportStatus",
                "Get-INS2Member",
+               "Get-INS2OnDemandScanStatus",
                "Get-INS2SbomExport",
                "Get-INS2AccountPermissionList",
                "Get-INS2CisScanConfigurationList",
@@ -686,6 +720,7 @@ $INS2_SelectMap = @{
                "Get-INS2FindingAggregationList",
                "Get-INS2FindingList",
                "Get-INS2MemberList",
+               "Get-INS2OnDemandScanList",
                "Get-INS2ResourceTag",
                "Get-INS2UsageTotalList",
                "Reset-INS2EncryptionKey",
@@ -694,6 +729,7 @@ $INS2_SelectMap = @{
                "Send-INS2CisSessionTelemetry",
                "Start-INS2CisSession",
                "Start-INS2CodeSecurityScan",
+               "Start-INS2OnDemandScan",
                "Stop-INS2CisSession",
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",

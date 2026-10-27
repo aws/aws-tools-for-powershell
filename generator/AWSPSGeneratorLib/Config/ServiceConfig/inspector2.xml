@@ -199,6 +199,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetOnDemandScanStatus" OutputProperty="*" Verb="Get" Noun="OnDemandScanStatus" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSbomExport" OutputProperty="*" Verb="Get" Noun="SbomExport" PipelineParameter="ReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -331,6 +335,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOnDemandScans" OutputProperty="Items" Verb="Get" Noun="OnDemandScanList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -364,6 +372,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCodeSecurityScan" OutputProperty="*" Verb="Start" Noun="CodeSecurityScan" ShouldProcessTarget="Resource_ProjectId" PipelineParameter="Resource_ProjectId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartOnDemandScan" OutputProperty="ScanId" Verb="Start" Noun="OnDemandScan" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

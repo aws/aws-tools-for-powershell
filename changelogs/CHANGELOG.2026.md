@@ -1,4 +1,32 @@
-﻿### 5.0.323 (2026-10-26 19:03Z)
+﻿### 5.0.324 (2026-10-27 19:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.359.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Reset-BACCTokenVaultKeyMaterial leveraging the ResetTokenVaultKeyMaterial service API.
+    * Modified cmdlet New-BACCOauth2CredentialProvider: added parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_OnBehalfOfAuthenticationConfig_ClientAuthenticationMethod.
+    * Modified cmdlet Update-BACCOauth2CredentialProvider: added parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_OnBehalfOfAuthenticationConfig_ClientAuthenticationMethod.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Get-EC2ImageFinding leveraging the GetImageFindings service API.
+  * Amazon Inspector2
+    * Added cmdlet Get-INS2OnDemandScanList leveraging the ListOnDemandScans service API.
+    * Added cmdlet Get-INS2OnDemandScanStatus leveraging the GetOnDemandScanStatus service API.
+    * Added cmdlet Start-INS2OnDemandScan leveraging the StartOnDemandScan service API.
+    * Modified cmdlet Get-INS2CoverageList: added parameter FilterCriteria_MachineImageTag.
+    * Modified cmdlet Get-INS2CoverageStatisticList: added parameter FilterCriteria_MachineImageTag.
+    * Modified cmdlet Get-INS2FindingAggregationList: added parameter AggregationRequest_AmiAggregation_ScanSource.
+    * Modified cmdlet Get-INS2FindingList: added parameters FilterCriteria_MachineImageId, FilterCriteria_MachineImageName, FilterCriteria_MachineImageOwnerAccountId and FilterCriteria_MachineImagePlatform.
+    * Modified cmdlet New-INS2Filter: added parameters FilterCriteria_MachineImageId, FilterCriteria_MachineImageName, FilterCriteria_MachineImageOwnerAccountId and FilterCriteria_MachineImagePlatform.
+    * Modified cmdlet New-INS2FindingsReport: added parameters FilterCriteria_MachineImageId, FilterCriteria_MachineImageName, FilterCriteria_MachineImageOwnerAccountId, FilterCriteria_MachineImagePlatform and S3Destination_ExpectedBucketOwner.
+    * Modified cmdlet New-INS2SbomExport: added parameter S3Destination_ExpectedBucketOwner.
+    * Modified cmdlet Update-INS2Configuration: added parameters AmiConfiguration_CreatedWithin, AmiConfiguration_LastLaunchedWithin, AmiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi, AmiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi, AmiConfiguration_ScanModeConfiguration_ScanMode, AmiConfiguration_ScanModeConfiguration_Tag and UpdateConfigurationInheritance_AmiConfiguration.
+    * Modified cmdlet Update-INS2Filter: added parameters FilterCriteria_MachineImageId, FilterCriteria_MachineImageName, FilterCriteria_MachineImageOwnerAccountId and FilterCriteria_MachineImagePlatform.
+    * Modified cmdlet Update-INS2OrganizationConfiguration: added parameter AutoEnable_Ami.
+  * Amazon License Manager
+    * Modified cmdlet New-LICMGrant: added parameters GrantType, Options_ActivationOverrideBehavior and Options_DesiredStatus.
+    * Modified cmdlet New-LICMGrantVersion: added parameter Options_DesiredStatus.
+  * Amazon Lightsail
+    * Modified cmdlet Start-LSInstance: added parameter AttributeUpdates_BundleId.
+
+### 5.0.323 (2026-10-26 19:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.358.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Billing
     * Added cmdlet Add-AWSBContract leveraging the AssociateContract service API.

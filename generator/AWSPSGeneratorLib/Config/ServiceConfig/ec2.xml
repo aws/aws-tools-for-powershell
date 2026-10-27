@@ -2440,6 +2440,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetImageFindings" OutputProperty="ImageFindings" Verb="Get" Noun="ImageFinding" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetInstanceMetadataDefaults" OutputProperty="AccountLevel" Verb="Get" Noun="InstanceMetadataDefault" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

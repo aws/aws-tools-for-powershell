@@ -73,6 +73,28 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public System.Boolean? Ec2Configuration_ActivateVMScanner { get; set; }
         #endregion
         
+        #region Parameter UpdateConfigurationInheritance_AmiConfiguration
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.InheritanceMode")]
+        public Amazon.Inspector2.InheritanceMode UpdateConfigurationInheritance_AmiConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter AmiConfiguration_CreatedWithin
+        /// <summary>
+        /// <para>
+        /// <para>Restricts scanning to AMIs that were created within the specified duration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.AmiScanDuration")]
+        public Amazon.Inspector2.AmiScanDuration AmiConfiguration_CreatedWithin { get; set; }
+        #endregion
+        
         #region Parameter UpdateConfigurationInheritance_Ec2Configuration
         /// <summary>
         /// <para>
@@ -99,6 +121,40 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Inspector2.InheritanceMode")]
         public Amazon.Inspector2.InheritanceMode UpdateConfigurationInheritance_EcrConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter AmiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi
+        /// <summary>
+        /// <para>
+        /// <para>Whether to exclude AMIs created by Amazon Data Lifecycle Manager (DLM) backups from
+        /// scanning.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AmiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmis")]
+        public System.Boolean? AmiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi { get; set; }
+        #endregion
+        
+        #region Parameter AmiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi
+        /// <summary>
+        /// <para>
+        /// <para>Whether to exclude AMIs that are copies of other AMIs from scanning.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AmiConfiguration_ScanModeConfiguration_ExcludeCopiedAmis")]
+        public System.Boolean? AmiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi { get; set; }
+        #endregion
+        
+        #region Parameter AmiConfiguration_LastLaunchedWithin
+        /// <summary>
+        /// <para>
+        /// <para>Restricts scanning to AMIs that were last launched within the specified duration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.AmiScanDuration")]
+        public Amazon.Inspector2.AmiScanDuration AmiConfiguration_LastLaunchedWithin { get; set; }
         #endregion
         
         #region Parameter EcrConfiguration_PullDateRescanDuration
@@ -134,6 +190,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.EcrRescanDuration EcrConfiguration_RescanDuration { get; set; }
         #endregion
         
+        #region Parameter AmiConfiguration_ScanModeConfiguration_ScanMode
+        /// <summary>
+        /// <para>
+        /// <para>The scan mode that determines whether all AMIs are scanned or only those matching
+        /// the specified tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.AmiScanMode")]
+        public Amazon.Inspector2.AmiScanMode AmiConfiguration_ScanModeConfiguration_ScanMode { get; set; }
+        #endregion
+        
         #region Parameter Ec2Configuration_ScanMode
         /// <summary>
         /// <para>
@@ -143,6 +211,22 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Inspector2.Ec2ScanMode")]
         public Amazon.Inspector2.Ec2ScanMode Ec2Configuration_ScanMode { get; set; }
+        #endregion
+        
+        #region Parameter AmiConfiguration_ScanModeConfiguration_Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tag filters used to select which AMIs are scanned when using targeted scanning.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AmiConfiguration_ScanModeConfiguration_Tags")]
+        public Amazon.Inspector2.Model.AmiTagFilter[] AmiConfiguration_ScanModeConfiguration_Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -191,11 +275,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AccountId = this.AccountId;
+            context.AmiConfiguration_CreatedWithin = this.AmiConfiguration_CreatedWithin;
+            context.AmiConfiguration_LastLaunchedWithin = this.AmiConfiguration_LastLaunchedWithin;
+            context.AmiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi = this.AmiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi;
+            context.AmiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi = this.AmiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi;
+            context.AmiConfiguration_ScanModeConfiguration_ScanMode = this.AmiConfiguration_ScanModeConfiguration_ScanMode;
+            if (this.AmiConfiguration_ScanModeConfiguration_Tag != null)
+            {
+                context.AmiConfiguration_ScanModeConfiguration_Tag = new List<Amazon.Inspector2.Model.AmiTagFilter>(this.AmiConfiguration_ScanModeConfiguration_Tag);
+            }
             context.Ec2Configuration_ActivateVMScanner = this.Ec2Configuration_ActivateVMScanner;
             context.Ec2Configuration_ScanMode = this.Ec2Configuration_ScanMode;
             context.EcrConfiguration_PullDateRescanDuration = this.EcrConfiguration_PullDateRescanDuration;
             context.EcrConfiguration_PullDateRescanMode = this.EcrConfiguration_PullDateRescanMode;
             context.EcrConfiguration_RescanDuration = this.EcrConfiguration_RescanDuration;
+            context.UpdateConfigurationInheritance_AmiConfiguration = this.UpdateConfigurationInheritance_AmiConfiguration;
             context.UpdateConfigurationInheritance_Ec2Configuration = this.UpdateConfigurationInheritance_Ec2Configuration;
             context.UpdateConfigurationInheritance_EcrConfiguration = this.UpdateConfigurationInheritance_EcrConfiguration;
             
@@ -217,6 +311,90 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (cmdletContext.AccountId != null)
             {
                 request.AccountId = cmdletContext.AccountId;
+            }
+            
+             // populate AmiConfiguration
+            var requestAmiConfigurationIsNull = true;
+            request.AmiConfiguration = new Amazon.Inspector2.Model.AmiConfiguration();
+            Amazon.Inspector2.AmiScanDuration requestAmiConfiguration_amiConfiguration_CreatedWithin = null;
+            if (cmdletContext.AmiConfiguration_CreatedWithin != null)
+            {
+                requestAmiConfiguration_amiConfiguration_CreatedWithin = cmdletContext.AmiConfiguration_CreatedWithin;
+            }
+            if (requestAmiConfiguration_amiConfiguration_CreatedWithin != null)
+            {
+                request.AmiConfiguration.CreatedWithin = requestAmiConfiguration_amiConfiguration_CreatedWithin;
+                requestAmiConfigurationIsNull = false;
+            }
+            Amazon.Inspector2.AmiScanDuration requestAmiConfiguration_amiConfiguration_LastLaunchedWithin = null;
+            if (cmdletContext.AmiConfiguration_LastLaunchedWithin != null)
+            {
+                requestAmiConfiguration_amiConfiguration_LastLaunchedWithin = cmdletContext.AmiConfiguration_LastLaunchedWithin;
+            }
+            if (requestAmiConfiguration_amiConfiguration_LastLaunchedWithin != null)
+            {
+                request.AmiConfiguration.LastLaunchedWithin = requestAmiConfiguration_amiConfiguration_LastLaunchedWithin;
+                requestAmiConfigurationIsNull = false;
+            }
+            Amazon.Inspector2.Model.AmiScanModeConfiguration requestAmiConfiguration_amiConfiguration_ScanModeConfiguration = null;
+            
+             // populate ScanModeConfiguration
+            var requestAmiConfiguration_amiConfiguration_ScanModeConfigurationIsNull = true;
+            requestAmiConfiguration_amiConfiguration_ScanModeConfiguration = new Amazon.Inspector2.Model.AmiScanModeConfiguration();
+            System.Boolean? requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi = null;
+            if (cmdletContext.AmiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi != null)
+            {
+                requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi = cmdletContext.AmiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi.Value;
+            }
+            if (requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi != null)
+            {
+                requestAmiConfiguration_amiConfiguration_ScanModeConfiguration.ExcludeBackupDlmAmis = requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi.Value;
+                requestAmiConfiguration_amiConfiguration_ScanModeConfigurationIsNull = false;
+            }
+            System.Boolean? requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi = null;
+            if (cmdletContext.AmiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi != null)
+            {
+                requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi = cmdletContext.AmiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi.Value;
+            }
+            if (requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi != null)
+            {
+                requestAmiConfiguration_amiConfiguration_ScanModeConfiguration.ExcludeCopiedAmis = requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi.Value;
+                requestAmiConfiguration_amiConfiguration_ScanModeConfigurationIsNull = false;
+            }
+            Amazon.Inspector2.AmiScanMode requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ScanMode = null;
+            if (cmdletContext.AmiConfiguration_ScanModeConfiguration_ScanMode != null)
+            {
+                requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ScanMode = cmdletContext.AmiConfiguration_ScanModeConfiguration_ScanMode;
+            }
+            if (requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ScanMode != null)
+            {
+                requestAmiConfiguration_amiConfiguration_ScanModeConfiguration.ScanMode = requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_ScanMode;
+                requestAmiConfiguration_amiConfiguration_ScanModeConfigurationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.AmiTagFilter> requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_Tag = null;
+            if (cmdletContext.AmiConfiguration_ScanModeConfiguration_Tag != null)
+            {
+                requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_Tag = cmdletContext.AmiConfiguration_ScanModeConfiguration_Tag;
+            }
+            if (requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_Tag != null)
+            {
+                requestAmiConfiguration_amiConfiguration_ScanModeConfiguration.Tags = requestAmiConfiguration_amiConfiguration_ScanModeConfiguration_amiConfiguration_ScanModeConfiguration_Tag;
+                requestAmiConfiguration_amiConfiguration_ScanModeConfigurationIsNull = false;
+            }
+             // determine if requestAmiConfiguration_amiConfiguration_ScanModeConfiguration should be set to null
+            if (requestAmiConfiguration_amiConfiguration_ScanModeConfigurationIsNull)
+            {
+                requestAmiConfiguration_amiConfiguration_ScanModeConfiguration = null;
+            }
+            if (requestAmiConfiguration_amiConfiguration_ScanModeConfiguration != null)
+            {
+                request.AmiConfiguration.ScanModeConfiguration = requestAmiConfiguration_amiConfiguration_ScanModeConfiguration;
+                requestAmiConfigurationIsNull = false;
+            }
+             // determine if request.AmiConfiguration should be set to null
+            if (requestAmiConfigurationIsNull)
+            {
+                request.AmiConfiguration = null;
             }
             
              // populate Ec2Configuration
@@ -290,6 +468,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
              // populate UpdateConfigurationInheritance
             var requestUpdateConfigurationInheritanceIsNull = true;
             request.UpdateConfigurationInheritance = new Amazon.Inspector2.Model.UpdateConfigurationInheritance();
+            Amazon.Inspector2.InheritanceMode requestUpdateConfigurationInheritance_updateConfigurationInheritance_AmiConfiguration = null;
+            if (cmdletContext.UpdateConfigurationInheritance_AmiConfiguration != null)
+            {
+                requestUpdateConfigurationInheritance_updateConfigurationInheritance_AmiConfiguration = cmdletContext.UpdateConfigurationInheritance_AmiConfiguration;
+            }
+            if (requestUpdateConfigurationInheritance_updateConfigurationInheritance_AmiConfiguration != null)
+            {
+                request.UpdateConfigurationInheritance.AmiConfiguration = requestUpdateConfigurationInheritance_updateConfigurationInheritance_AmiConfiguration;
+                requestUpdateConfigurationInheritanceIsNull = false;
+            }
             Amazon.Inspector2.InheritanceMode requestUpdateConfigurationInheritance_updateConfigurationInheritance_Ec2Configuration = null;
             if (cmdletContext.UpdateConfigurationInheritance_Ec2Configuration != null)
             {
@@ -371,11 +559,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
+            public Amazon.Inspector2.AmiScanDuration AmiConfiguration_CreatedWithin { get; set; }
+            public Amazon.Inspector2.AmiScanDuration AmiConfiguration_LastLaunchedWithin { get; set; }
+            public System.Boolean? AmiConfiguration_ScanModeConfiguration_ExcludeBackupDlmAmi { get; set; }
+            public System.Boolean? AmiConfiguration_ScanModeConfiguration_ExcludeCopiedAmi { get; set; }
+            public Amazon.Inspector2.AmiScanMode AmiConfiguration_ScanModeConfiguration_ScanMode { get; set; }
+            public List<Amazon.Inspector2.Model.AmiTagFilter> AmiConfiguration_ScanModeConfiguration_Tag { get; set; }
             public System.Boolean? Ec2Configuration_ActivateVMScanner { get; set; }
             public Amazon.Inspector2.Ec2ScanMode Ec2Configuration_ScanMode { get; set; }
             public Amazon.Inspector2.EcrPullDateRescanDuration EcrConfiguration_PullDateRescanDuration { get; set; }
             public Amazon.Inspector2.EcrPullDateRescanMode EcrConfiguration_PullDateRescanMode { get; set; }
             public Amazon.Inspector2.EcrRescanDuration EcrConfiguration_RescanDuration { get; set; }
+            public Amazon.Inspector2.InheritanceMode UpdateConfigurationInheritance_AmiConfiguration { get; set; }
             public Amazon.Inspector2.InheritanceMode UpdateConfigurationInheritance_Ec2Configuration { get; set; }
             public Amazon.Inspector2.InheritanceMode UpdateConfigurationInheritance_EcrConfiguration { get; set; }
             public System.Func<Amazon.Inspector2.Model.UpdateConfigurationResponse, UpdateINS2ConfigurationCmdlet, object> Select { get; set; } =

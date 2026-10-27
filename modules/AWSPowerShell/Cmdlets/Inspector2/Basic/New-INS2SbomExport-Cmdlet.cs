@@ -292,6 +292,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.ResourceStringFilter[] ResourceFilterCriteria_EcrRepositoryName { get; set; }
         #endregion
         
+        #region Parameter S3Destination_ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID of the expected owner of the Amazon S3 bucket.
+        /// If the actual bucket owner does not match, the export request fails.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3Destination_ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter S3Destination_KeyPrefix
         /// <summary>
         /// <para>
@@ -533,6 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 WriteWarning("You are passing $null as a value for parameter S3Destination_BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.S3Destination_ExpectedBucketOwner = this.S3Destination_ExpectedBucketOwner;
             context.S3Destination_KeyPrefix = this.S3Destination_KeyPrefix;
             context.S3Destination_KmsKeyArn = this.S3Destination_KmsKeyArn;
             #if MODULAR
@@ -774,6 +786,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.S3Destination.BucketName = requestS3Destination_s3Destination_BucketName;
                 requestS3DestinationIsNull = false;
             }
+            System.String requestS3Destination_s3Destination_ExpectedBucketOwner = null;
+            if (cmdletContext.S3Destination_ExpectedBucketOwner != null)
+            {
+                requestS3Destination_s3Destination_ExpectedBucketOwner = cmdletContext.S3Destination_ExpectedBucketOwner;
+            }
+            if (requestS3Destination_s3Destination_ExpectedBucketOwner != null)
+            {
+                request.S3Destination.ExpectedBucketOwner = requestS3Destination_s3Destination_ExpectedBucketOwner;
+                requestS3DestinationIsNull = false;
+            }
             System.String requestS3Destination_s3Destination_KeyPrefix = null;
             if (cmdletContext.S3Destination_KeyPrefix != null)
             {
@@ -875,6 +897,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.ResourceStringFilter> ResourceFilterCriteria_ResourceId { get; set; }
             public List<Amazon.Inspector2.Model.ResourceStringFilter> ResourceFilterCriteria_ResourceType { get; set; }
             public System.String S3Destination_BucketName { get; set; }
+            public System.String S3Destination_ExpectedBucketOwner { get; set; }
             public System.String S3Destination_KeyPrefix { get; set; }
             public System.String S3Destination_KmsKeyArn { get; set; }
             public System.Func<Amazon.Inspector2.Model.CreateSbomExportResponse, NewINS2SbomExportCmdlet, object> Select { get; set; } =

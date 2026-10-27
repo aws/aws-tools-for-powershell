@@ -661,6 +661,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResetTokenVaultKeyMaterial" OutputProperty="*" Verb="Reset" Noun="TokenVaultKeyMaterial" ShouldProcessTarget="TokenVaultId" PipelineParameter="TokenVaultId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RotatePaymentConnectorCredentials" OutputProperty="*" Verb="Invoke" Noun="PaymentConnectorCredentialRotation" ShouldProcessTarget="PaymentConnectorId,PaymentManagerId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

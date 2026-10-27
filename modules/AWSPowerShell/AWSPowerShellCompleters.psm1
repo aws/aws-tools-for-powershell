@@ -9361,6 +9361,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.OnBehalfOfClientAuthenticationMethod
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_OnBehalfOfAuthenticationConfig_ClientAuthenticationMethod") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_OnBehalfOfAuthenticationConfig_ClientAuthenticationMethod")
+        }
+        {
+            $v = "NO_CLIENT"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.OnBehalfOfTokenExchangeGrantTypeType
         {
             ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType") -Or
@@ -9617,6 +9627,7 @@ $BACC_map = @{
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_OnBehalfOfAuthenticationConfig_ClientAuthenticationMethod"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
@@ -9838,6 +9849,7 @@ $BACC_SelectMap = @{
                "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
                "Write-BACCResourcePolicy",
+               "Reset-BACCTokenVaultKeyMaterial",
                "Invoke-BACCPaymentConnectorCredentialRotation",
                "Set-BACCTokenVaultCMK",
                "Start-BACCPolicyGeneration",
@@ -30717,12 +30729,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
-               "ConvertFrom-DDBItem",
-               "Add-DDBKeySchema",
                "Add-DDBIndexSchema",
+               "ConvertTo-DDBItem",
+               "ConvertFrom-DDBItem",
                "New-DDBTableSchema",
-               "ConvertTo-DDBItem")
+               "Add-DDBKeySchema",
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -33350,6 +33362,7 @@ $EC2_SelectMap = @{
                "Get-EC2HostReservationPurchasePreview",
                "Get-EC2ImageAncestry",
                "Get-EC2ImageBlockPublicAccessState",
+               "Get-EC2ImageFinding",
                "Get-EC2InstanceMetadataDefault",
                "Get-EC2InstanceTpmEkPub",
                "Get-EC2InstanceTypesFromInstanceRequirement",
@@ -33580,8 +33593,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -45020,6 +45033,23 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.AmiScanDuration
+        {
+            ($_ -eq "Update-INS2Configuration/AmiConfiguration_CreatedWithin") -Or
+            ($_ -eq "Update-INS2Configuration/AmiConfiguration_LastLaunchedWithin")
+        }
+        {
+            $v = "DAYS_14","DAYS_180","DAYS_30","DAYS_60","DAYS_7","DAYS_90"
+            break
+        }
+
+        # Amazon.Inspector2.AmiScanMode
+        "Update-INS2Configuration/AmiConfiguration_ScanModeConfiguration_ScanMode"
+        {
+            $v = "SCAN_ALL","TARGET_SCANNING"
+            break
+        }
+
         # Amazon.Inspector2.AmiSortBy
         "Get-INS2FindingAggregationList/AmiAggregation_SortBy"
         {
@@ -45213,6 +45243,7 @@ $INS2_Completers = {
 
         # Amazon.Inspector2.InheritanceMode
         {
+            ($_ -eq "Update-INS2Configuration/UpdateConfigurationInheritance_AmiConfiguration") -Or
             ($_ -eq "Update-INS2Configuration/UpdateConfigurationInheritance_Ec2Configuration") -Or
             ($_ -eq "Update-INS2Configuration/UpdateConfigurationInheritance_EcrConfiguration")
         }
@@ -45253,6 +45284,17 @@ $INS2_Completers = {
         "Get-INS2CisScanList/SortBy"
         {
             $v = "FAILED_CHECKS","SCAN_START_DATE","SCHEDULED_BY","STATUS"
+            break
+        }
+
+        # Amazon.Inspector2.OnDemandResourceType
+        {
+            ($_ -eq "Get-INS2OnDemandScanList/ResourceType") -Or
+            ($_ -eq "Get-INS2OnDemandScanStatus/ResourceType") -Or
+            ($_ -eq "Start-INS2OnDemandScan/ResourceType")
+        }
+        {
+            $v = "AMI"
             break
         }
 
@@ -45301,7 +45343,7 @@ $INS2_Completers = {
             ($_ -eq "Update-INS2EncryptionKey/ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
+            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","MACHINE_IMAGE","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
             break
         }
 
@@ -45426,6 +45468,9 @@ $INS2_map = @{
     "AggregationType"=@("Get-INS2FindingAggregationList")
     "AmiAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AmiAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "AmiConfiguration_CreatedWithin"=@("Update-INS2Configuration")
+    "AmiConfiguration_LastLaunchedWithin"=@("Update-INS2Configuration")
+    "AmiConfiguration_ScanModeConfiguration_ScanMode"=@("Update-INS2Configuration")
     "AwsEcrContainerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AwsEcrContainerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "CodeRepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
@@ -45461,7 +45506,7 @@ $INS2_map = @{
     "ReportFormat"=@("Get-INS2CisScanReport","New-INS2FindingsReport","New-INS2SbomExport")
     "RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "ResourceType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
+    "ResourceType"=@("Get-INS2EncryptionKey","Get-INS2OnDemandScanList","Get-INS2OnDemandScanStatus","Reset-INS2EncryptionKey","Start-INS2OnDemandScan","Update-INS2EncryptionKey")
     "ScanConfiguration_ContainerImageScanning_PullDuration"=@("Update-INS2ConnectorScanConfiguration")
     "ScanConfiguration_ContainerImageScanning_PushDuration"=@("Update-INS2ConnectorScanConfiguration")
     "ScanType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
@@ -45477,6 +45522,7 @@ $INS2_map = @{
     "TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "Type"=@("New-INS2CodeSecurityIntegration")
+    "UpdateConfigurationInheritance_AmiConfiguration"=@("Update-INS2Configuration")
     "UpdateConfigurationInheritance_Ec2Configuration"=@("Update-INS2Configuration")
     "UpdateConfigurationInheritance_EcrConfiguration"=@("Update-INS2Configuration")
 }
@@ -45572,6 +45618,7 @@ $INS2_SelectMap = @{
                "Get-INS2EncryptionKey",
                "Get-INS2FindingsReportStatus",
                "Get-INS2Member",
+               "Get-INS2OnDemandScanStatus",
                "Get-INS2SbomExport",
                "Get-INS2AccountPermissionList",
                "Get-INS2CisScanConfigurationList",
@@ -45590,6 +45637,7 @@ $INS2_SelectMap = @{
                "Get-INS2FindingAggregationList",
                "Get-INS2FindingList",
                "Get-INS2MemberList",
+               "Get-INS2OnDemandScanList",
                "Get-INS2ResourceTag",
                "Get-INS2UsageTotalList",
                "Reset-INS2EncryptionKey",
@@ -45598,6 +45646,7 @@ $INS2_SelectMap = @{
                "Send-INS2CisSessionTelemetry",
                "Start-INS2CisSession",
                "Start-INS2CodeSecurityScan",
+               "Start-INS2OnDemandScan",
                "Stop-INS2CisSession",
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",
@@ -53278,7 +53327,10 @@ $LICM_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.LicenseManager.ActivationOverrideBehavior
-        "New-LICMGrantVersion/Options_ActivationOverrideBehavior"
+        {
+            ($_ -eq "New-LICMGrant/Options_ActivationOverrideBehavior") -Or
+            ($_ -eq "New-LICMGrantVersion/Options_ActivationOverrideBehavior")
+        }
         {
             $v = "ALL_GRANTS_PERMITTED_BY_ISSUER","DISTRIBUTED_GRANTS_ONLY"
             break
@@ -53299,9 +53351,20 @@ $LICM_Completers = {
         }
 
         # Amazon.LicenseManager.GrantStatus
-        "New-LICMGrantVersion/Status"
+        {
+            ($_ -eq "New-LICMGrant/Options_DesiredStatus") -Or
+            ($_ -eq "New-LICMGrantVersion/Options_DesiredStatus") -Or
+            ($_ -eq "New-LICMGrantVersion/Status")
+        }
         {
             $v = "ACTIVE","DELETED","DISABLED","FAILED_WORKFLOW","PENDING_ACCEPT","PENDING_DELETE","PENDING_WORKFLOW","REJECTED","WORKFLOW_COMPLETED"
+            break
+        }
+
+        # Amazon.LicenseManager.GrantType
+        "New-LICMGrant/GrantType"
+        {
+            $v = "BuyerGrant","DelegateGrant"
             break
         }
 
@@ -53365,9 +53428,11 @@ $LICM_map = @{
     "CheckoutType"=@("Invoke-LICMLicenseCheckout")
     "ConsumptionConfiguration_RenewType"=@("New-LICMLicense","New-LICMLicenseVersion")
     "DigitalSignatureMethod"=@("Invoke-LICMLicenseCheckoutBorrow")
+    "GrantType"=@("New-LICMGrant")
     "LicenseConfigurationStatus"=@("Update-LICMLicenseConfiguration")
     "LicenseCountingType"=@("New-LICMLicenseConfiguration")
-    "Options_ActivationOverrideBehavior"=@("New-LICMGrantVersion")
+    "Options_ActivationOverrideBehavior"=@("New-LICMGrant","New-LICMGrantVersion")
+    "Options_DesiredStatus"=@("New-LICMGrant","New-LICMGrantVersion")
     "ReportFrequency_Period"=@("New-LICMLicenseManagerReportGenerator","Update-LICMLicenseManagerReportGenerator")
     "Status"=@("New-LICMGrantVersion","New-LICMLicenseVersion","Update-LICMLicenseAssetGroup")
 }
@@ -80397,18 +80462,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "New-S3Bucket",
-               "Read-S3Object",
                "Remove-S3MultipartUpload",
                "Remove-S3Object",
-               "Remove-S3Bucket",
+               "Get-S3MultipartUpload",
                "Copy-S3Object",
+               "Remove-S3Bucket",
+               "Write-S3Object",
+               "New-S3Bucket",
+               "Read-S3Object",
+               "Get-S3PreSignedURL",
                "Dismount-S3PSDrive",
                "Mount-S3PSDrive",
-               "Get-S3PreSignedURL",
-               "Get-S3MultipartUpload",
-               "Test-S3Bucket",
-               "Write-S3Object")
+               "Test-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -90404,8 +90469,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -97173,6 +97238,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -97212,41 +97315,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
