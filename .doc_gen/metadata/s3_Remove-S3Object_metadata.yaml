@@ -9,17 +9,17 @@ s3_DeleteObjects:
       - sdk_version: 5
         sdk_action: Remove-S3Object
         excerpts:
-        - description: '<emphasis role="bold">Example 1: This command removes the object "sample.txt" from bucket "test-files". You are prompted for confirmation before the command executes; to suppress the prompt use the -Force switch.</emphasis>'
+        - description: '<emphasis role="bold">Example 1: This command removes the object "sample.txt" from bucket "amzn-s3-demo-bucket". You are prompted for confirmation before the command executes; to suppress the prompt use the -Force switch.</emphasis>'
           snippet_files: []
         - description:
           snippet_files:
           - .doc_gen/snippet_files/s3_Remove-S3Object.1.1.ps1
-        - description: '<emphasis role="bold">Example 2: This command removes the specified version of object "sample.txt" from bucket "test-files", assuming the bucket has been configured to enable object versions.</emphasis>'
+        - description: '<emphasis role="bold">Example 2: This command removes the specified version of object "sample.txt" from bucket "amzn-s3-demo-bucket", assuming the bucket has been configured to enable object versions.</emphasis>'
           snippet_files: []
         - description:
           snippet_files:
           - .doc_gen/snippet_files/s3_Remove-S3Object.2.1.ps1
-        - description: '<emphasis role="bold">Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "test-files" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet.</emphasis>'
+        - description: '<emphasis role="bold">Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "amzn-s3-demo-bucket" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet.</emphasis>'
           snippet_files: []
         - description:
           snippet_files:

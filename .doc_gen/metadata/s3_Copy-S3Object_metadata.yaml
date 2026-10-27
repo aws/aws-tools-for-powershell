@@ -10,17 +10,17 @@ s3_CopyObject:
         sdk_action: Copy-S3Object
         excerpts:
         - snippet_files: []
-          description: '<emphasis role="bold">Example 1: This command copies the object "sample.txt" from bucket "test-files" to the same bucket but with a new key of "sample-copy.txt".</emphasis>'
+          description: '<emphasis role="bold">Example 1: This command copies the object "sample.txt" from bucket "amzn-s3-demo-bucket" to the same bucket but with a new key of "sample-copy.txt".</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/s3_Copy-S3Object.1.1.ps1
           description:
         - snippet_files: []
-          description: '<emphasis role="bold">Example 2: This command copies the object "sample.txt" from bucket "test-files" to the bucket "backup-files" with a key of "sample-copy.txt".</emphasis>'
+          description: '<emphasis role="bold">Example 2: This command copies the object "sample.txt" from bucket "amzn-s3-demo-source-bucket" to the bucket "amzn-s3-demo-destination-bucket" with a key of "sample-copy.txt".</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/s3_Copy-S3Object.2.1.ps1
           description:
         - snippet_files: []
-          description: '<emphasis role="bold">Example 3: This command downloads the object "sample.txt" from bucket "test-files" to a local file with name "local-sample.txt".</emphasis>'
+          description: '<emphasis role="bold">Example 3: This command downloads the object "sample.txt" from bucket "amzn-s3-demo-bucket" to a local file with name "local-sample.txt".</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/s3_Copy-S3Object.3.1.ps1
           description:
