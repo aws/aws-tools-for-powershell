@@ -64,7 +64,8 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'aws-crt-checksums.dll',
         'AWSSDK.Extensions.CrtIntegration.dll',
         'AWSSDK.Extensions.CborProtocol.dll',
-        'System.Formats.Cbor.dll'
+        'System.Formats.Cbor.dll',
+        'System.IO.Hashing.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module

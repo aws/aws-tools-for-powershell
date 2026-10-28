@@ -494,6 +494,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Extensions.CrtIntegration.dll',
         'AWSSDK.Extensions.CborProtocol.dll',
         'System.Formats.Cbor.dll',
+        'System.IO.Hashing.dll',
         'AWSSDK.Extensions.CloudFront.Signers.dll',
         'AWSSDK.Extensions.EC2.DecryptPassword.dll'
     )

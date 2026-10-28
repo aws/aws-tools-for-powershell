@@ -17,7 +17,7 @@ $assembliesFolder = "$rootFolder/Include/sdk/assemblies"
 $moduleFilesSuffixes = @('.Completers.psm1', '.Aliases.psm1', '.psd1')
 $binFilesSuffixes = @('.dll', '.dll-Help.xml', '.Format.ps1xml')
 
-$transitiveDependencies = @('BouncyCastle.Cryptography.dll','Microsoft.Bcl.AsyncInterfaces.dll','Microsoft.Bcl.HashCode.dll','System.Buffers.dll','System.Memory.dll','System.Numerics.Vectors.dll','System.Runtime.CompilerServices.Unsafe.dll','System.Text.Json.dll','System.Threading.Tasks.Extensions.dll','System.Text.Encodings.Web.dll','System.Formats.Cbor.dll','AWSSDK.Extensions.CborProtocol.dll')
+$transitiveDependencies = @('BouncyCastle.Cryptography.dll','Microsoft.Bcl.AsyncInterfaces.dll','Microsoft.Bcl.HashCode.dll','System.Buffers.dll','System.Memory.dll','System.Numerics.Vectors.dll','System.Runtime.CompilerServices.Unsafe.dll','System.Text.Json.dll','System.Threading.Tasks.Extensions.dll','System.Text.Encodings.Web.dll','System.Formats.Cbor.dll','AWSSDK.Extensions.CborProtocol.dll','System.IO.Hashing.dll','System.Formats.Asn1.dll')
 
 $serviceTransitiveDependencies = @{
     Signin = @('BouncyCastle.Cryptography.dll')

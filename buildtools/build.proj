@@ -237,6 +237,8 @@
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.ValueTuple.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Formats.Cbor.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/Microsoft.Bcl.HashCode.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.IO.Hashing.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Formats.Asn1.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
     </Target>
 
     <Target Name="copy-coreclr-artifacts" DependsOnTargets="build-netcore-module">
@@ -278,6 +280,8 @@
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Text.Encodings.Web.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Formats.Cbor.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/Microsoft.Bcl.HashCode.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.IO.Hashing.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Formats.Asn1.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
     </Target>
 
     <Target Name="generate-modular-help" DependsOnTargets="build-modular-modules">

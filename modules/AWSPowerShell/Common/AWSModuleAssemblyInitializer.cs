@@ -22,6 +22,8 @@ namespace Amazon.PowerShell.Common
             "System.Formats.Cbor.dll",
             "AWSSDK.Extensions.CborProtocol.dll",
             "Microsoft.Bcl.HashCode.dll",
+            "System.IO.Hashing.dll",
+            "System.Formats.Asn1.dll",
         };
 
         public void OnImport()
