@@ -93,6 +93,18 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         public System.String ConnectionToken { get; set; }
         #endregion
         
+        #region Parameter UrlContentDisposition
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how a browser handles the file at the pre-signed URL. The following values
+        /// are valid:</para><dl><dt>INLINE</dt><dd><para>Displays the file in the browser.</para></dd><dt>ATTACHMENT</dt><dd><para>Downloads the file. This is the default behavior.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConnectParticipant.ContentDisposition")]
+        public Amazon.ConnectParticipant.ContentDisposition UrlContentDisposition { get; set; }
+        #endregion
+        
         #region Parameter UrlExpiryInSecond
         /// <summary>
         /// <para>
@@ -149,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
                 WriteWarning("You are passing $null as a value for parameter ConnectionToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UrlContentDisposition = this.UrlContentDisposition;
             context.UrlExpiryInSecond = this.UrlExpiryInSecond;
             
             // allow further manipulation of loaded context prior to processing
@@ -173,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             if (cmdletContext.ConnectionToken != null)
             {
                 request.ConnectionToken = cmdletContext.ConnectionToken;
+            }
+            if (cmdletContext.UrlContentDisposition != null)
+            {
+                request.UrlContentDisposition = cmdletContext.UrlContentDisposition;
             }
             if (cmdletContext.UrlExpiryInSecond != null)
             {
@@ -235,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         {
             public System.String AttachmentId { get; set; }
             public System.String ConnectionToken { get; set; }
+            public Amazon.ConnectParticipant.ContentDisposition UrlContentDisposition { get; set; }
             public System.Int32? UrlExpiryInSecond { get; set; }
             public System.Func<Amazon.ConnectParticipant.Model.GetAttachmentResponse, GetCONNPAttachmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

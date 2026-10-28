@@ -12843,6 +12843,8 @@ Set-Alias -Name Get-EC2CapacityManagerMetricDimensions -Value Get-EC2CapacityMan
 Set-Alias -Name EC2-GetCapacityManagerMetricDimensions -Value Get-EC2CapacityManagerMetricDimension
 Set-Alias -Name Get-EC2CapacityManagerMonitoredTagKeys -Value Get-EC2CapacityManagerMonitoredTagKey
 Set-Alias -Name EC2-GetCapacityManagerMonitoredTagKeys -Value Get-EC2CapacityManagerMonitoredTagKey
+Set-Alias -Name Get-EC2CapacityManagerSupportabilityScores -Value Get-EC2CapacityManagerSupportabilityScore
+Set-Alias -Name EC2-GetCapacityManagerSupportabilityScores -Value Get-EC2CapacityManagerSupportabilityScore
 Set-Alias -Name EC2-GetCapacityReservationUsage -Value Get-EC2CapacityReservationUsage
 Set-Alias -Name EC2-GetClientVpnEndpointAuthorizationPolicy -Value Get-EC2ClientVpnEndpointAuthorizationPolicy
 Set-Alias -Name EC2-GetCoipPoolUsage -Value Get-EC2CoipPoolUsage
@@ -24631,6 +24633,8 @@ Set-Alias -Name Switchover-NPTSwitchoverGlobalCluster -Value Request-NPTSwitchov
 Set-Alias -Name NPT-SwitchoverGlobalCluster -Value Request-NPTSwitchoverGlobalCluster
 Set-Alias -Name Cancel-NEPTGremlinQuery -Value Stop-NEPTGremlinQuery
 Set-Alias -Name NEPT-CancelGremlinQuery -Value Stop-NEPTGremlinQuery
+Set-Alias -Name Cancel-NEPTIndexRebuild -Value Stop-NEPTIndexRebuild
+Set-Alias -Name NEPT-CancelIndexRebuild -Value Stop-NEPTIndexRebuild
 Set-Alias -Name Cancel-NEPTLoaderJob -Value Stop-NEPTLoaderJob
 Set-Alias -Name NEPT-CancelLoaderJob -Value Stop-NEPTLoaderJob
 Set-Alias -Name Cancel-NEPTMLDataProcessingJob -Value Stop-NEPTMLDataProcessingJob
@@ -24665,6 +24669,7 @@ Set-Alias -Name Execute-NEPTOpenCypherQuery -Value Invoke-NEPTOpenCypherQuery
 Set-Alias -Name NEPT-ExecuteOpenCypherQuery -Value Invoke-NEPTOpenCypherQuery
 Set-Alias -Name NEPT-GetEngineStatus -Value Get-NEPTEngineStatus
 Set-Alias -Name NEPT-GetGremlinQueryStatus -Value Get-NEPTGremlinQueryStatus
+Set-Alias -Name NEPT-GetIndexRebuildStatus -Value Get-NEPTIndexRebuildStatus
 Set-Alias -Name NEPT-GetLoaderJobStatus -Value Get-NEPTLoaderJobStatus
 Set-Alias -Name NEPT-GetMLDataProcessingJob -Value Get-NEPTMLDataProcessingJob
 Set-Alias -Name NEPT-GetMLEndpoint -Value Get-NEPTMLEndpoint
@@ -24679,9 +24684,13 @@ Set-Alias -Name NEPT-GetRDFGraphSummary -Value Get-NEPTRDFGraphSummary
 Set-Alias -Name Get-NEPTSparqlStatistics -Value Get-NEPTSparqlStatistic
 Set-Alias -Name NEPT-GetSparqlStatistics -Value Get-NEPTSparqlStatistic
 Set-Alias -Name NEPT-GetSparqlStream -Value Get-NEPTSparqlStream
+Set-Alias -Name NEPT-GetStorageInfo -Value Get-NEPTStorageInfo
 Set-Alias -Name List-NEPTGremlinQueries -Value Get-NEPTGremlinQueryList
 Set-Alias -Name List-NEPTGremlinQueryList -Value Get-NEPTGremlinQueryList
 Set-Alias -Name NEPT-ListGremlinQueries -Value Get-NEPTGremlinQueryList
+Set-Alias -Name List-NEPTIndexRebuilds -Value Get-NEPTIndexRebuildList
+Set-Alias -Name List-NEPTIndexRebuildList -Value Get-NEPTIndexRebuildList
+Set-Alias -Name NEPT-ListIndexRebuilds -Value Get-NEPTIndexRebuildList
 Set-Alias -Name List-NEPTLoaderJobs -Value Get-NEPTLoaderJobList
 Set-Alias -Name List-NEPTLoaderJobList -Value Get-NEPTLoaderJobList
 Set-Alias -Name NEPT-ListLoaderJobs -Value Get-NEPTLoaderJobList
@@ -24706,6 +24715,7 @@ Set-Alias -Name NEPT-ManagePropertygraphStatistics -Value Update-NEPTPropertygra
 Set-Alias -Name Manage-NEPTSparqlStatistics -Value Update-NEPTSparqlStatistic
 Set-Alias -Name Manage-NEPTSparqlStatistic -Value Update-NEPTSparqlStatistic
 Set-Alias -Name NEPT-ManageSparqlStatistics -Value Update-NEPTSparqlStatistic
+Set-Alias -Name NEPT-StartIndexRebuild -Value Start-NEPTIndexRebuild
 Set-Alias -Name NEPT-StartLoaderJob -Value Start-NEPTLoaderJob
 Set-Alias -Name NEPT-StartMLDataProcessingJob -Value Start-NEPTMLDataProcessingJob
 Set-Alias -Name NEPT-StartMLModelTrainingJob -Value Start-NEPTMLModelTrainingJob
@@ -25787,6 +25797,7 @@ Set-Alias -Name Accept-OSInboundConnection -Value Approve-OSInboundConnection
 Set-Alias -Name OS-AcceptInboundConnection -Value Approve-OSInboundConnection
 Set-Alias -Name OS-AddDataSource -Value Add-OSDataSource
 Set-Alias -Name OS-AddDirectQueryDataSource -Value Add-OSDirectQueryDataSource
+Set-Alias -Name OS-AddReplicationPeer -Value Add-OSReplicationPeer
 Set-Alias -Name Add-OSTags -Value Add-OSResourceTag
 Set-Alias -Name OS-AddTags -Value Add-OSResourceTag
 Set-Alias -Name Associate-OSPackage -Value Start-OSAssociatePackage
@@ -25803,6 +25814,7 @@ Set-Alias -Name Cancel-OSDomainConfigChange -Value Stop-OSDomainConfigChange
 Set-Alias -Name OS-CancelDomainConfigChange -Value Stop-OSDomainConfigChange
 Set-Alias -Name Cancel-OSServiceSoftwareUpdate -Value Stop-OSServiceSoftwareUpdate
 Set-Alias -Name OS-CancelServiceSoftwareUpdate -Value Stop-OSServiceSoftwareUpdate
+Set-Alias -Name OS-CompareDomainConfiguration -Value Compare-OSDomainConfiguration
 Set-Alias -Name Create-OSApplication -Value New-OSApplication
 Set-Alias -Name OS-CreateApplication -Value New-OSApplication
 Set-Alias -Name Create-OSDomain -Value New-OSDomain
@@ -25852,6 +25864,8 @@ Set-Alias -Name OS-DescribeDomainHealth -Value Get-OSDomainHealth
 Set-Alias -Name Describe-OSDomainNodes -Value Get-OSDomainNode
 Set-Alias -Name Describe-OSDomainNode -Value Get-OSDomainNode
 Set-Alias -Name OS-DescribeDomainNodes -Value Get-OSDomainNode
+Set-Alias -Name Describe-OSDomainReplication -Value Get-OSDomainReplication
+Set-Alias -Name OS-DescribeDomainReplication -Value Get-OSDomainReplication
 Set-Alias -Name Describe-OSDomains -Value Get-OSDomainList
 Set-Alias -Name Describe-OSDomainList -Value Get-OSDomainList
 Set-Alias -Name OS-DescribeDomains -Value Get-OSDomainList
@@ -25889,6 +25903,9 @@ Set-Alias -Name OS-DissociatePackage -Value Start-OSDissociatePackage
 Set-Alias -Name Dissociate-OSPackages -Value Start-OSOSDissociatePackageList
 Set-Alias -Name Dissociate-OSOSDissociatePackageList -Value Start-OSOSDissociatePackageList
 Set-Alias -Name OS-DissociatePackages -Value Start-OSOSDissociatePackageList
+Set-Alias -Name Failover-OSReplication -Value Start-OSReplicationFailover
+Set-Alias -Name Failover-OSReplicationFailover -Value Start-OSReplicationFailover
+Set-Alias -Name OS-FailoverReplication -Value Start-OSReplicationFailover
 Set-Alias -Name OS-GetApplication -Value Get-OSApplication
 Set-Alias -Name OS-GetCapability -Value Get-OSCapability
 Set-Alias -Name Get-OSCompatibleVersions -Value Get-OSCompatibleVersion
@@ -25962,6 +25979,7 @@ Set-Alias -Name OS-PutDefaultApplicationSetting -Value Write-OSDefaultApplicatio
 Set-Alias -Name OS-RegisterCapability -Value Register-OSCapability
 Set-Alias -Name Reject-OSInboundConnection -Value Deny-OSInboundConnection
 Set-Alias -Name OS-RejectInboundConnection -Value Deny-OSInboundConnection
+Set-Alias -Name OS-RemoveReplicationPeer -Value Remove-OSReplicationPeer
 Set-Alias -Name Remove-OSTags -Value Remove-OSResourceTag
 Set-Alias -Name OS-RemoveTags -Value Remove-OSResourceTag
 Set-Alias -Name OS-RevokeVpcEndpointAccess -Value Revoke-OSVpcEndpointAccess
@@ -25970,6 +25988,9 @@ Set-Alias -Name OS-RollbackServiceSoftwareUpdate -Value Undo-OSServiceSoftwareUp
 Set-Alias -Name OS-StartDomainMaintenance -Value Start-OSDomainMaintenance
 Set-Alias -Name OS-StartMigration -Value Start-OSMigration
 Set-Alias -Name OS-StartServiceSoftwareUpdate -Value Start-OSServiceSoftwareUpdate
+Set-Alias -Name Switchover-OSReplication -Value Start-OSReplicationSwitchover
+Set-Alias -Name Switchover-OSReplicationSwitchover -Value Start-OSReplicationSwitchover
+Set-Alias -Name OS-SwitchoverReplication -Value Start-OSReplicationSwitchover
 Set-Alias -Name OS-UpdateApplication -Value Update-OSApplication
 Set-Alias -Name OS-UpdateDataSource -Value Update-OSDataSource
 Set-Alias -Name OS-UpdateDirectQueryDataSource -Value Update-OSDirectQueryDataSource

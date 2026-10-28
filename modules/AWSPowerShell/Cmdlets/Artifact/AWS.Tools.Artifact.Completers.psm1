@@ -90,7 +90,7 @@ $ART_Completers = {
         # Amazon.Artifact.InquirySupportMode
         "New-ARTComplianceInquiry/SupportMode"
         {
-            $v = "AI_ONLY","FULL_SUPPORT"
+            $v = "AI_ONLY"
             break
         }
 

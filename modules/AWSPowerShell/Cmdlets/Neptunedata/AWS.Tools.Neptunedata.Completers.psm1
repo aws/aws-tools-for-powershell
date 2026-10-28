@@ -152,6 +152,13 @@ $NEPT_Completers = {
             break
         }
 
+        # Amazon.Neptunedata.Scope
+        "Start-NEPTIndexRebuild/Scope"
+        {
+            $v = "ALL","DICTIONARIES","QUADS"
+            break
+        }
+
         # Amazon.Neptunedata.StatisticsAutoGenerationMode
         {
             ($_ -eq "Update-NEPTPropertygraphStatistic/Mode") -Or
@@ -159,6 +166,13 @@ $NEPT_Completers = {
         }
         {
             $v = "disableAutoCompute","enableAutoCompute","refresh"
+            break
+        }
+
+        # Amazon.Neptunedata.WriteBufferSize
+        "Start-NEPTIndexRebuild/WriteBufferSize"
+        {
+            $v = "HIGH","LOW","MEDIUM"
             break
         }
 
@@ -179,6 +193,8 @@ $NEPT_map = @{
     "Mode"=@("Get-NEPTPropertygraphSummary","Get-NEPTRDFGraphSummary","Start-NEPTLoaderJob","Update-NEPTPropertygraphStatistic","Update-NEPTSparqlStatistic")
     "Parallelism"=@("Start-NEPTLoaderJob")
     "S3BucketRegion"=@("Start-NEPTLoaderJob")
+    "Scope"=@("Start-NEPTIndexRebuild")
+    "WriteBufferSize"=@("Start-NEPTIndexRebuild")
 }
 
 _awsArgumentCompleterRegistration $NEPT_Completers $NEPT_map
@@ -232,6 +248,7 @@ $NEPT_SelectCompleters = {
 
 $NEPT_SelectMap = @{
     "Select"=@("Stop-NEPTGremlinQuery",
+               "Stop-NEPTIndexRebuild",
                "Stop-NEPTLoaderJob",
                "Stop-NEPTMLDataProcessingJob",
                "Stop-NEPTMLModelTrainingJob",
@@ -249,6 +266,7 @@ $NEPT_SelectMap = @{
                "Invoke-NEPTOpenCypherQuery",
                "Get-NEPTEngineStatus",
                "Get-NEPTGremlinQueryStatus",
+               "Get-NEPTIndexRebuildStatus",
                "Get-NEPTLoaderJobStatus",
                "Get-NEPTMLDataProcessingJob",
                "Get-NEPTMLEndpoint",
@@ -261,7 +279,9 @@ $NEPT_SelectMap = @{
                "Get-NEPTRDFGraphSummary",
                "Get-NEPTSparqlStatistic",
                "Get-NEPTSparqlStream",
+               "Get-NEPTStorageInfo",
                "Get-NEPTGremlinQueryList",
+               "Get-NEPTIndexRebuildList",
                "Get-NEPTLoaderJobList",
                "Get-NEPTMLDataProcessingJobList",
                "Get-NEPTMLEndpointList",
@@ -270,6 +290,7 @@ $NEPT_SelectMap = @{
                "Get-NEPTOpenCypherQueryList",
                "Update-NEPTPropertygraphStatistic",
                "Update-NEPTSparqlStatistic",
+               "Start-NEPTIndexRebuild",
                "Start-NEPTLoaderJob",
                "Start-NEPTMLDataProcessingJob",
                "Start-NEPTMLModelTrainingJob",

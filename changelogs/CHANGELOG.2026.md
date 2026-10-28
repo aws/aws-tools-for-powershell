@@ -1,4 +1,39 @@
-﻿### 5.0.324 (2026-10-27 19:05Z)
+﻿### 5.0.325 (2026-10-28 19:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.360.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Participant Service
+    * Modified cmdlet Get-CONNPAttachment: added parameter UrlContentDisposition.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNTaskTemplate: added parameter ContactHooks_WrapUpFlowId.
+    * Modified cmdlet Update-CONNTaskTemplate: added parameter ContactHooks_WrapUpFlowId.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Get-EC2CapacityManagerSupportabilityScore leveraging the GetCapacityManagerSupportabilityScores service API.
+    * Modified cmdlet New-EC2CapacityReservationFleet: added parameters AvailabilityZone, AvailabilityZoneId, InstanceRequirements_AcceleratorCount_Max, InstanceRequirements_AcceleratorCount_Min, InstanceRequirements_AcceleratorManufacturer, InstanceRequirements_AcceleratorName, InstanceRequirements_AcceleratorTotalMemoryMiB_Max, InstanceRequirements_AcceleratorTotalMemoryMiB_Min, InstanceRequirements_AcceleratorType, InstanceRequirements_AllowedInstanceType, InstanceRequirements_BareMetal, InstanceRequirements_BaselineEbsBandwidthMbps_Max, InstanceRequirements_BaselineEbsBandwidthMbps_Min, InstanceRequirements_BaselinePerformanceFactors_Cpu_Reference, InstanceRequirements_BurstablePerformance, InstanceRequirements_CpuManufacturer, InstanceRequirements_ExcludedInstanceType, InstanceRequirements_InstanceGeneration, InstanceRequirements_LocalStorage, InstanceRequirements_LocalStorageType, InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice, InstanceRequirements_MemoryGiBPerVCpu_Max, InstanceRequirements_MemoryGiBPerVCpu_Min, InstanceRequirements_MemoryMiB_Max, InstanceRequirements_MemoryMiB_Min, InstanceRequirements_NetworkBandwidthGbps_Max, InstanceRequirements_NetworkBandwidthGbps_Min, InstanceRequirements_NetworkInterfaceCount_Max, InstanceRequirements_NetworkInterfaceCount_Min, InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice, InstanceRequirements_RequireEncryptionInTransit, InstanceRequirements_RequireHibernateSupport, InstanceRequirements_SpotMaxPricePercentageOverLowestPrice, InstanceRequirements_TotalLocalStorageGB_Max, InstanceRequirements_TotalLocalStorageGB_Min, InstanceRequirements_VCpuCount_Max and InstanceRequirements_VCpuCount_Min.
+  * Amazon Interactive Video Service
+    * Modified cmdlet Add-IVSAdBreak: added parameters AdBreakId and TargetStartAt.
+  * Amazon Managed Streaming for Kafka Connect
+    * Modified cmdlet Update-MSKCConnector: added parameters Plugin, UseDefaultWorkerConfiguration, WorkerConfiguration_Revision and WorkerConfiguration_WorkerConfigurationArn.
+  * Amazon NeptuneData
+    * Added cmdlet Get-NEPTIndexRebuildList leveraging the ListIndexRebuilds service API.
+    * Added cmdlet Get-NEPTIndexRebuildStatus leveraging the GetIndexRebuildStatus service API.
+    * Added cmdlet Get-NEPTStorageInfo leveraging the GetStorageInfo service API.
+    * Added cmdlet Start-NEPTIndexRebuild leveraging the StartIndexRebuild service API.
+    * Added cmdlet Stop-NEPTIndexRebuild leveraging the CancelIndexRebuild service API.
+  * Amazon OpenSearch Service
+    * Added cmdlet Add-OSReplicationPeer leveraging the AddReplicationPeer service API.
+    * Added cmdlet Compare-OSDomainConfiguration leveraging the CompareDomainConfiguration service API.
+    * Added cmdlet Get-OSDomainReplication leveraging the DescribeDomainReplication service API.
+    * Added cmdlet Remove-OSReplicationPeer leveraging the RemoveReplicationPeer service API.
+    * Added cmdlet Start-OSReplicationFailover leveraging the FailoverReplication service API.
+    * Added cmdlet Start-OSReplicationSwitchover leveraging the SwitchoverReplication service API.
+  * Amazon Security Agent
+    * Modified cmdlet New-SECAGCodeReview: added parameter Assets_ClientCertificate.
+    * Modified cmdlet New-SECAGPentest: added parameter Assets_ClientCertificate.
+    * Modified cmdlet New-SECAGThreatModel: added parameter Assets_ClientCertificate.
+    * Modified cmdlet Update-SECAGCodeReview: added parameter Assets_ClientCertificate.
+    * Modified cmdlet Update-SECAGPentest: added parameter Assets_ClientCertificate.
+    * Modified cmdlet Update-SECAGThreatModel: added parameter Assets_ClientCertificate.
+
+### 5.0.324 (2026-10-27 19:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.359.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Added cmdlet Reset-BACCTokenVaultKeyMaterial leveraging the ResetTokenVaultKeyMaterial service API.

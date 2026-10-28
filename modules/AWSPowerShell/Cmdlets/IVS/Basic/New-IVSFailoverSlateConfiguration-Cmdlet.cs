@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter ActivationThresholdSecond
         /// <summary>
         /// <para>
-        /// <para>Number of seconds of ingest interruption before the failover slate activates. Minimum:
-        /// <c>3</c>. Maximum: <c>5</c>. Default: <c>3</c>.</para>
+        /// <para>Number of seconds of ingest interruption before the failover slate activates. Default:
+        /// <c>3</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter MaxSlateDisplaySecond
         /// <summary>
         /// <para>
-        /// <para>Maximum number of seconds that the failover slate displays. Minimum: <c>60</c>. Maximum:
-        /// <c>180</c>. Default: <c>60</c>.</para>
+        /// <para>Maximum number of seconds that the failover slate displays. Default: <c>60</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter MinSlateDisplaySecond
         /// <summary>
         /// <para>
-        /// <para>Minimum number of seconds that the failover slate displays after activation. Minimum:
-        /// <c>3</c>. Maximum: <c>10</c>. Default: <c>3</c>.</para>
+        /// <para>Minimum number of seconds that the failover slate displays after activation. Default:
+        /// <c>3</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

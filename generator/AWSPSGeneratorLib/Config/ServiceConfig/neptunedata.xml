@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelIndexRebuild" OutputProperty="*" Verb="Stop" Noun="IndexRebuild" ShouldProcessTarget="RebuildId" PipelineParameter="RebuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelLoaderJob" OutputProperty="Status" Verb="Stop" Noun="LoaderJob" ShouldProcessTarget="LoadId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -91,6 +95,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetIndexRebuildStatus" OutputProperty="*" Verb="Get" Noun="IndexRebuildStatus" PipelineParameter="RebuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLoaderJobStatus" OutputProperty="*" Verb="Get" Noun="LoaderJobStatus" PipelineParameter="LoadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -139,7 +147,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStorageInfo" OutputProperty="*" Verb="Get" Noun="StorageInfo" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListGremlinQueries" OutputProperty="*" Verb="Get" Noun="GremlinQueryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIndexRebuilds" OutputProperty="RebuildIds" Verb="Get" Noun="IndexRebuildList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -172,6 +188,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ManageSparqlStatistics" OutputProperty="*" Verb="Update" Noun="SparqlStatistic" ShouldProcessTarget="Mode" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartIndexRebuild" OutputProperty="*" Verb="Start" Noun="IndexRebuild" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

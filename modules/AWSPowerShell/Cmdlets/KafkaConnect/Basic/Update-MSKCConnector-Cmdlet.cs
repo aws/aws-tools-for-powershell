@@ -30,8 +30,11 @@ using Amazon.KafkaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.MSKC
 {
     /// <summary>
-    /// Updates the specified connector. For request body, specify only one parameter: either
-    /// <c>capacity</c> or <c>connectorConfiguration</c>.
+    /// Updates the specified connector. In the request body, you can update either the connector's
+    /// worker setting or its connector configuration, but not both in the same request. To
+    /// update the worker setting, specify one or more of <c>capacity</c>, <c>plugins</c>,
+    /// <c>workerConfiguration</c>, or <c>useDefaultWorkerConfiguration</c>. To update the
+    /// connector configuration, specify only <c>connectorConfiguration</c>.
     /// </summary>
     [Cmdlet("Update", "MSKCConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KafkaConnect.Model.UpdateConnectorResponse")]
@@ -175,6 +178,36 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         public System.Int32? AutoScaling_MinWorkerCount { get; set; }
         #endregion
         
+        #region Parameter Plugin
+        /// <summary>
+        /// <para>
+        /// <important><para>Amazon MSK Connect does not currently support specifying multiple plugins as a list.
+        /// To use more than one plugin for your connector, you can create a single custom plugin
+        /// using a ZIP file that bundles multiple plugins together.</para></important><para>Specifies which plugin to use for the connector. You must specify a single-element
+        /// list containing one <c>customPlugin</c> object. If you don't specify this parameter,
+        /// the connector keeps its current plugin.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Plugins")]
+        public Amazon.KafkaConnect.Model.PluginUpdate[] Plugin { get; set; }
+        #endregion
+        
+        #region Parameter WorkerConfiguration_Revision
+        /// <summary>
+        /// <para>
+        /// <para>The revision of the worker configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? WorkerConfiguration_Revision { get; set; }
+        #endregion
+        
         #region Parameter SkipHealthValidation
         /// <summary>
         /// <para>
@@ -189,6 +222,31 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? SkipHealthValidation { get; set; }
+        #endregion
+        
+        #region Parameter UseDefaultWorkerConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to switch the connector to the default worker configuration that
+        /// Amazon MSK Connect provides. If <c>true</c>, the connector stops using its custom
+        /// worker configuration and uses the default worker configuration instead. If <c>false</c>
+        /// or not specified, the connector keeps its current worker configuration. You can't
+        /// specify both <c>useDefaultWorkerConfiguration</c> and <c>workerConfiguration</c> in
+        /// the same request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseDefaultWorkerConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter WorkerConfiguration_WorkerConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the worker configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkerConfiguration_WorkerConfigurationArn { get; set; }
         #endregion
         
         #region Parameter ProvisionedCapacity_WorkerCount
@@ -278,7 +336,14 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
                 WriteWarning("You are passing $null as a value for parameter CurrentVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Plugin != null)
+            {
+                context.Plugin = new List<Amazon.KafkaConnect.Model.PluginUpdate>(this.Plugin);
+            }
             context.SkipHealthValidation = this.SkipHealthValidation;
+            context.UseDefaultWorkerConfiguration = this.UseDefaultWorkerConfiguration;
+            context.WorkerConfiguration_Revision = this.WorkerConfiguration_Revision;
+            context.WorkerConfiguration_WorkerConfigurationArn = this.WorkerConfiguration_WorkerConfigurationArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -456,9 +521,46 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             {
                 request.CurrentVersion = cmdletContext.CurrentVersion;
             }
+            if (cmdletContext.Plugin != null)
+            {
+                request.Plugins = cmdletContext.Plugin;
+            }
             if (cmdletContext.SkipHealthValidation != null)
             {
                 request.SkipHealthValidation = cmdletContext.SkipHealthValidation.Value;
+            }
+            if (cmdletContext.UseDefaultWorkerConfiguration != null)
+            {
+                request.UseDefaultWorkerConfiguration = cmdletContext.UseDefaultWorkerConfiguration.Value;
+            }
+            
+             // populate WorkerConfiguration
+            var requestWorkerConfigurationIsNull = true;
+            request.WorkerConfiguration = new Amazon.KafkaConnect.Model.WorkerConfigurationUpdate();
+            System.Int64? requestWorkerConfiguration_workerConfiguration_Revision = null;
+            if (cmdletContext.WorkerConfiguration_Revision != null)
+            {
+                requestWorkerConfiguration_workerConfiguration_Revision = cmdletContext.WorkerConfiguration_Revision.Value;
+            }
+            if (requestWorkerConfiguration_workerConfiguration_Revision != null)
+            {
+                request.WorkerConfiguration.Revision = requestWorkerConfiguration_workerConfiguration_Revision.Value;
+                requestWorkerConfigurationIsNull = false;
+            }
+            System.String requestWorkerConfiguration_workerConfiguration_WorkerConfigurationArn = null;
+            if (cmdletContext.WorkerConfiguration_WorkerConfigurationArn != null)
+            {
+                requestWorkerConfiguration_workerConfiguration_WorkerConfigurationArn = cmdletContext.WorkerConfiguration_WorkerConfigurationArn;
+            }
+            if (requestWorkerConfiguration_workerConfiguration_WorkerConfigurationArn != null)
+            {
+                request.WorkerConfiguration.WorkerConfigurationArn = requestWorkerConfiguration_workerConfiguration_WorkerConfigurationArn;
+                requestWorkerConfigurationIsNull = false;
+            }
+             // determine if request.WorkerConfiguration should be set to null
+            if (requestWorkerConfigurationIsNull)
+            {
+                request.WorkerConfiguration = null;
             }
             
             CmdletOutput output;
@@ -526,7 +628,11 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             public System.String ConnectorArn { get; set; }
             public Dictionary<System.String, System.String> ConnectorConfiguration { get; set; }
             public System.String CurrentVersion { get; set; }
+            public List<Amazon.KafkaConnect.Model.PluginUpdate> Plugin { get; set; }
             public System.Boolean? SkipHealthValidation { get; set; }
+            public System.Boolean? UseDefaultWorkerConfiguration { get; set; }
+            public System.Int64? WorkerConfiguration_Revision { get; set; }
+            public System.String WorkerConfiguration_WorkerConfigurationArn { get; set; }
             public System.Func<Amazon.KafkaConnect.Model.UpdateConnectorResponse, UpdateMSKCConnectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -214,6 +214,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String TaskTemplateId { get; set; }
         #endregion
         
+        #region Parameter ContactHooks_WrapUpFlowId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the flow module that runs when an agent attempts to disconnect from
+        /// a task created by referencing this template. If no agent ever connects to the task,
+        /// the flow module runs when the task is terminated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContactHooks_WrapUpFlowId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -273,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Constraints_RequiredField = new List<Amazon.Connect.Model.RequiredFieldInfo>(this.Constraints_RequiredField);
             }
             context.ContactFlowId = this.ContactFlowId;
+            context.ContactHooks_WrapUpFlowId = this.ContactHooks_WrapUpFlowId;
             if (this.Defaults_DefaultFieldValue != null)
             {
                 context.Defaults_DefaultFieldValue = new List<Amazon.Connect.Model.TaskTemplateDefaultFieldValue>(this.Defaults_DefaultFieldValue);
@@ -357,6 +370,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.ContactFlowId != null)
             {
                 request.ContactFlowId = cmdletContext.ContactFlowId;
+            }
+            
+             // populate ContactHooks
+            var requestContactHooksIsNull = true;
+            request.ContactHooks = new Amazon.Connect.Model.TaskTemplateContactHooks();
+            System.String requestContactHooks_contactHooks_WrapUpFlowId = null;
+            if (cmdletContext.ContactHooks_WrapUpFlowId != null)
+            {
+                requestContactHooks_contactHooks_WrapUpFlowId = cmdletContext.ContactHooks_WrapUpFlowId;
+            }
+            if (requestContactHooks_contactHooks_WrapUpFlowId != null)
+            {
+                request.ContactHooks.WrapUpFlowId = requestContactHooks_contactHooks_WrapUpFlowId;
+                requestContactHooksIsNull = false;
+            }
+             // determine if request.ContactHooks should be set to null
+            if (requestContactHooksIsNull)
+            {
+                request.ContactHooks = null;
             }
             
              // populate Defaults
@@ -464,6 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<Amazon.Connect.Model.ReadOnlyFieldInfo> Constraints_ReadOnlyField { get; set; }
             public List<Amazon.Connect.Model.RequiredFieldInfo> Constraints_RequiredField { get; set; }
             public System.String ContactFlowId { get; set; }
+            public System.String ContactHooks_WrapUpFlowId { get; set; }
             public List<Amazon.Connect.Model.TaskTemplateDefaultFieldValue> Defaults_DefaultFieldValue { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.Connect.Model.TaskTemplateField> Field { get; set; }

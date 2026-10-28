@@ -54,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AdBreakId
+        /// <summary>
+        /// <para>
+        /// <para>Caller-specified unique identifier for the ad break to insert into the playlist.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdBreakId { get; set; }
+        #endregion
+        
         #region Parameter ChannelArn
         /// <summary>
         /// <para>
@@ -86,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("DurationSeconds")]
         public System.Int32? DurationSecond { get; set; }
+        #endregion
+        
+        #region Parameter TargetStartAt
+        /// <summary>
+        /// <para>
+        /// <para>Target time at which the ad break starts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? TargetStartAt { get; set; }
         #endregion
         
         #region Parameter Select
@@ -134,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                 context.Select = CreateSelectDelegate<Amazon.IVS.Model.InsertAdBreakResponse, AddIVSAdBreakCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AdBreakId = this.AdBreakId;
             context.ChannelArn = this.ChannelArn;
             #if MODULAR
             if (this.ChannelArn == null && ParameterWasBound(nameof(this.ChannelArn)))
@@ -148,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                 WriteWarning("You are passing $null as a value for parameter DurationSecond which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TargetStartAt = this.TargetStartAt;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             // create request
             var request = new Amazon.IVS.Model.InsertAdBreakRequest();
             
+            if (cmdletContext.AdBreakId != null)
+            {
+                request.AdBreakId = cmdletContext.AdBreakId;
+            }
             if (cmdletContext.ChannelArn != null)
             {
                 request.ChannelArn = cmdletContext.ChannelArn;
@@ -171,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.DurationSecond != null)
             {
                 request.DurationSeconds = cmdletContext.DurationSecond.Value;
+            }
+            if (cmdletContext.TargetStartAt != null)
+            {
+                request.TargetStartAt = cmdletContext.TargetStartAt.Value;
             }
             
             CmdletOutput output;
@@ -227,8 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AdBreakId { get; set; }
             public System.String ChannelArn { get; set; }
             public System.Int32? DurationSecond { get; set; }
+            public System.DateTime? TargetStartAt { get; set; }
             public System.Func<Amazon.IVS.Model.InsertAdBreakResponse, AddIVSAdBreakCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AdBreakId;
         }

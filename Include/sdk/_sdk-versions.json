@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.359.0",
+    "ProductVersion"    : "4.0.360.0",
     "CoreVersion"       : "4.0.102.14",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.130.0",
+            "Version" : "4.0.131.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"
@@ -500,7 +500,7 @@
             "InPreview"               : false
         },
         "CertificateManager"              : {
-            "Version" : "4.0.102.13",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"
@@ -836,7 +836,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "4.0.107.0",
+            "Version" : "4.0.108.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.127.0",
+            "Version" : "4.0.128.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"
@@ -1484,7 +1484,7 @@
             "InPreview"               : false
         },
         "ConnectParticipant"              : {
-            "Version" : "4.0.100.21",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"
@@ -1668,7 +1668,7 @@
             "InPreview"               : false
         },
         "IVS"                             : {
-            "Version" : "4.0.102.0",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"
@@ -2044,7 +2044,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "4.0.105.2",
+            "Version" : "4.0.106.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"
@@ -2052,7 +2052,7 @@
             "InPreview"               : false
         },
         "KafkaConnect"                    : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"
@@ -2596,7 +2596,7 @@
             "InPreview"               : false
         },
         "Neptunedata"                         : {
-            "Version" : "4.0.100.22",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"
@@ -2796,7 +2796,7 @@
             "InPreview"               : false
         },
         "Artifact"                            : {
-            "Version" : "4.0.102.16",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"
@@ -3332,7 +3332,7 @@
             "InPreview"               : false
         },
         "SecurityAgent"                       : {
-            "Version" : "4.0.113.4",
+            "Version" : "4.0.114.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.14"

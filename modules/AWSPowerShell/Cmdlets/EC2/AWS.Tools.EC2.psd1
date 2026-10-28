@@ -291,6 +291,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2CapacityManagerMetricData', 
         'Get-EC2CapacityManagerMetricDimension', 
         'Get-EC2CapacityManagerMonitoredTagKey', 
+        'Get-EC2CapacityManagerSupportabilityScore', 
         'Get-EC2CapacityReservation', 
         'Get-EC2CapacityReservationBillingRequest', 
         'Get-EC2CapacityReservationCancellationQuoteDetail', 

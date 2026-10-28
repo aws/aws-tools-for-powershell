@@ -80,6 +80,13 @@ $CONNP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ConnectParticipant.ContentDisposition
+        "Get-CONNPAttachment/UrlContentDisposition"
+        {
+            $v = "ATTACHMENT","INLINE"
+            break
+        }
+
         # Amazon.ConnectParticipant.ScanDirection
         "Get-CONNPTranscript/ScanDirection"
         {
@@ -105,6 +112,7 @@ $CONNP_Completers = {
 $CONNP_map = @{
     "ScanDirection"=@("Get-CONNPTranscript")
     "SortOrder"=@("Get-CONNPTranscript")
+    "UrlContentDisposition"=@("Get-CONNPAttachment")
 }
 
 _awsArgumentCompleterRegistration $CONNP_Completers $CONNP_map

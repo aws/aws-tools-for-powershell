@@ -206,7 +206,9 @@ $EC2_Completers = {
         # Amazon.EC2.BareMetal
         {
             ($_ -eq "Get-EC2InstanceTypesFromInstanceRequirement/InstanceRequirements_BareMetal") -Or
-            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirements_BareMetal")
+            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirements_BareMetal") -Or
+            ($_ -eq "New-EC2CapacityReservationFleet/InstanceRequirements_BareMetal") -Or
+            ($_ -eq "Get-EC2CapacityManagerSupportabilityScore/InstanceRequirementsWithMetadata_InstanceRequirements_BareMetal")
         }
         {
             $v = "excluded","included","required"
@@ -233,7 +235,9 @@ $EC2_Completers = {
         # Amazon.EC2.BurstablePerformance
         {
             ($_ -eq "Get-EC2InstanceTypesFromInstanceRequirement/InstanceRequirements_BurstablePerformance") -Or
-            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirements_BurstablePerformance")
+            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirements_BurstablePerformance") -Or
+            ($_ -eq "New-EC2CapacityReservationFleet/InstanceRequirements_BurstablePerformance") -Or
+            ($_ -eq "Get-EC2CapacityManagerSupportabilityScore/InstanceRequirementsWithMetadata_InstanceRequirements_BurstablePerformance")
         }
         {
             $v = "excluded","included","required"
@@ -278,6 +282,13 @@ $EC2_Completers = {
         "Add-EC2CapacityReservation/Tenancy"
         {
             $v = "dedicated","default"
+            break
+        }
+
+        # Amazon.EC2.CapacityUnit
+        "Get-EC2CapacityManagerSupportabilityScore/CapacityUnit"
+        {
+            $v = "instances","vcpus"
             break
         }
 
@@ -921,7 +932,9 @@ $EC2_Completers = {
         # Amazon.EC2.LocalStorage
         {
             ($_ -eq "Get-EC2InstanceTypesFromInstanceRequirement/InstanceRequirements_LocalStorage") -Or
-            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirements_LocalStorage")
+            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirements_LocalStorage") -Or
+            ($_ -eq "New-EC2CapacityReservationFleet/InstanceRequirements_LocalStorage") -Or
+            ($_ -eq "Get-EC2CapacityManagerSupportabilityScore/InstanceRequirementsWithMetadata_InstanceRequirements_LocalStorage")
         }
         {
             $v = "excluded","included","required"
@@ -1328,6 +1341,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.SupportabilityMarketType
+        "Get-EC2CapacityManagerSupportabilityScore/MarketType"
+        {
+            $v = "on-demand","spot"
+            break
+        }
+
         # Amazon.EC2.TargetCapacityUnitType
         {
             ($_ -eq "Request-EC2SpotFleet/SpotFleetRequestConfig_TargetCapacityUnitType") -Or
@@ -1650,6 +1670,7 @@ $EC2_map = @{
     "CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet","Request-EC2SpotFleet")
     "CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("Edit-EC2InstanceCapacityReservationAttribute","New-EC2Instance")
+    "CapacityUnit"=@("Get-EC2CapacityManagerSupportabilityScore")
     "ChronologicalOrder"=@("Get-EC2IpamRoutingPolicyRegistrationDelta")
     "CidrOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
     "ConnectivityType"=@("New-EC2NatGateway")
@@ -1691,9 +1712,12 @@ $EC2_map = @{
     "InstanceMatchCriterion"=@("Add-EC2CapacityReservation","Edit-EC2CapacityReservation","New-EC2CapacityReservationFleet")
     "InstanceMetadataTag"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
     "InstancePlatform"=@("Add-EC2CapacityReservation","New-EC2EC2CapacityBlock")
-    "InstanceRequirements_BareMetal"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
-    "InstanceRequirements_BurstablePerformance"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
-    "InstanceRequirements_LocalStorage"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
+    "InstanceRequirements_BareMetal"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore","New-EC2CapacityReservationFleet")
+    "InstanceRequirements_BurstablePerformance"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore","New-EC2CapacityReservationFleet")
+    "InstanceRequirements_LocalStorage"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore","New-EC2CapacityReservationFleet")
+    "InstanceRequirementsWithMetadata_InstanceRequirements_BareMetal"=@("Get-EC2CapacityManagerSupportabilityScore")
+    "InstanceRequirementsWithMetadata_InstanceRequirements_BurstablePerformance"=@("Get-EC2CapacityManagerSupportabilityScore")
+    "InstanceRequirementsWithMetadata_InstanceRequirements_LocalStorage"=@("Get-EC2CapacityManagerSupportabilityScore")
     "InstanceTenancy"=@("Edit-EC2VpcTenancy","Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
@@ -1724,6 +1748,7 @@ $EC2_map = @{
     "MacSystemIntegrityProtectionConfiguration_NvramProtection"=@("New-EC2MacSystemIntegrityProtectionModificationTask")
     "MacSystemIntegrityProtectionStatus"=@("New-EC2MacSystemIntegrityProtectionModificationTask")
     "MaintenanceOptions_AutoRecovery"=@("New-EC2Instance")
+    "MarketType"=@("Get-EC2CapacityManagerSupportabilityScore")
     "MetadataOptions_HttpEndpoint"=@("New-EC2Instance")
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
     "MetadataOptions_HttpToken"=@("New-EC2Instance")
@@ -2446,6 +2471,7 @@ $EC2_SelectMap = @{
                "Get-EC2CapacityManagerMetricData",
                "Get-EC2CapacityManagerMetricDimension",
                "Get-EC2CapacityManagerMonitoredTagKey",
+               "Get-EC2CapacityManagerSupportabilityScore",
                "Get-EC2CapacityReservationUsage",
                "Get-EC2ClientVpnEndpointAuthorizationPolicy",
                "Get-EC2CoipPoolUsage",
