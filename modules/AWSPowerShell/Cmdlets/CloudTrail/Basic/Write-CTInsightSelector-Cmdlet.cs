@@ -117,9 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// or read and write data API calls that are aggregated per minute against a baseline
         /// API call volume.</para><para>The <c>ApiErrorRateInsight</c> Insights type analyzes management and data API calls
         /// that result in error codes. The error is shown if the API call is unsuccessful.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -193,7 +194,6 @@ namespace Amazon.PowerShell.Cmdlets.CT
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.EventDataStore = this.EventDataStore;
-            context.InsightsDestination = this.InsightsDestination;
             if (this.InsightSelector != null)
             {
                 context.InsightSelector = new List<Amazon.CloudTrail.Model.InsightSelector>(this.InsightSelector);
@@ -204,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 WriteWarning("You are passing $null as a value for parameter InsightSelector which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InsightsDestination = this.InsightsDestination;
             context.TrailName = this.TrailName;
             
             // allow further manipulation of loaded context prior to processing
@@ -225,13 +226,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
             {
                 request.EventDataStore = cmdletContext.EventDataStore;
             }
-            if (cmdletContext.InsightsDestination != null)
-            {
-                request.InsightsDestination = cmdletContext.InsightsDestination;
-            }
             if (cmdletContext.InsightSelector != null)
             {
                 request.InsightSelectors = cmdletContext.InsightSelector;
+            }
+            if (cmdletContext.InsightsDestination != null)
+            {
+                request.InsightsDestination = cmdletContext.InsightsDestination;
             }
             if (cmdletContext.TrailName != null)
             {
@@ -293,8 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EventDataStore { get; set; }
-            public System.String InsightsDestination { get; set; }
             public List<Amazon.CloudTrail.Model.InsightSelector> InsightSelector { get; set; }
+            public System.String InsightsDestination { get; set; }
             public System.String TrailName { get; set; }
             public System.Func<Amazon.CloudTrail.Model.PutInsightSelectorsResponse, WriteCTInsightSelectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

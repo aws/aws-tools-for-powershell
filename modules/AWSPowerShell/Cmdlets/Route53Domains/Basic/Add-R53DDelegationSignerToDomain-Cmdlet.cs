@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// records. This action may render your domain name unavailable on the internet if the
     /// steps are completed in the wrong order, or with incorrect timing. For more information
     /// about DNSSEC signing, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html">Configuring
-    /// DNSSEC signing</a> in the <i>Route 53 developer guide</i>.
+    /// DNSSEC signing</a> in the <i>Route 53 developer guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "R53DDelegationSignerToDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

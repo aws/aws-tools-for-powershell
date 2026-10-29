@@ -108,9 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <summary>
         /// <para>
         /// <para>Contains the list of dimensions for time-series data points.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -145,9 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <para>
         /// <para> Contains the list of MeasureValue for time-series data points. </para><para> This is only allowed for type <c>MULTI</c>. For scalar values, use <c>MeasureValue</c>
         /// attribute of the record directly. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -173,9 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <para>
         /// <para>An array of records that contain the unique measure, dimension, time, and version
         /// attributes for each time-series data point. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -300,11 +303,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             }
             context.CommonAttributes_MeasureName = this.CommonAttributes_MeasureName;
             context.CommonAttributes_MeasureValue = this.CommonAttributes_MeasureValue;
+            context.CommonAttributes_MeasureValueType = this.CommonAttributes_MeasureValueType;
             if (this.CommonAttributes_MeasureValueList != null)
             {
                 context.CommonAttributes_MeasureValueList = new List<Amazon.TimestreamWrite.Model.MeasureValue>(this.CommonAttributes_MeasureValueList);
             }
-            context.CommonAttributes_MeasureValueType = this.CommonAttributes_MeasureValueType;
             context.CommonAttributes_Time = this.CommonAttributes_Time;
             context.CommonAttributes_TimeUnit = this.CommonAttributes_TimeUnit;
             context.CommonAttributes_Version = this.CommonAttributes_Version;
@@ -382,16 +385,6 @@ namespace Amazon.PowerShell.Cmdlets.TSW
                 request.CommonAttributes.MeasureValue = requestCommonAttributes_commonAttributes_MeasureValue;
                 requestCommonAttributesIsNull = false;
             }
-            List<Amazon.TimestreamWrite.Model.MeasureValue> requestCommonAttributes_commonAttributes_MeasureValueList = null;
-            if (cmdletContext.CommonAttributes_MeasureValueList != null)
-            {
-                requestCommonAttributes_commonAttributes_MeasureValueList = cmdletContext.CommonAttributes_MeasureValueList;
-            }
-            if (requestCommonAttributes_commonAttributes_MeasureValueList != null)
-            {
-                request.CommonAttributes.MeasureValues = requestCommonAttributes_commonAttributes_MeasureValueList;
-                requestCommonAttributesIsNull = false;
-            }
             Amazon.TimestreamWrite.MeasureValueType requestCommonAttributes_commonAttributes_MeasureValueType = null;
             if (cmdletContext.CommonAttributes_MeasureValueType != null)
             {
@@ -400,6 +393,16 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             if (requestCommonAttributes_commonAttributes_MeasureValueType != null)
             {
                 request.CommonAttributes.MeasureValueType = requestCommonAttributes_commonAttributes_MeasureValueType;
+                requestCommonAttributesIsNull = false;
+            }
+            List<Amazon.TimestreamWrite.Model.MeasureValue> requestCommonAttributes_commonAttributes_MeasureValueList = null;
+            if (cmdletContext.CommonAttributes_MeasureValueList != null)
+            {
+                requestCommonAttributes_commonAttributes_MeasureValueList = cmdletContext.CommonAttributes_MeasureValueList;
+            }
+            if (requestCommonAttributes_commonAttributes_MeasureValueList != null)
+            {
+                request.CommonAttributes.MeasureValues = requestCommonAttributes_commonAttributes_MeasureValueList;
                 requestCommonAttributesIsNull = false;
             }
             System.String requestCommonAttributes_commonAttributes_Time = null;
@@ -507,8 +510,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             public List<Amazon.TimestreamWrite.Model.Dimension> CommonAttributes_Dimension { get; set; }
             public System.String CommonAttributes_MeasureName { get; set; }
             public System.String CommonAttributes_MeasureValue { get; set; }
-            public List<Amazon.TimestreamWrite.Model.MeasureValue> CommonAttributes_MeasureValueList { get; set; }
             public Amazon.TimestreamWrite.MeasureValueType CommonAttributes_MeasureValueType { get; set; }
+            public List<Amazon.TimestreamWrite.Model.MeasureValue> CommonAttributes_MeasureValueList { get; set; }
             public System.String CommonAttributes_Time { get; set; }
             public Amazon.TimestreamWrite.TimeUnit CommonAttributes_TimeUnit { get; set; }
             public System.Int64? CommonAttributes_Version { get; set; }

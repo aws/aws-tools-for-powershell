@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         /// <summary>
         /// <para>
         /// <para>The ID of the archive that you want to retrieve. This field is required only if <c>Type</c>
-        /// is set to <c>select</c> or <c>archive-retrieval</c>code&gt;. An error occurs if you
-        /// specify this request parameter for an inventory retrieval job request. </para>
+        /// is set to <c>select</c> or <c>archive-retrieval</c>code&gt;. An error occurs if you specify
+        /// this request parameter for an inventory retrieval job request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,8 +270,8 @@ namespace Amazon.PowerShell.Cmdlets.GLC
             context.InventoryRetrieval = this.InventoryRetrieval;
             context.OutputLocation = this.OutputLocation;
             context.RetrievalByteRange = this.RetrievalByteRange;
-            context.SelectParameter = this.SelectParameter;
             context.SNSTopic = this.SNSTopic;
+            context.SelectParameter = this.SelectParameter;
             context.Tier = this.Tier;
             context.JobType = this.JobType;
             context.VaultName = this.VaultName;
@@ -365,16 +365,6 @@ namespace Amazon.PowerShell.Cmdlets.GLC
                 request.JobParameters.RetrievalByteRange = requestJobParameters_retrievalByteRange;
                 requestJobParametersIsNull = false;
             }
-            Amazon.Glacier.Model.SelectParameters requestJobParameters_selectParameter = null;
-            if (cmdletContext.SelectParameter != null)
-            {
-                requestJobParameters_selectParameter = cmdletContext.SelectParameter;
-            }
-            if (requestJobParameters_selectParameter != null)
-            {
-                request.JobParameters.SelectParameters = requestJobParameters_selectParameter;
-                requestJobParametersIsNull = false;
-            }
             System.String requestJobParameters_sNSTopic = null;
             if (cmdletContext.SNSTopic != null)
             {
@@ -383,6 +373,16 @@ namespace Amazon.PowerShell.Cmdlets.GLC
             if (requestJobParameters_sNSTopic != null)
             {
                 request.JobParameters.SNSTopic = requestJobParameters_sNSTopic;
+                requestJobParametersIsNull = false;
+            }
+            Amazon.Glacier.Model.SelectParameters requestJobParameters_selectParameter = null;
+            if (cmdletContext.SelectParameter != null)
+            {
+                requestJobParameters_selectParameter = cmdletContext.SelectParameter;
+            }
+            if (requestJobParameters_selectParameter != null)
+            {
+                request.JobParameters.SelectParameters = requestJobParameters_selectParameter;
                 requestJobParametersIsNull = false;
             }
             System.String requestJobParameters_tier = null;
@@ -476,8 +476,8 @@ namespace Amazon.PowerShell.Cmdlets.GLC
             public Amazon.Glacier.Model.InventoryRetrievalJobInput InventoryRetrieval { get; set; }
             public Amazon.Glacier.Model.OutputLocation OutputLocation { get; set; }
             public System.String RetrievalByteRange { get; set; }
-            public Amazon.Glacier.Model.SelectParameters SelectParameter { get; set; }
             public System.String SNSTopic { get; set; }
+            public Amazon.Glacier.Model.SelectParameters SelectParameter { get; set; }
             public System.String Tier { get; set; }
             public System.String JobType { get; set; }
             public System.String VaultName { get; set; }

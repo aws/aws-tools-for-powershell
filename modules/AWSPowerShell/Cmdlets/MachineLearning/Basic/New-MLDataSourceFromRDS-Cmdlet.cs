@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>The compute statistics for a <c>DataSource</c>. The statistics are generated from
         /// the observation data referenced by a <c>DataSource</c>. Amazon ML uses the statistics
         /// internally during <c>MLModel</c> training. This parameter must be set to <c>true</c>
-        /// if the <code />DataSource<code /> needs to be used for <c>MLModel</c> training. </para>
+        /// if the <c></c>DataSource<c></c> needs to be used for <c>MLModel</c> training. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,9 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// there are appropriate ingress rules set up to allow access to the RDS DB instance.
         /// This attribute is used by Data Pipeline to carry out the copy operation from Amazon
         /// RDS to an Amazon S3 task.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -437,6 +438,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
             }
             #endif
             context.DataSourceName = this.DataSourceName;
+            context.RDSData_DataRearrangement = this.RDSData_DataRearrangement;
+            context.RDSData_DataSchema = this.RDSData_DataSchema;
+            context.RDSData_DataSchemaUri = this.RDSData_DataSchemaUri;
             context.DatabaseCredentials_Password = this.DatabaseCredentials_Password;
             #if MODULAR
             if (this.DatabaseCredentials_Password == null && ParameterWasBound(nameof(this.DatabaseCredentials_Password)))
@@ -465,9 +469,6 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 WriteWarning("You are passing $null as a value for parameter DatabaseInformation_InstanceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RDSData_DataRearrangement = this.RDSData_DataRearrangement;
-            context.RDSData_DataSchema = this.RDSData_DataSchema;
-            context.RDSData_DataSchemaUri = this.RDSData_DataSchemaUri;
             context.RDSData_ResourceRole = this.RDSData_ResourceRole;
             #if MODULAR
             if (this.RDSData_ResourceRole == null && ParameterWasBound(nameof(this.RDSData_ResourceRole)))
@@ -779,13 +780,13 @@ namespace Amazon.PowerShell.Cmdlets.ML
             public System.Boolean? ComputeStatistic { get; set; }
             public System.String DataSourceId { get; set; }
             public System.String DataSourceName { get; set; }
+            public System.String RDSData_DataRearrangement { get; set; }
+            public System.String RDSData_DataSchema { get; set; }
+            public System.String RDSData_DataSchemaUri { get; set; }
             public System.String DatabaseCredentials_Password { get; set; }
             public System.String DatabaseCredentials_Username { get; set; }
             public System.String DatabaseInformation_DatabaseName { get; set; }
             public System.String DatabaseInformation_InstanceIdentifier { get; set; }
-            public System.String RDSData_DataRearrangement { get; set; }
-            public System.String RDSData_DataSchema { get; set; }
-            public System.String RDSData_DataSchemaUri { get; set; }
             public System.String RDSData_ResourceRole { get; set; }
             public System.String RDSData_S3StagingLocation { get; set; }
             public List<System.String> RDSData_SecurityGroupId { get; set; }

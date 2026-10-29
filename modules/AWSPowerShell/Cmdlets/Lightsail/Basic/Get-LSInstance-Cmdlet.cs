@@ -46,6 +46,19 @@ namespace Amazon.PowerShell.Cmdlets.LS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter IncludeHealthStatus
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include the instance health status checks in the response of
+        /// your request.</para><para>When set to <c>true</c>, the response includes the <c>instanceStatus</c> and <c>systemStatus</c>
+        /// of the instance. When omitted or set to <c>false</c>, the response doesn't include
+        /// them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeHealthStatus { get; set; }
+        #endregion
+        
         #region Parameter InstanceName
         /// <summary>
         /// <para>
@@ -93,6 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.GetInstanceResponse, GetLSInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IncludeHealthStatus = this.IncludeHealthStatus;
             context.InstanceName = this.InstanceName;
             #if MODULAR
             if (this.InstanceName == null && ParameterWasBound(nameof(this.InstanceName)))
@@ -116,6 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // create request
             var request = new Amazon.Lightsail.Model.GetInstanceRequest();
             
+            if (cmdletContext.IncludeHealthStatus != null)
+            {
+                request.IncludeHealthStatus = cmdletContext.IncludeHealthStatus.Value;
+            }
             if (cmdletContext.InstanceName != null)
             {
                 request.InstanceName = cmdletContext.InstanceName;
@@ -175,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeHealthStatus { get; set; }
             public System.String InstanceName { get; set; }
             public System.Func<Amazon.Lightsail.Model.GetInstanceResponse, GetLSInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Instance;

@@ -83,9 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>A map of key-value pairs to configure the delivery source. Both keys and values must
         /// be between 1 and 255 characters in length. For example, <c>{"samplingRate": "50"}</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -114,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// and <c>DENY_LOGS</c>.</para></li><li><para>For Network Load Balancer, the valid value is <c>NLB_ACCESS_LOGS</c>.</para></li><li><para>For PCS, the valid values are <c>PCS_SCHEDULER_LOGS</c>, <c>PCS_JOBCOMP_LOGS</c>,
         /// <c>PCS_SCHEDULER_AUDIT_LOGS</c>, and <c>PCS_SCALING_LOGS</c>.</para></li><li><para>For Amazon Q, the valid values are <c>EVENT_LOGS</c> and <c>SYNC_JOB_LOGS</c>.</para></li><li><para>For Amazon Q in Connect AI agents, the valid value is <c>EVENT_LOGS</c>.</para></li><li><para>For Quick, the valid values are <c>AGENT_HOURS_LOGS</c>, <c>AGENT_METADATA_LOGS</c>,
         /// <c>CHAT_LOGS</c>, <c>DLP_LOGS</c>, <c>FEEDBACK_LOGS</c>, <c>INDEX_USAGE_LOGS</c>,
-        /// and <c>KB_FILE_SYNC_LOGS</c>.</para></li><li><para>For Route 53 Global Resolver, the valid value is <c>GLOBAL_RESOLVER_LOGS</c>.</para></li><li><para>For Amazon Web Services RTB Fabric, the valid value is <c>APPLICATION_LOGS</c>.</para></li><li><para>For Amazon S3, the valid value is <c>S3_SERVER_ACCESS_LOGS</c>.</para></li><li><para>For Amazon Web Services Security Hub, the valid value is <c>SECURITY_FINDING_LOGS</c>.</para></li><li><para>For Amazon Web Services Security Hub CSPM, the valid value is <c>SECURITY_FINDING_LOGS</c>.</para></li><li><para>For Amazon SES mail manager, the valid values are <c>APPLICATION_LOGS</c> and <c>TRAFFIC_POLICY_DEBUG_LOGS</c>.</para></li><li><para>For Amazon Web Services Shield Advanced, the valid value is <c>FLOW_LOGS</c>.</para></li><li><para>For Amazon VPC Route Server, the valid value is <c>EVENT_LOGS</c>.</para></li><li><para>For Amazon WorkMail, the valid values are <c>ACCESS_CONTROL_LOGS</c>, <c>AUTHENTICATION_LOGS</c>,
+        /// and <c>KB_FILE_SYNC_LOGS</c>.</para></li><li><para>For Route 53 Global Resolver, the valid value is <c>GLOBAL_RESOLVER_LOGS</c>.</para></li><li><para>For Amazon Web Services RTB Fabric, the valid value is <c>APPLICATION_LOGS</c>.</para></li><li><para>For Amazon S3, the valid value is <c>S3_SERVER_ACCESS_LOGS</c>.</para></li><li><para>For Amazon Web Services Security Hub, the valid value is <c>SECURITY_FINDING_LOGS</c>.</para></li><li><para>For Amazon Web Services Security Hub CSPM, the valid value is <c>SECURITY_FINDING_LOGS</c>.</para></li><li><para>For Amazon SES mail manager, the valid values are <c>APPLICATION_LOGS</c> and <c>TRAFFIC_POLICY_DEBUG_LOGS</c>.</para></li><li><para>For Amazon Web Services Shield Advanced, the valid value is <c>FLOW_LOGS</c>.</para></li><li><para>For Amazon VPC Route Server, the valid value is <c>EVENT_LOGS</c>.</para></li><li><para>For Amazon WorkMail, the valid values are <c>ACCESS_CONTROL_LOGS</c>, <c>AUTHENTICATION_LOGS</c>,
         /// <c>WORKMAIL_AVAILABILITY_PROVIDER_LOGS</c>, <c>WORKMAIL_MAILBOX_ACCESS_LOGS</c>, and
         /// <c>WORKMAIL_PERSONAL_ACCESS_TOKEN_LOGS</c>.</para></li></ul>
         /// </para>
@@ -175,9 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>An optional list of key-value pairs to associate with the resource.</para><para>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// Amazon Web Services resources</a></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

@@ -120,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String ExecutionRole { get; set; }
         #endregion
         
+        #region Parameter ImageScanningConfiguration_ScanResultCondition_FixAvailable
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether only findings that have a fix available count toward <c>maximumSeverityLabel</c>.
+        /// When <c>false</c>, Image Builder counts every finding. The default is <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ImageScanningConfiguration_ScanResultCondition_FixAvailable { get; set; }
+        #endregion
+        
         #region Parameter ImageRecipeArn
         /// <summary>
         /// <para>
@@ -136,15 +147,40 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon Inspector scans for vulnerabilities when you create a new
-        /// image, and whether Image Builder saves the findings. Amazon Inspector must be enabled
-        /// in the account. Image tests must also be enabled. For AMI output, Amazon Inspector
-        /// scans the test instance. For container output, Amazon Inspector scans the container
-        /// image that Image Builder pushes to the Amazon ECR repository from your <c>ecrConfiguration</c>
-        /// settings.</para>
+        /// image. You must also enable image tests. For AMI output, <c>imageScanningTypes</c>
+        /// sets whether Amazon Inspector scans the test instance or the output AMI. For container
+        /// output, Amazon Inspector scans the container image that Image Builder pushes to the
+        /// Amazon ECR repository from your <c>ecrConfiguration</c> settings.</para><para>To use container image scans, you must activate Amazon Inspector for Amazon ECR scanning
+        /// in your account. The Image Builder <c>ListImageScanFindings</c> operation returns
+        /// the findings of these scans.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ImageScanningConfiguration_ImageScanningEnabled { get; set; }
+        #endregion
+        
+        #region Parameter ImageScanningConfiguration_ImageScanningType
+        /// <summary>
+        /// <para>
+        /// <para>The type of vulnerability scan that Image Builder runs for AMI output when <c>imageScanningEnabled</c>
+        /// is <c>true</c>. Specify a single value. If you omit <c>imageScanningTypes</c>, Image
+        /// Builder uses <c>TEST_INSTANCE_CVE</c>. The scan types work as follows:</para><ul><li><para>With <c>TEST_INSTANCE_CVE</c>, Amazon Inspector scans the test instance during image
+        /// tests. To use this scan, you must activate Amazon Inspector for Amazon EC2 scanning
+        /// in your account. The Image Builder <c>ListImageScanFindings</c> operation returns
+        /// the findings.</para></li><li><para>With <c>ON_DEMAND_AMI_CVE</c>, Amazon Inspector starts an on-demand scan of the output
+        /// AMI during image tests. To use this scan, you must build from an image recipe, but
+        /// you do not need to activate Amazon Inspector in your account. The Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageFindings.html">GetImageFindings</a>
+        /// operation returns the findings.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImageScanningConfiguration_ImageScanningTypes")]
+        public System.String[] ImageScanningConfiguration_ImageScanningType { get; set; }
         #endregion
         
         #region Parameter ImageTestsConfiguration_ImageTestsEnabled
@@ -185,6 +221,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LoggingConfiguration_LogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel
+        /// <summary>
+        /// <para>
+        /// <para>The maximum severity allowed for findings on the output AMI. A finding above this
+        /// severity fails the image, unless <c>fixAvailable</c> excludes it. Valid values are
+        /// <c>INFORMATIONAL</c>, <c>LOW</c>, <c>MEDIUM</c>, and <c>HIGH</c>. A <c>CRITICAL</c>
+        /// finding that counts always fails the image.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Imagebuilder.MaximumSeverityLabel")]
+        public Amazon.Imagebuilder.MaximumSeverityLabel ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel { get; set; }
         #endregion
         
         #region Parameter EcrConfiguration_RepositoryName
@@ -320,6 +370,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             context.EcrConfiguration_RepositoryName = this.EcrConfiguration_RepositoryName;
             context.ImageScanningConfiguration_ImageScanningEnabled = this.ImageScanningConfiguration_ImageScanningEnabled;
+            if (this.ImageScanningConfiguration_ImageScanningType != null)
+            {
+                context.ImageScanningConfiguration_ImageScanningType = new List<System.String>(this.ImageScanningConfiguration_ImageScanningType);
+            }
+            context.ImageScanningConfiguration_ScanResultCondition_FixAvailable = this.ImageScanningConfiguration_ScanResultCondition_FixAvailable;
+            context.ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel = this.ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel;
             context.ImageTestsConfiguration_ImageTestsEnabled = this.ImageTestsConfiguration_ImageTestsEnabled;
             context.ImageTestsConfiguration_TimeoutMinute = this.ImageTestsConfiguration_TimeoutMinute;
             context.InfrastructureConfigurationArn = this.InfrastructureConfigurationArn;
@@ -396,6 +452,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 request.ImageScanningConfiguration.ImageScanningEnabled = requestImageScanningConfiguration_imageScanningConfiguration_ImageScanningEnabled.Value;
                 requestImageScanningConfigurationIsNull = false;
             }
+            List<System.String> requestImageScanningConfiguration_imageScanningConfiguration_ImageScanningType = null;
+            if (cmdletContext.ImageScanningConfiguration_ImageScanningType != null)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_ImageScanningType = cmdletContext.ImageScanningConfiguration_ImageScanningType;
+            }
+            if (requestImageScanningConfiguration_imageScanningConfiguration_ImageScanningType != null)
+            {
+                request.ImageScanningConfiguration.ImageScanningTypes = requestImageScanningConfiguration_imageScanningConfiguration_ImageScanningType;
+                requestImageScanningConfigurationIsNull = false;
+            }
             Amazon.Imagebuilder.Model.EcrConfiguration requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration = null;
             
              // populate EcrConfiguration
@@ -429,6 +495,41 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration != null)
             {
                 request.ImageScanningConfiguration.EcrConfiguration = requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration;
+                requestImageScanningConfigurationIsNull = false;
+            }
+            Amazon.Imagebuilder.Model.ScanResultCondition requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition = null;
+            
+             // populate ScanResultCondition
+            var requestImageScanningConfiguration_imageScanningConfiguration_ScanResultConditionIsNull = true;
+            requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition = new Amazon.Imagebuilder.Model.ScanResultCondition();
+            System.Boolean? requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition_imageScanningConfiguration_ScanResultCondition_FixAvailable = null;
+            if (cmdletContext.ImageScanningConfiguration_ScanResultCondition_FixAvailable != null)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition_imageScanningConfiguration_ScanResultCondition_FixAvailable = cmdletContext.ImageScanningConfiguration_ScanResultCondition_FixAvailable.Value;
+            }
+            if (requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition_imageScanningConfiguration_ScanResultCondition_FixAvailable != null)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition.FixAvailable = requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition_imageScanningConfiguration_ScanResultCondition_FixAvailable.Value;
+                requestImageScanningConfiguration_imageScanningConfiguration_ScanResultConditionIsNull = false;
+            }
+            Amazon.Imagebuilder.MaximumSeverityLabel requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition_imageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel = null;
+            if (cmdletContext.ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel != null)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition_imageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel = cmdletContext.ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel;
+            }
+            if (requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition_imageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel != null)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition.MaximumSeverityLabel = requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition_imageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel;
+                requestImageScanningConfiguration_imageScanningConfiguration_ScanResultConditionIsNull = false;
+            }
+             // determine if requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition should be set to null
+            if (requestImageScanningConfiguration_imageScanningConfiguration_ScanResultConditionIsNull)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition = null;
+            }
+            if (requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition != null)
+            {
+                request.ImageScanningConfiguration.ScanResultCondition = requestImageScanningConfiguration_imageScanningConfiguration_ScanResultCondition;
                 requestImageScanningConfigurationIsNull = false;
             }
              // determine if request.ImageScanningConfiguration should be set to null
@@ -560,6 +661,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public List<System.String> EcrConfiguration_ContainerTag { get; set; }
             public System.String EcrConfiguration_RepositoryName { get; set; }
             public System.Boolean? ImageScanningConfiguration_ImageScanningEnabled { get; set; }
+            public List<System.String> ImageScanningConfiguration_ImageScanningType { get; set; }
+            public System.Boolean? ImageScanningConfiguration_ScanResultCondition_FixAvailable { get; set; }
+            public Amazon.Imagebuilder.MaximumSeverityLabel ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel { get; set; }
             public System.Boolean? ImageTestsConfiguration_ImageTestsEnabled { get; set; }
             public System.Int32? ImageTestsConfiguration_TimeoutMinute { get; set; }
             public System.String InfrastructureConfigurationArn { get; set; }

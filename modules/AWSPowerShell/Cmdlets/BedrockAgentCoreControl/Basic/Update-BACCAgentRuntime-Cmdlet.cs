@@ -116,6 +116,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String[] CustomJWTAuthorizer_AllowedClient { get; set; }
         #endregion
         
+        #region Parameter AllowedPort
+        /// <summary>
+        /// <para>
+        /// <para>The updated additional ports on the AgentCore Runtime that are reachable through the
+        /// runtime's session URL. Specify one to five non-overlapping entries, each containing
+        /// either a single port or an inclusive port range. Ports must be between <c>8000</c>
+        /// and <c>12000</c>, excluding the reserved port <c>8443</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedPorts")]
+        public Amazon.BedrockAgentCoreControl.Model.AllowedPort[] AllowedPort { get; set; }
+        #endregion
+        
         #region Parameter CustomJWTAuthorizer_AllowedScope
         /// <summary>
         /// <para>
@@ -313,6 +332,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
         #endregion
         
+        #region Parameter ProtocolConfiguration_Path
+        /// <summary>
+        /// <para>
+        /// <para>The path on which the agent server accepts requests. The path must begin with <c>/</c>.
+        /// When this field is omitted, the default is <c>/invocations</c> for <c>HTTP</c> and
+        /// <c>AGUI</c>, <c>/mcp</c> for <c>MCP</c>, and <c>/</c> for <c>A2A</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProtocolConfiguration_Path { get; set; }
+        #endregion
+        
         #region Parameter PlatformVersion
         /// <summary>
         /// <para>
@@ -321,6 +352,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PlatformVersion { get; set; }
+        #endregion
+        
+        #region Parameter ProtocolConfiguration_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port on which the agent server listens. The port must be between <c>8000</c> and
+        /// <c>12000</c>, excluding the reserved port <c>8443</c>. When this field is omitted,
+        /// the default is <c>8080</c> for <c>HTTP</c> and <c>AGUI</c>, <c>8000</c> for <c>MCP</c>,
+        /// and <c>9000</c> for <c>A2A</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ProtocolConfiguration_Port { get; set; }
         #endregion
         
         #region Parameter S3_Prefix
@@ -660,6 +704,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter AgentRuntimeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.AllowedPort != null)
+            {
+                context.AllowedPort = new List<Amazon.BedrockAgentCoreControl.Model.AllowedPort>(this.AllowedPort);
+            }
             if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping != null)
             {
                 context.AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -746,6 +794,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.NetworkModeConfig_Subnet = new List<System.String>(this.NetworkModeConfig_Subnet);
             }
             context.PlatformVersion = this.PlatformVersion;
+            context.ProtocolConfiguration_Path = this.ProtocolConfiguration_Path;
+            context.ProtocolConfiguration_Port = this.ProtocolConfiguration_Port;
             context.ProtocolConfiguration_ServerProtocol = this.ProtocolConfiguration_ServerProtocol;
             if (this.RequestHeaderConfiguration_RequestHeaderAllowlist != null)
             {
@@ -906,6 +956,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.AgentRuntimeId != null)
             {
                 request.AgentRuntimeId = cmdletContext.AgentRuntimeId;
+            }
+            if (cmdletContext.AllowedPort != null)
+            {
+                request.AllowedPorts = cmdletContext.AllowedPort;
             }
             
              // populate AuthorizerConfiguration
@@ -1306,6 +1360,26 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate ProtocolConfiguration
             var requestProtocolConfigurationIsNull = true;
             request.ProtocolConfiguration = new Amazon.BedrockAgentCoreControl.Model.ProtocolConfiguration();
+            System.String requestProtocolConfiguration_protocolConfiguration_Path = null;
+            if (cmdletContext.ProtocolConfiguration_Path != null)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Path = cmdletContext.ProtocolConfiguration_Path;
+            }
+            if (requestProtocolConfiguration_protocolConfiguration_Path != null)
+            {
+                request.ProtocolConfiguration.Path = requestProtocolConfiguration_protocolConfiguration_Path;
+                requestProtocolConfigurationIsNull = false;
+            }
+            System.Int32? requestProtocolConfiguration_protocolConfiguration_Port = null;
+            if (cmdletContext.ProtocolConfiguration_Port != null)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Port = cmdletContext.ProtocolConfiguration_Port.Value;
+            }
+            if (requestProtocolConfiguration_protocolConfiguration_Port != null)
+            {
+                request.ProtocolConfiguration.Port = requestProtocolConfiguration_protocolConfiguration_Port.Value;
+                requestProtocolConfigurationIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.ServerProtocol requestProtocolConfiguration_protocolConfiguration_ServerProtocol = null;
             if (cmdletContext.ProtocolConfiguration_ServerProtocol != null)
             {
@@ -1406,6 +1480,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public Amazon.BedrockAgentCoreControl.AgentManagedRuntimeType CodeConfiguration_Runtime { get; set; }
             public System.String ContainerConfiguration_ContainerUri { get; set; }
             public System.String AgentRuntimeId { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.AllowedPort> AllowedPort { get; set; }
             public Dictionary<System.String, System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping { get; set; }
             public List<System.String> CustomJWTAuthorizer_AllowedAudience { get; set; }
             public List<System.String> CustomJWTAuthorizer_AllowedClient { get; set; }
@@ -1435,6 +1510,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<System.String> NetworkModeConfig_SecurityGroup { get; set; }
             public List<System.String> NetworkModeConfig_Subnet { get; set; }
             public System.String PlatformVersion { get; set; }
+            public System.String ProtocolConfiguration_Path { get; set; }
+            public System.Int32? ProtocolConfiguration_Port { get; set; }
             public Amazon.BedrockAgentCoreControl.ServerProtocol ProtocolConfiguration_ServerProtocol { get; set; }
             public List<System.String> RequestHeaderConfiguration_RequestHeaderAllowlist { get; set; }
             public System.String RoleArn { get; set; }

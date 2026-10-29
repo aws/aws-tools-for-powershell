@@ -206,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.Select = CreateSelectDelegate<Amazon.KeyManagementService.Model.ListGrantsResponse, GetKMSGrantListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.GrantId = this.GrantId;
             context.GranteePrincipal = this.GranteePrincipal;
             context.GranteeServicePrincipal = this.GranteeServicePrincipal;
-            context.GrantId = this.GrantId;
             context.KeyId = this.KeyId;
             #if MODULAR
             if (this.KeyId == null && ParameterWasBound(nameof(this.KeyId)))
@@ -246,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // create request and set iteration invariants
             var request = new Amazon.KeyManagementService.Model.ListGrantsRequest();
             
+            if (cmdletContext.GrantId != null)
+            {
+                request.GrantId = cmdletContext.GrantId;
+            }
             if (cmdletContext.GranteePrincipal != null)
             {
                 request.GranteePrincipal = cmdletContext.GranteePrincipal;
@@ -253,10 +257,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.GranteeServicePrincipal != null)
             {
                 request.GranteeServicePrincipal = cmdletContext.GranteeServicePrincipal;
-            }
-            if (cmdletContext.GrantId != null)
-            {
-                request.GrantId = cmdletContext.GrantId;
             }
             if (cmdletContext.KeyId != null)
             {
@@ -321,6 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             
             // create request and set iteration invariants
             var request = new Amazon.KeyManagementService.Model.ListGrantsRequest();
+            if (cmdletContext.GrantId != null)
+            {
+                request.GrantId = cmdletContext.GrantId;
+            }
             if (cmdletContext.GranteePrincipal != null)
             {
                 request.GranteePrincipal = cmdletContext.GranteePrincipal;
@@ -328,10 +332,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.GranteeServicePrincipal != null)
             {
                 request.GranteeServicePrincipal = cmdletContext.GranteeServicePrincipal;
-            }
-            if (cmdletContext.GrantId != null)
-            {
-                request.GrantId = cmdletContext.GrantId;
             }
             if (cmdletContext.KeyId != null)
             {
@@ -450,9 +450,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String GrantId { get; set; }
             public System.String GranteePrincipal { get; set; }
             public System.String GranteeServicePrincipal { get; set; }
-            public System.String GrantId { get; set; }
             public System.String KeyId { get; set; }
             public int? Limit { get; set; }
             public System.String Marker { get; set; }

@@ -373,6 +373,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
             }
             #endif
             context.DataSourceName = this.DataSourceName;
+            context.DataSpec_DataRearrangement = this.DataSpec_DataRearrangement;
+            context.DataSpec_DataSchema = this.DataSpec_DataSchema;
+            context.DataSpec_DataSchemaUri = this.DataSpec_DataSchemaUri;
             context.DatabaseCredentials_Password = this.DatabaseCredentials_Password;
             #if MODULAR
             if (this.DatabaseCredentials_Password == null && ParameterWasBound(nameof(this.DatabaseCredentials_Password)))
@@ -401,9 +404,6 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 WriteWarning("You are passing $null as a value for parameter DatabaseInformation_DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DataSpec_DataRearrangement = this.DataSpec_DataRearrangement;
-            context.DataSpec_DataSchema = this.DataSpec_DataSchema;
-            context.DataSpec_DataSchemaUri = this.DataSpec_DataSchemaUri;
             context.DataSpec_S3StagingLocation = this.DataSpec_S3StagingLocation;
             #if MODULAR
             if (this.DataSpec_S3StagingLocation == null && ParameterWasBound(nameof(this.DataSpec_S3StagingLocation)))
@@ -644,13 +644,13 @@ namespace Amazon.PowerShell.Cmdlets.ML
             public System.Boolean? ComputeStatistic { get; set; }
             public System.String DataSourceId { get; set; }
             public System.String DataSourceName { get; set; }
+            public System.String DataSpec_DataRearrangement { get; set; }
+            public System.String DataSpec_DataSchema { get; set; }
+            public System.String DataSpec_DataSchemaUri { get; set; }
             public System.String DatabaseCredentials_Password { get; set; }
             public System.String DatabaseCredentials_Username { get; set; }
             public System.String DatabaseInformation_ClusterIdentifier { get; set; }
             public System.String DatabaseInformation_DatabaseName { get; set; }
-            public System.String DataSpec_DataRearrangement { get; set; }
-            public System.String DataSpec_DataSchema { get; set; }
-            public System.String DataSpec_DataSchemaUri { get; set; }
             public System.String DataSpec_S3StagingLocation { get; set; }
             public System.String DataSpec_SelectSqlQuery { get; set; }
             public System.String RoleARN { get; set; }

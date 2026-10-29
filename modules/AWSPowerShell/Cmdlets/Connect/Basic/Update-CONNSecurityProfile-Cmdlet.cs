@@ -69,9 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The list of tags that a security profile uses to restrict access to resources in Connect
         /// Customer.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -84,9 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A list of AI agents that the security profile will give access to.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -99,9 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para> A list of Flow Modules an AI Agent can invoke as a tool </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -114,9 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A list of the third-party application's metadata.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -140,9 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The list of resources that a security profile applies hierarchy restrictions to in
         /// Connect Customer. Following are acceptable ResourceNames: <c>User</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -175,9 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The permissions granted to a security profile. For a list of valid permissions, see
         /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
         /// of security profile permissions</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -190,9 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The item's primary attribute values.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -223,9 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The list of resources that a security profile applies tag restrictions to in Connect
         /// Customer.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -279,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateSecurityProfileResponse, UpdateCONNSecurityProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AllowedAIAgent != null)
+            {
+                context.AllowedAIAgent = new List<Amazon.Connect.Model.AIAgent>(this.AllowedAIAgent);
+            }
             context.AllowedAccessControlHierarchyGroupId = this.AllowedAccessControlHierarchyGroupId;
             if (this.AllowedAccessControlTag != null)
             {
@@ -287,10 +299,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 {
                     context.AllowedAccessControlTag.Add((String)hashKey, (System.String)(this.AllowedAccessControlTag[hashKey]));
                 }
-            }
-            if (this.AllowedAIAgent != null)
-            {
-                context.AllowedAIAgent = new List<Amazon.Connect.Model.AIAgent>(this.AllowedAIAgent);
             }
             if (this.AllowedFlowModule != null)
             {
@@ -347,6 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.UpdateSecurityProfileRequest();
             
+            if (cmdletContext.AllowedAIAgent != null)
+            {
+                request.AllowedAIAgents = cmdletContext.AllowedAIAgent;
+            }
             if (cmdletContext.AllowedAccessControlHierarchyGroupId != null)
             {
                 request.AllowedAccessControlHierarchyGroupId = cmdletContext.AllowedAccessControlHierarchyGroupId;
@@ -354,10 +366,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.AllowedAccessControlTag != null)
             {
                 request.AllowedAccessControlTags = cmdletContext.AllowedAccessControlTag;
-            }
-            if (cmdletContext.AllowedAIAgent != null)
-            {
-                request.AllowedAIAgents = cmdletContext.AllowedAIAgent;
             }
             if (cmdletContext.AllowedFlowModule != null)
             {
@@ -495,9 +503,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Connect.Model.AIAgent> AllowedAIAgent { get; set; }
             public System.String AllowedAccessControlHierarchyGroupId { get; set; }
             public Dictionary<System.String, System.String> AllowedAccessControlTag { get; set; }
-            public List<Amazon.Connect.Model.AIAgent> AllowedAIAgent { get; set; }
             public List<Amazon.Connect.Model.FlowModule> AllowedFlowModule { get; set; }
             public List<Amazon.Connect.Model.Application> Application { get; set; }
             public System.String Description { get; set; }

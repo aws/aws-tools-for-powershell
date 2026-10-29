@@ -70,9 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The type of quick connect. In the Connect Customer admin website, when you create
         /// a quick connect, you are prompted to assign one of the following types: Agent (USER),
         /// External (PHONE_NUMBER), or Queue (QUEUE).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

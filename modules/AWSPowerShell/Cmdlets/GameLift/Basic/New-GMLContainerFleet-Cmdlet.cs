@@ -207,9 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// you must use port numbers that match the fleet's connection port range.</para><note><para>If you set values manually, Amazon GameLift Servers no longer calculates a port range
         /// for you, even if you later remove the manual settings. </para></note><para>The port range must not overlap with the Amazon GameLift Servers reserved port range
         /// <c>4092-4191</c>. This range is reserved for internal Amazon GameLift Servers services.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -246,9 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// Services Region where the fleet is created. For a list of supported Regions and Local
         /// Zones, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
         /// Amazon GameLift Servers service locations</a> for managed hosting.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -289,9 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// can use a metric group to aggregate metrics for multiple fleets. You can specify an
         /// existing metric group name or use a new name to create a new metric group. Each fleet
         /// can have only one metric group, but you can change this value at any time. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -399,9 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// pairs. Tagging Amazon Web Services resources is useful for resource management, access
         /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
         /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

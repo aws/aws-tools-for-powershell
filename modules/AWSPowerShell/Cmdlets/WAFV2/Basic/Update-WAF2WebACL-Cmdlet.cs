@@ -143,6 +143,37 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public Amazon.WAFV2.Model.BlockAction DefaultAction_Block { get; set; }
         #endregion
         
+        #region Parameter AssociationConfig_ChallengeJavascriptSdkInjection
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the CloudFront distributions that insert the WAF challenge JavaScript SDK
+        /// into the HTML responses that they return. When you enable this setting for a distribution,
+        /// you do not add the SDK to your web pages yourself. </para><para>You can configure this setting only for CloudFront distributions, using the <c>CLOUDFRONT</c>
+        /// map key. WAF rejects any other resource type, and the setting is not available for
+        /// regional resources. To configure it, use the CloudFront scope. </para><para>Your web ACL must also contain at least one of the following qualifying managed rule
+        /// groups. WAF Bot Control qualifies only at the <c>TARGETED</c> inspection level, not
+        /// at <c>COMMON</c>: </para><ul><li><para>The WAF Bot Control managed rule group <c>AWSManagedRulesBotControlRuleSet</c>, with
+        /// the inspection level set to <c>TARGETED</c>. </para></li><li><para>The WAF Fraud Control account takeover prevention (ATP) managed rule group <c>AWSManagedRulesATPRuleSet</c>.
+        /// </para></li><li><para>The WAF Fraud Control account creation fraud prevention (ACFP) managed rule group
+        /// <c>AWSManagedRulesACFPRuleSet</c>. </para></li></ul><para>If you remove the last qualifying managed rule group from the web ACL, or lower the
+        /// WAF Bot Control inspection level from <c>TARGETED</c> to <c>COMMON</c>, you must remove
+        /// this setting in the same update. Otherwise, WAF rejects the update. </para><para>Example JSON: <c> { "CLOUDFRONT": {} }</c></para><para>If you omit this setting, CloudFront does not insert the SDK. When you omit it from
+        /// a web ACL that previously used it, cached HTML that already contains the SDK is still
+        /// served until it expires, or until you invalidate the cache for that distribution.
+        /// For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-challenge-javascript-sdk-injection.html">Automatic
+        /// SDK integration for CloudFront distributions</a> in the <i>WAF Developer Guide</i>.
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable AssociationConfig_ChallengeJavascriptSdkInjection { get; set; }
+        #endregion
+        
         #region Parameter VisibilityConfig_CloudWatchMetricsEnabled
         /// <summary>
         /// <para>
@@ -500,6 +531,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             {
                 context.ApplicationConfig_Attribute = new List<Amazon.WAFV2.Model.ApplicationAttribute>(this.ApplicationConfig_Attribute);
             }
+            if (this.AssociationConfig_ChallengeJavascriptSdkInjection != null)
+            {
+                context.AssociationConfig_ChallengeJavascriptSdkInjection = new Dictionary<System.String, Amazon.WAFV2.Model.ChallengeJavascriptSdkInjectionConfig>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AssociationConfig_ChallengeJavascriptSdkInjection.Keys)
+                {
+                    context.AssociationConfig_ChallengeJavascriptSdkInjection.Add((String)hashKey, (Amazon.WAFV2.Model.ChallengeJavascriptSdkInjectionConfig)(this.AssociationConfig_ChallengeJavascriptSdkInjection[hashKey]));
+                }
+            }
             if (this.AssociationConfig_RequestBody != null)
             {
                 context.AssociationConfig_RequestBody = new Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig>(StringComparer.Ordinal);
@@ -627,6 +666,16 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
              // populate AssociationConfig
             var requestAssociationConfigIsNull = true;
             request.AssociationConfig = new Amazon.WAFV2.Model.AssociationConfig();
+            Dictionary<System.String, Amazon.WAFV2.Model.ChallengeJavascriptSdkInjectionConfig> requestAssociationConfig_associationConfig_ChallengeJavascriptSdkInjection = null;
+            if (cmdletContext.AssociationConfig_ChallengeJavascriptSdkInjection != null)
+            {
+                requestAssociationConfig_associationConfig_ChallengeJavascriptSdkInjection = cmdletContext.AssociationConfig_ChallengeJavascriptSdkInjection;
+            }
+            if (requestAssociationConfig_associationConfig_ChallengeJavascriptSdkInjection != null)
+            {
+                request.AssociationConfig.ChallengeJavascriptSdkInjection = requestAssociationConfig_associationConfig_ChallengeJavascriptSdkInjection;
+                requestAssociationConfigIsNull = false;
+            }
             Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig> requestAssociationConfig_associationConfig_RequestBody = null;
             if (cmdletContext.AssociationConfig_RequestBody != null)
             {
@@ -948,6 +997,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.WAFV2.Model.ApplicationAttribute> ApplicationConfig_Attribute { get; set; }
+            public Dictionary<System.String, Amazon.WAFV2.Model.ChallengeJavascriptSdkInjectionConfig> AssociationConfig_ChallengeJavascriptSdkInjection { get; set; }
             public Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig> AssociationConfig_RequestBody { get; set; }
             public System.Int64? CaptchaConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
             public System.Int64? ChallengeConfig_ImmunityTimeProperty_ImmunityTime { get; set; }

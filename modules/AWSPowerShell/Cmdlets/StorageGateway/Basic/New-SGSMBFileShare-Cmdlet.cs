@@ -78,9 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// Acceptable formats include: <c>DOMAIN\User1</c>, <c>user1</c>, <c>@group1</c>, and
         /// <c>@DOMAIN\group1</c>.</para><important><para>Use this option very carefully, because any user in this list can do anything they
         /// like on the file share, regardless of file permissions.</para></important><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -224,9 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// file share. A group must be prefixed with the @ character. Acceptable formats include:
         /// <c>DOMAIN\User1</c>, <c>user1</c>, <c>@group1</c>, and <c>@DOMAIN\group1</c>. Can
         /// only be set if Authentication is set to <c>ActiveDirectory</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -376,9 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
         /// length of a tag's key is 128 characters, and the maximum length for a tag's value
         /// is 256.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -391,12 +394,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A list of users or groups in the Active Directory that are allowed to access the file
-        /// <a href="" /> share. A group must be prefixed with the @ character. Acceptable formats
+        /// <a href=""></a> share. A group must be prefixed with the @ character. Acceptable formats
         /// include: <c>DOMAIN\User1</c>, <c>user1</c>, <c>@group1</c>, and <c>@DOMAIN\group1</c>.
         /// Can only be set if Authentication is set to <c>ActiveDirectory</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -557,11 +561,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 context.Tag = new List<Amazon.StorageGateway.Model.Tag>(this.Tag);
             }
+            context.VPCEndpointDNSName = this.VPCEndpointDNSName;
             if (this.ValidUserList != null)
             {
                 context.ValidUserList = new List<System.String>(this.ValidUserList);
             }
-            context.VPCEndpointDNSName = this.VPCEndpointDNSName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -693,13 +697,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.Tags = cmdletContext.Tag;
             }
-            if (cmdletContext.ValidUserList != null)
-            {
-                request.ValidUserList = cmdletContext.ValidUserList;
-            }
             if (cmdletContext.VPCEndpointDNSName != null)
             {
                 request.VPCEndpointDNSName = cmdletContext.VPCEndpointDNSName;
+            }
+            if (cmdletContext.ValidUserList != null)
+            {
+                request.ValidUserList = cmdletContext.ValidUserList;
             }
             
             CmdletOutput output;
@@ -782,8 +786,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String Role { get; set; }
             public System.Boolean? SMBACLEnabled { get; set; }
             public List<Amazon.StorageGateway.Model.Tag> Tag { get; set; }
-            public List<System.String> ValidUserList { get; set; }
             public System.String VPCEndpointDNSName { get; set; }
+            public List<System.String> ValidUserList { get; set; }
             public System.Func<Amazon.StorageGateway.Model.CreateSMBFileShareResponse, NewSGSMBFileShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.FileShareARN;
         }

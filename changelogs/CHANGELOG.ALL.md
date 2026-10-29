@@ -1,4 +1,25 @@
-﻿### 5.0.325 (2026-10-28 19:02Z)
+﻿### 5.0.326 (2026-10-29 18:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.361.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCAgentRuntime: added parameters AllowedPort, ProtocolConfiguration_Path and ProtocolConfiguration_Port.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameters AllowedPort, ProtocolConfiguration_Path and ProtocolConfiguration_Port.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSMembership: added parameter DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat.
+    * Modified cmdlet Update-CRSMembership: added parameter DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat.
+  * Amazon EC2 Image Builder
+    * Modified cmdlet New-EC2IBImage: added parameters ImageScanningConfiguration_ImageScanningType, ImageScanningConfiguration_ScanResultCondition_FixAvailable and ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel.
+    * Modified cmdlet New-EC2IBImagePipeline: added parameters ImageScanningConfiguration_ImageScanningType, ImageScanningConfiguration_ScanResultCondition_FixAvailable and ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel.
+    * Modified cmdlet Update-EC2IBImagePipeline: added parameters ImageScanningConfiguration_ImageScanningType, ImageScanningConfiguration_ScanResultCondition_FixAvailable and ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Write-EMRBlockPublicAccessConfiguration: added parameters BlockPublicAccessConfiguration_Classification, BlockPublicAccessConfiguration_Configuration and BlockPublicAccessConfiguration_Property.
+  * Amazon Lightsail
+    * Modified cmdlet Get-LSInstance: added parameter IncludeHealthStatus.
+    * Modified cmdlet Get-LSInstanceList: added parameter IncludeHealthStatus.
+  * Amazon WAF V2
+    * Modified cmdlet New-WAF2WebACL: added parameter AssociationConfig_ChallengeJavascriptSdkInjection.
+    * Modified cmdlet Update-WAF2WebACL: added parameter AssociationConfig_ChallengeJavascriptSdkInjection.
+
+### 5.0.325 (2026-10-28 19:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.360.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Participant Service
     * Modified cmdlet Get-CONNPAttachment: added parameter UrlContentDisposition.

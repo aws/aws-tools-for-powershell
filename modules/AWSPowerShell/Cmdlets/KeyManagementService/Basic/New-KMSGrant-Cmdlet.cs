@@ -110,9 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic
         /// operation</a> request. The grant allows the operation only when the encryption context
         /// in the request is the same as the encryption context specified in this constraint.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -128,9 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// operation</a> request. The grant allows the cryptographic operation only when the
         /// encryption context in the request includes the key-value pairs specified in this constraint,
         /// although it can include additional key-value pairs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -174,9 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant
         /// token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using
         /// a grant token</a> in the <i>Key Management Service Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -231,9 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// KMS key that allows the <a>GenerateDataKey</a> operation. If you try, KMS returns
         /// a <c>ValidationError</c> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
         /// operations</a> in the <i>Key Management Service Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -358,12 +362,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             context.Constraints_SourceArn = this.Constraints_SourceArn;
             context.DryRun = this.DryRun;
-            context.GranteePrincipal = this.GranteePrincipal;
-            context.GranteeServicePrincipal = this.GranteeServicePrincipal;
             if (this.GrantToken != null)
             {
                 context.GrantToken = new List<System.String>(this.GrantToken);
             }
+            context.GranteePrincipal = this.GranteePrincipal;
+            context.GranteeServicePrincipal = this.GranteeServicePrincipal;
             context.KeyId = this.KeyId;
             #if MODULAR
             if (this.KeyId == null && ParameterWasBound(nameof(this.KeyId)))
@@ -443,6 +447,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             {
                 request.DryRun = cmdletContext.DryRun.Value;
             }
+            if (cmdletContext.GrantToken != null)
+            {
+                request.GrantTokens = cmdletContext.GrantToken;
+            }
             if (cmdletContext.GranteePrincipal != null)
             {
                 request.GranteePrincipal = cmdletContext.GranteePrincipal;
@@ -450,10 +458,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.GranteeServicePrincipal != null)
             {
                 request.GranteeServicePrincipal = cmdletContext.GranteeServicePrincipal;
-            }
-            if (cmdletContext.GrantToken != null)
-            {
-                request.GrantTokens = cmdletContext.GrantToken;
             }
             if (cmdletContext.KeyId != null)
             {
@@ -534,9 +538,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public Dictionary<System.String, System.String> Constraints_EncryptionContextSubset { get; set; }
             public System.String Constraints_SourceArn { get; set; }
             public System.Boolean? DryRun { get; set; }
+            public List<System.String> GrantToken { get; set; }
             public System.String GranteePrincipal { get; set; }
             public System.String GranteeServicePrincipal { get; set; }
-            public List<System.String> GrantToken { get; set; }
             public System.String KeyId { get; set; }
             public System.String Name { get; set; }
             public List<System.String> Operation { get; set; }

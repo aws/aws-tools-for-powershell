@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </para><para><b>For the latest version of AWS WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
-    /// </para></note>
+    /// </para></note><para></para>
     /// </summary>
     [Cmdlet("Remove", "WAFRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -72,9 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

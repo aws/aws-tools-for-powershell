@@ -222,6 +222,18 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public Amazon.CleanRooms.MembershipQueryLogStatus QueryLogStatus { get; set; }
         #endregion
         
+        #region Parameter DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat
+        /// <summary>
+        /// <para>
+        /// <para>The file format of the protected job results. If you don't specify a format, results
+        /// are written as CSV.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CleanRooms.ResultFormat")]
+        public Amazon.CleanRooms.ResultFormat DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat { get; set; }
+        #endregion
+        
         #region Parameter S3_ResultFormat
         /// <summary>
         /// <para>
@@ -342,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             #endif
             context.DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket = this.DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket;
             context.DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix = this.DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix;
+            context.DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat = this.DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat;
             context.DefaultJobResultConfiguration_RoleArn = this.DefaultJobResultConfiguration_RoleArn;
             context.S3_Bucket = this.S3_Bucket;
             context.S3_KeyPrefix = this.S3_KeyPrefix;
@@ -432,6 +445,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3_defaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix != null)
             {
                 requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3.KeyPrefix = requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3_defaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix;
+                requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3IsNull = false;
+            }
+            Amazon.CleanRooms.ResultFormat requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3_defaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat = null;
+            if (cmdletContext.DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat != null)
+            {
+                requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3_defaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat = cmdletContext.DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat;
+            }
+            if (requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3_defaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat != null)
+            {
+                requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3.ResultFormat = requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3_defaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat;
                 requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3IsNull = false;
             }
              // determine if requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3 should be set to null
@@ -771,6 +794,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String CollaborationIdentifier { get; set; }
             public System.String DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket { get; set; }
             public System.String DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix { get; set; }
+            public Amazon.CleanRooms.ResultFormat DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat { get; set; }
             public System.String DefaultJobResultConfiguration_RoleArn { get; set; }
             public System.String S3_Bucket { get; set; }
             public System.String S3_KeyPrefix { get; set; }

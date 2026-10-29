@@ -176,9 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// out from search results due to search index limitations.</para></li><li><para>If you use SearchGameSessions API, there is a limit of 500 game property keys across
         /// all game sessions and all fleets per region. If the limit is exceeded, there will
         /// potentially be game session entries missing from SearchGameSessions API results.</para></li></ul></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -213,9 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// configuration. A matchmaking configuration supports only one queue; if you specify
         /// more than one ARN, the request fails with an <c>InvalidRequestException</c>. If <c>FlexMatchMode</c>
         /// is set to <c>STANDALONE</c>, do not set this parameter. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -298,9 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// for resource management, access management and cost allocation. For more information,
         /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging
         /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

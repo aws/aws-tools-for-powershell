@@ -261,9 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>A list of predefined values that are allowed for this attribute. These values are
         /// always permitted regardless of the Strict setting.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -373,12 +374,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             context.Validation_ExclusiveMaximum = this.Validation_ExclusiveMaximum;
             context.Validation_ExclusiveMinimum = this.Validation_ExclusiveMinimum;
             context.Validation_IgnoreCase = this.Validation_IgnoreCase;
-            context.Validation_Maximum = this.Validation_Maximum;
             context.Validation_MaxLength = this.Validation_MaxLength;
             context.Validation_MaxValue = this.Validation_MaxValue;
-            context.Validation_Minimum = this.Validation_Minimum;
+            context.Validation_Maximum = this.Validation_Maximum;
             context.Validation_MinLength = this.Validation_MinLength;
             context.Validation_MinValue = this.Validation_MinValue;
+            context.Validation_Minimum = this.Validation_Minimum;
             context.Validation_MultipleOf = this.Validation_MultipleOf;
             context.ValueType = this.ValueType;
             #if MODULAR
@@ -457,16 +458,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.Validation.IgnoreCase = requestValidation_validation_IgnoreCase.Value;
                 requestValidationIsNull = false;
             }
-            System.Double? requestValidation_validation_Maximum = null;
-            if (cmdletContext.Validation_Maximum != null)
-            {
-                requestValidation_validation_Maximum = cmdletContext.Validation_Maximum.Value;
-            }
-            if (requestValidation_validation_Maximum != null)
-            {
-                request.Validation.Maximum = requestValidation_validation_Maximum.Value;
-                requestValidationIsNull = false;
-            }
             System.Int32? requestValidation_validation_MaxLength = null;
             if (cmdletContext.Validation_MaxLength != null)
             {
@@ -487,14 +478,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.Validation.MaxValues = requestValidation_validation_MaxValue.Value;
                 requestValidationIsNull = false;
             }
-            System.Double? requestValidation_validation_Minimum = null;
-            if (cmdletContext.Validation_Minimum != null)
+            System.Double? requestValidation_validation_Maximum = null;
+            if (cmdletContext.Validation_Maximum != null)
             {
-                requestValidation_validation_Minimum = cmdletContext.Validation_Minimum.Value;
+                requestValidation_validation_Maximum = cmdletContext.Validation_Maximum.Value;
             }
-            if (requestValidation_validation_Minimum != null)
+            if (requestValidation_validation_Maximum != null)
             {
-                request.Validation.Minimum = requestValidation_validation_Minimum.Value;
+                request.Validation.Maximum = requestValidation_validation_Maximum.Value;
                 requestValidationIsNull = false;
             }
             System.Int32? requestValidation_validation_MinLength = null;
@@ -515,6 +506,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestValidation_validation_MinValue != null)
             {
                 request.Validation.MinValues = requestValidation_validation_MinValue.Value;
+                requestValidationIsNull = false;
+            }
+            System.Double? requestValidation_validation_Minimum = null;
+            if (cmdletContext.Validation_Minimum != null)
+            {
+                requestValidation_validation_Minimum = cmdletContext.Validation_Minimum.Value;
+            }
+            if (requestValidation_validation_Minimum != null)
+            {
+                request.Validation.Minimum = requestValidation_validation_Minimum.Value;
                 requestValidationIsNull = false;
             }
             System.Double? requestValidation_validation_MultipleOf = null;
@@ -636,12 +637,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.Double? Validation_ExclusiveMaximum { get; set; }
             public System.Double? Validation_ExclusiveMinimum { get; set; }
             public System.Boolean? Validation_IgnoreCase { get; set; }
-            public System.Double? Validation_Maximum { get; set; }
             public System.Int32? Validation_MaxLength { get; set; }
             public System.Int32? Validation_MaxValue { get; set; }
-            public System.Double? Validation_Minimum { get; set; }
+            public System.Double? Validation_Maximum { get; set; }
             public System.Int32? Validation_MinLength { get; set; }
             public System.Int32? Validation_MinValue { get; set; }
+            public System.Double? Validation_Minimum { get; set; }
             public System.Double? Validation_MultipleOf { get; set; }
             public Amazon.Connect.DataTableAttributeValueType ValueType { get; set; }
             public System.Func<Amazon.Connect.Model.CreateDataTableAttributeResponse, NewCONNDataTableAttributeCmdlet, object> Select { get; set; } =

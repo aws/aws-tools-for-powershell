@@ -99,7 +99,7 @@ $CRS_Completers = {
         # Amazon.CleanRooms.AnalysisFormat
         "New-CRSAnalysisTemplate/Format"
         {
-            $v = "PYSPARK_1_0","SQL"
+            $v = "PYSPARK_1_0","PYSPARK_2_0","SQL"
             break
         }
 
@@ -334,6 +334,8 @@ $CRS_Completers = {
 
         # Amazon.CleanRooms.ResultFormat
         {
+            ($_ -eq "New-CRSMembership/DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat") -Or
+            ($_ -eq "Update-CRSMembership/DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat") -Or
             ($_ -eq "New-CRSMembership/S3_ResultFormat") -Or
             ($_ -eq "Start-CRSProtectedQuery/S3_ResultFormat") -Or
             ($_ -eq "Update-CRSMembership/S3_ResultFormat")
@@ -395,6 +397,7 @@ $CRS_map = @{
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
     "ComputeConfiguration_QueryComputeConfiguration_Type"=@("Import-CRSIntermediateTable")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
+    "DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("New-CRSMembership","Update-CRSMembership")
     "ErrorMessageConfiguration_Type"=@("New-CRSAnalysisTemplate")
     "Format"=@("New-CRSAnalysisTemplate")
     "Glue_Region"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")

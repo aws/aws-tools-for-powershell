@@ -79,9 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// the <i>Amazon SQS Developer Guide</i>.</para><para>Specifying <c>SendMessage</c>, <c>DeleteMessage</c>, or <c>ChangeMessageVisibility</c>
         /// for <c>ActionName.n</c> also grants permissions for the corresponding batch versions
         /// of those actions: <c>SendMessageBatch</c>, <c>DeleteMessageBatch</c>, and <c>ChangeMessageVisibilityBatch</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -104,9 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// who are to receive permission. For information about locating the Amazon Web Services
         /// account identification, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your
         /// Amazon Web Services Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -203,16 +205,6 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 context.Select = CreateSelectDelegate<Amazon.SQS.Model.AddPermissionResponse, AddSQSPermissionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Action != null)
-            {
-                context.Action = new List<System.String>(this.Action);
-            }
-            #if MODULAR
-            if (this.Action == null && ParameterWasBound(nameof(this.Action)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.AWSAccountId != null)
             {
                 context.AWSAccountId = new List<System.String>(this.AWSAccountId);
@@ -221,6 +213,16 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             if (this.AWSAccountId == null && ParameterWasBound(nameof(this.AWSAccountId)))
             {
                 WriteWarning("You are passing $null as a value for parameter AWSAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Action != null)
+            {
+                context.Action = new List<System.String>(this.Action);
+            }
+            #if MODULAR
+            if (this.Action == null && ParameterWasBound(nameof(this.Action)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.Label = this.Label;
@@ -253,13 +255,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             // create request
             var request = new Amazon.SQS.Model.AddPermissionRequest();
             
-            if (cmdletContext.Action != null)
-            {
-                request.Actions = cmdletContext.Action;
-            }
             if (cmdletContext.AWSAccountId != null)
             {
                 request.AWSAccountIds = cmdletContext.AWSAccountId;
+            }
+            if (cmdletContext.Action != null)
+            {
+                request.Actions = cmdletContext.Action;
             }
             if (cmdletContext.Label != null)
             {
@@ -324,8 +326,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Action { get; set; }
             public List<System.String> AWSAccountId { get; set; }
+            public List<System.String> Action { get; set; }
             public System.String Label { get; set; }
             public System.String QueueUrl { get; set; }
             public System.Func<Amazon.SQS.Model.AddPermissionResponse, AddSQSPermissionCmdlet, object> Select { get; set; } =

@@ -67,6 +67,32 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.Boolean? BlockPublicAccessConfiguration_BlockPublicSecurityGroupRule { get; set; }
         #endregion
         
+        #region Parameter BlockPublicAccessConfiguration_Classification
+        /// <summary>
+        /// <para>
+        /// <para>The classification within a configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BlockPublicAccessConfiguration_Classification { get; set; }
+        #endregion
+        
+        #region Parameter BlockPublicAccessConfiguration_Configuration
+        /// <summary>
+        /// <para>
+        /// <para>A list of additional configurations to apply within a configuration object.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BlockPublicAccessConfiguration_Configurations")]
+        public Amazon.ElasticMapReduce.Model.Configuration[] BlockPublicAccessConfiguration_Configuration { get; set; }
+        #endregion
+        
         #region Parameter BlockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRange
         /// <summary>
         /// <para>
@@ -76,15 +102,32 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// creation if a security group associated with the cluster has a rule that allows inbound
         /// traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.</para><para>By default, Port 22, which is used for SSH access to the cluster Amazon EC2 instances,
         /// is in the list of <c>PermittedPublicSecurityGroupRuleRanges</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("BlockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRanges")]
         public Amazon.ElasticMapReduce.Model.PortRange[] BlockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRange { get; set; }
+        #endregion
+        
+        #region Parameter BlockPublicAccessConfiguration_Property
+        /// <summary>
+        /// <para>
+        /// <para>A set of properties specified within a configuration classification.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BlockPublicAccessConfiguration_Properties")]
+        public System.Collections.Hashtable BlockPublicAccessConfiguration_Property { get; set; }
         #endregion
         
         #region Parameter Select
@@ -139,9 +182,22 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 WriteWarning("You are passing $null as a value for parameter BlockPublicAccessConfiguration_BlockPublicSecurityGroupRule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.BlockPublicAccessConfiguration_Classification = this.BlockPublicAccessConfiguration_Classification;
+            if (this.BlockPublicAccessConfiguration_Configuration != null)
+            {
+                context.BlockPublicAccessConfiguration_Configuration = new List<Amazon.ElasticMapReduce.Model.Configuration>(this.BlockPublicAccessConfiguration_Configuration);
+            }
             if (this.BlockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRange != null)
             {
                 context.BlockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRange = new List<Amazon.ElasticMapReduce.Model.PortRange>(this.BlockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRange);
+            }
+            if (this.BlockPublicAccessConfiguration_Property != null)
+            {
+                context.BlockPublicAccessConfiguration_Property = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.BlockPublicAccessConfiguration_Property.Keys)
+                {
+                    context.BlockPublicAccessConfiguration_Property.Add((String)hashKey, (System.String)(this.BlockPublicAccessConfiguration_Property[hashKey]));
+                }
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -173,6 +229,26 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.BlockPublicAccessConfiguration.BlockPublicSecurityGroupRules = requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_BlockPublicSecurityGroupRule.Value;
                 requestBlockPublicAccessConfigurationIsNull = false;
             }
+            System.String requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Classification = null;
+            if (cmdletContext.BlockPublicAccessConfiguration_Classification != null)
+            {
+                requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Classification = cmdletContext.BlockPublicAccessConfiguration_Classification;
+            }
+            if (requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Classification != null)
+            {
+                request.BlockPublicAccessConfiguration.Classification = requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Classification;
+                requestBlockPublicAccessConfigurationIsNull = false;
+            }
+            List<Amazon.ElasticMapReduce.Model.Configuration> requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Configuration = null;
+            if (cmdletContext.BlockPublicAccessConfiguration_Configuration != null)
+            {
+                requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Configuration = cmdletContext.BlockPublicAccessConfiguration_Configuration;
+            }
+            if (requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Configuration != null)
+            {
+                request.BlockPublicAccessConfiguration.Configurations = requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Configuration;
+                requestBlockPublicAccessConfigurationIsNull = false;
+            }
             List<Amazon.ElasticMapReduce.Model.PortRange> requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRange = null;
             if (cmdletContext.BlockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRange != null)
             {
@@ -181,6 +257,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRange != null)
             {
                 request.BlockPublicAccessConfiguration.PermittedPublicSecurityGroupRuleRanges = requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRange;
+                requestBlockPublicAccessConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Property = null;
+            if (cmdletContext.BlockPublicAccessConfiguration_Property != null)
+            {
+                requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Property = cmdletContext.BlockPublicAccessConfiguration_Property;
+            }
+            if (requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Property != null)
+            {
+                request.BlockPublicAccessConfiguration.Properties = requestBlockPublicAccessConfiguration_blockPublicAccessConfiguration_Property;
                 requestBlockPublicAccessConfigurationIsNull = false;
             }
              // determine if request.BlockPublicAccessConfiguration should be set to null
@@ -244,7 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? BlockPublicAccessConfiguration_BlockPublicSecurityGroupRule { get; set; }
+            public System.String BlockPublicAccessConfiguration_Classification { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.Configuration> BlockPublicAccessConfiguration_Configuration { get; set; }
             public List<Amazon.ElasticMapReduce.Model.PortRange> BlockPublicAccessConfiguration_PermittedPublicSecurityGroupRuleRange { get; set; }
+            public Dictionary<System.String, System.String> BlockPublicAccessConfiguration_Property { get; set; }
             public System.Func<Amazon.ElasticMapReduce.Model.PutBlockPublicAccessConfigurationResponse, WriteEMRBlockPublicAccessConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

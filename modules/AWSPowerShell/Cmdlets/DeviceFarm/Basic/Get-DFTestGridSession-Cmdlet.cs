@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// The session ARN.
     /// </para></li><li><para>
     /// The project ARN and a session ID.
-    /// </para></li></ul>
+    /// </para></li></ul><para></para>
     /// </summary>
     [Cmdlet("Get", "DFTestGridSession")]
     [OutputType("Amazon.DeviceFarm.Model.TestGridSession")]

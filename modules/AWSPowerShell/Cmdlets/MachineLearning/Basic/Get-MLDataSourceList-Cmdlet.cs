@@ -224,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
             context.GE = this.GE;
             context.GT = this.GT;
             context.LE = this.LE;
+            context.LT = this.LT;
             context.Limit = this.Limit;
             #if MODULAR
             if (!ParameterWasBound(nameof(this.Limit)))
@@ -241,7 +242,6 @@ namespace Amazon.PowerShell.Cmdlets.ML
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
-            context.LT = this.LT;
             context.NE = this.NE;
             context.NextToken = this.NextToken;
             context.Prefix = this.Prefix;
@@ -285,13 +285,13 @@ namespace Amazon.PowerShell.Cmdlets.ML
             {
                 request.LE = cmdletContext.LE;
             }
-            if (cmdletContext.Limit != null)
-            {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
-            }
             if (cmdletContext.LT != null)
             {
                 request.LT = cmdletContext.LT;
+            }
+            if (cmdletContext.Limit != null)
+            {
+                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
             }
             if (cmdletContext.NE != null)
             {
@@ -518,8 +518,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
             public System.String GE { get; set; }
             public System.String GT { get; set; }
             public System.String LE { get; set; }
-            public int? Limit { get; set; }
             public System.String LT { get; set; }
+            public int? Limit { get; set; }
             public System.String NE { get; set; }
             public System.String NextToken { get; set; }
             public System.String Prefix { get; set; }

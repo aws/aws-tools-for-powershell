@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.Select = CreateSelectDelegate<Amazon.WorkSpaces.Model.GetAccountLinkResponse, GetWKSAccountLinkCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.LinkedAccountId = this.LinkedAccountId;
             context.LinkId = this.LinkId;
+            context.LinkedAccountId = this.LinkedAccountId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -113,13 +113,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // create request
             var request = new Amazon.WorkSpaces.Model.GetAccountLinkRequest();
             
-            if (cmdletContext.LinkedAccountId != null)
-            {
-                request.LinkedAccountId = cmdletContext.LinkedAccountId;
-            }
             if (cmdletContext.LinkId != null)
             {
                 request.LinkId = cmdletContext.LinkId;
+            }
+            if (cmdletContext.LinkedAccountId != null)
+            {
+                request.LinkedAccountId = cmdletContext.LinkedAccountId;
             }
             
             CmdletOutput output;
@@ -176,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LinkedAccountId { get; set; }
             public System.String LinkId { get; set; }
+            public System.String LinkedAccountId { get; set; }
             public System.Func<Amazon.WorkSpaces.Model.GetAccountLinkResponse, GetWKSAccountLinkCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AccountLink;
         }

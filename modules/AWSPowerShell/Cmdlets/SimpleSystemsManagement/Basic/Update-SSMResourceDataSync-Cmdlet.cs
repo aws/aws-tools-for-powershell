@@ -87,9 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The Organizations organization units included in the sync.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -116,9 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The <c>SyncSource</c> Amazon Web Services Regions included in the resource data sync.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -238,11 +240,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter SyncName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AwsOrganizationsSource_OrganizationSourceType = this.AwsOrganizationsSource_OrganizationSourceType;
             if (this.AwsOrganizationsSource_OrganizationalUnit != null)
             {
                 context.AwsOrganizationsSource_OrganizationalUnit = new List<Amazon.SimpleSystemsManagement.Model.ResourceDataSyncOrganizationalUnit>(this.AwsOrganizationsSource_OrganizationalUnit);
             }
-            context.AwsOrganizationsSource_OrganizationSourceType = this.AwsOrganizationsSource_OrganizationSourceType;
             context.SyncSource_EnableAllOpsDataSource = this.SyncSource_EnableAllOpsDataSource;
             context.SyncSource_IncludeFutureRegion = this.SyncSource_IncludeFutureRegion;
             if (this.SyncSource_SourceRegion != null)
@@ -338,16 +340,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
              // populate AwsOrganizationsSource
             var requestSyncSource_syncSource_AwsOrganizationsSourceIsNull = true;
             requestSyncSource_syncSource_AwsOrganizationsSource = new Amazon.SimpleSystemsManagement.Model.ResourceDataSyncAwsOrganizationsSource();
-            List<Amazon.SimpleSystemsManagement.Model.ResourceDataSyncOrganizationalUnit> requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationalUnit = null;
-            if (cmdletContext.AwsOrganizationsSource_OrganizationalUnit != null)
-            {
-                requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationalUnit = cmdletContext.AwsOrganizationsSource_OrganizationalUnit;
-            }
-            if (requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationalUnit != null)
-            {
-                requestSyncSource_syncSource_AwsOrganizationsSource.OrganizationalUnits = requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationalUnit;
-                requestSyncSource_syncSource_AwsOrganizationsSourceIsNull = false;
-            }
             System.String requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationSourceType = null;
             if (cmdletContext.AwsOrganizationsSource_OrganizationSourceType != null)
             {
@@ -356,6 +348,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationSourceType != null)
             {
                 requestSyncSource_syncSource_AwsOrganizationsSource.OrganizationSourceType = requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationSourceType;
+                requestSyncSource_syncSource_AwsOrganizationsSourceIsNull = false;
+            }
+            List<Amazon.SimpleSystemsManagement.Model.ResourceDataSyncOrganizationalUnit> requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationalUnit = null;
+            if (cmdletContext.AwsOrganizationsSource_OrganizationalUnit != null)
+            {
+                requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationalUnit = cmdletContext.AwsOrganizationsSource_OrganizationalUnit;
+            }
+            if (requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationalUnit != null)
+            {
+                requestSyncSource_syncSource_AwsOrganizationsSource.OrganizationalUnits = requestSyncSource_syncSource_AwsOrganizationsSource_awsOrganizationsSource_OrganizationalUnit;
                 requestSyncSource_syncSource_AwsOrganizationsSourceIsNull = false;
             }
              // determine if requestSyncSource_syncSource_AwsOrganizationsSource should be set to null
@@ -433,8 +435,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String SyncName { get; set; }
-            public List<Amazon.SimpleSystemsManagement.Model.ResourceDataSyncOrganizationalUnit> AwsOrganizationsSource_OrganizationalUnit { get; set; }
             public System.String AwsOrganizationsSource_OrganizationSourceType { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.ResourceDataSyncOrganizationalUnit> AwsOrganizationsSource_OrganizationalUnit { get; set; }
             public System.Boolean? SyncSource_EnableAllOpsDataSource { get; set; }
             public System.Boolean? SyncSource_IncludeFutureRegion { get; set; }
             public List<System.String> SyncSource_SourceRegion { get; set; }

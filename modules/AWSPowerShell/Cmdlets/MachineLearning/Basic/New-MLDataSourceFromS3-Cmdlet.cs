@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>The compute statistics for a <c>DataSource</c>. The statistics are generated from
         /// the observation data referenced by a <c>DataSource</c>. Amazon ML uses the statistics
         /// internally during <c>MLModel</c> training. This parameter must be set to <c>true</c>
-        /// if the <code />DataSource<code /> needs to be used for <c>MLModel</c> training.</para>
+        /// if the <c></c>DataSource<c></c> needs to be used for <c>MLModel</c> training.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

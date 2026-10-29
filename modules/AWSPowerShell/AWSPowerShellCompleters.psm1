@@ -13881,7 +13881,7 @@ $CRS_Completers = {
         # Amazon.CleanRooms.AnalysisFormat
         "New-CRSAnalysisTemplate/Format"
         {
-            $v = "PYSPARK_1_0","SQL"
+            $v = "PYSPARK_1_0","PYSPARK_2_0","SQL"
             break
         }
 
@@ -14116,6 +14116,8 @@ $CRS_Completers = {
 
         # Amazon.CleanRooms.ResultFormat
         {
+            ($_ -eq "New-CRSMembership/DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat") -Or
+            ($_ -eq "Update-CRSMembership/DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat") -Or
             ($_ -eq "New-CRSMembership/S3_ResultFormat") -Or
             ($_ -eq "Start-CRSProtectedQuery/S3_ResultFormat") -Or
             ($_ -eq "Update-CRSMembership/S3_ResultFormat")
@@ -14177,6 +14179,7 @@ $CRS_map = @{
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
     "ComputeConfiguration_QueryComputeConfiguration_Type"=@("Import-CRSIntermediateTable")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
+    "DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("New-CRSMembership","Update-CRSMembership")
     "ErrorMessageConfiguration_Type"=@("New-CRSAnalysisTemplate")
     "Format"=@("New-CRSAnalysisTemplate")
     "Glue_Region"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
@@ -15405,8 +15408,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16099,8 +16102,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16561,8 +16564,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Get-CSDSuggestion",
-               "Search-CSDDocument",
-               "Write-CSDDocument")
+               "Write-CSDDocument",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -30737,12 +30740,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBIndexSchema",
                "Add-DDBKeySchema",
                "ConvertTo-DDBItem",
+               "New-DDBTableSchema",
                "ConvertFrom-DDBItem",
                "New-DDBTable",
-               "New-DDBTableSchema")
+               "Add-DDBIndexSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -41284,8 +41287,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -44465,6 +44468,17 @@ $EC2IB_Completers = {
             break
         }
 
+        # Amazon.Imagebuilder.MaximumSeverityLabel
+        {
+            ($_ -eq "New-EC2IBImage/ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel") -Or
+            ($_ -eq "New-EC2IBImagePipeline/ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel") -Or
+            ($_ -eq "Update-EC2IBImagePipeline/ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel")
+        }
+        {
+            $v = "HIGH","INFORMATIONAL","LOW","MEDIUM"
+            break
+        }
+
         # Amazon.Imagebuilder.Ownership
         {
             ($_ -eq "Get-EC2IBComponentList/Owner") -Or
@@ -44553,6 +44567,7 @@ $EC2IB_map = @{
     "Action"=@("Send-EC2IBWorkflowStepAction")
     "ContainerType"=@("New-EC2IBContainerRecipe")
     "Format"=@("Import-EC2IBComponent")
+    "ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel"=@("New-EC2IBImage","New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
     "LastLaunched_Unit"=@("Start-EC2IBResourceStateUpdate")
     "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList","Get-EC2IBWorkflowList")
     "Placement_Tenancy"=@("New-EC2IBInfrastructureConfiguration","Update-EC2IBInfrastructureConfiguration")
@@ -80523,18 +80538,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3MultipartUpload",
-               "Remove-S3Object",
-               "Remove-S3MultipartUpload",
-               "Mount-S3PSDrive",
-               "Dismount-S3PSDrive",
-               "Write-S3Object",
-               "Remove-S3Bucket",
                "Read-S3Object",
+               "Remove-S3MultipartUpload",
+               "Remove-S3Bucket",
+               "New-S3Bucket",
                "Get-S3PreSignedURL",
-               "Test-S3Bucket",
+               "Mount-S3PSDrive",
+               "Remove-S3Object",
+               "Write-S3Object",
                "Copy-S3Object",
-               "New-S3Bucket")
+               "Test-S3Bucket",
+               "Get-S3MultipartUpload",
+               "Dismount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -97299,44 +97314,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -97376,3 +97353,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

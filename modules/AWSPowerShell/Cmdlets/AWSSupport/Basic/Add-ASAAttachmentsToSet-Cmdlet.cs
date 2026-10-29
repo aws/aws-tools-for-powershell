@@ -72,9 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// of the attachment file. In the previous request syntax, the value for <c>data</c>
         /// appear as <c>blob</c>, which is represented as a base64-encoded string. The value
         /// for <c>fileName</c> is the name of the attachment, such as <c>troubleshoot-screenshot.png</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -162,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 context.Select = CreateSelectDelegate<Amazon.AWSSupport.Model.AddAttachmentsToSetResponse, AddASAAttachmentsToSetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AttachmentSetId = this.AttachmentSetId;
             if (this.Attachment != null)
             {
                 context.Attachment = new List<Amazon.AWSSupport.Model.Attachment>(this.Attachment);
@@ -172,7 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 WriteWarning("You are passing $null as a value for parameter Attachment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AttachmentSetId = this.AttachmentSetId;
             context.DryRun = this.DryRun;
             
             // allow further manipulation of loaded context prior to processing
@@ -190,13 +191,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             // create request
             var request = new Amazon.AWSSupport.Model.AddAttachmentsToSetRequest();
             
-            if (cmdletContext.Attachment != null)
-            {
-                request.Attachments = cmdletContext.Attachment;
-            }
             if (cmdletContext.AttachmentSetId != null)
             {
                 request.AttachmentSetId = cmdletContext.AttachmentSetId;
+            }
+            if (cmdletContext.Attachment != null)
+            {
+                request.Attachments = cmdletContext.Attachment;
             }
             if (cmdletContext.DryRun != null)
             {
@@ -257,8 +258,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.AWSSupport.Model.Attachment> Attachment { get; set; }
             public System.String AttachmentSetId { get; set; }
+            public List<Amazon.AWSSupport.Model.Attachment> Attachment { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.Func<Amazon.AWSSupport.Model.AddAttachmentsToSetResponse, AddASAAttachmentsToSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

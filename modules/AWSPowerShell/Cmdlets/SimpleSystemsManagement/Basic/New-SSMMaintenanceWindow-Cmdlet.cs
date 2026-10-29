@@ -211,9 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// want to tag a maintenance window to identify the type of tasks it will run, the types
         /// of targets, and the environment it will run in. In this case, you could specify the
         /// following key-value pairs:</para><ul><li><para><c>Key=TaskType,Value=AgentUpdate</c></para></li><li><para><c>Key=OS,Value=Windows</c></para></li><li><para><c>Key=Environment,Value=Production</c></para></li></ul><note><para>To add tags to an existing maintenance window, use the <a>AddTagsToResource</a> operation.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

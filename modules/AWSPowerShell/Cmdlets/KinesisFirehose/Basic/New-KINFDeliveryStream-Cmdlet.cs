@@ -198,9 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>Describes the metadata sent to the HTTP endpoint destination.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -345,9 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para> Provides a list of <c>DestinationTableConfigurations</c> which Firehose uses to deliver
         /// data to Apache Iceberg Tables. Firehose will write data with insert if table specific
         /// configuration is not provided here.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -371,8 +373,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions
-        /// for <c>DescribeDomain</c>, <c>DescribeDomains</c>, and <c>DescribeDomainConfig</c> after
-        /// assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// for <c>DescribeDomain</c>, <c>DescribeDomains</c>, and <c>DescribeDomainConfig</c>
+        /// after assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para><para>Specify either <c>ClusterEndpoint</c> or <c>DomainARN</c>.</para>
         /// </para>
         /// </summary>
@@ -665,9 +667,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para> The list of column patterns in source database to be excluded for Firehose to read
         /// from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -681,9 +684,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>The list of database patterns in source database endpoint to be excluded for Firehose
         /// to read from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -697,9 +701,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>The list of table patterns in source database endpoint to be excluded for Firehose
         /// to read from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -723,9 +728,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para> The list of column patterns in source database to be included for Firehose to read
         /// from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -739,9 +745,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>The list of database patterns in source database endpoint to be included for Firehose
         /// to read from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -755,9 +762,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>The list of table patterns in source database endpoint to be included for Firehose
         /// to read from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -814,7 +822,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>The Elasticsearch index rotation period. Index rotation appends a timestamp to the
         /// <c>IndexName</c> to facilitate the expiration of old data. For more information, see
         /// <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
-        /// Rotation for the Amazon OpenSearch Service Destination</a>. The default value is <c>OneDay</c>.</para>
+        /// Rotation for the Amazon OpenSearch Service Destination</a>. The default value is <c>OneDay</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1158,9 +1166,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The data processors.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1172,9 +1181,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The data processors.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1186,9 +1196,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The data processors.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1201,9 +1212,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The data processors.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1215,9 +1227,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The data processors.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1229,9 +1242,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The data processors.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1655,9 +1669,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// OpenSearch Service domain, make sure the security group inbound rule allows HTTPS
         /// traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
         /// group rules</a> in the Amazon VPC documentation.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1678,9 +1693,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// OpenSearch Service domain, make sure the security group inbound rule allows HTTPS
         /// traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
         /// group rules</a> in the Amazon VPC documentation.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1701,9 +1717,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// OpenSearch Service domain, make sure the security group inbound rule allows HTTPS
         /// traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
         /// group rules</a> in the Amazon VPC documentation.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1849,9 +1866,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// stream for each of the subnets specified here. For more information about ENI quota,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
         /// Interfaces </a> in the Amazon VPC Quotas topic.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1874,9 +1892,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// stream for each of the subnets specified here. For more information about ENI quota,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
         /// Interfaces </a> in the Amazon VPC Quotas topic.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1899,9 +1918,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// stream for each of the subnets specified here. For more information about ENI quota,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
         /// Interfaces </a> in the Amazon VPC Quotas topic.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1915,9 +1935,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para> The optional list of table and column names used as unique key columns when taking
         /// snapshot if the tables don’t have primary keys configured. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1953,9 +1974,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// on resource: arn:aws:firehose:us-east-1:x:deliverystream/x with an explicit deny in
         /// an identity-based policy.</para><para>For an example IAM policy, see <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html#API_CreateDeliveryStream_Examples">Tag
         /// example.</a></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -2190,6 +2212,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 context.Columns_Include = new List<System.String>(this.Columns_Include);
             }
+            context.SecretsManagerConfiguration_Enabled = this.SecretsManagerConfiguration_Enabled;
+            context.SecretsManagerConfiguration_RoleARN = this.SecretsManagerConfiguration_RoleARN;
+            context.SecretsManagerConfiguration_SecretARN = this.SecretsManagerConfiguration_SecretARN;
+            context.DatabaseSourceVPCConfiguration_VpcEndpointServiceName = this.DatabaseSourceVPCConfiguration_VpcEndpointServiceName;
             if (this.Databases_Exclude != null)
             {
                 context.Databases_Exclude = new List<System.String>(this.Databases_Exclude);
@@ -2198,14 +2224,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 context.Databases_Include = new List<System.String>(this.Databases_Include);
             }
-            context.SecretsManagerConfiguration_Enabled = this.SecretsManagerConfiguration_Enabled;
-            context.SecretsManagerConfiguration_RoleARN = this.SecretsManagerConfiguration_RoleARN;
-            context.SecretsManagerConfiguration_SecretARN = this.SecretsManagerConfiguration_SecretARN;
-            context.DatabaseSourceVPCConfiguration_VpcEndpointServiceName = this.DatabaseSourceVPCConfiguration_VpcEndpointServiceName;
             context.DatabaseSourceConfiguration_Endpoint = this.DatabaseSourceConfiguration_Endpoint;
             context.DatabaseSourceConfiguration_Port = this.DatabaseSourceConfiguration_Port;
-            context.DatabaseSourceConfiguration_SnapshotWatermarkTable = this.DatabaseSourceConfiguration_SnapshotWatermarkTable;
             context.DatabaseSourceConfiguration_SSLMode = this.DatabaseSourceConfiguration_SSLMode;
+            context.DatabaseSourceConfiguration_SnapshotWatermarkTable = this.DatabaseSourceConfiguration_SnapshotWatermarkTable;
             if (this.DatabaseSourceConfiguration_SurrogateKey != null)
             {
                 context.DatabaseSourceConfiguration_SurrogateKey = new List<System.String>(this.DatabaseSourceConfiguration_SurrogateKey);
@@ -2324,8 +2346,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName = this.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName;
             context.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName = this.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName;
             context.SnowflakeDestinationConfiguration_ContentColumnName = this.SnowflakeDestinationConfiguration_ContentColumnName;
-            context.SnowflakeDestinationConfiguration_Database = this.SnowflakeDestinationConfiguration_Database;
             context.SnowflakeDestinationConfiguration_DataLoadingOption = this.SnowflakeDestinationConfiguration_DataLoadingOption;
+            context.SnowflakeDestinationConfiguration_Database = this.SnowflakeDestinationConfiguration_Database;
             context.SnowflakeDestinationConfiguration_KeyPassphrase = this.SnowflakeDestinationConfiguration_KeyPassphrase;
             context.SnowflakeDestinationConfiguration_MetaDataColumnName = this.SnowflakeDestinationConfiguration_MetaDataColumnName;
             context.SnowflakeDestinationConfiguration_PrivateKey = this.SnowflakeDestinationConfiguration_PrivateKey;
@@ -2935,16 +2957,6 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 request.DatabaseSourceConfiguration.Port = requestDatabaseSourceConfiguration_databaseSourceConfiguration_Port.Value;
                 requestDatabaseSourceConfigurationIsNull = false;
             }
-            System.String requestDatabaseSourceConfiguration_databaseSourceConfiguration_SnapshotWatermarkTable = null;
-            if (cmdletContext.DatabaseSourceConfiguration_SnapshotWatermarkTable != null)
-            {
-                requestDatabaseSourceConfiguration_databaseSourceConfiguration_SnapshotWatermarkTable = cmdletContext.DatabaseSourceConfiguration_SnapshotWatermarkTable;
-            }
-            if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_SnapshotWatermarkTable != null)
-            {
-                request.DatabaseSourceConfiguration.SnapshotWatermarkTable = requestDatabaseSourceConfiguration_databaseSourceConfiguration_SnapshotWatermarkTable;
-                requestDatabaseSourceConfigurationIsNull = false;
-            }
             Amazon.KinesisFirehose.SSLMode requestDatabaseSourceConfiguration_databaseSourceConfiguration_SSLMode = null;
             if (cmdletContext.DatabaseSourceConfiguration_SSLMode != null)
             {
@@ -2953,6 +2965,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_SSLMode != null)
             {
                 request.DatabaseSourceConfiguration.SSLMode = requestDatabaseSourceConfiguration_databaseSourceConfiguration_SSLMode;
+                requestDatabaseSourceConfigurationIsNull = false;
+            }
+            System.String requestDatabaseSourceConfiguration_databaseSourceConfiguration_SnapshotWatermarkTable = null;
+            if (cmdletContext.DatabaseSourceConfiguration_SnapshotWatermarkTable != null)
+            {
+                requestDatabaseSourceConfiguration_databaseSourceConfiguration_SnapshotWatermarkTable = cmdletContext.DatabaseSourceConfiguration_SnapshotWatermarkTable;
+            }
+            if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_SnapshotWatermarkTable != null)
+            {
+                request.DatabaseSourceConfiguration.SnapshotWatermarkTable = requestDatabaseSourceConfiguration_databaseSourceConfiguration_SnapshotWatermarkTable;
                 requestDatabaseSourceConfigurationIsNull = false;
             }
             List<System.String> requestDatabaseSourceConfiguration_databaseSourceConfiguration_SurrogateKey = null;
@@ -4252,16 +4274,6 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 request.SnowflakeDestinationConfiguration.ContentColumnName = requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_ContentColumnName;
                 requestSnowflakeDestinationConfigurationIsNull = false;
             }
-            System.String requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_Database = null;
-            if (cmdletContext.SnowflakeDestinationConfiguration_Database != null)
-            {
-                requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_Database = cmdletContext.SnowflakeDestinationConfiguration_Database;
-            }
-            if (requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_Database != null)
-            {
-                request.SnowflakeDestinationConfiguration.Database = requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_Database;
-                requestSnowflakeDestinationConfigurationIsNull = false;
-            }
             Amazon.KinesisFirehose.SnowflakeDataLoadingOption requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_DataLoadingOption = null;
             if (cmdletContext.SnowflakeDestinationConfiguration_DataLoadingOption != null)
             {
@@ -4270,6 +4282,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_DataLoadingOption != null)
             {
                 request.SnowflakeDestinationConfiguration.DataLoadingOption = requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_DataLoadingOption;
+                requestSnowflakeDestinationConfigurationIsNull = false;
+            }
+            System.String requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_Database = null;
+            if (cmdletContext.SnowflakeDestinationConfiguration_Database != null)
+            {
+                requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_Database = cmdletContext.SnowflakeDestinationConfiguration_Database;
+            }
+            if (requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_Database != null)
+            {
+                request.SnowflakeDestinationConfiguration.Database = requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_Database;
                 requestSnowflakeDestinationConfigurationIsNull = false;
             }
             System.String requestSnowflakeDestinationConfiguration_snowflakeDestinationConfiguration_KeyPassphrase = null;
@@ -4713,16 +4735,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public List<System.String> AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SubnetIds { get; set; }
             public List<System.String> Columns_Exclude { get; set; }
             public List<System.String> Columns_Include { get; set; }
-            public List<System.String> Databases_Exclude { get; set; }
-            public List<System.String> Databases_Include { get; set; }
             public System.Boolean? SecretsManagerConfiguration_Enabled { get; set; }
             public System.String SecretsManagerConfiguration_RoleARN { get; set; }
             public System.String SecretsManagerConfiguration_SecretARN { get; set; }
             public System.String DatabaseSourceVPCConfiguration_VpcEndpointServiceName { get; set; }
+            public List<System.String> Databases_Exclude { get; set; }
+            public List<System.String> Databases_Include { get; set; }
             public System.String DatabaseSourceConfiguration_Endpoint { get; set; }
             public System.Int32? DatabaseSourceConfiguration_Port { get; set; }
-            public System.String DatabaseSourceConfiguration_SnapshotWatermarkTable { get; set; }
             public Amazon.KinesisFirehose.SSLMode DatabaseSourceConfiguration_SSLMode { get; set; }
+            public System.String DatabaseSourceConfiguration_SnapshotWatermarkTable { get; set; }
             public List<System.String> DatabaseSourceConfiguration_SurrogateKey { get; set; }
             public List<System.String> Tables_Exclude { get; set; }
             public List<System.String> Tables_Include { get; set; }
@@ -4806,8 +4828,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public System.String SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName { get; set; }
             public System.String SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName { get; set; }
             public System.String SnowflakeDestinationConfiguration_ContentColumnName { get; set; }
-            public System.String SnowflakeDestinationConfiguration_Database { get; set; }
             public Amazon.KinesisFirehose.SnowflakeDataLoadingOption SnowflakeDestinationConfiguration_DataLoadingOption { get; set; }
+            public System.String SnowflakeDestinationConfiguration_Database { get; set; }
             public System.String SnowflakeDestinationConfiguration_KeyPassphrase { get; set; }
             public System.String SnowflakeDestinationConfiguration_MetaDataColumnName { get; set; }
             public System.String SnowflakeDestinationConfiguration_PrivateKey { get; set; }

@@ -54,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The list of criteria that determine when and how to abort the job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -69,9 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>A list of additional OTA update parameters, which are name-value pairs. They won't
         /// be sent to devices as a part of the Job document.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -118,9 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The files to be streamed by the OTA update.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -221,9 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT],
         /// [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose
         /// the protocol.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -254,9 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Metadata which can be used to manage updates.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -269,9 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The devices targeted to receive OTA updates.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -401,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 context.Tag = new List<Amazon.IoT.Model.Tag>(this.Tag);
             }
+            context.TargetSelection = this.TargetSelection;
             if (this.Target != null)
             {
                 context.Target = new List<System.String>(this.Target);
@@ -411,7 +418,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter Target which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TargetSelection = this.TargetSelection;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -602,13 +608,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 request.Tags = cmdletContext.Tag;
             }
-            if (cmdletContext.Target != null)
-            {
-                request.Targets = cmdletContext.Target;
-            }
             if (cmdletContext.TargetSelection != null)
             {
                 request.TargetSelection = cmdletContext.TargetSelection;
+            }
+            if (cmdletContext.Target != null)
+            {
+                request.Targets = cmdletContext.Target;
             }
             
             CmdletOutput output;
@@ -680,8 +686,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public List<System.String> Protocol { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
-            public List<System.String> Target { get; set; }
             public Amazon.IoT.TargetSelection TargetSelection { get; set; }
+            public List<System.String> Target { get; set; }
             public System.Func<Amazon.IoT.Model.CreateOTAUpdateResponse, NewIOTOTAUpdateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

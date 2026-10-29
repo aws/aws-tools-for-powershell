@@ -32,7 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     /// <summary>
     /// Registers a device to receive push sync notifications.
     /// 
-    /// 
     /// <para>
     /// This API can only be called with temporary credentials provided by Cognito Identity.
     /// You cannot call this API with developer credentials.

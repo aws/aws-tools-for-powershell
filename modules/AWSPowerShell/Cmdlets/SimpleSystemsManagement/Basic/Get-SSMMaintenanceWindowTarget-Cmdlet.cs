@@ -50,9 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>Optional filters that can be used to narrow down the scope of the returned window
         /// targets. The supported filter keys are <c>Type</c>, <c>WindowTargetId</c>, and <c>OwnerInformation</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

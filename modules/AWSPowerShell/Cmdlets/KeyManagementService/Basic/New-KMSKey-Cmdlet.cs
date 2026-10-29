@@ -376,9 +376,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// a cost allocation report with usage and costs aggregated by tags. Tags can also be
         /// used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags
         /// in KMS</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -476,8 +477,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BypassPolicyLockoutSafetyCheck = this.BypassPolicyLockoutSafetyCheck;
-            context.CustomerMasterKeySpec = this.CustomerMasterKeySpec;
             context.CustomKeyStoreId = this.CustomKeyStoreId;
+            context.CustomerMasterKeySpec = this.CustomerMasterKeySpec;
             context.Description = this.Description;
             context.KeySpec = this.KeySpec;
             context.KeyUsage = this.KeyUsage;
@@ -509,13 +510,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             {
                 request.BypassPolicyLockoutSafetyCheck = cmdletContext.BypassPolicyLockoutSafetyCheck.Value;
             }
-            if (cmdletContext.CustomerMasterKeySpec != null)
-            {
-                request.CustomerMasterKeySpec = cmdletContext.CustomerMasterKeySpec;
-            }
             if (cmdletContext.CustomKeyStoreId != null)
             {
                 request.CustomKeyStoreId = cmdletContext.CustomKeyStoreId;
+            }
+            if (cmdletContext.CustomerMasterKeySpec != null)
+            {
+                request.CustomerMasterKeySpec = cmdletContext.CustomerMasterKeySpec;
             }
             if (cmdletContext.Description != null)
             {
@@ -605,9 +606,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? BypassPolicyLockoutSafetyCheck { get; set; }
+            public System.String CustomKeyStoreId { get; set; }
             [System.ObsoleteAttribute]
             public Amazon.KeyManagementService.CustomerMasterKeySpec CustomerMasterKeySpec { get; set; }
-            public System.String CustomKeyStoreId { get; set; }
             public System.String Description { get; set; }
             public Amazon.KeyManagementService.KeySpec KeySpec { get; set; }
             public Amazon.KeyManagementService.KeyUsageType KeyUsage { get; set; }

@@ -30,7 +30,7 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// Lists the following prices for either all the TLDs supported by Route 53, or the specified
+    /// Lists the following prices for either all the TLDs supported by Route 53, or the specified
     /// TLD:
     /// 
     ///  <ul><li><para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The TLD for which you want to receive the pricing information. For example. <c>.net</c>.</para><para>If a <c>Tld</c> value is not provided, a list of prices for all TLDs supported by
-        /// Route 53 is returned.</para>
+        /// Route 53 is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

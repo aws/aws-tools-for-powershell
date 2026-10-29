@@ -142,6 +142,17 @@ $EC2IB_Completers = {
             break
         }
 
+        # Amazon.Imagebuilder.MaximumSeverityLabel
+        {
+            ($_ -eq "New-EC2IBImage/ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel") -Or
+            ($_ -eq "New-EC2IBImagePipeline/ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel") -Or
+            ($_ -eq "Update-EC2IBImagePipeline/ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel")
+        }
+        {
+            $v = "HIGH","INFORMATIONAL","LOW","MEDIUM"
+            break
+        }
+
         # Amazon.Imagebuilder.Ownership
         {
             ($_ -eq "Get-EC2IBComponentList/Owner") -Or
@@ -230,6 +241,7 @@ $EC2IB_map = @{
     "Action"=@("Send-EC2IBWorkflowStepAction")
     "ContainerType"=@("New-EC2IBContainerRecipe")
     "Format"=@("Import-EC2IBComponent")
+    "ImageScanningConfiguration_ScanResultCondition_MaximumSeverityLabel"=@("New-EC2IBImage","New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
     "LastLaunched_Unit"=@("Start-EC2IBResourceStateUpdate")
     "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList","Get-EC2IBWorkflowList")
     "Placement_Tenancy"=@("New-EC2IBInfrastructureConfiguration","Update-EC2IBInfrastructureConfiguration")

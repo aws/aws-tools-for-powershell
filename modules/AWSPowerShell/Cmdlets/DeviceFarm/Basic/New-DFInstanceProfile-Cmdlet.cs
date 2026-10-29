@@ -60,9 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <para>
         /// <para>An array of strings that specifies the list of app packages that should not be cleaned
         /// up from the device after a test run.</para><para>The list of packages is considered only if you set <c>packageCleanup</c> to <c>true</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

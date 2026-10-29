@@ -54,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The list of criteria that determine when and how to abort the job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -69,9 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The list of criteria that determines how many retries are allowed for each failure
         /// type for a job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -97,9 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package
         /// version lifecycle</a>. </para><para><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package
         /// version ARNs are allowed.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -125,9 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// the job document.</para><note><para><c>documentParameters</c> can only be used when creating jobs from Amazon Web Services
         /// managed templates. This parameter can't be used with custom job templates or to create
         /// jobs from them.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -251,9 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>An optional configuration within the <c>SchedulingConfig</c> to setup a recurring
         /// maintenance window with a predetermined start time and duration for the rollout of
         /// a job document to all devices in a target group for a job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -318,9 +323,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Metadata which can be used to manage the job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -333,9 +339,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>A list of things and thing groups to which the job should be sent.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -461,6 +468,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 context.Tag = new List<Amazon.IoT.Model.Tag>(this.Tag);
             }
+            context.TargetSelection = this.TargetSelection;
             if (this.Target != null)
             {
                 context.Target = new List<System.String>(this.Target);
@@ -471,7 +479,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter Target which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TargetSelection = this.TargetSelection;
             context.TimeoutConfig_InProgressTimeoutInMinute = this.TimeoutConfig_InProgressTimeoutInMinute;
             
             // allow further manipulation of loaded context prior to processing
@@ -670,13 +677,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 request.Tags = cmdletContext.Tag;
             }
-            if (cmdletContext.Target != null)
-            {
-                request.Targets = cmdletContext.Target;
-            }
             if (cmdletContext.TargetSelection != null)
             {
                 request.TargetSelection = cmdletContext.TargetSelection;
+            }
+            if (cmdletContext.Target != null)
+            {
+                request.Targets = cmdletContext.Target;
             }
             
              // populate TimeoutConfig
@@ -771,8 +778,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public List<Amazon.IoT.Model.MaintenanceWindow> SchedulingConfig_MaintenanceWindow { get; set; }
             public System.String SchedulingConfig_StartTime { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
-            public List<System.String> Target { get; set; }
             public Amazon.IoT.TargetSelection TargetSelection { get; set; }
+            public List<System.String> Target { get; set; }
             public System.Int64? TimeoutConfig_InProgressTimeoutInMinute { get; set; }
             public System.Func<Amazon.IoT.Model.CreateJobResponse, NewIOTJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
