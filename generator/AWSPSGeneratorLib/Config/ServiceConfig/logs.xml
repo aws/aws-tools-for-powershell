@@ -73,7 +73,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccountPolicy" Verb="Remove" Noun="AccountPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteAccountPolicy" OutputProperty="DryRunResult" Verb="Remove" Noun="AccountPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

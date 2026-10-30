@@ -30,8 +30,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Sets the maximum number of simultaneous executions for a function, and reserves capacity
-    /// for that concurrency level.
+    /// Sets the maximum number of simultaneous executions for a Lambda Event Function, and
+    /// reserves capacity for that concurrency level.
     /// 
     ///  
     /// <para>

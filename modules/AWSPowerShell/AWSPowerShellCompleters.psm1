@@ -16563,9 +16563,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
-               "Write-CSDDocument",
-               "Search-CSDDocument")
+    "Select"=@("Search-CSDDocument",
+               "Get-CSDSuggestion",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29642,6 +29642,7 @@ $DOC_SelectMap = @{
                "Get-DOCGlobalCluster",
                "Get-DOCOrderableDBInstanceOption",
                "Get-DOCPendingMaintenanceAction",
+               "Get-DOCServerlessV2PlatformVersionDetail",
                "Start-DOCDBClusterFailover",
                "Start-DOCFailoverGlobalCluster",
                "Get-DOCResourceTag",
@@ -30741,11 +30742,11 @@ $DDB_SelectMap = @{
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
                "Add-DDBKeySchema",
-               "ConvertTo-DDBItem",
-               "New-DDBTableSchema",
-               "ConvertFrom-DDBItem",
+               "Add-DDBIndexSchema",
                "New-DDBTable",
-               "Add-DDBIndexSchema")
+               "ConvertFrom-DDBItem",
+               "New-DDBTableSchema",
+               "ConvertTo-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -41287,8 +41288,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -52660,6 +52661,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.KafkaEventSourceMappingConsumptionMode
+        {
+            ($_ -eq "New-LMEventSourceMapping/SelfManagedKafkaEventSourceConfig_ConsumptionMode") -Or
+            ($_ -eq "Update-LMEventSourceMapping/SelfManagedKafkaEventSourceConfig_ConsumptionMode")
+        }
+        {
+            $v = "Queue","Stream"
+            break
+        }
+
         # Amazon.Lambda.LogFormat
         {
             ($_ -eq "Publish-LMFunction/LoggingConfig_LogFormat") -Or
@@ -52825,6 +52836,7 @@ $LM_map = @{
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "S3ObjectStorageMode"=@("Update-LMFunctionCode")
     "SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
+    "SelfManagedKafkaEventSourceConfig_ConsumptionMode"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
     "State"=@("Get-LMCapacityProviderList")
@@ -54658,7 +54670,7 @@ $CWL_Completers = {
             ($_ -eq "Write-CWLAccountPolicy/PolicyType")
         }
         {
-            $v = "DATA_PROTECTION_POLICY","FIELD_INDEX_POLICY","METRIC_EXTRACTION_POLICY","SUBSCRIPTION_FILTER_POLICY","TRANSFORMER_POLICY"
+            $v = "DATA_PROTECTION_POLICY","FIELD_INDEX_POLICY","METRIC_EXTRACTION_POLICY","RETENTION_POLICY","SUBSCRIPTION_FILTER_POLICY","TRANSFORMER_POLICY"
             break
         }
 
@@ -65171,6 +65183,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.RunOutputUriPrefixMode
+        "Start-OMICSRun/OutputUriPrefixMode"
+        {
+            $v = "NONE_WITH_OVERWRITE","SERVICE_DEFINED"
+            break
+        }
+
         # Amazon.Omics.RunRetentionMode
         {
             ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_RetentionMode") -Or
@@ -65316,6 +65335,7 @@ $OMICS_map = @{
     "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSAnnotationStoreVersionList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSSequenceStoreList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
     "LogLevel"=@("Start-OMICSRun")
     "NetworkingMode"=@("Start-OMICSRun")
+    "OutputUriPrefixMode"=@("Start-OMICSRun")
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
     "ResourceOwner"=@("Get-OMICSShareList")
     "RetentionMode"=@("Start-OMICSRun")
@@ -80539,17 +80559,17 @@ $S3_SelectMap = @{
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
                "Read-S3Object",
-               "Remove-S3MultipartUpload",
+               "Get-S3PreSignedURL",
+               "Remove-S3Object",
+               "Dismount-S3PSDrive",
                "Remove-S3Bucket",
                "New-S3Bucket",
-               "Get-S3PreSignedURL",
-               "Mount-S3PSDrive",
-               "Remove-S3Object",
                "Write-S3Object",
+               "Mount-S3PSDrive",
                "Copy-S3Object",
+               "Remove-S3MultipartUpload",
                "Test-S3Bucket",
-               "Get-S3MultipartUpload",
-               "Dismount-S3PSDrive")
+               "Get-S3MultipartUpload")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

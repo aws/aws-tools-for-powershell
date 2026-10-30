@@ -180,6 +180,24 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String SelfManagedKafkaEventSourceConfig_ConsumerGroupId { get; set; }
         #endregion
         
+        #region Parameter SelfManagedKafkaEventSourceConfig_ConsumptionMode
+        /// <summary>
+        /// <para>
+        /// <para>The mode that Lambda uses to consume records from your self-managed Apache Kafka topic.
+        /// The default is <c>Stream</c>.</para><ul><li><para><c>Stream</c> – Lambda consumes records using a Kafka consumer group and preserves
+        /// the order of records within each partition. This is the default when you omit <c>ConsumptionMode</c>.</para></li><li><para><c>Queue</c> – Lambda consumes records using a Kafka share group. Multiple consumers
+        /// can process records from the same partitions concurrently. Queue mode does not preserve
+        /// per-partition order. Queue mode requires an Apache Kafka cluster running version 4.2
+        /// or later with share groups enabled.</para></li></ul><para>You cannot change <c>ConsumptionMode</c> after you create the event source mapping.
+        /// To use a different consumption mode, create a new event source mapping.</para><para>When <c>ConsumptionMode</c> is <c>Queue</c>, the <c>StartingPosition</c>, <c>StartingPositionTimestamp</c>,
+        /// and <c>MaximumBatchingWindowInSeconds</c> parameters are not supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.KafkaEventSourceMappingConsumptionMode")]
+        public Amazon.Lambda.KafkaEventSourceMappingConsumptionMode SelfManagedKafkaEventSourceConfig_ConsumptionMode { get; set; }
+        #endregion
+        
         #region Parameter DocumentDBEventSourceConfig_DatabaseName
         /// <summary>
         /// <para>
@@ -389,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// back to the 500 ms default batching window after you have changed it. To restore the
         /// default batching window, you must create a new event source mapping.</para><para>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set
         /// <c>BatchSize</c> to a value greater than 10, you must set <c>MaximumBatchingWindowInSeconds</c>
-        /// to at least 1.</para>
+        /// to at least 1.</para><para>Not supported for Kafka event source mappings when <c>ConsumptionMode</c> is <c>Queue</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -438,7 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>
         /// <para>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records
         /// after the specified number of retries. The default value is infinite (-1). When set
-        /// to infinite (-1), failed records are retried until the record expires.</para>
+        /// to infinite (-1), failed records are retried until the record expires.</para><para>For Kafka <c>Stream</c> consumption mode, the default is <c>-1</c> (infinite retries;
+        /// capped at 10 when an on-failure destination is configured). For Kafka <c>Queue</c>
+        /// consumption mode, the default is <c>0</c>, and if no on-failure destination is configured
+        /// the Kafka broker performs retries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -599,7 +620,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>
         /// <para>The position in a stream from which to start reading. Required for Amazon Kinesis
         /// and Amazon DynamoDB Stream event sources. <c>AT_TIMESTAMP</c> is supported only for
-        /// Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</para>
+        /// Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</para><para>Not supported for Kafka event source mappings when <c>ConsumptionMode</c> is <c>Queue</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -611,7 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>With <c>StartingPosition</c> set to <c>AT_TIMESTAMP</c>, the time from which to start
-        /// reading. <c>StartingPositionTimestamp</c> cannot be in the future.</para>
+        /// reading. <c>StartingPositionTimestamp</c> cannot be in the future.</para><para>Not supported for Kafka event source mappings when <c>ConsumptionMode</c> is <c>Queue</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -798,6 +819,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 }
             }
             context.SelfManagedKafkaEventSourceConfig_ConsumerGroupId = this.SelfManagedKafkaEventSourceConfig_ConsumerGroupId;
+            context.SelfManagedKafkaEventSourceConfig_ConsumptionMode = this.SelfManagedKafkaEventSourceConfig_ConsumptionMode;
             if (this.SchemaRegistryConfig_AccessConfig != null)
             {
                 context.SchemaRegistryConfig_AccessConfig = new List<Amazon.Lambda.Model.KafkaSchemaRegistryAccessConfig>(this.SchemaRegistryConfig_AccessConfig);
@@ -1211,6 +1233,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 request.SelfManagedKafkaEventSourceConfig.ConsumerGroupId = requestSelfManagedKafkaEventSourceConfig_selfManagedKafkaEventSourceConfig_ConsumerGroupId;
                 requestSelfManagedKafkaEventSourceConfigIsNull = false;
             }
+            Amazon.Lambda.KafkaEventSourceMappingConsumptionMode requestSelfManagedKafkaEventSourceConfig_selfManagedKafkaEventSourceConfig_ConsumptionMode = null;
+            if (cmdletContext.SelfManagedKafkaEventSourceConfig_ConsumptionMode != null)
+            {
+                requestSelfManagedKafkaEventSourceConfig_selfManagedKafkaEventSourceConfig_ConsumptionMode = cmdletContext.SelfManagedKafkaEventSourceConfig_ConsumptionMode;
+            }
+            if (requestSelfManagedKafkaEventSourceConfig_selfManagedKafkaEventSourceConfig_ConsumptionMode != null)
+            {
+                request.SelfManagedKafkaEventSourceConfig.ConsumptionMode = requestSelfManagedKafkaEventSourceConfig_selfManagedKafkaEventSourceConfig_ConsumptionMode;
+                requestSelfManagedKafkaEventSourceConfigIsNull = false;
+            }
             Amazon.Lambda.Model.KafkaSchemaRegistryConfig requestSelfManagedKafkaEventSourceConfig_selfManagedKafkaEventSourceConfig_SchemaRegistryConfig = null;
             
              // populate SchemaRegistryConfig
@@ -1381,6 +1413,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? ScalingConfig_MaximumConcurrency { get; set; }
             public Dictionary<System.String, List<System.String>> SelfManagedEventSource_Endpoint { get; set; }
             public System.String SelfManagedKafkaEventSourceConfig_ConsumerGroupId { get; set; }
+            public Amazon.Lambda.KafkaEventSourceMappingConsumptionMode SelfManagedKafkaEventSourceConfig_ConsumptionMode { get; set; }
             public List<Amazon.Lambda.Model.KafkaSchemaRegistryAccessConfig> SchemaRegistryConfig_AccessConfig { get; set; }
             public Amazon.Lambda.SchemaRegistryEventRecordFormat SchemaRegistryConfig_EventRecordFormat { get; set; }
             public System.String SchemaRegistryConfig_SchemaRegistryURI { get; set; }

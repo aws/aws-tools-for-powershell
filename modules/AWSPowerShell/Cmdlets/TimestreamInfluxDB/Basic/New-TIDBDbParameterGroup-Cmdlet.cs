@@ -411,17 +411,6 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.Boolean? InfluxDBv3Enterprise_DataFusionUseCachedParquetLoader { get; set; }
         #endregion
         
-        #region Parameter InfluxDBv3Enterprise_DedicatedCompactor
-        /// <summary>
-        /// <para>
-        /// <para>Specifies if the compactor instance should be a standalone instance or not.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Parameters_InfluxDBv3Enterprise_DedicatedCompactor")]
-        public System.Boolean? InfluxDBv3Enterprise_DedicatedCompactor { get; set; }
-        #endregion
-        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -945,17 +934,6 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.Int64? InfluxDBv2_InfluxqlMaxSelectSeries { get; set; }
         #endregion
         
-        #region Parameter InfluxDBv3Enterprise_IngestQueryInstance
-        /// <summary>
-        /// <para>
-        /// <para>Specifies number of instances in the DbCluster which can both ingest and query.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Parameters_InfluxDBv3Enterprise_IngestQueryInstances")]
-        public System.Int32? InfluxDBv3Enterprise_IngestQueryInstance { get; set; }
-        #endregion
-        
         #region Parameter InfluxDBv3Enterprise_LastValueCacheDisableFromHistory
         /// <summary>
         /// <para>
@@ -1336,17 +1314,6 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Parameters_InfluxDBv2_QueryMemoryBytes")]
         public System.Int64? InfluxDBv2_QueryMemoryByte { get; set; }
-        #endregion
-        
-        #region Parameter InfluxDBv3Enterprise_QueryOnlyInstance
-        /// <summary>
-        /// <para>
-        /// <para>Specifies number of instances in the DbCluster which can only query.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Parameters_InfluxDBv3Enterprise_QueryOnlyInstances")]
-        public System.Int32? InfluxDBv3Enterprise_QueryOnlyInstance { get; set; }
         #endregion
         
         #region Parameter InfluxDBv2_QueryQueueSize
@@ -2118,6 +2085,51 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Parameters_InfluxDBv3Enterprise_WalSnapshotSize")]
         public System.Int32? InfluxDBv3Enterprise_WalSnapshotSize { get; set; }
+        #endregion
+        
+        #region Parameter InfluxDBv3Enterprise_DedicatedCompactor
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if the compactor instance should be a standalone instance or not.</para><para>Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define
+        /// the cluster topology instead. When you supply a deployment configuration, Timestream
+        /// for InfluxDB ignores this parameter.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use deploymentConfiguration instead.")]
+        [Alias("Parameters_InfluxDBv3Enterprise_DedicatedCompactor")]
+        public System.Boolean? InfluxDBv3Enterprise_DedicatedCompactor { get; set; }
+        #endregion
+        
+        #region Parameter InfluxDBv3Enterprise_IngestQueryInstance
+        /// <summary>
+        /// <para>
+        /// <para>Specifies number of instances in the DbCluster which can both ingest and query.</para><para>Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define
+        /// the cluster topology instead. When you supply a deployment configuration, Timestream
+        /// for InfluxDB ignores this parameter.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use deploymentConfiguration instead.")]
+        [Alias("Parameters_InfluxDBv3Enterprise_IngestQueryInstances")]
+        public System.Int32? InfluxDBv3Enterprise_IngestQueryInstance { get; set; }
+        #endregion
+        
+        #region Parameter InfluxDBv3Enterprise_QueryOnlyInstance
+        /// <summary>
+        /// <para>
+        /// <para>Specifies number of instances in the DbCluster which can only query.</para><para>Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define
+        /// the cluster topology instead. When you supply a deployment configuration, Timestream
+        /// for InfluxDB ignores this parameter.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use deploymentConfiguration instead.")]
+        [Alias("Parameters_InfluxDBv3Enterprise_QueryOnlyInstances")]
+        public System.Int32? InfluxDBv3Enterprise_QueryOnlyInstance { get; set; }
         #endregion
         
         #region Parameter Select
@@ -5023,6 +5035,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             public System.Int32? InfluxDBv3Enterprise_DataFusionRuntimeThreadPriority { get; set; }
             public Amazon.TimestreamInfluxDB.DataFusionRuntimeType InfluxDBv3Enterprise_DataFusionRuntimeType { get; set; }
             public System.Boolean? InfluxDBv3Enterprise_DataFusionUseCachedParquetLoader { get; set; }
+            [System.ObsoleteAttribute]
             public System.Boolean? InfluxDBv3Enterprise_DedicatedCompactor { get; set; }
             public Amazon.TimestreamInfluxDB.DurationType InfluxDBv3Enterprise_DeleteGracePeriod_DurationType { get; set; }
             public System.Int64? InfluxDBv3Enterprise_DeleteGracePeriod_Value { get; set; }
@@ -5040,6 +5053,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             public System.Int64? InfluxDBv3Enterprise_Gen1LookbackDuration_Value { get; set; }
             public Amazon.TimestreamInfluxDB.DurationType InfluxDBv3Enterprise_HardDeleteDefaultDuration_DurationType { get; set; }
             public System.Int64? InfluxDBv3Enterprise_HardDeleteDefaultDuration_Value { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? InfluxDBv3Enterprise_IngestQueryInstance { get; set; }
             public Amazon.TimestreamInfluxDB.DurationType InfluxDBv3Enterprise_LastCacheEvictionInterval_DurationType { get; set; }
             public System.Int64? InfluxDBv3Enterprise_LastCacheEvictionInterval_Value { get; set; }
@@ -5060,6 +5074,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             public System.Int64? InfluxDBv3Enterprise_PreemptiveCacheAge_Value { get; set; }
             public System.Int32? InfluxDBv3Enterprise_QueryFileLimit { get; set; }
             public System.Int32? InfluxDBv3Enterprise_QueryLogSize { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? InfluxDBv3Enterprise_QueryOnlyInstance { get; set; }
             public Amazon.TimestreamInfluxDB.DurationType ReplicationInterval_DurationType { get; set; }
             public System.Int64? ReplicationInterval_Value { get; set; }

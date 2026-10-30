@@ -92,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         #region Parameter DbInstanceType
         /// <summary>
         /// <para>
-        /// <para>Update the DB cluster to use the specified DB instance Type.</para>
+        /// <para>Update the DB cluster to use the specified DB instance Type.</para><para>You can't specify both dbInstanceType and deploymentConfiguration in the same request.
+        /// When you use deploymentConfiguration, the instance type is specified per node group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,6 +131,24 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.TimestreamInfluxDB.FailoverMode")]
         public Amazon.TimestreamInfluxDB.FailoverMode FailoverMode { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroup
+        /// <summary>
+        /// <para>
+        /// <para>The node groups that make up the cluster. Across all node groups, the cluster must
+        /// include 1 to 4 nodes with the INGEST mode, 0 to 14 nodes with the QUERY mode, and
+        /// exactly one node with the COMPACT mode.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroups")]
+        public Amazon.TimestreamInfluxDB.Model.NodeGroup[] DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroup { get; set; }
         #endregion
         
         #region Parameter Port
@@ -224,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             #endif
             context.DbInstanceType = this.DbInstanceType;
             context.DbParameterGroupIdentifier = this.DbParameterGroupIdentifier;
+            if (this.DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroup != null)
+            {
+                context.DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroup = new List<Amazon.TimestreamInfluxDB.Model.NodeGroup>(this.DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroup);
+            }
             context.FailoverMode = this.FailoverMode;
             context.S3Configuration_BucketName = this.S3Configuration_BucketName;
             context.S3Configuration_Enabled = this.S3Configuration_Enabled;
@@ -261,6 +284,40 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             if (cmdletContext.DbParameterGroupIdentifier != null)
             {
                 request.DbParameterGroupIdentifier = cmdletContext.DbParameterGroupIdentifier;
+            }
+            
+             // populate DeploymentConfiguration
+            var requestDeploymentConfigurationIsNull = true;
+            request.DeploymentConfiguration = new Amazon.TimestreamInfluxDB.Model.DeploymentConfiguration();
+            Amazon.TimestreamInfluxDB.Model.InfluxDBv3EnterpriseDeploymentConfiguration requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise = null;
+            
+             // populate InfluxDBv3Enterprise
+            var requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3EnterpriseIsNull = true;
+            requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise = new Amazon.TimestreamInfluxDB.Model.InfluxDBv3EnterpriseDeploymentConfiguration();
+            List<Amazon.TimestreamInfluxDB.Model.NodeGroup> requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise_deploymentConfiguration_InfluxDBv3Enterprise_NodeGroup = null;
+            if (cmdletContext.DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroup != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise_deploymentConfiguration_InfluxDBv3Enterprise_NodeGroup = cmdletContext.DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroup;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise_deploymentConfiguration_InfluxDBv3Enterprise_NodeGroup != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise.NodeGroups = requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise_deploymentConfiguration_InfluxDBv3Enterprise_NodeGroup;
+                requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3EnterpriseIsNull = false;
+            }
+             // determine if requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise should be set to null
+            if (requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3EnterpriseIsNull)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise = null;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise != null)
+            {
+                request.DeploymentConfiguration.InfluxDBv3Enterprise = requestDeploymentConfiguration_deploymentConfiguration_InfluxDBv3Enterprise;
+                requestDeploymentConfigurationIsNull = false;
+            }
+             // determine if request.DeploymentConfiguration should be set to null
+            if (requestDeploymentConfigurationIsNull)
+            {
+                request.DeploymentConfiguration = null;
             }
             if (cmdletContext.FailoverMode != null)
             {
@@ -402,6 +459,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             public System.String DbClusterId { get; set; }
             public Amazon.TimestreamInfluxDB.DbInstanceType DbInstanceType { get; set; }
             public System.String DbParameterGroupIdentifier { get; set; }
+            public List<Amazon.TimestreamInfluxDB.Model.NodeGroup> DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroup { get; set; }
             public Amazon.TimestreamInfluxDB.FailoverMode FailoverMode { get; set; }
             public System.String S3Configuration_BucketName { get; set; }
             public System.Boolean? S3Configuration_Enabled { get; set; }

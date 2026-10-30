@@ -200,6 +200,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.KafkaEventSourceMappingConsumptionMode
+        {
+            ($_ -eq "New-LMEventSourceMapping/SelfManagedKafkaEventSourceConfig_ConsumptionMode") -Or
+            ($_ -eq "Update-LMEventSourceMapping/SelfManagedKafkaEventSourceConfig_ConsumptionMode")
+        }
+        {
+            $v = "Queue","Stream"
+            break
+        }
+
         # Amazon.Lambda.LogFormat
         {
             ($_ -eq "Publish-LMFunction/LoggingConfig_LogFormat") -Or
@@ -365,6 +375,7 @@ $LM_map = @{
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "S3ObjectStorageMode"=@("Update-LMFunctionCode")
     "SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
+    "SelfManagedKafkaEventSourceConfig_ConsumptionMode"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
     "State"=@("Get-LMCapacityProviderList")

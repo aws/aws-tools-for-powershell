@@ -116,6 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DOCOrderableDBInstanceOption', 
         'Get-DOCPendingMaintenanceAction', 
         'Get-DOCResourceTag', 
+        'Get-DOCServerlessV2PlatformVersionDetail', 
         'New-DOCDBCluster', 
         'New-DOCDBClusterParameterGroup', 
         'New-DOCDBClusterSnapshot', 

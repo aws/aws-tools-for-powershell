@@ -45,6 +45,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Specification_ComputeResourceRequirements_AcceleratorPartitionType
+        /// <summary>
+        /// <para>
+        /// <para>The accelerator partition profile this inference component occupies; on NVIDIA GPUs
+        /// this is a Multi-Instance GPU (MIG) profile such as <c>mig-3g.40gb</c>. It must be
+        /// one of the partition profiles declared in the target endpoint's accelerator partition
+        /// layout, and when set, <c>NumberOfAcceleratorDevicesRequired</c> must be <c>1</c>.
+        /// This field is required when the endpoint's production variant has an accelerator partition
+        /// layout. For endpoints without a layout, omit this field to place the inference component
+        /// on a whole accelerator.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Specification_ComputeResourceRequirements_AcceleratorPartitionType { get; set; }
+        #endregion
+        
         #region Parameter AutoRollbackConfiguration_Alarm
         /// <summary>
         /// <para>
@@ -477,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #endif
             context.RuntimeConfig_CopyCount = this.RuntimeConfig_CopyCount;
             context.Specification_BaseInferenceComponentName = this.Specification_BaseInferenceComponentName;
+            context.Specification_ComputeResourceRequirements_AcceleratorPartitionType = this.Specification_ComputeResourceRequirements_AcceleratorPartitionType;
             context.ComputeResourceRequirements_MaxMemoryRequiredInMb = this.ComputeResourceRequirements_MaxMemoryRequiredInMb;
             context.ComputeResourceRequirements_MinMemoryRequiredInMb = this.ComputeResourceRequirements_MinMemoryRequiredInMb;
             context.ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired = this.ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired;
@@ -839,61 +856,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.Specification.StartupParameters = requestSpecification_specification_StartupParameters;
                 requestSpecificationIsNull = false;
             }
-            Amazon.SageMaker.Model.InferenceComponentComputeResourceRequirements requestSpecification_specification_ComputeResourceRequirements = null;
-            
-             // populate ComputeResourceRequirements
-            var requestSpecification_specification_ComputeResourceRequirementsIsNull = true;
-            requestSpecification_specification_ComputeResourceRequirements = new Amazon.SageMaker.Model.InferenceComponentComputeResourceRequirements();
-            System.Int32? requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MaxMemoryRequiredInMb = null;
-            if (cmdletContext.ComputeResourceRequirements_MaxMemoryRequiredInMb != null)
-            {
-                requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MaxMemoryRequiredInMb = cmdletContext.ComputeResourceRequirements_MaxMemoryRequiredInMb.Value;
-            }
-            if (requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MaxMemoryRequiredInMb != null)
-            {
-                requestSpecification_specification_ComputeResourceRequirements.MaxMemoryRequiredInMb = requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MaxMemoryRequiredInMb.Value;
-                requestSpecification_specification_ComputeResourceRequirementsIsNull = false;
-            }
-            System.Int32? requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MinMemoryRequiredInMb = null;
-            if (cmdletContext.ComputeResourceRequirements_MinMemoryRequiredInMb != null)
-            {
-                requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MinMemoryRequiredInMb = cmdletContext.ComputeResourceRequirements_MinMemoryRequiredInMb.Value;
-            }
-            if (requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MinMemoryRequiredInMb != null)
-            {
-                requestSpecification_specification_ComputeResourceRequirements.MinMemoryRequiredInMb = requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MinMemoryRequiredInMb.Value;
-                requestSpecification_specification_ComputeResourceRequirementsIsNull = false;
-            }
-            System.Single? requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfAcceleratorDevicesRequired = null;
-            if (cmdletContext.ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired != null)
-            {
-                requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfAcceleratorDevicesRequired = cmdletContext.ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired.Value;
-            }
-            if (requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfAcceleratorDevicesRequired != null)
-            {
-                requestSpecification_specification_ComputeResourceRequirements.NumberOfAcceleratorDevicesRequired = requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfAcceleratorDevicesRequired.Value;
-                requestSpecification_specification_ComputeResourceRequirementsIsNull = false;
-            }
-            System.Single? requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfCpuCoresRequired = null;
-            if (cmdletContext.ComputeResourceRequirements_NumberOfCpuCoresRequired != null)
-            {
-                requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfCpuCoresRequired = cmdletContext.ComputeResourceRequirements_NumberOfCpuCoresRequired.Value;
-            }
-            if (requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfCpuCoresRequired != null)
-            {
-                requestSpecification_specification_ComputeResourceRequirements.NumberOfCpuCoresRequired = requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfCpuCoresRequired.Value;
-                requestSpecification_specification_ComputeResourceRequirementsIsNull = false;
-            }
-             // determine if requestSpecification_specification_ComputeResourceRequirements should be set to null
-            if (requestSpecification_specification_ComputeResourceRequirementsIsNull)
-            {
-                requestSpecification_specification_ComputeResourceRequirements = null;
-            }
-            if (requestSpecification_specification_ComputeResourceRequirements != null)
-            {
-                request.Specification.ComputeResourceRequirements = requestSpecification_specification_ComputeResourceRequirements;
-                requestSpecificationIsNull = false;
-            }
             Amazon.SageMaker.Model.InferenceComponentContainerSpecification requestSpecification_specification_Container = null;
             
              // populate Container
@@ -962,6 +924,71 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpecification_specification_Container != null)
             {
                 request.Specification.Container = requestSpecification_specification_Container;
+                requestSpecificationIsNull = false;
+            }
+            Amazon.SageMaker.Model.InferenceComponentComputeResourceRequirements requestSpecification_specification_ComputeResourceRequirements = null;
+            
+             // populate ComputeResourceRequirements
+            var requestSpecification_specification_ComputeResourceRequirementsIsNull = true;
+            requestSpecification_specification_ComputeResourceRequirements = new Amazon.SageMaker.Model.InferenceComponentComputeResourceRequirements();
+            System.String requestSpecification_specification_ComputeResourceRequirements_specification_ComputeResourceRequirements_AcceleratorPartitionType = null;
+            if (cmdletContext.Specification_ComputeResourceRequirements_AcceleratorPartitionType != null)
+            {
+                requestSpecification_specification_ComputeResourceRequirements_specification_ComputeResourceRequirements_AcceleratorPartitionType = cmdletContext.Specification_ComputeResourceRequirements_AcceleratorPartitionType;
+            }
+            if (requestSpecification_specification_ComputeResourceRequirements_specification_ComputeResourceRequirements_AcceleratorPartitionType != null)
+            {
+                requestSpecification_specification_ComputeResourceRequirements.AcceleratorPartitionType = requestSpecification_specification_ComputeResourceRequirements_specification_ComputeResourceRequirements_AcceleratorPartitionType;
+                requestSpecification_specification_ComputeResourceRequirementsIsNull = false;
+            }
+            System.Int32? requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MaxMemoryRequiredInMb = null;
+            if (cmdletContext.ComputeResourceRequirements_MaxMemoryRequiredInMb != null)
+            {
+                requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MaxMemoryRequiredInMb = cmdletContext.ComputeResourceRequirements_MaxMemoryRequiredInMb.Value;
+            }
+            if (requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MaxMemoryRequiredInMb != null)
+            {
+                requestSpecification_specification_ComputeResourceRequirements.MaxMemoryRequiredInMb = requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MaxMemoryRequiredInMb.Value;
+                requestSpecification_specification_ComputeResourceRequirementsIsNull = false;
+            }
+            System.Int32? requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MinMemoryRequiredInMb = null;
+            if (cmdletContext.ComputeResourceRequirements_MinMemoryRequiredInMb != null)
+            {
+                requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MinMemoryRequiredInMb = cmdletContext.ComputeResourceRequirements_MinMemoryRequiredInMb.Value;
+            }
+            if (requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MinMemoryRequiredInMb != null)
+            {
+                requestSpecification_specification_ComputeResourceRequirements.MinMemoryRequiredInMb = requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_MinMemoryRequiredInMb.Value;
+                requestSpecification_specification_ComputeResourceRequirementsIsNull = false;
+            }
+            System.Single? requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfAcceleratorDevicesRequired = null;
+            if (cmdletContext.ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired != null)
+            {
+                requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfAcceleratorDevicesRequired = cmdletContext.ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired.Value;
+            }
+            if (requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfAcceleratorDevicesRequired != null)
+            {
+                requestSpecification_specification_ComputeResourceRequirements.NumberOfAcceleratorDevicesRequired = requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfAcceleratorDevicesRequired.Value;
+                requestSpecification_specification_ComputeResourceRequirementsIsNull = false;
+            }
+            System.Single? requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfCpuCoresRequired = null;
+            if (cmdletContext.ComputeResourceRequirements_NumberOfCpuCoresRequired != null)
+            {
+                requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfCpuCoresRequired = cmdletContext.ComputeResourceRequirements_NumberOfCpuCoresRequired.Value;
+            }
+            if (requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfCpuCoresRequired != null)
+            {
+                requestSpecification_specification_ComputeResourceRequirements.NumberOfCpuCoresRequired = requestSpecification_specification_ComputeResourceRequirements_computeResourceRequirements_NumberOfCpuCoresRequired.Value;
+                requestSpecification_specification_ComputeResourceRequirementsIsNull = false;
+            }
+             // determine if requestSpecification_specification_ComputeResourceRequirements should be set to null
+            if (requestSpecification_specification_ComputeResourceRequirementsIsNull)
+            {
+                requestSpecification_specification_ComputeResourceRequirements = null;
+            }
+            if (requestSpecification_specification_ComputeResourceRequirements != null)
+            {
+                request.Specification.ComputeResourceRequirements = requestSpecification_specification_ComputeResourceRequirements;
                 requestSpecificationIsNull = false;
             }
              // determine if request.Specification should be set to null
@@ -1038,6 +1065,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String InferenceComponentName { get; set; }
             public System.Int32? RuntimeConfig_CopyCount { get; set; }
             public System.String Specification_BaseInferenceComponentName { get; set; }
+            public System.String Specification_ComputeResourceRequirements_AcceleratorPartitionType { get; set; }
             public System.Int32? ComputeResourceRequirements_MaxMemoryRequiredInMb { get; set; }
             public System.Int32? ComputeResourceRequirements_MinMemoryRequiredInMb { get; set; }
             public System.Single? ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired { get; set; }

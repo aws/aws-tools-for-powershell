@@ -732,7 +732,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para> The maximum sequence length, in tokens, that the customization job supports. SageMaker
         /// uses this value to select a training configuration for the base model that you specify.
-        /// The parameter supports the following values: </para><ul><li><para><c>1K</c></para></li><li><para><c>2K</c></para></li><li><para><c>4K</c></para></li><li><para><c>8K</c></para></li><li><para><c>16K</c></para></li><li><para><c>32K</c></para></li><li><para><c>64K</c></para></li><li><para><c>128K</c></para></li></ul><para> If you don't specify a value, SageMaker selects a training configuration based on
+        /// The value must be an integer value from <c>1K</c> to <c>1024K</c> (for example, <c>32K</c>).
+        /// </para><para> If you don't specify a value, SageMaker selects a training configuration based on
         /// the other values that you specify. The selection is not restricted to a particular
         /// sequence length. </para>
         /// </para>

@@ -30,7 +30,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Updates the configuration for a Lambda function URL.
+    /// Updates the configuration for a function URL of a Lambda Event Function.
     /// </summary>
     [Cmdlet("Update", "LMFunctionUrlConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.UpdateFunctionUrlConfigResponse")]

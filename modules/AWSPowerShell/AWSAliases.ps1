@@ -11110,6 +11110,9 @@ Set-Alias -Name DOC-DescribeOrderableDBInstanceOptions -Value Get-DOCOrderableDB
 Set-Alias -Name Describe-DOCPendingMaintenanceActions -Value Get-DOCPendingMaintenanceAction
 Set-Alias -Name Describe-DOCPendingMaintenanceAction -Value Get-DOCPendingMaintenanceAction
 Set-Alias -Name DOC-DescribePendingMaintenanceActions -Value Get-DOCPendingMaintenanceAction
+Set-Alias -Name Describe-DOCServerlessV2PlatformVersions -Value Get-DOCServerlessV2PlatformVersionDetail
+Set-Alias -Name Describe-DOCServerlessV2PlatformVersionDetail -Value Get-DOCServerlessV2PlatformVersionDetail
+Set-Alias -Name DOC-DescribeServerlessV2PlatformVersions -Value Get-DOCServerlessV2PlatformVersionDetail
 Set-Alias -Name Failover-DOCDBCluster -Value Start-DOCDBClusterFailover
 Set-Alias -Name Failover-DOCDBClusterFailover -Value Start-DOCDBClusterFailover
 Set-Alias -Name DOC-FailoverDBCluster -Value Start-DOCDBClusterFailover

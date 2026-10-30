@@ -93,23 +93,20 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Invoke-AWSSSOLogin', 
-        'Initialize-AWSSSOConfiguration', 
-        'Set-AWSSSOSessionConfiguration', 
-        'Invoke-AWSSSOLogout', 
-        'Get-AWSService', 
-        'Get-AWSCmdletName', 
+        'Get-AWSPublicIpAddressRange', 
         'Invoke-AWSLogin', 
         'Invoke-AWSLogout', 
-        'Get-AWSSigV4Signature', 
-        'Get-AWSSigV4SignedRequest', 
-        'Get-AWSSigV4PreSignedURL', 
+        'Set-DefaultAWSRegion', 
+        'Clear-DefaultAWSRegion', 
+        'Get-DefaultAWSRegion', 
+        'Get-AWSRegion', 
         'New-AWSCredential', 
         'Set-AWSCredential', 
         'Clear-AWSCredential', 
         'Get-AWSCredential', 
         'Set-AWSSamlEndpoint', 
         'Set-AWSSamlRoleProfile', 
+        'Remove-AWSCredentialProfile', 
         'Initialize-AWSDefaultConfiguration', 
         'Clear-AWSDefaultConfiguration', 
         'Get-AWSPowerShellVersion', 
@@ -124,12 +121,15 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Disable-AWSMetricsLogging', 
         'Set-AWSProxy', 
         'Clear-AWSProxy', 
-        'Set-DefaultAWSRegion', 
-        'Clear-DefaultAWSRegion', 
-        'Get-DefaultAWSRegion', 
-        'Get-AWSRegion', 
-        'Get-AWSPublicIpAddressRange', 
-        'Remove-AWSCredentialProfile')
+        'Get-AWSSigV4Signature', 
+        'Get-AWSSigV4SignedRequest', 
+        'Get-AWSSigV4PreSignedURL', 
+        'Get-AWSService', 
+        'Get-AWSCmdletName', 
+        'Invoke-AWSSSOLogin', 
+        'Initialize-AWSSSOConfiguration', 
+        'Set-AWSSSOSessionConfiguration', 
+        'Invoke-AWSSSOLogout')
 
     # Variables to export from this module
     VariablesToExport = '*'

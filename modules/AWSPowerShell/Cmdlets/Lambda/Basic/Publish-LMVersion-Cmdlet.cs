@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a>
-    /// from the current code and configuration of a function. Use versions to create a snapshot
-    /// of your function code and configuration that doesn't change.
+    /// from the current code and configuration of a Lambda Event Function. Use versions to
+    /// create a snapshot of your function code and configuration that doesn't change.
     /// 
     ///  
     /// <para>

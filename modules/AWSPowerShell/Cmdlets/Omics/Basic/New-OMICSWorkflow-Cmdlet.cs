@@ -293,8 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ContainerRegistryMap_RegistryMapping
         /// <summary>
         /// <para>
-        /// <para>Mapping that provides the ECR repository path where upstream container images are
-        /// pulled and synchronized.</para><para />
+        /// <para>The mappings between upstream container registries and repository prefixes in your
+        /// Amazon Elastic Container Registry (Amazon ECR) private registry. The list can include
+        /// both pull through cache mappings and mappings for registries that Amazon Web Services
+        /// HealthOmics copies images from.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

@@ -286,7 +286,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// dials per minute</a></para></dd><dt>AVG_EVALUATION_SCORE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID,
         /// Evaluation Section ID, Evaluation Question ID, Evaluation Source, Form Version, Queue,
         /// Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-evaluation-score">Average
-        /// evaluation score</a></para></dd><dt>AVG_FIRST_RESPONSE_TIME_AGENT</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
+        /// evaluation score</a></para></dd><dt>AVG_EVALUATION_SCORE_BY_SUBMIT_TIME</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID,
+        /// Evaluation Source, Form Version, Queue, Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-evaluation-score-by-submit-time">Average
+        /// evaluation score (Submit time)</a></para></dd><dt>AVG_FIRST_RESPONSE_TIME_AGENT</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype,
         /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
         /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-first-response-time">Average
         /// agent first response time</a></para></dd><dt>AVG_FLOW_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
@@ -619,7 +621,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// request must belong to the same metric scope. Filters and groupings from different
         /// metric scopes cannot be combined in one request.</para></note></dd><dt>EVALUATIONS_PERFORMED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID,
         /// Evaluation Source, Form Version, Queue, Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#evaluations-performed">Evaluations
-        /// performed</a></para></dd><dt>FLOWS_OUTCOME</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
+        /// performed</a></para></dd><dt>EVALUATIONS_PERFORMED_BY_SUBMIT_TIME</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID,
+        /// Evaluation Source, Form Version, Queue, Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#evaluations-performed-by-submit-time">Evaluations
+        /// performed (Submit time)</a></para></dd><dt>FLOWS_OUTCOME</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
         /// type, Flows module resource ID, Flows next resource ID, Flows next resource queue
         /// ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#flows-outcome">Flows
         /// outcome</a></para></dd><dt>FLOWS_STARTED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow

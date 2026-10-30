@@ -1,4 +1,25 @@
-﻿### 5.0.326 (2026-10-29 18:54Z)
+﻿### 5.0.327 (2026-10-30 19:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.362.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Remove-CWLAccountPolicy: added parameter DryRun.
+    * Modified cmdlet Write-CWLAccountPolicy: added parameter DryRun.
+  * Amazon Connect Service
+    * Modified cmdlet Get-CONNRealtimeContactAnalysisSegmentsV2List: added parameters ListFilter_CategoriesAttributeFilter_AndCondition_TagCondition, ListFilter_CategoriesAttributeFilter_OrCondition, ListFilter_CategoriesAttributeFilter_TagCondition_TagKey and ListFilter_CategoriesAttributeFilter_TagCondition_TagValue.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Added cmdlet Get-DOCServerlessV2PlatformVersionDetail leveraging the DescribeServerlessV2PlatformVersions service API.
+  * Amazon Lambda
+    * Modified cmdlet New-LMEventSourceMapping: added parameter SelfManagedKafkaEventSourceConfig_ConsumptionMode.
+    * Modified cmdlet Update-LMEventSourceMapping: added parameter SelfManagedKafkaEventSourceConfig_ConsumptionMode.
+  * Amazon Omics
+    * Modified cmdlet Start-OMICSRun: added parameter OutputUriPrefixMode.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceComponent: added parameter Specification_ComputeResourceRequirements_AcceleratorPartitionType.
+    * Modified cmdlet Update-SMInferenceComponent: added parameter Specification_ComputeResourceRequirements_AcceleratorPartitionType.
+  * Amazon Timestream InfluxDB
+    * Modified cmdlet New-TIDBDbCluster: added parameter DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroup.
+    * Modified cmdlet Update-TIDBDbCluster: added parameter DeploymentConfiguration_InfluxDBv3Enterprise_NodeGroup.
+
+### 5.0.326 (2026-10-29 18:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.361.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCAgentRuntime: added parameters AllowedPort, ProtocolConfiguration_Path and ProtocolConfiguration_Port.

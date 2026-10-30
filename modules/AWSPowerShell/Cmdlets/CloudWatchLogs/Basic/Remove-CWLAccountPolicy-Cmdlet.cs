@@ -63,17 +63,30 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWLAccountPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("Amazon.CloudWatchLogs.Model.DryRunResult")]
     [AWSCmdlet("Calls the Amazon CloudWatch Logs DeleteAccountPolicy API operation.", Operation = new[] {"DeleteAccountPolicy"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse))]
-    [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.DryRunResult or Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse",
+        "This cmdlet returns an Amazon.CloudWatchLogs.Model.DryRunResult object.",
+        "The service call response (type Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWLAccountPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to preview the impact of deleting the policy without deleting it.
+        /// If you specify <c>true</c>, CloudWatch Logs does not delete the policy and returns
+        /// the estimated impact in <c>dryRunResult</c>. The default is <c>false</c>.</para><para>Specifying <c>dryRun</c> is valid only when you specify <c>RETENTION_POLICY</c> for
+        /// <c>policyType</c>. Only one dry run can be in progress for an account at a time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
         
         #region Parameter PolicyName
         /// <summary>
@@ -111,12 +124,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DryRunResult'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "DryRunResult";
         #endregion
         
         #region Parameter Force
@@ -154,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse, RemoveCWLAccountPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DryRun = this.DryRun;
             context.PolicyName = this.PolicyName;
             #if MODULAR
             if (this.PolicyName == null && ParameterWasBound(nameof(this.PolicyName)))
@@ -184,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request
             var request = new Amazon.CloudWatchLogs.Model.DeleteAccountPolicyRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.PolicyName != null)
             {
                 request.PolicyName = cmdletContext.PolicyName;
@@ -247,10 +266,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public System.String PolicyName { get; set; }
             public Amazon.CloudWatchLogs.PolicyType PolicyType { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse, RemoveCWLAccountPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response.DryRunResult;
         }
         
     }

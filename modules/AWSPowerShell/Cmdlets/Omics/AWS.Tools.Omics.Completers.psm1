@@ -248,6 +248,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.RunOutputUriPrefixMode
+        "Start-OMICSRun/OutputUriPrefixMode"
+        {
+            $v = "NONE_WITH_OVERWRITE","SERVICE_DEFINED"
+            break
+        }
+
         # Amazon.Omics.RunRetentionMode
         {
             ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_RetentionMode") -Or
@@ -393,6 +400,7 @@ $OMICS_map = @{
     "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSAnnotationStoreVersionList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSSequenceStoreList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
     "LogLevel"=@("Start-OMICSRun")
     "NetworkingMode"=@("Start-OMICSRun")
+    "OutputUriPrefixMode"=@("Start-OMICSRun")
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
     "ResourceOwner"=@("Get-OMICSShareList")
     "RetentionMode"=@("Start-OMICSRun")

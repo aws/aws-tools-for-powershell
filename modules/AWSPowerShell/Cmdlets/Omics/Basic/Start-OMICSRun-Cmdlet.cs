@@ -197,6 +197,19 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String OutputUri { get; set; }
         #endregion
         
+        #region Parameter OutputUriPrefixMode
+        /// <summary>
+        /// <para>
+        /// <para>You can control the path prefixes that the service adds beneath <c>outputUri</c>.
+        /// If you don't specify a value, the service uses <c>SERVICE_DEFINED</c>, which adds
+        /// a run-specific prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.RunOutputUriPrefixMode")]
+        public Amazon.Omics.RunOutputUriPrefixMode OutputUriPrefixMode { get; set; }
+        #endregion
+        
         #region Parameter Parameter
         /// <summary>
         /// <para>
@@ -475,6 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 WriteWarning("You are passing $null as a value for parameter OutputUri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutputUriPrefixMode = this.OutputUriPrefixMode;
             context.Parameter = this.Parameter;
             context.Priority = this.Priority;
             context.RequestId = this.RequestId;
@@ -551,6 +565,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.OutputUri != null)
             {
                 request.OutputUri = cmdletContext.OutputUri;
+            }
+            if (cmdletContext.OutputUriPrefixMode != null)
+            {
+                request.OutputUriPrefixMode = cmdletContext.OutputUriPrefixMode;
             }
             if (cmdletContext.Parameter != null)
             {
@@ -679,6 +697,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String Name { get; set; }
             public Amazon.Omics.NetworkingMode NetworkingMode { get; set; }
             public System.String OutputUri { get; set; }
+            public Amazon.Omics.RunOutputUriPrefixMode OutputUriPrefixMode { get; set; }
             public System.Management.Automation.PSObject Parameter { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String RequestId { get; set; }

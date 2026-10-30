@@ -311,6 +311,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to preview the impact of the policy without creating or updating
+        /// it. If you specify <c>true</c>, CloudWatch Logs validates the request, does not save
+        /// the policy, and returns the estimated impact in <c>dryRunResult</c> instead of <c>accountPolicy</c>.
+        /// The default is <c>false</c>.</para><para>Specifying <c>dryRun</c> is valid only when you specify <c>RETENTION_POLICY</c> for
+        /// <c>policyType</c>. Only one dry run can be in progress for an account at a time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
@@ -477,6 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse, WriteCWLAccountPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DryRun = this.DryRun;
             context.PolicyDocument = this.PolicyDocument;
             #if MODULAR
             if (this.PolicyDocument == null && ParameterWasBound(nameof(this.PolicyDocument)))
@@ -516,6 +531,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request
             var request = new Amazon.CloudWatchLogs.Model.PutAccountPolicyRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.PolicyDocument != null)
             {
                 request.PolicyDocument = cmdletContext.PolicyDocument;
@@ -591,6 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public System.String PolicyDocument { get; set; }
             public System.String PolicyName { get; set; }
             public Amazon.CloudWatchLogs.PolicyType PolicyType { get; set; }

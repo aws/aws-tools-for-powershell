@@ -30,8 +30,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Sets your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">recursive
-    /// loop detection</a> configuration.
+    /// Sets the <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">recursive
+    /// loop detection</a> configuration for a Lambda Event Function.
     /// 
     ///  
     /// <para>

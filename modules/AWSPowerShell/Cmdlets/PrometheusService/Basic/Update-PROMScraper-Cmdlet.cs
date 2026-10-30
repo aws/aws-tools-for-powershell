@@ -86,9 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Exporter
         /// <summary>
         /// <para>
-        /// <para>The exporter configurations for the scraper. You can configure at most one Amazon
-        /// OpenSearch Service domain. If you don't specify a value, the existing exporter configuration
-        /// remains unchanged.</para><para />
+        /// <para>The exporter configurations for the scraper. You can configure at most one exporter,
+        /// for either an Amazon OpenSearch Service domain or an Amazon MSK cluster. If you don't
+        /// specify a value, the existing exporter configuration remains unchanged. Specify an
+        /// empty list to remove the exporter.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

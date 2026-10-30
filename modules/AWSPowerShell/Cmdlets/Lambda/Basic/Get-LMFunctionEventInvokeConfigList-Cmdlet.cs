@@ -30,7 +30,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Retrieves a list of configurations for asynchronous invocation for a function.
+    /// Retrieves a list of configurations for asynchronous invocation for a Lambda Event
+    /// Function. To retrieve more configurations, use the <c>Marker</c> parameter.
     /// 
     ///  
     /// <para>
