@@ -210,6 +210,16 @@ Describe -Tag "Smoke" "S3" {
         It "Leading backslash is cleaned with EnableLegacyCleanKey" {
             (Get-S3Object -BucketName $script:bucketName -Key '\leading-backslash-with-keycleaning.txt' -EnableLegacyKeyCleaning).Key | Should -BeExactly 'leading-backslash-with-keycleaning.txt'
         }
+        It "Downloads a nested key inside the local folder" {
+            Copy-S3Object -BucketName $script:bucketName -Key bar2v5/foo.txt -LocalFolder temp\contained-copy
+            Get-S3Object -BucketName $script:bucketName -Key bar2v5/foo.txt | Read-S3Object -Folder temp\contained-read
+            Get-Content temp\contained-copy\bar2v5\foo.txt | Should -Be 'foo'
+            Get-Content temp\contained-read\bar2v5\foo.txt | Should -Be 'foo'
+        }
+        It "Rejects keys that resolve outside the local folder" {
+            { Copy-S3Object -BucketName $script:bucketName -Key '../escape.txt' -LocalFolder temp\contained } | Should -Throw '*outside the folder*'
+            { [Amazon.S3.Model.S3Object]@{ BucketName = $script:bucketName; Key = '/escape.txt' } | Read-S3Object -Folder temp\contained } | Should -Throw '*outside the folder*'
+        }
     }
 
     Context "Copying" {

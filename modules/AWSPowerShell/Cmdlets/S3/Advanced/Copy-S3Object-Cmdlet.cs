@@ -776,7 +776,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 case CopySingleObjectToLocalFolder:
                     // transform to download to local file
                     var path = PSHelpers.PSPathToAbsolute(this.SessionState.Path, PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.LocalFolder));
-                    context.LocalFile = Path.Combine(path, this.Key);
+                    context.LocalFile = AmazonS3Helper.GetLocalPathUnderFolder(path, context.SourceKey, "LocalFile");
                     break;
 
                 case CopyMultipleObjectsToLocalFolder:

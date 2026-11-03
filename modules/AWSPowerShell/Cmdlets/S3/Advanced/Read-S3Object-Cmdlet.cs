@@ -476,7 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         else
                         {
                             var path = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.Folder);
-                            context.File = Path.Combine(path, S3Object.Key);
+                            context.File = AmazonS3Helper.GetLocalPathUnderFolder(path, S3Object.Key, "File");
                         }
                     }
                     break;

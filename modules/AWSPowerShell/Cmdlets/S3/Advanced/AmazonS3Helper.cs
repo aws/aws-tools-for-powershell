@@ -19,9 +19,11 @@ using Amazon.PowerShell.Common;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Transfer;
+using Amazon.Util.Internal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Management.Automation;
 using System.Text;
@@ -44,6 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             StringBuilder sb = new StringBuilder(userKeyOrPrefix.TrimStart(new char[] { '/', '\\', ' ' }));
             sb.Replace('\\', '/');
             return sb.ToString().TrimEnd();
+        }
+
+        public static string GetLocalPathUnderFolder(string folder, string key, string fileParameterName)
+        {
+            var filePath = Path.Combine(folder, key);
+            if (!InternalSDKUtils.IsFilePathRootedWithDirectoryPath(filePath, folder))
+                throw new ArgumentException($"The object key '{key}' resolves to a path outside the folder '{folder}'. Use -{fileParameterName} to choose the destination path explicitly.");
+            return filePath;
         }
 
         /// <summary>
