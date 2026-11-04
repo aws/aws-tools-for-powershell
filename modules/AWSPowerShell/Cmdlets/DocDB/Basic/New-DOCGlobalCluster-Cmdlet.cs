@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// fast replication across regions with latencies less than one second, using dedicated
     /// infrastructure with no impact to your workload’s performance.
     /// 
-    ///   
-    /// <para>
+    ///  
+    /// <para></para><para>
     /// You can create a global cluster that is initially empty, and then add a primary and
     /// a secondary to it. Or you can specify an existing cluster during the create operation,
     /// and this cluster becomes the primary of the global cluster. 

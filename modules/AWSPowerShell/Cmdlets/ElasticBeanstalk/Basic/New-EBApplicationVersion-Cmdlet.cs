@@ -218,7 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// Validating configuration files can identify issues prior to deploying the application
         /// version to an environment.</para><para>You must turn processing on for application versions that you create using CodeBuild
         /// or CodeCommit. For application versions built from a source bundle in Amazon S3, processing
-        /// is optional.</para><note><para>The <c>Process</c> option validates Elastic Beanstalk configuration files. It doesn't
+        /// is optional.</para><para>For application versions with <c>ImageConfiguration.Build</c>, <c>Process</c> determines
+        /// when Elastic Beanstalk builds the container image. Set it to <c>true</c> to build
+        /// the image when you create the application version. If you don't, Elastic Beanstalk
+        /// builds the image when you first deploy the application version to an environment.</para><note><para>The <c>Process</c> option validates Elastic Beanstalk configuration files. It doesn't
         /// validate your application's configuration files, like proxy server or Docker configuration.</para></note>
         /// </para>
         /// </summary>
@@ -286,9 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>Specifies the tags applied to the application version.</para><para>Elastic Beanstalk applies these tags only to the application version. Environments
         /// that use the application version don't inherit the tags.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

@@ -88,6 +88,8 @@ $SHUB_Completers = {
             ($_ -eq "Get-SHUBFindingsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBResourcesTrendsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBResourcesV2/Filters_CompositeOperator") -Or
+            ($_ -eq "Get-SHUBSoftwareResourcesV2/Filters_CompositeOperator") -Or
+            ($_ -eq "Get-SHUBSoftwareV2/Filters_CompositeOperator") -Or
             ($_ -eq "New-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
             ($_ -eq "Update-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
             ($_ -eq "Start-SHUBExportJobV2/OutputConfiguration_Findings_Filters_CompositeOperator")
@@ -286,7 +288,8 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.SortOrder
         {
             ($_ -eq "Get-SHUBFindingStatisticsV2/SortOrder") -Or
-            ($_ -eq "Get-SHUBResourcesStatisticsV2/SortOrder")
+            ($_ -eq "Get-SHUBResourcesStatisticsV2/SortOrder") -Or
+            ($_ -eq "Get-SHUBSoftwareStatisticsV2/SortOrder")
         }
         {
             $v = "asc","desc"
@@ -334,7 +337,7 @@ $SHUB_map = @{
     "FeatureName"=@("Disable-SHUBSecurityHubFeatureV2","Enable-SHUBSecurityHubFeatureV2")
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
-    "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2")
+    "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2","Get-SHUBSoftwareResourcesV2","Get-SHUBSoftwareV2")
     "GuidanceFormat"=@("Get-SHUBRemediationsV2")
     "Mode"=@("New-SHUBTicketV2")
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
@@ -347,7 +350,7 @@ $SHUB_map = @{
     "RecordState"=@("Update-SHUBFinding")
     "RuleStatus"=@("New-SHUBAutomationRule","New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "Severity_Label"=@("Update-SHUBFindingsBatch")
-    "SortOrder"=@("Get-SHUBFindingStatisticsV2","Get-SHUBResourcesStatisticsV2")
+    "SortOrder"=@("Get-SHUBFindingStatisticsV2","Get-SHUBResourcesStatisticsV2","Get-SHUBSoftwareStatisticsV2")
     "Status"=@("Get-SHUBExportJobsV2List")
     "VerificationState"=@("Update-SHUBFindingsBatch")
     "Workflow_Status"=@("Update-SHUBFindingsBatch")
@@ -488,6 +491,9 @@ $SHUB_SelectMap = @{
                "Get-SHUBResourcesTrendsV2",
                "Get-SHUBResourcesV2",
                "Get-SHUBSecurityControlDefinition",
+               "Get-SHUBSoftwareResourcesV2",
+               "Get-SHUBSoftwareStatisticsV2",
+               "Get-SHUBSoftwareV2",
                "Send-SHUBMemberInvitation",
                "Get-SHUBAggregatorsV2List",
                "Get-SHUBAutomationRuleList",

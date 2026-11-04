@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
     /// Provides a JSON description of the data in each time series dataset, including names,
-    /// column names, and data types.
+    /// column names, and data types.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4EDataset")]
     [OutputType("Amazon.LookoutEquipment.Model.DescribeDatasetResponse")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.DescribeDatasetResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.DescribeDatasetResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4EDatasetCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     /// Your model is trained using a portion of the data from your dataset and uses that
     /// data to learn patterns of normal behavior and abnormal patterns that lead to equipment
     /// failure. Another portion of the data is used to evaluate the model's accuracy. 
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "L4EModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LookoutEquipment.Model.CreateModelResponse")]
@@ -51,6 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.CreateModelResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.CreateModelResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class NewL4EModelCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Prerequisite:
     /// Registering your account to publish CloudFormation extensions</a> in the <i>CloudFormation
     /// Command Line Interface (CLI) User Guide</i>.
-    /// </para>
+    /// </para><para></para>
     /// </summary>
     [Cmdlet("Register", "CFNPublisher", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

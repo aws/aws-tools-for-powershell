@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
     /// Specifies information about the inference scheduler being used, including name, model,
-    /// status, and associated metadata
+    /// status, and associated metadata<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4EInferenceScheduler")]
     [OutputType("Amazon.LookoutEquipment.Model.DescribeInferenceSchedulerResponse")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.DescribeInferenceSchedulerResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.DescribeInferenceSchedulerResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4EInferenceSchedulerCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

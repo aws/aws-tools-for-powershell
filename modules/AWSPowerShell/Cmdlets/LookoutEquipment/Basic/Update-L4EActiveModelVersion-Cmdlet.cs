@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Sets the active model version for a given machine learning model.
+    /// Sets the active model version for a given machine learning model.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "L4EActiveModelVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LookoutEquipment.Model.UpdateActiveModelVersionResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.UpdateActiveModelVersionResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.UpdateActiveModelVersionResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class UpdateL4EActiveModelVersionCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

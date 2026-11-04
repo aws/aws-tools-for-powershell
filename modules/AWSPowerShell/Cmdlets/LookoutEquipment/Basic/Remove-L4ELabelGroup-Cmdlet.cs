@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Deletes a group of labels.
+    /// Deletes a group of labels.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "L4ELabelGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LookoutEquipment.Model.DeleteLabelGroupResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class RemoveL4ELabelGroupCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     /// inference scheduler or data ingestion job is currently using the dataset, and if there
     /// isn't, the dataset, its metadata, and any associated data stored in S3 will be deleted.
     /// This does not affect any models that used this dataset for training and evaluation,
-    /// but does prevent it from being used in the future.
+    /// but does prevent it from being used in the future.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "L4EDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LookoutEquipment.Model.DeleteDatasetResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class RemoveL4EDatasetCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

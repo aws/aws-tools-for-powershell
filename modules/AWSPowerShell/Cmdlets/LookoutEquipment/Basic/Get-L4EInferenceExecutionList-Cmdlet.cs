@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
     /// Lists all inference executions that have been performed by the specified inference
-    /// scheduler.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// scheduler.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4EInferenceExecutionList")]
     [OutputType("Amazon.LookoutEquipment.Model.InferenceExecutionSummary")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet returns a collection of Amazon.LookoutEquipment.Model.InferenceExecutionSummary objects.",
         "The service call response (type Amazon.LookoutEquipment.Model.ListInferenceExecutionsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4EInferenceExecutionListCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

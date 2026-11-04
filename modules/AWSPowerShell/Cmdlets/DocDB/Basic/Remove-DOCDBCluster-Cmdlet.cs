@@ -33,6 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// Deletes a previously provisioned cluster. When you delete a cluster, all automated
     /// backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots
     /// of the specified cluster are not deleted.
+    /// 
+    ///  
+    /// <para></para>
     /// </summary>
     [Cmdlet("Remove", "DOCDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DocDB.Model.DBCluster")]

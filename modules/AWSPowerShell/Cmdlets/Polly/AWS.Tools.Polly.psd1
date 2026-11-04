@@ -87,13 +87,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-POLResourceTag', 
         'Get-POLLexicon', 
         'Get-POLLexiconList', 
+        'Get-POLResourceTag', 
         'Get-POLSpeech', 
         'Get-POLSpeechSynthesisTask', 
         'Get-POLSpeechSynthesisTaskList', 
         'Get-POLVoice', 
         'Remove-POLLexicon', 
+        'Remove-POLResourceTag', 
         'Start-POLSpeechSynthesisTask', 
         'Write-POLLexicon')
 

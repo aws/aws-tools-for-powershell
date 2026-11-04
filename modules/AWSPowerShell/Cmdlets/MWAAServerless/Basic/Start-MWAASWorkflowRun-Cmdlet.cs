@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
         #region Parameter WorkflowVersion
         /// <summary>
         /// <para>
-        /// <para>Optional. The specific version of the workflow to execute. If not specified, the latest
-        /// version is used.</para>
+        /// <para>Optional. The specific version of the workflow to execute. If you don't specify a
+        /// version, we use the latest version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -80,10 +80,34 @@ $S3T_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.S3Tables.CompressionCodec
+        "Start-S3TTableMigration/DestinationTable_Properties_CompressionCodec"
+        {
+            $v = "gzip","snappy","uncompressed","zstd"
+            break
+        }
+
+        # Amazon.S3Tables.DataFileFormat
+        "Start-S3TTableMigration/DestinationTable_Properties_WriteFormat"
+        {
+            $v = "parquet"
+            break
+        }
+
         # Amazon.S3Tables.IcebergCompactionStrategy
-        "Write-S3TTableMaintenanceConfiguration/IcebergCompaction_Strategy"
+        {
+            ($_ -eq "Start-S3TTableMigration/DataMigration_MaintenanceSettings_IcebergCompaction_Strategy") -Or
+            ($_ -eq "Write-S3TTableMaintenanceConfiguration/IcebergCompaction_Strategy")
+        }
         {
             $v = "auto","binpack","sort","z-order"
+            break
+        }
+
+        # Amazon.S3Tables.IncompatibleValuesPolicy
+        "Start-S3TTableMigration/DataMigration_MigrationPolicies_IncompatibleValuesPolicy"
+        {
+            $v = "fail","setNull"
             break
         }
 
@@ -97,6 +121,27 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.MigrationRequestedState
+        "Update-S3TTableMigration/RequestedState"
+        {
+            $v = "cancelled","queued"
+            break
+        }
+
+        # Amazon.S3Tables.MigrationSourceType
+        "Start-S3TTableMigration/SourceType"
+        {
+            $v = "glueTable"
+            break
+        }
+
+        # Amazon.S3Tables.MigrationState
+        "Get-S3TTableMigrationList/State"
+        {
+            $v = "cancelled","cancelling","failed","migrating","new","pendingReview","planning","queued","succeeded"
+            break
+        }
+
         # Amazon.S3Tables.OpenTableFormat
         "New-S3TTable/Format"
         {
@@ -105,7 +150,10 @@ $S3T_Completers = {
         }
 
         # Amazon.S3Tables.SchemaV2FieldType
-        "New-S3TTable/Metadata_Iceberg_SchemaV2_Type"
+        {
+            ($_ -eq "Start-S3TTableMigration/DestinationTable_Schema_Type") -Or
+            ($_ -eq "New-S3TTable/Metadata_Iceberg_SchemaV2_Type")
+        }
         {
             $v = "struct"
             break
@@ -113,6 +161,7 @@ $S3T_Completers = {
 
         # Amazon.S3Tables.SSEAlgorithm
         {
+            ($_ -eq "Start-S3TTableMigration/DestinationTable_EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "New-S3TTable/EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "New-S3TTableBucket/EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "Write-S3TTableBucketEncryption/EncryptionConfiguration_SseAlgorithm")
@@ -124,6 +173,7 @@ $S3T_Completers = {
 
         # Amazon.S3Tables.StorageClass
         {
+            ($_ -eq "Start-S3TTableMigration/DestinationTable_StorageClassConfiguration_StorageClass") -Or
             ($_ -eq "New-S3TTable/StorageClassConfiguration_StorageClass") -Or
             ($_ -eq "New-S3TTableBucket/StorageClassConfiguration_StorageClass") -Or
             ($_ -eq "Write-S3TTableBucketStorageClass/StorageClassConfiguration_StorageClass")
@@ -161,6 +211,13 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.UnmatchedSourceFieldsPolicy
+        "Start-S3TTableMigration/DataMigration_MigrationPolicies_UnmatchedSourceFieldsPolicy"
+        {
+            $v = "drop","fail"
+            break
+        }
+
 
     }
 
@@ -170,10 +227,21 @@ $S3T_Completers = {
 }
 
 $S3T_map = @{
+    "DataMigration_MaintenanceSettings_IcebergCompaction_Strategy"=@("Start-S3TTableMigration")
+    "DataMigration_MigrationPolicies_IncompatibleValuesPolicy"=@("Start-S3TTableMigration")
+    "DataMigration_MigrationPolicies_UnmatchedSourceFieldsPolicy"=@("Start-S3TTableMigration")
+    "DestinationTable_EncryptionConfiguration_SseAlgorithm"=@("Start-S3TTableMigration")
+    "DestinationTable_Properties_CompressionCodec"=@("Start-S3TTableMigration")
+    "DestinationTable_Properties_WriteFormat"=@("Start-S3TTableMigration")
+    "DestinationTable_Schema_Type"=@("Start-S3TTableMigration")
+    "DestinationTable_StorageClassConfiguration_StorageClass"=@("Start-S3TTableMigration")
     "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
     "IcebergCompaction_Strategy"=@("Write-S3TTableMaintenanceConfiguration")
     "Metadata_Iceberg_SchemaV2_Type"=@("New-S3TTable")
+    "RequestedState"=@("Update-S3TTableMigration")
+    "SourceType"=@("Start-S3TTableMigration")
+    "State"=@("Get-S3TTableMigrationList")
     "StorageClassConfiguration_StorageClass"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketStorageClass")
     "Type"=@("Get-S3TTableBucketList","Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration","Write-S3TTableRecordExpirationConfiguration")
@@ -229,7 +297,8 @@ $S3T_SelectCompleters = {
 }
 
 $S3T_SelectMap = @{
-    "Select"=@("New-S3TNamespace",
+    "Select"=@("Complete-S3TTableMigration",
+               "New-S3TNamespace",
                "New-S3TTable",
                "New-S3TTableBucket",
                "Remove-S3TNamespace",
@@ -254,6 +323,7 @@ $S3T_SelectMap = @{
                "Get-S3TTableMaintenanceConfiguration",
                "Get-S3TTableMaintenanceJobStatus",
                "Get-S3TTableMetadataLocation",
+               "Get-S3TTableMigration",
                "Get-S3TTablePolicy",
                "Get-S3TTableRecordExpirationConfiguration",
                "Get-S3TTableRecordExpirationJobStatus",
@@ -262,6 +332,7 @@ $S3T_SelectMap = @{
                "Get-S3TTableStorageClass",
                "Get-S3TNamespaceList",
                "Get-S3TTableBucketList",
+               "Get-S3TTableMigrationList",
                "Get-S3TTableList",
                "Get-S3TResourceTag",
                "Write-S3TTableBucketEncryption",
@@ -275,9 +346,12 @@ $S3T_SelectMap = @{
                "Write-S3TTableRecordExpirationConfiguration",
                "Write-S3TTableReplication",
                "Rename-S3TTable",
+               "Start-S3TTableMigration",
+               "Sync-S3TTableMigration",
                "Add-S3TResourceTag",
                "Remove-S3TResourceTag",
-               "Update-S3TTableMetadataLocation")
+               "Update-S3TTableMetadataLocation",
+               "Update-S3TTableMigration")
 }
 
 _awsArgumentCompleterRegistration $S3T_SelectCompleters $S3T_SelectMap

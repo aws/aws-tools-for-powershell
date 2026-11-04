@@ -11461,6 +11461,8 @@ Set-Alias -Name DDB-BatchGetItem -Value Get-DDBBatchItem
 Set-Alias -Name Write-DDBItem -Value Set-DDBBatchItem
 Set-Alias -Name Write-DDBBatchItem -Value Set-DDBBatchItem
 Set-Alias -Name DDB-BatchWriteItem -Value Set-DDBBatchItem
+Set-Alias -Name Cancel-DDBBulkOperation -Value Stop-DDBBulkOperation
+Set-Alias -Name DDB-CancelBulkOperation -Value Stop-DDBBulkOperation
 Set-Alias -Name Create-DDBBackup -Value New-DDBBackup
 Set-Alias -Name DDB-CreateBackup -Value New-DDBBackup
 Set-Alias -Name Create-DDBGlobalTable -Value New-DDBGlobalTable
@@ -11475,6 +11477,9 @@ Set-Alias -Name Delete-DDBTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DeleteTable -Value Remove-DDBTable
 Set-Alias -Name Describe-DDBBackup -Value Get-DDBBackup
 Set-Alias -Name DDB-DescribeBackup -Value Get-DDBBackup
+Set-Alias -Name Describe-DDBBulkOperation -Value Get-DDBBulkOperationDetail
+Set-Alias -Name Describe-DDBBulkOperationDetail -Value Get-DDBBulkOperationDetail
+Set-Alias -Name DDB-DescribeBulkOperation -Value Get-DDBBulkOperationDetail
 Set-Alias -Name Describe-DDBContinuousBackups -Value Get-DDBContinuousBackup
 Set-Alias -Name Describe-DDBContinuousBackup -Value Get-DDBContinuousBackup
 Set-Alias -Name DDB-DescribeContinuousBackups -Value Get-DDBContinuousBackup
@@ -11519,6 +11524,9 @@ Set-Alias -Name DDB-ImportTable -Value Import-DDBTable
 Set-Alias -Name List-DDBBackups -Value Get-DDBBackupList
 Set-Alias -Name List-DDBBackupList -Value Get-DDBBackupList
 Set-Alias -Name DDB-ListBackups -Value Get-DDBBackupList
+Set-Alias -Name List-DDBBulkOperations -Value Get-DDBBulkOperationList
+Set-Alias -Name List-DDBBulkOperationList -Value Get-DDBBulkOperationList
+Set-Alias -Name DDB-ListBulkOperations -Value Get-DDBBulkOperationList
 Set-Alias -Name List-DDBContributorInsights -Value Get-DDBContributorInsightList
 Set-Alias -Name List-DDBContributorInsightList -Value Get-DDBContributorInsightList
 Set-Alias -Name DDB-ListContributorInsights -Value Get-DDBContributorInsightList
@@ -11551,6 +11559,8 @@ Set-Alias -Name Scan-DDBScan -Value Invoke-DDBScan
 Set-Alias -Name DDB-Scan -Value Invoke-DDBScan
 Set-Alias -Name Search-DDBVectors -Value Search-DDBVector
 Set-Alias -Name DDB-SearchVectors -Value Search-DDBVector
+Set-Alias -Name Start-DDBBulkPutItems -Value Start-DDBBulkPutItem
+Set-Alias -Name DDB-StartBulkPutItems -Value Start-DDBBulkPutItem
 Set-Alias -Name DDB-TagResource -Value Add-DDBResourceTag
 Set-Alias -Name Get-DDBItems -Value Get-DDBItemTransactionally
 Set-Alias -Name DDB-TransactGetItems -Value Get-DDBItemTransactionally
@@ -27496,11 +27506,14 @@ Set-Alias -Name POL-ListLexicons -Value Get-POLLexiconList
 Set-Alias -Name List-POLSpeechSynthesisTasks -Value Get-POLSpeechSynthesisTaskList
 Set-Alias -Name List-POLSpeechSynthesisTaskList -Value Get-POLSpeechSynthesisTaskList
 Set-Alias -Name POL-ListSpeechSynthesisTasks -Value Get-POLSpeechSynthesisTaskList
+Set-Alias -Name POL-ListTagsForResource -Value Get-POLResourceTag
 Set-Alias -Name Put-POLLexicon -Value Write-POLLexicon
 Set-Alias -Name POL-PutLexicon -Value Write-POLLexicon
 Set-Alias -Name POL-StartSpeechSynthesisTask -Value Start-POLSpeechSynthesisTask
 Set-Alias -Name Synthesize-POLSpeech -Value Get-POLSpeech
 Set-Alias -Name POL-SynthesizeSpeech -Value Get-POLSpeech
+Set-Alias -Name POL-TagResource -Value Add-POLResourceTag
+Set-Alias -Name POL-UntagResource -Value Remove-POLResourceTag
 Set-Alias -Name PPM-ApprovePaidSubscription -Value Approve-PPMPaidSubscription
 Set-Alias -Name Associate-PPMResourcesToSubscription -Value Add-PPMResourcesToSubscription
 Set-Alias -Name PPM-AssociateResourcesToSubscription -Value Add-PPMResourcesToSubscription
@@ -31353,6 +31366,7 @@ Set-Alias -Name S3O-ListOutpostsWithS3 -Value Get-S3OOutpostsWithS3List
 Set-Alias -Name List-S3OSharedEndpoints -Value Get-S3OSharedEndpointList
 Set-Alias -Name List-S3OSharedEndpointList -Value Get-S3OSharedEndpointList
 Set-Alias -Name S3O-ListSharedEndpoints -Value Get-S3OSharedEndpointList
+Set-Alias -Name S3T-CompleteTableMigration -Value Complete-S3TTableMigration
 Set-Alias -Name Create-S3TNamespace -Value New-S3TNamespace
 Set-Alias -Name S3T-CreateNamespace -Value New-S3TNamespace
 Set-Alias -Name Create-S3TTable -Value New-S3TTable
@@ -31390,6 +31404,7 @@ Set-Alias -Name S3T-GetTableEncryption -Value Get-S3TTableEncryption
 Set-Alias -Name S3T-GetTableMaintenanceConfiguration -Value Get-S3TTableMaintenanceConfiguration
 Set-Alias -Name S3T-GetTableMaintenanceJobStatus -Value Get-S3TTableMaintenanceJobStatus
 Set-Alias -Name S3T-GetTableMetadataLocation -Value Get-S3TTableMetadataLocation
+Set-Alias -Name S3T-GetTableMigration -Value Get-S3TTableMigration
 Set-Alias -Name S3T-GetTablePolicy -Value Get-S3TTablePolicy
 Set-Alias -Name S3T-GetTableRecordExpirationConfiguration -Value Get-S3TTableRecordExpirationConfiguration
 Set-Alias -Name S3T-GetTableRecordExpirationJobStatus -Value Get-S3TTableRecordExpirationJobStatus
@@ -31402,6 +31417,9 @@ Set-Alias -Name S3T-ListNamespaces -Value Get-S3TNamespaceList
 Set-Alias -Name List-S3TTableBuckets -Value Get-S3TTableBucketList
 Set-Alias -Name List-S3TTableBucketList -Value Get-S3TTableBucketList
 Set-Alias -Name S3T-ListTableBuckets -Value Get-S3TTableBucketList
+Set-Alias -Name List-S3TTableMigrations -Value Get-S3TTableMigrationList
+Set-Alias -Name List-S3TTableMigrationList -Value Get-S3TTableMigrationList
+Set-Alias -Name S3T-ListTableMigrations -Value Get-S3TTableMigrationList
 Set-Alias -Name List-S3TTables -Value Get-S3TTableList
 Set-Alias -Name List-S3TTableList -Value Get-S3TTableList
 Set-Alias -Name S3T-ListTables -Value Get-S3TTableList
@@ -31427,9 +31445,12 @@ Set-Alias -Name S3T-PutTableRecordExpirationConfiguration -Value Write-S3TTableR
 Set-Alias -Name Put-S3TTableReplication -Value Write-S3TTableReplication
 Set-Alias -Name S3T-PutTableReplication -Value Write-S3TTableReplication
 Set-Alias -Name S3T-RenameTable -Value Rename-S3TTable
+Set-Alias -Name S3T-StartTableMigration -Value Start-S3TTableMigration
+Set-Alias -Name S3T-SyncTableMigration -Value Sync-S3TTableMigration
 Set-Alias -Name S3T-TagResource -Value Add-S3TResourceTag
 Set-Alias -Name S3T-UntagResource -Value Remove-S3TResourceTag
 Set-Alias -Name S3T-UpdateTableMetadataLocation -Value Update-S3TTableMetadataLocation
+Set-Alias -Name S3T-UpdateTableMigration -Value Update-S3TTableMigration
 Set-Alias -Name Create-S3VIndex -Value New-S3VIndex
 Set-Alias -Name S3V-CreateIndex -Value New-S3VIndex
 Set-Alias -Name Create-S3VVectorBucket -Value New-S3VVectorBucket
@@ -32918,6 +32939,9 @@ Set-Alias -Name SHUB-GetResourcesStatisticsV2 -Value Get-SHUBResourcesStatistics
 Set-Alias -Name SHUB-GetResourcesTrendsV2 -Value Get-SHUBResourcesTrendsV2
 Set-Alias -Name SHUB-GetResourcesV2 -Value Get-SHUBResourcesV2
 Set-Alias -Name SHUB-GetSecurityControlDefinition -Value Get-SHUBSecurityControlDefinition
+Set-Alias -Name SHUB-GetSoftwareResourcesV2 -Value Get-SHUBSoftwareResourcesV2
+Set-Alias -Name SHUB-GetSoftwareStatisticsV2 -Value Get-SHUBSoftwareStatisticsV2
+Set-Alias -Name SHUB-GetSoftwareV2 -Value Get-SHUBSoftwareV2
 Set-Alias -Name Invite-SHUBMembers -Value Send-SHUBMemberInvitation
 Set-Alias -Name Invite-SHUBMemberInvitation -Value Send-SHUBMemberInvitation
 Set-Alias -Name SHUB-InviteMembers -Value Send-SHUBMemberInvitation

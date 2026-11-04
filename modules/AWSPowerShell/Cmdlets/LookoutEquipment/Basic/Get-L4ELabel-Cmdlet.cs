@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Returns the name of the label.
+    /// Returns the name of the label.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4ELabel")]
     [OutputType("Amazon.LookoutEquipment.Model.DescribeLabelResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.DescribeLabelResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.DescribeLabelResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4ELabelCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

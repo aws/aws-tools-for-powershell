@@ -58,9 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// can modify or delete up to three additional storage volumes using the names <c>rdsdbdata2</c>,
         /// <c>rdsdbdata3</c>, and <c>rdsdbdata4</c>. Additional storage volumes are supported
         /// for RDS for Oracle and RDS for SQL Server DB instances only.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -242,9 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A list of DB security groups to associate with this DB instance.</para><para>Default: The default DB security group for the database engine.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -292,9 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The list of logs that the restored DB instance is to export to CloudWatch Logs. The
         /// values in the list depend on the DB engine being used. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -607,9 +610,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The number of CPU cores and the number of threads per core for the DB instance class
         /// of the DB instance.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -751,9 +755,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A list of tags to associate with this DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging
         /// Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -766,9 +771,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Tags to assign to resources associated with the DB instance.</para><para>Valid Values: </para><ul><li><para><c>auto-backup</c> - The DB instance's automated backup.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -793,9 +799,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A list of VPC security groups to associate with this DB instance.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -860,7 +867,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
-            context.DatabaseInsightsMode = this.DatabaseInsightsMode;
             context.DBCapacityReservationIdentifier = this.DBCapacityReservationIdentifier;
             context.DBInstanceClass = this.DBInstanceClass;
             #if MODULAR
@@ -883,6 +889,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.DBSecurityGroup = new List<System.String>(this.DBSecurityGroup);
             }
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.DatabaseInsightsMode = this.DatabaseInsightsMode;
             context.DedicatedLogVolume = this.DedicatedLogVolume;
             context.DeletionProtection = this.DeletionProtection;
             if (this.EnableCloudwatchLogsExport != null)
@@ -904,9 +911,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.KmsKeyId = this.KmsKeyId;
             context.LicenseModel = this.LicenseModel;
             context.ManageMasterUserPassword = this.ManageMasterUserPassword;
-            context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
             context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
+            context.MasterUsername = this.MasterUsername;
             context.MaxAllocatedStorage = this.MaxAllocatedStorage;
             context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
@@ -955,13 +962,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.StorageEncrypted = this.StorageEncrypted;
             context.StorageThroughput = this.StorageThroughput;
             context.StorageType = this.StorageType;
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
-            }
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.RDS.Model.TagSpecification>(this.TagSpecification);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.UseDefaultProcessorFeature = this.UseDefaultProcessorFeature;
             if (this.VpcSecurityGroupId != null)
@@ -1012,10 +1019,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
-            if (cmdletContext.DatabaseInsightsMode != null)
-            {
-                request.DatabaseInsightsMode = cmdletContext.DatabaseInsightsMode;
-            }
             if (cmdletContext.DBCapacityReservationIdentifier != null)
             {
                 request.DBCapacityReservationIdentifier = cmdletContext.DBCapacityReservationIdentifier;
@@ -1043,6 +1046,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DatabaseInsightsMode != null)
+            {
+                request.DatabaseInsightsMode = cmdletContext.DatabaseInsightsMode;
             }
             if (cmdletContext.DedicatedLogVolume != null)
             {
@@ -1092,10 +1099,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
             }
-            if (cmdletContext.MasterUsername != null)
-            {
-                request.MasterUsername = cmdletContext.MasterUsername;
-            }
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
@@ -1103,6 +1106,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.MasterUserSecretKmsKeyId != null)
             {
                 request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
+            }
+            if (cmdletContext.MasterUsername != null)
+            {
+                request.MasterUsername = cmdletContext.MasterUsername;
             }
             if (cmdletContext.MaxAllocatedStorage != null)
             {
@@ -1188,13 +1195,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.StorageType = cmdletContext.StorageType;
             }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
-            }
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.UseDefaultProcessorFeature != null)
             {
@@ -1266,7 +1273,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String CACertificateIdentifier { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
-            public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
             public System.String DBCapacityReservationIdentifier { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
@@ -1274,6 +1280,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBParameterGroupName { get; set; }
             public List<System.String> DBSecurityGroup { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
             public System.Boolean? DedicatedLogVolume { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
@@ -1286,9 +1293,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String KmsKeyId { get; set; }
             public System.String LicenseModel { get; set; }
             public System.Boolean? ManageMasterUserPassword { get; set; }
-            public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String MasterUserSecretKmsKeyId { get; set; }
+            public System.String MasterUsername { get; set; }
             public System.Int32? MaxAllocatedStorage { get; set; }
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
@@ -1310,8 +1317,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? StorageEncrypted { get; set; }
             public System.Int32? StorageThroughput { get; set; }
             public System.String StorageType { get; set; }
-            public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public List<Amazon.RDS.Model.TagSpecification> TagSpecification { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.Boolean? UseDefaultProcessorFeature { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.RDS.Model.RestoreDBInstanceFromS3Response, RestoreRDSDBInstanceFromS3Cmdlet, object> Select { get; set; } =

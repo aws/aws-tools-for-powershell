@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     /// can be added to an Amazon Lookout for Equipment resource as metadata. Tags can be
     /// used for organizing your resources as well as helping you to search and filter by
     /// tag. Multiple tags can be added to a resource, either when you create it, or later.
-    /// Up to 50 tags can be associated with each resource.
+    /// Up to 50 tags can be associated with each resource.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "L4EResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LookoutEquipment.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class AddL4EResourceTagCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

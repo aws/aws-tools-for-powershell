@@ -212,9 +212,12 @@ $POL_SelectMap = @{
                "Get-POLSpeechSynthesisTask",
                "Get-POLLexiconList",
                "Get-POLSpeechSynthesisTaskList",
+               "Get-POLResourceTag",
                "Write-POLLexicon",
                "Start-POLSpeechSynthesisTask",
-               "Get-POLSpeech")
+               "Get-POLSpeech",
+               "Add-POLResourceTag",
+               "Remove-POLResourceTag")
 }
 
 _awsArgumentCompleterRegistration $POL_SelectCompleters $POL_SelectMap

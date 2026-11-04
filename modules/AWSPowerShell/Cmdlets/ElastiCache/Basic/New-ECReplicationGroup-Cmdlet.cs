@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para><c>AuthToken</c> can be specified only on replication groups where <c>TransitEncryptionEnabled</c>
         /// is <c>true</c>.</para><important><para>For HIPAA compliance, you must specify <c>TransitEncryptionEnabled</c> as <c>true</c>,
-        /// an <c>AuthToken</c>, and a <c>CacheSubnetGroup</c>.</para></important><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>The only permitted printable special characters are !, &amp;, #, $, ^, &lt;, &gt;,
-        /// and -. Other printable special characters cannot be used in the AUTH token.</para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
+        /// an <c>AuthToken</c>, and a <c>CacheSubnetGroup</c>.</para></important><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>The only permitted printable special characters are !, &amp;, #, $, ^, &lt;, &gt;, and
+        /// -. Other printable special characters cannot be used in the AUTH token.</para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
         /// at http://redis.io/commands/AUTH.</para>
         /// </para>
         /// </summary>
@@ -124,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> If you are running Valkey 7.2 and above or Redis OSS engine version 6.0 and above,
+        /// <para> If you are running Valkey 7.2 and above or Redis OSS engine version 6.0 and above,
         /// set this parameter to yes to opt-in to the next auto minor version upgrade campaign.
-        /// This parameter is disabled for previous versions.  </para>
+        /// This parameter is disabled for previous versions. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,9 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of cache security group names to associate with this replication group.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -316,9 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies the destination, format and type of the logs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -364,9 +366,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// required when seeding a Valkey or Redis OSS (cluster mode enabled) cluster from a
         /// S3 rdb file. You must configure each node group (shard) using this parameter because
         /// you must specify the slots for each node group.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -432,9 +435,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// use <c>NodeGroupConfiguration</c> instead.</para><note><para>If you are creating your replication group in an Amazon VPC (recommended), you can
         /// only locate clusters in Availability Zones associated with the subnets in the selected
         /// subnet group.</para><para>The number of Availability Zones listed must equal the value of <c>NumCacheClusters</c>.</para></note><para>Default: system chosen Availability Zones.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -516,9 +520,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>One or more Amazon VPC security groups associated with this replication group.</para><para>Use this parameter only when you are creating a replication group in an Amazon Virtual
         /// Private Cloud (Amazon VPC).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -547,9 +552,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// The new replication group will have the number of node groups (console: shards) specified
         /// by the parameter <i>NumNodeGroups</i> or the number of node groups configured by <i>NodeGroupConfiguration</i>
         /// regardless of the number of ARNs specified here.</para><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -602,9 +608,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// shown following: Key=<c>myKey</c>, Value=<c>myKeyValue</c> Key=<c>mySecondKey</c>,
         /// Value=<c>mySecondKeyValue</c>. Tags on replication groups will be replicated to all
         /// nodes.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -649,9 +656,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The user group to associate with the replication group.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -708,8 +716,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             context.AtRestEncryptionEnabled = this.AtRestEncryptionEnabled;
             context.AuthToken = this.AuthToken;
-            context.AutomaticFailoverEnabled = this.AutomaticFailoverEnabled;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
+            context.AutomaticFailoverEnabled = this.AutomaticFailoverEnabled;
             context.CacheNodeType = this.CacheNodeType;
             context.CacheParameterGroupName = this.CacheParameterGroupName;
             if (this.CacheSecurityGroupName != null)
@@ -806,13 +814,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.AuthToken = cmdletContext.AuthToken;
             }
-            if (cmdletContext.AutomaticFailoverEnabled != null)
-            {
-                request.AutomaticFailoverEnabled = cmdletContext.AutomaticFailoverEnabled.Value;
-            }
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
                 request.AutoMinorVersionUpgrade = cmdletContext.AutoMinorVersionUpgrade.Value;
+            }
+            if (cmdletContext.AutomaticFailoverEnabled != null)
+            {
+                request.AutomaticFailoverEnabled = cmdletContext.AutomaticFailoverEnabled.Value;
             }
             if (cmdletContext.CacheNodeType != null)
             {
@@ -1015,8 +1023,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             public System.Boolean? AtRestEncryptionEnabled { get; set; }
             public System.String AuthToken { get; set; }
-            public System.Boolean? AutomaticFailoverEnabled { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public System.Boolean? AutomaticFailoverEnabled { get; set; }
             public System.String CacheNodeType { get; set; }
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupName { get; set; }

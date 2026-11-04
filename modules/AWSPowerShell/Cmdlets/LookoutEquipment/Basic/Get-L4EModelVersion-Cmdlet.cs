@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Retrieves information about a specific machine learning model version.
+    /// Retrieves information about a specific machine learning model version.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4EModelVersion")]
     [OutputType("Amazon.LookoutEquipment.Model.DescribeModelVersionResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.DescribeModelVersionResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.DescribeModelVersionResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4EModelVersionCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

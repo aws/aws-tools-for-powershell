@@ -38,7 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// <para>
     /// To call this API operation for specific countries, see the following country-specific
     /// requirements.
-    /// </para><para><b>Bangladesh</b></para><ul><li><para>
+    /// </para><para><b>Argentina</b></para><ul><li><para><c>RegistrationType</c> valid values are <c>CUIT</c> (Clave Única de Identificación
+    /// Tributaria) and <c>CDI</c> (Clave de Identificación).
+    /// </para></li></ul><para><b>Bangladesh</b></para><ul><li><para>
     /// You must specify the tax registration certificate document in the <c>taxRegistrationDocuments</c>
     /// field of the <c>VerificationDetails</c> object.
     /// </para></li></ul><para><b>Brazil</b></para><ul><li><para>
@@ -177,6 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// For <c>address</c>, you must specify <c>districtOrCounty</c>.
     /// </para></li></ul><para><b>Ukraine</b></para><ul><li><para>
     /// The sector valid values are <c>Business</c> and <c>Individual</c>.
+    /// </para></li></ul><para><b>Uruguay</b></para><ul><li><para><c>RegistrationType</c> valid values are <c>RUT</c> (Registro Único Tributario),
+    /// <c>NIE</c> (Numero de Identificacion del Extranjero), and <c>CI</c> (Cedula Identidad).
     /// </para></li></ul><para><b>Philippines</b></para><ul><li><para>
     /// You can optionally specify the <c>isVatRegistered</c> in the <c>philippinesAdditionalInfo</c>
     /// field of the <c>additionalTaxInformation</c> object to indicate your VAT registration

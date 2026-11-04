@@ -66,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         public System.String SourceData_AcmPcaArn { get; set; }
         #endregion
         
+        #region Parameter CrlDpRevocationEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the trust anchor checks certificate revocation status against CRL
+        /// distribution points.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CrlDpRevocationEnabled { get; set; }
+        #endregion
+        
         #region Parameter Enabled
         /// <summary>
         /// <para>
@@ -194,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
                 context.Select = CreateSelectDelegate<Amazon.IAMRolesAnywhere.Model.CreateTrustAnchorResponse, NewIAMRATrustAnchorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CrlDpRevocationEnabled = this.CrlDpRevocationEnabled;
             context.Enabled = this.Enabled;
             context.Name = this.Name;
             #if MODULAR
@@ -229,6 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             // create request
             var request = new Amazon.IAMRolesAnywhere.Model.CreateTrustAnchorRequest();
             
+            if (cmdletContext.CrlDpRevocationEnabled != null)
+            {
+                request.CrlDpRevocationEnabled = cmdletContext.CrlDpRevocationEnabled.Value;
+            }
             if (cmdletContext.Enabled != null)
             {
                 request.Enabled = cmdletContext.Enabled.Value;
@@ -354,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CrlDpRevocationEnabled { get; set; }
             public System.Boolean? Enabled { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.IAMRolesAnywhere.Model.NotificationSetting> NotificationSetting { get; set; }

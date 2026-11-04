@@ -56,9 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The action you want to allow for the specified principal(s).</para><para>Valid values: Any Amazon SNS action name, for example <c>Publish</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -80,9 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <para>The Amazon Web Services account IDs of the users (principals) who will be given access
         /// to the specified actions. The users must have Amazon Web Services account, but do
         /// not need to be signed up for this service.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -177,16 +179,6 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 context.Select = CreateSelectDelegate<Amazon.SimpleNotificationService.Model.AddPermissionResponse, AddSNSPermissionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.ActionName != null)
-            {
-                context.ActionName = new List<System.String>(this.ActionName);
-            }
-            #if MODULAR
-            if (this.ActionName == null && ParameterWasBound(nameof(this.ActionName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ActionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.AWSAccountId != null)
             {
                 context.AWSAccountId = new List<System.String>(this.AWSAccountId);
@@ -195,6 +187,16 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             if (this.AWSAccountId == null && ParameterWasBound(nameof(this.AWSAccountId)))
             {
                 WriteWarning("You are passing $null as a value for parameter AWSAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.ActionName != null)
+            {
+                context.ActionName = new List<System.String>(this.ActionName);
+            }
+            #if MODULAR
+            if (this.ActionName == null && ParameterWasBound(nameof(this.ActionName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ActionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.Label = this.Label;
@@ -227,13 +229,13 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             // create request
             var request = new Amazon.SimpleNotificationService.Model.AddPermissionRequest();
             
-            if (cmdletContext.ActionName != null)
-            {
-                request.ActionName = cmdletContext.ActionName;
-            }
             if (cmdletContext.AWSAccountId != null)
             {
                 request.AWSAccountId = cmdletContext.AWSAccountId;
+            }
+            if (cmdletContext.ActionName != null)
+            {
+                request.ActionName = cmdletContext.ActionName;
             }
             if (cmdletContext.Label != null)
             {
@@ -298,8 +300,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> ActionName { get; set; }
             public List<System.String> AWSAccountId { get; set; }
+            public List<System.String> ActionName { get; set; }
             public System.String Label { get; set; }
             public System.String TopicArn { get; set; }
             public System.Func<Amazon.SimpleNotificationService.Model.AddPermissionResponse, AddSNSPermissionCmdlet, object> Select { get; set; } =

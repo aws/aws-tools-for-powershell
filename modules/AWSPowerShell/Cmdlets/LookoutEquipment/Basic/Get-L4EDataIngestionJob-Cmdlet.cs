@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
     /// Provides information on a specific data ingestion job such as creation time, dataset
-    /// ARN, and status.
+    /// ARN, and status.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4EDataIngestionJob")]
     [OutputType("Amazon.LookoutEquipment.Model.DescribeDataIngestionJobResponse")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.DescribeDataIngestionJobResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.DescribeDataIngestionJobResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4EDataIngestionJobCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

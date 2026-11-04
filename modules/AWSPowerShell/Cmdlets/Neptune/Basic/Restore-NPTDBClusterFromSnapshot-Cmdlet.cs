@@ -60,9 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>Provides the list of EC2 Availability Zones that instances in the restored DB cluster
         /// can be created in.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -146,9 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -240,8 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>IPV4</c></b>   –   ( <i>the default</i> ) The DB cluster uses only IPv4 addresses
-        /// for communication.</para></li><li><para><b><c>DUAL</c></b>   –   The DB cluster uses both IPv4 and IPv6 addresses for communication.
+        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>IPV4</c></b> – ( <i>the default</i> ) The DB cluster uses only IPv4 addresses
+        /// for communication.</para></li><li><para><b><c>DUAL</c></b> – The DB cluster uses both IPv4 and IPv6 addresses for communication.
         /// The DB subnet group associated with the cluster must support IPv6.</para></li></ul>
         /// </para>
         /// </summary>
@@ -301,9 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The tags to be assigned to the restored DB cluster.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -316,9 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>A list of VPC security groups that the new DB cluster will belong to.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -378,7 +382,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
             }
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
-            context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             #if MODULAR
             if (this.DBClusterIdentifier == null && ParameterWasBound(nameof(this.DBClusterIdentifier)))
@@ -388,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             #endif
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.DatabaseName = this.DatabaseName;
             context.DeletionProtection = this.DeletionProtection;
             if (this.EnableCloudwatchLogsExport != null)
             {
@@ -448,10 +452,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
-            if (cmdletContext.DatabaseName != null)
-            {
-                request.DatabaseName = cmdletContext.DatabaseName;
-            }
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
@@ -463,6 +463,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DatabaseName != null)
+            {
+                request.DatabaseName = cmdletContext.DatabaseName;
             }
             if (cmdletContext.DeletionProtection != null)
             {
@@ -602,10 +606,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         {
             public List<System.String> AvailabilityZone { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
-            public System.String DatabaseName { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.String DatabaseName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }

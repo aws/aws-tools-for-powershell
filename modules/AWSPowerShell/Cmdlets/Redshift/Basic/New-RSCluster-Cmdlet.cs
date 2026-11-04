@@ -192,9 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>A list of security groups to be associated with this cluster.</para><para>Default: The default cluster security group for Amazon Redshift.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -340,9 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// Amazon Resource Name (ARN) format. </para><para>The maximum number of IAM roles that you can associate is subject to a quota. For
         /// more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas
         /// and limits</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -571,9 +573,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -586,9 +589,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.</para><para>Default: The default VPC security group is associated with the cluster.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -684,6 +688,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ManageMasterPassword = this.ManageMasterPassword;
             context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
             context.MasterPasswordSecretKmsKeyId = this.MasterPasswordSecretKmsKeyId;
+            context.MasterUserPassword = this.MasterUserPassword;
             context.MasterUsername = this.MasterUsername;
             #if MODULAR
             if (this.MasterUsername == null && ParameterWasBound(nameof(this.MasterUsername)))
@@ -691,7 +696,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 WriteWarning("You are passing $null as a value for parameter MasterUsername which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MasterUserPassword = this.MasterUserPassword;
             context.MultiAZ = this.MultiAZ;
             context.NodeType = this.NodeType;
             #if MODULAR
@@ -846,13 +850,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.MasterPasswordSecretKmsKeyId = cmdletContext.MasterPasswordSecretKmsKeyId;
             }
-            if (cmdletContext.MasterUsername != null)
-            {
-                request.MasterUsername = cmdletContext.MasterUsername;
-            }
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.MasterUsername != null)
+            {
+                request.MasterUsername = cmdletContext.MasterUsername;
             }
             if (cmdletContext.MultiAZ != null)
             {
@@ -978,8 +982,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Boolean? ManageMasterPassword { get; set; }
             public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
             public System.String MasterPasswordSecretKmsKeyId { get; set; }
-            public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.String MasterUsername { get; set; }
             public System.Boolean? MultiAZ { get; set; }
             public System.String NodeType { get; set; }
             public System.Int32? NumberOfNodes { get; set; }

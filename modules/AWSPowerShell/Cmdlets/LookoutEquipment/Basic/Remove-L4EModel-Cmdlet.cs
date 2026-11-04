@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     /// <summary>
     /// Deletes a machine learning model currently available for Amazon Lookout for Equipment.
     /// This will prevent it from being used with an inference scheduler, even one that is
-    /// already set up.
+    /// already set up.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "L4EModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -41,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LookoutEquipment.Model.DeleteModelResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class RemoveL4EModelCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

@@ -375,6 +375,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSoftwareResourcesV2" OutputProperty="SoftwareResources" Verb="Get" Noun="SoftwareResourcesV2" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSoftwareStatisticsV2" OutputProperty="GroupByResults" Verb="Get" Noun="SoftwareStatisticsV2" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSoftwareV2" OutputProperty="Software" Verb="Get" Noun="SoftwareV2" PipelineParameter="Filters_CompositeOperator" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="InviteMembers" OutputProperty="UnprocessedAccounts" Verb="Send" Noun="MemberInvitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

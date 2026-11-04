@@ -15408,8 +15408,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16563,8 +16563,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
+    "Select"=@("Get-CSDSuggestion",
+               "Search-CSDDocument",
                "Write-CSDDocument")
 }
 
@@ -21614,6 +21614,32 @@ $CFG_SelectMap = @{
 _awsArgumentCompleterRegistration $CFG_SelectCompleters $CFG_SelectMap
 # Argument completions for service Amazon Connect Contact Lens
 
+
+$CCL_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ConnectContactLens.TagComparisonType
+        "Get-CCLRealtimeContactAnalysisSegmentList/ListFilter_CategoriesAttributeFilter_TagCondition_ComparisonType"
+        {
+            $v = "EQUALS","NOT_EQUALS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCL_map = @{
+    "ListFilter_CategoriesAttributeFilter_TagCondition_ComparisonType"=@("Get-CCLRealtimeContactAnalysisSegmentList")
+}
+
+_awsArgumentCompleterRegistration $CCL_Completers $CCL_map
 
 $CCL_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -30389,6 +30415,20 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.BulkOperationInputFormat
+        "Start-DDBBulkPutItem/InputS3Configuration_InputFormat"
+        {
+            $v = "DYNAMODB_JSON","ION"
+            break
+        }
+
+        # Amazon.DynamoDBv2.BulkOperationPerformanceTier
+        "Start-DDBBulkPutItem/PerformanceTier"
+        {
+            $v = "ACCELERATED","STANDARD"
+            break
+        }
+
         # Amazon.DynamoDBv2.ConditionalOperator
         {
             ($_ -eq "Invoke-DDBQuery/ConditionalOperator") -Or
@@ -30445,7 +30485,10 @@ $DDB_Completers = {
         }
 
         # Amazon.DynamoDBv2.InputCompressionType
-        "Import-DDBTable/InputCompressionType"
+        {
+            ($_ -eq "Import-DDBTable/InputCompressionType") -Or
+            ($_ -eq "Start-DDBBulkPutItem/InputS3Configuration_InputCompressionType")
+        }
         {
             $v = "GZIP","NONE","ZSTD"
             break
@@ -30538,7 +30581,10 @@ $DDB_Completers = {
         }
 
         # Amazon.DynamoDBv2.S3SseAlgorithm
-        "Export-DDBTableToPointInTime/S3SseAlgorithm"
+        {
+            ($_ -eq "Start-DDBBulkPutItem/OutputS3Configuration_S3SseAlgorithm") -Or
+            ($_ -eq "Export-DDBTableToPointInTime/S3SseAlgorithm")
+        }
         {
             $v = "AES256","KMS"
             break
@@ -30615,9 +30661,13 @@ $DDB_map = @{
     "IncrementalExportSpecification_ExportViewType"=@("Export-DDBTableToPointInTime")
     "InputCompressionType"=@("Import-DDBTable")
     "InputFormat"=@("Import-DDBTable")
+    "InputS3Configuration_InputCompressionType"=@("Start-DDBBulkPutItem")
+    "InputS3Configuration_InputFormat"=@("Start-DDBBulkPutItem")
     "KeyDataType"=@("Add-DDBKeySchema")
     "KeyType"=@("Add-DDBKeySchema")
     "MultiRegionConsistency"=@("Update-DDBTable")
+    "OutputS3Configuration_S3SseAlgorithm"=@("Start-DDBBulkPutItem")
+    "PerformanceTier"=@("Start-DDBBulkPutItem")
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
     "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Search-DDBVector","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
@@ -30687,6 +30737,7 @@ $DDB_SelectMap = @{
     "Select"=@("Invoke-DDBDDBBatchExecuteStatement",
                "Get-DDBBatchItem",
                "Set-DDBBatchItem",
+               "Stop-DDBBulkOperation",
                "New-DDBBackup",
                "New-DDBGlobalTable",
                "Remove-DDBBackup",
@@ -30694,6 +30745,7 @@ $DDB_SelectMap = @{
                "Remove-DDBResourcePolicy",
                "Remove-DDBTable",
                "Get-DDBBackup",
+               "Get-DDBBulkOperationDetail",
                "Get-DDBContinuousBackup",
                "Get-DDBContributorInsight",
                "Get-DDBEndpoint",
@@ -30715,6 +30767,7 @@ $DDB_SelectMap = @{
                "Get-DDBResourcePolicy",
                "Import-DDBTable",
                "Get-DDBBackupList",
+               "Get-DDBBulkOperationList",
                "Get-DDBContributorInsightList",
                "Get-DDBExportList",
                "Get-DDBGlobalTableList",
@@ -30728,6 +30781,7 @@ $DDB_SelectMap = @{
                "Restore-DDBTableToPointInTime",
                "Invoke-DDBScan",
                "Search-DDBVector",
+               "Start-DDBBulkPutItem",
                "Add-DDBResourceTag",
                "Get-DDBItemTransactionally",
                "Write-DDBItemTransactionally",
@@ -30741,12 +30795,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
                "Add-DDBIndexSchema",
+               "Add-DDBKeySchema",
                "New-DDBTable",
-               "ConvertFrom-DDBItem",
+               "ConvertTo-DDBItem",
                "New-DDBTableSchema",
-               "ConvertTo-DDBItem")
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -70819,9 +70873,12 @@ $POL_SelectMap = @{
                "Get-POLSpeechSynthesisTask",
                "Get-POLLexiconList",
                "Get-POLSpeechSynthesisTaskList",
+               "Get-POLResourceTag",
                "Write-POLLexicon",
                "Start-POLSpeechSynthesisTask",
-               "Get-POLSpeech")
+               "Get-POLSpeech",
+               "Add-POLResourceTag",
+               "Remove-POLResourceTag")
 }
 
 _awsArgumentCompleterRegistration $POL_SelectCompleters $POL_SelectMap
@@ -80558,18 +80615,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Read-S3Object",
+               "Remove-S3MultipartUpload",
                "Get-S3PreSignedURL",
                "Remove-S3Object",
+               "Test-S3Bucket",
+               "Copy-S3Object",
+               "Get-S3MultipartUpload",
                "Dismount-S3PSDrive",
+               "Read-S3Object",
+               "Write-S3Object",
                "Remove-S3Bucket",
                "New-S3Bucket",
-               "Write-S3Object",
-               "Mount-S3PSDrive",
-               "Copy-S3Object",
-               "Remove-S3MultipartUpload",
-               "Test-S3Bucket",
-               "Get-S3MultipartUpload")
+               "Mount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -81196,10 +81253,34 @@ $S3T_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.S3Tables.CompressionCodec
+        "Start-S3TTableMigration/DestinationTable_Properties_CompressionCodec"
+        {
+            $v = "gzip","snappy","uncompressed","zstd"
+            break
+        }
+
+        # Amazon.S3Tables.DataFileFormat
+        "Start-S3TTableMigration/DestinationTable_Properties_WriteFormat"
+        {
+            $v = "parquet"
+            break
+        }
+
         # Amazon.S3Tables.IcebergCompactionStrategy
-        "Write-S3TTableMaintenanceConfiguration/IcebergCompaction_Strategy"
+        {
+            ($_ -eq "Start-S3TTableMigration/DataMigration_MaintenanceSettings_IcebergCompaction_Strategy") -Or
+            ($_ -eq "Write-S3TTableMaintenanceConfiguration/IcebergCompaction_Strategy")
+        }
         {
             $v = "auto","binpack","sort","z-order"
+            break
+        }
+
+        # Amazon.S3Tables.IncompatibleValuesPolicy
+        "Start-S3TTableMigration/DataMigration_MigrationPolicies_IncompatibleValuesPolicy"
+        {
+            $v = "fail","setNull"
             break
         }
 
@@ -81213,6 +81294,27 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.MigrationRequestedState
+        "Update-S3TTableMigration/RequestedState"
+        {
+            $v = "cancelled","queued"
+            break
+        }
+
+        # Amazon.S3Tables.MigrationSourceType
+        "Start-S3TTableMigration/SourceType"
+        {
+            $v = "glueTable"
+            break
+        }
+
+        # Amazon.S3Tables.MigrationState
+        "Get-S3TTableMigrationList/State"
+        {
+            $v = "cancelled","cancelling","failed","migrating","new","pendingReview","planning","queued","succeeded"
+            break
+        }
+
         # Amazon.S3Tables.OpenTableFormat
         "New-S3TTable/Format"
         {
@@ -81221,7 +81323,10 @@ $S3T_Completers = {
         }
 
         # Amazon.S3Tables.SchemaV2FieldType
-        "New-S3TTable/Metadata_Iceberg_SchemaV2_Type"
+        {
+            ($_ -eq "Start-S3TTableMigration/DestinationTable_Schema_Type") -Or
+            ($_ -eq "New-S3TTable/Metadata_Iceberg_SchemaV2_Type")
+        }
         {
             $v = "struct"
             break
@@ -81229,6 +81334,7 @@ $S3T_Completers = {
 
         # Amazon.S3Tables.SSEAlgorithm
         {
+            ($_ -eq "Start-S3TTableMigration/DestinationTable_EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "New-S3TTable/EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "New-S3TTableBucket/EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "Write-S3TTableBucketEncryption/EncryptionConfiguration_SseAlgorithm")
@@ -81240,6 +81346,7 @@ $S3T_Completers = {
 
         # Amazon.S3Tables.StorageClass
         {
+            ($_ -eq "Start-S3TTableMigration/DestinationTable_StorageClassConfiguration_StorageClass") -Or
             ($_ -eq "New-S3TTable/StorageClassConfiguration_StorageClass") -Or
             ($_ -eq "New-S3TTableBucket/StorageClassConfiguration_StorageClass") -Or
             ($_ -eq "Write-S3TTableBucketStorageClass/StorageClassConfiguration_StorageClass")
@@ -81277,6 +81384,13 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.UnmatchedSourceFieldsPolicy
+        "Start-S3TTableMigration/DataMigration_MigrationPolicies_UnmatchedSourceFieldsPolicy"
+        {
+            $v = "drop","fail"
+            break
+        }
+
 
     }
 
@@ -81286,10 +81400,21 @@ $S3T_Completers = {
 }
 
 $S3T_map = @{
+    "DataMigration_MaintenanceSettings_IcebergCompaction_Strategy"=@("Start-S3TTableMigration")
+    "DataMigration_MigrationPolicies_IncompatibleValuesPolicy"=@("Start-S3TTableMigration")
+    "DataMigration_MigrationPolicies_UnmatchedSourceFieldsPolicy"=@("Start-S3TTableMigration")
+    "DestinationTable_EncryptionConfiguration_SseAlgorithm"=@("Start-S3TTableMigration")
+    "DestinationTable_Properties_CompressionCodec"=@("Start-S3TTableMigration")
+    "DestinationTable_Properties_WriteFormat"=@("Start-S3TTableMigration")
+    "DestinationTable_Schema_Type"=@("Start-S3TTableMigration")
+    "DestinationTable_StorageClassConfiguration_StorageClass"=@("Start-S3TTableMigration")
     "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
     "IcebergCompaction_Strategy"=@("Write-S3TTableMaintenanceConfiguration")
     "Metadata_Iceberg_SchemaV2_Type"=@("New-S3TTable")
+    "RequestedState"=@("Update-S3TTableMigration")
+    "SourceType"=@("Start-S3TTableMigration")
+    "State"=@("Get-S3TTableMigrationList")
     "StorageClassConfiguration_StorageClass"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketStorageClass")
     "Type"=@("Get-S3TTableBucketList","Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration","Write-S3TTableRecordExpirationConfiguration")
@@ -81345,7 +81470,8 @@ $S3T_SelectCompleters = {
 }
 
 $S3T_SelectMap = @{
-    "Select"=@("New-S3TNamespace",
+    "Select"=@("Complete-S3TTableMigration",
+               "New-S3TNamespace",
                "New-S3TTable",
                "New-S3TTableBucket",
                "Remove-S3TNamespace",
@@ -81370,6 +81496,7 @@ $S3T_SelectMap = @{
                "Get-S3TTableMaintenanceConfiguration",
                "Get-S3TTableMaintenanceJobStatus",
                "Get-S3TTableMetadataLocation",
+               "Get-S3TTableMigration",
                "Get-S3TTablePolicy",
                "Get-S3TTableRecordExpirationConfiguration",
                "Get-S3TTableRecordExpirationJobStatus",
@@ -81378,6 +81505,7 @@ $S3T_SelectMap = @{
                "Get-S3TTableStorageClass",
                "Get-S3TNamespaceList",
                "Get-S3TTableBucketList",
+               "Get-S3TTableMigrationList",
                "Get-S3TTableList",
                "Get-S3TResourceTag",
                "Write-S3TTableBucketEncryption",
@@ -81391,9 +81519,12 @@ $S3T_SelectMap = @{
                "Write-S3TTableRecordExpirationConfiguration",
                "Write-S3TTableReplication",
                "Rename-S3TTable",
+               "Start-S3TTableMigration",
+               "Sync-S3TTableMigration",
                "Add-S3TResourceTag",
                "Remove-S3TResourceTag",
-               "Update-S3TTableMetadataLocation")
+               "Update-S3TTableMetadataLocation",
+               "Update-S3TTableMigration")
 }
 
 _awsArgumentCompleterRegistration $S3T_SelectCompleters $S3T_SelectMap
@@ -85817,6 +85948,8 @@ $SHUB_Completers = {
             ($_ -eq "Get-SHUBFindingsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBResourcesTrendsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBResourcesV2/Filters_CompositeOperator") -Or
+            ($_ -eq "Get-SHUBSoftwareResourcesV2/Filters_CompositeOperator") -Or
+            ($_ -eq "Get-SHUBSoftwareV2/Filters_CompositeOperator") -Or
             ($_ -eq "New-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
             ($_ -eq "Update-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
             ($_ -eq "Start-SHUBExportJobV2/OutputConfiguration_Findings_Filters_CompositeOperator")
@@ -86015,7 +86148,8 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.SortOrder
         {
             ($_ -eq "Get-SHUBFindingStatisticsV2/SortOrder") -Or
-            ($_ -eq "Get-SHUBResourcesStatisticsV2/SortOrder")
+            ($_ -eq "Get-SHUBResourcesStatisticsV2/SortOrder") -Or
+            ($_ -eq "Get-SHUBSoftwareStatisticsV2/SortOrder")
         }
         {
             $v = "asc","desc"
@@ -86063,7 +86197,7 @@ $SHUB_map = @{
     "FeatureName"=@("Disable-SHUBSecurityHubFeatureV2","Enable-SHUBSecurityHubFeatureV2")
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
-    "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2")
+    "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2","Get-SHUBSoftwareResourcesV2","Get-SHUBSoftwareV2")
     "GuidanceFormat"=@("Get-SHUBRemediationsV2")
     "Mode"=@("New-SHUBTicketV2")
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
@@ -86076,7 +86210,7 @@ $SHUB_map = @{
     "RecordState"=@("Update-SHUBFinding")
     "RuleStatus"=@("New-SHUBAutomationRule","New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "Severity_Label"=@("Update-SHUBFindingsBatch")
-    "SortOrder"=@("Get-SHUBFindingStatisticsV2","Get-SHUBResourcesStatisticsV2")
+    "SortOrder"=@("Get-SHUBFindingStatisticsV2","Get-SHUBResourcesStatisticsV2","Get-SHUBSoftwareStatisticsV2")
     "Status"=@("Get-SHUBExportJobsV2List")
     "VerificationState"=@("Update-SHUBFindingsBatch")
     "Workflow_Status"=@("Update-SHUBFindingsBatch")
@@ -86217,6 +86351,9 @@ $SHUB_SelectMap = @{
                "Get-SHUBResourcesTrendsV2",
                "Get-SHUBResourcesV2",
                "Get-SHUBSecurityControlDefinition",
+               "Get-SHUBSoftwareResourcesV2",
+               "Get-SHUBSoftwareStatisticsV2",
+               "Get-SHUBSoftwareV2",
                "Send-SHUBMemberInvitation",
                "Get-SHUBAggregatorsV2List",
                "Get-SHUBAutomationRuleList",
@@ -90565,8 +90702,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -91493,7 +91630,7 @@ $TSA_Completers = {
             ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_RegistrationType")
         }
         {
-            $v = "CNPJ","CPF","GST","NIP","NRIC","PAN","SST","TIN","VAT"
+            $v = "CDI","CI","CNPJ","CPF","CUIT","GST","NIE","NIP","NRIC","PAN","RUT","SST","TIN","VAT"
             break
         }
 
@@ -96880,7 +97017,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.OperatingSystemName
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_OperatingSystemName"
         {
-            $v = "AMAZON_LINUX_2","RHEL_8","ROCKY_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022","WINDOWS_SERVER_2025"
+            $v = "AMAZON_LINUX_2","RHEL_10","RHEL_8","RHEL_9","ROCKY_10","ROCKY_8","ROCKY_9","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UBUNTU_24_04","UBUNTU_26_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022","WINDOWS_SERVER_2025"
             break
         }
 

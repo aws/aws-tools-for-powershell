@@ -50,9 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>A list of Amazon EC2 Availability Zones that instances in the cluster can be created
         /// in.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -140,9 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// You can enable audit logs or profiler logs. For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/event-auditing.html">
         /// Auditing Amazon DocumentDB Events</a> and <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/profiling.html">
         /// Profiling Amazon DocumentDB Operations</a>. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -378,9 +380,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The tags to be assigned to the cluster.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -393,9 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>A list of EC2 VPC security groups to associate with this cluster. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -482,14 +486,14 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             context.KmsKeyId = this.KmsKeyId;
             context.ManageMasterUserPassword = this.ManageMasterUserPassword;
-            context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
             context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
+            context.MasterUsername = this.MasterUsername;
             context.NetworkType = this.NetworkType;
             context.Port = this.Port;
+            context.PreSignedUrl = this.PreSignedUrl;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
-            context.PreSignedUrl = this.PreSignedUrl;
             context.ServerlessV2ScalingConfiguration_MaxCapacity = this.ServerlessV2ScalingConfiguration_MaxCapacity;
             context.ServerlessV2ScalingConfiguration_MinCapacity = this.ServerlessV2ScalingConfiguration_MinCapacity;
             context.StorageEncrypted = this.StorageEncrypted;
@@ -574,10 +578,6 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             {
                 request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
             }
-            if (cmdletContext.MasterUsername != null)
-            {
-                request.MasterUsername = cmdletContext.MasterUsername;
-            }
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
@@ -585,6 +585,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.MasterUserSecretKmsKeyId != null)
             {
                 request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
+            }
+            if (cmdletContext.MasterUsername != null)
+            {
+                request.MasterUsername = cmdletContext.MasterUsername;
             }
             if (cmdletContext.NetworkType != null)
             {
@@ -594,6 +598,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             {
                 request.Port = cmdletContext.Port.Value;
             }
+            if (cmdletContext.PreSignedUrl != null)
+            {
+                request.PreSignedUrl = cmdletContext.PreSignedUrl;
+            }
             if (cmdletContext.PreferredBackupWindow != null)
             {
                 request.PreferredBackupWindow = cmdletContext.PreferredBackupWindow;
@@ -601,10 +609,6 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
-            }
-            if (cmdletContext.PreSignedUrl != null)
-            {
-                request.PreSignedUrl = cmdletContext.PreSignedUrl;
             }
             
              // populate ServerlessV2ScalingConfiguration
@@ -720,14 +724,14 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.String GlobalClusterIdentifier { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.Boolean? ManageMasterUserPassword { get; set; }
-            public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String MasterUserSecretKmsKeyId { get; set; }
+            public System.String MasterUsername { get; set; }
             public System.String NetworkType { get; set; }
             public System.Int32? Port { get; set; }
+            public System.String PreSignedUrl { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
-            public System.String PreSignedUrl { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }

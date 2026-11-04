@@ -265,11 +265,36 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
         public Amazon.MWAAServerless.EncryptionType EncryptionConfiguration_Type { get; set; }
         #endregion
         
+        #region Parameter Environment_Variable
+        /// <summary>
+        /// <para>
+        /// <para>A map of environment variable names to values. Your workflow tasks use these variables
+        /// while they run. You can specify up to 50 environment variables. Each name must be
+        /// between 1 and 128 characters, start with a letter, and contain only letters, numbers,
+        /// and underscores. Each value can be up to 255 characters.</para><para>Names that start with <c>AWS_</c> or <c>AIRFLOW__</c> are reserved. You can use the
+        /// following Apache Airflow secrets backend settings, which are exceptions:</para><ul><li><para><c>AIRFLOW__WORKERS__SECRETS_BACKEND</c> – The secrets backend class that workers
+        /// use.</para></li><li><para><c>AIRFLOW__WORKERS__SECRETS_BACKEND_KWARGS</c> – The keyword arguments for the secrets
+        /// backend, as a JSON string.</para></li><li><para><c>AIRFLOW__WORKERS__SECRETS_BACKEND_KWARG__*</c> – Names with this prefix, for additional
+        /// secrets backend configuration.</para></li></ul><para>If you set <c>EncryptionConfiguration</c> to use a customer managed AWS KMS key, we
+        /// encrypt the environment variables with that key. Otherwise, we store them with default
+        /// encryption at rest.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_Variables")]
+        public System.Collections.Hashtable Environment_Variable { get; set; }
+        #endregion
+        
         #region Parameter Code_S3Location_VersionId
         /// <summary>
         /// <para>
-        /// <para>The version ID of the object in Amazon S3. If not specified, the latest version is
-        /// used.</para>
+        /// <para>Specifies the version ID of the object in Amazon S3. If you don't specify a version,
+        /// we use the latest version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,8 +304,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
         #region Parameter DefinitionS3Location_VersionId
         /// <summary>
         /// <para>
-        /// <para>Optional. The version ID of the workflow definition file in Amazon S3. If not specified,
-        /// the latest version is used.</para>
+        /// <para>Optional. The version ID of the workflow definition file in Amazon S3. If you don't
+        /// specify a version, we use the latest version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,6 +397,14 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
             context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
             context.EngineVersion = this.EngineVersion;
+            if (this.Environment_Variable != null)
+            {
+                context.Environment_Variable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Environment_Variable.Keys)
+                {
+                    context.Environment_Variable.Add((String)hashKey, (System.String)(this.Environment_Variable[hashKey]));
+                }
+            }
             context.LoggingConfiguration_LogGroupName = this.LoggingConfiguration_LogGroupName;
             context.Name = this.Name;
             #if MODULAR
@@ -555,6 +588,25 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
                 request.EngineVersion = cmdletContext.EngineVersion.Value;
             }
             
+             // populate Environment
+            var requestEnvironmentIsNull = true;
+            request.Environment = new Amazon.MWAAServerless.Model.Environment();
+            Dictionary<System.String, System.String> requestEnvironment_environment_Variable = null;
+            if (cmdletContext.Environment_Variable != null)
+            {
+                requestEnvironment_environment_Variable = cmdletContext.Environment_Variable;
+            }
+            if (requestEnvironment_environment_Variable != null)
+            {
+                request.Environment.Variables = requestEnvironment_environment_Variable;
+                requestEnvironmentIsNull = false;
+            }
+             // determine if request.Environment should be set to null
+            if (requestEnvironmentIsNull)
+            {
+                request.Environment = null;
+            }
+            
              // populate LoggingConfiguration
             var requestLoggingConfigurationIsNull = true;
             request.LoggingConfiguration = new Amazon.MWAAServerless.Model.LoggingConfiguration();
@@ -684,6 +736,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
             public Amazon.MWAAServerless.EncryptionType EncryptionConfiguration_Type { get; set; }
             public System.Int32? EngineVersion { get; set; }
+            public Dictionary<System.String, System.String> Environment_Variable { get; set; }
             public System.String LoggingConfiguration_LogGroupName { get; set; }
             public System.String Name { get; set; }
             public List<System.String> NetworkConfiguration_SecurityGroupId { get; set; }

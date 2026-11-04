@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// Contact your account team to be allow-listed to use this value. For more information,
     /// see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.
     /// </para></li><li><para>
-    /// You don't need to specify the <c>PCOIP</c> protocol for Linux bundles because <c>DCV</c>
+    /// You don't need to specify the <c>PCOIP</c> protocol for Linux bundles because DCV
     /// (formerly WSP) is the default protocol for those bundles.
     /// </para></li><li><para>
     /// User-decoupled WorkSpaces are only supported by Amazon WorkSpaces Core.

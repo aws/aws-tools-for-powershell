@@ -54,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A list of additional storage volumes to modify or delete for the DB instance. You
         /// can create up to 3 additional storage volumes. Additional storage volumes are supported
         /// for RDS for Oracle and RDS for SQL Server DB instances only.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -354,9 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A list of DB security groups to authorize on this DB instance. Changing this setting
         /// doesn't result in an outage and the change is asynchronously applied as soon as possible.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing DB security groups.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -419,9 +421,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The list of log types to disable.</para><para>The following values are valid for each DB engine:</para><ul><li><para>Aurora MySQL - <c>audit | error | general | slowquery</c></para></li><li><para>Aurora PostgreSQL - <c>postgresql</c></para></li><li><para>RDS for MySQL - <c>error | general | slowquery</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -460,9 +463,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.</para><para>Constraints:</para><ul><li><para>Two IP addresses must be provided. If there isn't a secondary domain controller, use
         /// the IP address of the primary domain controller for both entries in the list.</para></li></ul><para>Example: <c>123.124.125.126,234.235.236.237</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -535,9 +539,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The list of log types to enable.</para><para>The following values are valid for each DB engine:</para><ul><li><para>Aurora MySQL - <c>audit | error | general | slowquery</c></para></li><li><para>Aurora PostgreSQL - <c>postgresql</c></para></li><li><para>RDS for MySQL - <c>error | general | slowquery</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -904,9 +909,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The number of CPU cores and the number of threads per core for the DB instance class
         /// of the DB instance.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1032,9 +1038,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Tags to assign to resources associated with the DB instance.</para><para>Valid Values: </para><ul><li><para><c>auto-backup</c> - The DB instance's automated backup.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1081,9 +1088,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A list of Amazon EC2 VPC security groups to associate with this DB instance. This
         /// change is asynchronously applied as soon as possible.</para><para>This setting doesn't apply to the following DB instances:</para><ul><li><para>Amazon Aurora (The associated list of EC2 VPC security groups is managed by the DB
         /// cluster. For more information, see <c>ModifyDBCluster</c>.)</para></li><li><para>RDS Custom</para></li></ul><para>Constraints:</para><ul><li><para>If supplied, must match existing VPC security group IDs.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1145,8 +1153,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.AllocatedStorage = this.AllocatedStorage;
             context.AllowMajorVersionUpgrade = this.AllowMajorVersionUpgrade;
             context.ApplyImmediately = this.ApplyImmediately;
-            context.AutomationMode = this.AutomationMode;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
+            context.AutomationMode = this.AutomationMode;
             context.AwsBackupRecoveryPointArn = this.AwsBackupRecoveryPointArn;
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
@@ -1160,7 +1168,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.CloudwatchLogsExportConfiguration_EnableLogType = new List<System.String>(this.CloudwatchLogsExportConfiguration_EnableLogType);
             }
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
-            context.DatabaseInsightsMode = this.DatabaseInsightsMode;
             context.DBCapacityReservationIdentifier = this.DBCapacityReservationIdentifier;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
@@ -1177,6 +1184,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.DBSecurityGroup = new List<System.String>(this.DBSecurityGroup);
             }
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.DatabaseInsightsMode = this.DatabaseInsightsMode;
             context.DedicatedLogVolume = this.DedicatedLogVolume;
             context.DeletionProtection = this.DeletionProtection;
             context.DisableDomain = this.DisableDomain;
@@ -1267,13 +1275,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.ApplyImmediately = cmdletContext.ApplyImmediately.Value;
             }
-            if (cmdletContext.AutomationMode != null)
-            {
-                request.AutomationMode = cmdletContext.AutomationMode;
-            }
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
                 request.AutoMinorVersionUpgrade = cmdletContext.AutoMinorVersionUpgrade.Value;
+            }
+            if (cmdletContext.AutomationMode != null)
+            {
+                request.AutomationMode = cmdletContext.AutomationMode;
             }
             if (cmdletContext.AwsBackupRecoveryPointArn != null)
             {
@@ -1324,10 +1332,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
-            if (cmdletContext.DatabaseInsightsMode != null)
-            {
-                request.DatabaseInsightsMode = cmdletContext.DatabaseInsightsMode;
-            }
             if (cmdletContext.DBCapacityReservationIdentifier != null)
             {
                 request.DBCapacityReservationIdentifier = cmdletContext.DBCapacityReservationIdentifier;
@@ -1355,6 +1359,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DatabaseInsightsMode != null)
+            {
+                request.DatabaseInsightsMode = cmdletContext.DatabaseInsightsMode;
             }
             if (cmdletContext.DedicatedLogVolume != null)
             {
@@ -1599,8 +1607,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? AllocatedStorage { get; set; }
             public System.Boolean? AllowMajorVersionUpgrade { get; set; }
             public System.Boolean? ApplyImmediately { get; set; }
-            public Amazon.RDS.AutomationMode AutomationMode { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public Amazon.RDS.AutomationMode AutomationMode { get; set; }
             public System.String AwsBackupRecoveryPointArn { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String CACertificateIdentifier { get; set; }
@@ -1608,7 +1616,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<System.String> CloudwatchLogsExportConfiguration_DisableLogType { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_EnableLogType { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
-            public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
             public System.String DBCapacityReservationIdentifier { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
@@ -1616,6 +1623,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? DBPortNumber { get; set; }
             public List<System.String> DBSecurityGroup { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
             public System.Boolean? DedicatedLogVolume { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public System.Boolean? DisableDomain { get; set; }

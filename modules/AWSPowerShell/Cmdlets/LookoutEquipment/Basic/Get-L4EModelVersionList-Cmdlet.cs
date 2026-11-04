@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     /// <summary>
     /// Generates a list of all model versions for a given model, including the model version,
     /// model version ARN, and status. To list a subset of versions, use the <c>MaxModelVersion</c>
-    /// and <c>MinModelVersion</c> fields.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// and <c>MinModelVersion</c> fields.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4EModelVersionList")]
     [OutputType("Amazon.LookoutEquipment.Model.ModelVersionSummary")]
@@ -41,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet returns a collection of Amazon.LookoutEquipment.Model.ModelVersionSummary objects.",
         "The service call response (type Amazon.LookoutEquipment.Model.ListModelVersionsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4EModelVersionListCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

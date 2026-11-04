@@ -51,9 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The list of resources for which you want to get the related resources. Up to 100 resources
         /// can be provided.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -157,6 +158,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ResourceScanId = this.ResourceScanId;
+            #if MODULAR
+            if (this.ResourceScanId == null && ParameterWasBound(nameof(this.ResourceScanId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceScanId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Resource != null)
             {
                 context.Resource = new List<Amazon.CloudFormation.Model.ScannedResourceIdentifier>(this.Resource);
@@ -165,13 +173,6 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (this.Resource == null && ParameterWasBound(nameof(this.Resource)))
             {
                 WriteWarning("You are passing $null as a value for parameter Resource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ResourceScanId = this.ResourceScanId;
-            #if MODULAR
-            if (this.ResourceScanId == null && ParameterWasBound(nameof(this.ResourceScanId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceScanId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -196,13 +197,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Resource != null)
-            {
-                request.Resources = cmdletContext.Resource;
-            }
             if (cmdletContext.ResourceScanId != null)
             {
                 request.ResourceScanId = cmdletContext.ResourceScanId;
+            }
+            if (cmdletContext.Resource != null)
+            {
+                request.Resources = cmdletContext.Resource;
             }
             
             // Initialize loop variant and commence piping
@@ -285,8 +286,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<Amazon.CloudFormation.Model.ScannedResourceIdentifier> Resource { get; set; }
             public System.String ResourceScanId { get; set; }
+            public List<Amazon.CloudFormation.Model.ScannedResourceIdentifier> Resource { get; set; }
             public System.Func<Amazon.CloudFormation.Model.ListResourceScanRelatedResourcesResponse, GetCFNResourceScanRelatedResourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RelatedResources;
         }

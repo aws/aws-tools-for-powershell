@@ -243,6 +243,17 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public Amazon.Mgn.VpcProvisioningStrategy VpcProvisioningStrategy { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -293,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 context.CidrMapping = new List<Amazon.Mgn.Model.CidrMapping>(this.CidrMapping);
             }
+            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -366,6 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.CidrMapping != null)
             {
                 request.CidrMappings = cmdletContext.CidrMapping;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.Description != null)
             {
@@ -529,6 +545,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.Mgn.Model.CidrMapping> CidrMapping { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> ScopeTag { get; set; }

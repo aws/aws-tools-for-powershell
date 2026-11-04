@@ -74,9 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>A list of recipients of the bounced message, including the information required to
         /// create the Delivery Status Notifications (DSNs) for the recipients. You must specify
         /// at least one <c>BouncedRecipientInfo</c> in the list.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -138,9 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>Additional X-headers to include in the DSN.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -224,6 +226,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 context.Select = CreateSelectDelegate<Amazon.SimpleEmail.Model.SendBounceResponse, SendSESBounceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.BounceSender = this.BounceSender;
+            #if MODULAR
+            if (this.BounceSender == null && ParameterWasBound(nameof(this.BounceSender)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BounceSender which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.BounceSenderArn = this.BounceSenderArn;
             if (this.BouncedRecipientInfoList != null)
             {
                 context.BouncedRecipientInfoList = new List<Amazon.SimpleEmail.Model.BouncedRecipientInfo>(this.BouncedRecipientInfoList);
@@ -234,14 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 WriteWarning("You are passing $null as a value for parameter BouncedRecipientInfoList which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.BounceSender = this.BounceSender;
-            #if MODULAR
-            if (this.BounceSender == null && ParameterWasBound(nameof(this.BounceSender)))
-            {
-                WriteWarning("You are passing $null as a value for parameter BounceSender which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.BounceSenderArn = this.BounceSenderArn;
             context.Explanation = this.Explanation;
             context.MessageDsn_ArrivalDate = this.MessageDsn_ArrivalDate;
             if (this.MessageDsn_ExtensionField != null)
@@ -272,10 +274,6 @@ namespace Amazon.PowerShell.Cmdlets.SES
             // create request
             var request = new Amazon.SimpleEmail.Model.SendBounceRequest();
             
-            if (cmdletContext.BouncedRecipientInfoList != null)
-            {
-                request.BouncedRecipientInfoList = cmdletContext.BouncedRecipientInfoList;
-            }
             if (cmdletContext.BounceSender != null)
             {
                 request.BounceSender = cmdletContext.BounceSender;
@@ -283,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
             if (cmdletContext.BounceSenderArn != null)
             {
                 request.BounceSenderArn = cmdletContext.BounceSenderArn;
+            }
+            if (cmdletContext.BouncedRecipientInfoList != null)
+            {
+                request.BouncedRecipientInfoList = cmdletContext.BouncedRecipientInfoList;
             }
             if (cmdletContext.Explanation != null)
             {
@@ -386,9 +388,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SimpleEmail.Model.BouncedRecipientInfo> BouncedRecipientInfoList { get; set; }
             public System.String BounceSender { get; set; }
             public System.String BounceSenderArn { get; set; }
+            public List<Amazon.SimpleEmail.Model.BouncedRecipientInfo> BouncedRecipientInfoList { get; set; }
             public System.String Explanation { get; set; }
             public System.DateTime? MessageDsn_ArrivalDate { get; set; }
             public List<Amazon.SimpleEmail.Model.ExtensionField> MessageDsn_ExtensionField { get; set; }

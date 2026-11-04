@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Lists all the tags for a specified resource, including key and value.
+    /// Lists all the tags for a specified resource, including key and value.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4EResourceTag")]
     [OutputType("Amazon.LookoutEquipment.Model.Tag")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet returns a collection of Amazon.LookoutEquipment.Model.Tag objects.",
         "The service call response (type Amazon.LookoutEquipment.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4EResourceTagCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

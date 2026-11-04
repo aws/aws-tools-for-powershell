@@ -152,9 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The list of log types to disable.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -178,9 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The list of log types to enable.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -239,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>IPV4</c></b>   –   The DB cluster uses only IPv4 addresses for communication.</para></li><li><para><b><c>DUAL</c></b>   –   The DB cluster uses both IPv4 and IPv6 addresses for communication.
+        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>IPV4</c></b> – The DB cluster uses only IPv4 addresses for communication.</para></li><li><para><b><c>DUAL</c></b> – The DB cluster uses both IPv4 and IPv6 addresses for communication.
         /// The DB subnet group associated with the cluster must support IPv6.</para></li></ul>
         /// </para>
         /// </summary>
@@ -305,8 +307,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>standard</c></b>   –   ( <i>the default</i> ) Configures cost-effective database
-        /// storage for applications with moderate to small I/O usage.</para></li><li><para><b><c>iopt1</c></b>   –   Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized
+        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>standard</c></b> – ( <i>the default</i> ) Configures cost-effective database
+        /// storage for applications with moderate to small I/O usage.</para></li><li><para><b><c>iopt1</c></b> – Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized
         /// storage</a> that's designed to meet the needs of I/O-intensive graph workloads that
         /// require predictable pricing with low I/O latency and consistent I/O throughput.</para><para>Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0.</para></li></ul>
         /// </para>
@@ -319,9 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>A list of VPC security groups that the DB cluster will belong to.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

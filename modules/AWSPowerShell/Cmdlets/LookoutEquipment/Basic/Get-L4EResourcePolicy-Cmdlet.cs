@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Provides the details of a resource policy attached to a resource.
+    /// Provides the details of a resource policy attached to a resource.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4EResourcePolicy")]
     [OutputType("Amazon.LookoutEquipment.Model.DescribeResourcePolicyResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.DescribeResourcePolicyResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.DescribeResourcePolicyResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4EResourcePolicyCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

@@ -136,9 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>A condition expression used to filter the vector search results. The expression can
         /// reference attributes defined in the vector index search schema, including <c>HASH</c>
-        /// and <c>INLINE_FILTER</c> key elements.</para><para>Only the equality operator (<c>=</c>) is supported for <c>HASH</c> attributes. Comparison
-        /// and range operators are supported for <c>INLINE_FILTER</c> attributes. Only top-level
-        /// attributes from the search schema can be referenced.</para>
+        /// and <c>INLINE_FILTER</c> key elements.</para><para>The <c>HASH</c> and <c>INLINE_FILTER</c> attributes support only the equality operator
+        /// (<c>=</c>). You can reference only top-level attributes from the search schema.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

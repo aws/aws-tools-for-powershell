@@ -152,9 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -236,6 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.ManageMasterUserPassword = this.ManageMasterUserPassword;
+            context.MasterUserPassword = this.MasterUserPassword;
+            context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
             context.MasterUsername = this.MasterUsername;
             #if MODULAR
             if (this.MasterUsername == null && ParameterWasBound(nameof(this.MasterUsername)))
@@ -243,8 +246,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter MasterUsername which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MasterUserPassword = this.MasterUserPassword;
-            context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
             context.NcharCharacterSetName = this.NcharCharacterSetName;
             if (this.Tag != null)
             {
@@ -285,10 +286,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
             }
-            if (cmdletContext.MasterUsername != null)
-            {
-                request.MasterUsername = cmdletContext.MasterUsername;
-            }
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
@@ -296,6 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.MasterUserSecretKmsKeyId != null)
             {
                 request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
+            }
+            if (cmdletContext.MasterUsername != null)
+            {
+                request.MasterUsername = cmdletContext.MasterUsername;
             }
             if (cmdletContext.NcharCharacterSetName != null)
             {
@@ -367,9 +368,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String CharacterSetName { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.Boolean? ManageMasterUserPassword { get; set; }
-            public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String MasterUserSecretKmsKeyId { get; set; }
+            public System.String MasterUsername { get; set; }
             public System.String NcharCharacterSetName { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.String TenantDBName { get; set; }

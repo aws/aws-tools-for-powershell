@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Stops a retraining scheduler.
+    /// Stops a retraining scheduler.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Stop", "L4ERetrainingScheduler", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LookoutEquipment.Model.StopRetrainingSchedulerResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.StopRetrainingSchedulerResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.StopRetrainingSchedulerResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class StopL4ERetrainingSchedulerCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

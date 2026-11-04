@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     /// <summary>
     /// Lists statistics about the data collected for each of the sensors that have been
     /// successfully ingested in the particular dataset. Can also be used to retreive Sensor
-    /// Statistics for a previous ingestion job.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Statistics for a previous ingestion job.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4ESensorStatisticList")]
     [OutputType("Amazon.LookoutEquipment.Model.SensorStatisticsSummary")]
@@ -41,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet returns a collection of Amazon.LookoutEquipment.Model.SensorStatisticsSummary objects.",
         "The service call response (type Amazon.LookoutEquipment.Model.ListSensorStatisticsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4ESensorStatisticListCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

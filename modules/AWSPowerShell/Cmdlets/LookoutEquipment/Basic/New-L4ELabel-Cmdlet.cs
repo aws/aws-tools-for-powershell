@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Creates a label for an event.
+    /// Creates a label for an event.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "L4ELabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.LookoutEquipment.Model.CreateLabelResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class NewL4ELabelCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

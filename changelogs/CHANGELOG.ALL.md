@@ -1,4 +1,42 @@
-﻿### 5.0.327 (2026-10-30 19:01Z)
+﻿### 5.0.328 (2026-11-04 21:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.363.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonMWAAServerless
+    * Modified cmdlet New-MWAASWorkflow: added parameter Environment_Variable.
+    * Modified cmdlet Update-MWAASWorkflow: added parameter Environment_Variable.
+  * Amazon Application Migration Service
+    * Modified cmdlet New-MGNNetworkMigrationDefinition: added parameter ClientToken.
+  * Amazon Connect Contact Lens
+    * Modified cmdlet Get-CCLRealtimeContactAnalysisSegmentList: added parameters ListFilter_CategoriesAttributeFilter_AndCondition_TagCondition, ListFilter_CategoriesAttributeFilter_OrCondition, ListFilter_CategoriesAttributeFilter_TagCondition_ComparisonType, ListFilter_CategoriesAttributeFilter_TagCondition_TagKey and ListFilter_CategoriesAttributeFilter_TagCondition_TagValue.
+  * Amazon DynamoDB
+    * Added cmdlet Get-DDBBulkOperationDetail leveraging the DescribeBulkOperation service API.
+    * Added cmdlet Get-DDBBulkOperationList leveraging the ListBulkOperations service API.
+    * Added cmdlet Start-DDBBulkPutItem leveraging the StartBulkPutItems service API.
+    * Added cmdlet Stop-DDBBulkOperation leveraging the CancelBulkOperation service API.
+  * Amazon IAM Roles Anywhere
+    * Modified cmdlet New-IAMRATrustAnchor: added parameter CrlDpRevocationEnabled.
+    * Modified cmdlet Update-IAMRATrustAnchor: added parameter CrlDpRevocationEnabled.
+  * Amazon IoT SiteWise
+    * Modified cmdlet New-IOTSWDatasetExportJob: added parameter JobName.
+  * Amazon Polly
+    * Added cmdlet Add-POLResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-POLResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-POLResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Write-POLLexicon: added parameter Tag.
+  * Amazon Relational Database Service
+    * Modified cmdlet Copy-RDSDBSnapshot: added parameter TagSpecification.
+  * Amazon S3 Tables
+    * Added cmdlet Complete-S3TTableMigration leveraging the CompleteTableMigration service API.
+    * Added cmdlet Get-S3TTableMigration leveraging the GetTableMigration service API.
+    * Added cmdlet Get-S3TTableMigrationList leveraging the ListTableMigrations service API.
+    * Added cmdlet Start-S3TTableMigration leveraging the StartTableMigration service API.
+    * Added cmdlet Sync-S3TTableMigration leveraging the SyncTableMigration service API.
+    * Added cmdlet Update-S3TTableMigration leveraging the UpdateTableMigration service API.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBSoftwareResourcesV2 leveraging the GetSoftwareResourcesV2 service API.
+    * Added cmdlet Get-SHUBSoftwareStatisticsV2 leveraging the GetSoftwareStatisticsV2 service API.
+    * Added cmdlet Get-SHUBSoftwareV2 leveraging the GetSoftwareV2 service API.
+
+### 5.0.327 (2026-10-30 19:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.362.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Modified cmdlet Remove-CWLAccountPolicy: added parameter DryRun.

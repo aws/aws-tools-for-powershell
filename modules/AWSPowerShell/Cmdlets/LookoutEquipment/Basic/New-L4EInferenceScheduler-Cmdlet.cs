@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     /// real-time inference plan to analyze new measurement data. When setting up the schedule,
     /// you provide an S3 bucket location for the input data, assign it a delimiter between
     /// separate entries in the data, set an offset delay if desired, and set the frequency
-    /// of inferencing. You must also provide an S3 bucket location for the output data.
+    /// of inferencing. You must also provide an S3 bucket location for the output data.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "L4EInferenceScheduler", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LookoutEquipment.Model.CreateInferenceSchedulerResponse")]
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.CreateInferenceSchedulerResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.CreateInferenceSchedulerResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class NewL4EInferenceSchedulerCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

@@ -67,9 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// they are ignored with no error. Only activities started within the last six weeks
         /// can be returned regardless of the activity IDs specified. If other filters are specified
         /// with the request, only results matching all filter criteria can be returned. </para><para>Array Members: Maximum number of 50 IDs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -104,9 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// valid <c>StatusCode</c> values, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_Activity.html">Activity</a>
         /// in the <i>Amazon EC2 Auto Scaling API Reference</i>. </para></li></ul><para><c>StartTimeLowerBound</c> and <c>StartTimeUpperBound</c> accept ISO 8601 formatted
         /// timestamps. Timestamps without a timezone offset are assumed to be UTC. </para><ul><li><para><c>2000-01-18T08:15:00Z</c></para></li><li><para><c>2000-01-18T16:15:00+08:00</c></para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

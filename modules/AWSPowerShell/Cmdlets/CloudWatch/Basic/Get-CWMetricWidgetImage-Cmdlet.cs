@@ -91,12 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter OutputFormat
         /// <summary>
         /// <para>
-        /// <para>The format of the resulting image. Only PNG images are supported.</para><para>The default is <c>png</c>. If you specify <c>png</c>, the API returns an HTTP response
-        /// with the content-type set to <c>text/xml</c>. The image data is in a <c>MetricWidgetImage</c>
-        /// field. For example:</para><para><c> &lt;GetMetricWidgetImageResponse xmlns=&lt;URLstring&gt;&gt;</c></para><para><c> &lt;GetMetricWidgetImageResult&gt;</c></para><para><c> &lt;MetricWidgetImage&gt;</c></para><para><c> iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...</c></para><para><c> &lt;/MetricWidgetImage&gt;</c></para><para><c> &lt;/GetMetricWidgetImageResult&gt;</c></para><para><c> &lt;ResponseMetadata&gt;</c></para><para><c> &lt;RequestId&gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b&lt;/RequestId&gt;</c></para><para><c> &lt;/ResponseMetadata&gt;</c></para><para><c>&lt;/GetMetricWidgetImageResponse&gt;</c></para><para>The <c>image/png</c> setting is intended only for custom HTTP requests. For most use
-        /// cases, and all actions using an Amazon Web Services SDK, you should use <c>png</c>.
-        /// If you specify <c>image/png</c>, the HTTP response has a content-type set to <c>image/png</c>,
-        /// and the body of the response is a PNG image.</para>
+        /// Amazon.CloudWatch.Model.GetMetricWidgetImageRequest.OutputFormat
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

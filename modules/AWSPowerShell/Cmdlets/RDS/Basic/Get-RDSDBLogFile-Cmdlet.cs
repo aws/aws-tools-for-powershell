@@ -103,9 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>This parameter isn't currently supported.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -196,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.FileLastWritten = this.FileLastWritten;
-            context.FilenameContains = this.FilenameContains;
             context.FileSize = this.FileSize;
+            context.FilenameContains = this.FilenameContains;
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.RDS.Model.Filter>(this.Filter);
@@ -240,13 +241,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.FileLastWritten = cmdletContext.FileLastWritten.Value;
             }
-            if (cmdletContext.FilenameContains != null)
-            {
-                request.FilenameContains = cmdletContext.FilenameContains;
-            }
             if (cmdletContext.FileSize != null)
             {
                 request.FileSize = cmdletContext.FileSize.Value;
+            }
+            if (cmdletContext.FilenameContains != null)
+            {
+                request.FilenameContains = cmdletContext.FilenameContains;
             }
             if (cmdletContext.Filter != null)
             {
@@ -319,13 +320,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.FileLastWritten = cmdletContext.FileLastWritten.Value;
             }
-            if (cmdletContext.FilenameContains != null)
-            {
-                request.FilenameContains = cmdletContext.FilenameContains;
-            }
             if (cmdletContext.FileSize != null)
             {
                 request.FileSize = cmdletContext.FileSize.Value;
+            }
+            if (cmdletContext.FilenameContains != null)
+            {
+                request.FilenameContains = cmdletContext.FilenameContains;
             }
             if (cmdletContext.Filter != null)
             {
@@ -439,8 +440,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public System.String DBInstanceIdentifier { get; set; }
             public System.Int64? FileLastWritten { get; set; }
-            public System.String FilenameContains { get; set; }
             public System.Int64? FileSize { get; set; }
+            public System.String FilenameContains { get; set; }
             public List<Amazon.RDS.Model.Filter> Filter { get; set; }
             public System.String Marker { get; set; }
             public int? MaxRecord { get; set; }

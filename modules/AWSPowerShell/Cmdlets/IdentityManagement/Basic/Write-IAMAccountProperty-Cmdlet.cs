@@ -61,9 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// one <c>/</c> separating the namespace from the property name, and cannot start or
         /// end with <c>/</c>.</para><para>The service validates each value based on the property key's expected type. For example,
         /// boolean properties expect <c>true</c> or <c>false</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

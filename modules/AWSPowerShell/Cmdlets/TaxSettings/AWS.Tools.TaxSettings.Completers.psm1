@@ -222,7 +222,7 @@ $TSA_Completers = {
             ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_RegistrationType")
         }
         {
-            $v = "CNPJ","CPF","GST","NIP","NRIC","PAN","SST","TIN","VAT"
+            $v = "CDI","CI","CNPJ","CPF","CUIT","GST","NIE","NIP","NRIC","PAN","RUT","SST","TIN","VAT"
             break
         }
 

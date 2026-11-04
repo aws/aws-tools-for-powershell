@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Connect Contact Lens
 
 
+$CCL_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ConnectContactLens.TagComparisonType
+        "Get-CCLRealtimeContactAnalysisSegmentList/ListFilter_CategoriesAttributeFilter_TagCondition_ComparisonType"
+        {
+            $v = "EQUALS","NOT_EQUALS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCL_map = @{
+    "ListFilter_CategoriesAttributeFilter_TagCondition_ComparisonType"=@("Get-CCLRealtimeContactAnalysisSegmentList")
+}
+
+_awsArgumentCompleterRegistration $CCL_Completers $CCL_map
+
 $CCL_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

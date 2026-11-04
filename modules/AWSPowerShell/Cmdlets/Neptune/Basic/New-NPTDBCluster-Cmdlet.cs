@@ -60,9 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>A list of EC2 Availability Zones that instances in the DB cluster can be created in.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -170,9 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// log types are: <c>audit</c> (to publish audit logs) and <c>slowquery</c> (to publish
         /// slow-query logs). See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch-logs.html">Publishing
         /// Neptune logs to Amazon CloudWatch logs</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -295,8 +297,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>IPV4</c></b>   –   ( <i>the default</i> ) The DB cluster uses only IPv4 addresses
-        /// for communication.</para></li><li><para><b><c>DUAL</c></b>   –   The DB cluster uses both IPv4 and IPv6 addresses for communication.
+        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>IPV4</c></b> – ( <i>the default</i> ) The DB cluster uses only IPv4 addresses
+        /// for communication.</para></li><li><para><b><c>DUAL</c></b> – The DB cluster uses both IPv4 and IPv6 addresses for communication.
         /// The DB subnet group associated with the cluster must support IPv6.</para></li></ul>
         /// </para>
         /// </summary>
@@ -397,9 +399,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type for the new DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>standard</c></b>   –   ( <i>the default</i> ) Configures cost-effective database
+        /// <para>The storage type for the new DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>standard</c></b> – ( <i>the default</i> ) Configures cost-effective database
         /// storage for applications with moderate to small I/O usage. When set to <c>standard</c>,
-        /// the storage type is not returned in the response.</para></li><li><para><b><c>iopt1</c></b>   –   Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized
+        /// the storage type is not returned in the response.</para></li><li><para><b><c>iopt1</c></b> – Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized
         /// storage</a> that's designed to meet the needs of I/O-intensive graph workloads that
         /// require predictable pricing with low I/O latency and consistent I/O throughput.</para><para>Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0.</para></li></ul>
         /// </para>
@@ -412,9 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The tags to assign to the new DB cluster.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -427,9 +430,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -492,7 +496,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CharacterSetName = this.CharacterSetName;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
-            context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             #if MODULAR
             if (this.DBClusterIdentifier == null && ParameterWasBound(nameof(this.DBClusterIdentifier)))
@@ -502,6 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             #endif
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.DatabaseName = this.DatabaseName;
             context.DeletionProtection = this.DeletionProtection;
             if (this.EnableCloudwatchLogsExport != null)
             {
@@ -518,14 +522,14 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             context.EngineVersion = this.EngineVersion;
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             context.KmsKeyId = this.KmsKeyId;
-            context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
+            context.MasterUsername = this.MasterUsername;
             context.NetworkType = this.NetworkType;
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
+            context.PreSignedUrl = this.PreSignedUrl;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
-            context.PreSignedUrl = this.PreSignedUrl;
             context.ReplicationSourceIdentifier = this.ReplicationSourceIdentifier;
             context.ServerlessV2ScalingConfiguration_MaxCapacity = this.ServerlessV2ScalingConfiguration_MaxCapacity;
             context.ServerlessV2ScalingConfiguration_MinCapacity = this.ServerlessV2ScalingConfiguration_MinCapacity;
@@ -575,10 +579,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
-            if (cmdletContext.DatabaseName != null)
-            {
-                request.DatabaseName = cmdletContext.DatabaseName;
-            }
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
@@ -590,6 +590,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DatabaseName != null)
+            {
+                request.DatabaseName = cmdletContext.DatabaseName;
             }
             if (cmdletContext.DeletionProtection != null)
             {
@@ -619,13 +623,13 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
             }
-            if (cmdletContext.MasterUsername != null)
-            {
-                request.MasterUsername = cmdletContext.MasterUsername;
-            }
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.MasterUsername != null)
+            {
+                request.MasterUsername = cmdletContext.MasterUsername;
             }
             if (cmdletContext.NetworkType != null)
             {
@@ -639,6 +643,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 request.Port = cmdletContext.Port.Value;
             }
+            if (cmdletContext.PreSignedUrl != null)
+            {
+                request.PreSignedUrl = cmdletContext.PreSignedUrl;
+            }
             if (cmdletContext.PreferredBackupWindow != null)
             {
                 request.PreferredBackupWindow = cmdletContext.PreferredBackupWindow;
@@ -646,10 +654,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
-            }
-            if (cmdletContext.PreSignedUrl != null)
-            {
-                request.PreSignedUrl = cmdletContext.PreSignedUrl;
             }
             if (cmdletContext.ReplicationSourceIdentifier != null)
             {
@@ -760,10 +764,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String CharacterSetName { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
-            public System.String DatabaseName { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.String DatabaseName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
@@ -771,14 +775,14 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.String EngineVersion { get; set; }
             public System.String GlobalClusterIdentifier { get; set; }
             public System.String KmsKeyId { get; set; }
-            public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.String MasterUsername { get; set; }
             public System.String NetworkType { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
+            public System.String PreSignedUrl { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
-            public System.String PreSignedUrl { get; set; }
             public System.String ReplicationSourceIdentifier { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }

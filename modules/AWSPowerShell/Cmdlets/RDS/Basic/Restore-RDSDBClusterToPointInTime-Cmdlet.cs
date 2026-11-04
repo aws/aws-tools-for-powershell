@@ -89,9 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// cluster permission to access other Amazon Web Services on your behalf. For each role,
         /// specify a role ARN and, optionally, the feature name (such as <c>s3Import</c>, <c>s3Export</c>,
         /// or <c>Lambda</c>).</para><para>Valid for Cluster Type: Aurora DB clusters only</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -241,9 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// and <c>iam-db-auth-error</c>.</para><para><b>Aurora PostgreSQL</b></para><para>Possible value are <c>instance</c>, <c>postgresql</c>, and <c>iam-db-auth-error</c>.</para><para>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -656,9 +658,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -671,9 +674,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Tags to assign to resources associated with the DB cluster.</para><para>Valid Values: </para><ul><li><para><c>cluster-auto-backup</c> - The DB cluster's automated backup.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -722,9 +726,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A list of VPC security groups that the new DB cluster belongs to.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -837,13 +842,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
             context.SourceDbClusterResourceId = this.SourceDbClusterResourceId;
             context.StorageType = this.StorageType;
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
-            }
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.RDS.Model.TagSpecification>(this.TagSpecification);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.UseLatestRestorableTime = this.UseLatestRestorableTime;
             if (this.VpcSecurityGroupId != null)
@@ -1149,13 +1154,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.StorageType = cmdletContext.StorageType;
             }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
-            }
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.UseLatestRestorableTime != null)
             {
@@ -1266,8 +1271,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String SourceDBClusterIdentifier { get; set; }
             public System.String SourceDbClusterResourceId { get; set; }
             public System.String StorageType { get; set; }
-            public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public List<Amazon.RDS.Model.TagSpecification> TagSpecification { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.RDS.Model.RestoreDBClusterToPointInTimeResponse, RestoreRDSDBClusterToPointInTimeCmdlet, object> Select { get; set; } =

@@ -92,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> If you are running Valkey 7.2 or Redis OSS engine version 6.0 or later, set this
+        /// <para> If you are running Valkey 7.2 or Redis OSS engine version 6.0 or later, set this
         /// parameter to yes to opt-in to the next auto minor version upgrade campaign. This parameter
-        /// is disabled for previous versions.  </para>
+        /// is disabled for previous versions. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,9 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// the request.</para><para>For example: If you have 3 active cache nodes, 7 pending cache nodes, and the number
         /// of cache nodes in this <c>ModifyCacheCluster</c> call is 5, you must list 2 (7 - 5)
         /// cache node IDs to remove.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -181,9 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>A list of cache security group names to authorize on this cluster. This change is
         /// asynchronously applied as soon as possible.</para><para>You can use this parameter only with clusters that are created outside of an Amazon
         /// Virtual Private Cloud (Amazon VPC).</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Must not be "Default".</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -233,9 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies the destination, format and type of the logs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -263,9 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// Node Considerations for Memcached</a>.</para><para><b>Impact of new add/remove requests upon pending requests</b></para><ul><li><para>Scenario-1</para><ul><li><para>Pending Action: Delete</para></li><li><para>New Request: Delete</para></li><li><para>Result: The new delete, pending or immediate, replaces the pending delete.</para></li></ul></li><li><para>Scenario-2</para><ul><li><para>Pending Action: Delete</para></li><li><para>New Request: Create</para></li><li><para>Result: The new create, pending or immediate, replaces the pending delete.</para></li></ul></li><li><para>Scenario-3</para><ul><li><para>Pending Action: Create</para></li><li><para>New Request: Delete</para></li><li><para>Result: The new delete, pending or immediate, replaces the pending create.</para></li></ul></li><li><para>Scenario-4</para><ul><li><para>Pending Action: Create</para></li><li><para>New Request: Create</para></li><li><para>Result: The new create is added to the pending create.</para><important><para><b>Important:</b> If the new create request is <b>Apply Immediately - Yes</b>, all
         /// creates are performed immediately. If the new create request is <b>Apply Immediately
         /// - No</b>, all creates are pending.</para></important></li></ul></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -367,9 +371,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>Specifies the VPC Security Groups associated with the cluster.</para><para>This parameter can be used only with clusters that are created in an Amazon Virtual
         /// Private Cloud (Amazon VPC).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -448,11 +453,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.Select = CreateSelectDelegate<Amazon.ElastiCache.Model.ModifyCacheClusterResponse, EditECCacheClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AZMode = this.AZMode;
             context.ApplyImmediately = this.ApplyImmediately;
             context.AuthToken = this.AuthToken;
             context.AuthTokenUpdateStrategy = this.AuthTokenUpdateStrategy;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
-            context.AZMode = this.AZMode;
             context.CacheClusterId = this.CacheClusterId;
             #if MODULAR
             if (this.CacheClusterId == null && ParameterWasBound(nameof(this.CacheClusterId)))
@@ -509,6 +514,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             // create request
             var request = new Amazon.ElastiCache.Model.ModifyCacheClusterRequest();
             
+            if (cmdletContext.AZMode != null)
+            {
+                request.AZMode = cmdletContext.AZMode;
+            }
             if (cmdletContext.ApplyImmediately != null)
             {
                 request.ApplyImmediately = cmdletContext.ApplyImmediately.Value;
@@ -524,10 +533,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
                 request.AutoMinorVersionUpgrade = cmdletContext.AutoMinorVersionUpgrade.Value;
-            }
-            if (cmdletContext.AZMode != null)
-            {
-                request.AZMode = cmdletContext.AZMode;
             }
             if (cmdletContext.CacheClusterId != null)
             {
@@ -681,11 +686,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ElastiCache.AZMode AZMode { get; set; }
             public System.Boolean? ApplyImmediately { get; set; }
             public System.String AuthToken { get; set; }
             public Amazon.ElastiCache.AuthTokenUpdateStrategyType AuthTokenUpdateStrategy { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
-            public Amazon.ElastiCache.AZMode AZMode { get; set; }
             public System.String CacheClusterId { get; set; }
             public List<System.String> CacheNodeIdsToRemove { get; set; }
             public System.String CacheNodeType { get; set; }

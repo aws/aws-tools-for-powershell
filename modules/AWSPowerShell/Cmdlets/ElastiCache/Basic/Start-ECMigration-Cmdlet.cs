@@ -74,9 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The list of endpoints from which to migrate data. For Valkey or Redis OSS (cluster
         /// mode disabled), the list should have only one element. For serverless cache migrations,
         /// ElastiCache uses the endpoint that you provided in <c>PrepareMigration</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

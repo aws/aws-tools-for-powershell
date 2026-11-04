@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     /// <summary>
     /// Provides a JSON containing the overall information about a specific machine learning
     /// model, including model name and ARN, dataset, training and evaluation information,
-    /// status, and so on.
+    /// status, and so on.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4EModel")]
     [OutputType("Amazon.LookoutEquipment.Model.DescribeModelResponse")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.DescribeModelResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.DescribeModelResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4EModelCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

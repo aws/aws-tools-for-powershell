@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     /// 10 minutes). The following properties of the SourceServer will be changed immediately:
     /// dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes
     /// property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration
-    /// and dataReplicationInfo.lagDuration will be nullified.
+    /// and dataReplicationInfo.etaDateTime will be nullified.
     /// </summary>
     [Cmdlet("Disconnect", "MGNFromService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Mgn.Model.DisconnectFromServiceResponse")]

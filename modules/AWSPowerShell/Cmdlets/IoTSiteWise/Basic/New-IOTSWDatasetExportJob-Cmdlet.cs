@@ -89,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String[] Input_Dataset_ExportDataType { get; set; }
         #endregion
         
+        #region Parameter JobName
+        /// <summary>
+        /// <para>
+        /// <para>An optional name for the export job. When omitted, one will be created based on type
+        /// of job and start time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JobName { get; set; }
+        #endregion
+        
         #region Parameter Input_Dataset_TrimSettings_EndTime_OffsetInNano
         /// <summary>
         /// <para>
@@ -270,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             {
                 context.Input_Timesery = new List<Amazon.IoTSiteWise.Model.TimeseriesItem>(this.Input_Timesery);
             }
+            context.JobName = this.JobName;
             context.WorkspaceName = this.WorkspaceName;
             #if MODULAR
             if (this.WorkspaceName == null && ParameterWasBound(nameof(this.WorkspaceName)))
@@ -459,6 +471,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             {
                 request.Input = null;
             }
+            if (cmdletContext.JobName != null)
+            {
+                request.JobName = cmdletContext.JobName;
+            }
             if (cmdletContext.WorkspaceName != null)
             {
                 request.WorkspaceName = cmdletContext.WorkspaceName;
@@ -528,6 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.Int32? Input_Dataset_TrimSettings_StartTime_OffsetInNano { get; set; }
             public System.Int64? Input_Dataset_TrimSettings_StartTime_TimeInSecond { get; set; }
             public List<Amazon.IoTSiteWise.Model.TimeseriesItem> Input_Timesery { get; set; }
+            public System.String JobName { get; set; }
             public System.String WorkspaceName { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.CreateDatasetExportJobResponse, NewIOTSWDatasetExportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

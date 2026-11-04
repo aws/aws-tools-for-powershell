@@ -112,6 +112,20 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.BulkOperationInputFormat
+        "Start-DDBBulkPutItem/InputS3Configuration_InputFormat"
+        {
+            $v = "DYNAMODB_JSON","ION"
+            break
+        }
+
+        # Amazon.DynamoDBv2.BulkOperationPerformanceTier
+        "Start-DDBBulkPutItem/PerformanceTier"
+        {
+            $v = "ACCELERATED","STANDARD"
+            break
+        }
+
         # Amazon.DynamoDBv2.ConditionalOperator
         {
             ($_ -eq "Invoke-DDBQuery/ConditionalOperator") -Or
@@ -168,7 +182,10 @@ $DDB_Completers = {
         }
 
         # Amazon.DynamoDBv2.InputCompressionType
-        "Import-DDBTable/InputCompressionType"
+        {
+            ($_ -eq "Import-DDBTable/InputCompressionType") -Or
+            ($_ -eq "Start-DDBBulkPutItem/InputS3Configuration_InputCompressionType")
+        }
         {
             $v = "GZIP","NONE","ZSTD"
             break
@@ -261,7 +278,10 @@ $DDB_Completers = {
         }
 
         # Amazon.DynamoDBv2.S3SseAlgorithm
-        "Export-DDBTableToPointInTime/S3SseAlgorithm"
+        {
+            ($_ -eq "Start-DDBBulkPutItem/OutputS3Configuration_S3SseAlgorithm") -Or
+            ($_ -eq "Export-DDBTableToPointInTime/S3SseAlgorithm")
+        }
         {
             $v = "AES256","KMS"
             break
@@ -338,9 +358,13 @@ $DDB_map = @{
     "IncrementalExportSpecification_ExportViewType"=@("Export-DDBTableToPointInTime")
     "InputCompressionType"=@("Import-DDBTable")
     "InputFormat"=@("Import-DDBTable")
+    "InputS3Configuration_InputCompressionType"=@("Start-DDBBulkPutItem")
+    "InputS3Configuration_InputFormat"=@("Start-DDBBulkPutItem")
     "KeyDataType"=@("Add-DDBKeySchema")
     "KeyType"=@("Add-DDBKeySchema")
     "MultiRegionConsistency"=@("Update-DDBTable")
+    "OutputS3Configuration_S3SseAlgorithm"=@("Start-DDBBulkPutItem")
+    "PerformanceTier"=@("Start-DDBBulkPutItem")
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
     "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Search-DDBVector","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
@@ -410,6 +434,7 @@ $DDB_SelectMap = @{
     "Select"=@("Invoke-DDBDDBBatchExecuteStatement",
                "Get-DDBBatchItem",
                "Set-DDBBatchItem",
+               "Stop-DDBBulkOperation",
                "New-DDBBackup",
                "New-DDBGlobalTable",
                "Remove-DDBBackup",
@@ -417,6 +442,7 @@ $DDB_SelectMap = @{
                "Remove-DDBResourcePolicy",
                "Remove-DDBTable",
                "Get-DDBBackup",
+               "Get-DDBBulkOperationDetail",
                "Get-DDBContinuousBackup",
                "Get-DDBContributorInsight",
                "Get-DDBEndpoint",
@@ -438,6 +464,7 @@ $DDB_SelectMap = @{
                "Get-DDBResourcePolicy",
                "Import-DDBTable",
                "Get-DDBBackupList",
+               "Get-DDBBulkOperationList",
                "Get-DDBContributorInsightList",
                "Get-DDBExportList",
                "Get-DDBGlobalTableList",
@@ -451,6 +478,7 @@ $DDB_SelectMap = @{
                "Restore-DDBTableToPointInTime",
                "Invoke-DDBScan",
                "Search-DDBVector",
+               "Start-DDBBulkPutItem",
                "Add-DDBResourceTag",
                "Get-DDBItemTransactionally",
                "Write-DDBItemTransactionally",
@@ -464,12 +492,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
                "Add-DDBIndexSchema",
+               "Add-DDBKeySchema",
                "New-DDBTable",
-               "ConvertFrom-DDBItem",
+               "ConvertTo-DDBItem",
                "New-DDBTableSchema",
-               "ConvertTo-DDBItem")
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap

@@ -37,6 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.POL
     /// 
     ///  
     /// <para>
+    /// Overwriting a lexicon keeps its existing tags. You can specify tags only when you
+    /// create a lexicon. If you specify tags for a lexicon that already exists, the request
+    /// fails with a <c>ValidationException</c>. To change the tags of an existing lexicon,
+    /// use <c>TagResource</c> and <c>UntagResource</c>.
+    /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
     /// Lexicons</a>.
     /// </para>
@@ -74,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}.
+        /// <para>Name of the lexicon. The name must follow the regular expression format [0-9A-Za-z]{1,20}.
         /// That is, the name is a case-sensitive alphanumeric string up to 20 characters long.
         /// </para>
         /// </para>
@@ -88,6 +93,26 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The metadata that you apply to the lexicon to help you categorize and organize it.
+        /// Each tag consists of a key and an optional value, both of which you define. Tag keys
+        /// can have a maximum character length of 128 characters, and tag values can have a maximum
+        /// length of 256 characters. You can't replace the tags of an existing lexicon by overwriting
+        /// it with PutLexicon.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -149,6 +174,14 @@ namespace Amazon.PowerShell.Cmdlets.POL
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.POL
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -230,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
         {
             public System.String Content { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Polly.Model.PutLexiconResponse, WritePOLLexiconCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

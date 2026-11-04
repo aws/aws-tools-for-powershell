@@ -38,6 +38,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelBulkOperation" OutputProperty="*" Verb="Stop" Noun="BulkOperation" ShouldProcessTarget="BulkOperationArn" PipelineParameter="BulkOperationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBackup" OutputProperty="BackupDetails" Verb="New" Noun="Backup" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -67,6 +71,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeBackup" OutputProperty="BackupDescription" Verb="Get" Noun="Backup" PipelineParameter="BackupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBulkOperation" OutputProperty="BulkOperationDescription" Verb="Get" Noun="BulkOperationDetail" PipelineParameter="BulkOperationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -165,6 +173,10 @@
             <AutoIterate Start="ExclusiveStartBackupArn" Next="LastEvaluatedBackupArn" EmitLimit="Limit" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListBulkOperations" OutputProperty="BulkOperationsSummaryList" Verb="Get" Noun="BulkOperationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListContributorInsights" OutputProperty="ContributorInsightsSummaries" Verb="Get" Noun="ContributorInsightList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
@@ -223,6 +235,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchVectors" OutputProperty="*" Verb="Search" Noun="Vector" ShouldProcessTarget="IndexName,TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartBulkPutItems" OutputProperty="BulkOperationDescription" Verb="Start" Noun="BulkPutItem" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

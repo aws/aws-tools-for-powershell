@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-S3TResourceTag', 
+        'Complete-S3TTableMigration', 
         'Get-S3TNamespace', 
         'Get-S3TNamespaceList', 
         'Get-S3TResourceTag', 
@@ -105,6 +106,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-S3TTableMaintenanceConfiguration', 
         'Get-S3TTableMaintenanceJobStatus', 
         'Get-S3TTableMetadataLocation', 
+        'Get-S3TTableMigration', 
+        'Get-S3TTableMigrationList', 
         'Get-S3TTablePolicy', 
         'Get-S3TTableRecordExpirationConfiguration', 
         'Get-S3TTableRecordExpirationJobStatus', 
@@ -125,7 +128,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-S3TTablePolicy', 
         'Remove-S3TTableReplication', 
         'Rename-S3TTable', 
+        'Start-S3TTableMigration', 
+        'Sync-S3TTableMigration', 
         'Update-S3TTableMetadataLocation', 
+        'Update-S3TTableMigration', 
         'Write-S3TTableBucketEncryption', 
         'Write-S3TTableBucketMaintenanceConfiguration', 
         'Write-S3TTableBucketMetricsConfiguration', 

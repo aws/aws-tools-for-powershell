@@ -101,9 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// nested stacks, you must create or update the stack directly from the template using
         /// the <a>CreateStack</a> or <a>UpdateStack</a> action, and specifying this capability.</para></note><para>For more information about macros, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Perform
         /// custom processing on CloudFormation templates with template macros</a>.</para></li></ul><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -244,9 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The Amazon Resource Names (ARNs) of Amazon SNS topics that CloudFormation associates
         /// with the stack. To remove all associated notification topics, specify an empty list.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -280,9 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>A list of <c>Parameter</c> structures that specify input parameters for the change
         /// set. For more information, see the <a>Parameter</a> data type.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -295,9 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The resources to import into your stack.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -315,9 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control
         /// CloudFormation access with Identity and Access Management</a> in the <i>CloudFormation
         /// User Guide</i>.</para><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -377,9 +382,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Key-value pairs to associate with this stack. CloudFormation also propagates these
         /// tags to resources in the stack. You can specify a maximum of 50 tags.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -520,13 +526,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.Parameter = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
             }
-            if (this.ResourcesToImport != null)
-            {
-                context.ResourcesToImport = new List<Amazon.CloudFormation.Model.ResourceToImport>(this.ResourcesToImport);
-            }
             if (this.ResourceType != null)
             {
                 context.ResourceType = new List<System.String>(this.ResourceType);
+            }
+            if (this.ResourcesToImport != null)
+            {
+                context.ResourcesToImport = new List<Amazon.CloudFormation.Model.ResourceToImport>(this.ResourcesToImport);
             }
             context.RoleARN = this.RoleARN;
             context.RollbackConfiguration = this.RollbackConfiguration;
@@ -637,13 +643,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 request.Parameters = cmdletContext.Parameter;
             }
-            if (cmdletContext.ResourcesToImport != null)
-            {
-                request.ResourcesToImport = cmdletContext.ResourcesToImport;
-            }
             if (cmdletContext.ResourceType != null)
             {
                 request.ResourceTypes = cmdletContext.ResourceType;
+            }
+            if (cmdletContext.ResourcesToImport != null)
+            {
+                request.ResourcesToImport = cmdletContext.ResourcesToImport;
             }
             if (cmdletContext.RoleARN != null)
             {
@@ -742,8 +748,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<System.String> NotificationARNs { get; set; }
             public Amazon.CloudFormation.OnStackFailure OnStackFailure { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameter { get; set; }
-            public List<Amazon.CloudFormation.Model.ResourceToImport> ResourcesToImport { get; set; }
             public List<System.String> ResourceType { get; set; }
+            public List<Amazon.CloudFormation.Model.ResourceToImport> ResourcesToImport { get; set; }
             public System.String RoleARN { get; set; }
             public Amazon.CloudFormation.Model.RollbackConfiguration RollbackConfiguration { get; set; }
             public System.String StackName { get; set; }

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
     /// Provides a description of the retraining scheduler, including information such as
-    /// the model name and retraining parameters.
+    /// the model name and retraining parameters.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4ERetrainingScheduler")]
     [OutputType("Amazon.LookoutEquipment.Model.DescribeRetrainingSchedulerResponse")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.DescribeRetrainingSchedulerResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.DescribeRetrainingSchedulerResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4ERetrainingSchedulerCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

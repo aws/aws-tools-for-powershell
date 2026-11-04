@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The protocol. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html">
-        /// Protocols for Amazon WorkSpaces</a>.</para><note><ul><li><para>Only available for WorkSpaces created with PCoIP bundles.</para></li><li><para>The <c>Protocols</c> property is case sensitive. Ensure you use <c>PCOIP</c> or <c>DCV</c>
-        /// (formerly WSP).</para></li><li><para>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles (Graphics,
+        /// Protocols for Amazon WorkSpaces</a>.</para><note><ul><li><para>Only available for WorkSpaces created with PCoIP bundles.</para></li><li><para>The <c>Protocols</c> property is case sensitive. Make sure you specify <c>PCOIP</c>
+        /// or <c>WSP</c>. To use DCV, specify <c>WSP</c>.</para></li><li><para>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles (Graphics,
         /// GraphicsPro, Graphics.g4dn, GraphicsPro.g4dn, Graphics.g6, and Graphics.g7).</para></li></ul></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This

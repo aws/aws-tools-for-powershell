@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether to copy the DB option group associated with the source DB snapshot
-        /// to the target Amazon Web Services account and associate with the target DB snapshot.
-        /// The associated option group can be copied only with cross-account snapshot copy calls.</para>
+        /// to the target Amazon Web Services account or Amazon Web Services Region and associate
+        /// it with the target DB snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,15 +216,33 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>Tags to assign to the copied option group. By default, the copied option group isn't
+        /// tagged.</para><para>Valid Values: </para><ul><li><para><c>og</c> - The copied option group.</para></li></ul><para>Constraints:</para><ul><li><para>Can only be specified when <c>CopyOptionGroup</c> is <c>true</c></para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.RDS.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter TargetCustomAvailabilityZone
@@ -315,6 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter SourceDBSnapshotIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.RDS.Model.TagSpecification>(this.TagSpecification);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
@@ -378,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.SourceDBSnapshotIdentifier != null)
             {
                 request.SourceDBSnapshotIdentifier = cmdletContext.SourceDBSnapshotIdentifier;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.Tag != null)
             {
@@ -455,6 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String SnapshotAvailabilityZone { get; set; }
             public System.String SnapshotTarget { get; set; }
             public System.String SourceDBSnapshotIdentifier { get; set; }
+            public List<Amazon.RDS.Model.TagSpecification> TagSpecification { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.String TargetCustomAvailabilityZone { get; set; }
             public System.String TargetDBSnapshotIdentifier { get; set; }

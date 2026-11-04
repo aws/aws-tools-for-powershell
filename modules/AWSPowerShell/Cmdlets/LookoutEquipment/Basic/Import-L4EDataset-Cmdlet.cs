@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Imports a dataset.
+    /// Imports a dataset.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Import", "L4EDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LookoutEquipment.Model.ImportDatasetResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.ImportDatasetResponse",
         "This cmdlet returns an Amazon.LookoutEquipment.Model.ImportDatasetResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class ImportL4EDatasetCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

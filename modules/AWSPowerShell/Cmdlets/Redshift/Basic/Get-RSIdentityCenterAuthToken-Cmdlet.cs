@@ -64,9 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A list of cluster identifiers that the generated token can be used with. The token
         /// will be scoped to only allow authentication to the specified clusters.</para><para>Constraints:</para><ul><li><para><c>ClusterIds</c> must contain at least 1 cluster identifier.</para></li><li><para><c>ClusterIds</c> can hold a maximum of 20 cluster identifiers.</para></li><li><para>Cluster identifiers must be 1 to 63 characters in length.</para></li><li><para>The characters accepted for cluster identifiers are the following:</para><ul><li><para>Alphanumeric characters</para></li><li><para>Hyphens</para></li></ul></li><li><para>Cluster identifiers must start with a letter.</para></li><li><para>Cluster identifiers can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

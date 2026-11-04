@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Lists all datasets currently available in your account, filtering on the dataset name.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all datasets currently available in your account, filtering on the dataset name.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "L4EDatasetList")]
     [OutputType("Amazon.LookoutEquipment.Model.DatasetSummary")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet returns a collection of Amazon.LookoutEquipment.Model.DatasetSummary objects.",
         "The service call response (type Amazon.LookoutEquipment.Model.ListDatasetsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class GetL4EDatasetListCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         

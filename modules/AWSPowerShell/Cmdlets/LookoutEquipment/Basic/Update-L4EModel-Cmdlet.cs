@@ -30,7 +30,7 @@ using Amazon.LookoutEquipment.Model;
 namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
-    /// Updates a model in the account.
+    /// Updates a model in the account.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "L4EModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.LookoutEquipment.Model.UpdateModelResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On October 7, 2026, AWS ended support for Amazon Lookout for Equipment. For more information, see https://aws.amazon.com/products/lifecycle/")]
     public partial class UpdateL4EModelCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
         
