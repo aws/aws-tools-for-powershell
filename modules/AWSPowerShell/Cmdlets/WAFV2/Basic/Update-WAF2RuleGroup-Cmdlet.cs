@@ -104,13 +104,33 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.Boolean? VisibilityConfig_CloudWatchMetricsEnabled { get; set; }
         #endregion
         
+        #region Parameter MonetizationConfig_ConnectedAccountConfig
+        /// <summary>
+        /// <para>
+        /// <para>The connected account configurations for settling AI bot payments through a connected
+        /// account with a supported third-party payment provider (Stripe), as an alternative
+        /// to the self-managed wallets in <c>CryptoConfig</c>. You can provide <c>CryptoConfig</c>,
+        /// <c>ConnectedAccountConfigs</c>, or both; however, a given blockchain network (chain)
+        /// can be used by only one of them. Currently supports exactly one connected account.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MonetizationConfig_ConnectedAccountConfigs")]
+        public Amazon.WAFV2.Model.ConnectedAccountConfig[] MonetizationConfig_ConnectedAccountConfig { get; set; }
+        #endregion
+        
         #region Parameter MonetizationConfig_CurrencyMode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the configuration uses real or test currency. Set to <c>REAL</c>
-        /// to settle payments in USDC on production blockchain networks (Base, Solana). Set to
-        /// <c>TEST</c> to settle on testnet networks (Base Sepolia, Solana Devnet) with tokens
-        /// that have no monetary value. If not specified, defaults to <c>REAL</c>.</para>
+        /// <para>Specifies whether the configuration uses real or test currency. If not specified,
+        /// defaults to <c>REAL</c>. Connected account configurations support production settlement
+        /// only; <c>TEST</c> is not supported when <c>ConnectedAccountConfigs</c> is present.</para><para>Valid values:</para><ul><li><para><c>REAL</c> - Settle payments in USDC on production blockchain networks (Base, Solana).</para></li><li><para><c>TEST</c> - Settle on testnet networks (Base Sepolia, Solana Devnet) with tokens
+        /// that have no monetary value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -374,6 +394,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter LockToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MonetizationConfig_ConnectedAccountConfig != null)
+            {
+                context.MonetizationConfig_ConnectedAccountConfig = new List<Amazon.WAFV2.Model.ConnectedAccountConfig>(this.MonetizationConfig_ConnectedAccountConfig);
+            }
             if (this.MonetizationConfig_CryptoConfig_PaymentNetwork != null)
             {
                 context.MonetizationConfig_CryptoConfig_PaymentNetwork = new List<Amazon.WAFV2.Model.PaymentNetwork>(this.MonetizationConfig_CryptoConfig_PaymentNetwork);
@@ -454,6 +478,16 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
              // populate MonetizationConfig
             var requestMonetizationConfigIsNull = true;
             request.MonetizationConfig = new Amazon.WAFV2.Model.MonetizationConfig();
+            List<Amazon.WAFV2.Model.ConnectedAccountConfig> requestMonetizationConfig_monetizationConfig_ConnectedAccountConfig = null;
+            if (cmdletContext.MonetizationConfig_ConnectedAccountConfig != null)
+            {
+                requestMonetizationConfig_monetizationConfig_ConnectedAccountConfig = cmdletContext.MonetizationConfig_ConnectedAccountConfig;
+            }
+            if (requestMonetizationConfig_monetizationConfig_ConnectedAccountConfig != null)
+            {
+                request.MonetizationConfig.ConnectedAccountConfigs = requestMonetizationConfig_monetizationConfig_ConnectedAccountConfig;
+                requestMonetizationConfigIsNull = false;
+            }
             Amazon.WAFV2.CurrencyMode requestMonetizationConfig_monetizationConfig_CurrencyMode = null;
             if (cmdletContext.MonetizationConfig_CurrencyMode != null)
             {
@@ -604,6 +638,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             public System.String Description { get; set; }
             public System.String Id { get; set; }
             public System.String LockToken { get; set; }
+            public List<Amazon.WAFV2.Model.ConnectedAccountConfig> MonetizationConfig_ConnectedAccountConfig { get; set; }
             public List<Amazon.WAFV2.Model.PaymentNetwork> MonetizationConfig_CryptoConfig_PaymentNetwork { get; set; }
             public Amazon.WAFV2.CurrencyMode MonetizationConfig_CurrencyMode { get; set; }
             public System.String Name { get; set; }

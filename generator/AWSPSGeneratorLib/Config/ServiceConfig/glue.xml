@@ -681,6 +681,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetJobUpgradeAnalysis" OutputProperty="*" Verb="Get" Noun="JobUpgradeAnalysis" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMapping" OutputProperty="Mapping" Verb="Get" Noun="Mapping" PipelineParameter="Source" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1189,6 +1193,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartJobUpgradeAnalysis" OutputProperty="*" Verb="Start" Noun="JobUpgradeAnalysis" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMaterializedViewRefreshTaskRun" OutputProperty="MaterializedViewRefreshTaskRunId" Verb="Start" Noun="MaterializedViewRefreshTaskRun" ShouldProcessTarget="CatalogId,DatabaseName,TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1222,6 +1230,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopCrawlerSchedule" Verb="Stop" Noun="CrawlerSchedule" ShouldProcessTarget="CrawlerName" PipelineParameter="CrawlerName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopJobUpgradeAnalysis" Verb="Stop" Noun="JobUpgradeAnalysis" ShouldProcessTarget="AnalysisId,JobName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

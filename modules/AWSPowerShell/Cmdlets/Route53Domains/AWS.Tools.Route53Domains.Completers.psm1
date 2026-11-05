@@ -244,6 +244,7 @@ $R53D_SelectMap = @{
                "Update-R53DDomainRenewal",
                "Send-R53DContactReachabilityEmail",
                "Send-R53DOperationAuthorization",
+               "Restore-R53DDomain",
                "Get-R53DDomainAuthCode",
                "Invoke-R53DDomainTransfer",
                "Move-R53DDomainToAnotherAwsAccount",

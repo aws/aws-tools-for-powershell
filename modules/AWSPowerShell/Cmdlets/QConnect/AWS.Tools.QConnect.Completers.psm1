@@ -463,6 +463,8 @@ $QC_SelectMap = @{
                "Remove-QCRecommendationsReceived",
                "Write-QCFeedback",
                "Search-QCAssistant",
+               "Register-QCAssistantReplicaKey",
+               "Register-QCKnowledgeBaseReplicaKey",
                "Remove-QCAssistantAIAgent",
                "Remove-QCKnowledgeBaseTemplateUri",
                "Invoke-QCMessageTemplate",

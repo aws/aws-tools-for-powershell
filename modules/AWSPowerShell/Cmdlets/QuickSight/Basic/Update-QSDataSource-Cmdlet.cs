@@ -954,8 +954,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Credentials_OneDriveClientCredentials_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used
-        /// to encrypt the OneDrive certificate credentials. This field is required.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt
+        /// the OneDrive certificate credentials. This field is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -965,8 +965,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Credentials_SharePointClientCredentials_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key used
-        /// to encrypt the SharePoint certificate credentials. This field is required.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt
+        /// the SharePoint certificate credentials. This field is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// To see field index policies, you must have the <c>logs:DescribeIndexPolicies</c> and
     /// <c>logs:DescribeAccountPolicies</c> permissions.
+    /// </para></li><li><para>
+    /// To see retention policies, you must have the <c>logs:DescribeAccountPolicies</c> permission.
     /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLAccountPolicy")]

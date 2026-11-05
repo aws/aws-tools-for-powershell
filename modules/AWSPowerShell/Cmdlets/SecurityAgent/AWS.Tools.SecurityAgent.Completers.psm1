@@ -163,14 +163,14 @@ $SECAG_Completers = {
             ($_ -eq "Remove-SECAGMembership/MemberType")
         }
         {
-            $v = "USER"
+            $v = "GROUP","USER"
             break
         }
 
         # Amazon.SecurityAgent.MembershipTypeFilter
         "Get-SECAGMembershipList/MemberType"
         {
-            $v = "ALL","USER"
+            $v = "ALL","GROUP","USER"
             break
         }
 

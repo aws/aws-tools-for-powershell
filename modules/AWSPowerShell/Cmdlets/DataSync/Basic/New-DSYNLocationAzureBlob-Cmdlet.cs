@@ -95,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the authentication method DataSync uses to access your Azure Blob Storage.
-        /// DataSync can access blob storage using a shared access signature (SAS).</para>
+        /// DataSync can access blob storage using a shared access signature (SAS) or an OpenID
+        /// Connect (OIDC) token.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,6 +108,18 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.DataSync.AzureBlobAuthenticationType")]
         public Amazon.DataSync.AzureBlobAuthenticationType AuthenticationType { get; set; }
+        #endregion
+        
+        #region Parameter FederatedIdentity_AwsIamRole
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the ARN for an Amazon Web Services role that allows DataSync to invoke STS
+        /// GetWebIdentityToken API on behalf of the customer account and to obtain Amazon Web
+        /// Services STS JWT (web token).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FederatedIdentity_AwsIamRole { get; set; }
         #endregion
         
         #region Parameter BlobType
@@ -121,6 +134,16 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DataSync.AzureBlobType")]
         public Amazon.DataSync.AzureBlobType BlobType { get; set; }
+        #endregion
+        
+        #region Parameter FederatedIdentity_AzureOidc_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>Azure client ID string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FederatedIdentity_AzureOidc_ClientId { get; set; }
         #endregion
         
         #region Parameter ContainerUrl
@@ -214,6 +237,16 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public Amazon.DataSync.Model.TagListEntry[] Tag { get; set; }
         #endregion
         
+        #region Parameter FederatedIdentity_AzureOidc_TenantId
+        /// <summary>
+        /// <para>
+        /// <para>Azure tenant ID string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FederatedIdentity_AzureOidc_TenantId { get; set; }
+        #endregion
+        
         #region Parameter SasConfiguration_Token
         /// <summary>
         /// <para>
@@ -295,6 +328,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #endif
             context.CustomSecretConfig_SecretAccessRoleArn = this.CustomSecretConfig_SecretAccessRoleArn;
             context.CustomSecretConfig_SecretArn = this.CustomSecretConfig_SecretArn;
+            context.FederatedIdentity_AwsIamRole = this.FederatedIdentity_AwsIamRole;
+            context.FederatedIdentity_AzureOidc_ClientId = this.FederatedIdentity_AzureOidc_ClientId;
+            context.FederatedIdentity_AzureOidc_TenantId = this.FederatedIdentity_AzureOidc_TenantId;
             context.SasConfiguration_Token = this.SasConfiguration_Token;
             context.Subdirectory = this.Subdirectory;
             if (this.Tag != null)
@@ -396,6 +432,60 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 request.CustomSecretConfig = null;
             }
             
+             // populate FederatedIdentity
+            var requestFederatedIdentityIsNull = true;
+            request.FederatedIdentity = new Amazon.DataSync.Model.AzureFederatedIdentityConfig();
+            System.String requestFederatedIdentity_federatedIdentity_AwsIamRole = null;
+            if (cmdletContext.FederatedIdentity_AwsIamRole != null)
+            {
+                requestFederatedIdentity_federatedIdentity_AwsIamRole = cmdletContext.FederatedIdentity_AwsIamRole;
+            }
+            if (requestFederatedIdentity_federatedIdentity_AwsIamRole != null)
+            {
+                request.FederatedIdentity.AwsIamRole = requestFederatedIdentity_federatedIdentity_AwsIamRole;
+                requestFederatedIdentityIsNull = false;
+            }
+            Amazon.DataSync.Model.AzureOidcConfig requestFederatedIdentity_federatedIdentity_AzureOidc = null;
+            
+             // populate AzureOidc
+            var requestFederatedIdentity_federatedIdentity_AzureOidcIsNull = true;
+            requestFederatedIdentity_federatedIdentity_AzureOidc = new Amazon.DataSync.Model.AzureOidcConfig();
+            System.String requestFederatedIdentity_federatedIdentity_AzureOidc_federatedIdentity_AzureOidc_ClientId = null;
+            if (cmdletContext.FederatedIdentity_AzureOidc_ClientId != null)
+            {
+                requestFederatedIdentity_federatedIdentity_AzureOidc_federatedIdentity_AzureOidc_ClientId = cmdletContext.FederatedIdentity_AzureOidc_ClientId;
+            }
+            if (requestFederatedIdentity_federatedIdentity_AzureOidc_federatedIdentity_AzureOidc_ClientId != null)
+            {
+                requestFederatedIdentity_federatedIdentity_AzureOidc.ClientId = requestFederatedIdentity_federatedIdentity_AzureOidc_federatedIdentity_AzureOidc_ClientId;
+                requestFederatedIdentity_federatedIdentity_AzureOidcIsNull = false;
+            }
+            System.String requestFederatedIdentity_federatedIdentity_AzureOidc_federatedIdentity_AzureOidc_TenantId = null;
+            if (cmdletContext.FederatedIdentity_AzureOidc_TenantId != null)
+            {
+                requestFederatedIdentity_federatedIdentity_AzureOidc_federatedIdentity_AzureOidc_TenantId = cmdletContext.FederatedIdentity_AzureOidc_TenantId;
+            }
+            if (requestFederatedIdentity_federatedIdentity_AzureOidc_federatedIdentity_AzureOidc_TenantId != null)
+            {
+                requestFederatedIdentity_federatedIdentity_AzureOidc.TenantId = requestFederatedIdentity_federatedIdentity_AzureOidc_federatedIdentity_AzureOidc_TenantId;
+                requestFederatedIdentity_federatedIdentity_AzureOidcIsNull = false;
+            }
+             // determine if requestFederatedIdentity_federatedIdentity_AzureOidc should be set to null
+            if (requestFederatedIdentity_federatedIdentity_AzureOidcIsNull)
+            {
+                requestFederatedIdentity_federatedIdentity_AzureOidc = null;
+            }
+            if (requestFederatedIdentity_federatedIdentity_AzureOidc != null)
+            {
+                request.FederatedIdentity.AzureOidc = requestFederatedIdentity_federatedIdentity_AzureOidc;
+                requestFederatedIdentityIsNull = false;
+            }
+             // determine if request.FederatedIdentity should be set to null
+            if (requestFederatedIdentityIsNull)
+            {
+                request.FederatedIdentity = null;
+            }
+            
              // populate SasConfiguration
             var requestSasConfigurationIsNull = true;
             request.SasConfiguration = new Amazon.DataSync.Model.AzureBlobSasConfiguration();
@@ -486,6 +576,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             public System.String ContainerUrl { get; set; }
             public System.String CustomSecretConfig_SecretAccessRoleArn { get; set; }
             public System.String CustomSecretConfig_SecretArn { get; set; }
+            public System.String FederatedIdentity_AwsIamRole { get; set; }
+            public System.String FederatedIdentity_AzureOidc_ClientId { get; set; }
+            public System.String FederatedIdentity_AzureOidc_TenantId { get; set; }
             public System.String SasConfiguration_Token { get; set; }
             public System.String Subdirectory { get; set; }
             public List<Amazon.DataSync.Model.TagListEntry> Tag { get; set; }

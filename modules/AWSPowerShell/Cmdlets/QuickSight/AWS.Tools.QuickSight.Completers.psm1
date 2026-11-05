@@ -1882,6 +1882,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.ServiceRoleType
+        "Update-QSResourcePermission/RoleType"
+        {
+            $v = "CUSTOMER_MANAGED","QUICKSIGHT_MANAGED"
+            break
+        }
+
         # Amazon.QuickSight.ServiceType
         {
             ($_ -eq "Remove-QSIdentityPropagationConfig/Service") -Or
@@ -2779,6 +2786,7 @@ $QS_map = @{
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
     "ResourceType"=@("Get-QSLimitsProfileList")
     "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")
+    "RoleType"=@("Update-QSResourcePermission")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_Status"=@("New-QSDataSet","Update-QSDataSet")
@@ -2997,6 +3005,7 @@ $QS_SelectMap = @{
                "Get-QSQPersonalizationConfiguration",
                "Get-QSQuickSightQSearchConfiguration",
                "Get-QSRefreshSchedule",
+               "Get-QSResourcePermissionDetail",
                "Get-QSRoleCustomPermission",
                "Get-QSSelfUpgradeConfigurationDetail",
                "Get-QSSpaceDetail",
@@ -3141,6 +3150,7 @@ $QS_SelectMap = @{
                "Update-QSQPersonalizationConfiguration",
                "Update-QSQuickSightQSearchConfiguration",
                "Update-QSRefreshSchedule",
+               "Update-QSResourcePermission",
                "Update-QSRoleCustomPermission",
                "Update-QSSelfUpgrade",
                "Update-QSSelfUpgradeConfiguration",

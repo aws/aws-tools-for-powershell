@@ -86,6 +86,23 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ServerSideEncryptionConfiguration_ReplicaKmsKey
+        /// <summary>
+        /// <para>
+        /// <para>The list of KMS keys used to encrypt data for this resource's replicas in other Amazon
+        /// Web Services Regions. Each entry corresponds to a Region where a replica is configured.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServerSideEncryptionConfiguration_ReplicaKmsKeys")]
+        public Amazon.QConnect.Model.ReplicaKmsKey[] ServerSideEncryptionConfiguration_ReplicaKmsKey { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -188,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             #endif
             context.ServerSideEncryptionConfiguration_KmsKeyId = this.ServerSideEncryptionConfiguration_KmsKeyId;
+            if (this.ServerSideEncryptionConfiguration_ReplicaKmsKey != null)
+            {
+                context.ServerSideEncryptionConfiguration_ReplicaKmsKey = new List<Amazon.QConnect.Model.ReplicaKmsKey>(this.ServerSideEncryptionConfiguration_ReplicaKmsKey);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -243,6 +264,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_KmsKeyId != null)
             {
                 request.ServerSideEncryptionConfiguration.KmsKeyId = requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_KmsKeyId;
+                requestServerSideEncryptionConfigurationIsNull = false;
+            }
+            List<Amazon.QConnect.Model.ReplicaKmsKey> requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ReplicaKmsKey = null;
+            if (cmdletContext.ServerSideEncryptionConfiguration_ReplicaKmsKey != null)
+            {
+                requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ReplicaKmsKey = cmdletContext.ServerSideEncryptionConfiguration_ReplicaKmsKey;
+            }
+            if (requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ReplicaKmsKey != null)
+            {
+                request.ServerSideEncryptionConfiguration.ReplicaKmsKeys = requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ReplicaKmsKey;
                 requestServerSideEncryptionConfigurationIsNull = false;
             }
              // determine if request.ServerSideEncryptionConfiguration should be set to null
@@ -317,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String ServerSideEncryptionConfiguration_KmsKeyId { get; set; }
+            public List<Amazon.QConnect.Model.ReplicaKmsKey> ServerSideEncryptionConfiguration_ReplicaKmsKey { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.QConnect.AssistantType Type { get; set; }
             public System.Func<Amazon.QConnect.Model.CreateAssistantResponse, NewQCAssistantCmdlet, object> Select { get; set; } =

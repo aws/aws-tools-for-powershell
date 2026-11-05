@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>account-access-runtime</C2jFilename>
+    <AssemblyName>AccountAccessRuntime</AssemblyName>
+    <ServiceNounPrefix>ACCAR</ServiceNounPrefix>
+    <ServiceName>Account Access Runtime</ServiceName>
+    <ServiceId>Account Access Runtime</ServiceId>
+    <ServiceClientInterface>IAmazonAccountAccessRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonAccountAccessRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>eae32327-e8ac-4986-814f-6d53135d5d7b</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetRoleCredentials" OutputProperty="CredentialsDetails" Verb="Get" Noun="RoleCredential" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRoles" OutputProperty="Roles" Verb="Get" Noun="RoleList" PipelineParameter="TenantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

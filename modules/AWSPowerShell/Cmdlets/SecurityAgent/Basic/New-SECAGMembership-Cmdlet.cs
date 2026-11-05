@@ -30,7 +30,8 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Creates a new membership, granting a user access to an agent space within an application.
+    /// Creates a new membership, granting a user or group access to an agent space within
+    /// an application.
     /// </summary>
     [Cmdlet("New", "SECAGMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -99,7 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter MemberType
         /// <summary>
         /// <para>
-        /// <para>The type of member. Currently, only USER is supported.</para>
+        /// <para>The type of member. Use USER for an individual user or GROUP for an IAM Identity Center
+        /// group. All members of a group have access to the agent space.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

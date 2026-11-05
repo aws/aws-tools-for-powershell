@@ -895,6 +895,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourcePermissions" OutputProperty="*" Verb="Get" Noun="ResourcePermissionDetail" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRoleCustomPermission" OutputProperty="CustomPermissionsName" Verb="Get" Noun="RoleCustomPermission" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1773,6 +1777,10 @@
                 <Param Name="Schedule_ScheduleFrequency_TimeOfTheDay" NewName="ScheduleFrequency_TimeOfTheDay" />
                 <Param Name="Schedule_ScheduleFrequency_Timezone" NewName="ScheduleFrequency_Timezone" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourcePermissions" OutputProperty="*" Verb="Update" Noun="ResourcePermission" ShouldProcessTarget="AwsAccountId,CustomerManagedRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoleCustomPermission" OutputProperty="*" Verb="Update" Noun="RoleCustomPermission" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

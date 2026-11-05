@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Creates an account-level data protection policy, subscription filter policy, field
-    /// index policy, transformer policy, or metric extraction policy that applies to all
-    /// log groups, a subset of log groups, or a data source name and type combination in
-    /// the account. Account-level policies are Region-specific: a policy applies only to
-    /// log groups in the Region where you create it. To apply a policy across multiple Regions,
-    /// create the policy separately in each Region.
+    /// index policy, transformer policy, metric extraction policy, or retention policy that
+    /// applies to all log groups, a subset of log groups, or a data source name and type
+    /// combination in the account. Account-level policies are Region-specific: a policy applies
+    /// only to log groups in the Region where you create it. To apply a policy across multiple
+    /// Regions, create the policy separately in each Region.
     /// 
     ///  <important><para><c>PutAccountPolicy</c> is an account-wide administrative operation intended for
     /// CloudWatch Logs administrators. Because it affects all log groups (or a broad subset)
@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// criteria still apply alongside the log-group-level policy.
     /// </para></li><li><para><i>Metric extraction policies</i> — Metric extraction policies are account-level
     /// only and have no log-group-level equivalent, so no conflict resolution applies.
+    /// </para></li><li><para><i>Retention policies</i> — An account-level retention policy overrides the retention
+    /// setting of the log group.
     /// </para></li></ul><para>
     /// For field index policies, you can configure indexed fields as <i>facets</i> to enable
     /// interactive exploration of your logs. Facets provide value distributions and counts
@@ -86,6 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// To create a metric extraction policy, you must have the <c>logs:PutMetricExtractionPolicy</c>
     /// and <c>logs:PutAccountPolicy</c> permissions.
+    /// </para></li><li><para>
+    /// To create a retention policy, you must have the <c>logs:PutRetentionPolicy</c> and
+    /// <c>logs:PutAccountPolicy</c> permissions. A dry run requires the same permissions
+    /// as the operation that it previews, and no additional permissions.
     /// </para></li></ul><para><b>Data protection policy</b></para><para>
     /// A data protection policy can help safeguard sensitive data that's ingested by your
     /// log groups by auditing and masking the sensitive log data. Each account can have only
@@ -296,7 +302,48 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// If you have a <c>NOT IN</c> policy for prefix <c>"/aws/lambda"</c>, you cannot create
     /// an <c>IN</c> policy for prefix <c>"/aws"</c> because the set of log groups matching
     /// <c>"/aws"</c> is not a subset of the log groups matching <c>"/aws/lambda"</c>.
-    /// </para></li></ul>
+    /// </para></li></ul><para><b>Retention policy</b></para><para>
+    /// A retention policy sets the retention period for log groups in your account. You can
+    /// use an account-level retention policy to set a default retention period for all log
+    /// groups in the account, or for a subset of log groups that you specify with the <c>selectionCriteria</c>
+    /// parameter. CloudWatch Logs automatically deletes log events that are older than the
+    /// retention period.
+    /// </para><para>
+    /// Each account can have up to 20 account-level retention policies in each Region. To
+    /// scope a retention policy to a subset of log groups, use <c>LogGroupNamePrefix</c>
+    /// in <c>selectionCriteria</c>. Retention policies support log group name prefixes only.
+    /// If you omit <c>selectionCriteria</c>, the policy applies to all log groups in the
+    /// account.
+    /// </para><para>
+    /// Unlike other account-level policy types, retention policies can have overlapping selection
+    /// criteria. When more than one retention policy applies to a log group, the policy with
+    /// the longest retention period is used. A policy that specifies <c>NEVER_EXPIRE</c>
+    /// is treated as the longest retention period. This lets you set a baseline retention
+    /// period for the account, apply longer retention periods to specific log groups, and
+    /// exempt specific log groups from expiring at all. If two policies that apply to the
+    /// same log group specify the same retention period, the policy that was created first
+    /// is the one reported in <c>retentionPolicyName</c>.
+    /// </para><note><para>
+    /// Account-level retention policies require a minimum retention period of 30 days.
+    /// </para></note><note><para>
+    /// A retention policy takes effect 24 hours after you create it. If you update a policy,
+    /// the new retention period takes effect 24 hours after the update, and the previous
+    /// retention period stays in effect until then. During this period, <c>DescribeLogGroups</c>
+    /// and log event expiration use the retention period that is currently in effect, but
+    /// a dry run reports the impact as if the policy were already in effect.
+    /// </para></note><para>
+    /// Before you create, update, or delete a retention policy, you can specify <c>true</c>
+    /// for <c>dryRun</c> to preview how many log groups would have a longer, shorter, or
+    /// unchanged retention period. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DryRunResult.html">DryRunResult</a>.
+    /// </para><important><para>
+    /// An account-level retention policy replaces the retention period set on a log group,
+    /// including when the log group's own retention period is longer. For example, if a log
+    /// group is set to retain log events for 10 years and you create a retention policy that
+    /// sets a 90-day retention period for that log group, CloudWatch Logs deletes the log
+    /// events in that log group that are older than 90 days. Specify <c>true</c> for <c>dryRun</c>
+    /// to see which log groups would have a shorter retention period before you create or
+    /// update the policy.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Write", "CWLAccountPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchLogs.Model.AccountPolicy")]
@@ -362,7 +409,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// {\"type\": \"FIELD_INDEX\"}, \"APIName\": {\"type\": \"FACET\"}, \"StatusCode\": {\"type\":
         /// \"FACET\"}}}"</c></para><para>You can use <c>FieldsV2</c> to specify the type for each field. Supported types are
         /// <c>FIELD_INDEX</c> and <c>FACET</c>. Field names within <c>Fields</c> and <c>FieldsV2</c>
-        /// must be mutually exclusive.</para>
+        /// must be mutually exclusive.</para><para><b>Retention policy</b></para><para>A retention policy must include the following attributes in a JSON block:</para><dl><dt>retentionInDays</dt><dd><para>The number of days to retain log events. Valid values are 30, 60, 90, 120, 150, 180,
+        /// 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653. To retain log events
+        /// indefinitely, specify the string <c>NEVER_EXPIRE</c>.</para></dd><dt>enforcementMode</dt><dd><para>Specifies which log groups the policy applies to. Valid values are <c>NEW_ONLY</c>
+        /// and <c>RETROACTIVE</c>.</para><para><c>RETROACTIVE</c> applies the policy to every log group that matches the selection
+        /// criteria, including log groups that existed before you created the policy.</para><para><c>NEW_ONLY</c> applies the policy only to log groups that are created after you
+        /// create the policy. Log groups that already existed when you created the policy keep
+        /// their own retention period.</para></dd></dl><para>The following is an example of a retention policy document.</para><para><c>"policyDocument": "{\"retentionInDays\": 90, \"enforcementMode\": \"RETROACTIVE\"}"</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -429,12 +482,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>Use this parameter to apply the new policy to a subset of log groups in the account
         /// or a data source name and type combination. </para><para>Specifying <c>selectionCriteria</c> is valid only when you specify <c>SUBSCRIPTION_FILTER_POLICY</c>,
-        /// <c>FIELD_INDEX_POLICY</c> or <c>TRANSFORMER_POLICY</c>for <c>policyType</c>.</para><ul><li><para>If <c>policyType</c> is <c>SUBSCRIPTION_FILTER_POLICY</c>, the only supported <c>selectionCriteria</c>
+        /// <c>FIELD_INDEX_POLICY</c>, <c>TRANSFORMER_POLICY</c>, or <c>RETENTION_POLICY</c> for
+        /// <c>policyType</c>.</para><ul><li><para>If <c>policyType</c> is <c>SUBSCRIPTION_FILTER_POLICY</c>, the only supported <c>selectionCriteria</c>
         /// filter is <c>LogGroupName NOT IN []</c></para></li><li><para>If <c>policyType</c> is <c>TRANSFORMER_POLICY</c>, the only supported <c>selectionCriteria</c>
         /// filter is <c>LogGroupNamePrefix</c></para></li><li><para>If <c>policyType</c> is <c>FIELD_INDEX_POLICY</c>, the supported <c>selectionCriteria</c>
         /// filters are:</para><ul><li><para><c>LogGroupNamePrefix</c></para></li><li><para><c>DataSourceName</c> AND <c>DataSourceType</c></para></li></ul><para>When you specify <c>selectionCriteria</c> for a field index policy you can use either
         /// <c>LogGroupNamePrefix</c> by itself or <c>DataSourceName</c> and <c>DataSourceType</c>
-        /// together.</para></li></ul><para>The <c>selectionCriteria</c> string can be up to 25KB in length. The length is determined
+        /// together.</para></li><li><para>If <c>policyType</c> is <c>RETENTION_POLICY</c>, the only supported <c>selectionCriteria</c>
+        /// filter is <c>LogGroupNamePrefix</c>. If you omit <c>selectionCriteria</c>, the retention
+        /// policy applies to all log groups in the account.</para></li></ul><para>The <c>selectionCriteria</c> string can be up to 25KB in length. The length is determined
         /// by using its UTF-8 bytes.</para><para>Using the <c>selectionCriteria</c> parameter with <c>SUBSCRIPTION_FILTER_POLICY</c>
         /// is useful to help prevent infinite loops. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html">Log
         /// recursion prevention</a>.</para>

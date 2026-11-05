@@ -166,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl
         /// <summary>
         /// <para>
-        /// <para>The OpenID Connect discovery URL used to retrieve the identity provider's metadata
-        /// and signing keys.</para>
+        /// <para>The OpenID Connect discovery or OAuth 2.0 authorization server metadata URL used to
+        /// retrieve the identity provider's metadata and signing keys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

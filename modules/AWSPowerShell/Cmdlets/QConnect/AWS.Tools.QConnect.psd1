@@ -142,6 +142,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-QCMessageTemplateVersion', 
         'New-QCQuickResponse', 
         'New-QCSession', 
+        'Register-QCAssistantReplicaKey', 
+        'Register-QCKnowledgeBaseReplicaKey', 
         'Remove-QCAIAgent', 
         'Remove-QCAIAgentVersion', 
         'Remove-QCAIGuardrail', 

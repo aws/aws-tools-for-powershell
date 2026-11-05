@@ -356,6 +356,23 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.Int32? CrawlerLimits_RateLimit { get; set; }
         #endregion
         
+        #region Parameter ServerSideEncryptionConfiguration_ReplicaKmsKey
+        /// <summary>
+        /// <para>
+        /// <para>The list of KMS keys used to encrypt data for this resource's replicas in other Amazon
+        /// Web Services Regions. Each entry corresponds to a Region where a replica is configured.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServerSideEncryptionConfiguration_ReplicaKmsKeys")]
+        public Amazon.QConnect.Model.ReplicaKmsKey[] ServerSideEncryptionConfiguration_ReplicaKmsKey { get; set; }
+        #endregion
+        
         #region Parameter WebCrawlerConfiguration_Scope
         /// <summary>
         /// <para>
@@ -498,6 +515,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             #endif
             context.RenderingConfiguration_TemplateUri = this.RenderingConfiguration_TemplateUri;
             context.ServerSideEncryptionConfiguration_KmsKeyId = this.ServerSideEncryptionConfiguration_KmsKeyId;
+            if (this.ServerSideEncryptionConfiguration_ReplicaKmsKey != null)
+            {
+                context.ServerSideEncryptionConfiguration_ReplicaKmsKey = new List<Amazon.QConnect.Model.ReplicaKmsKey>(this.ServerSideEncryptionConfiguration_ReplicaKmsKey);
+            }
             context.AppIntegrations_AppIntegrationArn = this.AppIntegrations_AppIntegrationArn;
             if (this.AppIntegrations_ObjectField != null)
             {
@@ -602,6 +623,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_KmsKeyId != null)
             {
                 request.ServerSideEncryptionConfiguration.KmsKeyId = requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_KmsKeyId;
+                requestServerSideEncryptionConfigurationIsNull = false;
+            }
+            List<Amazon.QConnect.Model.ReplicaKmsKey> requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ReplicaKmsKey = null;
+            if (cmdletContext.ServerSideEncryptionConfiguration_ReplicaKmsKey != null)
+            {
+                requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ReplicaKmsKey = cmdletContext.ServerSideEncryptionConfiguration_ReplicaKmsKey;
+            }
+            if (requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ReplicaKmsKey != null)
+            {
+                request.ServerSideEncryptionConfiguration.ReplicaKmsKeys = requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ReplicaKmsKey;
                 requestServerSideEncryptionConfigurationIsNull = false;
             }
              // determine if request.ServerSideEncryptionConfiguration should be set to null
@@ -1052,6 +1083,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String Name { get; set; }
             public System.String RenderingConfiguration_TemplateUri { get; set; }
             public System.String ServerSideEncryptionConfiguration_KmsKeyId { get; set; }
+            public List<Amazon.QConnect.Model.ReplicaKmsKey> ServerSideEncryptionConfiguration_ReplicaKmsKey { get; set; }
             public System.String AppIntegrations_AppIntegrationArn { get; set; }
             public List<System.String> AppIntegrations_ObjectField { get; set; }
             public System.Int32? CrawlerLimits_RateLimit { get; set; }

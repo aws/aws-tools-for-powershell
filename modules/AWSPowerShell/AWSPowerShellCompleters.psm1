@@ -263,6 +263,88 @@ $IAMAA_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $IAMAA_SelectCompleters $IAMAA_SelectMap
+# Argument completions for service Account Access Runtime
+
+
+$ACCAR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AccountAccessRuntime.AccessType
+        "Get-ACCARRoleCredential/AccessType"
+        {
+            $v = "PROGRAMMATIC_ACCESS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ACCAR_map = @{
+    "AccessType"=@("Get-ACCARRoleCredential")
+}
+
+_awsArgumentCompleterRegistration $ACCAR_Completers $ACCAR_map
+
+$ACCAR_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.ACCAR.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ACCAR_SelectMap = @{
+    "Select"=@("Get-ACCARRoleCredential",
+               "Get-ACCARRoleList")
+}
+
+_awsArgumentCompleterRegistration $ACCAR_SelectCompleters $ACCAR_SelectMap
 # Argument completions for service Account Access
 
 
@@ -16563,9 +16645,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
+    "Select"=@("Write-CSDDocument",
                "Search-CSDDocument",
-               "Write-CSDDocument")
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -25367,7 +25449,7 @@ $DSYN_Completers = {
             ($_ -eq "Update-DSYNLocationAzureBlob/AuthenticationType")
         }
         {
-            $v = "NONE","SAS"
+            $v = "NONE","OIDC","SAS"
             break
         }
 
@@ -30796,10 +30878,10 @@ $DDB_SelectMap = @{
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
                "Add-DDBIndexSchema",
-               "Add-DDBKeySchema",
-               "New-DDBTable",
                "ConvertTo-DDBItem",
+               "New-DDBTable",
                "New-DDBTableSchema",
+               "Add-DDBKeySchema",
                "ConvertFrom-DDBItem")
 }
 
@@ -42080,6 +42162,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.UpgradeConsent
+        "Start-GLUEJobUpgradeAnalysis/UpgradeConsent"
+        {
+            $v = "APPROVE","DECLINE"
+            break
+        }
+
         # Amazon.Glue.ViewDialect
         "Get-GLUEUnfilteredTableMetadata/SupportedDialect_Dialect"
         {
@@ -42226,6 +42315,7 @@ $GLUE_map = @{
     "Telemetry_Engine"=@("Publish-GLUEDataQualityResultV2")
     "TestConnectionInput_ConnectionType"=@("Test-GLUEConnection")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
+    "UpgradeConsent"=@("Start-GLUEJobUpgradeAnalysis")
     "ViewUpdateAction"=@("Update-GLUETable")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
 }
@@ -42431,6 +42521,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEJobRun",
                "Get-GLUEJobRunList",
                "Get-GLUEJobList",
+               "Get-GLUEJobUpgradeAnalysis",
                "Get-GLUEMapping",
                "Get-GLUEMaterializedViewRefreshTaskRun",
                "Get-GLUEMLTaskRun",
@@ -42539,6 +42630,7 @@ $GLUE_SelectMap = @{
                "Start-GLUEExportLabelsTaskRun",
                "Start-GLUEImportLabelsTaskRun",
                "Start-GLUEJobRun",
+               "Start-GLUEJobUpgradeAnalysis",
                "Start-GLUEMaterializedViewRefreshTaskRun",
                "Start-GLUEMLEvaluationTaskRun",
                "Start-GLUEMLLabelingSetGenerationTaskRun",
@@ -42548,6 +42640,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUEColumnStatisticsTaskRunSchedule",
                "Stop-GLUECrawler",
                "Stop-GLUECrawlerSchedule",
+               "Stop-GLUEJobUpgradeAnalysis",
                "Stop-GLUEMaterializedViewRefreshTaskRun",
                "Stop-GLUESession",
                "Stop-GLUETrigger",
@@ -52298,14 +52391,14 @@ $LMVM2_Completers = {
         # Amazon.LambdaMicrovms.Architecture
         "Get-LMVM2MicrovmImageBuildList/Architecture"
         {
-            $v = "ARM_64"
+            $v = "ARM_64","X86_64"
             break
         }
 
         # Amazon.LambdaMicrovms.Chipset
         "Get-LMVM2MicrovmImageBuildList/Chipset"
         {
-            $v = "GRAVITON"
+            $v = "GRAVITON","INTEL"
             break
         }
 
@@ -54692,7 +54785,7 @@ $CWL_Completers = {
             ($_ -eq "New-CWLLogGroup/LogGroupClass")
         }
         {
-            $v = "DELIVERY","INFREQUENT_ACCESS","STANDARD"
+            $v = "DELIVERY","ESSENTIALS","INFREQUENT_ACCESS","STANDARD"
             break
         }
 
@@ -72322,6 +72415,8 @@ $QC_SelectMap = @{
                "Remove-QCRecommendationsReceived",
                "Write-QCFeedback",
                "Search-QCAssistant",
+               "Register-QCAssistantReplicaKey",
+               "Register-QCKnowledgeBaseReplicaKey",
                "Remove-QCAssistantAIAgent",
                "Remove-QCKnowledgeBaseTemplateUri",
                "Invoke-QCMessageTemplate",
@@ -74159,6 +74254,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.ServiceRoleType
+        "Update-QSResourcePermission/RoleType"
+        {
+            $v = "CUSTOMER_MANAGED","QUICKSIGHT_MANAGED"
+            break
+        }
+
         # Amazon.QuickSight.ServiceType
         {
             ($_ -eq "Remove-QSIdentityPropagationConfig/Service") -Or
@@ -75056,6 +75158,7 @@ $QS_map = @{
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
     "ResourceType"=@("Get-QSLimitsProfileList")
     "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")
+    "RoleType"=@("Update-QSResourcePermission")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_Status"=@("New-QSDataSet","Update-QSDataSet")
@@ -75274,6 +75377,7 @@ $QS_SelectMap = @{
                "Get-QSQPersonalizationConfiguration",
                "Get-QSQuickSightQSearchConfiguration",
                "Get-QSRefreshSchedule",
+               "Get-QSResourcePermissionDetail",
                "Get-QSRoleCustomPermission",
                "Get-QSSelfUpgradeConfigurationDetail",
                "Get-QSSpaceDetail",
@@ -75418,6 +75522,7 @@ $QS_SelectMap = @{
                "Update-QSQPersonalizationConfiguration",
                "Update-QSQuickSightQSearchConfiguration",
                "Update-QSRefreshSchedule",
+               "Update-QSResourcePermission",
                "Update-QSRoleCustomPermission",
                "Update-QSSelfUpgrade",
                "Update-QSSelfUpgradeConfiguration",
@@ -79162,6 +79267,7 @@ $R53D_SelectMap = @{
                "Update-R53DDomainRenewal",
                "Send-R53DContactReachabilityEmail",
                "Send-R53DOperationAuthorization",
+               "Restore-R53DDomain",
                "Get-R53DDomainAuthCode",
                "Invoke-R53DDomainTransfer",
                "Move-R53DDomainToAnotherAwsAccount",
@@ -80615,18 +80721,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3MultipartUpload",
                "Get-S3PreSignedURL",
-               "Remove-S3Object",
-               "Test-S3Bucket",
-               "Copy-S3Object",
-               "Get-S3MultipartUpload",
                "Dismount-S3PSDrive",
-               "Read-S3Object",
-               "Write-S3Object",
-               "Remove-S3Bucket",
+               "Copy-S3Object",
+               "Test-S3Bucket",
                "New-S3Bucket",
-               "Mount-S3PSDrive")
+               "Write-S3Object",
+               "Get-S3MultipartUpload",
+               "Remove-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Mount-S3PSDrive",
+               "Read-S3Object",
+               "Remove-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -85624,14 +85730,14 @@ $SECAG_Completers = {
             ($_ -eq "Remove-SECAGMembership/MemberType")
         }
         {
-            $v = "USER"
+            $v = "GROUP","USER"
             break
         }
 
         # Amazon.SecurityAgent.MembershipTypeFilter
         "Get-SECAGMembershipList/MemberType"
         {
-            $v = "ALL","USER"
+            $v = "ALL","GROUP","USER"
             break
         }
 
@@ -97471,6 +97577,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -97510,41 +97654,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

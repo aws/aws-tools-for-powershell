@@ -70,6 +70,11 @@ Set-Alias -Name IAMAA-UpdateFindings -Value Update-IAMAAFinding
 Set-Alias -Name Validate-IAMAAPolicy -Value Use-IAMAAPolicyValidation
 Set-Alias -Name Validate-IAMAAPolicyValidation -Value Use-IAMAAPolicyValidation
 Set-Alias -Name IAMAA-ValidatePolicy -Value Use-IAMAAPolicyValidation
+Set-Alias -Name Get-ACCARRoleCredentials -Value Get-ACCARRoleCredential
+Set-Alias -Name ACCAR-GetRoleCredentials -Value Get-ACCARRoleCredential
+Set-Alias -Name List-ACCARRoles -Value Get-ACCARRoleList
+Set-Alias -Name List-ACCARRoleList -Value Get-ACCARRoleList
+Set-Alias -Name ACCAR-ListRoles -Value Get-ACCARRoleList
 Set-Alias -Name Create-ACCACApplication -Value New-ACCACApplication
 Set-Alias -Name ACCAC-CreateApplication -Value New-ACCACApplication
 Set-Alias -Name Create-ACCACEntitlement -Value New-ACCACEntitlement
@@ -16602,6 +16607,7 @@ Set-Alias -Name Get-GLUEJobRuns -Value Get-GLUEJobRunList
 Set-Alias -Name GLUE-GetJobRuns -Value Get-GLUEJobRunList
 Set-Alias -Name Get-GLUEJobs -Value Get-GLUEJobList
 Set-Alias -Name GLUE-GetJobs -Value Get-GLUEJobList
+Set-Alias -Name GLUE-GetJobUpgradeAnalysis -Value Get-GLUEJobUpgradeAnalysis
 Set-Alias -Name GLUE-GetMapping -Value Get-GLUEMapping
 Set-Alias -Name GLUE-GetMaterializedViewRefreshTaskRun -Value Get-GLUEMaterializedViewRefreshTaskRun
 Set-Alias -Name GLUE-GetMLTaskRun -Value Get-GLUEMLTaskRun
@@ -16810,6 +16816,7 @@ Set-Alias -Name GLUE-StartDataQualityRulesetEvaluationRun -Value Start-GLUEDataQ
 Set-Alias -Name GLUE-StartExportLabelsTaskRun -Value Start-GLUEExportLabelsTaskRun
 Set-Alias -Name GLUE-StartImportLabelsTaskRun -Value Start-GLUEImportLabelsTaskRun
 Set-Alias -Name GLUE-StartJobRun -Value Start-GLUEJobRun
+Set-Alias -Name GLUE-StartJobUpgradeAnalysis -Value Start-GLUEJobUpgradeAnalysis
 Set-Alias -Name GLUE-StartMaterializedViewRefreshTaskRun -Value Start-GLUEMaterializedViewRefreshTaskRun
 Set-Alias -Name GLUE-StartMLEvaluationTaskRun -Value Start-GLUEMLEvaluationTaskRun
 Set-Alias -Name GLUE-StartMLLabelingSetGenerationTaskRun -Value Start-GLUEMLLabelingSetGenerationTaskRun
@@ -16819,6 +16826,7 @@ Set-Alias -Name GLUE-StopColumnStatisticsTaskRun -Value Stop-GLUEColumnStatistic
 Set-Alias -Name GLUE-StopColumnStatisticsTaskRunSchedule -Value Stop-GLUEColumnStatisticsTaskRunSchedule
 Set-Alias -Name GLUE-StopCrawler -Value Stop-GLUECrawler
 Set-Alias -Name GLUE-StopCrawlerSchedule -Value Stop-GLUECrawlerSchedule
+Set-Alias -Name GLUE-StopJobUpgradeAnalysis -Value Stop-GLUEJobUpgradeAnalysis
 Set-Alias -Name GLUE-StopMaterializedViewRefreshTaskRun -Value Stop-GLUEMaterializedViewRefreshTaskRun
 Set-Alias -Name GLUE-StopSession -Value Stop-GLUESession
 Set-Alias -Name GLUE-StopTrigger -Value Stop-GLUETrigger
@@ -28117,6 +28125,8 @@ Set-Alias -Name Put-QCFeedback -Value Write-QCFeedback
 Set-Alias -Name QC-PutFeedback -Value Write-QCFeedback
 Set-Alias -Name Query-QCAssistant -Value Search-QCAssistant
 Set-Alias -Name QC-QueryAssistant -Value Search-QCAssistant
+Set-Alias -Name QC-RegisterAssistantReplicaKey -Value Register-QCAssistantReplicaKey
+Set-Alias -Name QC-RegisterKnowledgeBaseReplicaKey -Value Register-QCKnowledgeBaseReplicaKey
 Set-Alias -Name QC-RemoveAssistantAIAgent -Value Remove-QCAssistantAIAgent
 Set-Alias -Name QC-RemoveKnowledgeBaseTemplateUri -Value Remove-QCKnowledgeBaseTemplateUri
 Set-Alias -Name Render-QCMessageTemplate -Value Invoke-QCMessageTemplate
@@ -28444,6 +28454,9 @@ Set-Alias -Name Describe-QSQuickSightQSearchConfiguration -Value Get-QSQuickSigh
 Set-Alias -Name QS-DescribeQuickSightQSearchConfiguration -Value Get-QSQuickSightQSearchConfiguration
 Set-Alias -Name Describe-QSRefreshSchedule -Value Get-QSRefreshSchedule
 Set-Alias -Name QS-DescribeRefreshSchedule -Value Get-QSRefreshSchedule
+Set-Alias -Name Describe-QSResourcePermissions -Value Get-QSResourcePermissionDetail
+Set-Alias -Name Describe-QSResourcePermissionDetail -Value Get-QSResourcePermissionDetail
+Set-Alias -Name QS-DescribeResourcePermissions -Value Get-QSResourcePermissionDetail
 Set-Alias -Name Describe-QSRoleCustomPermission -Value Get-QSRoleCustomPermission
 Set-Alias -Name QS-DescribeRoleCustomPermission -Value Get-QSRoleCustomPermission
 Set-Alias -Name Describe-QSSelfUpgradeConfiguration -Value Get-QSSelfUpgradeConfigurationDetail
@@ -28745,6 +28758,8 @@ Set-Alias -Name QS-UpdatePublicSharingSettings -Value Update-QSPublicSharingSett
 Set-Alias -Name QS-UpdateQPersonalizationConfiguration -Value Update-QSQPersonalizationConfiguration
 Set-Alias -Name QS-UpdateQuickSightQSearchConfiguration -Value Update-QSQuickSightQSearchConfiguration
 Set-Alias -Name QS-UpdateRefreshSchedule -Value Update-QSRefreshSchedule
+Set-Alias -Name Update-QSResourcePermissions -Value Update-QSResourcePermission
+Set-Alias -Name QS-UpdateResourcePermissions -Value Update-QSResourcePermission
 Set-Alias -Name QS-UpdateRoleCustomPermission -Value Update-QSRoleCustomPermission
 Set-Alias -Name QS-UpdateSelfUpgrade -Value Update-QSSelfUpgrade
 Set-Alias -Name QS-UpdateSelfUpgradeConfiguration -Value Update-QSSelfUpgradeConfiguration
@@ -30707,6 +30722,7 @@ Set-Alias -Name Resend-R53DContactReachabilityEmail -Value Send-R53DContactReach
 Set-Alias -Name R53D-ResendContactReachabilityEmail -Value Send-R53DContactReachabilityEmail
 Set-Alias -Name Resend-R53DOperationAuthorization -Value Send-R53DOperationAuthorization
 Set-Alias -Name R53D-ResendOperationAuthorization -Value Send-R53DOperationAuthorization
+Set-Alias -Name R53D-RestoreDomain -Value Restore-R53DDomain
 Set-Alias -Name Retrieve-R53DDomainAuthCode -Value Get-R53DDomainAuthCode
 Set-Alias -Name R53D-RetrieveDomainAuthCode -Value Get-R53DDomainAuthCode
 Set-Alias -Name Transfer-R53DDomain -Value Invoke-R53DDomainTransfer

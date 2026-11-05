@@ -83,14 +83,14 @@ $LMVM2_Completers = {
         # Amazon.LambdaMicrovms.Architecture
         "Get-LMVM2MicrovmImageBuildList/Architecture"
         {
-            $v = "ARM_64"
+            $v = "ARM_64","X86_64"
             break
         }
 
         # Amazon.LambdaMicrovms.Chipset
         "Get-LMVM2MicrovmImageBuildList/Chipset"
         {
-            $v = "GRAVITON"
+            $v = "GRAVITON","INTEL"
             break
         }
 

@@ -112,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-R53DDelegationSignerFromDomain', 
         'Remove-R53DDomain', 
         'Remove-R53DTagsForDomain', 
+        'Restore-R53DDomain', 
         'Send-R53DContactReachabilityEmail', 
         'Send-R53DOperationAuthorization', 
         'Stop-R53DDomainTransferToAnotherAwsAccount', 

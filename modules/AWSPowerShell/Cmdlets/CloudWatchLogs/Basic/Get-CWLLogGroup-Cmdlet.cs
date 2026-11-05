@@ -36,6 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
+    /// If an account-level retention policy applies to a log group, <c>retentionInDays</c>
+    /// shows the retention period from that policy, and <c>retentionPolicyName</c> shows
+    /// the name of the policy.
+    /// </para><para>
     /// CloudWatch Logs doesn't support IAM policies that control access to the <c>DescribeLogGroups</c>
     /// action by using the <c>aws:ResourceTag/<i>key-name</i></c> condition key. Other CloudWatch
     /// Logs actions do support the use of the <c>aws:ResourceTag/<i>key-name</i></c> condition
@@ -98,8 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>Use this parameter to limit the results to only those log groups in the specified
-        /// log group class. If you omit this parameter, log groups of all classes can be returned.</para><para>Specifies the log group class for this log group. There are three classes:</para><ul><li><para>The <c>Standard</c> log class supports all CloudWatch Logs features.</para></li><li><para>The <c>Infrequent Access</c> log class supports a subset of CloudWatch Logs features
-        /// and incurs lower costs.</para></li><li><para>Use the <c>Delivery</c> log class only for delivering Lambda logs to store in Amazon
+        /// log group class. If you omit this parameter, log groups of all classes can be returned.</para><para>If you specify either <c>INFREQUENT_ACCESS</c> or <c>ESSENTIALS</c>, the results include
+        /// log groups in both the Infrequent Access and Essentials log classes.</para><para>Specifies the log group class for this log group. There are four classes:</para><ul><li><para>The <c>Standard</c> log class supports all CloudWatch Logs features.</para></li><li><para>The <c>Infrequent Access</c> log class supports a subset of CloudWatch Logs features
+        /// and incurs lower costs.</para></li><li><para>The <c>Essentials</c> log class supports a subset of CloudWatch Logs features and
+        /// incurs lower costs.</para></li><li><para>Use the <c>Delivery</c> log class only for delivering Lambda logs to store in Amazon
         /// S3 or Amazon Data Firehose. Log events in log groups in the Delivery class are kept
         /// in CloudWatch Logs for only one day. This log class doesn't offer rich CloudWatch
         /// Logs capabilities such as CloudWatch Logs Insights queries.</para></li></ul><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log

@@ -30,8 +30,9 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Retrieves the content of an ingested document from a knowledge base. Returns a pre-signed
-    /// URL for secure document access.
+    /// Retrieves the content of an ingested document from a knowledge base, or of an image
+    /// embedded in the document. Returns a pre-signed URL for downloading the content. Use
+    /// this operation to display the source of a <c>Retrieve</c> result.
     /// </summary>
     [Cmdlet("Get", "BARDocumentContent")]
     [OutputType("Amazon.BedrockAgentRuntime.Model.GetDocumentContentResponse")]
@@ -96,11 +97,25 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String KnowledgeBaseId { get; set; }
         #endregion
         
+        #region Parameter MediaId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier (in UUID format) of an image embedded in the specified document.
+        /// Set this parameter to the <c>_media_id</c> value in the metadata of the corresponding
+        /// <c>Retrieve</c> result. If you specify this parameter, the response contains a pre-signed
+        /// URL for the image instead of the document, and you must omit <c>outputFormat</c> or
+        /// set it to <c>RAW</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MediaId { get; set; }
+        #endregion
+        
         #region Parameter OutputFormat
         /// <summary>
         /// <para>
-        /// <para>The output format for the document content. <c>RAW</c> returns the original file.
-        /// <c>EXTRACTED</c> returns parsed text as JSON. Defaults to <c>RAW</c>.</para>
+        /// <para>The output format for the content. You can specify one of the following values:</para><dl><dt>RAW</dt><dd><para>Returns the original document, or the selected image if you specify <c>mediaId</c>.</para></dd><dt>EXTRACTED</dt><dd><para>Returns parsed document text as JSON.</para></dd></dl><para>If you omit this parameter, the default is <c>RAW</c>. You can't use <c>EXTRACTED</c>
+        /// with <c>mediaId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter KnowledgeBaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MediaId = this.MediaId;
             context.OutputFormat = this.OutputFormat;
             context.UserContext_UserId = this.UserContext_UserId;
             
@@ -198,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (cmdletContext.KnowledgeBaseId != null)
             {
                 request.KnowledgeBaseId = cmdletContext.KnowledgeBaseId;
+            }
+            if (cmdletContext.MediaId != null)
+            {
+                request.MediaId = cmdletContext.MediaId;
             }
             if (cmdletContext.OutputFormat != null)
             {
@@ -280,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String DataSourceId { get; set; }
             public System.String DocumentId { get; set; }
             public System.String KnowledgeBaseId { get; set; }
+            public System.String MediaId { get; set; }
             public Amazon.BedrockAgentRuntime.DocumentOutputFormat OutputFormat { get; set; }
             public System.String UserContext_UserId { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.GetDocumentContentResponse, GetBARDocumentContentCmdlet, object> Select { get; set; } =

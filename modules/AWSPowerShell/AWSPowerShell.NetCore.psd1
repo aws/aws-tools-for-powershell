@@ -58,6 +58,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.AccessAnalyzer.dll',
         'AWSSDK.Account.dll',
         'AWSSDK.AccountAccess.dll',
+        'AWSSDK.AccountAccessRuntime.dll',
         'AWSSDK.ACMPCA.dll',
         'AWSSDK.AgentRegistry.dll',
         'AWSSDK.AgentRegistryControl.dll',

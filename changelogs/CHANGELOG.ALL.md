@@ -1,4 +1,34 @@
-﻿### 5.0.328 (2026-11-04 21:14Z)
+﻿### 5.0.329 (2026-11-05 20:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.364.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Account Access Runtime. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ACCAR and can be listed using the command 'Get-AWSCmdletName -Service ACCAR'.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Get-BARDocumentContent: added parameter MediaId.
+  * Amazon DataSync
+    * Modified cmdlet New-DSYNLocationAzureBlob: added parameters FederatedIdentity_AwsIamRole, FederatedIdentity_AzureOidc_ClientId and FederatedIdentity_AzureOidc_TenantId.
+    * Modified cmdlet New-DSYNLocationObjectStorage: added parameters FederatedIdentity_AwsIamRole, FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName, FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName, FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectName and FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber.
+    * Modified cmdlet Update-DSYNLocationAzureBlob: added parameters FederatedIdentity_AwsIamRole, FederatedIdentity_AzureOidc_ClientId and FederatedIdentity_AzureOidc_TenantId.
+    * Modified cmdlet Update-DSYNLocationObjectStorage: added parameters FederatedIdentity_AwsIamRole, FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName, FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName, FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectName and FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEJobUpgradeAnalysis leveraging the GetJobUpgradeAnalysis service API.
+    * Added cmdlet Start-GLUEJobUpgradeAnalysis leveraging the StartJobUpgradeAnalysis service API.
+    * Added cmdlet Stop-GLUEJobUpgradeAnalysis leveraging the StopJobUpgradeAnalysis service API.
+  * Amazon Q Connect
+    * Added cmdlet Register-QCAssistantReplicaKey leveraging the RegisterAssistantReplicaKey service API.
+    * Added cmdlet Register-QCKnowledgeBaseReplicaKey leveraging the RegisterKnowledgeBaseReplicaKey service API.
+    * Modified cmdlet New-QCAssistant: added parameter ServerSideEncryptionConfiguration_ReplicaKmsKey.
+    * Modified cmdlet New-QCKnowledgeBase: added parameter ServerSideEncryptionConfiguration_ReplicaKmsKey.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSResourcePermissionDetail leveraging the DescribeResourcePermissions service API.
+    * Added cmdlet Update-QSResourcePermission leveraging the UpdateResourcePermissions service API.
+  * Amazon Route 53 Domains
+    * Added cmdlet Restore-R53DDomain leveraging the RestoreDomain service API.
+  * Amazon WAF V2
+    * Modified cmdlet New-WAF2RuleGroup: added parameter MonetizationConfig_ConnectedAccountConfig.
+    * Modified cmdlet New-WAF2WebACL: added parameter MonetizationConfig_ConnectedAccountConfig.
+    * Modified cmdlet Update-WAF2RuleGroup: added parameter MonetizationConfig_ConnectedAccountConfig.
+    * Modified cmdlet Update-WAF2WebACL: added parameter MonetizationConfig_ConnectedAccountConfig.
+
+### 5.0.328 (2026-11-04 21:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.363.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonMWAAServerless
     * Modified cmdlet New-MWAASWorkflow: added parameter Environment_Variable.

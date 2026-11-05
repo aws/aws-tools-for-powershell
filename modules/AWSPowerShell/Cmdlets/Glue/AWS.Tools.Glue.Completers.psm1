@@ -631,6 +631,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.UpgradeConsent
+        "Start-GLUEJobUpgradeAnalysis/UpgradeConsent"
+        {
+            $v = "APPROVE","DECLINE"
+            break
+        }
+
         # Amazon.Glue.ViewDialect
         "Get-GLUEUnfilteredTableMetadata/SupportedDialect_Dialect"
         {
@@ -777,6 +784,7 @@ $GLUE_map = @{
     "Telemetry_Engine"=@("Publish-GLUEDataQualityResultV2")
     "TestConnectionInput_ConnectionType"=@("Test-GLUEConnection")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
+    "UpgradeConsent"=@("Start-GLUEJobUpgradeAnalysis")
     "ViewUpdateAction"=@("Update-GLUETable")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
 }
@@ -982,6 +990,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEJobRun",
                "Get-GLUEJobRunList",
                "Get-GLUEJobList",
+               "Get-GLUEJobUpgradeAnalysis",
                "Get-GLUEMapping",
                "Get-GLUEMaterializedViewRefreshTaskRun",
                "Get-GLUEMLTaskRun",
@@ -1090,6 +1099,7 @@ $GLUE_SelectMap = @{
                "Start-GLUEExportLabelsTaskRun",
                "Start-GLUEImportLabelsTaskRun",
                "Start-GLUEJobRun",
+               "Start-GLUEJobUpgradeAnalysis",
                "Start-GLUEMaterializedViewRefreshTaskRun",
                "Start-GLUEMLEvaluationTaskRun",
                "Start-GLUEMLLabelingSetGenerationTaskRun",
@@ -1099,6 +1109,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUEColumnStatisticsTaskRunSchedule",
                "Stop-GLUECrawler",
                "Stop-GLUECrawlerSchedule",
+               "Stop-GLUEJobUpgradeAnalysis",
                "Stop-GLUEMaterializedViewRefreshTaskRun",
                "Stop-GLUESession",
                "Stop-GLUETrigger",

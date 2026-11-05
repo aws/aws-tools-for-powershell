@@ -482,6 +482,14 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RegisterAssistantReplicaKey" OutputProperty="Assistant" Verb="Register" Noun="AssistantReplicaKey" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterKnowledgeBaseReplicaKey" OutputProperty="KnowledgeBase" Verb="Register" Noun="KnowledgeBaseReplicaKey" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RemoveAssistantAIAgent" Verb="Remove" Noun="AssistantAIAgent" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.LMVM2
         #region Parameter EgressNetworkConnector
         /// <summary>
         /// <para>
-        /// <para>The list of egress network connectors available to the MicroVM at runtime.</para><para />
+        /// <para>The list of egress network connectors available to the MicroVM at image build time.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

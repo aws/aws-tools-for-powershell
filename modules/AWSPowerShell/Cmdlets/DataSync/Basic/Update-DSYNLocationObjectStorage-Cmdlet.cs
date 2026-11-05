@@ -82,6 +82,38 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public System.String[] AgentArn { get; set; }
         #endregion
         
+        #region Parameter FederatedIdentity_AwsIamRole
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the ARN for an Amazon Web Services role that allows DataSync to invoke STS
+        /// GetWebIdentityToken API on behalf of the customer account and to obtain Amazon Web
+        /// Services STS JWT (web token).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FederatedIdentity_AwsIamRole { get; set; }
+        #endregion
+        
+        #region Parameter FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName
+        /// <summary>
+        /// <para>
+        /// <para>Human-readable pool name (e.g. "my-pool").</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName { get; set; }
+        #endregion
+        
+        #region Parameter FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName
+        /// <summary>
+        /// <para>
+        /// <para>Human-readable provider name (e.g. "my-oidc-provider").</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName { get; set; }
+        #endregion
+        
         #region Parameter CmkSecretConfig_KmsKeyArn
         /// <summary>
         /// <para>
@@ -109,6 +141,26 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String LocationArn { get; set; }
+        #endregion
+        
+        #region Parameter FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectName
+        /// <summary>
+        /// <para>
+        /// <para>Human-readable project name (e.g. "my-project").</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectName { get; set; }
+        #endregion
+        
+        #region Parameter FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber
+        /// <summary>
+        /// <para>
+        /// <para>Numeric project ID as a string (e.g. "123456789").</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber { get; set; }
         #endregion
         
         #region Parameter CustomSecretConfig_SecretAccessRoleArn
@@ -275,6 +327,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             context.CmkSecretConfig_SecretArn = this.CmkSecretConfig_SecretArn;
             context.CustomSecretConfig_SecretAccessRoleArn = this.CustomSecretConfig_SecretAccessRoleArn;
             context.CustomSecretConfig_SecretArn = this.CustomSecretConfig_SecretArn;
+            context.FederatedIdentity_AwsIamRole = this.FederatedIdentity_AwsIamRole;
+            context.FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName = this.FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName;
+            context.FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName = this.FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName;
+            context.FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectName = this.FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectName;
+            context.FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber = this.FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber;
             context.LocationArn = this.LocationArn;
             #if MODULAR
             if (this.LocationArn == null && ParameterWasBound(nameof(this.LocationArn)))
@@ -374,6 +431,95 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 {
                     request.CustomSecretConfig = null;
                 }
+                
+                 // populate FederatedIdentity
+                var requestFederatedIdentityIsNull = true;
+                request.FederatedIdentity = new Amazon.DataSync.Model.ObjectStorageFederatedIdentityConfig();
+                System.String requestFederatedIdentity_federatedIdentity_AwsIamRole = null;
+                if (cmdletContext.FederatedIdentity_AwsIamRole != null)
+                {
+                    requestFederatedIdentity_federatedIdentity_AwsIamRole = cmdletContext.FederatedIdentity_AwsIamRole;
+                }
+                if (requestFederatedIdentity_federatedIdentity_AwsIamRole != null)
+                {
+                    request.FederatedIdentity.AwsIamRole = requestFederatedIdentity_federatedIdentity_AwsIamRole;
+                    requestFederatedIdentityIsNull = false;
+                }
+                Amazon.DataSync.Model.ObjectStorageExternalIdentityConfig requestFederatedIdentity_federatedIdentity_ExternalIdentity = null;
+                
+                 // populate ExternalIdentity
+                var requestFederatedIdentity_federatedIdentity_ExternalIdentityIsNull = true;
+                requestFederatedIdentity_federatedIdentity_ExternalIdentity = new Amazon.DataSync.Model.ObjectStorageExternalIdentityConfig();
+                Amazon.DataSync.Model.GoogleOidcConfig requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc = null;
+                
+                 // populate GoogleOidc
+                var requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidcIsNull = true;
+                requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc = new Amazon.DataSync.Model.GoogleOidcConfig();
+                System.String requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName = null;
+                if (cmdletContext.FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName != null)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName = cmdletContext.FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName;
+                }
+                if (requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName != null)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc.IdentityPoolName = requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName;
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidcIsNull = false;
+                }
+                System.String requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName = null;
+                if (cmdletContext.FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName != null)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName = cmdletContext.FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName;
+                }
+                if (requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName != null)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc.IdentityProviderName = requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName;
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidcIsNull = false;
+                }
+                System.String requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_ProjectName = null;
+                if (cmdletContext.FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectName != null)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_ProjectName = cmdletContext.FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectName;
+                }
+                if (requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_ProjectName != null)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc.ProjectName = requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_ProjectName;
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidcIsNull = false;
+                }
+                System.String requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber = null;
+                if (cmdletContext.FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber != null)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber = cmdletContext.FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber;
+                }
+                if (requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber != null)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc.ProjectNumber = requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc_federatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber;
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidcIsNull = false;
+                }
+                 // determine if requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc should be set to null
+                if (requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidcIsNull)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc = null;
+                }
+                if (requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc != null)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity.GoogleOidc = requestFederatedIdentity_federatedIdentity_ExternalIdentity_federatedIdentity_ExternalIdentity_GoogleOidc;
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentityIsNull = false;
+                }
+                 // determine if requestFederatedIdentity_federatedIdentity_ExternalIdentity should be set to null
+                if (requestFederatedIdentity_federatedIdentity_ExternalIdentityIsNull)
+                {
+                    requestFederatedIdentity_federatedIdentity_ExternalIdentity = null;
+                }
+                if (requestFederatedIdentity_federatedIdentity_ExternalIdentity != null)
+                {
+                    request.FederatedIdentity.ExternalIdentity = requestFederatedIdentity_federatedIdentity_ExternalIdentity;
+                    requestFederatedIdentityIsNull = false;
+                }
+                 // determine if request.FederatedIdentity should be set to null
+                if (requestFederatedIdentityIsNull)
+                {
+                    request.FederatedIdentity = null;
+                }
                 if (cmdletContext.LocationArn != null)
                 {
                     request.LocationArn = cmdletContext.LocationArn;
@@ -472,6 +618,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             public System.String CmkSecretConfig_SecretArn { get; set; }
             public System.String CustomSecretConfig_SecretAccessRoleArn { get; set; }
             public System.String CustomSecretConfig_SecretArn { get; set; }
+            public System.String FederatedIdentity_AwsIamRole { get; set; }
+            public System.String FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityPoolName { get; set; }
+            public System.String FederatedIdentity_ExternalIdentity_GoogleOidc_IdentityProviderName { get; set; }
+            public System.String FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectName { get; set; }
+            public System.String FederatedIdentity_ExternalIdentity_GoogleOidc_ProjectNumber { get; set; }
             public System.String LocationArn { get; set; }
             public System.String BucketSecretKey { get; set; }
             public byte[] ServerCertificate { get; set; }

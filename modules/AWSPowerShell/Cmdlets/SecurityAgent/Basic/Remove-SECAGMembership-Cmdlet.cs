@@ -30,7 +30,7 @@ using Amazon.SecurityAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.SECAG
 {
     /// <summary>
-    /// Deletes a membership, revoking a user's access to an agent space.
+    /// Deletes a membership, revoking a user's or group's access to an agent space.
     /// </summary>
     [Cmdlet("Remove", "SECAGMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

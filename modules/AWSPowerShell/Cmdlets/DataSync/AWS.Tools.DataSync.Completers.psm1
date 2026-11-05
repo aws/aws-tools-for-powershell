@@ -96,7 +96,7 @@ $DSYN_Completers = {
             ($_ -eq "Update-DSYNLocationAzureBlob/AuthenticationType")
         }
         {
-            $v = "NONE","SAS"
+            $v = "NONE","OIDC","SAS"
             break
         }
 
