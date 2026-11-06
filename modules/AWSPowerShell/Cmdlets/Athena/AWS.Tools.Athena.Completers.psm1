@@ -160,6 +160,18 @@ $ATH_Completers = {
             break
         }
 
+        # Amazon.Athena.SystemTableName
+        {
+            ($_ -eq "Get-ATHSystemTableConfiguration/TableName") -Or
+            ($_ -eq "New-ATHSystemTableConfiguration/TableName") -Or
+            ($_ -eq "Remove-ATHSystemTableConfiguration/TableName") -Or
+            ($_ -eq "Update-ATHSystemTableConfiguration/TableName")
+        }
+        {
+            $v = "ALL"
+            break
+        }
+
         # Amazon.Athena.WorkGroupState
         "Update-ATHWorkGroup/State"
         {
@@ -183,6 +195,7 @@ $ATH_map = @{
     "QueryResultType"=@("Get-ATHQueryResult")
     "State"=@("Update-ATHWorkGroup")
     "StateFilter"=@("Get-ATHCalculationExecutionList","Get-ATHSessionList")
+    "TableName"=@("Get-ATHSystemTableConfiguration","New-ATHSystemTableConfiguration","Remove-ATHSystemTableConfiguration","Update-ATHSystemTableConfiguration")
     "Type"=@("Import-ATHNotebook","New-ATHDataCatalog","Update-ATHDataCatalog","Update-ATHNotebook")
 }
 
@@ -246,12 +259,14 @@ $ATH_SelectMap = @{
                "New-ATHNotebook",
                "New-ATHPreparedStatement",
                "New-ATHPresignedNotebookUrl",
+               "New-ATHSystemTableConfiguration",
                "New-ATHWorkGroup",
                "Remove-ATHCapacityReservation",
                "Remove-ATHDataCatalog",
                "Remove-ATHNamedQuery",
                "Remove-ATHNotebook",
                "Remove-ATHPreparedStatement",
+               "Remove-ATHSystemTableConfiguration",
                "Remove-ATHWorkGroup",
                "Export-ATHNotebook",
                "Get-ATHCalculationExecution",
@@ -271,6 +286,7 @@ $ATH_SelectMap = @{
                "Get-ATHSession",
                "Get-ATHSessionEndpoint",
                "Get-ATHSessionStatus",
+               "Get-ATHSystemTableConfiguration",
                "Get-ATHTableMetadata",
                "Get-ATHWorkGroup",
                "Import-ATHNotebook",
@@ -287,6 +303,7 @@ $ATH_SelectMap = @{
                "Get-ATHPreparedStatementList",
                "Get-ATHQueryExecutionList",
                "Get-ATHSessionList",
+               "Get-ATHSystemTableStatusList",
                "Get-ATHTableMetadataList",
                "Get-ATHResourceTag",
                "Get-ATHWorkGroupList",
@@ -305,6 +322,7 @@ $ATH_SelectMap = @{
                "Update-ATHNotebook",
                "Update-ATHNotebookMetadata",
                "Update-ATHPreparedStatement",
+               "Update-ATHSystemTableConfiguration",
                "Update-ATHWorkGroup")
 }
 

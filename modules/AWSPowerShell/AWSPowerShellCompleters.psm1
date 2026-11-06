@@ -5699,6 +5699,18 @@ $ATH_Completers = {
             break
         }
 
+        # Amazon.Athena.SystemTableName
+        {
+            ($_ -eq "Get-ATHSystemTableConfiguration/TableName") -Or
+            ($_ -eq "New-ATHSystemTableConfiguration/TableName") -Or
+            ($_ -eq "Remove-ATHSystemTableConfiguration/TableName") -Or
+            ($_ -eq "Update-ATHSystemTableConfiguration/TableName")
+        }
+        {
+            $v = "ALL"
+            break
+        }
+
         # Amazon.Athena.WorkGroupState
         "Update-ATHWorkGroup/State"
         {
@@ -5722,6 +5734,7 @@ $ATH_map = @{
     "QueryResultType"=@("Get-ATHQueryResult")
     "State"=@("Update-ATHWorkGroup")
     "StateFilter"=@("Get-ATHCalculationExecutionList","Get-ATHSessionList")
+    "TableName"=@("Get-ATHSystemTableConfiguration","New-ATHSystemTableConfiguration","Remove-ATHSystemTableConfiguration","Update-ATHSystemTableConfiguration")
     "Type"=@("Import-ATHNotebook","New-ATHDataCatalog","Update-ATHDataCatalog","Update-ATHNotebook")
 }
 
@@ -5785,12 +5798,14 @@ $ATH_SelectMap = @{
                "New-ATHNotebook",
                "New-ATHPreparedStatement",
                "New-ATHPresignedNotebookUrl",
+               "New-ATHSystemTableConfiguration",
                "New-ATHWorkGroup",
                "Remove-ATHCapacityReservation",
                "Remove-ATHDataCatalog",
                "Remove-ATHNamedQuery",
                "Remove-ATHNotebook",
                "Remove-ATHPreparedStatement",
+               "Remove-ATHSystemTableConfiguration",
                "Remove-ATHWorkGroup",
                "Export-ATHNotebook",
                "Get-ATHCalculationExecution",
@@ -5810,6 +5825,7 @@ $ATH_SelectMap = @{
                "Get-ATHSession",
                "Get-ATHSessionEndpoint",
                "Get-ATHSessionStatus",
+               "Get-ATHSystemTableConfiguration",
                "Get-ATHTableMetadata",
                "Get-ATHWorkGroup",
                "Import-ATHNotebook",
@@ -5826,6 +5842,7 @@ $ATH_SelectMap = @{
                "Get-ATHPreparedStatementList",
                "Get-ATHQueryExecutionList",
                "Get-ATHSessionList",
+               "Get-ATHSystemTableStatusList",
                "Get-ATHTableMetadataList",
                "Get-ATHResourceTag",
                "Get-ATHWorkGroupList",
@@ -5844,6 +5861,7 @@ $ATH_SelectMap = @{
                "Update-ATHNotebook",
                "Update-ATHNotebookMetadata",
                "Update-ATHPreparedStatement",
+               "Update-ATHSystemTableConfiguration",
                "Update-ATHWorkGroup")
 }
 
@@ -16184,8 +16202,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -23568,6 +23586,7 @@ $CCAS_Completers = {
         # Amazon.ConnectCases.CommentBodyTextType
         {
             ($_ -eq "New-CCASRelatedItem/Comment_ContentType") -Or
+            ($_ -eq "New-CCASRelatedItemBatch/Content_Comment_ContentType") -Or
             ($_ -eq "Update-CCASRelatedItem/Content_Comment_ContentType")
         }
         {
@@ -23590,7 +23609,10 @@ $CCAS_Completers = {
         }
 
         # Amazon.ConnectCases.SlaType
-        "New-CCASRelatedItem/SlaInputConfiguration_Type"
+        {
+            ($_ -eq "New-CCASRelatedItemBatch/Content_Sla_SlaInputConfiguration_Type") -Or
+            ($_ -eq "New-CCASRelatedItem/SlaInputConfiguration_Type")
+        }
         {
             $v = "CaseField"
             break
@@ -23616,7 +23638,8 @@ $CCAS_Completers = {
 
 $CCAS_map = @{
     "Comment_ContentType"=@("New-CCASRelatedItem")
-    "Content_Comment_ContentType"=@("Update-CCASRelatedItem")
+    "Content_Comment_ContentType"=@("New-CCASRelatedItemBatch","Update-CCASRelatedItem")
+    "Content_Sla_SlaInputConfiguration_Type"=@("New-CCASRelatedItemBatch")
     "SlaInputConfiguration_Type"=@("New-CCASRelatedItem")
     "Status"=@("New-CCASTemplate","Update-CCASTemplate")
     "Type"=@("New-CCASField","New-CCASRelatedItem")
@@ -23672,9 +23695,11 @@ $CCAS_SelectCompleters = {
 }
 
 $CCAS_SelectMap = @{
-    "Select"=@("Group-CCASGetCaseRule",
+    "Select"=@("New-CCASRelatedItemBatch",
+               "Group-CCASGetCaseRule",
                "Group-CCASGetField",
                "Group-CCASPutFieldOption",
+               "Update-CCASCaseBatch",
                "New-CCASCase",
                "New-CCASCaseRule",
                "New-CCASDomain",
@@ -26136,7 +26161,9 @@ $DZ_Completers = {
         # Amazon.DataZone.OAuth2GrantType
         {
             ($_ -eq "New-DZConnection/OAuth2Properties_OAuth2GrantType") -Or
-            ($_ -eq "New-DZConnection/Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType")
+            ($_ -eq "Update-DZConnection/Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType") -Or
+            ($_ -eq "New-DZConnection/Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType") -Or
+            ($_ -eq "Update-DZConnection/Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType")
         }
         {
             $v = "AUTHORIZATION_CODE","CLIENT_CREDENTIALS","JWT_BEARER"
@@ -26444,8 +26471,10 @@ $DZ_map = @{
     "PolicyType"=@("Add-DZPolicyGrant","Get-DZPolicyGrantList","Remove-DZPolicyGrant")
     "ProcessingStatus"=@("Get-DZLineageEventList")
     "Project_ProjectDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
+    "Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"=@("Update-DZConnection")
     "Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_AuthenticationType"=@("New-DZConnection")
     "Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"=@("New-DZConnection")
+    "Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"=@("Update-DZConnection")
     "Props_SnowflakeProperties_LineageSync_Timezone"=@("New-DZConnection","Update-DZConnection")
     "RejectRule_Rule"=@("Deny-DZPrediction")
     "ResolutionStrategy"=@("New-DZAccountPool","Update-DZAccountPool")
@@ -30877,12 +30906,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBIndexSchema",
-               "ConvertTo-DDBItem",
                "New-DDBTable",
                "New-DDBTableSchema",
+               "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
-               "ConvertFrom-DDBItem")
+               "Add-DDBIndexSchema",
+               "ConvertTo-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -33767,8 +33796,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -75562,6 +75591,13 @@ $RAM_Completers = {
             break
         }
 
+        # Amazon.RAM.PermissionStatus
+        "Get-RAMPermissionList/PermissionStatus"
+        {
+            $v = "ATTACHABLE","DELETED","DELETING","DEPRECATED","UNATTACHABLE"
+            break
+        }
+
         # Amazon.RAM.PermissionTypeFilter
         "Get-RAMPermissionList/PermissionType"
         {
@@ -75578,6 +75614,8 @@ $RAM_Completers = {
 
         # Amazon.RAM.ResourceOwner
         {
+            ($_ -eq "Get-RAMPermissionAssociationList/ResourceOwner") -Or
+            ($_ -eq "Get-RAMPermissionList/ResourceOwner") -Or
             ($_ -eq "Get-RAMPrincipalList/ResourceOwner") -Or
             ($_ -eq "Get-RAMResourceList/ResourceOwner") -Or
             ($_ -eq "Get-RAMResourceShare/ResourceOwner")
@@ -75623,6 +75661,13 @@ $RAM_Completers = {
             break
         }
 
+        # Amazon.RAM.UpdatePermissionStatus
+        "Update-RAMPermission/Status"
+        {
+            $v = "ATTACHABLE","DEPRECATED"
+            break
+        }
+
 
     }
 
@@ -75635,11 +75680,12 @@ $RAM_map = @{
     "AssociationStatus"=@("Get-RAMPermissionAssociationList","Get-RAMResourceShareAssociation","Get-RAMSourceAssociationList")
     "AssociationType"=@("Get-RAMResourceShareAssociation")
     "FeatureSet"=@("Get-RAMPermissionAssociationList")
+    "PermissionStatus"=@("Get-RAMPermissionList")
     "PermissionType"=@("Get-RAMPermissionList")
-    "ResourceOwner"=@("Get-RAMPrincipalList","Get-RAMResourceList","Get-RAMResourceShare")
+    "ResourceOwner"=@("Get-RAMPermissionAssociationList","Get-RAMPermissionList","Get-RAMPrincipalList","Get-RAMResourceList","Get-RAMResourceShare")
     "ResourceRegionScope"=@("Get-RAMPendingInvitationResourceList","Get-RAMResourceList","Get-RAMResourceTypeList")
     "ResourceShareStatus"=@("Get-RAMResourceShare")
-    "Status"=@("Get-RAMReplacePermissionAssociationsWorkList")
+    "Status"=@("Get-RAMReplacePermissionAssociationsWorkList","Update-RAMPermission")
 }
 
 _awsArgumentCompleterRegistration $RAM_Completers $RAM_map
@@ -75726,6 +75772,7 @@ $RAM_SelectMap = @{
                "Set-RAMDefaultPermissionVersion",
                "Add-RAMResourceTag",
                "Remove-RAMResourceTag",
+               "Update-RAMPermission",
                "Update-RAMResourceShare")
 }
 
@@ -80721,18 +80768,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3PreSignedURL",
-               "Dismount-S3PSDrive",
+               "Read-S3Object",
                "Copy-S3Object",
+               "Get-S3MultipartUpload",
+               "Dismount-S3PSDrive",
+               "Mount-S3PSDrive",
+               "Write-S3Object",
+               "Remove-S3Bucket",
+               "Get-S3PreSignedURL",
                "Test-S3Bucket",
                "New-S3Bucket",
-               "Write-S3Object",
-               "Get-S3MultipartUpload",
-               "Remove-S3Bucket",
-               "Remove-S3MultipartUpload",
-               "Mount-S3PSDrive",
-               "Read-S3Object",
-               "Remove-S3Object")
+               "Remove-S3Object",
+               "Remove-S3MultipartUpload")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -89270,6 +89317,13 @@ $SSM_Completers = {
             break
         }
 
+        # Amazon.SimpleSystemsManagement.DHMCPermissionModel
+        "Register-SSMDefaultHostManagementConfiguration/PermissionModel"
+        {
+            $v = "SELF_MANAGED","SERVICE_MANAGED"
+            break
+        }
+
         # Amazon.SimpleSystemsManagement.DocumentFormat
         {
             ($_ -eq "Get-SSMDocument/DocumentFormat") -Or
@@ -89524,6 +89578,7 @@ $SSM_map = @{
     "NotificationConfig_NotificationType"=@("Register-SSMTaskWithMaintenanceWindow","Send-SSMCommand","Update-SSMMaintenanceWindowTask")
     "OperatingSystem"=@("Get-SSMDefaultPatchBaseline","Get-SSMPatchBaselineForPatchGroup","Get-SSMPatchProperty","New-SSMPatchBaseline")
     "PatchSet"=@("Get-SSMPatchProperty")
+    "PermissionModel"=@("Register-SSMDefaultHostManagementConfiguration")
     "PermissionType"=@("Edit-SSMDocumentPermission","Get-SSMDocumentPermission")
     "Property"=@("Get-SSMPatchProperty")
     "RejectedPatchesAction"=@("New-SSMPatchBaseline","Update-SSMPatchBaseline")
@@ -89618,6 +89673,7 @@ $SSM_SelectMap = @{
                "Remove-SSMPatchBaseline",
                "Remove-SSMResourceDataSync",
                "Remove-SSMResourcePolicy",
+               "Unregister-SSMDefaultHostManagementConfiguration",
                "Unregister-SSMManagedInstance",
                "Unregister-SSMPatchBaselineForPatchGroup",
                "Unregister-SSMTargetFromMaintenanceWindow",
@@ -89709,6 +89765,7 @@ $SSM_SelectMap = @{
                "Write-SSMInventory",
                "Write-SSMParameter",
                "Write-SSMResourcePolicy",
+               "Register-SSMDefaultHostManagementConfiguration",
                "Register-SSMDefaultPatchBaseline",
                "Register-SSMPatchBaselineForPatchGroup",
                "Register-SSMTargetWithMaintenanceWindow",
@@ -97577,44 +97634,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -97654,3 +97673,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

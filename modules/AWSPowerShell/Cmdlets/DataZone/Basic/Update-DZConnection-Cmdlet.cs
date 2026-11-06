@@ -76,6 +76,26 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String AwsLocation_AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services managed client application reference in the OAuth2Client application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference { get; set; }
+        #endregion
+        
+        #region Parameter Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services managed client application reference in the OAuth2Client application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference { get; set; }
+        #endregion
+        
         #region Parameter AwsLocation_AwsRegion
         /// <summary>
         /// <para>
@@ -370,6 +390,28 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String SparkEmrProperties_ManagedEndpointArn { get; set; }
         #endregion
         
+        #region Parameter Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth2 grant type of the OAuth2 properties to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.OAuth2GrantType")]
+        public Amazon.DataZone.OAuth2GrantType Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType { get; set; }
+        #endregion
+        
+        #region Parameter Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth2 grant type of the OAuth2 properties to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.OAuth2GrantType")]
+        public Amazon.DataZone.OAuth2GrantType Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType { get; set; }
+        #endregion
+        
         #region Parameter BasicAuthenticationCredentials_Password
         /// <summary>
         /// <para>
@@ -579,6 +621,58 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.Timezone Props_SnowflakeProperties_LineageSync_Timezone { get; set; }
         #endregion
         
+        #region Parameter Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth2 token URL of the OAuth2 properties to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl { get; set; }
+        #endregion
+        
+        #region Parameter Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth2 token URL of the OAuth2 properties to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl { get; set; }
+        #endregion
+        
+        #region Parameter Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth2 token URL parameter map of the OAuth2 properties to update, for example
+        /// the scope. If you specify an empty map, the existing parameters are kept.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap { get; set; }
+        #endregion
+        
+        #region Parameter Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth2 token URL parameter map of the OAuth2 properties to update, for example
+        /// the scope. If you specify an empty map, the existing parameters are kept.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap { get; set; }
+        #endregion
+        
         #region Parameter MlflowProperties_TrackingServerArn
         /// <summary>
         /// <para>
@@ -599,6 +693,26 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Props_SparkEmrProperties_TrustedCertificatesS3Uri")]
         public System.String SparkEmrProperties_TrustedCertificatesS3Uri { get; set; }
+        #endregion
+        
+        #region Parameter Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId
+        /// <summary>
+        /// <para>
+        /// <para>The user managed client application client ID in the OAuth2Client application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId { get; set; }
+        #endregion
+        
+        #region Parameter Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId
+        /// <summary>
+        /// <para>
+        /// <para>The user managed client application client ID in the OAuth2Client application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId { get; set; }
         #endregion
         
         #region Parameter UsernamePassword_Username
@@ -742,6 +856,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.Props_GitProperties_DefaultBranch = this.Props_GitProperties_DefaultBranch;
             context.BasicAuthenticationCredentials_Password = this.BasicAuthenticationCredentials_Password;
             context.BasicAuthenticationCredentials_UserName = this.BasicAuthenticationCredentials_UserName;
+            context.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference = this.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference;
+            context.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId = this.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId;
+            context.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType = this.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType;
+            context.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl = this.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl;
+            if (this.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap != null)
+            {
+                context.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap.Keys)
+                {
+                    context.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap.Add((String)hashKey, (System.String)(this.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap[hashKey]));
+                }
+            }
             context.AuthenticationConfiguration_SecretArn = this.AuthenticationConfiguration_SecretArn;
             if (this.GlueConnectionInput_ConnectionProperty != null)
             {
@@ -770,6 +896,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.S3Properties_S3Uri = this.S3Properties_S3Uri;
             context.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_BasicAuthenticationCredentials_Password = this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_BasicAuthenticationCredentials_Password;
             context.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_BasicAuthenticationCredentials_UserName = this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_BasicAuthenticationCredentials_UserName;
+            context.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference = this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference;
+            context.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId = this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId;
+            context.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType = this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType;
+            context.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl = this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl;
+            if (this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap != null)
+            {
+                context.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap.Keys)
+                {
+                    context.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap.Add((String)hashKey, (System.String)(this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap[hashKey]));
+                }
+            }
             context.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_SecretArn = this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_SecretArn;
             if (this.Props_SnowflakeProperties_ConnectivityPropertiesPatch_ConnectionProperty != null)
             {
@@ -986,6 +1124,86 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials != null)
             {
                 requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration.BasicAuthenticationCredentials = requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials;
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfigurationIsNull = false;
+            }
+            Amazon.DataZone.Model.OAuth2PropertiesPatch requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties = null;
+            
+             // populate OAuth2Properties
+            var requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2PropertiesIsNull = true;
+            requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties = new Amazon.DataZone.Model.OAuth2PropertiesPatch();
+            Amazon.DataZone.OAuth2GrantType requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType = null;
+            if (cmdletContext.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType = cmdletContext.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType;
+            }
+            if (requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties.OAuth2GrantType = requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType;
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2PropertiesIsNull = false;
+            }
+            System.String requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl = null;
+            if (cmdletContext.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl = cmdletContext.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl;
+            }
+            if (requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties.TokenUrl = requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl;
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2PropertiesIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap = null;
+            if (cmdletContext.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap = cmdletContext.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap;
+            }
+            if (requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties.TokenUrlParametersMap = requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap;
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2PropertiesIsNull = false;
+            }
+            Amazon.DataZone.Model.OAuth2ClientApplication requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication = null;
+            
+             // populate OAuth2ClientApplication
+            var requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplicationIsNull = true;
+            requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication = new Amazon.DataZone.Model.OAuth2ClientApplication();
+            System.String requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference = null;
+            if (cmdletContext.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference = cmdletContext.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference;
+            }
+            if (requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication.AWSManagedClientApplicationReference = requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference;
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplicationIsNull = false;
+            }
+            System.String requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId = null;
+            if (cmdletContext.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId = cmdletContext.Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId;
+            }
+            if (requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication.UserManagedClientApplicationClientId = requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId;
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplicationIsNull = false;
+            }
+             // determine if requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication should be set to null
+            if (requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplicationIsNull)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication = null;
+            }
+            if (requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties.OAuth2ClientApplication = requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication;
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2PropertiesIsNull = false;
+            }
+             // determine if requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties should be set to null
+            if (requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2PropertiesIsNull)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties = null;
+            }
+            if (requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties != null)
+            {
+                requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration.OAuth2Properties = requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties;
                 requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfigurationIsNull = false;
             }
              // determine if requestProps_props_GlueProperties_props_GlueProperties_GlueConnectionInput_props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration should be set to null
@@ -1306,6 +1524,86 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_BasicAuthenticationCredentials != null)
             {
                 requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration.BasicAuthenticationCredentials = requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_BasicAuthenticationCredentials;
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfigurationIsNull = false;
+            }
+            Amazon.DataZone.Model.OAuth2PropertiesPatch requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties = null;
+            
+             // populate OAuth2Properties
+            var requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2PropertiesIsNull = true;
+            requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties = new Amazon.DataZone.Model.OAuth2PropertiesPatch();
+            Amazon.DataZone.OAuth2GrantType requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType = null;
+            if (cmdletContext.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType = cmdletContext.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType;
+            }
+            if (requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties.OAuth2GrantType = requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType;
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2PropertiesIsNull = false;
+            }
+            System.String requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl = null;
+            if (cmdletContext.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl = cmdletContext.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl;
+            }
+            if (requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties.TokenUrl = requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl;
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2PropertiesIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap = null;
+            if (cmdletContext.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap = cmdletContext.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap;
+            }
+            if (requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties.TokenUrlParametersMap = requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap;
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2PropertiesIsNull = false;
+            }
+            Amazon.DataZone.Model.OAuth2ClientApplication requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication = null;
+            
+             // populate OAuth2ClientApplication
+            var requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplicationIsNull = true;
+            requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication = new Amazon.DataZone.Model.OAuth2ClientApplication();
+            System.String requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference = null;
+            if (cmdletContext.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference = cmdletContext.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference;
+            }
+            if (requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication.AWSManagedClientApplicationReference = requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference;
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplicationIsNull = false;
+            }
+            System.String requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId = null;
+            if (cmdletContext.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId = cmdletContext.Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId;
+            }
+            if (requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication.UserManagedClientApplicationClientId = requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId;
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplicationIsNull = false;
+            }
+             // determine if requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication should be set to null
+            if (requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplicationIsNull)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication = null;
+            }
+            if (requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties.OAuth2ClientApplication = requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication;
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2PropertiesIsNull = false;
+            }
+             // determine if requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties should be set to null
+            if (requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2PropertiesIsNull)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties = null;
+            }
+            if (requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties != null)
+            {
+                requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration.OAuth2Properties = requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties;
                 requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfigurationIsNull = false;
             }
              // determine if requestProps_props_SnowflakeProperties_props_SnowflakeProperties_ConnectivityPropertiesPatch_props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration should be set to null
@@ -1789,6 +2087,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String Props_GitProperties_DefaultBranch { get; set; }
             public System.String BasicAuthenticationCredentials_Password { get; set; }
             public System.String BasicAuthenticationCredentials_UserName { get; set; }
+            public System.String Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference { get; set; }
+            public System.String Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId { get; set; }
+            public Amazon.DataZone.OAuth2GrantType Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType { get; set; }
+            public System.String Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl { get; set; }
+            public Dictionary<System.String, System.String> Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap { get; set; }
             public System.String AuthenticationConfiguration_SecretArn { get; set; }
             public Dictionary<System.String, System.String> GlueConnectionInput_ConnectionProperty { get; set; }
             public System.String GlueConnectionInput_Description { get; set; }
@@ -1810,6 +2113,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String S3Properties_S3Uri { get; set; }
             public System.String Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_BasicAuthenticationCredentials_Password { get; set; }
             public System.String Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_BasicAuthenticationCredentials_UserName { get; set; }
+            public System.String Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference { get; set; }
+            public System.String Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId { get; set; }
+            public Amazon.DataZone.OAuth2GrantType Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType { get; set; }
+            public System.String Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl { get; set; }
+            public Dictionary<System.String, System.String> Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap { get; set; }
             public System.String Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_SecretArn { get; set; }
             public Dictionary<System.String, System.String> Props_SnowflakeProperties_ConnectivityPropertiesPatch_ConnectionProperty { get; set; }
             public System.String Props_SnowflakeProperties_ConnectivityPropertiesPatch_Description { get; set; }

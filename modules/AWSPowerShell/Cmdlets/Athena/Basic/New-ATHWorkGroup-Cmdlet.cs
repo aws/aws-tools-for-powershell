@@ -546,6 +546,23 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.Collections.Hashtable EngineConfiguration_SparkProperty { get; set; }
         #endregion
         
+        #region Parameter Configuration_SystemTableStatus
+        /// <summary>
+        /// <para>
+        /// <para>The read-only enablement status of each system table for the account. This field is
+        /// returned by <a>GetWorkGroup</a> and is ignored on write.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_SystemTableStatuses")]
+        public Amazon.Athena.Model.SystemTableStatus[] Configuration_SystemTableStatus { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -680,6 +697,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.Configuration_ResultConfiguration_EncryptionConfiguration_KmsKey = this.Configuration_ResultConfiguration_EncryptionConfiguration_KmsKey;
             context.ResultConfiguration_ExpectedBucketOwner = this.ResultConfiguration_ExpectedBucketOwner;
             context.ResultConfiguration_OutputLocation = this.ResultConfiguration_OutputLocation;
+            if (this.Configuration_SystemTableStatus != null)
+            {
+                context.Configuration_SystemTableStatus = new List<Amazon.Athena.Model.SystemTableStatus>(this.Configuration_SystemTableStatus);
+            }
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -780,6 +801,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (requestConfiguration_configuration_RequesterPaysEnabled != null)
             {
                 request.Configuration.RequesterPaysEnabled = requestConfiguration_configuration_RequesterPaysEnabled.Value;
+                requestConfigurationIsNull = false;
+            }
+            List<Amazon.Athena.Model.SystemTableStatus> requestConfiguration_configuration_SystemTableStatus = null;
+            if (cmdletContext.Configuration_SystemTableStatus != null)
+            {
+                requestConfiguration_configuration_SystemTableStatus = cmdletContext.Configuration_SystemTableStatus;
+            }
+            if (requestConfiguration_configuration_SystemTableStatus != null)
+            {
+                request.Configuration.SystemTableStatuses = requestConfiguration_configuration_SystemTableStatus;
                 requestConfigurationIsNull = false;
             }
             Amazon.Athena.Model.CustomerContentEncryptionConfiguration requestConfiguration_configuration_CustomerContentEncryptionConfiguration = null;
@@ -1401,6 +1432,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String Configuration_ResultConfiguration_EncryptionConfiguration_KmsKey { get; set; }
             public System.String ResultConfiguration_ExpectedBucketOwner { get; set; }
             public System.String ResultConfiguration_OutputLocation { get; set; }
+            public List<Amazon.Athena.Model.SystemTableStatus> Configuration_SystemTableStatus { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.Athena.Model.Tag> Tag { get; set; }

@@ -30,11 +30,11 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Deletes a cases template. You can delete up to 100 templates per domain.
+    /// Deletes a Cases template. You can delete up to 100 templates per domain.
     /// 
     ///  
     /// <para>
-    /// After a cases template is deleted:
+    /// After a Cases template is deleted:
     /// </para><ul><li><para>
     /// You can still retrieve the template by calling <c>GetTemplate</c>.
     /// </para></li><li><para>

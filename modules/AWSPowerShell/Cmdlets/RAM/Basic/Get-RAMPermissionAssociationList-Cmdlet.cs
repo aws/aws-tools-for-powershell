@@ -114,6 +114,32 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public System.Int32? PermissionVersion { get; set; }
         #endregion
         
+        #region Parameter ResourceOwner
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that you want to list only those associations with resource shares owned
+        /// by a specific entity:</para><ul><li><para><c>SELF</c> – returns only associations with resource shares owned by the calling
+        /// account.</para></li><li><para><c>OTHER-ACCOUNTS</c> – returns only associations with resource shares owned by other
+        /// Amazon Web Services accounts.</para></li></ul><para>If you don't specify this parameter, the default is <c>SELF</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RAM.ResourceOwner")]
+        public Amazon.RAM.ResourceOwner ResourceOwner { get; set; }
+        #endregion
+        
+        #region Parameter ResourceShareArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a> of the resource share for which you want to retrieve permission
+        /// associations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceShareArn { get; set; }
+        #endregion
+        
         #region Parameter ResourceType
         /// <summary>
         /// <para>
@@ -207,6 +233,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             context.NextToken = this.NextToken;
             context.PermissionArn = this.PermissionArn;
             context.PermissionVersion = this.PermissionVersion;
+            context.ResourceOwner = this.ResourceOwner;
+            context.ResourceShareArn = this.ResourceShareArn;
             context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
@@ -249,6 +277,14 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.PermissionVersion != null)
             {
                 request.PermissionVersion = cmdletContext.PermissionVersion.Value;
+            }
+            if (cmdletContext.ResourceOwner != null)
+            {
+                request.ResourceOwner = cmdletContext.ResourceOwner;
+            }
+            if (cmdletContext.ResourceShareArn != null)
+            {
+                request.ResourceShareArn = cmdletContext.ResourceShareArn;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -340,6 +376,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             public System.String NextToken { get; set; }
             public System.String PermissionArn { get; set; }
             public System.Int32? PermissionVersion { get; set; }
+            public Amazon.RAM.ResourceOwner ResourceOwner { get; set; }
+            public System.String ResourceShareArn { get; set; }
             public System.String ResourceType { get; set; }
             public System.Func<Amazon.RAM.Model.ListPermissionAssociationsResponse, GetRAMPermissionAssociationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Permissions;

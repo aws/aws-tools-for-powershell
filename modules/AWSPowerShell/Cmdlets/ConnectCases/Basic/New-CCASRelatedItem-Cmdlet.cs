@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     ///  
     /// <para>
     /// There's a quota for the number of fields allowed in a Custom type related item. See
-    /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas">Amazon
-    /// Connect Cases quotas</a>.
+    /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas">Connect
+    /// Customer Cases quotas</a>.
     /// </para><para><b>Use cases</b></para><para>
     /// Following are examples of related items that you may want to associate with a case:
     /// </para><ul><li><para>
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// </para></li><li><para>
     /// SLAs, to capture target resolution goals
     /// </para></li><li><para>
-    /// Cases, to capture related Amazon Connect Cases
+    /// Cases, to capture related Connect Customer Cases
     /// </para></li><li><para>
     /// Files, such as policy documentation or customer-provided attachments
     /// </para></li><li><para>
@@ -62,12 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// All Related Items have their own internal identifier, the <c>relatedItemArn</c>. Examples
     /// of related items include <c>comments</c> and <c>contacts</c>.
     /// </para></li><li><para>
-    /// If you provide a value for <c>performedBy.userArn</c> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">DescribeUser</a>
+    /// If you provide a value for <c>performedBy.userArn</c>, you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">DescribeUser</a>
     /// permission on the ARN of the user that you provide.
-    /// </para></li><li><para>
-    /// The <c>type</c> field is reserved for internal use only.
-    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
-    /// Connect endpoints and quotas</a>.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect
+    /// Customer endpoints and quotas</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CCASRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -124,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter Contact_ContactArn
         /// <summary>
         /// <para>
-        /// <para>A unique identifier of a contact in Amazon Connect.</para>
+        /// <para>A unique identifier of a contact in Connect Customer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter File_FileArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a File in Amazon Connect.</para>
+        /// <para>The Amazon Resource Name (ARN) of a File in Connect Customer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter PerformedBy_UserArn
         /// <summary>
         /// <para>
-        /// <para>Represents the Amazon Connect ARN of the user.</para>
+        /// <para>Represents the Connect Customer ARN of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

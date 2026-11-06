@@ -35,7 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     ///  <note><para>
     /// To get information about a single parameter, you can use the <a>GetParameter</a> operation
     /// instead.
-    /// </para></note><para>
+    /// </para></note><important><para>
+    /// This operation is authorized against the <c>ssm:GetParameters</c> action, not against
+    /// <c>ssm:GetParameter</c>. Denying <c>ssm:GetParameter</c> for a parameter doesn't prevent
+    /// a principal from retrieving that parameter with this operation. To restrict access
+    /// to a parameter value, deny every action that can return it. For more information,
+    /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-retrieval-authorization.html">How
+    /// Parameter Store authorizes parameter retrieval</a> in the <i>Amazon Web Services Systems
+    /// Manager User Guide</i>.
+    /// </para></important><para>
     /// Parameter names can't contain spaces. The service removes any spaces specified for
     /// the beginning or end of a parameter name. If the specified name for a parameter contains
     /// spaces between characters, the request fails with a <c>ValidationException</c> error.

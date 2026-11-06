@@ -33,8 +33,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Retrieve information about one or more parameters under a specified level in a hierarchy.
     /// 
     /// 
-    ///  
-    /// <para>
+    ///  <important><para>
+    /// This operation is authorized against the <c>ssm:GetParametersByPath</c> action for
+    /// the path that you specify in the request. It isn't authorized against the individual
+    /// parameters that it returns, and it isn't authorized against <c>ssm:GetParameter</c>.
+    /// A principal who is allowed to call this operation for the path <c>/a</c> with <c>Recursive</c>
+    /// set to <c>true</c> receives every parameter under that path, including <c>/a/b</c>,
+    /// even if a policy explicitly denies access to <c>/a/b</c>.
+    /// </para><para>
+    /// To prevent a parameter from being returned by this operation, deny the <c>ssm:GetParametersByPath</c>
+    /// action on every ancestor path that could include the parameter in its results. For
+    /// more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-restrict-parameter-access.html">Restricting
+    /// access to specific parameters and paths</a> in the <i>Amazon Web Services Systems
+    /// Manager User Guide</i>.
+    /// </para></important><para>
     /// Request results are returned on a best-effort basis. If you specify <c>MaxResults</c>
     /// in the request, the response includes information up to the limit specified. The number
     /// of items returned, however, can be between zero and the value of <c>MaxResults</c>.
@@ -102,11 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Recursive
         /// <summary>
         /// <para>
-        /// <para>Retrieve all parameters within a hierarchy.</para><important><para>If a user has access to a path, then the user can access all levels of that path.
-        /// For example, if a user has permission to access path <c>/a</c>, then the user can
-        /// also access <c>/a/b</c>. Even if a user has explicitly been denied access in IAM for
-        /// parameter <c>/a/b</c>, they can still call the GetParametersByPath API operation recursively
-        /// for <c>/a</c> and view <c>/a/b</c>.</para></important>
+        /// <para>Retrieve all parameters within a hierarchy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

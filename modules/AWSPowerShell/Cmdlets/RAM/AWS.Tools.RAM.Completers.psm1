@@ -87,6 +87,13 @@ $RAM_Completers = {
             break
         }
 
+        # Amazon.RAM.PermissionStatus
+        "Get-RAMPermissionList/PermissionStatus"
+        {
+            $v = "ATTACHABLE","DELETED","DELETING","DEPRECATED","UNATTACHABLE"
+            break
+        }
+
         # Amazon.RAM.PermissionTypeFilter
         "Get-RAMPermissionList/PermissionType"
         {
@@ -103,6 +110,8 @@ $RAM_Completers = {
 
         # Amazon.RAM.ResourceOwner
         {
+            ($_ -eq "Get-RAMPermissionAssociationList/ResourceOwner") -Or
+            ($_ -eq "Get-RAMPermissionList/ResourceOwner") -Or
             ($_ -eq "Get-RAMPrincipalList/ResourceOwner") -Or
             ($_ -eq "Get-RAMResourceList/ResourceOwner") -Or
             ($_ -eq "Get-RAMResourceShare/ResourceOwner")
@@ -148,6 +157,13 @@ $RAM_Completers = {
             break
         }
 
+        # Amazon.RAM.UpdatePermissionStatus
+        "Update-RAMPermission/Status"
+        {
+            $v = "ATTACHABLE","DEPRECATED"
+            break
+        }
+
 
     }
 
@@ -160,11 +176,12 @@ $RAM_map = @{
     "AssociationStatus"=@("Get-RAMPermissionAssociationList","Get-RAMResourceShareAssociation","Get-RAMSourceAssociationList")
     "AssociationType"=@("Get-RAMResourceShareAssociation")
     "FeatureSet"=@("Get-RAMPermissionAssociationList")
+    "PermissionStatus"=@("Get-RAMPermissionList")
     "PermissionType"=@("Get-RAMPermissionList")
-    "ResourceOwner"=@("Get-RAMPrincipalList","Get-RAMResourceList","Get-RAMResourceShare")
+    "ResourceOwner"=@("Get-RAMPermissionAssociationList","Get-RAMPermissionList","Get-RAMPrincipalList","Get-RAMResourceList","Get-RAMResourceShare")
     "ResourceRegionScope"=@("Get-RAMPendingInvitationResourceList","Get-RAMResourceList","Get-RAMResourceTypeList")
     "ResourceShareStatus"=@("Get-RAMResourceShare")
-    "Status"=@("Get-RAMReplacePermissionAssociationsWorkList")
+    "Status"=@("Get-RAMReplacePermissionAssociationsWorkList","Update-RAMPermission")
 }
 
 _awsArgumentCompleterRegistration $RAM_Completers $RAM_map
@@ -251,6 +268,7 @@ $RAM_SelectMap = @{
                "Set-RAMDefaultPermissionVersion",
                "Add-RAMResourceTag",
                "Remove-RAMResourceTag",
+               "Update-RAMPermission",
                "Update-RAMResourceShare")
 }
 

@@ -213,9 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             #endif
             context.ApplicationArn = this.ApplicationArn;
+            context.GrantScope = this.GrantScope;
             context.GranteeIdentifier = this.GranteeIdentifier;
             context.GranteeType = this.GranteeType;
-            context.GrantScope = this.GrantScope;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -254,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             {
                 request.ApplicationArn = cmdletContext.ApplicationArn;
             }
+            if (cmdletContext.GrantScope != null)
+            {
+                request.GrantScope = cmdletContext.GrantScope;
+            }
             if (cmdletContext.GranteeIdentifier != null)
             {
                 request.GranteeIdentifier = cmdletContext.GranteeIdentifier;
@@ -261,10 +265,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (cmdletContext.GranteeType != null)
             {
                 request.GranteeType = cmdletContext.GranteeType;
-            }
-            if (cmdletContext.GrantScope != null)
-            {
-                request.GrantScope = cmdletContext.GrantScope;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -356,9 +356,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         {
             public System.String AccountId { get; set; }
             public System.String ApplicationArn { get; set; }
+            public System.String GrantScope { get; set; }
             public System.String GranteeIdentifier { get; set; }
             public Amazon.S3Control.GranteeType GranteeType { get; set; }
-            public System.String GrantScope { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.S3Control.Permission Permission { get; set; }

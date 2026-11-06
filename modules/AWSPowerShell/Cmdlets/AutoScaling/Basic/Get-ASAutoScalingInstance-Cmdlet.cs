@@ -45,6 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter IncludeManagedResource
+        /// <summary>
+        /// <para>
+        /// <para> Specifies whether to include managed Auto Scaling instances in the response. When
+        /// set to <c>true</c> (default), the response includes managed Auto Scaling instances.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeManagedResources")]
+        public System.Boolean? IncludeManagedResource { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -66,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return with this call. The default value is <c>50</c>
-        /// and the maximum value is <c>50</c>.</para>
+        /// and the maximum value is <c>50</c>.</para><para>A response can contain fewer items than the value specified by <c>MaxRecords</c>,
+        /// even when more items are available. To retrieve the additional items, use the <c>NextToken</c>
+        /// value in a subsequent call rather than relying on the number of items in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -134,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.Select = CreateSelectDelegate<Amazon.AutoScaling.Model.DescribeAutoScalingInstancesResponse, GetASAutoScalingInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IncludeManagedResource = this.IncludeManagedResource;
             if (this.InstanceId != null)
             {
                 context.InstanceId = new List<System.String>(this.InstanceId);
@@ -168,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // create request and set iteration invariants
             var request = new Amazon.AutoScaling.Model.DescribeAutoScalingInstancesRequest();
             
+            if (cmdletContext.IncludeManagedResource != null)
+            {
+                request.IncludeManagedResources = cmdletContext.IncludeManagedResource.Value;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceIds = cmdletContext.InstanceId;
@@ -231,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             
             // create request and set iteration invariants
             var request = new Amazon.AutoScaling.Model.DescribeAutoScalingInstancesRequest();
+            if (cmdletContext.IncludeManagedResource != null)
+            {
+                request.IncludeManagedResources = cmdletContext.IncludeManagedResource.Value;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceIds = cmdletContext.InstanceId;
@@ -341,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeManagedResource { get; set; }
             public List<System.String> InstanceId { get; set; }
             public int? MaxRecord { get; set; }
             public System.String NextToken { get; set; }

@@ -60,6 +60,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSystemTableConfiguration" OutputProperty="*" Verb="New" Noun="SystemTableConfiguration" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkGroup" Verb="New" Noun="WorkGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="Configuration_ManagedQueryResultsConfiguration_EncryptionConfiguration_KmsKey" NewName="Configuration_ManagedQueryResultsConfiguration_EncryptionConfiguration_KmsKey" />
@@ -112,6 +116,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePreparedStatement" Verb="Remove" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="StatementName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSystemTableConfiguration" Verb="Remove" Noun="SystemTableConfiguration" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -191,6 +199,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSystemTableConfiguration" OutputProperty="*" Verb="Get" Noun="SystemTableConfiguration" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTableMetadata" OutputProperty="TableMetadata" Verb="Get" Noun="TableMetadata" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -252,6 +264,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSystemTableStatuses" OutputProperty="Items" Verb="Get" Noun="SystemTableStatusList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -340,6 +356,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePreparedStatement" Verb="Update" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="StatementName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSystemTableConfiguration" OutputProperty="*" Verb="Update" Noun="SystemTableConfiguration" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

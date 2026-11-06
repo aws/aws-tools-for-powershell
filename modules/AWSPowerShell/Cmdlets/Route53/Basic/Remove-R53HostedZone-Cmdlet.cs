@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  
     /// <para>
     /// If the hosted zone was created by another service, such as Cloud Map, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service">Deleting
-    /// Public Hosted Zones That Were Created by Another Service</a> in the <i>Amazon Route 53
-    /// Developer Guide</i> for information about how to delete it. (The process is the same
-    /// for public and private hosted zones that were created by another service.)
+    /// Public Hosted Zones That Were Created by Another Service</a> in the <i>Amazon Route
+    /// 53 Developer Guide</i> for information about how to delete it. (The process is the
+    /// same for public and private hosted zones that were created by another service.)
     /// </para><para>
     /// If you want to keep your domain registration but you want to stop routing internet
     /// traffic to your website or web application, we recommend that you delete resource
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// If you want to avoid the monthly charge for the hosted zone, you can transfer DNS
     /// service for the domain to a free DNS service. When you transfer DNS service, you have
     /// to update the name servers for the domain registration. If the domain is registered
-    /// with Route 53, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_UpdateDomainNameservers.html">UpdateDomainNameservers</a>
-    /// for information about how to replace Route 53 name servers with name servers for the
+    /// with Route 53, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_UpdateDomainNameservers.html">UpdateDomainNameservers</a>
+    /// for information about how to replace Route 53 name servers with name servers for the
     /// new DNS service. If the domain is registered with another registrar, use the method
     /// provided by the registrar to update name servers for the domain registration. For
     /// more information, perform an internet search on "free DNS service."

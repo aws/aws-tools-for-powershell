@@ -103,11 +103,25 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Boolean? IncludeInstance { get; set; }
         #endregion
         
+        #region Parameter IncludeManagedResource
+        /// <summary>
+        /// <para>
+        /// <para> Specifies whether to include managed Auto Scaling groups in the response. When set
+        /// to <c>true</c> (default), the response includes managed Auto Scaling groups. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeManagedResources")]
+        public System.Boolean? IncludeManagedResource { get; set; }
+        #endregion
+        
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return with this call. The default value is <c>50</c>
-        /// and the maximum value is <c>100</c>.</para>
+        /// and the maximum value is <c>100</c>.</para><para>A response can contain fewer items than the value specified by <c>MaxRecords</c>,
+        /// even when more items are available. To retrieve the additional items, use the <c>NextToken</c>
+        /// value in a subsequent call rather than relying on the number of items in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -184,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.Filter = new List<Amazon.AutoScaling.Model.Filter>(this.Filter);
             }
             context.IncludeInstance = this.IncludeInstance;
+            context.IncludeManagedResource = this.IncludeManagedResource;
             context.MaxRecord = this.MaxRecord;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxRecord)) && this.MaxRecord.HasValue)
@@ -225,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.IncludeInstance != null)
             {
                 request.IncludeInstances = cmdletContext.IncludeInstance.Value;
+            }
+            if (cmdletContext.IncludeManagedResource != null)
+            {
+                request.IncludeManagedResources = cmdletContext.IncludeManagedResource.Value;
             }
             if (cmdletContext.MaxRecord != null)
             {
@@ -296,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.IncludeInstance != null)
             {
                 request.IncludeInstances = cmdletContext.IncludeInstance.Value;
+            }
+            if (cmdletContext.IncludeManagedResource != null)
+            {
+                request.IncludeManagedResources = cmdletContext.IncludeManagedResource.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -406,6 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public List<System.String> AutoScalingGroupName { get; set; }
             public List<Amazon.AutoScaling.Model.Filter> Filter { get; set; }
             public System.Boolean? IncludeInstance { get; set; }
+            public System.Boolean? IncludeManagedResource { get; set; }
             public int? MaxRecord { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse, GetASAutoScalingGroupCmdlet, object> Select { get; set; } =

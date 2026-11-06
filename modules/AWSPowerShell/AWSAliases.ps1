@@ -1883,6 +1883,8 @@ Set-Alias -Name Create-ATHPreparedStatement -Value New-ATHPreparedStatement
 Set-Alias -Name ATH-CreatePreparedStatement -Value New-ATHPreparedStatement
 Set-Alias -Name Create-ATHPresignedNotebookUrl -Value New-ATHPresignedNotebookUrl
 Set-Alias -Name ATH-CreatePresignedNotebookUrl -Value New-ATHPresignedNotebookUrl
+Set-Alias -Name Create-ATHSystemTableConfiguration -Value New-ATHSystemTableConfiguration
+Set-Alias -Name ATH-CreateSystemTableConfiguration -Value New-ATHSystemTableConfiguration
 Set-Alias -Name Create-ATHWorkGroup -Value New-ATHWorkGroup
 Set-Alias -Name ATH-CreateWorkGroup -Value New-ATHWorkGroup
 Set-Alias -Name Delete-ATHCapacityReservation -Value Remove-ATHCapacityReservation
@@ -1895,6 +1897,8 @@ Set-Alias -Name Delete-ATHNotebook -Value Remove-ATHNotebook
 Set-Alias -Name ATH-DeleteNotebook -Value Remove-ATHNotebook
 Set-Alias -Name Delete-ATHPreparedStatement -Value Remove-ATHPreparedStatement
 Set-Alias -Name ATH-DeletePreparedStatement -Value Remove-ATHPreparedStatement
+Set-Alias -Name Delete-ATHSystemTableConfiguration -Value Remove-ATHSystemTableConfiguration
+Set-Alias -Name ATH-DeleteSystemTableConfiguration -Value Remove-ATHSystemTableConfiguration
 Set-Alias -Name Delete-ATHWorkGroup -Value Remove-ATHWorkGroup
 Set-Alias -Name ATH-DeleteWorkGroup -Value Remove-ATHWorkGroup
 Set-Alias -Name ATH-ExportNotebook -Value Export-ATHNotebook
@@ -1917,6 +1921,7 @@ Set-Alias -Name ATH-GetResourceDashboard -Value Get-ATHResourceDashboard
 Set-Alias -Name ATH-GetSession -Value Get-ATHSession
 Set-Alias -Name ATH-GetSessionEndpoint -Value Get-ATHSessionEndpoint
 Set-Alias -Name ATH-GetSessionStatus -Value Get-ATHSessionStatus
+Set-Alias -Name ATH-GetSystemTableConfiguration -Value Get-ATHSystemTableConfiguration
 Set-Alias -Name ATH-GetTableMetadata -Value Get-ATHTableMetadata
 Set-Alias -Name ATH-GetWorkGroup -Value Get-ATHWorkGroup
 Set-Alias -Name ATH-ImportNotebook -Value Import-ATHNotebook
@@ -1959,6 +1964,9 @@ Set-Alias -Name ATH-ListQueryExecutions -Value Get-ATHQueryExecutionList
 Set-Alias -Name List-ATHSessions -Value Get-ATHSessionList
 Set-Alias -Name List-ATHSessionList -Value Get-ATHSessionList
 Set-Alias -Name ATH-ListSessions -Value Get-ATHSessionList
+Set-Alias -Name List-ATHSystemTableStatuses -Value Get-ATHSystemTableStatusList
+Set-Alias -Name List-ATHSystemTableStatusList -Value Get-ATHSystemTableStatusList
+Set-Alias -Name ATH-ListSystemTableStatuses -Value Get-ATHSystemTableStatusList
 Set-Alias -Name List-ATHTableMetadata -Value Get-ATHTableMetadataList
 Set-Alias -Name List-ATHTableMetadataList -Value Get-ATHTableMetadataList
 Set-Alias -Name ATH-ListTableMetadata -Value Get-ATHTableMetadataList
@@ -1983,6 +1991,7 @@ Set-Alias -Name ATH-UpdateNamedQuery -Value Update-ATHNamedQuery
 Set-Alias -Name ATH-UpdateNotebook -Value Update-ATHNotebook
 Set-Alias -Name ATH-UpdateNotebookMetadata -Value Update-ATHNotebookMetadata
 Set-Alias -Name ATH-UpdatePreparedStatement -Value Update-ATHPreparedStatement
+Set-Alias -Name ATH-UpdateSystemTableConfiguration -Value Update-ATHSystemTableConfiguration
 Set-Alias -Name ATH-UpdateWorkGroup -Value Update-ATHWorkGroup
 Set-Alias -Name Associate-AUDMAssessmentReportEvidenceFolder -Value Add-AUDMAssessmentReportEvidenceFolder
 Set-Alias -Name AUDM-AssociateAssessmentReportEvidenceFolder -Value Add-AUDMAssessmentReportEvidenceFolder
@@ -8677,6 +8686,9 @@ Set-Alias -Name CCS2-UpdateCampaignFlowAssociation -Value Update-CCS2CampaignFlo
 Set-Alias -Name CCS2-UpdateCampaignName -Value Update-CCS2CampaignName
 Set-Alias -Name CCS2-UpdateCampaignSchedule -Value Update-CCS2CampaignSchedule
 Set-Alias -Name CCS2-UpdateCampaignSource -Value Update-CCS2CampaignSource
+Set-Alias -Name Create-CCASRelatedItem -Value New-CCASRelatedItemBatch
+Set-Alias -Name Create-CCASRelatedItemBatch -Value New-CCASRelatedItemBatch
+Set-Alias -Name CCAS-BatchCreateRelatedItem -Value New-CCASRelatedItemBatch
 Set-Alias -Name Get-CCASCaseRule -Value Group-CCASGetCaseRule
 Set-Alias -Name Get-CCASGetCaseRule -Value Group-CCASGetCaseRule
 Set-Alias -Name CCAS-BatchGetCaseRule -Value Group-CCASGetCaseRule
@@ -8686,6 +8698,8 @@ Set-Alias -Name CCAS-BatchGetField -Value Group-CCASGetField
 Set-Alias -Name Put-CCASFieldOptions -Value Group-CCASPutFieldOption
 Set-Alias -Name Put-CCASPutFieldOption -Value Group-CCASPutFieldOption
 Set-Alias -Name CCAS-BatchPutFieldOptions -Value Group-CCASPutFieldOption
+Set-Alias -Name Update-CCASCase -Value Update-CCASCaseBatch
+Set-Alias -Name CCAS-BatchUpdateCase -Value Update-CCASCaseBatch
 Set-Alias -Name Create-CCASCase -Value New-CCASCase
 Set-Alias -Name CCAS-CreateCase -Value New-CCASCase
 Set-Alias -Name Create-CCASCaseRule -Value New-CCASCaseRule
@@ -28863,6 +28877,7 @@ Set-Alias -Name RAM-ReplacePermissionAssociations -Value Edit-RAMPermissionAssoc
 Set-Alias -Name RAM-SetDefaultPermissionVersion -Value Set-RAMDefaultPermissionVersion
 Set-Alias -Name RAM-TagResource -Value Add-RAMResourceTag
 Set-Alias -Name RAM-UntagResource -Value Remove-RAMResourceTag
+Set-Alias -Name RAM-UpdatePermission -Value Update-RAMPermission
 Set-Alias -Name RAM-UpdateResourceShare -Value Update-RAMResourceShare
 Set-Alias -Name Create-RBINRule -Value New-RBINRule
 Set-Alias -Name RBIN-CreateRule -Value New-RBINRule
@@ -34278,6 +34293,8 @@ Set-Alias -Name Delete-SSMResourceDataSync -Value Remove-SSMResourceDataSync
 Set-Alias -Name SSM-DeleteResourceDataSync -Value Remove-SSMResourceDataSync
 Set-Alias -Name Delete-SSMResourcePolicy -Value Remove-SSMResourcePolicy
 Set-Alias -Name SSM-DeleteResourcePolicy -Value Remove-SSMResourcePolicy
+Set-Alias -Name Deregister-SSMDefaultHostManagementConfiguration -Value Unregister-SSMDefaultHostManagementConfiguration
+Set-Alias -Name SSM-DeregisterDefaultHostManagementConfiguration -Value Unregister-SSMDefaultHostManagementConfiguration
 Set-Alias -Name Deregister-SSMManagedInstance -Value Unregister-SSMManagedInstance
 Set-Alias -Name SSM-DeregisterManagedInstance -Value Unregister-SSMManagedInstance
 Set-Alias -Name Deregister-SSMPatchBaselineForPatchGroup -Value Unregister-SSMPatchBaselineForPatchGroup
@@ -34476,6 +34493,7 @@ Set-Alias -Name Put-SSMParameter -Value Write-SSMParameter
 Set-Alias -Name SSM-PutParameter -Value Write-SSMParameter
 Set-Alias -Name Put-SSMResourcePolicy -Value Write-SSMResourcePolicy
 Set-Alias -Name SSM-PutResourcePolicy -Value Write-SSMResourcePolicy
+Set-Alias -Name SSM-RegisterDefaultHostManagementConfiguration -Value Register-SSMDefaultHostManagementConfiguration
 Set-Alias -Name SSM-RegisterDefaultPatchBaseline -Value Register-SSMDefaultPatchBaseline
 Set-Alias -Name SSM-RegisterPatchBaselineForPatchGroup -Value Register-SSMPatchBaselineForPatchGroup
 Set-Alias -Name SSM-RegisterTargetWithMaintenanceWindow -Value Register-SSMTargetWithMaintenanceWindow

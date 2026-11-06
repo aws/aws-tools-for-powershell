@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para><para>
     /// Returns only access points attached to S3 buckets by default. To return all access
     /// points specify <c>DataSourceType</c> as <c>ALL</c>.
-    /// </para><para>
+    /// </para><para></para><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
     /// parameter of <c>x-amz-outpost-id</c> to be passed with the request. In addition, you
     /// must use an S3 on Outposts endpoint hostname prefix instead of <c>s3-control</c>.

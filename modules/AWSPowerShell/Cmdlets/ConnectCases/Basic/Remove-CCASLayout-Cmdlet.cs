@@ -30,7 +30,7 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Deletes a layout from a cases template. You can delete up to 100 layouts per domain.
+    /// Deletes a layout from a Cases template. You can delete up to 100 layouts per domain.
     /// 
     ///  
     /// <para>

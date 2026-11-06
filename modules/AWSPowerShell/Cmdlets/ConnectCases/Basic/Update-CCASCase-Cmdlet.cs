@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
     /// <note><para>
-    /// If you provide a value for <c>PerformedBy.UserArn</c> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
-    /// permission on the User ARN resource that you provide
+    /// If you provide a value for <c>PerformedBy.UserArn</c>, you must also have the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
+    /// permission on the user ARN that you provide.
     /// </para></note><para>
     /// Updates the values of fields on a case. Fields to be updated are received as an array
-    /// of id/value pairs identical to the <c>CreateCase</c> input .
+    /// of id/value pairs identical to the <c>CreateCase</c> input.
     /// </para><para>
     /// If the action is successful, the service sends back an HTTP 200 response with an empty
     /// HTTP body.
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter PerformedBy_UserArn
         /// <summary>
         /// <para>
-        /// <para>Represents the Amazon Connect ARN of the user.</para>
+        /// <para>Represents the Connect Customer ARN of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

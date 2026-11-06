@@ -92,6 +92,25 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public System.Int32? FromPermissionVersion { get; set; }
         #endregion
         
+        #region Parameter PermissionTemplateParameter
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the template parameter values to apply when replacing the permission. You
+        /// must provide values for all parameters declared in the target permission template.
+        /// This parameter is required only if the target permission (<c>toPermissionArn</c>)
+        /// has template parameters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PermissionTemplateParameters")]
+        public Amazon.RAM.Model.PermissionTemplateParameterInput[] PermissionTemplateParameter { get; set; }
+        #endregion
+        
         #region Parameter ToPermissionArn
         /// <summary>
         /// <para>
@@ -183,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             }
             #endif
             context.FromPermissionVersion = this.FromPermissionVersion;
+            if (this.PermissionTemplateParameter != null)
+            {
+                context.PermissionTemplateParameter = new List<Amazon.RAM.Model.PermissionTemplateParameterInput>(this.PermissionTemplateParameter);
+            }
             context.ToPermissionArn = this.ToPermissionArn;
             #if MODULAR
             if (this.ToPermissionArn == null && ParameterWasBound(nameof(this.ToPermissionArn)))
@@ -217,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.FromPermissionVersion != null)
             {
                 request.FromPermissionVersion = cmdletContext.FromPermissionVersion.Value;
+            }
+            if (cmdletContext.PermissionTemplateParameter != null)
+            {
+                request.PermissionTemplateParameters = cmdletContext.PermissionTemplateParameter;
             }
             if (cmdletContext.ToPermissionArn != null)
             {
@@ -280,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             public System.String ClientToken { get; set; }
             public System.String FromPermissionArn { get; set; }
             public System.Int32? FromPermissionVersion { get; set; }
+            public List<Amazon.RAM.Model.PermissionTemplateParameterInput> PermissionTemplateParameter { get; set; }
             public System.String ToPermissionArn { get; set; }
             public System.Func<Amazon.RAM.Model.ReplacePermissionAssociationsResponse, EditRAMPermissionAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplacePermissionAssociationsWork;

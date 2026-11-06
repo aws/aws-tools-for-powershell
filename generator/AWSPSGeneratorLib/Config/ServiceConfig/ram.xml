@@ -158,6 +158,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePermission" OutputProperty="PermissionStatus" Verb="Update" Noun="Permission" ShouldProcessTarget="PermissionArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateResourceShare" OutputProperty="ResourceShare" Verb="Update" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

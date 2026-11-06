@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_AnycastIpListId
         /// <summary>
         /// <para>
-        /// <para><note><para>To use this field for a multi-tenant distribution, use a connection group instead.
-        /// For more information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html">ConnectionGroup</a>.</para></note><para>ID of the Anycast static IP list that is associated with the distribution.</para></para>
+        /// <note><para>To use this field for a multi-tenant distribution, use a connection group instead.
+        /// For more information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html">ConnectionGroup</a>.</para></note><para>ID of the Anycast static IP list that is associated with the distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,10 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_ContinuousDeploymentPolicyId
         /// <summary>
         /// <para>
-        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// <note><para>This field only supports standard distributions. You can't specify this field for
         /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
         /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
-        /// Guide</i>.</para></note><para>The identifier of a continuous deployment policy. For more information, see <c>CreateContinuousDeploymentPolicy</c>.</para></para>
+        /// Guide</i>.</para></note><para>The identifier of a continuous deployment policy. For more information, see <c>CreateContinuousDeploymentPolicy</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -365,13 +365,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_IAMCertificateId
         /// <summary>
         /// <para>
-        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// <note><para>This field only supports standard distributions. You can't specify this field for
         /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
         /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>.</para></note><para>If the distribution uses <c>Aliases</c> (alternate domain names or CNAMEs) and the
         /// SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Identity
         /// and Access Management (IAM)</a>, provide the ID of the IAM certificate.</para><para>If you specify an IAM certificate ID, you must also specify values for <c>MinimumProtocolVersion</c>
-        /// and <c>SSLSupportMethod</c>. </para></para>
+        /// and <c>SSLSupportMethod</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -420,7 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_IsIPV6Enabled
         /// <summary>
         /// <para>
-        /// <para><note><para>To use this field for a multi-tenant distribution, use a connection group instead.
+        /// <note><para>To use this field for a multi-tenant distribution, use a connection group instead.
         /// For more information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html">ConnectionGroup</a>.</para></note><para>If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your
         /// distribution, specify <c>true</c>. If you specify <c>false</c>, CloudFront responds
         /// to IPv6 DNS requests with the DNS response code <c>NOERROR</c> and with no IP addresses.
@@ -431,14 +431,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// IPv6. If you want to restrict access to some content by IP address and not restrict
         /// access to other content (or restrict access but not by IP address), you can create
         /// two distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html">Creating
-        /// a Signed URL Using a Custom Policy</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you're using an Route 53 Amazon Web Services Integration alias resource record
+        /// a Signed URL Using a Custom Policy</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you're using an Route 53 Amazon Web Services Integration alias resource record
         /// set to route traffic to your CloudFront distribution, you need to create a second
         /// alias resource record set when both of the following are true:</para><ul><li><para>You enable IPv6 for the distribution</para></li><li><para>You're using alternate domain names in the URLs for your objects</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html">Routing
         /// Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name</a> in
-        /// the <i>Route 53 Amazon Web Services Integration Developer Guide</i>.</para><para>If you created a CNAME resource record set, either with Route 53 Amazon Web Services
+        /// the <i>Route 53 Amazon Web Services Integration Developer Guide</i>.</para><para>If you created a CNAME resource record set, either with Route 53 Amazon Web Services
         /// Integration or with another DNS service, you don't need to make any changes. A CNAME
         /// record will route traffic to your distribution regardless of the IP address format
-        /// of the viewer request.</para></para>
+        /// of the viewer request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -451,9 +451,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>A complex type that contains the CNAME aliases, if any, that you want to associate
         /// with this distribution.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -467,9 +468,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>Optional: A complex type that contains cache behaviors for this distribution. If <c>Quantity</c>
         /// is <c>0</c>, you can omit <c>Items</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -484,9 +486,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>A complex type that contains a <c>CustomErrorResponse</c> element for each HTTP status
         /// code for which you want to specify a custom error page and/or a caching duration.
         /// </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -502,9 +505,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// to. Valid values for <c>CachedMethods</c> include <c>GET</c>, <c>HEAD</c>, and <c>OPTIONS</c>,
         /// depending on which caching option you choose. For more information, see the preceding
         /// section.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -518,9 +522,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>A complex type that contains the HTTP methods that you want CloudFront to process
         /// and forward to your origin.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -533,9 +538,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A list of cookie names.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -548,9 +554,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A list of HTTP header names.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -564,9 +571,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>A list that contains the query string parameters that you want CloudFront to use as
         /// a basis for caching for a cache behavior. If <c>Quantity</c> is 0, you can omit <c>Items</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -581,9 +589,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>The CloudFront functions that are associated with a cache behavior in a CloudFront
         /// distribution. Your functions must be published to the <c>LIVE</c> stage to associate
         /// them with a cache behavior.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -597,9 +606,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para><b>Optional</b>: A complex type that contains <c>LambdaFunctionAssociation</c> items
         /// for this cache behavior. If <c>Quantity</c> is <c>0</c>, you can omit <c>Items</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -612,9 +622,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A list of key groups identifiers.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -627,9 +638,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A list of Amazon Web Services account identifiers.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -642,9 +654,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The items (origin groups) in a distribution.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -657,9 +670,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A list of origins.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -687,9 +701,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// on the <i>International Organization for Standardization</i> website. You can also
         /// refer to the country list on the CloudFront console, which includes both country names
         /// and codes.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -702,9 +717,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A complex type that contains <c>Tag</c> elements.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -763,9 +779,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The parameters that you specify for a distribution tenant.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -791,7 +808,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_PriceClass
         /// <summary>
         /// <para>
-        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// <note><para>This field only supports standard distributions. You can't specify this field for
         /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
         /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>.</para></note><para>The price class that corresponds with the maximum price that you want to pay for CloudFront
@@ -803,7 +820,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// the Price Class for a CloudFront Distribution</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>. For information about CloudFront pricing, including how price classes (such
         /// as Price Class 100) map to CloudFront regions, see <a href="http://aws.amazon.com/cloudfront/pricing/">Amazon
-        /// CloudFront Pricing</a>.</para></para>
+        /// CloudFront Pricing</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1062,14 +1079,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_SmoothStreaming
         /// <summary>
         /// <para>
-        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// <note><para>This field only supports standard distributions. You can't specify this field for
         /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
         /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>.</para></note><para>Indicates whether you want to distribute media files in the Microsoft Smooth Streaming
         /// format using the origin that is associated with this cache behavior. If so, specify
         /// <c>true</c>; if not, specify <c>false</c>. If you specify <c>true</c> for <c>SmoothStreaming</c>,
         /// you can still distribute other content using this cache behavior if the content matches
-        /// the value of <c>PathPattern</c>.</para></para>
+        /// the value of <c>PathPattern</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1101,12 +1118,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_Staging
         /// <summary>
         /// <para>
-        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// <note><para>This field only supports standard distributions. You can't specify this field for
         /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
         /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>.</para></note><para>A Boolean that indicates whether this is a staging distribution. When this value is
         /// <c>true</c>, this is a staging distribution. When this value is <c>false</c>, this
-        /// is not a staging distribution.</para></para>
+        /// is not a staging distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1177,7 +1194,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_WebACLId
         /// <summary>
         /// <para>
-        /// <para><note><para>Multi-tenant distributions only support WAF V2 web ACLs.</para></note><para>A unique identifier that specifies the WAF web ACL, if any, to associate with this
+        /// <note><para>Multi-tenant distributions only support WAF V2 web ACLs.</para></note><para>A unique identifier that specifies the WAF web ACL, if any, to associate with this
         /// distribution. To specify a web ACL created using the latest version of WAF, use the
         /// ACL ARN, for example <c>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.
         /// To specify a web ACL created using WAF Classic, use the ACL ID, for example <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.</para><para>WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
@@ -1187,7 +1204,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront
         /// to return a custom error page when a request is blocked. For more information about
         /// WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">WAF
-        /// Developer Guide</a>.</para></para>
+        /// Developer Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1225,7 +1242,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_DefaultTTL
         /// <summary>
         /// <para>
-        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// <note><para>This field only supports standard distributions. You can't specify this field for
         /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
         /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>.</para></note><para>This field is deprecated. We recommend that you use the <c>DefaultTTL</c> field in
@@ -1237,7 +1254,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// add HTTP headers such as <c>Cache-Control max-age</c>, <c>Cache-Control s-maxage</c>,
         /// and <c>Expires</c> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
         /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para></para>
+        /// Developer Guide</i>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -1250,7 +1267,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_MaxTTL
         /// <summary>
         /// <para>
-        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// <note><para>This field only supports standard distributions. You can't specify this field for
         /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
         /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>.</para></note><para>This field is deprecated. We recommend that you use the <c>MaxTTL</c> field in a cache
@@ -1262,7 +1279,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// headers such as <c>Cache-Control max-age</c>, <c>Cache-Control s-maxage</c>, and <c>Expires</c>
         /// to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
         /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para></para>
+        /// Developer Guide</i>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -1275,7 +1292,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_MinTTL
         /// <summary>
         /// <para>
-        /// <para><note><para>This field only supports standard distributions. You can't specify this field for
+        /// <note><para>This field only supports standard distributions. You can't specify this field for
         /// multi-tenant distributions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas">Unsupported
         /// features for SaaS Manager for Amazon CloudFront</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>.</para></note><para>This field is deprecated. We recommend that you use the <c>MinTTL</c> field in a cache
@@ -1287,7 +1304,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
         /// Developer Guide</i>.</para><para>You must specify <c>0</c> for <c>MinTTL</c> if you configure CloudFront to forward
         /// all headers to your origin (under <c>Headers</c>, if you specify <c>1</c> for <c>Quantity</c>
-        /// and <c>*</c> for <c>Name</c>).</para></para>
+        /// and <c>*</c> for <c>Name</c>).</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

@@ -36,19 +36,19 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     ///  <ul><li><para><b>Comment</b> - Update the text content of an existing comment
     /// </para></li><li><para><b>Custom</b> - Update the fields of a custom related item. You can add, modify,
     /// and remove fields from a custom related item. There's a quota for the number of fields
-    /// allowed in a Custom type related item. See <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas">Amazon
-    /// Connect Cases quotas</a>.
+    /// allowed in a Custom type related item. See <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas">Connect
+    /// Customer Cases quotas</a>.
     /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
     /// When updating a Custom related item, all existing and new fields, and their associated
     /// values should be included in the request. Fields not included as part of this request
     /// will be removed.
     /// </para></li><li><para>
-    /// If you provide a value for <c>performedBy.userArn</c> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">DescribeUser</a>
+    /// If you provide a value for <c>performedBy.userArn</c>, you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">DescribeUser</a>
     /// permission on the ARN of the user that you provide.
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html#system-case-fields">System
     /// case fields</a> cannot be used in a custom related item.
-    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
-    /// Connect endpoints and quotas</a>.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect
+    /// Customer endpoints and quotas</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CCASRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter PerformedBy_UserArn
         /// <summary>
         /// <para>
-        /// <para>Represents the Amazon Connect ARN of the user.</para>
+        /// <para>Represents the Connect Customer ARN of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

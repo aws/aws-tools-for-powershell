@@ -30,7 +30,7 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Lists all case rules in a Cases domain. In the Amazon Connect admin website, case
+    /// Lists all case rules in a Cases domain. In the Connect Customer admin website, case
     /// rules are known as <i>case field conditions</i>. For more information about case field
     /// conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add
     /// case field conditions to a case template</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.

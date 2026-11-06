@@ -121,6 +121,13 @@ $SSM_Completers = {
             break
         }
 
+        # Amazon.SimpleSystemsManagement.DHMCPermissionModel
+        "Register-SSMDefaultHostManagementConfiguration/PermissionModel"
+        {
+            $v = "SELF_MANAGED","SERVICE_MANAGED"
+            break
+        }
+
         # Amazon.SimpleSystemsManagement.DocumentFormat
         {
             ($_ -eq "Get-SSMDocument/DocumentFormat") -Or
@@ -375,6 +382,7 @@ $SSM_map = @{
     "NotificationConfig_NotificationType"=@("Register-SSMTaskWithMaintenanceWindow","Send-SSMCommand","Update-SSMMaintenanceWindowTask")
     "OperatingSystem"=@("Get-SSMDefaultPatchBaseline","Get-SSMPatchBaselineForPatchGroup","Get-SSMPatchProperty","New-SSMPatchBaseline")
     "PatchSet"=@("Get-SSMPatchProperty")
+    "PermissionModel"=@("Register-SSMDefaultHostManagementConfiguration")
     "PermissionType"=@("Edit-SSMDocumentPermission","Get-SSMDocumentPermission")
     "Property"=@("Get-SSMPatchProperty")
     "RejectedPatchesAction"=@("New-SSMPatchBaseline","Update-SSMPatchBaseline")
@@ -469,6 +477,7 @@ $SSM_SelectMap = @{
                "Remove-SSMPatchBaseline",
                "Remove-SSMResourceDataSync",
                "Remove-SSMResourcePolicy",
+               "Unregister-SSMDefaultHostManagementConfiguration",
                "Unregister-SSMManagedInstance",
                "Unregister-SSMPatchBaselineForPatchGroup",
                "Unregister-SSMTargetFromMaintenanceWindow",
@@ -560,6 +569,7 @@ $SSM_SelectMap = @{
                "Write-SSMInventory",
                "Write-SSMParameter",
                "Write-SSMResourcePolicy",
+               "Register-SSMDefaultHostManagementConfiguration",
                "Register-SSMDefaultPatchBaseline",
                "Register-SSMPatchBaselineForPatchGroup",
                "Register-SSMTargetWithMaintenanceWindow",

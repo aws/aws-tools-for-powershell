@@ -41,6 +41,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// If you change the KMS key alias for the KMS key used to encrypt a parameter, then
     /// you must also update the key alias the parameter uses to reference KMS. Otherwise,
     /// <c>GetParameterHistory</c> retrieves whatever the original key alias was referencing.
+    /// </para></important><important><para>
+    /// This operation is authorized against the <c>ssm:GetParameterHistory</c> action, not
+    /// against <c>ssm:GetParameter</c>. Because parameter history includes every version
+    /// of a parameter, including the current one, a principal who is denied <c>ssm:GetParameter</c>,
+    /// <c>ssm:GetParameters</c>, and <c>ssm:GetParametersByPath</c> but allowed <c>ssm:GetParameterHistory</c>
+    /// can still read the current value. To restrict access to a parameter value, deny every
+    /// action that can return it. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-retrieval-authorization.html">How
+    /// Parameter Store authorizes parameter retrieval</a> in the <i>Amazon Web Services Systems
+    /// Manager User Guide</i>.
     /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMParameterHistory")]

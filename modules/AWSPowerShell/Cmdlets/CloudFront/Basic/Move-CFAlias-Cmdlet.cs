@@ -30,7 +30,28 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Amazon.CloudFront.IAmazonCloudFront.AssociateAlias
+    /// <note><para>
+    /// The <c>AssociateAlias</c> API operation only supports standard distributions. To move
+    /// domains between distribution tenants and/or standard distributions, we recommend that
+    /// you use the <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDomainAssociation.html">UpdateDomainAssociation</a>
+    /// API operation instead.
+    /// </para></note><para>
+    /// Associates an alias with a CloudFront standard distribution. An alias is commonly
+    /// known as a custom domain or vanity domain. It can also be called a CNAME or alternate
+    /// domain name.
+    /// </para><para>
+    /// With this operation, you can move an alias that's already used for a standard distribution
+    /// to a different standard distribution. This prevents the downtime that could occur
+    /// if you first remove the alias from one standard distribution and then separately add
+    /// the alias to another standard distribution.
+    /// </para><para>
+    /// To use this operation, specify the alias and the ID of the target standard distribution.
+    /// </para><para>
+    /// For more information, including how to set up the target standard distribution, prerequisites
+    /// that you must complete, and other restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving
+    /// an alternate domain name to a different standard distribution or distribution tenant</a>
+    /// in the <i>Amazon CloudFront Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Move", "CFAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

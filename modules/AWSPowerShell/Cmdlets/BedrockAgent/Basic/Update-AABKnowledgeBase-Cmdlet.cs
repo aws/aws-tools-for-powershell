@@ -452,6 +452,25 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String KnowledgeBaseId { get; set; }
         #endregion
         
+        #region Parameter MetadataConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies up to 30 custom metadata field configurations for a managed knowledge base.</para><para>The list that you specify replaces the existing configurations. The update removes
+        /// any configuration that you leave out, and its field is no longer searchable. An empty
+        /// list removes all configurations. If you don't specify a list, the existing configurations
+        /// don't change.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataConfigurations")]
+        public Amazon.BedrockAgent.Model.MetadataConfiguration[] MetadataConfiguration { get; set; }
+        #endregion
+        
         #region Parameter StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField
         /// <summary>
         /// <para>
@@ -1196,6 +1215,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 WriteWarning("You are passing $null as a value for parameter KnowledgeBaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MetadataConfiguration != null)
+            {
+                context.MetadataConfiguration = new List<Amazon.BedrockAgent.Model.MetadataConfiguration>(this.MetadataConfiguration);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -1885,6 +1908,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (cmdletContext.KnowledgeBaseId != null)
             {
                 request.KnowledgeBaseId = cmdletContext.KnowledgeBaseId;
+            }
+            if (cmdletContext.MetadataConfiguration != null)
+            {
+                request.MetadataConfigurations = cmdletContext.MetadataConfiguration;
             }
             if (cmdletContext.Name != null)
             {
@@ -2700,6 +2727,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public List<Amazon.BedrockAgent.Model.VideoConfiguration> BedrockEmbeddingModelConfiguration_Video { get; set; }
             public List<Amazon.BedrockAgent.Model.SupplementalDataStorageLocation> SupplementalDataStorageConfiguration_StorageLocation { get; set; }
             public System.String KnowledgeBaseId { get; set; }
+            public List<Amazon.BedrockAgent.Model.MetadataConfiguration> MetadataConfiguration { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
             public System.String MongoDbAtlasConfiguration_CollectionName { get; set; }

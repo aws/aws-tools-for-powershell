@@ -64,9 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para> Information about changes to a CIDR collection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -85,13 +86,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter CollectionVersion
         /// <summary>
         /// <para>
-        /// <para>A sequential counter that Amazon Route 53 sets to 1 when you create a collection and
+        /// <para>A sequential counter that Amazon Route 53 sets to 1 when you create a collection and
         /// increments it by 1 each time you update the collection.</para><para>We recommend that you use <c>ListCidrCollection</c> to get the current value of <c>CollectionVersion</c>
         /// for the collection that you want to update, and then include that value with the change
-        /// request. This prevents Route 53 from overwriting an intervening update: </para><ul><li><para>If the value in the request matches the value of <c>CollectionVersion</c> in the collection,
-        /// Route 53 updates the collection.</para></li><li><para>If the value of <c>CollectionVersion</c> in the collection is greater than the value
-        /// in the request, the collection was changed after you got the version number. Route 53
-        /// does not update the collection, and it returns a <c>CidrCollectionVersionMismatch</c>
+        /// request. This prevents Route 53 from overwriting an intervening update: </para><ul><li><para>If the value in the request matches the value of <c>CollectionVersion</c> in the collection,
+        /// Route 53 updates the collection.</para></li><li><para>If the value of <c>CollectionVersion</c> in the collection is greater than the value
+        /// in the request, the collection was changed after you got the version number. Route
+        /// 53 does not update the collection, and it returns a <c>CidrCollectionVersionMismatch</c>
         /// error. </para></li></ul>
         /// </para>
         /// </summary>

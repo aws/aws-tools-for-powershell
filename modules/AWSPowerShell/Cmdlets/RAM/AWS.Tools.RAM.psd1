@@ -121,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-RAMResourceShare', 
         'Remove-RAMResourceTag', 
         'Set-RAMDefaultPermissionVersion', 
+        'Update-RAMPermission', 
         'Update-RAMResourceShare')
 
     # Variables to export from this module

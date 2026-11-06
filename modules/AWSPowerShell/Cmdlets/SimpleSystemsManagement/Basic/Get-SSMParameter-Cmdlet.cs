@@ -41,6 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// To get information about more than one parameter at a time, use the <a>GetParameters</a>
     /// operation.
     /// </para></note><note><para>
+    /// This operation is authorized against the <c>ssm:GetParameter</c> action. Denying that
+    /// action alone doesn't restrict <a>GetParameters</a>, <a>GetParameterHistory</a>, or
+    /// <a>GetParametersByPath</a>, each of which is authorized against its own action. For
+    /// more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-retrieval-authorization.html">How
+    /// Parameter Store authorizes parameter retrieval</a> in the <i>Amazon Web Services Systems
+    /// Manager User Guide</i>.
+    /// </para></note><note><para>
     /// Parameter Store throughput defines the number of API transactions per second (TPS)
     /// that Systems Manager can process. This applies to <c>GetParameter</c>, <c>GetParameters</c>,
     /// and <c>PutParameter</c> API calls for your Amazon Web Services account and Amazon

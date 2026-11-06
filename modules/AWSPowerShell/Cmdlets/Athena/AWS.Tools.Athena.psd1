@@ -123,6 +123,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ATHSessionEndpoint', 
         'Get-ATHSessionList', 
         'Get-ATHSessionStatus', 
+        'Get-ATHSystemTableConfiguration', 
+        'Get-ATHSystemTableStatusList', 
         'Get-ATHTableMetadata', 
         'Get-ATHTableMetadataList', 
         'Get-ATHWorkGroup', 
@@ -134,6 +136,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-ATHNotebook', 
         'New-ATHPreparedStatement', 
         'New-ATHPresignedNotebookUrl', 
+        'New-ATHSystemTableConfiguration', 
         'New-ATHWorkGroup', 
         'Remove-ATHCapacityReservation', 
         'Remove-ATHDataCatalog', 
@@ -142,6 +145,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ATHPreparedStatement', 
         'Remove-ATHResourceTag', 
         'Remove-ATHSession', 
+        'Remove-ATHSystemTableConfiguration', 
         'Remove-ATHWorkGroup', 
         'Start-ATHCalculationExecution', 
         'Start-ATHQueryExecution', 
@@ -155,6 +159,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-ATHNotebook', 
         'Update-ATHNotebookMetadata', 
         'Update-ATHPreparedStatement', 
+        'Update-ATHSystemTableConfiguration', 
         'Update-ATHWorkGroup', 
         'Write-ATHCapacityAssignmentConfiguration')
 

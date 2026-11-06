@@ -32,6 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Delete a parameter from the system. After deleting a parameter, wait for at least
     /// 30 seconds to create a parameter with the same name.
+    /// 
+    ///  <note><para>
+    /// This operation is authorized against the <c>ssm:DeleteParameter</c> action. Denying
+    /// that action alone doesn't restrict <a>DeleteParameters</a>, which is authorized against
+    /// its own action. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-restrict-parameter-access.html">Restricting
+    /// access to specific parameters and paths</a> in the <i>Amazon Web Services Systems
+    /// Manager User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "SSMParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

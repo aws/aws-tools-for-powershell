@@ -31,6 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
     /// Retrieves the contents of a managed permission in JSON format.
+    /// 
+    ///  
+    /// <para>
+    /// If the permission has template parameters, you can include the <c>permissionTemplateParameters</c>
+    /// parameter in your request. The operation then renders the returned policy with the
+    /// specified values in place of the template parameter placeholders. If you omit <c>permissionTemplateParameters</c>,
+    /// the operation returns the raw policy template with <c>@{parameterName}</c> placeholders
+    /// unchanged.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "RAMPermission")]
     [OutputType("Amazon.RAM.Model.ResourceSharePermissionDetail")]
@@ -65,6 +74,27 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PermissionArn { get; set; }
+        #endregion
+        
+        #region Parameter PermissionTemplateParameter
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the template parameter values to use when rendering the permission's policy
+        /// template. Each entry supplies a parameter name and its values. When you provide this
+        /// parameter, the response contains the rendered policy with the specified values in
+        /// place of the template parameter placeholders.</para><para>For <c>STRING</c> type parameters, provide a single value. For <c>STRING_LIST</c>
+        /// type parameters, provide one or more values.</para><para>You can specify this parameter only for permissions that declare template parameters.
+        /// You must provide values for all parameters declared in the permission template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PermissionTemplateParameters")]
+        public Amazon.RAM.Model.PermissionTemplateParameterInput[] PermissionTemplateParameter { get; set; }
         #endregion
         
         #region Parameter PermissionVersion
@@ -115,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 WriteWarning("You are passing $null as a value for parameter PermissionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PermissionTemplateParameter != null)
+            {
+                context.PermissionTemplateParameter = new List<Amazon.RAM.Model.PermissionTemplateParameterInput>(this.PermissionTemplateParameter);
+            }
             context.PermissionVersion = this.PermissionVersion;
             
             // allow further manipulation of loaded context prior to processing
@@ -135,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.PermissionArn != null)
             {
                 request.PermissionArn = cmdletContext.PermissionArn;
+            }
+            if (cmdletContext.PermissionTemplateParameter != null)
+            {
+                request.PermissionTemplateParameters = cmdletContext.PermissionTemplateParameter;
             }
             if (cmdletContext.PermissionVersion != null)
             {
@@ -196,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String PermissionArn { get; set; }
+            public List<Amazon.RAM.Model.PermissionTemplateParameterInput> PermissionTemplateParameter { get; set; }
             public System.Int32? PermissionVersion { get; set; }
             public System.Func<Amazon.RAM.Model.GetPermissionResponse, GetRAMPermissionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Permission;

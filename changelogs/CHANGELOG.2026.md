@@ -1,4 +1,46 @@
-﻿### 5.0.329 (2026-11-05 20:16Z)
+﻿### 5.0.330 (2026-11-06 20:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.365.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet Update-AABKnowledgeBase: added parameter MetadataConfiguration.
+  * Amazon Athena
+    * Added cmdlet Get-ATHSystemTableConfiguration leveraging the GetSystemTableConfiguration service API.
+    * Added cmdlet Get-ATHSystemTableStatusList leveraging the ListSystemTableStatuses service API.
+    * Added cmdlet New-ATHSystemTableConfiguration leveraging the CreateSystemTableConfiguration service API.
+    * Added cmdlet Remove-ATHSystemTableConfiguration leveraging the DeleteSystemTableConfiguration service API.
+    * Added cmdlet Update-ATHSystemTableConfiguration leveraging the UpdateSystemTableConfiguration service API.
+    * Modified cmdlet New-ATHWorkGroup: added parameter Configuration_SystemTableStatus.
+  * Amazon Auto Scaling
+    * Modified cmdlet Get-ASAutoScalingGroup: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-ASAutoScalingInstance: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-ASNotificationConfiguration: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-ASPolicy: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-ASScalingActivity: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-ASScheduledAction: added parameter IncludeManagedResource.
+    * Modified cmdlet Get-ASTag: added parameter IncludeManagedResource.
+  * Amazon Connect Cases
+    * Added cmdlet New-CCASRelatedItemBatch leveraging the BatchCreateRelatedItem service API.
+    * Added cmdlet Update-CCASCaseBatch leveraging the BatchUpdateCase service API.
+  * Amazon DataZone
+    * Modified cmdlet Update-DZConnection: added parameters Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference, Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId, Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType, Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrl, Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap, Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference, Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId, Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType, Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrl and Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap.
+  * Amazon Elemental MediaConvert
+    * Modified cmdlet New-EMCJob: added parameter ElementalInferenceSettings_FeedConfigurationSource_FeedArn.
+    * Modified cmdlet New-EMCJobTemplate: added parameter ElementalInferenceSettings_FeedConfigurationSource_FeedArn.
+    * Modified cmdlet Update-EMCJobTemplate: added parameter ElementalInferenceSettings_FeedConfigurationSource_FeedArn.
+  * Amazon Resource Access Manager (RAM)
+    * Added cmdlet Update-RAMPermission leveraging the UpdatePermission service API.
+    * Modified cmdlet Add-RAMPermissionToResourceShare: added parameter PermissionTemplateParameter.
+    * Modified cmdlet Edit-RAMPermissionAssociation: added parameter PermissionTemplateParameter.
+    * Modified cmdlet Get-RAMPermission: added parameter PermissionTemplateParameter.
+    * Modified cmdlet Get-RAMPermissionAssociationList: added parameters ResourceOwner and ResourceShareArn.
+    * Modified cmdlet Get-RAMPermissionList: added parameters PermissionStatus and ResourceOwner.
+    * Modified cmdlet New-RAMPermission: added parameter PermissionTemplateParameter.
+    * Modified cmdlet New-RAMPermissionVersion: added parameter PermissionTemplateParameter.
+    * Modified cmdlet New-RAMResourceShare: added parameter PermissionTemplateParameter.
+  * Amazon Systems Manager
+    * Added cmdlet Register-SSMDefaultHostManagementConfiguration leveraging the RegisterDefaultHostManagementConfiguration service API.
+    * Added cmdlet Unregister-SSMDefaultHostManagementConfiguration leveraging the DeregisterDefaultHostManagementConfiguration service API.
+
+### 5.0.329 (2026-11-05 20:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.364.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Account Access Runtime. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ACCAR and can be listed using the command 'Get-AWSCmdletName -Service ACCAR'.
   * Amazon Bedrock Agent Runtime

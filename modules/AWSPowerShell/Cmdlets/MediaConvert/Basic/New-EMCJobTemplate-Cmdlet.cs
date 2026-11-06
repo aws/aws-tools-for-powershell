@@ -68,6 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ElementalInferenceSettings_FeedConfigurationSource_FeedArn
+        /// <summary>
+        /// <para>
+        /// The ARN of an Elemental Inference Feed.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ElementalInferenceSettings_FeedConfigurationSource_FeedArn { get; set; }
+        #endregion
+        
         #region Parameter HopDestination
         /// <summary>
         /// <para>
@@ -242,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             context.AccelerationSettings_Mode = this.AccelerationSettings_Mode;
             context.Category = this.Category;
             context.Description = this.Description;
+            context.ElementalInferenceSettings_FeedConfigurationSource_FeedArn = this.ElementalInferenceSettings_FeedConfigurationSource_FeedArn;
             if (this.HopDestination != null)
             {
                 context.HopDestination = new List<Amazon.MediaConvert.Model.HopDestination>(this.HopDestination);
@@ -313,6 +324,40 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate ElementalInferenceSettings
+            var requestElementalInferenceSettingsIsNull = true;
+            request.ElementalInferenceSettings = new Amazon.MediaConvert.Model.ElementalInferenceSettings();
+            Amazon.MediaConvert.Model.ElementalInferenceFeedConfigurationSource requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource = null;
+            
+             // populate FeedConfigurationSource
+            var requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSourceIsNull = true;
+            requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource = new Amazon.MediaConvert.Model.ElementalInferenceFeedConfigurationSource();
+            System.String requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource_elementalInferenceSettings_FeedConfigurationSource_FeedArn = null;
+            if (cmdletContext.ElementalInferenceSettings_FeedConfigurationSource_FeedArn != null)
+            {
+                requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource_elementalInferenceSettings_FeedConfigurationSource_FeedArn = cmdletContext.ElementalInferenceSettings_FeedConfigurationSource_FeedArn;
+            }
+            if (requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource_elementalInferenceSettings_FeedConfigurationSource_FeedArn != null)
+            {
+                requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource.FeedArn = requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource_elementalInferenceSettings_FeedConfigurationSource_FeedArn;
+                requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSourceIsNull = false;
+            }
+             // determine if requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource should be set to null
+            if (requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSourceIsNull)
+            {
+                requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource = null;
+            }
+            if (requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource != null)
+            {
+                request.ElementalInferenceSettings.FeedConfigurationSource = requestElementalInferenceSettings_elementalInferenceSettings_FeedConfigurationSource;
+                requestElementalInferenceSettingsIsNull = false;
+            }
+             // determine if request.ElementalInferenceSettings should be set to null
+            if (requestElementalInferenceSettingsIsNull)
+            {
+                request.ElementalInferenceSettings = null;
             }
             if (cmdletContext.HopDestination != null)
             {
@@ -400,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             public Amazon.MediaConvert.AccelerationMode AccelerationSettings_Mode { get; set; }
             public System.String Category { get; set; }
             public System.String Description { get; set; }
+            public System.String ElementalInferenceSettings_FeedConfigurationSource_FeedArn { get; set; }
             public List<Amazon.MediaConvert.Model.HopDestination> HopDestination { get; set; }
             public System.String Name { get; set; }
             public System.Int32? Priority { get; set; }

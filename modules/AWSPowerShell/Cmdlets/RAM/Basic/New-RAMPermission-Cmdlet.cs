@@ -65,6 +65,26 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter PermissionTemplateParameter
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a list of template parameter declarations for this permission. Each declaration
+        /// defines a named placeholder that can be used in the policy template using the syntax
+        /// <c>@{parameterName}</c>. Template parameters can only appear in Condition Key and
+        /// Condition Value fields of the policy. When you associate this permission with a resource
+        /// share, you must provide values for all declared parameters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PermissionTemplateParameters")]
+        public Amazon.RAM.Model.PermissionTemplateParameterDeclaration[] PermissionTemplateParameter { get; set; }
+        #endregion
+        
         #region Parameter PolicyTemplate
         /// <summary>
         /// <para>
@@ -202,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PermissionTemplateParameter != null)
+            {
+                context.PermissionTemplateParameter = new List<Amazon.RAM.Model.PermissionTemplateParameterDeclaration>(this.PermissionTemplateParameter);
+            }
             context.PolicyTemplate = this.PolicyTemplate;
             #if MODULAR
             if (this.PolicyTemplate == null && ParameterWasBound(nameof(this.PolicyTemplate)))
@@ -243,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PermissionTemplateParameter != null)
+            {
+                request.PermissionTemplateParameters = cmdletContext.PermissionTemplateParameter;
             }
             if (cmdletContext.PolicyTemplate != null)
             {
@@ -313,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         {
             public System.String ClientToken { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.RAM.Model.PermissionTemplateParameterDeclaration> PermissionTemplateParameter { get; set; }
             public System.String PolicyTemplate { get; set; }
             public System.String ResourceType { get; set; }
             public List<Amazon.RAM.Model.Tag> Tag { get; set; }

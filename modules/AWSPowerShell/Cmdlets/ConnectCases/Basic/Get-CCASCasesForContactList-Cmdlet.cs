@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter ContactArn
         /// <summary>
         /// <para>
-        /// <para>A unique identifier of a contact in Amazon Connect.</para>
+        /// <para>A unique identifier of a contact in Connect Customer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

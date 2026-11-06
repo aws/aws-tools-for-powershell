@@ -83,6 +83,7 @@ $CCAS_Completers = {
         # Amazon.ConnectCases.CommentBodyTextType
         {
             ($_ -eq "New-CCASRelatedItem/Comment_ContentType") -Or
+            ($_ -eq "New-CCASRelatedItemBatch/Content_Comment_ContentType") -Or
             ($_ -eq "Update-CCASRelatedItem/Content_Comment_ContentType")
         }
         {
@@ -105,7 +106,10 @@ $CCAS_Completers = {
         }
 
         # Amazon.ConnectCases.SlaType
-        "New-CCASRelatedItem/SlaInputConfiguration_Type"
+        {
+            ($_ -eq "New-CCASRelatedItemBatch/Content_Sla_SlaInputConfiguration_Type") -Or
+            ($_ -eq "New-CCASRelatedItem/SlaInputConfiguration_Type")
+        }
         {
             $v = "CaseField"
             break
@@ -131,7 +135,8 @@ $CCAS_Completers = {
 
 $CCAS_map = @{
     "Comment_ContentType"=@("New-CCASRelatedItem")
-    "Content_Comment_ContentType"=@("Update-CCASRelatedItem")
+    "Content_Comment_ContentType"=@("New-CCASRelatedItemBatch","Update-CCASRelatedItem")
+    "Content_Sla_SlaInputConfiguration_Type"=@("New-CCASRelatedItemBatch")
     "SlaInputConfiguration_Type"=@("New-CCASRelatedItem")
     "Status"=@("New-CCASTemplate","Update-CCASTemplate")
     "Type"=@("New-CCASField","New-CCASRelatedItem")
@@ -187,9 +192,11 @@ $CCAS_SelectCompleters = {
 }
 
 $CCAS_SelectMap = @{
-    "Select"=@("Group-CCASGetCaseRule",
+    "Select"=@("New-CCASRelatedItemBatch",
+               "Group-CCASGetCaseRule",
                "Group-CCASGetField",
                "Group-CCASPutFieldOption",
+               "Update-CCASCaseBatch",
                "New-CCASCase",
                "New-CCASCaseRule",
                "New-CCASDomain",

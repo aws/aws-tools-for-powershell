@@ -53,6 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter PermissionStatus
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that you want to filter the results to include only permissions with the
+        /// specified status. For example, use <c>ATTACHABLE</c> to list only permissions that
+        /// can be associated with resource shares, or <c>DEPRECATED</c> to list only deprecated
+        /// permissions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RAM.PermissionStatus")]
+        public Amazon.RAM.PermissionStatus PermissionStatus { get; set; }
+        #endregion
+        
         #region Parameter PermissionType
         /// <summary>
         /// <para>
@@ -63,6 +77,18 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.RAM.PermissionTypeFilter")]
         public Amazon.RAM.PermissionTypeFilter PermissionType { get; set; }
+        #endregion
+        
+        #region Parameter ResourceOwner
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that you want to list only permissions owned by a specific entity:</para><ul><li><para><c>SELF</c> – returns only permissions owned by the calling account.</para></li><li><para><c>OTHER-ACCOUNTS</c> – returns only permissions shared with the calling account
+        /// by other accounts.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RAM.ResourceOwner")]
+        public Amazon.RAM.ResourceOwner ResourceOwner { get; set; }
         #endregion
         
         #region Parameter ResourceType
@@ -176,7 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             }
             #endif
             context.NextToken = this.NextToken;
+            context.PermissionStatus = this.PermissionStatus;
             context.PermissionType = this.PermissionType;
+            context.ResourceOwner = this.ResourceOwner;
             context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
@@ -201,9 +229,17 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
+            if (cmdletContext.PermissionStatus != null)
+            {
+                request.PermissionStatus = cmdletContext.PermissionStatus;
+            }
             if (cmdletContext.PermissionType != null)
             {
                 request.PermissionType = cmdletContext.PermissionType;
+            }
+            if (cmdletContext.ResourceOwner != null)
+            {
+                request.ResourceOwner = cmdletContext.ResourceOwner;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -264,9 +300,17 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             
             // create request and set iteration invariants
             var request = new Amazon.RAM.Model.ListPermissionsRequest();
+            if (cmdletContext.PermissionStatus != null)
+            {
+                request.PermissionStatus = cmdletContext.PermissionStatus;
+            }
             if (cmdletContext.PermissionType != null)
             {
                 request.PermissionType = cmdletContext.PermissionType;
+            }
+            if (cmdletContext.ResourceOwner != null)
+            {
+                request.ResourceOwner = cmdletContext.ResourceOwner;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -391,7 +435,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.RAM.PermissionStatus PermissionStatus { get; set; }
             public Amazon.RAM.PermissionTypeFilter PermissionType { get; set; }
+            public Amazon.RAM.ResourceOwner ResourceOwner { get; set; }
             public System.String ResourceType { get; set; }
             public System.Func<Amazon.RAM.Model.ListPermissionsResponse, GetRAMPermissionListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Permissions;

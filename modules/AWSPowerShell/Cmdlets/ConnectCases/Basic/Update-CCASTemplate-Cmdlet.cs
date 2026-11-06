@@ -105,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         /// <summary>
         /// <para>
         /// <para>A list of fields that must contain a value for a case to be successfully created with
-        /// this template.</para><para />
+        /// this template.</para><para>To require a Customer Profile when creating cases, include <c>customer_id</c> in this
+        /// list. If <c>customer_id</c> is omitted, the Customer Profile field is optional and
+        /// can be added, changed, or removed after case creation.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

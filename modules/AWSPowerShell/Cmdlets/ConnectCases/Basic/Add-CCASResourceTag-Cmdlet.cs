@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A map of of key-value pairs that represent tags on a resource. Tags are used to organize,
+        /// <para>A map of key-value pairs that represent tags on a resource. Tags are used to organize,
         /// track, or control access for this resource.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This

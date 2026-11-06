@@ -424,7 +424,9 @@ $DZ_Completers = {
         # Amazon.DataZone.OAuth2GrantType
         {
             ($_ -eq "New-DZConnection/OAuth2Properties_OAuth2GrantType") -Or
-            ($_ -eq "New-DZConnection/Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType")
+            ($_ -eq "Update-DZConnection/Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType") -Or
+            ($_ -eq "New-DZConnection/Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType") -Or
+            ($_ -eq "Update-DZConnection/Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType")
         }
         {
             $v = "AUTHORIZATION_CODE","CLIENT_CREDENTIALS","JWT_BEARER"
@@ -732,8 +734,10 @@ $DZ_map = @{
     "PolicyType"=@("Add-DZPolicyGrant","Get-DZPolicyGrantList","Remove-DZPolicyGrant")
     "ProcessingStatus"=@("Get-DZLineageEventList")
     "Project_ProjectDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
+    "Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"=@("Update-DZConnection")
     "Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_AuthenticationType"=@("New-DZConnection")
     "Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"=@("New-DZConnection")
+    "Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"=@("Update-DZConnection")
     "Props_SnowflakeProperties_LineageSync_Timezone"=@("New-DZConnection","Update-DZConnection")
     "RejectRule_Rule"=@("Deny-DZPrediction")
     "ResolutionStrategy"=@("New-DZAccountPool","Update-DZAccountPool")

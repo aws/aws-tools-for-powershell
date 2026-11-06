@@ -30,7 +30,7 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Deletes a field from a cases template.
+    /// Deletes a field from a Cases template.
     /// 
     ///  
     /// <para>
