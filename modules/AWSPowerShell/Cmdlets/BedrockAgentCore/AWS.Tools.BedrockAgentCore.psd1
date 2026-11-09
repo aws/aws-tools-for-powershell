@@ -125,6 +125,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Invoke-BACHarness', 
         'Invoke-BACMemoryRecord', 
         'Invoke-BACPayment', 
+        'Invoke-BACWebSearch', 
         'New-BACABTest', 
         'New-BACBatchMemoryRecord', 
         'New-BACEvent', 

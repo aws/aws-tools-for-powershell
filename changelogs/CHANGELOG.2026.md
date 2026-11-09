@@ -1,4 +1,46 @@
-﻿### 5.0.330 (2026-11-06 20:30Z)
+﻿### 5.0.331 (2026-11-09 20:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.366.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet Register-BATJobDefinition: added parameters EksProperties_PodProperties_SecurityContext_FsGroup, EksProperties_PodProperties_SecurityContext_RunAsGroup, EksProperties_PodProperties_SecurityContext_RunAsNonRoot, EksProperties_PodProperties_SecurityContext_RunAsUser, EksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile and EksProperties_PodProperties_SecurityContext_SeccompProfile_Type.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Invoke-BACWebSearch leveraging the InvokeWebSearch service API.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSCapacityProvider: added parameter ManagedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled.
+    * Modified cmdlet Register-ECSTaskDefinition: added parameters TrustedExecutionConfiguration_AttestationPolicy and TrustedExecutionConfiguration_IsolationMode.
+  * Amazon Elasticsearch
+    * Added cmdlet Update-ESClone leveraging the UpdateClone service API.
+    * Modified cmdlet Update-ESElasticsearchDomain: added parameters DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction, DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour and DeploymentStrategyOptions_DeploymentStrategy.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEDataQualityEvaluationConfig leveraging the GetDataQualityEvaluationConfig service API.
+    * Added cmdlet Get-GLUEDataQualityEvaluationConfigList leveraging the ListDataQualityEvaluationConfigs service API.
+    * Added cmdlet New-GLUEDataQualityEvaluationConfig leveraging the CreateDataQualityEvaluationConfig service API.
+    * Added cmdlet Remove-GLUEDataQualityEvaluationConfig leveraging the DeleteDataQualityEvaluationConfig service API.
+    * Added cmdlet Update-GLUEDataQualityEvaluationConfig leveraging the UpdateDataQualityEvaluationConfig service API.
+    * Modified cmdlet Get-GLUEDataQualityResultList: added parameters Filter_DataQualityEvaluationConfig and Filter_EvaluationRunMode.
+    * Modified cmdlet Get-GLUEDataQualityResultsV2List: added parameters Filter_DataQualityEvaluationConfig and Filter_EvaluationRunMode.
+  * Amazon OpenSearch Service
+    * Added cmdlet Update-OSClone leveraging the UpdateClone service API.
+    * Modified cmdlet Update-OSDomain: added parameters DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction, DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour and DeploymentStrategyOptions_DeploymentStrategy.
+  * Amazon S3 Control
+    * Modified cmdlet Get-S3CCallerAccessGrantList: added parameter InstanceScope.
+    * Modified cmdlet Get-S3CDataAccess: added parameter InstanceScope.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMClusterExtensionDetail leveraging the DescribeClusterExtension service API.
+    * Added cmdlet Get-SMClusterExtensionList leveraging the ListClusterExtensions service API.
+    * Added cmdlet New-SMClusterExtension leveraging the CreateClusterExtension service API.
+    * Added cmdlet Remove-SMClusterExtension leveraging the DeleteClusterExtension service API.
+    * Added cmdlet Update-SMClusterExtension leveraging the UpdateClusterExtension service API.
+    * Modified cmdlet Get-SMPipeline: added parameter PipelineVersionAlias.
+    * Modified cmdlet Get-SMPipelineExecutionList: added parameter PipelineVersionAlias.
+    * Modified cmdlet Get-SMPipelineList: added parameter ManagedBy.
+    * Modified cmdlet New-SMPipeline: added parameter PipelineVersionAlias.
+    * Modified cmdlet Start-SMPipelineExecution: added parameters PipelineVersionAlias and RoleArn.
+    * Modified cmdlet Update-SMPipeline: added parameter PipelineVersionAlias.
+    * Modified cmdlet Update-SMPipelineVersion: added parameters PipelineVersionAliasOperations_Add and PipelineVersionAliasOperations_Remove.
+  * Amazon Sign-In Data Plane
+    * Added cmdlet New-AMSPBearerToken leveraging the CreateBearerToken service API.
+
+### 5.0.330 (2026-11-06 20:30Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.365.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet Update-AABKnowledgeBase: added parameter MetadataConfiguration.

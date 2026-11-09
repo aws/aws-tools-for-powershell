@@ -33,7 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Returns a temporary access credential from S3 Access Grants to the grantee or client
     /// application. The <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_Credentials.html">temporary
     /// credential</a> is an Amazon Web Services STS token that grants them access to the
-    /// S3 data. 
+    /// S3 data. By default, S3 Access Grants searches for a matching grant in the instance
+    /// of the Amazon Web Services account ID in the request. To also search instances shared
+    /// with the caller through Amazon Web Services Resource Access Manager (RAM), set the
+    /// <c>InstanceScope</c> parameter to <c>ALL</c>.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
     /// You must have the <c>s3:GetDataAccess</c> permission to use this operation. 
@@ -97,6 +100,21 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DurationSeconds")]
         public System.Int32? DurationSecond { get; set; }
+        #endregion
+        
+        #region Parameter InstanceScope
+        /// <summary>
+        /// <para>
+        /// <para>The scope of S3 Access Grants instances to search for a grant matching the requested
+        /// S3 URI path.</para><ul><li><para><c>SELF</c> – Searches only the instance of the Amazon Web Services account ID in
+        /// the request.</para></li><li><para><c>ALL</c> – Searches the instance of the Amazon Web Services account ID in the request
+        /// and all instances shared with the caller's account through Amazon Web Services Resource
+        /// Access Manager (RAM).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Control.InstanceScope")]
+        public Amazon.S3Control.InstanceScope InstanceScope { get; set; }
         #endregion
         
         #region Parameter Permission
@@ -203,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             #endif
             context.AuditContext = this.AuditContext;
             context.DurationSecond = this.DurationSecond;
+            context.InstanceScope = this.InstanceScope;
             context.Permission = this.Permission;
             #if MODULAR
             if (this.Permission == null && ParameterWasBound(nameof(this.Permission)))
@@ -246,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (cmdletContext.DurationSecond != null)
             {
                 request.DurationSeconds = cmdletContext.DurationSecond.Value;
+            }
+            if (cmdletContext.InstanceScope != null)
+            {
+                request.InstanceScope = cmdletContext.InstanceScope;
             }
             if (cmdletContext.Permission != null)
             {
@@ -321,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.String AccountId { get; set; }
             public System.String AuditContext { get; set; }
             public System.Int32? DurationSecond { get; set; }
+            public Amazon.S3Control.InstanceScope InstanceScope { get; set; }
             public Amazon.S3Control.Permission Permission { get; set; }
             public Amazon.S3Control.Privilege Privilege { get; set; }
             public System.String Target { get; set; }

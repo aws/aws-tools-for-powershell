@@ -123,6 +123,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String PipelineName { get; set; }
         #endregion
         
+        #region Parameter PipelineVersionAlias
+        /// <summary>
+        /// <para>
+        /// <para>The aliases to assign to the new pipeline version that this update creates. You can
+        /// specify aliases only when the update changes the pipeline definition. To change the
+        /// aliases of an existing version, use <c>UpdatePipelineVersion</c>.</para><para>An alias must be unique within the pipeline. To move an alias from an existing version
+        /// to the new version, first remove the alias from the existing version with <c>UpdatePipelineVersion</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PipelineVersionAliases")]
+        public System.String[] PipelineVersionAlias { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -204,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter PipelineName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PipelineVersionAlias != null)
+            {
+                context.PipelineVersionAlias = new List<System.String>(this.PipelineVersionAlias);
+            }
             context.RoleArn = this.RoleArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -295,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.PipelineName = cmdletContext.PipelineName;
             }
+            if (cmdletContext.PipelineVersionAlias != null)
+            {
+                request.PipelineVersionAliases = cmdletContext.PipelineVersionAlias;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -362,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String PipelineDescription { get; set; }
             public System.String PipelineDisplayName { get; set; }
             public System.String PipelineName { get; set; }
+            public List<System.String> PipelineVersionAlias { get; set; }
             public System.String RoleArn { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdatePipelineResponse, UpdateSMPipelineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PipelineArn;

@@ -1348,6 +1348,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.PipelineManagedBy
+        "Get-SMPipelineList/ManagedBy"
+        {
+            $v = "AWS","CUSTOMER"
+            break
+        }
+
         # Amazon.SageMaker.PreemptTeamTasks
         {
             ($_ -eq "New-SMComputeQuota/ComputeQuotaConfig_PreemptTeamTask") -Or
@@ -2113,6 +2120,7 @@ $SM_map = @{
     "JobCategory"=@("Get-SMJobDetail","Get-SMJobList","Get-SMJobSchemaVersionDetail","Get-SMJobSchemaVersionList","New-SMJob","Remove-SMJob","Stop-SMJob")
     "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "ManagedBy"=@("Get-SMPipelineList")
     "ManagedConfiguration_ManagedStorageType"=@("New-SMModelPackageGroup")
     "ManagedStorageType"=@("New-SMModelPackage")
     "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMClusterSoftware","Update-SMEndpoint","Update-SMInferenceComponent")
@@ -2271,6 +2279,7 @@ $SM_SelectMap = @{
                "New-SMAutoMLJob",
                "New-SMAutoMLJobV2",
                "New-SMCluster",
+               "New-SMClusterExtension",
                "New-SMClusterSchedulerConfig",
                "New-SMCodeRepository",
                "New-SMCompilationJob",
@@ -2343,6 +2352,7 @@ $SM_SelectMap = @{
                "Remove-SMArtifact",
                "Remove-SMAssociation",
                "Remove-SMCluster",
+               "Remove-SMClusterExtension",
                "Remove-SMClusterSchedulerConfig",
                "Remove-SMCodeRepository",
                "Remove-SMCompilationJob",
@@ -2409,6 +2419,7 @@ $SM_SelectMap = @{
                "Get-SMAutoMLJobV2",
                "Get-SMCluster",
                "Get-SMClusterEvent",
+               "Get-SMClusterExtensionDetail",
                "Get-SMClusterNode",
                "Get-SMClusterSchedulerConfig",
                "Get-SMCodeRepository",
@@ -2499,6 +2510,7 @@ $SM_SelectMap = @{
                "Get-SMAutoMLJobList",
                "Get-SMCandidatesForAutoMLJobList",
                "Get-SMClusterEventList",
+               "Get-SMClusterExtensionList",
                "Get-SMClusterNodeList",
                "Get-SMClusterList",
                "Get-SMClusterSchedulerConfigList",
@@ -2618,6 +2630,7 @@ $SM_SelectMap = @{
                "Update-SMAppImageConfig",
                "Update-SMArtifact",
                "Update-SMCluster",
+               "Update-SMClusterExtension",
                "Update-SMClusterSchedulerConfig",
                "Update-SMClusterSoftware",
                "Update-SMCodeRepository",

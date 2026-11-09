@@ -182,6 +182,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="InvokeWebSearch" OutputProperty="Results" Verb="Invoke" Noun="WebSearch" ShouldProcessTarget="WebSearchId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListABTests" OutputProperty="AbTests" Verb="Get" Noun="ABTestList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

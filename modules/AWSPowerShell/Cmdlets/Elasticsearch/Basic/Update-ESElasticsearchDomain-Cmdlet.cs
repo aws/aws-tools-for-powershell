@@ -45,6 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.ES
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DeploymentStrategyOptions_DeploymentStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The deployment strategy to use for this operation. The only valid value is <c>ClonedBlueGreen</c>,
+        /// which creates a cloned cluster on the target version next to the primary cluster so
+        /// that you can validate it and shift traffic to it before you cut over.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Elasticsearch.DeploymentStrategyOverride")]
+        public Amazon.Elasticsearch.DeploymentStrategyOverride DeploymentStrategyOptions_DeploymentStrategy { get; set; }
+        #endregion
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>
@@ -71,6 +84,31 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? PerformCheckOnly { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction
+        /// <summary>
+        /// <para>
+        /// <para>Ends the retention period now. Valid only after cutover completes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Elasticsearch.RetentionAction")]
+        public Amazon.Elasticsearch.RetentionAction DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour
+        /// <summary>
+        /// <para>
+        /// <para>The number of hours to keep the cluster that you cut over from. The retention period
+        /// starts when cutover completes. The minimum is 1 hour. In an <c>UpdateClone</c> response
+        /// after cutover completes, this value is the number of hours remaining in the retention
+        /// period, rounded up.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHours")]
+        public System.Int32? DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour { get; set; }
         #endregion
         
         #region Parameter TargetVersion
@@ -136,6 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 context.Select = CreateSelectDelegate<Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse, UpdateESElasticsearchDomainCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction = this.DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction;
+            context.DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour = this.DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour;
+            context.DeploymentStrategyOptions_DeploymentStrategy = this.DeploymentStrategyOptions_DeploymentStrategy;
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -167,6 +208,75 @@ namespace Amazon.PowerShell.Cmdlets.ES
             // create request
             var request = new Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainRequest();
             
+            
+             // populate DeploymentStrategyOptions
+            var requestDeploymentStrategyOptionsIsNull = true;
+            request.DeploymentStrategyOptions = new Amazon.Elasticsearch.Model.DeploymentStrategyOverrideOptions();
+            Amazon.Elasticsearch.DeploymentStrategyOverride requestDeploymentStrategyOptions_deploymentStrategyOptions_DeploymentStrategy = null;
+            if (cmdletContext.DeploymentStrategyOptions_DeploymentStrategy != null)
+            {
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_DeploymentStrategy = cmdletContext.DeploymentStrategyOptions_DeploymentStrategy;
+            }
+            if (requestDeploymentStrategyOptions_deploymentStrategyOptions_DeploymentStrategy != null)
+            {
+                request.DeploymentStrategyOptions.DeploymentStrategy = requestDeploymentStrategyOptions_deploymentStrategyOptions_DeploymentStrategy;
+                requestDeploymentStrategyOptionsIsNull = false;
+            }
+            Amazon.Elasticsearch.Model.ClonedBlueGreenOptions requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions = null;
+            
+             // populate ClonedBlueGreenOptions
+            var requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptionsIsNull = true;
+            requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions = new Amazon.Elasticsearch.Model.ClonedBlueGreenOptions();
+            Amazon.Elasticsearch.Model.RetentionOptions requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions = null;
+            
+             // populate RetentionOptions
+            var requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptionsIsNull = true;
+            requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions = new Amazon.Elasticsearch.Model.RetentionOptions();
+            Amazon.Elasticsearch.RetentionAction requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction = null;
+            if (cmdletContext.DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction != null)
+            {
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction = cmdletContext.DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction;
+            }
+            if (requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction != null)
+            {
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions.RetentionAction = requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction;
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptionsIsNull = false;
+            }
+            System.Int32? requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour = null;
+            if (cmdletContext.DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour != null)
+            {
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour = cmdletContext.DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour.Value;
+            }
+            if (requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour != null)
+            {
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions.RetentionInHours = requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour.Value;
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptionsIsNull = false;
+            }
+             // determine if requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions should be set to null
+            if (requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptionsIsNull)
+            {
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions = null;
+            }
+            if (requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions != null)
+            {
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions.RetentionOptions = requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_deploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions;
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptionsIsNull = false;
+            }
+             // determine if requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions should be set to null
+            if (requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptionsIsNull)
+            {
+                requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions = null;
+            }
+            if (requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions != null)
+            {
+                request.DeploymentStrategyOptions.ClonedBlueGreenOptions = requestDeploymentStrategyOptions_deploymentStrategyOptions_ClonedBlueGreenOptions;
+                requestDeploymentStrategyOptionsIsNull = false;
+            }
+             // determine if request.DeploymentStrategyOptions should be set to null
+            if (requestDeploymentStrategyOptionsIsNull)
+            {
+                request.DeploymentStrategyOptions = null;
+            }
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
@@ -234,6 +344,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Elasticsearch.RetentionAction DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction { get; set; }
+            public System.Int32? DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionInHour { get; set; }
+            public Amazon.Elasticsearch.DeploymentStrategyOverride DeploymentStrategyOptions_DeploymentStrategy { get; set; }
             public System.String DomainName { get; set; }
             public System.Boolean? PerformCheckOnly { get; set; }
             public System.String TargetVersion { get; set; }

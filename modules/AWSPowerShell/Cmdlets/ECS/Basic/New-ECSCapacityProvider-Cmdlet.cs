@@ -676,6 +676,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ManagedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether instances that this capacity provider launches have <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html">Nitro
+        /// Sandbox</a> enabled. Enable this setting to run tasks that use the <c>ISOLATED_SANDBOX</c>
+        /// or <c>CONFIDENTIAL_SANDBOX</c> isolation mode.</para><para>When you enable this setting, the capacity provider must include at least one instance
+        /// type that supports Nitro Sandbox. You can't enable this setting together with local
+        /// storage (the <c>useLocalStorage</c> setting in <c>localStorageConfiguration</c>).</para><para>The default value is <c>false</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html">Isolated
+        /// and confidential tasks</a> in <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManagedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled { get; set; }
+        #endregion
+        
         #region Parameter InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice
         /// <summary>
         /// <para>
@@ -1017,6 +1032,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.NetworkConfiguration_Subnet = new List<System.String>(this.NetworkConfiguration_Subnet);
             }
+            context.ManagedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled = this.ManagedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled;
             context.StorageConfiguration_StorageSizeGiB = this.StorageConfiguration_StorageSizeGiB;
             context.ManagedInstancesProvider_PropagateTag = this.ManagedInstancesProvider_PropagateTag;
             context.Name = this.Name;
@@ -1281,6 +1297,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_instanceLaunchTemplate_Monitoring != null)
             {
                 requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.Monitoring = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_instanceLaunchTemplate_Monitoring;
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            System.Boolean? requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled = null;
+            if (cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled = cmdletContext.ManagedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled.Value;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate.NitroEnclavesEnabled = requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled.Value;
                 requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplateIsNull = false;
             }
             Amazon.ECS.Model.ManagedInstancesLocalStorageConfiguration requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate_managedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration = null;
@@ -2016,6 +2042,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public Amazon.ECS.ManagedInstancesMonitoringOptions InstanceLaunchTemplate_Monitoring { get; set; }
             public List<System.String> NetworkConfiguration_SecurityGroup { get; set; }
             public List<System.String> NetworkConfiguration_Subnet { get; set; }
+            public System.Boolean? ManagedInstancesProvider_InstanceLaunchTemplate_NitroEnclavesEnabled { get; set; }
             public System.Int32? StorageConfiguration_StorageSizeGiB { get; set; }
             public Amazon.ECS.PropagateMITags ManagedInstancesProvider_PropagateTag { get; set; }
             public System.String Name { get; set; }

@@ -63,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter TrustedExecutionConfiguration_AttestationPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The base64-encoded attestation policy envelope for the task. The policy specifies
+        /// which containers are allowed to run and the runtime configuration that is cryptographically
+        /// attested. This parameter is required when <c>isolationMode</c> is <c>CONFIDENTIAL_SANDBOX</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrustedExecutionConfiguration_AttestationPolicy { get; set; }
+        #endregion
+        
         #region Parameter ContainerDefinition
         /// <summary>
         /// <para>
@@ -195,6 +207,29 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ECS.IpcMode")]
         public Amazon.ECS.IpcMode IpcMode { get; set; }
+        #endregion
+        
+        #region Parameter TrustedExecutionConfiguration_IsolationMode
+        /// <summary>
+        /// <para>
+        /// <para>The isolation mode for tasks that use this task definition. The isolation mode determines
+        /// how a task is isolated from other tasks on the same Amazon EC2 instance.</para><ul><li><para><c>SHARED</c>: The task shares the underlying Amazon EC2 instance with other tasks.
+        /// This is the default isolation mode.</para></li><li><para><c>ISOLATED_SANDBOX</c>: The task runs in its own <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html">Nitro
+        /// Sandbox</a>, which is a lightweight virtual machine that is isolated by the Amazon
+        /// Web Services Nitro System. Each task's sandbox is isolated from every other task's
+        /// sandbox on the same Amazon EC2 instance, so one task can't access another task's memory
+        /// or storage. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html">Isolated
+        /// and confidential tasks</a> in <i>Amazon Elastic Container Service Developer Guide</i>.</para></li><li><para><c>CONFIDENTIAL_SANDBOX</c>: The task runs in its own <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html">Nitro
+        /// Sandbox</a>, which is a lightweight virtual machine that is isolated by the Amazon
+        /// Web Services Nitro System, with cryptographic attestation. The host can't access the
+        /// sandbox's memory or storage, and only the approved workload can decrypt data that
+        /// you encrypt with your Key Management Service key. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html">Isolated
+        /// and confidential tasks</a> in <i>Amazon Elastic Container Service Developer Guide</i>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.IsolationMode")]
+        public Amazon.ECS.IsolationMode TrustedExecutionConfiguration_IsolationMode { get; set; }
         #endregion
         
         #region Parameter Memory
@@ -534,6 +569,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Tag = new List<Amazon.ECS.Model.Tag>(this.Tag);
             }
             context.TaskRoleArn = this.TaskRoleArn;
+            context.TrustedExecutionConfiguration_AttestationPolicy = this.TrustedExecutionConfiguration_AttestationPolicy;
+            context.TrustedExecutionConfiguration_IsolationMode = this.TrustedExecutionConfiguration_IsolationMode;
             if (this.Volume != null)
             {
                 context.Volume = new List<Amazon.ECS.Model.Volume>(this.Volume);
@@ -697,6 +734,35 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.TaskRoleArn = cmdletContext.TaskRoleArn;
             }
+            
+             // populate TrustedExecutionConfiguration
+            var requestTrustedExecutionConfigurationIsNull = true;
+            request.TrustedExecutionConfiguration = new Amazon.ECS.Model.TrustedExecutionConfiguration();
+            System.String requestTrustedExecutionConfiguration_trustedExecutionConfiguration_AttestationPolicy = null;
+            if (cmdletContext.TrustedExecutionConfiguration_AttestationPolicy != null)
+            {
+                requestTrustedExecutionConfiguration_trustedExecutionConfiguration_AttestationPolicy = cmdletContext.TrustedExecutionConfiguration_AttestationPolicy;
+            }
+            if (requestTrustedExecutionConfiguration_trustedExecutionConfiguration_AttestationPolicy != null)
+            {
+                request.TrustedExecutionConfiguration.AttestationPolicy = requestTrustedExecutionConfiguration_trustedExecutionConfiguration_AttestationPolicy;
+                requestTrustedExecutionConfigurationIsNull = false;
+            }
+            Amazon.ECS.IsolationMode requestTrustedExecutionConfiguration_trustedExecutionConfiguration_IsolationMode = null;
+            if (cmdletContext.TrustedExecutionConfiguration_IsolationMode != null)
+            {
+                requestTrustedExecutionConfiguration_trustedExecutionConfiguration_IsolationMode = cmdletContext.TrustedExecutionConfiguration_IsolationMode;
+            }
+            if (requestTrustedExecutionConfiguration_trustedExecutionConfiguration_IsolationMode != null)
+            {
+                request.TrustedExecutionConfiguration.IsolationMode = requestTrustedExecutionConfiguration_trustedExecutionConfiguration_IsolationMode;
+                requestTrustedExecutionConfigurationIsNull = false;
+            }
+             // determine if request.TrustedExecutionConfiguration should be set to null
+            if (requestTrustedExecutionConfigurationIsNull)
+            {
+                request.TrustedExecutionConfiguration = null;
+            }
             if (cmdletContext.Volume != null)
             {
                 request.Volumes = cmdletContext.Volume;
@@ -777,6 +843,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public Amazon.ECS.OSFamily RuntimePlatform_OperatingSystemFamily { get; set; }
             public List<Amazon.ECS.Model.Tag> Tag { get; set; }
             public System.String TaskRoleArn { get; set; }
+            public System.String TrustedExecutionConfiguration_AttestationPolicy { get; set; }
+            public Amazon.ECS.IsolationMode TrustedExecutionConfiguration_IsolationMode { get; set; }
             public List<Amazon.ECS.Model.Volume> Volume { get; set; }
             public System.Func<Amazon.ECS.Model.RegisterTaskDefinitionResponse, RegisterECSTaskDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

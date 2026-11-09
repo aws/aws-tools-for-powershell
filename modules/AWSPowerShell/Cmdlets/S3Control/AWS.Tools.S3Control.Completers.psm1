@@ -142,6 +142,16 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.InstanceScope
+        {
+            ($_ -eq "Get-S3CCallerAccessGrantList/InstanceScope") -Or
+            ($_ -eq "Get-S3CDataAccess/InstanceScope")
+        }
+        {
+            $v = "ALL","SELF"
+            break
+        }
+
         # Amazon.S3Control.JobManifestFormat
         "New-S3CJob/Spec_Format"
         {
@@ -323,6 +333,7 @@ $S3C_map = @{
     "ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
     "Grantee_GranteeType"=@("New-S3CAccessGrant")
     "GranteeType"=@("Get-S3CAccessGrantList")
+    "InstanceScope"=@("Get-S3CCallerAccessGrantList","Get-S3CDataAccess")
     "LegalHold_Status"=@("New-S3CJob")
     "ManifestOutputLocation_ManifestFormat"=@("New-S3CJob")
     "NewObjectMetadata_SSEAlgorithm"=@("New-S3CJob")

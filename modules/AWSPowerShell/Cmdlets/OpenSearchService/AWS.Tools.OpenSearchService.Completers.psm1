@@ -114,6 +114,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.CutoverTarget
+        "Update-OSClone/CutoverOptions_Target"
+        {
+            $v = "ClonedCluster","PrimaryCluster"
+            break
+        }
+
         # Amazon.OpenSearchService.DataSourceStatus
         "Update-OSDataSource/Status"
         {
@@ -128,6 +135,13 @@ $OS_Completers = {
         }
         {
             $v = "CapacityOptimized","Default"
+            break
+        }
+
+        # Amazon.OpenSearchService.DeploymentStrategyOverride
+        "Update-OSDomain/DeploymentStrategyOptions_DeploymentStrategy"
+        {
+            $v = "ClonedBlueGreen"
             break
         }
 
@@ -292,6 +306,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.RetentionAction
+        {
+            ($_ -eq "Update-OSDomain/DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction") -Or
+            ($_ -eq "Update-OSClone/RetentionOptions_RetentionAction")
+        }
+        {
+            $v = "DeletePrimaryCluster","RollbackToPrimaryCluster"
+            break
+        }
+
         # Amazon.OpenSearchService.RolesKeyIdCOption
         {
             ($_ -eq "New-OSDomain/IdentityCenterOptions_RolesKey") -Or
@@ -346,6 +370,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.TrafficStrategy
+        "Update-OSClone/TrafficSplitOptions_Strategy"
+        {
+            $v = "ShiftReadTrafficPercent"
+            break
+        }
+
         # Amazon.OpenSearchService.VolumeType
         {
             ($_ -eq "New-OSDomain/EBSOptions_VolumeType") -Or
@@ -374,7 +405,9 @@ $OS_map = @{
     "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
     "ConnectionMode"=@("New-OSOutboundConnection")
     "CrossClusterSearch_SkipUnavailable"=@("New-OSOutboundConnection")
-    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-OSDomain","Update-OSDomainConfig")
+    "CutoverOptions_Target"=@("Update-OSClone")
+    "DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction"=@("Update-OSDomain")
+    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-OSDomain","Update-OSDomain","Update-OSDomainConfig")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
@@ -391,11 +424,13 @@ $OS_map = @{
     "PackageConfiguration_ConfigurationRequirement"=@("New-OSPackage","Update-OSPackage")
     "PackageConfiguration_LicenseRequirement"=@("New-OSPackage","Update-OSPackage")
     "PackageType"=@("New-OSPackage")
+    "RetentionOptions_RetentionAction"=@("Update-OSClone")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Service"=@("Approve-OSVpcEndpointAccess","Revoke-OSVpcEndpointAccess")
     "SortOrder"=@("Get-OSInsightList")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
     "Thumb"=@("Send-OSInsightFeedback")
+    "TrafficSplitOptions_Strategy"=@("Update-OSClone")
     "UseCase"=@("New-OSDomain","Update-OSDomainConfig")
 }
 
@@ -542,6 +577,7 @@ $OS_SelectMap = @{
                "Start-OSServiceSoftwareUpdate",
                "Start-OSReplicationSwitchover",
                "Update-OSApplication",
+               "Update-OSClone",
                "Update-OSDataSource",
                "Update-OSDirectQueryDataSource",
                "Update-OSDomainConfig",

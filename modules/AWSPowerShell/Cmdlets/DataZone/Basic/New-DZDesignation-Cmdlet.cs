@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Creates a new user-defined designation with a Cedar permit policy. The designation
-    /// defines a named role that can be assigned to project members.
+    /// defines a named role that can be assigned to project members through <c>CreateProjectMembership</c>
+    /// or granted through <c>AddPolicyGrant</c>.
     /// </summary>
     [Cmdlet("New", "DZDesignation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.CreateDesignationResponse")]
@@ -48,8 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// Whether deletion protection is enabled
-        /// for this designation. Defaults to true when omitted.
+        /// <para>Specifies whether deletion protection is enabled for this designation. Defaults to
+        /// <c>true</c> when omitted. When enabled, <c>DeleteDesignation</c> is rejected until
+        /// protection is disabled through <c>UpdateDesignation</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// The Cedar permit policy that defines what actions
-        /// holders of this designation are allowed to perform.
+        /// <para>The Cedar permit policy that defines the actions holders of this designation are allowed
+        /// to perform.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

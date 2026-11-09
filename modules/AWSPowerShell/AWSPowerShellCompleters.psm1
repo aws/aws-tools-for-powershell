@@ -7574,6 +7574,13 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.EksSeccompProfileType
+        "Register-BATJobDefinition/EksProperties_PodProperties_SecurityContext_SeccompProfile_Type"
+        {
+            $v = "Localhost","RuntimeDefault","Unconfined"
+            break
+        }
+
         # Amazon.Batch.JobDefinitionType
         "Register-BATJobDefinition/Type"
         {
@@ -7707,6 +7714,7 @@ $BAT_map = @{
     "EcsSettings_ContainerInsight"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "EksConfiguration_AccessEntry_DesiredState"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "EksConfiguration_AccessEntry_Status"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
+    "EksProperties_PodProperties_SecurityContext_SeccompProfile_Type"=@("Register-BATJobDefinition")
     "JobQueueType"=@("New-BATJobQueue")
     "JobStatus"=@("Get-BATJobList","Get-BATServiceJobList")
     "LaunchTemplate_UserdataType"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
@@ -10310,6 +10318,7 @@ $BAC_SelectMap = @{
                "Invoke-BACBrowser",
                "Invoke-BACCodeInterpreter",
                "Invoke-BACHarness",
+               "Invoke-BACWebSearch",
                "Get-BACABTestList",
                "Get-BACActorList",
                "Get-BACBatchEvaluationList",
@@ -15508,8 +15517,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16663,8 +16672,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
-               "Search-CSDDocument",
+    "Select"=@("Search-CSDDocument",
+               "Write-CSDDocument",
                "Get-CSDSuggestion")
 }
 
@@ -25884,7 +25893,7 @@ $DZ_Completers = {
         # Amazon.DataZone.ConnectionType
         "Get-DZConnectionList/Type"
         {
-            $v = "AMAZON_Q","ATHENA","BIGQUERY","DATABRICKS","DATABRICKSICEBERGRESTCATALOG","DOCUMENTDB","DYNAMODB","GIT","HYPERPOD","IAM","ICEBERGRESTCATALOG","MLFLOW","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","S3","SAPHANA","SNOWFLAKE","SNOWFLAKEICEBERGRESTCATALOG","SPARK","SQLSERVER","TERADATA","VERTICA","VPC","WORKFLOWS_MWAA"
+            $v = "AMAZON_Q","ATHENA","BIGQUERY","DATABRICKS","DATABRICKSICEBERGRESTCATALOG","DOCUMENTDB","DYNAMODB","GIT","HYPERPOD","IAM","ICEBERGRESTCATALOG","MLFLOW","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","S3","SAPHANA","SNOWFLAKE","SNOWFLAKEICEBERGRESTCATALOG","SPARK","SQLSERVER","TERADATA","VERTICA","VPC","WORKDAYICEBERGRESTCATALOG","WORKDAYLDQ","WORKFLOWS_MWAA"
             break
         }
 
@@ -26030,7 +26039,7 @@ $DZ_Completers = {
         # Amazon.DataZone.GlueConnectionType
         "New-DZConnection/GlueConnectionInput_ConnectionType"
         {
-            $v = "BIGQUERY","DATABRICKSICEBERGRESTCATALOG","DOCUMENTDB","DYNAMODB","ICEBERGRESTCATALOG","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","SAPHANA","SNOWFLAKE","SNOWFLAKEICEBERGRESTCATALOG","SQLSERVER","TERADATA","VERTICA"
+            $v = "BIGQUERY","DATABRICKSICEBERGRESTCATALOG","DOCUMENTDB","DYNAMODB","ICEBERGRESTCATALOG","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","SAPHANA","SNOWFLAKE","SNOWFLAKEICEBERGRESTCATALOG","SQLSERVER","TERADATA","VERTICA","WORKDAYICEBERGRESTCATALOG","WORKDAYLDQ"
             break
         }
 
@@ -30906,12 +30915,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
-               "New-DDBTableSchema",
                "ConvertFrom-DDBItem",
+               "ConvertTo-DDBItem",
                "Add-DDBKeySchema",
+               "New-DDBTable",
                "Add-DDBIndexSchema",
-               "ConvertTo-DDBItem")
+               "New-DDBTableSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -34336,6 +34345,13 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.IsolationMode
+        "Register-ECSTaskDefinition/TrustedExecutionConfiguration_IsolationMode"
+        {
+            $v = "CONFIDENTIAL_SANDBOX","ISOLATED_SANDBOX","SHARED"
+            break
+        }
+
         # Amazon.ECS.LaunchType
         {
             ($_ -eq "Get-ECSClusterService/LaunchType") -Or
@@ -34641,6 +34657,7 @@ $ECS_map = @{
     "Status"=@("Get-ECSContainerInstanceList","Get-ECSDaemonTaskDefinitionList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
     "StopType"=@("Stop-ECSServiceDeployment")
     "TargetType"=@("Get-ECSAttributeList")
+    "TrustedExecutionConfiguration_IsolationMode"=@("Register-ECSTaskDefinition")
 }
 
 _awsArgumentCompleterRegistration $ECS_Completers $ECS_map
@@ -37463,6 +37480,13 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.CutoverTarget
+        "Update-ESClone/CutoverOptions_Target"
+        {
+            $v = "ClonedCluster","PrimaryCluster"
+            break
+        }
+
         # Amazon.Elasticsearch.DeploymentStrategy
         {
             ($_ -eq "New-ESDomain/DeploymentStrategyOptions_DeploymentStrategy") -Or
@@ -37470,6 +37494,13 @@ $ES_Completers = {
         }
         {
             $v = "CapacityOptimized","Default"
+            break
+        }
+
+        # Amazon.Elasticsearch.DeploymentStrategyOverride
+        "Update-ESElasticsearchDomain/DeploymentStrategyOptions_DeploymentStrategy"
+        {
+            $v = "ClonedBlueGreen"
             break
         }
 
@@ -37530,6 +37561,16 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.RetentionAction
+        {
+            ($_ -eq "Update-ESElasticsearchDomain/DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction") -Or
+            ($_ -eq "Update-ESClone/RetentionOptions_RetentionAction")
+        }
+        {
+            $v = "DeletePrimaryCluster","RollbackToPrimaryCluster"
+            break
+        }
+
         # Amazon.Elasticsearch.RollbackOnDisable
         "Update-ESDomainConfig/AutoTuneOptions_RollbackOnDisable"
         {
@@ -37544,6 +37585,13 @@ $ES_Completers = {
         }
         {
             $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07","Policy-Min-TLS-1-2-PFS-2023-10","Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08"
+            break
+        }
+
+        # Amazon.Elasticsearch.TrafficStrategy
+        "Update-ESClone/TrafficSplitOptions_Strategy"
+        {
+            $v = "ShiftReadTrafficPercent"
             break
         }
 
@@ -37568,7 +37616,9 @@ $ES_Completers = {
 $ES_map = @{
     "AutoTuneOptions_DesiredState"=@("New-ESDomain","Update-ESDomainConfig")
     "AutoTuneOptions_RollbackOnDisable"=@("Update-ESDomainConfig")
-    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-ESDomain","Update-ESDomainConfig")
+    "CutoverOptions_Target"=@("Update-ESClone")
+    "DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction"=@("Update-ESElasticsearchDomain")
+    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-ESDomain","Update-ESDomainConfig","Update-ESElasticsearchDomain")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-ESDomain","Update-ESDomainConfig")
     "EBSOptions_VolumeType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_DedicatedMasterType"=@("New-ESDomain","Update-ESDomainConfig")
@@ -37578,6 +37628,8 @@ $ES_map = @{
     "EngineType"=@("Get-ESDomainNameList")
     "InstanceType"=@("Get-ESInstanceTypeLimit")
     "PackageType"=@("New-ESPackage")
+    "RetentionOptions_RetentionAction"=@("Update-ESClone")
+    "TrafficSplitOptions_Strategy"=@("Update-ESClone")
     "UseCase"=@("New-ESDomain","Update-ESDomainConfig")
 }
 
@@ -37678,6 +37730,7 @@ $ES_SelectMap = @{
                "Remove-ESResourceTag",
                "Revoke-ESVpcEndpointAccess",
                "Start-ESElasticsearchServiceSoftwareUpdate",
+               "Update-ESClone",
                "Update-ESDomainConfig",
                "Update-ESPackage",
                "Update-ESVpcEndpoint",
@@ -38348,7 +38401,7 @@ $EVS_Completers = {
         # Amazon.Evs.InstanceType
         "New-EVSEnvironmentHost/Host_InstanceType"
         {
-            $v = "i4i.metal","i7i.metal-24xl","i7i.metal-48xl"
+            $v = "i4i.metal","i7i.metal-24xl","i7i.metal-48xl","r7i.metal-24xl","r7i.metal-48xl"
             break
         }
 
@@ -41453,8 +41506,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -41777,8 +41830,42 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.DataQualityEvaluationConfigLevel
+        {
+            ($_ -eq "Get-GLUEDataQualityEvaluationConfigList/Level") -Or
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/Level")
+        }
+        {
+            $v = "CATALOG","DATABASE","TABLE"
+            break
+        }
+
+        # Amazon.Glue.DataQualityEvaluationConfigManagedRuleset
+        {
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/ManagedRulesetName") -Or
+            ($_ -eq "Update-GLUEDataQualityEvaluationConfig/ManagedRulesetName")
+        }
+        {
+            $v = "ADVANCED","SIMPLE"
+            break
+        }
+
+        # Amazon.Glue.DataQualityEvaluationRunMode
+        {
+            ($_ -eq "Get-GLUEDataQualityResultList/Filter_EvaluationRunMode") -Or
+            ($_ -eq "Get-GLUEDataQualityResultsV2List/Filter_EvaluationRunMode")
+        }
+        {
+            $v = "EVALUATION_CONFIG","ON_DEMAND"
+            break
+        }
+
         # Amazon.Glue.DQCompositeRuleEvaluationMethod
-        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_CompositeRuleEvaluationMethod"
+        {
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_CompositeRuleEvaluationMethod") -Or
+            ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_CompositeRuleEvaluationMethod") -Or
+            ($_ -eq "Update-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_CompositeRuleEvaluationMethod")
+        }
         {
             $v = "COLUMN","ROW"
             break
@@ -41920,7 +42007,9 @@ $GLUE_Completers = {
 
         # Amazon.Glue.ObservationConfiguration
         {
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_ObservationScope") -Or
             ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationScope") -Or
+            ($_ -eq "Update-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_ObservationScope") -Or
             ($_ -eq "Publish-GLUEDataQualityResultV2/RunConfiguration_ObservationsEnabled")
         }
         {
@@ -41930,7 +42019,9 @@ $GLUE_Completers = {
 
         # Amazon.Glue.ObservationMode
         {
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_ObservationMode") -Or
             ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationMode") -Or
+            ($_ -eq "Update-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_ObservationMode") -Or
             ($_ -eq "Publish-GLUEDataQualityResultV2/RunConfiguration_ObservationMode")
         }
         {
@@ -42034,7 +42125,11 @@ $GLUE_Completers = {
         }
 
         # Amazon.Glue.ResultTypeEnum
-        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_RowLevelResults_ResultType"
+        {
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_RowLevelResults_ResultType") -Or
+            ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_RowLevelResults_ResultType") -Or
+            ($_ -eq "Update-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_RowLevelResults_ResultType")
+        }
         {
             $v = "ALL","FAILED_ONLY","PASSED_ONLY"
             break
@@ -42235,10 +42330,10 @@ $GLUE_Completers = {
 }
 
 $GLUE_map = @{
-    "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("Start-GLUEDataQualityRulesetEvaluationRun")
-    "AdditionalRunOptions_ObservationMode"=@("Start-GLUEDataQualityRulesetEvaluationRun")
-    "AdditionalRunOptions_ObservationScope"=@("Start-GLUEDataQualityRulesetEvaluationRun")
-    "AdditionalRunOptions_RowLevelResults_ResultType"=@("Start-GLUEDataQualityRulesetEvaluationRun")
+    "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("New-GLUEDataQualityEvaluationConfig","Start-GLUEDataQualityRulesetEvaluationRun","Update-GLUEDataQualityEvaluationConfig")
+    "AdditionalRunOptions_ObservationMode"=@("New-GLUEDataQualityEvaluationConfig","Start-GLUEDataQualityRulesetEvaluationRun","Update-GLUEDataQualityEvaluationConfig")
+    "AdditionalRunOptions_ObservationScope"=@("New-GLUEDataQualityEvaluationConfig","Start-GLUEDataQualityRulesetEvaluationRun","Update-GLUEDataQualityEvaluationConfig")
+    "AdditionalRunOptions_RowLevelResults_ResultType"=@("New-GLUEDataQualityEvaluationConfig","Start-GLUEDataQualityRulesetEvaluationRun","Update-GLUEDataQualityEvaluationConfig")
     "ApplyOverrideForComputeEnvironment"=@("Get-GLUEConnection")
     "AuthenticationConfiguration_AuthenticationType"=@("Test-GLUEConnection")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
@@ -42295,6 +42390,7 @@ $GLUE_map = @{
     "EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
     "ExecutionClass"=@("New-GLUEJob","Start-GLUEJobRun")
     "ExportSetting"=@("Write-GLUEDataCatalogExportConfiguration")
+    "Filter_EvaluationRunMode"=@("Get-GLUEDataQualityResultList","Get-GLUEDataQualityResultsV2List")
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
@@ -42307,7 +42403,9 @@ $GLUE_map = @{
     "JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
     "JobMode"=@("New-GLUEJob")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
+    "Level"=@("Get-GLUEDataQualityEvaluationConfigList","New-GLUEDataQualityEvaluationConfig")
     "LineageConfiguration_CrawlerLineageSetting"=@("New-GLUECrawler","Update-GLUECrawler")
+    "ManagedRulesetName"=@("New-GLUEDataQualityEvaluationConfig","Update-GLUEDataQualityEvaluationConfig")
     "MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
     "OAuth2Properties_OAuth2GrantType"=@("Test-GLUEConnection")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
@@ -42434,6 +42532,7 @@ $GLUE_SelectMap = @{
                "New-GLUECrawler",
                "New-GLUECustomEntityType",
                "New-GLUEDatabase",
+               "New-GLUEDataQualityEvaluationConfig",
                "New-GLUEDataQualityRuleset",
                "New-GLUEDevEndpoint",
                "New-GLUEGlossary",
@@ -42471,6 +42570,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUECrawler",
                "Remove-GLUECustomEntityType",
                "Remove-GLUEDatabase",
+               "Remove-GLUEDataQualityEvaluationConfig",
                "Remove-GLUEDataQualityRuleset",
                "Remove-GLUEDevEndpoint",
                "Remove-GLUEFormType",
@@ -42529,6 +42629,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataCatalogEncryptionSetting",
                "Get-GLUEDataCatalogExportConfiguration",
                "Get-GLUEDataflowGraph",
+               "Get-GLUEDataQualityEvaluationConfig",
                "Get-GLUEDataQualityModel",
                "Get-GLUEDataQualityModelResult",
                "Get-GLUEDataQualityResult",
@@ -42601,6 +42702,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawlerNameList",
                "Get-GLUECrawlList",
                "Get-GLUECustomEntityTypeList",
+               "Get-GLUEDataQualityEvaluationConfigList",
                "Get-GLUEDataQualityResultList",
                "Get-GLUEDataQualityResultsV2List",
                "Get-GLUEDataQualityRuleRecommendationRunList",
@@ -42688,6 +42790,7 @@ $GLUE_SelectMap = @{
                "Update-GLUECrawler",
                "Update-GLUECrawlerSchedule",
                "Update-GLUEDatabase",
+               "Update-GLUEDataQualityEvaluationConfig",
                "Update-GLUEDataQualityRuleset",
                "Update-GLUEDevEndpoint",
                "Update-GLUEGlossary",
@@ -65731,6 +65834,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.CutoverTarget
+        "Update-OSClone/CutoverOptions_Target"
+        {
+            $v = "ClonedCluster","PrimaryCluster"
+            break
+        }
+
         # Amazon.OpenSearchService.DataSourceStatus
         "Update-OSDataSource/Status"
         {
@@ -65745,6 +65855,13 @@ $OS_Completers = {
         }
         {
             $v = "CapacityOptimized","Default"
+            break
+        }
+
+        # Amazon.OpenSearchService.DeploymentStrategyOverride
+        "Update-OSDomain/DeploymentStrategyOptions_DeploymentStrategy"
+        {
+            $v = "ClonedBlueGreen"
             break
         }
 
@@ -65909,6 +66026,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.RetentionAction
+        {
+            ($_ -eq "Update-OSDomain/DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction") -Or
+            ($_ -eq "Update-OSClone/RetentionOptions_RetentionAction")
+        }
+        {
+            $v = "DeletePrimaryCluster","RollbackToPrimaryCluster"
+            break
+        }
+
         # Amazon.OpenSearchService.RolesKeyIdCOption
         {
             ($_ -eq "New-OSDomain/IdentityCenterOptions_RolesKey") -Or
@@ -65963,6 +66090,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.TrafficStrategy
+        "Update-OSClone/TrafficSplitOptions_Strategy"
+        {
+            $v = "ShiftReadTrafficPercent"
+            break
+        }
+
         # Amazon.OpenSearchService.VolumeType
         {
             ($_ -eq "New-OSDomain/EBSOptions_VolumeType") -Or
@@ -65991,7 +66125,9 @@ $OS_map = @{
     "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
     "ConnectionMode"=@("New-OSOutboundConnection")
     "CrossClusterSearch_SkipUnavailable"=@("New-OSOutboundConnection")
-    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-OSDomain","Update-OSDomainConfig")
+    "CutoverOptions_Target"=@("Update-OSClone")
+    "DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction"=@("Update-OSDomain")
+    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-OSDomain","Update-OSDomain","Update-OSDomainConfig")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
@@ -66008,11 +66144,13 @@ $OS_map = @{
     "PackageConfiguration_ConfigurationRequirement"=@("New-OSPackage","Update-OSPackage")
     "PackageConfiguration_LicenseRequirement"=@("New-OSPackage","Update-OSPackage")
     "PackageType"=@("New-OSPackage")
+    "RetentionOptions_RetentionAction"=@("Update-OSClone")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Service"=@("Approve-OSVpcEndpointAccess","Revoke-OSVpcEndpointAccess")
     "SortOrder"=@("Get-OSInsightList")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
     "Thumb"=@("Send-OSInsightFeedback")
+    "TrafficSplitOptions_Strategy"=@("Update-OSClone")
     "UseCase"=@("New-OSDomain","Update-OSDomainConfig")
 }
 
@@ -66159,6 +66297,7 @@ $OS_SelectMap = @{
                "Start-OSServiceSoftwareUpdate",
                "Start-OSReplicationSwitchover",
                "Update-OSApplication",
+               "Update-OSClone",
                "Update-OSDataSource",
                "Update-OSDirectQueryDataSource",
                "Update-OSDomainConfig",
@@ -80768,18 +80907,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
+               "Get-S3PreSignedURL",
+               "New-S3Bucket",
+               "Remove-S3Bucket",
+               "Write-S3Object",
+               "Remove-S3MultipartUpload",
                "Read-S3Object",
+               "Remove-S3Object",
                "Copy-S3Object",
+               "Test-S3Bucket",
                "Get-S3MultipartUpload",
                "Dismount-S3PSDrive",
-               "Mount-S3PSDrive",
-               "Write-S3Object",
-               "Remove-S3Bucket",
-               "Get-S3PreSignedURL",
-               "Test-S3Bucket",
-               "New-S3Bucket",
-               "Remove-S3Object",
-               "Remove-S3MultipartUpload")
+               "Mount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -80850,6 +80989,16 @@ $S3C_Completers = {
         }
         {
             $v = "DIRECTORY_GROUP","DIRECTORY_USER","IAM"
+            break
+        }
+
+        # Amazon.S3Control.InstanceScope
+        {
+            ($_ -eq "Get-S3CCallerAccessGrantList/InstanceScope") -Or
+            ($_ -eq "Get-S3CDataAccess/InstanceScope")
+        }
+        {
+            $v = "ALL","SELF"
             break
         }
 
@@ -81034,6 +81183,7 @@ $S3C_map = @{
     "ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
     "Grantee_GranteeType"=@("New-S3CAccessGrant")
     "GranteeType"=@("Get-S3CAccessGrantList")
+    "InstanceScope"=@("Get-S3CCallerAccessGrantList","Get-S3CDataAccess")
     "LegalHold_Status"=@("New-S3CJob")
     "ManifestOutputLocation_ManifestFormat"=@("New-S3CJob")
     "NewObjectMetadata_SSEAlgorithm"=@("New-S3CJob")
@@ -83596,6 +83746,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.PipelineManagedBy
+        "Get-SMPipelineList/ManagedBy"
+        {
+            $v = "AWS","CUSTOMER"
+            break
+        }
+
         # Amazon.SageMaker.PreemptTeamTasks
         {
             ($_ -eq "New-SMComputeQuota/ComputeQuotaConfig_PreemptTeamTask") -Or
@@ -84361,6 +84518,7 @@ $SM_map = @{
     "JobCategory"=@("Get-SMJobDetail","Get-SMJobList","Get-SMJobSchemaVersionDetail","Get-SMJobSchemaVersionList","New-SMJob","Remove-SMJob","Stop-SMJob")
     "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "ManagedBy"=@("Get-SMPipelineList")
     "ManagedConfiguration_ManagedStorageType"=@("New-SMModelPackageGroup")
     "ManagedStorageType"=@("New-SMModelPackage")
     "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMClusterSoftware","Update-SMEndpoint","Update-SMInferenceComponent")
@@ -84519,6 +84677,7 @@ $SM_SelectMap = @{
                "New-SMAutoMLJob",
                "New-SMAutoMLJobV2",
                "New-SMCluster",
+               "New-SMClusterExtension",
                "New-SMClusterSchedulerConfig",
                "New-SMCodeRepository",
                "New-SMCompilationJob",
@@ -84591,6 +84750,7 @@ $SM_SelectMap = @{
                "Remove-SMArtifact",
                "Remove-SMAssociation",
                "Remove-SMCluster",
+               "Remove-SMClusterExtension",
                "Remove-SMClusterSchedulerConfig",
                "Remove-SMCodeRepository",
                "Remove-SMCompilationJob",
@@ -84657,6 +84817,7 @@ $SM_SelectMap = @{
                "Get-SMAutoMLJobV2",
                "Get-SMCluster",
                "Get-SMClusterEvent",
+               "Get-SMClusterExtensionDetail",
                "Get-SMClusterNode",
                "Get-SMClusterSchedulerConfig",
                "Get-SMCodeRepository",
@@ -84747,6 +84908,7 @@ $SM_SelectMap = @{
                "Get-SMAutoMLJobList",
                "Get-SMCandidatesForAutoMLJobList",
                "Get-SMClusterEventList",
+               "Get-SMClusterExtensionList",
                "Get-SMClusterNodeList",
                "Get-SMClusterList",
                "Get-SMClusterSchedulerConfigList",
@@ -84866,6 +85028,7 @@ $SM_SelectMap = @{
                "Update-SMAppImageConfig",
                "Update-SMArtifact",
                "Update-SMCluster",
+               "Update-SMClusterExtension",
                "Update-SMClusterSchedulerConfig",
                "Update-SMClusterSoftware",
                "Update-SMCodeRepository",
@@ -88144,7 +88307,8 @@ $AMSP_SelectCompleters = {
 }
 
 $AMSP_SelectMap = @{
-    "Select"=@("New-AMSPOAuth2Token",
+    "Select"=@("New-AMSPBearerToken",
+               "New-AMSPOAuth2Token",
                "New-AMSPOAuth2TokenWithIAM",
                "New-AMSPOAuth2TokenWithTokenExchange",
                "Remove-AMSPConsoleAuthorizationConfiguration",
@@ -90865,8 +91029,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

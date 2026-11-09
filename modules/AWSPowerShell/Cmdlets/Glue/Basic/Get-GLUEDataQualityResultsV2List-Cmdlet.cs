@@ -143,6 +143,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Filter_DataSource_GlueTable_DatabaseName { get; set; }
         #endregion
         
+        #region Parameter Filter_DataQualityEvaluationConfig
+        /// <summary>
+        /// <para>
+        /// <para>Filter results by the evaluation configuration name which started the evaluation run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filter_DataQualityEvaluationConfig { get; set; }
+        #endregion
+        
         #region Parameter Filter_Dimension
         /// <summary>
         /// <para>
@@ -167,6 +177,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Filter_EvaluationContext { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EvaluationRunMode
+        /// <summary>
+        /// <para>
+        /// <para>Filter results by how their evaluation run started: <c>ON_DEMAND</c> or <c>EVALUATION_CONFIG</c>.
+        /// Results that no evaluation run produced match neither value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.DataQualityEvaluationRunMode")]
+        public Amazon.Glue.DataQualityEvaluationRunMode Filter_EvaluationRunMode { get; set; }
         #endregion
         
         #region Parameter Filter_DataSource_DataQualityGlueTable_PreProcessingQuery
@@ -291,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.ListDataQualityResultsV2Response, GetGLUEDataQualityResultsV2ListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Filter_DataQualityEvaluationConfig = this.Filter_DataQualityEvaluationConfig;
             if (this.Filter_DataSource_DataQualityGlueTable_AdditionalOption != null)
             {
                 context.Filter_DataSource_DataQualityGlueTable_AdditionalOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -325,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 }
             }
             context.Filter_EvaluationContext = this.Filter_EvaluationContext;
+            context.Filter_EvaluationRunMode = this.Filter_EvaluationRunMode;
             context.Filter_PublishedAfter = this.Filter_PublishedAfter;
             context.Filter_PublishedBefore = this.Filter_PublishedBefore;
             context.MaxResult = this.MaxResult;
@@ -360,6 +384,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.Glue.Model.DataQualityResultsV2FilterCriteria();
+            System.String requestFilter_filter_DataQualityEvaluationConfig = null;
+            if (cmdletContext.Filter_DataQualityEvaluationConfig != null)
+            {
+                requestFilter_filter_DataQualityEvaluationConfig = cmdletContext.Filter_DataQualityEvaluationConfig;
+            }
+            if (requestFilter_filter_DataQualityEvaluationConfig != null)
+            {
+                request.Filter.DataQualityEvaluationConfig = requestFilter_filter_DataQualityEvaluationConfig;
+                requestFilterIsNull = false;
+            }
             Dictionary<System.String, System.String> requestFilter_filter_Dimension = null;
             if (cmdletContext.Filter_Dimension != null)
             {
@@ -378,6 +412,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestFilter_filter_EvaluationContext != null)
             {
                 request.Filter.EvaluationContext = requestFilter_filter_EvaluationContext;
+                requestFilterIsNull = false;
+            }
+            Amazon.Glue.DataQualityEvaluationRunMode requestFilter_filter_EvaluationRunMode = null;
+            if (cmdletContext.Filter_EvaluationRunMode != null)
+            {
+                requestFilter_filter_EvaluationRunMode = cmdletContext.Filter_EvaluationRunMode;
+            }
+            if (requestFilter_filter_EvaluationRunMode != null)
+            {
+                request.Filter.EvaluationRunMode = requestFilter_filter_EvaluationRunMode;
                 requestFilterIsNull = false;
             }
             System.DateTime? requestFilter_filter_PublishedAfter = null;
@@ -643,6 +687,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Filter_DataQualityEvaluationConfig { get; set; }
             public Dictionary<System.String, System.String> Filter_DataSource_DataQualityGlueTable_AdditionalOption { get; set; }
             public System.String Filter_DataSource_DataQualityGlueTable_CatalogId { get; set; }
             public System.String Filter_DataSource_DataQualityGlueTable_ConnectionName { get; set; }
@@ -656,6 +701,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String Filter_DataSource_GlueTable_TableName { get; set; }
             public Dictionary<System.String, System.String> Filter_Dimension { get; set; }
             public System.String Filter_EvaluationContext { get; set; }
+            public Amazon.Glue.DataQualityEvaluationRunMode Filter_EvaluationRunMode { get; set; }
             public System.DateTime? Filter_PublishedAfter { get; set; }
             public System.DateTime? Filter_PublishedBefore { get; set; }
             public int? MaxResult { get; set; }

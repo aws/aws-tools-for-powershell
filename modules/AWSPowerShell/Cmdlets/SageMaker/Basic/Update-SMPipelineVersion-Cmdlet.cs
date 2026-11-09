@@ -44,6 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter PipelineVersionAliasOperations_Add
+        /// <summary>
+        /// <para>
+        /// <para>The aliases to add to the pipeline version. If you assigned an alias to another version
+        /// of the same pipeline, you must remove it from that version before you add it here.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] PipelineVersionAliasOperations_Add { get; set; }
+        #endregion
+        
         #region Parameter PipelineArn
         /// <summary>
         /// <para>
@@ -95,6 +111,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int64? PipelineVersionId { get; set; }
+        #endregion
+        
+        #region Parameter PipelineVersionAliasOperations_Remove
+        /// <summary>
+        /// <para>
+        /// <para>The aliases to remove from the pipeline version.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] PipelineVersionAliasOperations_Remove { get; set; }
         #endregion
         
         #region Parameter Select
@@ -150,6 +181,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter PipelineArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PipelineVersionAliasOperations_Add != null)
+            {
+                context.PipelineVersionAliasOperations_Add = new List<System.String>(this.PipelineVersionAliasOperations_Add);
+            }
+            if (this.PipelineVersionAliasOperations_Remove != null)
+            {
+                context.PipelineVersionAliasOperations_Remove = new List<System.String>(this.PipelineVersionAliasOperations_Remove);
+            }
             context.PipelineVersionDescription = this.PipelineVersionDescription;
             context.PipelineVersionDisplayName = this.PipelineVersionDisplayName;
             context.PipelineVersionId = this.PipelineVersionId;
@@ -178,6 +217,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.PipelineArn != null)
             {
                 request.PipelineArn = cmdletContext.PipelineArn;
+            }
+            
+             // populate PipelineVersionAliasOperations
+            var requestPipelineVersionAliasOperationsIsNull = true;
+            request.PipelineVersionAliasOperations = new Amazon.SageMaker.Model.AliasOperations();
+            List<System.String> requestPipelineVersionAliasOperations_pipelineVersionAliasOperations_Add = null;
+            if (cmdletContext.PipelineVersionAliasOperations_Add != null)
+            {
+                requestPipelineVersionAliasOperations_pipelineVersionAliasOperations_Add = cmdletContext.PipelineVersionAliasOperations_Add;
+            }
+            if (requestPipelineVersionAliasOperations_pipelineVersionAliasOperations_Add != null)
+            {
+                request.PipelineVersionAliasOperations.Add = requestPipelineVersionAliasOperations_pipelineVersionAliasOperations_Add;
+                requestPipelineVersionAliasOperationsIsNull = false;
+            }
+            List<System.String> requestPipelineVersionAliasOperations_pipelineVersionAliasOperations_Remove = null;
+            if (cmdletContext.PipelineVersionAliasOperations_Remove != null)
+            {
+                requestPipelineVersionAliasOperations_pipelineVersionAliasOperations_Remove = cmdletContext.PipelineVersionAliasOperations_Remove;
+            }
+            if (requestPipelineVersionAliasOperations_pipelineVersionAliasOperations_Remove != null)
+            {
+                request.PipelineVersionAliasOperations.Remove = requestPipelineVersionAliasOperations_pipelineVersionAliasOperations_Remove;
+                requestPipelineVersionAliasOperationsIsNull = false;
+            }
+             // determine if request.PipelineVersionAliasOperations should be set to null
+            if (requestPipelineVersionAliasOperationsIsNull)
+            {
+                request.PipelineVersionAliasOperations = null;
             }
             if (cmdletContext.PipelineVersionDescription != null)
             {
@@ -247,6 +315,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String PipelineArn { get; set; }
+            public List<System.String> PipelineVersionAliasOperations_Add { get; set; }
+            public List<System.String> PipelineVersionAliasOperations_Remove { get; set; }
             public System.String PipelineVersionDescription { get; set; }
             public System.String PipelineVersionDisplayName { get; set; }
             public System.Int64? PipelineVersionId { get; set; }

@@ -30,7 +30,8 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Gets the details of a designation, including its Cedar policy.
+    /// Gets the details of a designation, including its Cedar permit policy. Returns the
+    /// full designation record for both system-managed and user-created designations.
     /// </summary>
     [Cmdlet("Get", "DZDesignation")]
     [OutputType("Amazon.DataZone.Model.GetDesignationResponse")]

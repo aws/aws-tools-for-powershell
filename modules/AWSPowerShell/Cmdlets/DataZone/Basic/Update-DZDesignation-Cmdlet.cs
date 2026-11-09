@@ -30,7 +30,8 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Updates an existing designation. Managed designations cannot be modified.
+    /// Updates an existing user-created designation. Managed designations cannot be modified.
+    /// Omit a field to leave its current value unchanged.
     /// </summary>
     [Cmdlet("Update", "DZDesignation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.UpdateDesignationResponse")]
@@ -47,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// Whether deletion protection is enabled
-        /// for this designation. Omit to keep the existing value.
+        /// <para>Specifies whether deletion protection is enabled for this designation. Omit to keep
+        /// the existing value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// The updated Cedar permit policy.
+        /// <para>The updated Cedar permit policy. Omit to keep the existing policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

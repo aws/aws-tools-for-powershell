@@ -34,12 +34,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// through S3 Access Grants. The caller (grantee) can be an Identity and Access Management
     /// (IAM) identity or Amazon Web Services Identity Center corporate directory identity.
     /// You must pass the Amazon Web Services account of the S3 data owner (grantor) in the
-    /// request. You can, optionally, narrow the results by <c>GrantScope</c>, using a fragment
-    /// of the data's S3 path, and S3 Access Grants will return only the grants with a path
-    /// that contains the path fragment. You can also pass the <c>AllowedByApplication</c>
-    /// filter in the request, which returns only the grants authorized for applications,
-    /// whether the application is the caller's Identity Center application or any other application
-    /// (<c>ALL</c>). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-list-grants.html">List
+    /// request. By default, S3 Access Grants returns grants from the instance of the Amazon
+    /// Web Services account ID in the request. To return grants from all instances shared
+    /// with the caller's account through Amazon Web Services Resource Access Manager (RAM),
+    /// set the <c>InstanceScope</c> parameter to <c>ALL</c>. You can, optionally, narrow
+    /// the results by <c>GrantScope</c>, using a fragment of the data's S3 path, and S3 Access
+    /// Grants will return only the grants with a path that contains the path fragment. You
+    /// can also pass the <c>AllowedByApplication</c> filter in the request, which returns
+    /// only the grants authorized for applications, whether the application is the caller's
+    /// Identity Center application or any other application (<c>ALL</c>). For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-list-grants.html">List
     /// the caller's access grants</a> in the <i>Amazon S3 User Guide</i>.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
@@ -99,6 +103,20 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String GrantScope { get; set; }
+        #endregion
+        
+        #region Parameter InstanceScope
+        /// <summary>
+        /// <para>
+        /// <para>The scope of S3 Access Grants instances to list grants from.</para><ul><li><para><c>SELF</c> – Lists grants from the instance of the Amazon Web Services account ID
+        /// in the request.</para></li><li><para><c>ALL</c> – Lists grants from the instance of the Amazon Web Services account ID
+        /// in the request and all instances shared with the caller's account through Amazon Web
+        /// Services Resource Access Manager (RAM).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Control.InstanceScope")]
+        public Amazon.S3Control.InstanceScope InstanceScope { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -184,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             #endif
             context.AllowedByApplication = this.AllowedByApplication;
             context.GrantScope = this.GrantScope;
+            context.InstanceScope = this.InstanceScope;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -224,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (cmdletContext.GrantScope != null)
             {
                 request.GrantScope = cmdletContext.GrantScope;
+            }
+            if (cmdletContext.InstanceScope != null)
+            {
+                request.InstanceScope = cmdletContext.InstanceScope;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -312,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.String AccountId { get; set; }
             public System.Boolean? AllowedByApplication { get; set; }
             public System.String GrantScope { get; set; }
+            public Amazon.S3Control.InstanceScope InstanceScope { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.S3Control.Model.ListCallerAccessGrantsResponse, GetS3CCallerAccessGrantListCmdlet, object> Select { get; set; } =

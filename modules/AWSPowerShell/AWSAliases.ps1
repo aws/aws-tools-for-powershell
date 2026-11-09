@@ -3515,6 +3515,7 @@ Set-Alias -Name BAC-InvokeAgentRuntimeCommand -Value Invoke-BACAgentRuntimeComma
 Set-Alias -Name BAC-InvokeBrowser -Value Invoke-BACBrowser
 Set-Alias -Name BAC-InvokeCodeInterpreter -Value Invoke-BACCodeInterpreter
 Set-Alias -Name BAC-InvokeHarness -Value Invoke-BACHarness
+Set-Alias -Name BAC-InvokeWebSearch -Value Invoke-BACWebSearch
 Set-Alias -Name List-BACABTests -Value Get-BACABTestList
 Set-Alias -Name List-BACABTestList -Value Get-BACABTestList
 Set-Alias -Name BAC-ListABTests -Value Get-BACABTestList
@@ -14972,6 +14973,7 @@ Set-Alias -Name Remove-ESTags -Value Remove-ESResourceTag
 Set-Alias -Name ES-RemoveTags -Value Remove-ESResourceTag
 Set-Alias -Name ES-RevokeVpcEndpointAccess -Value Revoke-ESVpcEndpointAccess
 Set-Alias -Name ES-StartElasticsearchServiceSoftwareUpdate -Value Start-ESElasticsearchServiceSoftwareUpdate
+Set-Alias -Name ES-UpdateClone -Value Update-ESClone
 Set-Alias -Name Update-ESElasticsearchDomainConfig -Value Update-ESDomainConfig
 Set-Alias -Name ES-UpdateElasticsearchDomainConfig -Value Update-ESDomainConfig
 Set-Alias -Name ES-UpdatePackage -Value Update-ESPackage
@@ -16415,6 +16417,8 @@ Set-Alias -Name Create-GLUECustomEntityType -Value New-GLUECustomEntityType
 Set-Alias -Name GLUE-CreateCustomEntityType -Value New-GLUECustomEntityType
 Set-Alias -Name Create-GLUEDatabase -Value New-GLUEDatabase
 Set-Alias -Name GLUE-CreateDatabase -Value New-GLUEDatabase
+Set-Alias -Name Create-GLUEDataQualityEvaluationConfig -Value New-GLUEDataQualityEvaluationConfig
+Set-Alias -Name GLUE-CreateDataQualityEvaluationConfig -Value New-GLUEDataQualityEvaluationConfig
 Set-Alias -Name Create-GLUEDataQualityRuleset -Value New-GLUEDataQualityRuleset
 Set-Alias -Name GLUE-CreateDataQualityRuleset -Value New-GLUEDataQualityRuleset
 Set-Alias -Name Create-GLUEDevEndpoint -Value New-GLUEDevEndpoint
@@ -16491,6 +16495,8 @@ Set-Alias -Name Delete-GLUECustomEntityType -Value Remove-GLUECustomEntityType
 Set-Alias -Name GLUE-DeleteCustomEntityType -Value Remove-GLUECustomEntityType
 Set-Alias -Name Delete-GLUEDatabase -Value Remove-GLUEDatabase
 Set-Alias -Name GLUE-DeleteDatabase -Value Remove-GLUEDatabase
+Set-Alias -Name Delete-GLUEDataQualityEvaluationConfig -Value Remove-GLUEDataQualityEvaluationConfig
+Set-Alias -Name GLUE-DeleteDataQualityEvaluationConfig -Value Remove-GLUEDataQualityEvaluationConfig
 Set-Alias -Name Delete-GLUEDataQualityRuleset -Value Remove-GLUEDataQualityRuleset
 Set-Alias -Name GLUE-DeleteDataQualityRuleset -Value Remove-GLUEDataQualityRuleset
 Set-Alias -Name Delete-GLUEDevEndpoint -Value Remove-GLUEDevEndpoint
@@ -16595,6 +16601,7 @@ Set-Alias -Name Get-GLUEDataCatalogEncryptionSettings -Value Get-GLUEDataCatalog
 Set-Alias -Name GLUE-GetDataCatalogEncryptionSettings -Value Get-GLUEDataCatalogEncryptionSetting
 Set-Alias -Name GLUE-GetDataCatalogExportConfiguration -Value Get-GLUEDataCatalogExportConfiguration
 Set-Alias -Name GLUE-GetDataflowGraph -Value Get-GLUEDataflowGraph
+Set-Alias -Name GLUE-GetDataQualityEvaluationConfig -Value Get-GLUEDataQualityEvaluationConfig
 Set-Alias -Name GLUE-GetDataQualityModel -Value Get-GLUEDataQualityModel
 Set-Alias -Name GLUE-GetDataQualityModelResult -Value Get-GLUEDataQualityModelResult
 Set-Alias -Name GLUE-GetDataQualityResult -Value Get-GLUEDataQualityResult
@@ -16700,6 +16707,9 @@ Set-Alias -Name GLUE-ListCrawls -Value Get-GLUECrawlList
 Set-Alias -Name List-GLUECustomEntityTypes -Value Get-GLUECustomEntityTypeList
 Set-Alias -Name List-GLUECustomEntityTypeList -Value Get-GLUECustomEntityTypeList
 Set-Alias -Name GLUE-ListCustomEntityTypes -Value Get-GLUECustomEntityTypeList
+Set-Alias -Name List-GLUEDataQualityEvaluationConfigs -Value Get-GLUEDataQualityEvaluationConfigList
+Set-Alias -Name List-GLUEDataQualityEvaluationConfigList -Value Get-GLUEDataQualityEvaluationConfigList
+Set-Alias -Name GLUE-ListDataQualityEvaluationConfigs -Value Get-GLUEDataQualityEvaluationConfigList
 Set-Alias -Name List-GLUEDataQualityResults -Value Get-GLUEDataQualityResultList
 Set-Alias -Name List-GLUEDataQualityResultList -Value Get-GLUEDataQualityResultList
 Set-Alias -Name GLUE-ListDataQualityResults -Value Get-GLUEDataQualityResultList
@@ -16860,6 +16870,7 @@ Set-Alias -Name GLUE-UpdateConnection -Value Update-GLUEConnection
 Set-Alias -Name GLUE-UpdateCrawler -Value Update-GLUECrawler
 Set-Alias -Name GLUE-UpdateCrawlerSchedule -Value Update-GLUECrawlerSchedule
 Set-Alias -Name GLUE-UpdateDatabase -Value Update-GLUEDatabase
+Set-Alias -Name GLUE-UpdateDataQualityEvaluationConfig -Value Update-GLUEDataQualityEvaluationConfig
 Set-Alias -Name GLUE-UpdateDataQualityRuleset -Value Update-GLUEDataQualityRuleset
 Set-Alias -Name GLUE-UpdateDevEndpoint -Value Update-GLUEDevEndpoint
 Set-Alias -Name GLUE-UpdateGlossary -Value Update-GLUEGlossary
@@ -26027,6 +26038,7 @@ Set-Alias -Name Switchover-OSReplication -Value Start-OSReplicationSwitchover
 Set-Alias -Name Switchover-OSReplicationSwitchover -Value Start-OSReplicationSwitchover
 Set-Alias -Name OS-SwitchoverReplication -Value Start-OSReplicationSwitchover
 Set-Alias -Name OS-UpdateApplication -Value Update-OSApplication
+Set-Alias -Name OS-UpdateClone -Value Update-OSClone
 Set-Alias -Name OS-UpdateDataSource -Value Update-OSDataSource
 Set-Alias -Name OS-UpdateDirectQueryDataSource -Value Update-OSDirectQueryDataSource
 Set-Alias -Name OS-UpdateDomainConfig -Value Update-OSDomainConfig
@@ -31627,6 +31639,8 @@ Set-Alias -Name Create-SMAutoMLJobV2 -Value New-SMAutoMLJobV2
 Set-Alias -Name SM-CreateAutoMLJobV2 -Value New-SMAutoMLJobV2
 Set-Alias -Name Create-SMCluster -Value New-SMCluster
 Set-Alias -Name SM-CreateCluster -Value New-SMCluster
+Set-Alias -Name Create-SMClusterExtension -Value New-SMClusterExtension
+Set-Alias -Name SM-CreateClusterExtension -Value New-SMClusterExtension
 Set-Alias -Name Create-SMClusterSchedulerConfig -Value New-SMClusterSchedulerConfig
 Set-Alias -Name SM-CreateClusterSchedulerConfig -Value New-SMClusterSchedulerConfig
 Set-Alias -Name Create-SMCodeRepository -Value New-SMCodeRepository
@@ -31772,6 +31786,8 @@ Set-Alias -Name Delete-SMAssociation -Value Remove-SMAssociation
 Set-Alias -Name SM-DeleteAssociation -Value Remove-SMAssociation
 Set-Alias -Name Delete-SMCluster -Value Remove-SMCluster
 Set-Alias -Name SM-DeleteCluster -Value Remove-SMCluster
+Set-Alias -Name Delete-SMClusterExtension -Value Remove-SMClusterExtension
+Set-Alias -Name SM-DeleteClusterExtension -Value Remove-SMClusterExtension
 Set-Alias -Name Delete-SMClusterSchedulerConfig -Value Remove-SMClusterSchedulerConfig
 Set-Alias -Name SM-DeleteClusterSchedulerConfig -Value Remove-SMClusterSchedulerConfig
 Set-Alias -Name Delete-SMCodeRepository -Value Remove-SMCodeRepository
@@ -31909,6 +31925,9 @@ Set-Alias -Name Describe-SMCluster -Value Get-SMCluster
 Set-Alias -Name SM-DescribeCluster -Value Get-SMCluster
 Set-Alias -Name Describe-SMClusterEvent -Value Get-SMClusterEvent
 Set-Alias -Name SM-DescribeClusterEvent -Value Get-SMClusterEvent
+Set-Alias -Name Describe-SMClusterExtension -Value Get-SMClusterExtensionDetail
+Set-Alias -Name Describe-SMClusterExtensionDetail -Value Get-SMClusterExtensionDetail
+Set-Alias -Name SM-DescribeClusterExtension -Value Get-SMClusterExtensionDetail
 Set-Alias -Name Describe-SMClusterNode -Value Get-SMClusterNode
 Set-Alias -Name SM-DescribeClusterNode -Value Get-SMClusterNode
 Set-Alias -Name Describe-SMClusterSchedulerConfig -Value Get-SMClusterSchedulerConfig
@@ -32100,6 +32119,9 @@ Set-Alias -Name SM-ListCandidatesForAutoMLJob -Value Get-SMCandidatesForAutoMLJo
 Set-Alias -Name List-SMClusterEvents -Value Get-SMClusterEventList
 Set-Alias -Name List-SMClusterEventList -Value Get-SMClusterEventList
 Set-Alias -Name SM-ListClusterEvents -Value Get-SMClusterEventList
+Set-Alias -Name List-SMClusterExtensions -Value Get-SMClusterExtensionList
+Set-Alias -Name List-SMClusterExtensionList -Value Get-SMClusterExtensionList
+Set-Alias -Name SM-ListClusterExtensions -Value Get-SMClusterExtensionList
 Set-Alias -Name List-SMClusterNodes -Value Get-SMClusterNodeList
 Set-Alias -Name List-SMClusterNodeList -Value Get-SMClusterNodeList
 Set-Alias -Name SM-ListClusterNodes -Value Get-SMClusterNodeList
@@ -32382,6 +32404,7 @@ Set-Alias -Name SM-UpdateAction -Value Update-SMAction
 Set-Alias -Name SM-UpdateAppImageConfig -Value Update-SMAppImageConfig
 Set-Alias -Name SM-UpdateArtifact -Value Update-SMArtifact
 Set-Alias -Name SM-UpdateCluster -Value Update-SMCluster
+Set-Alias -Name SM-UpdateClusterExtension -Value Update-SMClusterExtension
 Set-Alias -Name SM-UpdateClusterSchedulerConfig -Value Update-SMClusterSchedulerConfig
 Set-Alias -Name SM-UpdateClusterSoftware -Value Update-SMClusterSoftware
 Set-Alias -Name SM-UpdateCodeRepository -Value Update-SMCodeRepository
@@ -33778,6 +33801,8 @@ Set-Alias -Name SHLD-UpdateEmergencyContactSettings -Value Update-SHLDEmergencyC
 Set-Alias -Name SHLD-UpdateProtectionGroup -Value Update-SHLDProtectionGroup
 Set-Alias -Name SHLD-UpdateSubscription -Value Update-SHLDSubscription
 Set-Alias -Name SGND-GetRevocationStatus -Value Get-SGNDRevocationStatus
+Set-Alias -Name Create-AMSPBearerToken -Value New-AMSPBearerToken
+Set-Alias -Name AMSP-CreateBearerToken -Value New-AMSPBearerToken
 Set-Alias -Name Create-AMSPOAuth2Token -Value New-AMSPOAuth2Token
 Set-Alias -Name AMSP-CreateOAuth2Token -Value New-AMSPOAuth2Token
 Set-Alias -Name Create-AMSPOAuth2TokenWithIAM -Value New-AMSPOAuth2TokenWithIAM

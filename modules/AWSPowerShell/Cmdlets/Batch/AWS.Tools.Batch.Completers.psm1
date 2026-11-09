@@ -158,6 +158,13 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.EksSeccompProfileType
+        "Register-BATJobDefinition/EksProperties_PodProperties_SecurityContext_SeccompProfile_Type"
+        {
+            $v = "Localhost","RuntimeDefault","Unconfined"
+            break
+        }
+
         # Amazon.Batch.JobDefinitionType
         "Register-BATJobDefinition/Type"
         {
@@ -291,6 +298,7 @@ $BAT_map = @{
     "EcsSettings_ContainerInsight"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "EksConfiguration_AccessEntry_DesiredState"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "EksConfiguration_AccessEntry_Status"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
+    "EksProperties_PodProperties_SecurityContext_SeccompProfile_Type"=@("Register-BATJobDefinition")
     "JobQueueType"=@("New-BATJobQueue")
     "JobStatus"=@("Get-BATJobList","Get-BATServiceJobList")
     "LaunchTemplate_UserdataType"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")

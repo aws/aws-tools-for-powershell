@@ -61,10 +61,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String PipelineName { get; set; }
         #endregion
         
+        #region Parameter PipelineVersionAlias
+        /// <summary>
+        /// <para>
+        /// <para>The alias of the pipeline version to describe. You can't specify this with <c>PipelineVersionId</c>.
+        /// If no version of the pipeline has this alias, the request fails with a <c>ResourceNotFound</c>
+        /// error. If you specify neither, SageMaker describes the latest version of the pipeline.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PipelineVersionAlias { get; set; }
+        #endregion
+        
         #region Parameter PipelineVersionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the pipeline version to describe.</para>
+        /// <para>The ID of the pipeline version to describe. You can't specify this with <c>PipelineVersionAlias</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,6 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter PipelineName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PipelineVersionAlias = this.PipelineVersionAlias;
             context.PipelineVersionId = this.PipelineVersionId;
             
             // allow further manipulation of loaded context prior to processing
@@ -128,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.PipelineName != null)
             {
                 request.PipelineName = cmdletContext.PipelineName;
+            }
+            if (cmdletContext.PipelineVersionAlias != null)
+            {
+                request.PipelineVersionAlias = cmdletContext.PipelineVersionAlias;
             }
             if (cmdletContext.PipelineVersionId != null)
             {
@@ -189,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String PipelineName { get; set; }
+            public System.String PipelineVersionAlias { get; set; }
             public System.Int64? PipelineVersionId { get; set; }
             public System.Func<Amazon.SageMaker.Model.DescribePipelineResponse, GetSMPipelineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

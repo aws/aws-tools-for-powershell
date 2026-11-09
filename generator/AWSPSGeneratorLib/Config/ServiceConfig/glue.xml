@@ -176,6 +176,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataQualityEvaluationConfig" OutputProperty="*" Verb="New" Noun="DataQualityEvaluationConfig" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDataQualityRuleset" OutputProperty="Name" Verb="New" Noun="DataQualityRuleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -362,6 +366,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDatabase" Verb="Remove" Noun="Database" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataQualityEvaluationConfig" Verb="Remove" Noun="DataQualityEvaluationConfig" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -594,6 +602,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDataflowGraph" OutputProperty="*" Verb="Get" Noun="DataflowGraph" PipelineParameter="PythonScript" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataQualityEvaluationConfig" OutputProperty="*" Verb="Get" Noun="DataQualityEvaluationConfig" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -888,6 +900,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCustomEntityTypes" OutputProperty="CustomEntityTypes" Verb="Get" Noun="CustomEntityTypeList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataQualityEvaluationConfigs" OutputProperty="DataQualityEvaluationConfigs" Verb="Get" Noun="DataQualityEvaluationConfigList" PipelineParameter="Level" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1338,6 +1354,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDatabase" Verb="Update" Noun="Database" ShouldProcessTarget="Name" PipelineParameter="DatabaseInput" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataQualityEvaluationConfig" OutputProperty="*" Verb="Update" Noun="DataQualityEvaluationConfig" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

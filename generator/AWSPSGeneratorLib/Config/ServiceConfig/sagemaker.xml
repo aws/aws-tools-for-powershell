@@ -181,6 +181,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateClusterExtension" OutputProperty="ExtensionArn" Verb="New" Noun="ClusterExtension" ShouldProcessTarget="ExtensionName,ClusterArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateClusterSchedulerConfig" OutputProperty="*" Verb="New" Noun="ClusterSchedulerConfig" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -915,6 +919,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClusterExtension" OutputProperty="ExtensionArn" Verb="Remove" Noun="ClusterExtension" ShouldProcessTarget="ClusterArn,ExtensionArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteClusterSchedulerConfig" Verb="Remove" Noun="ClusterSchedulerConfig" ShouldProcessTarget="ClusterSchedulerConfigId" PipelineParameter="ClusterSchedulerConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1176,6 +1184,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeClusterEvent" OutputProperty="EventDetails" Verb="Get" Noun="ClusterEvent" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterExtension" OutputProperty="*" Verb="Get" Noun="ClusterExtensionDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1538,6 +1550,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListClusterEvents" OutputProperty="Events" Verb="Get" Noun="ClusterEventList" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClusterExtensions" OutputProperty="Extensions" Verb="Get" Noun="ClusterExtensionList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2030,6 +2046,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCluster" OutputProperty="ClusterArn" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateClusterExtension" OutputProperty="ExtensionArn" Verb="Update" Noun="ClusterExtension" ShouldProcessTarget="ClusterArn,ExtensionArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

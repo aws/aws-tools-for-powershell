@@ -135,6 +135,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String PipelineName { get; set; }
         #endregion
         
+        #region Parameter PipelineVersionAlias
+        /// <summary>
+        /// <para>
+        /// <para>The aliases to assign to the first version of the pipeline. You can use an alias instead
+        /// of a pipeline version ID to start an execution, describe the pipeline, or list its
+        /// executions. Each alias can contain 1-128 letters, numbers, periods (.), hyphens (-),
+        /// and underscores (_), and can't consist of numbers only. An alias must be unique within
+        /// the pipeline, and a version can have up to 10 aliases.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PipelineVersionAliases")]
+        public System.String[] PipelineVersionAlias { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -241,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter PipelineName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PipelineVersionAlias != null)
+            {
+                context.PipelineVersionAlias = new List<System.String>(this.PipelineVersionAlias);
+            }
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -346,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.PipelineName = cmdletContext.PipelineName;
             }
+            if (cmdletContext.PipelineVersionAlias != null)
+            {
+                request.PipelineVersionAliases = cmdletContext.PipelineVersionAlias;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -418,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String PipelineDescription { get; set; }
             public System.String PipelineDisplayName { get; set; }
             public System.String PipelineName { get; set; }
+            public List<System.String> PipelineVersionAlias { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreatePipelineResponse, NewSMPipelineCmdlet, object> Select { get; set; } =

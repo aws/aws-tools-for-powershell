@@ -217,8 +217,42 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.DataQualityEvaluationConfigLevel
+        {
+            ($_ -eq "Get-GLUEDataQualityEvaluationConfigList/Level") -Or
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/Level")
+        }
+        {
+            $v = "CATALOG","DATABASE","TABLE"
+            break
+        }
+
+        # Amazon.Glue.DataQualityEvaluationConfigManagedRuleset
+        {
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/ManagedRulesetName") -Or
+            ($_ -eq "Update-GLUEDataQualityEvaluationConfig/ManagedRulesetName")
+        }
+        {
+            $v = "ADVANCED","SIMPLE"
+            break
+        }
+
+        # Amazon.Glue.DataQualityEvaluationRunMode
+        {
+            ($_ -eq "Get-GLUEDataQualityResultList/Filter_EvaluationRunMode") -Or
+            ($_ -eq "Get-GLUEDataQualityResultsV2List/Filter_EvaluationRunMode")
+        }
+        {
+            $v = "EVALUATION_CONFIG","ON_DEMAND"
+            break
+        }
+
         # Amazon.Glue.DQCompositeRuleEvaluationMethod
-        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_CompositeRuleEvaluationMethod"
+        {
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_CompositeRuleEvaluationMethod") -Or
+            ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_CompositeRuleEvaluationMethod") -Or
+            ($_ -eq "Update-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_CompositeRuleEvaluationMethod")
+        }
         {
             $v = "COLUMN","ROW"
             break
@@ -360,7 +394,9 @@ $GLUE_Completers = {
 
         # Amazon.Glue.ObservationConfiguration
         {
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_ObservationScope") -Or
             ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationScope") -Or
+            ($_ -eq "Update-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_ObservationScope") -Or
             ($_ -eq "Publish-GLUEDataQualityResultV2/RunConfiguration_ObservationsEnabled")
         }
         {
@@ -370,7 +406,9 @@ $GLUE_Completers = {
 
         # Amazon.Glue.ObservationMode
         {
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_ObservationMode") -Or
             ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationMode") -Or
+            ($_ -eq "Update-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_ObservationMode") -Or
             ($_ -eq "Publish-GLUEDataQualityResultV2/RunConfiguration_ObservationMode")
         }
         {
@@ -474,7 +512,11 @@ $GLUE_Completers = {
         }
 
         # Amazon.Glue.ResultTypeEnum
-        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_RowLevelResults_ResultType"
+        {
+            ($_ -eq "New-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_RowLevelResults_ResultType") -Or
+            ($_ -eq "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_RowLevelResults_ResultType") -Or
+            ($_ -eq "Update-GLUEDataQualityEvaluationConfig/AdditionalRunOptions_RowLevelResults_ResultType")
+        }
         {
             $v = "ALL","FAILED_ONLY","PASSED_ONLY"
             break
@@ -675,10 +717,10 @@ $GLUE_Completers = {
 }
 
 $GLUE_map = @{
-    "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("Start-GLUEDataQualityRulesetEvaluationRun")
-    "AdditionalRunOptions_ObservationMode"=@("Start-GLUEDataQualityRulesetEvaluationRun")
-    "AdditionalRunOptions_ObservationScope"=@("Start-GLUEDataQualityRulesetEvaluationRun")
-    "AdditionalRunOptions_RowLevelResults_ResultType"=@("Start-GLUEDataQualityRulesetEvaluationRun")
+    "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("New-GLUEDataQualityEvaluationConfig","Start-GLUEDataQualityRulesetEvaluationRun","Update-GLUEDataQualityEvaluationConfig")
+    "AdditionalRunOptions_ObservationMode"=@("New-GLUEDataQualityEvaluationConfig","Start-GLUEDataQualityRulesetEvaluationRun","Update-GLUEDataQualityEvaluationConfig")
+    "AdditionalRunOptions_ObservationScope"=@("New-GLUEDataQualityEvaluationConfig","Start-GLUEDataQualityRulesetEvaluationRun","Update-GLUEDataQualityEvaluationConfig")
+    "AdditionalRunOptions_RowLevelResults_ResultType"=@("New-GLUEDataQualityEvaluationConfig","Start-GLUEDataQualityRulesetEvaluationRun","Update-GLUEDataQualityEvaluationConfig")
     "ApplyOverrideForComputeEnvironment"=@("Get-GLUEConnection")
     "AuthenticationConfiguration_AuthenticationType"=@("Test-GLUEConnection")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
@@ -735,6 +777,7 @@ $GLUE_map = @{
     "EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
     "ExecutionClass"=@("New-GLUEJob","Start-GLUEJobRun")
     "ExportSetting"=@("Write-GLUEDataCatalogExportConfiguration")
+    "Filter_EvaluationRunMode"=@("Get-GLUEDataQualityResultList","Get-GLUEDataQualityResultsV2List")
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
@@ -747,7 +790,9 @@ $GLUE_map = @{
     "JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
     "JobMode"=@("New-GLUEJob")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
+    "Level"=@("Get-GLUEDataQualityEvaluationConfigList","New-GLUEDataQualityEvaluationConfig")
     "LineageConfiguration_CrawlerLineageSetting"=@("New-GLUECrawler","Update-GLUECrawler")
+    "ManagedRulesetName"=@("New-GLUEDataQualityEvaluationConfig","Update-GLUEDataQualityEvaluationConfig")
     "MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
     "OAuth2Properties_OAuth2GrantType"=@("Test-GLUEConnection")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
@@ -874,6 +919,7 @@ $GLUE_SelectMap = @{
                "New-GLUECrawler",
                "New-GLUECustomEntityType",
                "New-GLUEDatabase",
+               "New-GLUEDataQualityEvaluationConfig",
                "New-GLUEDataQualityRuleset",
                "New-GLUEDevEndpoint",
                "New-GLUEGlossary",
@@ -911,6 +957,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUECrawler",
                "Remove-GLUECustomEntityType",
                "Remove-GLUEDatabase",
+               "Remove-GLUEDataQualityEvaluationConfig",
                "Remove-GLUEDataQualityRuleset",
                "Remove-GLUEDevEndpoint",
                "Remove-GLUEFormType",
@@ -969,6 +1016,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataCatalogEncryptionSetting",
                "Get-GLUEDataCatalogExportConfiguration",
                "Get-GLUEDataflowGraph",
+               "Get-GLUEDataQualityEvaluationConfig",
                "Get-GLUEDataQualityModel",
                "Get-GLUEDataQualityModelResult",
                "Get-GLUEDataQualityResult",
@@ -1041,6 +1089,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawlerNameList",
                "Get-GLUECrawlList",
                "Get-GLUECustomEntityTypeList",
+               "Get-GLUEDataQualityEvaluationConfigList",
                "Get-GLUEDataQualityResultList",
                "Get-GLUEDataQualityResultsV2List",
                "Get-GLUEDataQualityRuleRecommendationRunList",
@@ -1128,6 +1177,7 @@ $GLUE_SelectMap = @{
                "Update-GLUECrawler",
                "Update-GLUECrawlerSchedule",
                "Update-GLUEDatabase",
+               "Update-GLUEDataQualityEvaluationConfig",
                "Update-GLUEDataQualityRuleset",
                "Update-GLUEDevEndpoint",
                "Update-GLUEGlossary",

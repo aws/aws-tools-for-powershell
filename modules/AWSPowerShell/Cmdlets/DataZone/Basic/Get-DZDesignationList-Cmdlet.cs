@@ -30,8 +30,9 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Lists the designations in a domain. Returns system-managed designations first, followed
-    /// by user-created designations sorted alphabetically by name.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the designations in a domain. The response returns system-managed designations
+    /// first, followed by user-created designations in alphabetical order by name. Results
+    /// are paginated. Use <c>nextToken</c> to retrieve additional pages of results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DZDesignationList")]
     [OutputType("Amazon.DataZone.Model.DesignationSummary")]

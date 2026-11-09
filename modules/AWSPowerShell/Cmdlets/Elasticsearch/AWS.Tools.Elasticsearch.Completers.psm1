@@ -90,6 +90,13 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.CutoverTarget
+        "Update-ESClone/CutoverOptions_Target"
+        {
+            $v = "ClonedCluster","PrimaryCluster"
+            break
+        }
+
         # Amazon.Elasticsearch.DeploymentStrategy
         {
             ($_ -eq "New-ESDomain/DeploymentStrategyOptions_DeploymentStrategy") -Or
@@ -97,6 +104,13 @@ $ES_Completers = {
         }
         {
             $v = "CapacityOptimized","Default"
+            break
+        }
+
+        # Amazon.Elasticsearch.DeploymentStrategyOverride
+        "Update-ESElasticsearchDomain/DeploymentStrategyOptions_DeploymentStrategy"
+        {
+            $v = "ClonedBlueGreen"
             break
         }
 
@@ -157,6 +171,16 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.RetentionAction
+        {
+            ($_ -eq "Update-ESElasticsearchDomain/DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction") -Or
+            ($_ -eq "Update-ESClone/RetentionOptions_RetentionAction")
+        }
+        {
+            $v = "DeletePrimaryCluster","RollbackToPrimaryCluster"
+            break
+        }
+
         # Amazon.Elasticsearch.RollbackOnDisable
         "Update-ESDomainConfig/AutoTuneOptions_RollbackOnDisable"
         {
@@ -171,6 +195,13 @@ $ES_Completers = {
         }
         {
             $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07","Policy-Min-TLS-1-2-PFS-2023-10","Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08"
+            break
+        }
+
+        # Amazon.Elasticsearch.TrafficStrategy
+        "Update-ESClone/TrafficSplitOptions_Strategy"
+        {
+            $v = "ShiftReadTrafficPercent"
             break
         }
 
@@ -195,7 +226,9 @@ $ES_Completers = {
 $ES_map = @{
     "AutoTuneOptions_DesiredState"=@("New-ESDomain","Update-ESDomainConfig")
     "AutoTuneOptions_RollbackOnDisable"=@("Update-ESDomainConfig")
-    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-ESDomain","Update-ESDomainConfig")
+    "CutoverOptions_Target"=@("Update-ESClone")
+    "DeploymentStrategyOptions_ClonedBlueGreenOptions_RetentionOptions_RetentionAction"=@("Update-ESElasticsearchDomain")
+    "DeploymentStrategyOptions_DeploymentStrategy"=@("New-ESDomain","Update-ESDomainConfig","Update-ESElasticsearchDomain")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-ESDomain","Update-ESDomainConfig")
     "EBSOptions_VolumeType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_DedicatedMasterType"=@("New-ESDomain","Update-ESDomainConfig")
@@ -205,6 +238,8 @@ $ES_map = @{
     "EngineType"=@("Get-ESDomainNameList")
     "InstanceType"=@("Get-ESInstanceTypeLimit")
     "PackageType"=@("New-ESPackage")
+    "RetentionOptions_RetentionAction"=@("Update-ESClone")
+    "TrafficSplitOptions_Strategy"=@("Update-ESClone")
     "UseCase"=@("New-ESDomain","Update-ESDomainConfig")
 }
 
@@ -305,6 +340,7 @@ $ES_SelectMap = @{
                "Remove-ESResourceTag",
                "Revoke-ESVpcEndpointAccess",
                "Start-ESElasticsearchServiceSoftwareUpdate",
+               "Update-ESClone",
                "Update-ESDomainConfig",
                "Update-ESPackage",
                "Update-ESVpcEndpoint",

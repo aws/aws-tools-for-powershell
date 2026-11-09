@@ -30,7 +30,9 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Deletes a designation. Managed designations cannot be deleted. This operation is idempotent.
+    /// Deletes a user-created designation. Managed designations cannot be deleted. The call
+    /// fails if the designation has <c>deletionProtection</c> enabled or if any project member
+    /// still holds it. This operation is idempotent.
     /// </summary>
     [Cmdlet("Remove", "DZDesignation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

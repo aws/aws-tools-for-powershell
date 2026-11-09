@@ -65,6 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.DateTime? CreatedBefore { get; set; }
         #endregion
         
+        #region Parameter ManagedBy
+        /// <summary>
+        /// <para>
+        /// <para>Filters the pipelines by who manages them. Specify <c>AWS</c> to return pipelines
+        /// that AWS manages, or <c>CUSTOMER</c> to return pipelines that you created. If you
+        /// don't specify a value, the response includes both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.PipelineManagedBy")]
+        public Amazon.SageMaker.PipelineManagedBy ManagedBy { get; set; }
+        #endregion
+        
         #region Parameter PipelineNamePrefix
         /// <summary>
         /// <para>
@@ -166,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.CreatedAfter = this.CreatedAfter;
             context.CreatedBefore = this.CreatedBefore;
+            context.ManagedBy = this.ManagedBy;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.PipelineNamePrefix = this.PipelineNamePrefix;
@@ -196,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.CreatedBefore != null)
             {
                 request.CreatedBefore = cmdletContext.CreatedBefore.Value;
+            }
+            if (cmdletContext.ManagedBy != null)
+            {
+                request.ManagedBy = cmdletContext.ManagedBy;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -294,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.DateTime? CreatedAfter { get; set; }
             public System.DateTime? CreatedBefore { get; set; }
+            public Amazon.SageMaker.PipelineManagedBy ManagedBy { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String PipelineNamePrefix { get; set; }

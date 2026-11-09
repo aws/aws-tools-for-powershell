@@ -84,6 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String PipelineName { get; set; }
         #endregion
         
+        #region Parameter PipelineVersionAlias
+        /// <summary>
+        /// <para>
+        /// <para>The alias of a pipeline version. The response includes only the executions of the
+        /// version that has this alias when you make the request. If no version of the pipeline
+        /// has this alias, the request fails with a <c>ResourceNotFound</c> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PipelineVersionAlias { get; set; }
+        #endregion
+        
         #region Parameter SortBy
         /// <summary>
         /// <para>
@@ -184,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter PipelineName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PipelineVersionAlias = this.PipelineVersionAlias;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             
@@ -219,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.PipelineName != null)
             {
                 request.PipelineName = cmdletContext.PipelineName;
+            }
+            if (cmdletContext.PipelineVersionAlias != null)
+            {
+                request.PipelineVersionAlias = cmdletContext.PipelineVersionAlias;
             }
             if (cmdletContext.SortBy != null)
             {
@@ -312,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String PipelineName { get; set; }
+            public System.String PipelineVersionAlias { get; set; }
             public Amazon.SageMaker.SortPipelineExecutionsBy SortBy { get; set; }
             public Amazon.SageMaker.SortOrder SortOrder { get; set; }
             public System.Func<Amazon.SageMaker.Model.ListPipelineExecutionsResponse, GetSMPipelineExecutionListCmdlet, object> Select { get; set; } =

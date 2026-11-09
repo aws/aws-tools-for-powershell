@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateBearerToken" OutputProperty="*" Verb="New" Noun="BearerToken" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateOAuth2Token" OutputProperty="TokenOutput" Verb="New" Noun="OAuth2Token" ShouldProcessTarget="TokenInput_ClientId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

@@ -1,0 +1,248 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.Signin;
+using Amazon.Signin.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.AMSP
+{
+    /// <summary>
+    /// Creates a bearer token that represents your IAM credentials and can be used to access
+    /// a supported AWS service. By default, the token is valid for 12 hours.
+    /// </summary>
+    [Cmdlet("New", "AMSPBearerToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Signin.Model.CreateBearerTokenResponse")]
+    [AWSCmdlet("Calls the AWS Sign-In Data Plane CreateBearerToken API operation.", Operation = new[] {"CreateBearerToken"}, SelectReturnType = typeof(Amazon.Signin.Model.CreateBearerTokenResponse))]
+    [AWSCmdletOutput("Amazon.Signin.Model.CreateBearerTokenResponse",
+        "This cmdlet returns an Amazon.Signin.Model.CreateBearerTokenResponse object containing multiple properties."
+    )]
+    public partial class NewAMSPBearerTokenCmdlet : AmazonSigninClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter DurationSecond
+        /// <summary>
+        /// <para>
+        /// The requested token lifetime in seconds,
+        /// from 300 (5 minutes) up to the maximum allowed for the service, currently 43200 (12
+        /// hours). If omitted, the token is valid for 12 hours.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DurationSeconds")]
+        public System.Int32? DurationSecond { get; set; }
+        #endregion
+        
+        #region Parameter GrantType
+        /// <summary>
+        /// <para>
+        /// The grant type. Must be "client_credentials".
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String GrantType { get; set; }
+        #endregion
+        
+        #region Parameter Resource
+        /// <summary>
+        /// <para>
+        /// The AWS service the bearer token is for. Example:
+        /// "ecr.amazonaws.com".
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Resource { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Signin.Model.CreateBearerTokenResponse).
+        /// Specifying the name of a property of type Amazon.Signin.Model.CreateBearerTokenResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AMSPBearerToken (CreateBearerToken)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.Signin.Model.CreateBearerTokenResponse, NewAMSPBearerTokenCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.DurationSecond = this.DurationSecond;
+            context.GrantType = this.GrantType;
+            #if MODULAR
+            if (this.GrantType == null && ParameterWasBound(nameof(this.GrantType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter GrantType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Resource = this.Resource;
+            #if MODULAR
+            if (this.Resource == null && ParameterWasBound(nameof(this.Resource)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Resource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.Signin.Model.CreateBearerTokenRequest();
+            
+            if (cmdletContext.DurationSecond != null)
+            {
+                request.DurationSeconds = cmdletContext.DurationSecond.Value;
+            }
+            if (cmdletContext.GrantType != null)
+            {
+                request.GrantType = cmdletContext.GrantType;
+            }
+            if (cmdletContext.Resource != null)
+            {
+                request.Resource = cmdletContext.Resource;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.Signin.Model.CreateBearerTokenResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.CreateBearerTokenRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "CreateBearerToken");
+            try
+            {
+                return client.CreateBearerTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.Int32? DurationSecond { get; set; }
+            public System.String GrantType { get; set; }
+            public System.String Resource { get; set; }
+            public System.Func<Amazon.Signin.Model.CreateBearerTokenResponse, NewAMSPBearerTokenCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

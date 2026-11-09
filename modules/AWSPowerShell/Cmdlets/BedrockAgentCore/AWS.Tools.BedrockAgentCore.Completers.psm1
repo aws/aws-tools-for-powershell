@@ -395,6 +395,7 @@ $BAC_SelectMap = @{
                "Invoke-BACBrowser",
                "Invoke-BACCodeInterpreter",
                "Invoke-BACHarness",
+               "Invoke-BACWebSearch",
                "Get-BACABTestList",
                "Get-BACActorList",
                "Get-BACBatchEvaluationList",

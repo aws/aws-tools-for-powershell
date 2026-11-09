@@ -307,6 +307,13 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.IsolationMode
+        "Register-ECSTaskDefinition/TrustedExecutionConfiguration_IsolationMode"
+        {
+            $v = "CONFIDENTIAL_SANDBOX","ISOLATED_SANDBOX","SHARED"
+            break
+        }
+
         # Amazon.ECS.LaunchType
         {
             ($_ -eq "Get-ECSClusterService/LaunchType") -Or
@@ -612,6 +619,7 @@ $ECS_map = @{
     "Status"=@("Get-ECSContainerInstanceList","Get-ECSDaemonTaskDefinitionList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
     "StopType"=@("Stop-ECSServiceDeployment")
     "TargetType"=@("Get-ECSAttributeList")
+    "TrustedExecutionConfiguration_IsolationMode"=@("Register-ECSTaskDefinition")
 }
 
 _awsArgumentCompleterRegistration $ECS_Completers $ECS_map

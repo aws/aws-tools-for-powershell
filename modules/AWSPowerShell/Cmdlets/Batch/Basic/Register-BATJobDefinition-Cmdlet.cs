@@ -272,6 +272,19 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ContainerProperties_ExecutionRoleArn { get; set; }
         #endregion
         
+        #region Parameter EksProperties_PodProperties_SecurityContext_FsGroup
+        /// <summary>
+        /// <para>
+        /// <para>A special supplemental group that is applied to all containers in the pod. Some volume
+        /// types allow Kubernetes to change the ownership and permissions of the volume contents
+        /// to this group when the volume is mounted. The supported value range is <c>0</c> through
+        /// <c>2147483647</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? EksProperties_PodProperties_SecurityContext_FsGroup { get; set; }
+        #endregion
+        
         #region Parameter PodProperties_HostNetwork
         /// <summary>
         /// <para>
@@ -425,6 +438,21 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EksProperties_PodProperties_Metadata_Labels")]
         public System.Collections.Hashtable Metadata_Label { get; set; }
+        #endregion
+        
+        #region Parameter EksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile
+        /// <summary>
+        /// <para>
+        /// <para>The path of the profile on the node, relative to the configured seccomp profile location.
+        /// You must specify this parameter when <c>type</c> is <c>Localhost</c>. Don't set this
+        /// parameter for any other type. You are responsible for ensuring that the profile exists
+        /// on every eligible worker node. For information about providing files to Amazon EKS
+        /// nodes, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-launch-templates.html">Use
+        /// a launch template with Batch on Amazon EKS</a> in the <i>Batch User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile { get; set; }
         #endregion
         
         #region Parameter LogConfiguration_LogDriver
@@ -722,6 +750,39 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.ResourceRequirement[] ContainerProperties_ResourceRequirement { get; set; }
         #endregion
         
+        #region Parameter EksProperties_PodProperties_SecurityContext_RunAsGroup
+        /// <summary>
+        /// <para>
+        /// <para>The primary group ID that runs containers in the pod when a container does not specify
+        /// its own group ID. The supported value range is <c>0</c> through <c>2147483647</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? EksProperties_PodProperties_SecurityContext_RunAsGroup { get; set; }
+        #endregion
+        
+        #region Parameter EksProperties_PodProperties_SecurityContext_RunAsNonRoot
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether Kubernetes validates that containers in the pod don't run as the
+        /// root user unless a container specifies an overriding value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EksProperties_PodProperties_SecurityContext_RunAsNonRoot { get; set; }
+        #endregion
+        
+        #region Parameter EksProperties_PodProperties_SecurityContext_RunAsUser
+        /// <summary>
+        /// <para>
+        /// <para>The user ID that runs containers in the pod when a container does not specify its
+        /// own user ID. The supported value range is <c>0</c> through <c>2147483647</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? EksProperties_PodProperties_SecurityContext_RunAsUser { get; set; }
+        #endregion
+        
         #region Parameter SchedulingPriority
         /// <summary>
         /// <para>
@@ -918,6 +979,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ContainerProperties_LinuxParameters_Tmpfs")]
         public Amazon.Batch.Model.Tmpfs[] LinuxParameters_Tmpf { get; set; }
+        #endregion
+        
+        #region Parameter EksProperties_PodProperties_SecurityContext_SeccompProfile_Type
+        /// <summary>
+        /// <para>
+        /// <para>The seccomp profile type can be one of the following values:</para><dl><dt>RuntimeDefault</dt><dd><para>The <c>RuntimeDefault</c> value uses the container runtime's default seccomp profile.</para></dd><dt>Unconfined</dt><dd><para>The <c>Unconfined</c> value doesn't filter the container with seccomp.</para></dd><dt>Localhost</dt><dd><para>The <c>Localhost</c> value uses a custom profile at the path specified by <c>localhostProfile</c>.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Batch.EksSeccompProfileType")]
+        public Amazon.Batch.EksSeccompProfileType EksProperties_PodProperties_SecurityContext_SeccompProfile_Type { get; set; }
         #endregion
         
         #region Parameter Type
@@ -1199,6 +1271,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 }
             }
             context.Metadata_Namespace = this.Metadata_Namespace;
+            context.EksProperties_PodProperties_SecurityContext_FsGroup = this.EksProperties_PodProperties_SecurityContext_FsGroup;
+            context.EksProperties_PodProperties_SecurityContext_RunAsGroup = this.EksProperties_PodProperties_SecurityContext_RunAsGroup;
+            context.EksProperties_PodProperties_SecurityContext_RunAsNonRoot = this.EksProperties_PodProperties_SecurityContext_RunAsNonRoot;
+            context.EksProperties_PodProperties_SecurityContext_RunAsUser = this.EksProperties_PodProperties_SecurityContext_RunAsUser;
+            context.EksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile = this.EksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile;
+            context.EksProperties_PodProperties_SecurityContext_SeccompProfile_Type = this.EksProperties_PodProperties_SecurityContext_SeccompProfile_Type;
             context.PodProperties_ServiceAccountName = this.PodProperties_ServiceAccountName;
             context.PodProperties_ShareProcessNamespace = this.PodProperties_ShareProcessNamespace;
             if (this.PodProperties_Volume != null)
@@ -1875,6 +1953,96 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 requestEksProperties_eksProperties_PodProperties.Metadata = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata;
                 requestEksProperties_eksProperties_PodPropertiesIsNull = false;
             }
+            Amazon.Batch.Model.EksPodSecurityContext requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext = null;
+            
+             // populate SecurityContext
+            var requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContextIsNull = true;
+            requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext = new Amazon.Batch.Model.EksPodSecurityContext();
+            System.Int64? requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_FsGroup = null;
+            if (cmdletContext.EksProperties_PodProperties_SecurityContext_FsGroup != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_FsGroup = cmdletContext.EksProperties_PodProperties_SecurityContext_FsGroup.Value;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_FsGroup != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext.FsGroup = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_FsGroup.Value;
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContextIsNull = false;
+            }
+            System.Int64? requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsGroup = null;
+            if (cmdletContext.EksProperties_PodProperties_SecurityContext_RunAsGroup != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsGroup = cmdletContext.EksProperties_PodProperties_SecurityContext_RunAsGroup.Value;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsGroup != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext.RunAsGroup = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsGroup.Value;
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContextIsNull = false;
+            }
+            System.Boolean? requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsNonRoot = null;
+            if (cmdletContext.EksProperties_PodProperties_SecurityContext_RunAsNonRoot != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsNonRoot = cmdletContext.EksProperties_PodProperties_SecurityContext_RunAsNonRoot.Value;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsNonRoot != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext.RunAsNonRoot = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsNonRoot.Value;
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContextIsNull = false;
+            }
+            System.Int64? requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsUser = null;
+            if (cmdletContext.EksProperties_PodProperties_SecurityContext_RunAsUser != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsUser = cmdletContext.EksProperties_PodProperties_SecurityContext_RunAsUser.Value;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsUser != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext.RunAsUser = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_RunAsUser.Value;
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContextIsNull = false;
+            }
+            Amazon.Batch.Model.EksSeccompProfile requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile = null;
+            
+             // populate SeccompProfile
+            var requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfileIsNull = true;
+            requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile = new Amazon.Batch.Model.EksSeccompProfile();
+            System.String requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile_eksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile = null;
+            if (cmdletContext.EksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile_eksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile = cmdletContext.EksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile_eksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile.LocalhostProfile = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile_eksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile;
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfileIsNull = false;
+            }
+            Amazon.Batch.EksSeccompProfileType requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile_eksProperties_PodProperties_SecurityContext_SeccompProfile_Type = null;
+            if (cmdletContext.EksProperties_PodProperties_SecurityContext_SeccompProfile_Type != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile_eksProperties_PodProperties_SecurityContext_SeccompProfile_Type = cmdletContext.EksProperties_PodProperties_SecurityContext_SeccompProfile_Type;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile_eksProperties_PodProperties_SecurityContext_SeccompProfile_Type != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile.Type = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile_eksProperties_PodProperties_SecurityContext_SeccompProfile_Type;
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfileIsNull = false;
+            }
+             // determine if requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile should be set to null
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfileIsNull)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile = null;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext.SeccompProfile = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext_eksProperties_PodProperties_SecurityContext_SeccompProfile;
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContextIsNull = false;
+            }
+             // determine if requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext should be set to null
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContextIsNull)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext = null;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext != null)
+            {
+                requestEksProperties_eksProperties_PodProperties.SecurityContext = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_SecurityContext;
+                requestEksProperties_eksProperties_PodPropertiesIsNull = false;
+            }
              // determine if requestEksProperties_eksProperties_PodProperties should be set to null
             if (requestEksProperties_eksProperties_PodPropertiesIsNull)
             {
@@ -2089,6 +2257,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public Dictionary<System.String, System.String> Metadata_Annotation { get; set; }
             public Dictionary<System.String, System.String> Metadata_Label { get; set; }
             public System.String Metadata_Namespace { get; set; }
+            public System.Int64? EksProperties_PodProperties_SecurityContext_FsGroup { get; set; }
+            public System.Int64? EksProperties_PodProperties_SecurityContext_RunAsGroup { get; set; }
+            public System.Boolean? EksProperties_PodProperties_SecurityContext_RunAsNonRoot { get; set; }
+            public System.Int64? EksProperties_PodProperties_SecurityContext_RunAsUser { get; set; }
+            public System.String EksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile { get; set; }
+            public Amazon.Batch.EksSeccompProfileType EksProperties_PodProperties_SecurityContext_SeccompProfile_Type { get; set; }
             public System.String PodProperties_ServiceAccountName { get; set; }
             public System.Boolean? PodProperties_ShareProcessNamespace { get; set; }
             public List<Amazon.Batch.Model.EksVolume> PodProperties_Volume { get; set; }

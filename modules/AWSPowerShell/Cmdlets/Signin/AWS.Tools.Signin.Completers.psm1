@@ -123,7 +123,8 @@ $AMSP_SelectCompleters = {
 }
 
 $AMSP_SelectMap = @{
-    "Select"=@("New-AMSPOAuth2Token",
+    "Select"=@("New-AMSPBearerToken",
+               "New-AMSPOAuth2Token",
                "New-AMSPOAuth2TokenWithIAM",
                "New-AMSPOAuth2TokenWithTokenExchange",
                "Remove-AMSPConsoleAuthorizationConfiguration",

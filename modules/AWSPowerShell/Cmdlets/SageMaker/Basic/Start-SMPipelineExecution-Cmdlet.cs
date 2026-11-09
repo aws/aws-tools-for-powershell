@@ -130,14 +130,40 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Parameter[] PipelineParameter { get; set; }
         #endregion
         
+        #region Parameter PipelineVersionAlias
+        /// <summary>
+        /// <para>
+        /// <para>The alias of the pipeline version to start the execution from. You can't specify this
+        /// with <c>PipelineVersionId</c>. If no version of the pipeline has this alias, the request
+        /// fails with a <c>ResourceNotFound</c> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PipelineVersionAlias { get; set; }
+        #endregion
+        
         #region Parameter PipelineVersionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the pipeline version to start execution from.</para>
+        /// <para>The ID of the pipeline version to start execution from. You can't specify this with
+        /// <c>PipelineVersionAlias</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? PipelineVersionId { get; set; }
+        #endregion
+        
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that the execution uses. You must specify
+        /// this parameter when you start an execution of a pipeline that AWS manages. You can't
+        /// specify it for a pipeline that you create, because its executions use the pipeline's
+        /// role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleArn { get; set; }
         #endregion
         
         #region Parameter SelectiveExecutionConfig_SelectedStep
@@ -234,7 +260,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.PipelineParameter = new List<Amazon.SageMaker.Model.Parameter>(this.PipelineParameter);
             }
+            context.PipelineVersionAlias = this.PipelineVersionAlias;
             context.PipelineVersionId = this.PipelineVersionId;
+            context.RoleArn = this.RoleArn;
             if (this.SelectiveExecutionConfig_SelectedStep != null)
             {
                 context.SelectiveExecutionConfig_SelectedStep = new List<Amazon.SageMaker.Model.SelectedStep>(this.SelectiveExecutionConfig_SelectedStep);
@@ -299,9 +327,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.PipelineParameters = cmdletContext.PipelineParameter;
             }
+            if (cmdletContext.PipelineVersionAlias != null)
+            {
+                request.PipelineVersionAlias = cmdletContext.PipelineVersionAlias;
+            }
             if (cmdletContext.PipelineVersionId != null)
             {
                 request.PipelineVersionId = cmdletContext.PipelineVersionId.Value;
+            }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
             }
             
              // populate SelectiveExecutionConfig
@@ -394,7 +430,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String PipelineExecutionDisplayName { get; set; }
             public System.String PipelineName { get; set; }
             public List<Amazon.SageMaker.Model.Parameter> PipelineParameter { get; set; }
+            public System.String PipelineVersionAlias { get; set; }
             public System.Int64? PipelineVersionId { get; set; }
+            public System.String RoleArn { get; set; }
             public List<Amazon.SageMaker.Model.SelectedStep> SelectiveExecutionConfig_SelectedStep { get; set; }
             public System.String SelectiveExecutionConfig_SourcePipelineExecutionArn { get; set; }
             public System.Func<Amazon.SageMaker.Model.StartPipelineExecutionResponse, StartSMPipelineExecutionCmdlet, object> Select { get; set; } =
