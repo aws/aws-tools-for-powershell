@@ -84,6 +84,7 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
+        'ImportGuard.ps1',
         'AWS.Tools.Common.Completers.psm1',
         'AWS.Tools.Common.Aliases.psm1'
     )

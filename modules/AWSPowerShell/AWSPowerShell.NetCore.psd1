@@ -515,6 +515,7 @@ This product provides support for all AWS services in a single module. As an alt
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
+        'ImportGuard.ps1',
         'AWSPowerShellCompleters.psm1',
         'AWSPowerShellLegacyAliases.psm1'
     )

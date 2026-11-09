@@ -161,3 +161,52 @@ Describe -Tag "Smoke" "Common.ImportGuard.VersionMismatchCheck" {
         }
     }
 }
+
+Describe -Tag "Smoke" "Common.ImportGuard.LoadedAssemblyCheck" {
+
+    BeforeAll {
+        $script:rootModules = @('AWSPowerShell', 'AWSPowerShell.NetCore', 'AWS.Tools.Common')
+    }
+
+    It "returns true when AWSSDK.Core was loaded by a different AWS.Tools.Common version" {
+        $null = New-Item -Path "$TestDrive/old/AWS.Tools.Common.psd1" -Force
+        Set-Content -Path "$TestDrive/old/AWS.Tools.Common.psd1" -Value "ModuleVersion = '5.0.162'"
+        $null = New-Item -Path "$TestDrive/new/AWS.Tools.Common.psd1" -Force
+        Set-Content -Path "$TestDrive/new/AWS.Tools.Common.psd1" -Value "ModuleVersion = '5.0.330'"
+
+        Test-AWSToolsLoadedFromOtherVersion "$TestDrive/old" "$TestDrive/new" $script:rootModules | Should -Be $true
+    }
+
+    It "returns true when AWSSDK.Core was loaded by a monolithic module of a different version" {
+        $null = New-Item -Path "$TestDrive/mono/AWSPowerShell.NetCore.psd1" -Force
+        Set-Content -Path "$TestDrive/mono/AWSPowerShell.NetCore.psd1" -Value "ModuleVersion = '5.0.162'"
+        $null = New-Item -Path "$TestDrive/new/AWS.Tools.Common.psd1" -Force
+        Set-Content -Path "$TestDrive/new/AWS.Tools.Common.psd1" -Value "ModuleVersion = '5.0.330'"
+
+        Test-AWSToolsLoadedFromOtherVersion "$TestDrive/mono" "$TestDrive/new" $script:rootModules | Should -Be $true
+    }
+
+    It "returns false when AWSSDK.Core was loaded from the module folder" {
+        $null = New-Item -Path "$TestDrive/new/AWS.Tools.Common.psd1" -Force
+        Set-Content -Path "$TestDrive/new/AWS.Tools.Common.psd1" -Value "ModuleVersion = '5.0.330'"
+
+        Test-AWSToolsLoadedFromOtherVersion "$TestDrive/new/" "$TestDrive/new" $script:rootModules | Should -Be $false
+    }
+
+    It "returns false when AWSSDK.Core was loaded by the same version from another folder" {
+        $null = New-Item -Path "$TestDrive/a/AWS.Tools.Common.psd1" -Force
+        Set-Content -Path "$TestDrive/a/AWS.Tools.Common.psd1" -Value "ModuleVersion = '5.0.330'"
+        $null = New-Item -Path "$TestDrive/b/AWS.Tools.Common.psd1" -Force
+        Set-Content -Path "$TestDrive/b/AWS.Tools.Common.psd1" -Value "ModuleVersion = '5.0.330'"
+
+        Test-AWSToolsLoadedFromOtherVersion "$TestDrive/a" "$TestDrive/b" $script:rootModules | Should -Be $false
+    }
+
+    It "returns false when AWSSDK.Core was loaded from a folder that is not an AWS Tools module" {
+        $null = New-Item -Path "$TestDrive/other/AWSSDK.Core.dll" -Force
+        $null = New-Item -Path "$TestDrive/new/AWS.Tools.Common.psd1" -Force
+        Set-Content -Path "$TestDrive/new/AWS.Tools.Common.psd1" -Value "ModuleVersion = '5.0.330'"
+
+        Test-AWSToolsLoadedFromOtherVersion "$TestDrive/other" "$TestDrive/new" $script:rootModules | Should -Be $false
+    }
+}

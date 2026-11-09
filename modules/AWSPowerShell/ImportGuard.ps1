@@ -106,6 +106,41 @@ function Test-AWSToolsVersionMismatch {
     return $false
 }
 
+function Get-AWSToolsManifestVersion {
+    [OutputType([System.Version])]
+    param([string]$Path, [string[]]$ModuleNames)
+
+    foreach ($name in $ModuleNames) {
+        $manifest = [System.IO.Path]::Combine($Path, "$name.psd1")
+        if ([System.IO.File]::Exists($manifest)) { return Get-VersionFromManifest $manifest }
+    }
+    return $null
+}
+
+function Test-AWSToolsLoadedFromOtherVersion {
+    [OutputType([bool])]
+    param([string]$LoadedPath, [string]$ModulePath, [string[]]$ModuleNames)
+
+    if ([string]::Equals($LoadedPath.TrimEnd('\', '/'), $ModulePath.TrimEnd('\', '/'), [System.StringComparison]::OrdinalIgnoreCase)) { return $false }
+    $loadedVersion = Get-AWSToolsManifestVersion $LoadedPath $ModuleNames
+    if ($null -eq $loadedVersion) { return $false }
+    return $loadedVersion -ne (Get-AWSToolsManifestVersion $ModulePath $ModuleNames)
+}
+
+function AWSToolsLoadedAssemblyGuard() {
+    Microsoft.PowerShell.Core\Set-StrictMode -Version 3
+
+    [string[]]$rootModules = @( 'AWSPowerShell', 'AWSPowerShell.NetCore', 'AWS.Tools.Common' )
+
+    foreach ($assembly in [System.AppDomain]::CurrentDomain.GetAssemblies()) {
+        if ($assembly.IsDynamic -or $assembly.GetName().Name -ne 'AWSSDK.Core' -or -not $assembly.Location) { continue }
+        [string]$loadedPath = [System.IO.Path]::GetDirectoryName($assembly.Location)
+        if (Test-AWSToolsLoadedFromOtherVersion $loadedPath $PSScriptRoot $rootModules) {
+            throw "AWSSDK.Core from a different version of AWS Tools for PowerShell is already loaded in this session from '$loadedPath'. Loaded assemblies cannot be replaced, so the module in '$PSScriptRoot' cannot be imported in this session. Start a new PowerShell session to import this module."
+        }
+    }
+}
+
 function AWSToolsImportGuard() {
     Microsoft.PowerShell.Core\Set-StrictMode -Version 3
 
@@ -150,6 +185,12 @@ AWSPowerShell is the legacy module for older systems which are either running Wi
     }
 }
 
+# Runs from ScriptsToProcess, and from NestedModules where only the loaded assembly check runs because
+# ScriptsToProcess is skipped when the module is loaded through RequiredModules on Windows PowerShell.
 if (-not $SkipInvocation) {
-    AWSToolsImportGuard
+    if ($ExecutionContext.SessionState.Module -and $ExecutionContext.SessionState.Module.Name -in @( 'AWSPowerShell', 'AWSPowerShell.NetCore', 'AWS.Tools.Common' )) {
+        AWSToolsLoadedAssemblyGuard
+    } else {
+        AWSToolsImportGuard
+    }
 }
