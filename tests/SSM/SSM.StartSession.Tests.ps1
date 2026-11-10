@@ -90,6 +90,6 @@ Describe -Tag "Smoke" "Start-SSMSession plugin invocation" {
         $calls.ToArray() | Should -Contain 'AmazonSSM.TerminateSession'
     }
 
-    # Token hand-off and plugin version tests were removed because Catapult runs Pester only on Windows.
+    # Token hand-off and plugin version tests were removed because integrations test run only on Windows.
     # Add them back if Pester runs on Linux (see PR #727).
 }
