@@ -1,4 +1,0 @@
-{
-  "Type": "Patch",
-  "Description": "**BREAKING CHANGE**: Cmdlets whose default output is a single property marked sensitive by the service now redact it on display. For these 57 cmdlets, `Out-File`, `>`, `Out-String`, native pipes and captured child `pwsh` output now write the redaction text (for example `Get-SECRandomPassword > pw.txt`). To get the value, use `-Select <PropertyName>` (for example `-Select RandomPassword`) or run `Set-AWSSensitiveDataConfiguration -ShowSensitiveData $true`. The first time each of these cmdlets redacts in a session, it also writes a host note naming the `-Select` property, which `-InformationAction Ignore` silences. `Format-Table` and `Format-List` now mask sensitive properties on any response type. With redaction on, `Format-Table Key,Value` on a returned tag map prints blank rows. Pipe `.GetEnumerator()` instead."
-}

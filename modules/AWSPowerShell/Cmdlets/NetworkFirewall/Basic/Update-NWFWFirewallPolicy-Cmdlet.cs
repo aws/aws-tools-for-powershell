@@ -126,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// this when you create or update the policy.</para><para>Changing this value swaps the managed rule group association. Network Firewall processes
         /// the swap asynchronously. Each policy can have only one managed Route 53 Resolver DNS
         /// Firewall association. While a swap is in progress, Network Firewall rejects further
-        /// changes to this setting. Wait until the swap completes, then retry.</para>
+        /// changes to this setting. Wait until the swap completes, then retry. The change may
+        /// also require a restart of the stateful engine. When this occurs, existing connections
+        /// will be treated according to your stream exception policy configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

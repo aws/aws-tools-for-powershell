@@ -54,6 +54,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AddLogDeliveryDestination
+        /// <summary>
+        /// <para>
+        /// <para>Log delivery destinations to add to the queue's log configuration (<c>LogConfiguration</c>).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AddLogDeliveryDestinations")]
+        public Amazon.GameLift.Model.LogDeliveryDestination[] AddLogDeliveryDestination { get; set; }
+        #endregion
+        
         #region Parameter FilterConfiguration_AllowedLocation
         /// <summary>
         /// <para>
@@ -221,6 +237,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String[] PriorityConfiguration_PriorityOrder { get; set; }
         #endregion
         
+        #region Parameter RemoveLogDeliveryDestination
+        /// <summary>
+        /// <para>
+        /// <para>Log delivery destinations to remove from the queue's log configuration (<c>LogConfiguration</c>).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoveLogDeliveryDestinations")]
+        public Amazon.GameLift.Model.LogDeliveryDestination[] RemoveLogDeliveryDestination { get; set; }
+        #endregion
+        
         #region Parameter TimeoutInSecond
         /// <summary>
         /// <para>
@@ -280,6 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.Select = CreateSelectDelegate<Amazon.GameLift.Model.UpdateGameSessionQueueResponse, UpdateGMLGameSessionQueueCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AddLogDeliveryDestination != null)
+            {
+                context.AddLogDeliveryDestination = new List<Amazon.GameLift.Model.LogDeliveryDestination>(this.AddLogDeliveryDestination);
+            }
             context.CustomEventData = this.CustomEventData;
             if (this.Destination != null)
             {
@@ -319,6 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 context.PriorityConfiguration_PriorityOrder = new List<System.String>(this.PriorityConfiguration_PriorityOrder);
             }
+            if (this.RemoveLogDeliveryDestination != null)
+            {
+                context.RemoveLogDeliveryDestination = new List<Amazon.GameLift.Model.LogDeliveryDestination>(this.RemoveLogDeliveryDestination);
+            }
             context.TimeoutInSecond = this.TimeoutInSecond;
             
             // allow further manipulation of loaded context prior to processing
@@ -336,6 +376,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // create request
             var request = new Amazon.GameLift.Model.UpdateGameSessionQueueRequest();
             
+            if (cmdletContext.AddLogDeliveryDestination != null)
+            {
+                request.AddLogDeliveryDestinations = cmdletContext.AddLogDeliveryDestination;
+            }
             if (cmdletContext.CustomEventData != null)
             {
                 request.CustomEventData = cmdletContext.CustomEventData;
@@ -412,6 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 request.PriorityConfiguration = null;
             }
+            if (cmdletContext.RemoveLogDeliveryDestination != null)
+            {
+                request.RemoveLogDeliveryDestinations = cmdletContext.RemoveLogDeliveryDestination;
+            }
             if (cmdletContext.TimeoutInSecond != null)
             {
                 request.TimeoutInSeconds = cmdletContext.TimeoutInSecond.Value;
@@ -471,6 +519,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.GameLift.Model.LogDeliveryDestination> AddLogDeliveryDestination { get; set; }
             public System.String CustomEventData { get; set; }
             public List<Amazon.GameLift.Model.GameSessionQueueDestination> Destination { get; set; }
             public System.Boolean? IsDestinationsSet { get; set; }
@@ -481,6 +530,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.Boolean? IsPlayerLatencyPoliciesSet { get; set; }
             public List<System.String> PriorityConfiguration_LocationOrder { get; set; }
             public List<System.String> PriorityConfiguration_PriorityOrder { get; set; }
+            public List<Amazon.GameLift.Model.LogDeliveryDestination> RemoveLogDeliveryDestination { get; set; }
             public System.Int32? TimeoutInSecond { get; set; }
             public System.Func<Amazon.GameLift.Model.UpdateGameSessionQueueResponse, UpdateGMLGameSessionQueueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GameSessionQueue;

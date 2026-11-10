@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></important><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html">
     /// Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i> .
-    /// </para>
+    /// </para><para></para>
     /// </summary>
     [Cmdlet("Disable", "EC2SnapshotBlockPublicAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.SnapshotBlockPublicAccessState")]

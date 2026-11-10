@@ -138,6 +138,7 @@ $R53P_SelectMap = @{
                "Get-R53PResourceTag",
                "Add-R53PResourceTag",
                "Remove-R53PResourceTag",
+               "Update-R53PProfileAssociation",
                "Update-R53PProfileResourceAssociation")
 }
 

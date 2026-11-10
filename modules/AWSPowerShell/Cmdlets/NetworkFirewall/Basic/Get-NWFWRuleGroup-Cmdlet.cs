@@ -77,11 +77,25 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String RuleGroupName { get; set; }
         #endregion
         
+        #region Parameter RuleOutputFormat
+        /// <summary>
+        /// <para>
+        /// <para>For a firewall engine rule group, the format in which to return the rules. Specify
+        /// one of the following values:</para><ul><li><para><c>FIREWALL_RULES</c> - Returns the rules as structured <c>FirewallRule</c> objects.</para></li><li><para><c>RULES_STRING</c> - Returns the rules as a Suricata-compatible firewall-mode rule
+        /// string.</para></li></ul><para>If you don't specify a format, Network Firewall returns the rules in the format you
+        /// provided them in. This setting applies only to <c>FIREWALL</c> and <c>IPS</c> rule
+        /// groups; IPS engine rule groups support only <c>RULES_STRING</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.RuleOutputFormat")]
+        public Amazon.NetworkFirewall.RuleOutputFormat RuleOutputFormat { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the rule group is stateless or stateful. If the rule group is stateless,
-        /// it contains stateless rules. If it is stateful, it contains stateful rules. </para><note><para>This setting is required for requests that do not include the <c>RuleGroupARN</c>.</para></note>
+        /// <para>Indicates the type of the rule group. Valid values are:</para><ul><li><para><c>STATELESS</c> - Stateless rules, for use in a Classic Network Firewall policy.</para></li><li><para><c>STATEFUL</c> - Stateful rules, for use in a Classic Network Firewall policy.</para></li><li><para><c>FIREWALL</c> - Firewall engine rules, for use in a Next Generation policy.</para></li><li><para><c>IPS</c> - IPS engine rules, for use in a Next Generation policy.</para></li></ul><note><para>This setting is required for requests that do not include the <c>RuleGroupARN</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,6 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             context.AnalyzeRuleGroup = this.AnalyzeRuleGroup;
             context.RuleGroupArn = this.RuleGroupArn;
             context.RuleGroupName = this.RuleGroupName;
+            context.RuleOutputFormat = this.RuleOutputFormat;
             context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -150,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.RuleGroupName != null)
             {
                 request.RuleGroupName = cmdletContext.RuleGroupName;
+            }
+            if (cmdletContext.RuleOutputFormat != null)
+            {
+                request.RuleOutputFormat = cmdletContext.RuleOutputFormat;
             }
             if (cmdletContext.Type != null)
             {
@@ -213,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.Boolean? AnalyzeRuleGroup { get; set; }
             public System.String RuleGroupArn { get; set; }
             public System.String RuleGroupName { get; set; }
+            public Amazon.NetworkFirewall.RuleOutputFormat RuleOutputFormat { get; set; }
             public Amazon.NetworkFirewall.RuleGroupType Type { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.DescribeRuleGroupResponse, GetNWFWRuleGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

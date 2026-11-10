@@ -122,6 +122,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String[] CustomJWTAuthorizer_AllowedScope { get; set; }
         #endregion
         
+        #region Parameter DomainOverride_AlternateDomain
+        /// <summary>
+        /// <para>
+        /// <para>Additional public domain names for the gateway, up to 10. Don't repeat the default
+        /// domain or list a domain more than once. A request can select one of these domains,
+        /// or the default domain, with the <c>x-amzn-bedrock-agentcore-gateway-domain</c> header.
+        /// The gateway rejects a request that selects a domain that isn't configured.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainOverride_AlternateDomains")]
+        public System.String[] DomainOverride_AlternateDomain { get; set; }
+        #endregion
+        
         #region Parameter PolicyEngineConfiguration_Arn
         /// <summary>
         /// <para>
@@ -166,6 +185,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaims")]
         public Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType[] CustomJWTAuthorizer_CustomClaim { get; set; }
+        #endregion
+        
+        #region Parameter DomainOverride_DefaultDomain
+        /// <summary>
+        /// <para>
+        /// <para>The default public domain name for the gateway. The gateway advertises this domain
+        /// when a request doesn't select a specific domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainOverride_DefaultDomain { get; set; }
         #endregion
         
         #region Parameter Description
@@ -657,6 +687,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             #endif
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            if (this.DomainOverride_AlternateDomain != null)
+            {
+                context.DomainOverride_AlternateDomain = new List<System.String>(this.DomainOverride_AlternateDomain);
+            }
+            context.DomainOverride_DefaultDomain = this.DomainOverride_DefaultDomain;
             context.ExceptionLevel = this.ExceptionLevel;
             if (this.InterceptorConfiguration != null)
             {
@@ -969,6 +1004,35 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Description = cmdletContext.Description;
             }
+            
+             // populate DomainOverride
+            var requestDomainOverrideIsNull = true;
+            request.DomainOverride = new Amazon.BedrockAgentCoreControl.Model.DomainOverride();
+            List<System.String> requestDomainOverride_domainOverride_AlternateDomain = null;
+            if (cmdletContext.DomainOverride_AlternateDomain != null)
+            {
+                requestDomainOverride_domainOverride_AlternateDomain = cmdletContext.DomainOverride_AlternateDomain;
+            }
+            if (requestDomainOverride_domainOverride_AlternateDomain != null)
+            {
+                request.DomainOverride.AlternateDomains = requestDomainOverride_domainOverride_AlternateDomain;
+                requestDomainOverrideIsNull = false;
+            }
+            System.String requestDomainOverride_domainOverride_DefaultDomain = null;
+            if (cmdletContext.DomainOverride_DefaultDomain != null)
+            {
+                requestDomainOverride_domainOverride_DefaultDomain = cmdletContext.DomainOverride_DefaultDomain;
+            }
+            if (requestDomainOverride_domainOverride_DefaultDomain != null)
+            {
+                request.DomainOverride.DefaultDomain = requestDomainOverride_domainOverride_DefaultDomain;
+                requestDomainOverrideIsNull = false;
+            }
+             // determine if request.DomainOverride should be set to null
+            if (requestDomainOverrideIsNull)
+            {
+                request.DomainOverride = null;
+            }
             if (cmdletContext.ExceptionLevel != null)
             {
                 request.ExceptionLevel = cmdletContext.ExceptionLevel;
@@ -1214,6 +1278,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public Amazon.BedrockAgentCoreControl.AuthorizerType AuthorizerType { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> DomainOverride_AlternateDomain { get; set; }
+            public System.String DomainOverride_DefaultDomain { get; set; }
             public Amazon.BedrockAgentCoreControl.ExceptionLevel ExceptionLevel { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration> InterceptorConfiguration { get; set; }
             public System.String KmsKeyArn { get; set; }

@@ -102,6 +102,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-R53PProfileAssociation', 
         'Remove-R53PProfileResourceAssociation', 
         'Remove-R53PResourceTag', 
+        'Update-R53PProfileAssociation', 
         'Update-R53PProfileResourceAssociation')
 
     # Variables to export from this module

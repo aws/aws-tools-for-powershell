@@ -30,9 +30,34 @@ using Amazon.Route53Profiles.Model;
 namespace Amazon.PowerShell.Cmdlets.R53P
 {
     /// <summary>
-    /// Associates a Route 53 Profiles profile with a VPC. A VPC can have only one Profile
-    /// associated with it, but a Profile can be associated with 1000 of VPCs (and you can
-    /// request a higher quota). For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities">https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities</a>.
+    /// Associates a Route 53 Profiles profile with a VPC. A VPC can have up to two Profile
+    /// associations. A Profile can be associated with up to 1,000 VPCs, and you can request
+    /// a higher quota for the number of VPCs. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-route53-profiles">Quotas
+    /// on Route 53 Profiles</a>. 
+    /// 
+    ///  
+    /// <para>
+    ///  Route 53 VPC Resolver evaluates the Profile associations for a VPC in priority order,
+    /// starting with the lowest <c>Priority</c> value. If the VPC has no other Profile associations,
+    /// you can omit <c>Priority</c>, and the association gets priority 100. When the VPC
+    /// already has a Profile association, you must specify a <c>Priority</c>, and each Profile
+    /// association for the VPC must have a unique priority. To change the priority of an
+    /// existing association, use <c>UpdateProfileAssociation</c>. 
+    /// </para><para>
+    /// The request fails with a <c>ValidationException</c> in these cases:
+    /// </para><ul><li><para>
+    /// You omit <c>Priority</c>, and the VPC already has a Profile association.
+    /// </para></li><li><para>
+    /// Another Profile association for the VPC already uses the priority that you specify.
+    /// </para></li><li><para>
+    /// The priority is outside the range 100–9900.
+    /// </para></li><li><para>
+    /// The Profile is already associated with the VPC, and you specify a different <c>Name</c>
+    /// or <c>Priority</c>. To change the priority, use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_UpdateProfileAssociation.html">UpdateProfileAssociation</a>.
+    /// </para></li></ul><para>
+    ///  The request fails with a <c>LimitExceededException</c> if the VPC already has the
+    /// maximum number of Profile associations. 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "R53PProfileAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Profiles.Model.ProfileAssociation")]
@@ -62,6 +87,19 @@ namespace Amazon.PowerShell.Cmdlets.R53P
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Priority
+        /// <summary>
+        /// <para>
+        /// <para> The priority of the Profile association. Route 53 VPC Resolver evaluates the Profile
+        /// associations for a VPC in priority order, starting with the lowest value. </para><para> When the VPC already has a Profile association, you must specify a priority that
+        /// no other Profile association for the VPC uses. If you omit the priority for the first
+        /// association with a VPC, the association gets priority 100. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Priority { get; set; }
         #endregion
         
         #region Parameter ProfileId
@@ -168,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.R53P
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Priority = this.Priority;
             context.ProfileId = this.ProfileId;
             #if MODULAR
             if (this.ProfileId == null && ParameterWasBound(nameof(this.ProfileId)))
@@ -205,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.R53P
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Priority != null)
+            {
+                request.Priority = cmdletContext.Priority.Value;
             }
             if (cmdletContext.ProfileId != null)
             {
@@ -274,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.R53P
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public System.Int32? Priority { get; set; }
             public System.String ProfileId { get; set; }
             public System.String ResourceId { get; set; }
             public List<Amazon.Route53Profiles.Model.Tag> Tag { get; set; }

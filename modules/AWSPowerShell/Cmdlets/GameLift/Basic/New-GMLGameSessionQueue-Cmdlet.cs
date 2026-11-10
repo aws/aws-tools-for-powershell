@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para>
-    /// Creates a placement queue that processes requests for new game sessions. A queue uses
-    /// FleetIQ algorithms to locate the best available placement locations for a new game
-    /// session, and then prompts the game server process to start a new game session.
+    /// Creates a placement queue that processes requests for new game sessions. A queue finds
+    /// the best available game server, then prompts it to start a new game session.
     /// </para><para>
     /// A game session queue is configured with a set of destinations (Amazon GameLift Servers
     /// fleets or aliases) that determine where the queue can place new game sessions. These
@@ -66,7 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Required parameters <c>Name</c> and <c>Destinations</c></para></li><li><para><c>PriorityConfiguration</c></para></li></ul></li><li><para>
     /// Create a queue with special rules for processing player latency data.
     /// </para><ul><li><para>
-    /// Required parameters <c>Name</c> and <c>Destinations</c></para></li><li><para><c>PlayerLatencyPolicies</c></para></li></ul></li></ul><para><b>Results</b></para><para>
+    /// Required parameters <c>Name</c> and <c>Destinations</c></para></li><li><para><c>PlayerLatencyPolicies</c></para></li></ul></li><li><para>
+    /// Create a queue that delivers game session placement insight logs to one or more log
+    /// destinations.
+    /// </para><ul><li><para>
+    /// Required parameters <c>Name</c> and <c>Destinations</c></para></li><li><para><c>LogConfiguration</c></para></li></ul></li></ul><para><b>Results</b></para><para>
     /// If successful, this operation returns a new <c>GameSessionQueue</c> object with an
     /// assigned queue ARN. Use the queue's name or ARN when submitting new game session requests
     /// with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a>
@@ -119,6 +122,23 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CustomEventData { get; set; }
+        #endregion
+        
+        #region Parameter LogConfiguration_DeliveryDestination
+        /// <summary>
+        /// <para>
+        /// <para>The destinations that receive game session placement insight logs for the queue. You
+        /// can specify up to 3 destinations. Each destination must have a unique ARN.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogConfiguration_DeliveryDestinations")]
+        public Amazon.GameLift.Model.LogDeliveryDestination[] LogConfiguration_DeliveryDestination { get; set; }
         #endregion
         
         #region Parameter Destination
@@ -317,6 +337,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 context.FilterConfiguration_AllowedLocation = new List<System.String>(this.FilterConfiguration_AllowedLocation);
             }
+            if (this.LogConfiguration_DeliveryDestination != null)
+            {
+                context.LogConfiguration_DeliveryDestination = new List<Amazon.GameLift.Model.LogDeliveryDestination>(this.LogConfiguration_DeliveryDestination);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -384,6 +408,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestFilterConfigurationIsNull)
             {
                 request.FilterConfiguration = null;
+            }
+            
+             // populate LogConfiguration
+            var requestLogConfigurationIsNull = true;
+            request.LogConfiguration = new Amazon.GameLift.Model.GameSessionQueueLogConfiguration();
+            List<Amazon.GameLift.Model.LogDeliveryDestination> requestLogConfiguration_logConfiguration_DeliveryDestination = null;
+            if (cmdletContext.LogConfiguration_DeliveryDestination != null)
+            {
+                requestLogConfiguration_logConfiguration_DeliveryDestination = cmdletContext.LogConfiguration_DeliveryDestination;
+            }
+            if (requestLogConfiguration_logConfiguration_DeliveryDestination != null)
+            {
+                request.LogConfiguration.DeliveryDestinations = requestLogConfiguration_logConfiguration_DeliveryDestination;
+                requestLogConfigurationIsNull = false;
+            }
+             // determine if request.LogConfiguration should be set to null
+            if (requestLogConfigurationIsNull)
+            {
+                request.LogConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -492,6 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String CustomEventData { get; set; }
             public List<Amazon.GameLift.Model.GameSessionQueueDestination> Destination { get; set; }
             public List<System.String> FilterConfiguration_AllowedLocation { get; set; }
+            public List<Amazon.GameLift.Model.LogDeliveryDestination> LogConfiguration_DeliveryDestination { get; set; }
             public System.String Name { get; set; }
             public System.String NotificationTarget { get; set; }
             public List<Amazon.GameLift.Model.PlayerLatencyPolicy> PlayerLatencyPolicy { get; set; }

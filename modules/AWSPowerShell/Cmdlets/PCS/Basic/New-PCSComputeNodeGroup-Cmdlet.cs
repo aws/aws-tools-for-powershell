@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.PCS
     /// PCS uses the information you provide to this API action to launch compute nodes in
     /// your account. You can only specify subnets in the same Amazon VPC as your cluster.
     /// You receive billing charges for the compute nodes that PCS launches in your account.
-    /// You must already have a launch template before you call this API. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch
-    /// an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User
-    /// Guide for Linux Instances</i>.
+    /// You can configure common instance settings, such as the AMI, security groups, and
+    /// SSH key pair, directly on the compute node group, or you can provide a custom EC2
+    /// launch template. To use a launch template that PCS manages, set <c>launchTemplateMode</c>
+    /// to <c>MANAGED</c> and don't provide <c>customLaunchTemplate</c>. In this case, you
+    /// must specify <c>amiId</c> and <c>securityGroupIds</c>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_cng_instance-settings.html">Configuring
+    /// instance settings for compute node groups in PCS</a> in the <i>PCS User Guide</i>.
     /// </summary>
     [Cmdlet("New", "PCSComputeNodeGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PCS.Model.ComputeNodeGroup")]
@@ -74,8 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <summary>
         /// <para>
         /// <para> The ID of the Amazon Machine Image (AMI) that PCS uses to launch compute nodes (Amazon
-        /// EC2 instances). If you don't provide this value, PCS uses the AMI ID specified in
-        /// the custom launch template.</para>
+        /// EC2 instances). This value overrides the AMI ID in the custom launch template. If
+        /// you don't provide this value, PCS uses the AMI ID specified in the custom launch template.
+        /// You must provide this value if <c>launchTemplateMode</c> is <c>MANAGED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,17 +163,11 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter CustomLaunchTemplate_Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the EC2 launch template to use to provision instances.</para><para> Example: <c>lt-xxxx</c></para>
+        /// <para>The ID of the EC2 launch template to use to provision instances. Specify this value
+        /// together with <c>version</c>.</para><para> Example: <c>lt-xxxx</c></para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CustomLaunchTemplate_Id { get; set; }
         #endregion
         
@@ -195,6 +192,19 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("InstanceConfigs")]
         public Amazon.PCS.Model.InstanceConfig[] InstanceConfig { get; set; }
+        #endregion
+        
+        #region Parameter LaunchTemplateMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the compute node group uses a custom launch template or a launch
+        /// template that PCS manages. The default value is <c>CUSTOM</c>.</para><para>If the value is <c>CUSTOM</c>, provide <c>customLaunchTemplate</c>. If the value is
+        /// <c>MANAGED</c>, omit <c>customLaunchTemplate</c> and provide <c>amiId</c> and <c>securityGroupIds</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PCS.LaunchTemplateMode")]
+        public Amazon.PCS.LaunchTemplateMode LaunchTemplateMode { get; set; }
         #endregion
         
         #region Parameter ScalingConfiguration_MaxInstanceCount
@@ -310,6 +320,29 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public Amazon.PCS.ScriptCachingPolicy NodeLifecycleActions_ScriptCachingPolicy { get; set; }
         #endregion
         
+        #region Parameter SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the EC2 security groups to configure directly on the compute node group.
+        /// The security groups must be in the same VPC as the cluster. PCS uses these security
+        /// groups instead of the security groups in the custom launch template. You can't specify
+        /// this value if the custom launch template defines network interfaces. If you don't
+        /// provide this value, PCS uses the security groups in the custom launch template. You
+        /// must provide this value if <c>launchTemplateMode</c> is <c>MANAGED</c>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_cng_instance-settings.html">Configuring
+        /// instance settings for compute node groups in PCS</a> in the <i>PCS User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SecurityGroupIds")]
+        public System.String[] SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter SlurmConfiguration_SlurmCustomSetting
         /// <summary>
         /// <para>
@@ -324,6 +357,22 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SlurmConfiguration_SlurmCustomSettings")]
         public Amazon.PCS.Model.SlurmCustomSetting[] SlurmConfiguration_SlurmCustomSetting { get; set; }
+        #endregion
+        
+        #region Parameter SshKeyName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the EC2 key pair to configure directly on the compute node group. The
+        /// key pair must exist in your account and Amazon Web Services Region. PCS uses this
+        /// key pair instead of the key pair in the custom launch template. If you don't provide
+        /// this value, PCS uses the key pair in the custom launch template, if one is specified.
+        /// You must have permission for <c>ec2:DescribeKeyPairs</c>. If you delete the key pair
+        /// later, future instance launches can fail. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_cng_instance-settings.html">Configuring
+        /// instance settings for compute node groups in PCS</a> in the <i>PCS User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SshKeyName { get; set; }
         #endregion
         
         #region Parameter SubnetId
@@ -370,17 +419,11 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter CustomLaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The version of the EC2 launch template to use to provision instances.</para>
+        /// <para>The version of the EC2 launch template to use to provision instances. Specify this
+        /// value together with <c>id</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CustomLaunchTemplate_Version { get; set; }
         #endregion
         
@@ -392,7 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// idempotent request, if the original request completes successfully, the subsequent
         /// retries with the same client token return the result from the original successful
         /// request and they have no additional effect. If you don't specify a client token, the
-        /// CLI and SDK automatically generate 1 for you.</para>
+        /// CLI and SDK automatically generate one for you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -462,19 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             }
             #endif
             context.CustomLaunchTemplate_Id = this.CustomLaunchTemplate_Id;
-            #if MODULAR
-            if (this.CustomLaunchTemplate_Id == null && ParameterWasBound(nameof(this.CustomLaunchTemplate_Id)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CustomLaunchTemplate_Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.CustomLaunchTemplate_Version = this.CustomLaunchTemplate_Version;
-            #if MODULAR
-            if (this.CustomLaunchTemplate_Version == null && ParameterWasBound(nameof(this.CustomLaunchTemplate_Version)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CustomLaunchTemplate_Version which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.IamInstanceProfileArn = this.IamInstanceProfileArn;
             #if MODULAR
             if (this.IamInstanceProfileArn == null && ParameterWasBound(nameof(this.IamInstanceProfileArn)))
@@ -492,6 +523,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 WriteWarning("You are passing $null as a value for parameter InstanceConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LaunchTemplateMode = this.LaunchTemplateMode;
             context.NodeLifecycleActions_ScriptCachingPolicy = this.NodeLifecycleActions_ScriptCachingPolicy;
             if (this.NodeLifecycleActions_Stages_NodeBootstrapped != null)
             {
@@ -516,6 +548,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 WriteWarning("You are passing $null as a value for parameter ScalingConfiguration_MinInstanceCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SecurityGroupId != null)
+            {
+                context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
+            }
             if (this.SlurmConfiguration_GresCustomSetting != null)
             {
                 context.SlurmConfiguration_GresCustomSetting = new List<Dictionary<System.String, System.String>>();
@@ -535,6 +571,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 context.SlurmConfiguration_SlurmCustomSetting = new List<Amazon.PCS.Model.SlurmCustomSetting>(this.SlurmConfiguration_SlurmCustomSetting);
             }
             context.SpotOptions_AllocationStrategy = this.SpotOptions_AllocationStrategy;
+            context.SshKeyName = this.SshKeyName;
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -621,6 +658,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (cmdletContext.InstanceConfig != null)
             {
                 request.InstanceConfigs = cmdletContext.InstanceConfig;
+            }
+            if (cmdletContext.LaunchTemplateMode != null)
+            {
+                request.LaunchTemplateMode = cmdletContext.LaunchTemplateMode;
             }
             
              // populate NodeLifecycleActions
@@ -709,6 +750,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             {
                 request.ScalingConfiguration = null;
             }
+            if (cmdletContext.SecurityGroupId != null)
+            {
+                request.SecurityGroupIds = cmdletContext.SecurityGroupId;
+            }
             
              // populate SlurmConfiguration
             var requestSlurmConfigurationIsNull = true;
@@ -766,6 +811,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (requestSpotOptionsIsNull)
             {
                 request.SpotOptions = null;
+            }
+            if (cmdletContext.SshKeyName != null)
+            {
+                request.SshKeyName = cmdletContext.SshKeyName;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -838,16 +887,19 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public System.String CustomLaunchTemplate_Version { get; set; }
             public System.String IamInstanceProfileArn { get; set; }
             public List<Amazon.PCS.Model.InstanceConfig> InstanceConfig { get; set; }
+            public Amazon.PCS.LaunchTemplateMode LaunchTemplateMode { get; set; }
             public Amazon.PCS.ScriptCachingPolicy NodeLifecycleActions_ScriptCachingPolicy { get; set; }
             public List<Amazon.PCS.Model.NodeLifecycleScript> NodeLifecycleActions_Stages_NodeBootstrapped { get; set; }
             public List<Amazon.PCS.Model.NodeLifecycleScript> NodeLifecycleActions_Stages_NodeReady { get; set; }
             public Amazon.PCS.PurchaseOption PurchaseOption { get; set; }
             public System.Int32? ScalingConfiguration_MaxInstanceCount { get; set; }
             public System.Int32? ScalingConfiguration_MinInstanceCount { get; set; }
+            public List<System.String> SecurityGroupId { get; set; }
             public List<Dictionary<System.String, System.String>> SlurmConfiguration_GresCustomSetting { get; set; }
             public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
             public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
             public Amazon.PCS.SpotAllocationStrategy SpotOptions_AllocationStrategy { get; set; }
+            public System.String SshKeyName { get; set; }
             public List<System.String> SubnetId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.PCS.Model.CreateComputeNodeGroupResponse, NewPCSComputeNodeGroupCmdlet, object> Select { get; set; } =

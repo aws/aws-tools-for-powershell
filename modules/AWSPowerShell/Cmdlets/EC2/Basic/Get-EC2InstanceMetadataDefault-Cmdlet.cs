@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Gets the default instance metadata service (IMDS) settings that are set at the account
-    /// level in the specified Amazon Web Services  Region.
+    /// level in the specified Amazon Web Services Region.
     /// 
     ///  
     /// <para>

@@ -113,6 +113,37 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.Boolean? DryRun { get; set; }
         #endregion
         
+        #region Parameter FirewallRuleGroup_RulesSource_FirewallRule
+        /// <summary>
+        /// <para>
+        /// <para>An array of individual firewall engine rules, provided as structured rules rather
+        /// than as a rule string.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallRuleGroup_RulesSource_FirewallRules")]
+        public Amazon.NetworkFirewall.Model.FirewallRule[] FirewallRuleGroup_RulesSource_FirewallRule { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType
+        /// <summary>
+        /// <para>
+        /// <para>Whether you want to apply allow, reject, alert, or drop behavior to the domains in
+        /// your target list.</para><note><para>When logging is enabled and you choose Alert, traffic that matches the domain specifications
+        /// generates an alert in the firewall's logs. Then, traffic either passes, is rejected,
+        /// or drops based on other rules in the firewall policy.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.GeneratedRulesType")]
+        public Amazon.NetworkFirewall.GeneratedRulesType FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType { get; set; }
+        #endregion
+        
         #region Parameter RulesSourceList_GeneratedRulesType
         /// <summary>
         /// <para>
@@ -126,6 +157,38 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         [Alias("RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType")]
         [AWSConstantClassSource("Amazon.NetworkFirewall.GeneratedRulesType")]
         public Amazon.NetworkFirewall.GeneratedRulesType RulesSourceList_GeneratedRulesType { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRuleGroup_ReferenceSets_IPSetReference
+        /// <summary>
+        /// <para>
+        /// <para>The list of IP set references.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallRuleGroup_ReferenceSets_IPSetReferences")]
+        public System.Collections.Hashtable FirewallRuleGroup_ReferenceSets_IPSetReference { get; set; }
+        #endregion
+        
+        #region Parameter IpsRuleGroup_ReferenceSets_IPSetReference
+        /// <summary>
+        /// <para>
+        /// <para>The list of IP set references.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IpsRuleGroup_ReferenceSets_IPSetReferences")]
+        public System.Collections.Hashtable IpsRuleGroup_ReferenceSets_IPSetReference { get; set; }
         #endregion
         
         #region Parameter ReferenceSets_IPSetReference
@@ -142,6 +205,38 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RuleGroup_ReferenceSets_IPSetReferences")]
         public System.Collections.Hashtable ReferenceSets_IPSetReference { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRuleGroup_RuleVariables_IPSet
+        /// <summary>
+        /// <para>
+        /// <para>A list of IP addresses and address ranges, in CIDR notation. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallRuleGroup_RuleVariables_IPSets")]
+        public System.Collections.Hashtable FirewallRuleGroup_RuleVariables_IPSet { get; set; }
+        #endregion
+        
+        #region Parameter IpsRuleGroup_RuleVariables_IPSet
+        /// <summary>
+        /// <para>
+        /// <para>A list of IP addresses and address ranges, in CIDR notation. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IpsRuleGroup_RuleVariables_IPSets")]
+        public System.Collections.Hashtable IpsRuleGroup_RuleVariables_IPSet { get; set; }
         #endregion
         
         #region Parameter RuleVariables_IPSet
@@ -172,6 +267,38 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EncryptionConfiguration_KeyId { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRuleGroup_RuleVariables_PortSet
+        /// <summary>
+        /// <para>
+        /// <para>A list of port ranges. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallRuleGroup_RuleVariables_PortSets")]
+        public System.Collections.Hashtable FirewallRuleGroup_RuleVariables_PortSet { get; set; }
+        #endregion
+        
+        #region Parameter IpsRuleGroup_RuleVariables_PortSet
+        /// <summary>
+        /// <para>
+        /// <para>A list of port ranges. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IpsRuleGroup_RuleVariables_PortSets")]
+        public System.Collections.Hashtable IpsRuleGroup_RuleVariables_PortSet { get; set; }
         #endregion
         
         #region Parameter RuleVariables_PortSet
@@ -259,6 +386,32 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String Rule { get; set; }
         #endregion
         
+        #region Parameter FirewallRuleGroup_RulesSource_RulesString
+        /// <summary>
+        /// <para>
+        /// <para>Firewall engine rules, provided as a single Suricata-compatible rule string in firewall
+        /// mode. Use this to provide rules that you've already written in the Suricata firewall-mode
+        /// format. For the rule format, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-v2.html">Rule
+        /// groups for a firewall using a Next Generation policy</a> in the <i>Network Firewall
+        /// Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallRuleGroup_RulesSource_RulesString { get; set; }
+        #endregion
+        
+        #region Parameter IpsRuleGroup_RulesSource_RulesString
+        /// <summary>
+        /// <para>
+        /// <para>IPS engine rules, provided as a single Suricata-compatible rule string. For the rule
+        /// format, see <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html">Rules
+        /// Format</a> on the Suricata website.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IpsRuleGroup_RulesSource_RulesString { get; set; }
+        #endregion
+        
         #region Parameter RulesSource_RulesString
         /// <summary>
         /// <para>
@@ -304,7 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// stateful rule group. Use this option to specify simple Suricata rules with protocol,
         /// source and destination, ports, direction, and rule options. For information about
         /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-8.0.3/rules/intro.html">Rules
-        /// Format</a>. </para><para />
+        /// Format</a> on the Suricata website. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -333,6 +486,26 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.Model.StatelessRule[] StatelessRulesAndCustomActions_StatelessRule { get; set; }
         #endregion
         
+        #region Parameter FirewallRuleGroup_RulesSource_RulesSourceList_Target
+        /// <summary>
+        /// <para>
+        /// <para>The domains that you want to inspect for in your traffic flows. Valid domain specifications
+        /// are the following:</para><ul><li><para>Explicit names. For example, <c>abc.example.com</c> matches only the domain <c>abc.example.com</c>.</para></li><li><para>Names that use a domain wildcard, which you indicate with an initial '<c>.</c>'. For
+        /// example,<c>.example.com</c> matches <c>example.com</c> and matches all subdomains
+        /// of <c>example.com</c>, such as <c>abc.example.com</c> and <c>www.example.com</c>.
+        /// </para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallRuleGroup_RulesSource_RulesSourceList_Targets")]
+        public System.String[] FirewallRuleGroup_RulesSource_RulesSourceList_Target { get; set; }
+        #endregion
+        
         #region Parameter RulesSourceList_Target
         /// <summary>
         /// <para>
@@ -351,6 +524,42 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RuleGroup_RulesSource_RulesSourceList_Targets")]
         public System.String[] RulesSourceList_Target { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRuleGroup_RulesSource_RulesSourceList_TargetType
+        /// <summary>
+        /// <para>
+        /// <para>The types of matching to perform against the domains in <c>Targets</c>. You can specify
+        /// any combination of the following:</para><ul><li><para><c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> – Match the domain against the domain that the
+        /// Amazon Route 53 Resolver resolved the connection's destination IP address for.</para></li><li><para><c>HTTP_HOST</c> – Match the domain against the <c>Host</c> header of HTTP traffic.</para></li><li><para><c>TLS_SNI</c> – Match the domain against the Server Name Indication (SNI) of HTTPS
+        /// traffic.</para></li></ul><para><c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> matches on how the destination IP address was
+        /// resolved, rather than on the domain that the client asserts in its TLS SNI or HTTP
+        /// <c>Host</c> header. This target type takes effect when you configure resolved IP validation
+        /// on the firewall policy. For more information, see <a>Route53ResolvedIPValidation</a>.</para><para>Whether you include <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> changes what the generated
+        /// rules match, together with <c>GeneratedRulesType</c>:</para><ul><li><para>Combining <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> with <c>TLS_SNI</c> or <c>HTTP_HOST</c>
+        /// in an <c>ALLOWLIST</c> requires both conditions to match. The SNI or <c>Host</c> header
+        /// must match the domain, <b>and</b> the Route 53 Resolver must have resolved the destination
+        /// IP address for that domain. Network Firewall allows traffic only in that case. Traffic
+        /// that matches one condition, such as a spoofed <c>Host</c> header sent to an unresolved
+        /// IP address, is not allowed.</para></li><li><para>In a <c>DENYLIST</c>, or when <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> is the only target
+        /// type, Network Firewall evaluates each condition independently: a match on either the
+        /// domain (SNI or <c>Host</c>) or the resolved destination IP address triggers the rule.</para></li><li><para>When you don't include <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c>, the generated rules match
+        /// only on the SNI or <c>Host</c> header, without checking how the destination IP address
+        /// was resolved.</para></li></ul><para>An <c>ALLOWLIST</c> whose only target type is <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c>
+        /// is additive: it allows matching traffic but doesn't generate a default rule that drops
+        /// non-matching traffic. Only the <c>TLS_SNI</c> and <c>HTTP_HOST</c> target types generate
+        /// that default drop. To allow only the resolved domains and drop all other traffic,
+        /// include a protocol target type as well.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallRuleGroup_RulesSource_RulesSourceList_TargetTypes")]
+        public System.String[] FirewallRuleGroup_RulesSource_RulesSourceList_TargetType { get; set; }
         #endregion
         
         #region Parameter RulesSourceList_TargetType
@@ -404,8 +613,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the rule group is stateless or stateful. If the rule group is stateless,
-        /// it contains stateless rules. If it is stateful, it contains stateful rules. </para><note><para>This setting is required for requests that do not include the <c>RuleGroupARN</c>.</para></note>
+        /// <para>Indicates the type of the rule group. Valid values are:</para><ul><li><para><c>STATELESS</c> - Stateless rules, for use in a Classic Network Firewall policy.</para></li><li><para><c>STATEFUL</c> - Stateful rules, for use in a Classic Network Firewall policy.</para></li><li><para><c>FIREWALL</c> - Firewall engine rules, for use in a Next Generation policy.</para></li><li><para><c>IPS</c> - IPS engine rules, for use in a Next Generation policy.</para></li></ul><note><para>This setting is required for requests that do not include the <c>RuleGroupARN</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -488,6 +696,69 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             context.DryRun = this.DryRun;
             context.EncryptionConfiguration_KeyId = this.EncryptionConfiguration_KeyId;
             context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
+            if (this.FirewallRuleGroup_ReferenceSets_IPSetReference != null)
+            {
+                context.FirewallRuleGroup_ReferenceSets_IPSetReference = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FirewallRuleGroup_ReferenceSets_IPSetReference.Keys)
+                {
+                    context.FirewallRuleGroup_ReferenceSets_IPSetReference.Add((String)hashKey, (Amazon.NetworkFirewall.Model.IPSetReference)(this.FirewallRuleGroup_ReferenceSets_IPSetReference[hashKey]));
+                }
+            }
+            if (this.FirewallRuleGroup_RuleVariables_IPSet != null)
+            {
+                context.FirewallRuleGroup_RuleVariables_IPSet = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FirewallRuleGroup_RuleVariables_IPSet.Keys)
+                {
+                    context.FirewallRuleGroup_RuleVariables_IPSet.Add((String)hashKey, (Amazon.NetworkFirewall.Model.IPSet)(this.FirewallRuleGroup_RuleVariables_IPSet[hashKey]));
+                }
+            }
+            if (this.FirewallRuleGroup_RuleVariables_PortSet != null)
+            {
+                context.FirewallRuleGroup_RuleVariables_PortSet = new Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FirewallRuleGroup_RuleVariables_PortSet.Keys)
+                {
+                    context.FirewallRuleGroup_RuleVariables_PortSet.Add((String)hashKey, (Amazon.NetworkFirewall.Model.PortSet)(this.FirewallRuleGroup_RuleVariables_PortSet[hashKey]));
+                }
+            }
+            if (this.FirewallRuleGroup_RulesSource_FirewallRule != null)
+            {
+                context.FirewallRuleGroup_RulesSource_FirewallRule = new List<Amazon.NetworkFirewall.Model.FirewallRule>(this.FirewallRuleGroup_RulesSource_FirewallRule);
+            }
+            context.FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType = this.FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType;
+            if (this.FirewallRuleGroup_RulesSource_RulesSourceList_TargetType != null)
+            {
+                context.FirewallRuleGroup_RulesSource_RulesSourceList_TargetType = new List<System.String>(this.FirewallRuleGroup_RulesSource_RulesSourceList_TargetType);
+            }
+            if (this.FirewallRuleGroup_RulesSource_RulesSourceList_Target != null)
+            {
+                context.FirewallRuleGroup_RulesSource_RulesSourceList_Target = new List<System.String>(this.FirewallRuleGroup_RulesSource_RulesSourceList_Target);
+            }
+            context.FirewallRuleGroup_RulesSource_RulesString = this.FirewallRuleGroup_RulesSource_RulesString;
+            if (this.IpsRuleGroup_ReferenceSets_IPSetReference != null)
+            {
+                context.IpsRuleGroup_ReferenceSets_IPSetReference = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IpsRuleGroup_ReferenceSets_IPSetReference.Keys)
+                {
+                    context.IpsRuleGroup_ReferenceSets_IPSetReference.Add((String)hashKey, (Amazon.NetworkFirewall.Model.IPSetReference)(this.IpsRuleGroup_ReferenceSets_IPSetReference[hashKey]));
+                }
+            }
+            if (this.IpsRuleGroup_RuleVariables_IPSet != null)
+            {
+                context.IpsRuleGroup_RuleVariables_IPSet = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IpsRuleGroup_RuleVariables_IPSet.Keys)
+                {
+                    context.IpsRuleGroup_RuleVariables_IPSet.Add((String)hashKey, (Amazon.NetworkFirewall.Model.IPSet)(this.IpsRuleGroup_RuleVariables_IPSet[hashKey]));
+                }
+            }
+            if (this.IpsRuleGroup_RuleVariables_PortSet != null)
+            {
+                context.IpsRuleGroup_RuleVariables_PortSet = new Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IpsRuleGroup_RuleVariables_PortSet.Keys)
+                {
+                    context.IpsRuleGroup_RuleVariables_PortSet.Add((String)hashKey, (Amazon.NetworkFirewall.Model.PortSet)(this.IpsRuleGroup_RuleVariables_PortSet[hashKey]));
+                }
+            }
+            context.IpsRuleGroup_RulesSource_RulesString = this.IpsRuleGroup_RulesSource_RulesString;
             if (this.ReferenceSets_IPSetReference != null)
             {
                 context.ReferenceSets_IPSetReference = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference>(StringComparer.Ordinal);
@@ -608,6 +879,249 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (requestEncryptionConfigurationIsNull)
             {
                 request.EncryptionConfiguration = null;
+            }
+            
+             // populate FirewallRuleGroup
+            var requestFirewallRuleGroupIsNull = true;
+            request.FirewallRuleGroup = new Amazon.NetworkFirewall.Model.FirewallRuleGroup();
+            Amazon.NetworkFirewall.Model.ReferenceSets requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets = null;
+            
+             // populate ReferenceSets
+            var requestFirewallRuleGroup_firewallRuleGroup_ReferenceSetsIsNull = true;
+            requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets = new Amazon.NetworkFirewall.Model.ReferenceSets();
+            Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference> requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets_firewallRuleGroup_ReferenceSets_IPSetReference = null;
+            if (cmdletContext.FirewallRuleGroup_ReferenceSets_IPSetReference != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets_firewallRuleGroup_ReferenceSets_IPSetReference = cmdletContext.FirewallRuleGroup_ReferenceSets_IPSetReference;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets_firewallRuleGroup_ReferenceSets_IPSetReference != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets.IPSetReferences = requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets_firewallRuleGroup_ReferenceSets_IPSetReference;
+                requestFirewallRuleGroup_firewallRuleGroup_ReferenceSetsIsNull = false;
+            }
+             // determine if requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets should be set to null
+            if (requestFirewallRuleGroup_firewallRuleGroup_ReferenceSetsIsNull)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets = null;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets != null)
+            {
+                request.FirewallRuleGroup.ReferenceSets = requestFirewallRuleGroup_firewallRuleGroup_ReferenceSets;
+                requestFirewallRuleGroupIsNull = false;
+            }
+            Amazon.NetworkFirewall.Model.RuleVariables requestFirewallRuleGroup_firewallRuleGroup_RuleVariables = null;
+            
+             // populate RuleVariables
+            var requestFirewallRuleGroup_firewallRuleGroup_RuleVariablesIsNull = true;
+            requestFirewallRuleGroup_firewallRuleGroup_RuleVariables = new Amazon.NetworkFirewall.Model.RuleVariables();
+            Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> requestFirewallRuleGroup_firewallRuleGroup_RuleVariables_firewallRuleGroup_RuleVariables_IPSet = null;
+            if (cmdletContext.FirewallRuleGroup_RuleVariables_IPSet != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RuleVariables_firewallRuleGroup_RuleVariables_IPSet = cmdletContext.FirewallRuleGroup_RuleVariables_IPSet;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_RuleVariables_firewallRuleGroup_RuleVariables_IPSet != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RuleVariables.IPSets = requestFirewallRuleGroup_firewallRuleGroup_RuleVariables_firewallRuleGroup_RuleVariables_IPSet;
+                requestFirewallRuleGroup_firewallRuleGroup_RuleVariablesIsNull = false;
+            }
+            Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet> requestFirewallRuleGroup_firewallRuleGroup_RuleVariables_firewallRuleGroup_RuleVariables_PortSet = null;
+            if (cmdletContext.FirewallRuleGroup_RuleVariables_PortSet != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RuleVariables_firewallRuleGroup_RuleVariables_PortSet = cmdletContext.FirewallRuleGroup_RuleVariables_PortSet;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_RuleVariables_firewallRuleGroup_RuleVariables_PortSet != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RuleVariables.PortSets = requestFirewallRuleGroup_firewallRuleGroup_RuleVariables_firewallRuleGroup_RuleVariables_PortSet;
+                requestFirewallRuleGroup_firewallRuleGroup_RuleVariablesIsNull = false;
+            }
+             // determine if requestFirewallRuleGroup_firewallRuleGroup_RuleVariables should be set to null
+            if (requestFirewallRuleGroup_firewallRuleGroup_RuleVariablesIsNull)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RuleVariables = null;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_RuleVariables != null)
+            {
+                request.FirewallRuleGroup.RuleVariables = requestFirewallRuleGroup_firewallRuleGroup_RuleVariables;
+                requestFirewallRuleGroupIsNull = false;
+            }
+            Amazon.NetworkFirewall.Model.FirewallRulesSource requestFirewallRuleGroup_firewallRuleGroup_RulesSource = null;
+            
+             // populate RulesSource
+            var requestFirewallRuleGroup_firewallRuleGroup_RulesSourceIsNull = true;
+            requestFirewallRuleGroup_firewallRuleGroup_RulesSource = new Amazon.NetworkFirewall.Model.FirewallRulesSource();
+            List<Amazon.NetworkFirewall.Model.FirewallRule> requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_FirewallRule = null;
+            if (cmdletContext.FirewallRuleGroup_RulesSource_FirewallRule != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_FirewallRule = cmdletContext.FirewallRuleGroup_RulesSource_FirewallRule;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_FirewallRule != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource.FirewallRules = requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_FirewallRule;
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSourceIsNull = false;
+            }
+            System.String requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesString = null;
+            if (cmdletContext.FirewallRuleGroup_RulesSource_RulesString != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesString = cmdletContext.FirewallRuleGroup_RulesSource_RulesString;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesString != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource.RulesString = requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesString;
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSourceIsNull = false;
+            }
+            Amazon.NetworkFirewall.Model.RulesSourceList requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList = null;
+            
+             // populate RulesSourceList
+            var requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceListIsNull = true;
+            requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList = new Amazon.NetworkFirewall.Model.RulesSourceList();
+            Amazon.NetworkFirewall.GeneratedRulesType requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType = null;
+            if (cmdletContext.FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType = cmdletContext.FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList.GeneratedRulesType = requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType;
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceListIsNull = false;
+            }
+            List<System.String> requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_TargetType = null;
+            if (cmdletContext.FirewallRuleGroup_RulesSource_RulesSourceList_TargetType != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_TargetType = cmdletContext.FirewallRuleGroup_RulesSource_RulesSourceList_TargetType;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_TargetType != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList.TargetTypes = requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_TargetType;
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceListIsNull = false;
+            }
+            List<System.String> requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_Target = null;
+            if (cmdletContext.FirewallRuleGroup_RulesSource_RulesSourceList_Target != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_Target = cmdletContext.FirewallRuleGroup_RulesSource_RulesSourceList_Target;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_Target != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList.Targets = requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList_firewallRuleGroup_RulesSource_RulesSourceList_Target;
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceListIsNull = false;
+            }
+             // determine if requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList should be set to null
+            if (requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceListIsNull)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList = null;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList != null)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource.RulesSourceList = requestFirewallRuleGroup_firewallRuleGroup_RulesSource_firewallRuleGroup_RulesSource_RulesSourceList;
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSourceIsNull = false;
+            }
+             // determine if requestFirewallRuleGroup_firewallRuleGroup_RulesSource should be set to null
+            if (requestFirewallRuleGroup_firewallRuleGroup_RulesSourceIsNull)
+            {
+                requestFirewallRuleGroup_firewallRuleGroup_RulesSource = null;
+            }
+            if (requestFirewallRuleGroup_firewallRuleGroup_RulesSource != null)
+            {
+                request.FirewallRuleGroup.RulesSource = requestFirewallRuleGroup_firewallRuleGroup_RulesSource;
+                requestFirewallRuleGroupIsNull = false;
+            }
+             // determine if request.FirewallRuleGroup should be set to null
+            if (requestFirewallRuleGroupIsNull)
+            {
+                request.FirewallRuleGroup = null;
+            }
+            
+             // populate IpsRuleGroup
+            var requestIpsRuleGroupIsNull = true;
+            request.IpsRuleGroup = new Amazon.NetworkFirewall.Model.IpsRuleGroup();
+            Amazon.NetworkFirewall.Model.ReferenceSets requestIpsRuleGroup_ipsRuleGroup_ReferenceSets = null;
+            
+             // populate ReferenceSets
+            var requestIpsRuleGroup_ipsRuleGroup_ReferenceSetsIsNull = true;
+            requestIpsRuleGroup_ipsRuleGroup_ReferenceSets = new Amazon.NetworkFirewall.Model.ReferenceSets();
+            Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference> requestIpsRuleGroup_ipsRuleGroup_ReferenceSets_ipsRuleGroup_ReferenceSets_IPSetReference = null;
+            if (cmdletContext.IpsRuleGroup_ReferenceSets_IPSetReference != null)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_ReferenceSets_ipsRuleGroup_ReferenceSets_IPSetReference = cmdletContext.IpsRuleGroup_ReferenceSets_IPSetReference;
+            }
+            if (requestIpsRuleGroup_ipsRuleGroup_ReferenceSets_ipsRuleGroup_ReferenceSets_IPSetReference != null)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_ReferenceSets.IPSetReferences = requestIpsRuleGroup_ipsRuleGroup_ReferenceSets_ipsRuleGroup_ReferenceSets_IPSetReference;
+                requestIpsRuleGroup_ipsRuleGroup_ReferenceSetsIsNull = false;
+            }
+             // determine if requestIpsRuleGroup_ipsRuleGroup_ReferenceSets should be set to null
+            if (requestIpsRuleGroup_ipsRuleGroup_ReferenceSetsIsNull)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_ReferenceSets = null;
+            }
+            if (requestIpsRuleGroup_ipsRuleGroup_ReferenceSets != null)
+            {
+                request.IpsRuleGroup.ReferenceSets = requestIpsRuleGroup_ipsRuleGroup_ReferenceSets;
+                requestIpsRuleGroupIsNull = false;
+            }
+            Amazon.NetworkFirewall.Model.IpsRulesSource requestIpsRuleGroup_ipsRuleGroup_RulesSource = null;
+            
+             // populate RulesSource
+            var requestIpsRuleGroup_ipsRuleGroup_RulesSourceIsNull = true;
+            requestIpsRuleGroup_ipsRuleGroup_RulesSource = new Amazon.NetworkFirewall.Model.IpsRulesSource();
+            System.String requestIpsRuleGroup_ipsRuleGroup_RulesSource_ipsRuleGroup_RulesSource_RulesString = null;
+            if (cmdletContext.IpsRuleGroup_RulesSource_RulesString != null)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_RulesSource_ipsRuleGroup_RulesSource_RulesString = cmdletContext.IpsRuleGroup_RulesSource_RulesString;
+            }
+            if (requestIpsRuleGroup_ipsRuleGroup_RulesSource_ipsRuleGroup_RulesSource_RulesString != null)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_RulesSource.RulesString = requestIpsRuleGroup_ipsRuleGroup_RulesSource_ipsRuleGroup_RulesSource_RulesString;
+                requestIpsRuleGroup_ipsRuleGroup_RulesSourceIsNull = false;
+            }
+             // determine if requestIpsRuleGroup_ipsRuleGroup_RulesSource should be set to null
+            if (requestIpsRuleGroup_ipsRuleGroup_RulesSourceIsNull)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_RulesSource = null;
+            }
+            if (requestIpsRuleGroup_ipsRuleGroup_RulesSource != null)
+            {
+                request.IpsRuleGroup.RulesSource = requestIpsRuleGroup_ipsRuleGroup_RulesSource;
+                requestIpsRuleGroupIsNull = false;
+            }
+            Amazon.NetworkFirewall.Model.RuleVariables requestIpsRuleGroup_ipsRuleGroup_RuleVariables = null;
+            
+             // populate RuleVariables
+            var requestIpsRuleGroup_ipsRuleGroup_RuleVariablesIsNull = true;
+            requestIpsRuleGroup_ipsRuleGroup_RuleVariables = new Amazon.NetworkFirewall.Model.RuleVariables();
+            Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> requestIpsRuleGroup_ipsRuleGroup_RuleVariables_ipsRuleGroup_RuleVariables_IPSet = null;
+            if (cmdletContext.IpsRuleGroup_RuleVariables_IPSet != null)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_RuleVariables_ipsRuleGroup_RuleVariables_IPSet = cmdletContext.IpsRuleGroup_RuleVariables_IPSet;
+            }
+            if (requestIpsRuleGroup_ipsRuleGroup_RuleVariables_ipsRuleGroup_RuleVariables_IPSet != null)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_RuleVariables.IPSets = requestIpsRuleGroup_ipsRuleGroup_RuleVariables_ipsRuleGroup_RuleVariables_IPSet;
+                requestIpsRuleGroup_ipsRuleGroup_RuleVariablesIsNull = false;
+            }
+            Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet> requestIpsRuleGroup_ipsRuleGroup_RuleVariables_ipsRuleGroup_RuleVariables_PortSet = null;
+            if (cmdletContext.IpsRuleGroup_RuleVariables_PortSet != null)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_RuleVariables_ipsRuleGroup_RuleVariables_PortSet = cmdletContext.IpsRuleGroup_RuleVariables_PortSet;
+            }
+            if (requestIpsRuleGroup_ipsRuleGroup_RuleVariables_ipsRuleGroup_RuleVariables_PortSet != null)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_RuleVariables.PortSets = requestIpsRuleGroup_ipsRuleGroup_RuleVariables_ipsRuleGroup_RuleVariables_PortSet;
+                requestIpsRuleGroup_ipsRuleGroup_RuleVariablesIsNull = false;
+            }
+             // determine if requestIpsRuleGroup_ipsRuleGroup_RuleVariables should be set to null
+            if (requestIpsRuleGroup_ipsRuleGroup_RuleVariablesIsNull)
+            {
+                requestIpsRuleGroup_ipsRuleGroup_RuleVariables = null;
+            }
+            if (requestIpsRuleGroup_ipsRuleGroup_RuleVariables != null)
+            {
+                request.IpsRuleGroup.RuleVariables = requestIpsRuleGroup_ipsRuleGroup_RuleVariables;
+                requestIpsRuleGroupIsNull = false;
+            }
+             // determine if request.IpsRuleGroup should be set to null
+            if (requestIpsRuleGroupIsNull)
+            {
+                request.IpsRuleGroup = null;
             }
             
              // populate RuleGroup
@@ -946,6 +1460,18 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.Boolean? DryRun { get; set; }
             public System.String EncryptionConfiguration_KeyId { get; set; }
             public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
+            public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference> FirewallRuleGroup_ReferenceSets_IPSetReference { get; set; }
+            public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> FirewallRuleGroup_RuleVariables_IPSet { get; set; }
+            public Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet> FirewallRuleGroup_RuleVariables_PortSet { get; set; }
+            public List<Amazon.NetworkFirewall.Model.FirewallRule> FirewallRuleGroup_RulesSource_FirewallRule { get; set; }
+            public Amazon.NetworkFirewall.GeneratedRulesType FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType { get; set; }
+            public List<System.String> FirewallRuleGroup_RulesSource_RulesSourceList_TargetType { get; set; }
+            public List<System.String> FirewallRuleGroup_RulesSource_RulesSourceList_Target { get; set; }
+            public System.String FirewallRuleGroup_RulesSource_RulesString { get; set; }
+            public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference> IpsRuleGroup_ReferenceSets_IPSetReference { get; set; }
+            public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> IpsRuleGroup_RuleVariables_IPSet { get; set; }
+            public Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet> IpsRuleGroup_RuleVariables_PortSet { get; set; }
+            public System.String IpsRuleGroup_RulesSource_RulesString { get; set; }
             public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference> ReferenceSets_IPSetReference { get; set; }
             public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> RuleVariables_IPSet { get; set; }
             public Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet> RuleVariables_PortSet { get; set; }

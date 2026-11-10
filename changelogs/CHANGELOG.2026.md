@@ -1,4 +1,52 @@
-﻿### 5.0.331 (2026-11-09 20:29Z)
+﻿### 5.0.332 (2026-11-10 20:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.367.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCAgentRuntime: added parameters HooksConfiguration_Build_Warmup_Action_HttpPost_Path, HooksConfiguration_Build_Warmup_Action_HttpPost_Port and ResourceConfiguration.
+    * Modified cmdlet New-BACCGateway: added parameters DomainOverride_AlternateDomain and DomainOverride_DefaultDomain.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameters HooksConfiguration_Build_Warmup_Action_HttpPost_Path, HooksConfiguration_Build_Warmup_Action_HttpPost_Port and ResourceConfiguration.
+    * Modified cmdlet Update-BACCGateway: added parameters DomainOverride_AlternateDomain and DomainOverride_DefaultDomain.
+  * Amazon CloudWatch Omni
+    * Added cmdlet Get-CWOMSpaceDataAccess leveraging the GetSpaceDataAccess service API.
+  * Amazon GameLift Service
+    * Modified cmdlet New-GMLGameSessionQueue: added parameter LogConfiguration_DeliveryDestination.
+    * Modified cmdlet Update-GMLGameSessionQueue: added parameters AddLogDeliveryDestination and RemoveLogDeliveryDestination.
+  * Amazon Lake Formation
+    * Added cmdlet Get-LKFGlueFunctionSessionContext leveraging the GetGlueFunctionSessionContext service API.
+    * Added cmdlet Get-LKFTemporaryGlueFunctionCredential leveraging the GetTemporaryGlueFunctionCredentials service API.
+    * Modified cmdlet Add-LKFLFTagsToResource: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet Dismount-LKFRLSPolicy: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet Get-LKFLakeFormationOptInList: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet Get-LKFPermissionList: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet Get-LKFResourceLFTag: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet Get-LKFRLSPolicyAttachmentList: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet Grant-LKFPermission: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet Mount-LKFRLSPolicy: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet New-LKFLakeFormationOptIn: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet Remove-LKFLakeFormationOptIn: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet Remove-LKFLFTagsFromResource: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+    * Modified cmdlet Revoke-LKFPermission: added parameters Resource_AnyResource_CatalogId, Resource_AnyResource_ResourceType, Resource_UserDefinedFunction_CatalogId, Resource_UserDefinedFunction_DatabaseName, Resource_UserDefinedFunction_Name and Resource_UserDefinedFunction_UserDefinedFunctionWildcard.
+  * Amazon Network Firewall
+    * Added cmdlet Get-NWFWFirewallPoliciesV2List leveraging the ListFirewallPoliciesV2 service API.
+    * Added cmdlet Get-NWFWFirewallPolicyV2Detail leveraging the DescribeFirewallPolicyV2 service API.
+    * Added cmdlet New-NWFWFirewallPolicyV2 leveraging the CreateFirewallPolicyV2 service API.
+    * Added cmdlet Remove-NWFWFirewallPolicyV2 leveraging the DeleteFirewallPolicyV2 service API.
+    * Added cmdlet Update-NWFWFirewallPolicyV2 leveraging the UpdateFirewallPolicyV2 service API.
+    * Modified cmdlet Get-NWFWRuleGroup: added parameter RuleOutputFormat.
+    * Modified cmdlet New-NWFWRuleGroup: added parameters FirewallRuleGroup_ReferenceSets_IPSetReference, FirewallRuleGroup_RulesSource_FirewallRule, FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType, FirewallRuleGroup_RulesSource_RulesSourceList_Target, FirewallRuleGroup_RulesSource_RulesSourceList_TargetType, FirewallRuleGroup_RulesSource_RulesString, FirewallRuleGroup_RuleVariables_IPSet, FirewallRuleGroup_RuleVariables_PortSet, IpsRuleGroup_ReferenceSets_IPSetReference, IpsRuleGroup_RulesSource_RulesString, IpsRuleGroup_RuleVariables_IPSet and IpsRuleGroup_RuleVariables_PortSet.
+    * Modified cmdlet Update-NWFWRuleGroup: added parameters FirewallRuleGroup_ReferenceSets_IPSetReference, FirewallRuleGroup_RulesSource_FirewallRule, FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType, FirewallRuleGroup_RulesSource_RulesSourceList_Target, FirewallRuleGroup_RulesSource_RulesSourceList_TargetType, FirewallRuleGroup_RulesSource_RulesString, FirewallRuleGroup_RuleVariables_IPSet, FirewallRuleGroup_RuleVariables_PortSet, IpsRuleGroup_ReferenceSets_IPSetReference, IpsRuleGroup_RulesSource_RulesString, IpsRuleGroup_RuleVariables_IPSet and IpsRuleGroup_RuleVariables_PortSet.
+  * Amazon Parallel Computing Service
+    * Modified cmdlet New-PCSComputeNodeGroup: added parameters LaunchTemplateMode, SecurityGroupId and SshKeyName.
+    * Modified cmdlet Update-PCSComputeNodeGroup: added parameters LaunchTemplateMode, SecurityGroupId and SshKeyName.
+  * Amazon Route 53 Profiles
+    * Added cmdlet Update-R53PProfileAssociation leveraging the UpdateProfileAssociation service API.
+    * Modified cmdlet Get-R53PProfileResourceAssociationList: added parameter ResourceArn.
+    * Modified cmdlet New-R53PProfileAssociation: added parameter Priority.
+  * Amazon S3 Tables
+    * Added cmdlet Get-S3TTableBucketLogging leveraging the GetTableBucketLogging service API.
+    * Added cmdlet Write-S3TTableBucketLogging leveraging the PutTableBucketLogging service API.
+  * **BREAKING CHANGE**: Cmdlets whose default output is a single property marked sensitive by the service now redact it on display. For these 57 cmdlets, `Out-File`, `>`, `Out-String`, native pipes and captured child `pwsh` output now write the redaction text (for example `Get-SECRandomPassword > pw.txt`). To get the value, use `-Select <PropertyName>` (for example `-Select RandomPassword`) or run `Set-AWSSensitiveDataConfiguration -ShowSensitiveData $true`. The first time each of these cmdlets redacts in a session, it also writes a host note naming the `-Select` property, which `-InformationAction Ignore` silences. `Format-Table` and `Format-List` now mask sensitive properties on any response type. With redaction on, `Format-Table Key,Value` on a returned tag map prints blank rows. Pipe `.GetEnumerator()` instead.
+
+### 5.0.331 (2026-11-09 20:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.366.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet Register-BATJobDefinition: added parameters EksProperties_PodProperties_SecurityContext_FsGroup, EksProperties_PodProperties_SecurityContext_RunAsGroup, EksProperties_PodProperties_SecurityContext_RunAsNonRoot, EksProperties_PodProperties_SecurityContext_RunAsUser, EksProperties_PodProperties_SecurityContext_SeccompProfile_LocalhostProfile and EksProperties_PodProperties_SecurityContext_SeccompProfile_Type.

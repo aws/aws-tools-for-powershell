@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter EventExpiryDuration
         /// <summary>
         /// <para>
-        /// <para>The number of days after which memory events will expire, between 7 and 365 days.</para>
+        /// <para>The number of days after which memory events expire, between 7 and 3650 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

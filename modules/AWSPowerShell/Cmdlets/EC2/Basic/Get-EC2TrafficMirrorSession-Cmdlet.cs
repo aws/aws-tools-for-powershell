@@ -62,9 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters. The possible values are:</para><ul><li><para><c>description</c>: The Traffic Mirror session description.</para></li><li><para><c>network-interface-id</c>: The ID of the Traffic Mirror session network interface.</para></li><li><para><c>owner-id</c>: The ID of the account that owns the Traffic Mirror session.</para></li><li><para><c>packet-length</c>: The assigned number of packets to mirror. </para></li><li><para><c>session-number</c>: The assigned session number. </para></li><li><para><c>traffic-mirror-filter-id</c>: The ID of the Traffic Mirror filter.</para></li><li><para><c>traffic-mirror-session-id</c>: The ID of the Traffic Mirror session.</para></li><li><para><c>traffic-mirror-target-id</c>: The ID of the Traffic Mirror target.</para></li><li><para><c>virtual-network-id</c>: The virtual network ID of the Traffic Mirror session.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -77,9 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of the Traffic Mirror session.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

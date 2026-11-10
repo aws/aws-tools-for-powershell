@@ -93,7 +93,9 @@ $NWFW_Completers = {
         # Amazon.NetworkFirewall.DNSExpiryExceptionPolicy
         {
             ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy") -Or
-            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy")
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy") -Or
+            ($_ -eq "New-NWFWFirewallPolicyV2/FirewallPolicyV2_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/FirewallPolicyV2_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy")
         }
         {
             $v = "CONTINUE","DROP","REJECT"
@@ -111,10 +113,12 @@ $NWFW_Completers = {
         {
             ($_ -eq "New-NWFWFirewall/EncryptionConfiguration_Type") -Or
             ($_ -eq "New-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
+            ($_ -eq "New-NWFWFirewallPolicyV2/EncryptionConfiguration_Type") -Or
             ($_ -eq "New-NWFWRuleGroup/EncryptionConfiguration_Type") -Or
             ($_ -eq "New-NWFWTLSInspectionConfiguration/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWFirewallEncryptionConfiguration/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWRuleGroup/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWTLSInspectionConfiguration/EncryptionConfiguration_Type")
         }
@@ -132,6 +136,8 @@ $NWFW_Completers = {
 
         # Amazon.NetworkFirewall.GeneratedRulesType
         {
+            ($_ -eq "New-NWFWRuleGroup/FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType") -Or
+            ($_ -eq "Update-NWFWRuleGroup/FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType") -Or
             ($_ -eq "New-NWFWRuleGroup/RulesSourceList_GeneratedRulesType") -Or
             ($_ -eq "Update-NWFWRuleGroup/RulesSourceList_GeneratedRulesType")
         }
@@ -144,6 +150,26 @@ $NWFW_Completers = {
         "New-NWFWVpcEndpointAssociation/SubnetMapping_IPAddressType"
         {
             $v = "DUALSTACK","IPV4","IPV6"
+            break
+        }
+
+        # Amazon.NetworkFirewall.PolicyDefaultAction
+        {
+            ($_ -eq "New-NWFWFirewallPolicyV2/FirewallPolicyV2_FirewallDefaultAction") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/FirewallPolicyV2_FirewallDefaultAction")
+        }
+        {
+            $v = "ACCEPT","ALERT","DROP","REJECT"
+            break
+        }
+
+        # Amazon.NetworkFirewall.PolicyMode
+        {
+            ($_ -eq "New-NWFWFirewallPolicyV2/FirewallPolicyV2_PolicyMode") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/FirewallPolicyV2_PolicyMode")
+        }
+        {
+            $v = "ENFORCE","MONITOR"
             break
         }
 
@@ -179,7 +205,9 @@ $NWFW_Completers = {
         # Amazon.NetworkFirewall.Route53ResolvedIPValidationAction
         {
             ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action") -Or
-            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action")
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action") -Or
+            ($_ -eq "New-NWFWFirewallPolicyV2/FirewallPolicyV2_Route53ResolvedIPValidation_Action") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/FirewallPolicyV2_Route53ResolvedIPValidation_Action")
         }
         {
             $v = "ALERT","DROP","REJECT"
@@ -204,7 +232,7 @@ $NWFW_Completers = {
             ($_ -eq "Update-NWFWRuleGroup/Type")
         }
         {
-            $v = "STATEFUL","STATEFUL_DOMAIN","STATELESS"
+            $v = "FIREWALL","IPS","STATEFUL","STATEFUL_DOMAIN","STATELESS"
             break
         }
 
@@ -220,6 +248,16 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.RuleOutputFormat
+        {
+            ($_ -eq "Get-NWFWFirewallPolicyV2Detail/RuleOutputFormat") -Or
+            ($_ -eq "Get-NWFWRuleGroup/RuleOutputFormat")
+        }
+        {
+            $v = "FIREWALL_RULES","RULES_STRING"
+            break
+        }
+
         # Amazon.NetworkFirewall.StreamExceptionPolicy
         {
             ($_ -eq "New-NWFWFirewallPolicy/StatefulEngineOptions_StreamExceptionPolicy") -Or
@@ -227,6 +265,16 @@ $NWFW_Completers = {
         }
         {
             $v = "CONTINUE","DROP","REJECT"
+            break
+        }
+
+        # Amazon.NetworkFirewall.StreamExceptionPolicyV2
+        {
+            ($_ -eq "New-NWFWFirewallPolicyV2/FirewallPolicyV2_StatefulEngineOptions_StreamExceptionPolicy") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/FirewallPolicyV2_StatefulEngineOptions_StreamExceptionPolicy")
+        }
+        {
+            $v = "DROP","REJECT"
             break
         }
 
@@ -261,12 +309,19 @@ $NWFW_map = @{
     "DefaultRulePhaseActions_PostRESPONSE"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
     "DefaultRulePhaseActions_PreDNS"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
     "DefaultRulePhaseActions_PreREQUEST"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
-    "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
+    "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWFirewallPolicyV2","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWFirewallPolicyV2","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
     "FirewallPolicy_Route53ResolvedIPValidation_Action"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
+    "FirewallPolicyV2_FirewallDefaultAction"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
+    "FirewallPolicyV2_PolicyMode"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
+    "FirewallPolicyV2_Route53ResolvedIPValidation_Action"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
+    "FirewallPolicyV2_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
+    "FirewallPolicyV2_StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
+    "FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "FlowOperationType"=@("Get-NWFWFlowOperationList")
     "ManagedType"=@("Get-NWFWRuleGroupList")
     "RuleGroupRequestPhase"=@("Update-NWFWProxyRulePriority")
+    "RuleOutputFormat"=@("Get-NWFWFirewallPolicyV2Detail","Get-NWFWRuleGroup")
     "RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Scope"=@("Get-NWFWRuleGroupList")
     "StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
@@ -336,6 +391,7 @@ $NWFW_SelectMap = @{
                "New-NWFWContainerAssociation",
                "New-NWFWFirewall",
                "New-NWFWFirewallPolicy",
+               "New-NWFWFirewallPolicyV2",
                "New-NWFWProxy",
                "New-NWFWProxyConfiguration",
                "New-NWFWProxyRuleGroup",
@@ -346,6 +402,7 @@ $NWFW_SelectMap = @{
                "Remove-NWFWContainerAssociation",
                "Remove-NWFWFirewall",
                "Remove-NWFWFirewallPolicy",
+               "Remove-NWFWFirewallPolicyV2",
                "Remove-NWFWNetworkFirewallTransitGatewayAttachment",
                "Remove-NWFWProxy",
                "Remove-NWFWProxyConfiguration",
@@ -359,6 +416,7 @@ $NWFW_SelectMap = @{
                "Get-NWFWFirewall",
                "Get-NWFWFirewallMetadata",
                "Get-NWFWFirewallPolicy",
+               "Get-NWFWFirewallPolicyV2Detail",
                "Get-NWFWFlowOperation",
                "Get-NWFWLoggingConfiguration",
                "Get-NWFWProxyDetail",
@@ -378,6 +436,7 @@ $NWFW_SelectMap = @{
                "Get-NWFWAnalysisReportList",
                "Get-NWFWContainerAssociationList",
                "Get-NWFWFirewallPolicyList",
+               "Get-NWFWFirewallPoliciesV2List",
                "Get-NWFWFirewallList",
                "Get-NWFWFlowOperationResultList",
                "Get-NWFWFlowOperationList",
@@ -403,6 +462,7 @@ $NWFW_SelectMap = @{
                "Update-NWFWFirewallEncryptionConfiguration",
                "Update-NWFWFirewallPolicy",
                "Update-NWFWFirewallPolicyChangeProtection",
+               "Update-NWFWFirewallPolicyV2",
                "Update-NWFWLoggingConfiguration",
                "Update-NWFWProxy",
                "Update-NWFWProxyConfiguration",

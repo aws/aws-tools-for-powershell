@@ -56,6 +56,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFirewallPolicyV2" OutputProperty="*" Verb="New" Noun="FirewallPolicyV2" ShouldProcessTarget="FirewallPolicyV2Name" PipelineParameter="FirewallPolicyV2Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateProxy" OutputProperty="*" Verb="New" Noun="Proxy" ShouldProcessTarget="ProxyName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -108,6 +112,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFirewallPolicyV2" OutputProperty="FirewallPolicyV2Response" Verb="Remove" Noun="FirewallPolicyV2" ShouldProcessTarget="FirewallPolicyV2Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNetworkFirewallTransitGatewayAttachment" OutputProperty="*" Verb="Remove" Noun="NetworkFirewallTransitGatewayAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -157,6 +165,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFirewallPolicy" OutputProperty="*" Verb="Get" Noun="FirewallPolicy" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFirewallPolicyV2" OutputProperty="*" Verb="Get" Noun="FirewallPolicyV2Detail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -233,6 +245,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFirewallPolicies" OutputProperty="FirewallPolicies" Verb="Get" Noun="FirewallPolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallPoliciesV2" OutputProperty="FirewallPoliciesV2" Verb="Get" Noun="FirewallPoliciesV2List" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -338,6 +354,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFirewallPolicyChangeProtection" OutputProperty="*" Verb="Update" Noun="FirewallPolicyChangeProtection" ShouldProcessTarget="" PipelineParameter="FirewallPolicyChangeProtection" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFirewallPolicyV2" OutputProperty="*" Verb="Update" Noun="FirewallPolicyV2" ShouldProcessTarget="UpdateToken" PipelineParameter="UpdateToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.R53P
         public System.String ProfileId { get; set; }
         #endregion
         
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of a resource. If you specify this parameter, only
+        /// the association with that resource is returned. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
         #region Parameter ResourceType
         /// <summary>
         /// <para>
@@ -167,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.R53P
                 WriteWarning("You are passing $null as a value for parameter ProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResourceArn = this.ResourceArn;
             context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
@@ -193,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.R53P
             if (cmdletContext.ProfileId != null)
             {
                 request.ProfileId = cmdletContext.ProfileId;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -281,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.R53P
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String ProfileId { get; set; }
+            public System.String ResourceArn { get; set; }
             public System.String ResourceType { get; set; }
             public System.Func<Amazon.Route53Profiles.Model.ListProfileResourceAssociationsResponse, GetR53PProfileResourceAssociationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProfileResourceAssociations;

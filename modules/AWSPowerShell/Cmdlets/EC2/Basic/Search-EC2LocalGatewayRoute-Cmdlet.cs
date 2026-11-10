@@ -65,9 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route
         /// table and you specify <c>supernet-of-match</c> as 10.0.1.0/30, then the result returns
         /// 10.0.1.0/29.</para></li><li><para><c>state</c> - The state of the route.</para></li><li><para><c>type</c> - The route type.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

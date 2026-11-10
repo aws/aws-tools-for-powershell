@@ -151,11 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter DeploymentConfiguration_ImpairmentStrategy
         /// <summary>
         /// <para>
-        /// <para>Determines what actions to take if a deployment fails. If the fleet is multi-location,
-        /// this strategy applies across all fleet locations. With a rollback strategy, updated
-        /// fleet instances are rolled back to the last successful deployment. Alternatively,
-        /// you can maintain a few impaired containers for the purpose of debugging, while all
-        /// other tasks return to the last successful deployment.</para>
+        /// <para>Determines what actions to take if a deployment fails validation. If the fleet is
+        /// multi-location, this strategy applies across all fleet locations.</para><ul><li><para><c>ROLLBACK</c> -- Returns all of the fleet's containers to the last successful deployment.</para></li><li><para><c>MAINTAIN</c> -- Keeps the containers that failed validation in place so that you
+        /// can inspect them, and returns all other containers to the last successful deployment.
+        /// Use this option when you're deploying a container image that you want to be able to
+        /// debug on failure.</para></li></ul><para>Default value: <c>MAINTAIN</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,7 +240,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter DeploymentConfiguration_MinimumHealthyPercentage
         /// <summary>
         /// <para>
-        /// <para>Sets a minimum level of healthy tasks to maintain during deployment activity. </para>
+        /// <para>Sets the minimum percentage of the fleet's game server container groups to keep healthy
+        /// during deployment activity. A low value favors deployment speed; a high value favors
+        /// game server availability. For example, if the fleet runs 20 game server container
+        /// groups and this value is 75, Amazon GameLift Servers keeps at least 15 of them healthy,
+        /// so it replaces no more than 5 at a time.</para><para>Default value: 75</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,10 +310,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Determines how fleet deployment activity affects active game sessions on the fleet.
-        /// With protection, a deployment honors game session protection, and delays actions that
-        /// would interrupt a protected active game session until the game session ends. Without
-        /// protection, deployment activity can shut down all running tasks, including active
-        /// game sessions, regardless of game session protection. </para>
+        /// A protected game session can't be terminated while it's active; a fleet sets the default
+        /// protection for its new game sessions with <c>NewGameSessionProtectionPolicy</c>.</para><ul><li><para><c>WITH_PROTECTION</c> -- The deployment honors game session protection, and delays
+        /// actions that would interrupt a protected active game session until the game session
+        /// ends.</para></li><li><para><c>IGNORE_PROTECTION</c> -- The deployment replaces containers regardless of game
+        /// session activity, including active game sessions. This option is useful during development
+        /// and testing.</para></li></ul><para>This setting also affects how long deployment validation can take. When the fleet's
+        /// <c>NewGameSessionProtectionPolicy</c> is <c>FullProtection</c> and the deployment
+        /// uses <c>WITH_PROTECTION</c>, validation waits for protected game sessions to end.</para><para>Default value: <c>WITH_PROTECTION</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

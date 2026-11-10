@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter EventExpiryDuration
         /// <summary>
         /// <para>
-        /// <para>The duration after which memory events expire. Specified as an ISO 8601 duration.</para>
+        /// <para>The number of days after which memory events expire, between 7 and 3650 days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -333,6 +333,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
         #endregion
         
+        #region Parameter HooksConfiguration_Build_Warmup_Action_HttpPost_Path
+        /// <summary>
+        /// <para>
+        /// <para>The path in the agent's container that AgentCore Runtime sends the <c>POST</c> request
+        /// to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HooksConfiguration_Build_Warmup_Action_HttpPost_Path { get; set; }
+        #endregion
+        
         #region Parameter ProtocolConfiguration_Path
         /// <summary>
         /// <para>
@@ -353,6 +364,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PlatformVersion { get; set; }
+        #endregion
+        
+        #region Parameter HooksConfiguration_Build_Warmup_Action_HttpPost_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port in the agent's container that AgentCore Runtime sends the <c>POST</c> request
+        /// to. If you don't specify a port, the default is the runtime's server port: the port
+        /// in the protocol configuration if one is set, otherwise the protocol's default port.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? HooksConfiguration_Build_Warmup_Action_HttpPost_Port { get; set; }
         #endregion
         
         #region Parameter ProtocolConfiguration_Port
@@ -445,6 +468,23 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ResourceConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The resource configurations for the AgentCore Runtime, such as the minimum amount
+        /// of memory to allocate to the runtime. You can specify at most one resource configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfigurations")]
+        public Amazon.BedrockAgentCoreControl.Model.ResourceConfiguration[] ResourceConfiguration { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -787,6 +827,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 context.FilesystemConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.FilesystemConfiguration>(this.FilesystemConfiguration);
             }
+            context.HooksConfiguration_Build_Warmup_Action_HttpPost_Path = this.HooksConfiguration_Build_Warmup_Action_HttpPost_Path;
+            context.HooksConfiguration_Build_Warmup_Action_HttpPost_Port = this.HooksConfiguration_Build_Warmup_Action_HttpPost_Port;
             context.LifecycleConfiguration_IdleRuntimeSessionTimeout = this.LifecycleConfiguration_IdleRuntimeSessionTimeout;
             context.LifecycleConfiguration_MaxLifetime = this.LifecycleConfiguration_MaxLifetime;
             context.NetworkConfiguration_NetworkMode = this.NetworkConfiguration_NetworkMode;
@@ -806,6 +848,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (this.RequestHeaderConfiguration_RequestHeaderAllowlist != null)
             {
                 context.RequestHeaderConfiguration_RequestHeaderAllowlist = new List<System.String>(this.RequestHeaderConfiguration_RequestHeaderAllowlist);
+            }
+            if (this.ResourceConfiguration != null)
+            {
+                context.ResourceConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.ResourceConfiguration>(this.ResourceConfiguration);
             }
             context.RoleArn = this.RoleArn;
             #if MODULAR
@@ -1255,6 +1301,95 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 request.FilesystemConfigurations = cmdletContext.FilesystemConfiguration;
             }
             
+             // populate HooksConfiguration
+            var requestHooksConfigurationIsNull = true;
+            request.HooksConfiguration = new Amazon.BedrockAgentCoreControl.Model.RuntimeHooksConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.BuildLifecycleHooks requestHooksConfiguration_hooksConfiguration_Build = null;
+            
+             // populate Build
+            var requestHooksConfiguration_hooksConfiguration_BuildIsNull = true;
+            requestHooksConfiguration_hooksConfiguration_Build = new Amazon.BedrockAgentCoreControl.Model.BuildLifecycleHooks();
+            Amazon.BedrockAgentCoreControl.Model.LifecycleHook requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup = null;
+            
+             // populate Warmup
+            var requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_WarmupIsNull = true;
+            requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup = new Amazon.BedrockAgentCoreControl.Model.LifecycleHook();
+            Amazon.BedrockAgentCoreControl.Model.LifecycleHookAction requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action = null;
+            
+             // populate Action
+            var requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_ActionIsNull = true;
+            requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action = new Amazon.BedrockAgentCoreControl.Model.LifecycleHookAction();
+            Amazon.BedrockAgentCoreControl.Model.HttpPostLifecycleHookAction requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost = null;
+            
+             // populate HttpPost
+            var requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPostIsNull = true;
+            requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost = new Amazon.BedrockAgentCoreControl.Model.HttpPostLifecycleHookAction();
+            System.String requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost_hooksConfiguration_Build_Warmup_Action_HttpPost_Path = null;
+            if (cmdletContext.HooksConfiguration_Build_Warmup_Action_HttpPost_Path != null)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost_hooksConfiguration_Build_Warmup_Action_HttpPost_Path = cmdletContext.HooksConfiguration_Build_Warmup_Action_HttpPost_Path;
+            }
+            if (requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost_hooksConfiguration_Build_Warmup_Action_HttpPost_Path != null)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost.Path = requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost_hooksConfiguration_Build_Warmup_Action_HttpPost_Path;
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPostIsNull = false;
+            }
+            System.Int32? requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost_hooksConfiguration_Build_Warmup_Action_HttpPost_Port = null;
+            if (cmdletContext.HooksConfiguration_Build_Warmup_Action_HttpPost_Port != null)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost_hooksConfiguration_Build_Warmup_Action_HttpPost_Port = cmdletContext.HooksConfiguration_Build_Warmup_Action_HttpPost_Port.Value;
+            }
+            if (requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost_hooksConfiguration_Build_Warmup_Action_HttpPost_Port != null)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost.Port = requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost_hooksConfiguration_Build_Warmup_Action_HttpPost_Port.Value;
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPostIsNull = false;
+            }
+             // determine if requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost should be set to null
+            if (requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPostIsNull)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost = null;
+            }
+            if (requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost != null)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action.HttpPost = requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action_hooksConfiguration_Build_Warmup_Action_HttpPost;
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_ActionIsNull = false;
+            }
+             // determine if requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action should be set to null
+            if (requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_ActionIsNull)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action = null;
+            }
+            if (requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action != null)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup.Action = requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup_hooksConfiguration_Build_Warmup_Action;
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_WarmupIsNull = false;
+            }
+             // determine if requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup should be set to null
+            if (requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_WarmupIsNull)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup = null;
+            }
+            if (requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup != null)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build.Warmup = requestHooksConfiguration_hooksConfiguration_Build_hooksConfiguration_Build_Warmup;
+                requestHooksConfiguration_hooksConfiguration_BuildIsNull = false;
+            }
+             // determine if requestHooksConfiguration_hooksConfiguration_Build should be set to null
+            if (requestHooksConfiguration_hooksConfiguration_BuildIsNull)
+            {
+                requestHooksConfiguration_hooksConfiguration_Build = null;
+            }
+            if (requestHooksConfiguration_hooksConfiguration_Build != null)
+            {
+                request.HooksConfiguration.Build = requestHooksConfiguration_hooksConfiguration_Build;
+                requestHooksConfigurationIsNull = false;
+            }
+             // determine if request.HooksConfiguration should be set to null
+            if (requestHooksConfigurationIsNull)
+            {
+                request.HooksConfiguration = null;
+            }
+            
              // populate LifecycleConfiguration
             var requestLifecycleConfigurationIsNull = true;
             request.LifecycleConfiguration = new Amazon.BedrockAgentCoreControl.Model.LifecycleConfiguration();
@@ -1409,6 +1544,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.RequestHeaderConfiguration = null;
             }
+            if (cmdletContext.ResourceConfiguration != null)
+            {
+                request.ResourceConfigurations = cmdletContext.ResourceConfiguration;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -1501,6 +1640,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.FilesystemConfiguration> FilesystemConfiguration { get; set; }
+            public System.String HooksConfiguration_Build_Warmup_Action_HttpPost_Path { get; set; }
+            public System.Int32? HooksConfiguration_Build_Warmup_Action_HttpPost_Port { get; set; }
             public System.Int32? LifecycleConfiguration_IdleRuntimeSessionTimeout { get; set; }
             public System.Int32? LifecycleConfiguration_MaxLifetime { get; set; }
             public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
@@ -1512,6 +1653,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.Int32? ProtocolConfiguration_Port { get; set; }
             public Amazon.BedrockAgentCoreControl.ServerProtocol ProtocolConfiguration_ServerProtocol { get; set; }
             public List<System.String> RequestHeaderConfiguration_RequestHeaderAllowlist { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.ResourceConfiguration> ResourceConfiguration { get; set; }
             public System.String RoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateAgentRuntimeResponse, NewBACCAgentRuntimeCmdlet, object> Select { get; set; } =

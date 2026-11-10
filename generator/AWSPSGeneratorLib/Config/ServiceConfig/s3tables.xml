@@ -90,6 +90,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTableBucketLogging" OutputProperty="TableBucketLoggingStatus" Verb="Get" Noun="TableBucketLogging" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTableBucketMaintenanceConfiguration" OutputProperty="*" Verb="Get" Noun="TableBucketMaintenanceConfiguration" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -175,6 +179,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTableBucketEncryption" Verb="Write" Noun="TableBucketEncryption" ShouldProcessTarget="EncryptionConfiguration_KmsKeyArn" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTableBucketLogging" Verb="Write" Noun="TableBucketLogging" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

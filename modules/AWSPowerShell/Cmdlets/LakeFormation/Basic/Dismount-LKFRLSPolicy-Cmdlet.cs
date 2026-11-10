@@ -47,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Resource_AnyResource_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Data Catalog. By default, it's your account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Resource_AnyResource_CatalogId { get; set; }
+        #endregion
+        
         #region Parameter Resource_DataLocation_CatalogId
         /// <summary>
         /// <para>
@@ -133,6 +143,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String Resource_TableWithColumns_CatalogId { get; set; }
         #endregion
         
+        #region Parameter Resource_UserDefinedFunction_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Data Catalog. By default, it's your account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Resource_UserDefinedFunction_CatalogId { get; set; }
+        #endregion
+        
         #region Parameter Resource_TableWithColumns_ColumnName
         /// <summary>
         /// <para>
@@ -182,6 +202,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Resource_TableWithColumns_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter Resource_UserDefinedFunction_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database that contains the function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Resource_UserDefinedFunction_DatabaseName { get; set; }
         #endregion
         
         #region Parameter Principal_DataLakePrincipalIdentifier
@@ -336,6 +366,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String Resource_TableWithColumns_Name { get; set; }
         #endregion
         
+        #region Parameter Resource_UserDefinedFunction_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the function.</para><para>Exactly one of <c>UserDefinedFunctionResource$Name</c> or <c>UserDefinedFunctionResource$UserDefinedFunctionWildcard</c>
+        /// is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Resource_UserDefinedFunction_Name { get; set; }
+        #endregion
+        
         #region Parameter RemoveDefault
         /// <summary>
         /// <para>
@@ -355,6 +396,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Resource_DataLocation_ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter Resource_AnyResource_ResourceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of resource that the grant covers. The only supported value is <c>TABLE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LakeFormation.AnyResourceSupportedTypes")]
+        public Amazon.LakeFormation.AnyResourceSupportedTypes Resource_AnyResource_ResourceType { get; set; }
         #endregion
         
         #region Parameter Resource_LFTagPolicy_ResourceType
@@ -425,6 +477,18 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String[] Resource_LFTag_TagValue { get; set; }
         #endregion
         
+        #region Parameter Resource_UserDefinedFunction_UserDefinedFunctionWildcard
+        /// <summary>
+        /// <para>
+        /// <para>A wildcard object representing every user-defined function in the database, including
+        /// functions created after the grant.</para><para>Exactly one of <c>UserDefinedFunctionResource$Name</c> or <c>UserDefinedFunctionResource$UserDefinedFunctionWildcard</c>
+        /// is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.LakeFormation.Model.UserDefinedFunctionWildcard Resource_UserDefinedFunction_UserDefinedFunctionWildcard { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -480,6 +544,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             #endif
             context.Principal_DataLakePrincipalIdentifier = this.Principal_DataLakePrincipalIdentifier;
             context.RemoveDefault = this.RemoveDefault;
+            context.Resource_AnyResource_CatalogId = this.Resource_AnyResource_CatalogId;
+            context.Resource_AnyResource_ResourceType = this.Resource_AnyResource_ResourceType;
             context.Resource_Catalog_Id = this.Resource_Catalog_Id;
             context.Resource_DataCellsFilter_DatabaseName = this.Resource_DataCellsFilter_DatabaseName;
             context.Resource_DataCellsFilter_Name = this.Resource_DataCellsFilter_Name;
@@ -521,6 +587,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             }
             context.Resource_TableWithColumns_DatabaseName = this.Resource_TableWithColumns_DatabaseName;
             context.Resource_TableWithColumns_Name = this.Resource_TableWithColumns_Name;
+            context.Resource_UserDefinedFunction_CatalogId = this.Resource_UserDefinedFunction_CatalogId;
+            context.Resource_UserDefinedFunction_DatabaseName = this.Resource_UserDefinedFunction_DatabaseName;
+            context.Resource_UserDefinedFunction_Name = this.Resource_UserDefinedFunction_Name;
+            context.Resource_UserDefinedFunction_UserDefinedFunctionWildcard = this.Resource_UserDefinedFunction_UserDefinedFunctionWildcard;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -610,6 +680,41 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_Catalog != null)
             {
                 request.Resource.Catalog = requestResource_resource_Catalog;
+                requestResourceIsNull = false;
+            }
+            Amazon.LakeFormation.Model.AnyResource requestResource_resource_AnyResource = null;
+            
+             // populate AnyResource
+            var requestResource_resource_AnyResourceIsNull = true;
+            requestResource_resource_AnyResource = new Amazon.LakeFormation.Model.AnyResource();
+            System.String requestResource_resource_AnyResource_resource_AnyResource_CatalogId = null;
+            if (cmdletContext.Resource_AnyResource_CatalogId != null)
+            {
+                requestResource_resource_AnyResource_resource_AnyResource_CatalogId = cmdletContext.Resource_AnyResource_CatalogId;
+            }
+            if (requestResource_resource_AnyResource_resource_AnyResource_CatalogId != null)
+            {
+                requestResource_resource_AnyResource.CatalogId = requestResource_resource_AnyResource_resource_AnyResource_CatalogId;
+                requestResource_resource_AnyResourceIsNull = false;
+            }
+            Amazon.LakeFormation.AnyResourceSupportedTypes requestResource_resource_AnyResource_resource_AnyResource_ResourceType = null;
+            if (cmdletContext.Resource_AnyResource_ResourceType != null)
+            {
+                requestResource_resource_AnyResource_resource_AnyResource_ResourceType = cmdletContext.Resource_AnyResource_ResourceType;
+            }
+            if (requestResource_resource_AnyResource_resource_AnyResource_ResourceType != null)
+            {
+                requestResource_resource_AnyResource.ResourceType = requestResource_resource_AnyResource_resource_AnyResource_ResourceType;
+                requestResource_resource_AnyResourceIsNull = false;
+            }
+             // determine if requestResource_resource_AnyResource should be set to null
+            if (requestResource_resource_AnyResourceIsNull)
+            {
+                requestResource_resource_AnyResource = null;
+            }
+            if (requestResource_resource_AnyResource != null)
+            {
+                request.Resource.AnyResource = requestResource_resource_AnyResource;
                 requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.DataLocationResource requestResource_resource_DataLocation = null;
@@ -962,6 +1067,61 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 request.Resource.Table = requestResource_resource_Table;
                 requestResourceIsNull = false;
             }
+            Amazon.LakeFormation.Model.UserDefinedFunctionResource requestResource_resource_UserDefinedFunction = null;
+            
+             // populate UserDefinedFunction
+            var requestResource_resource_UserDefinedFunctionIsNull = true;
+            requestResource_resource_UserDefinedFunction = new Amazon.LakeFormation.Model.UserDefinedFunctionResource();
+            System.String requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_CatalogId = null;
+            if (cmdletContext.Resource_UserDefinedFunction_CatalogId != null)
+            {
+                requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_CatalogId = cmdletContext.Resource_UserDefinedFunction_CatalogId;
+            }
+            if (requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_CatalogId != null)
+            {
+                requestResource_resource_UserDefinedFunction.CatalogId = requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_CatalogId;
+                requestResource_resource_UserDefinedFunctionIsNull = false;
+            }
+            System.String requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_DatabaseName = null;
+            if (cmdletContext.Resource_UserDefinedFunction_DatabaseName != null)
+            {
+                requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_DatabaseName = cmdletContext.Resource_UserDefinedFunction_DatabaseName;
+            }
+            if (requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_DatabaseName != null)
+            {
+                requestResource_resource_UserDefinedFunction.DatabaseName = requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_DatabaseName;
+                requestResource_resource_UserDefinedFunctionIsNull = false;
+            }
+            System.String requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_Name = null;
+            if (cmdletContext.Resource_UserDefinedFunction_Name != null)
+            {
+                requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_Name = cmdletContext.Resource_UserDefinedFunction_Name;
+            }
+            if (requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_Name != null)
+            {
+                requestResource_resource_UserDefinedFunction.Name = requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_Name;
+                requestResource_resource_UserDefinedFunctionIsNull = false;
+            }
+            Amazon.LakeFormation.Model.UserDefinedFunctionWildcard requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_UserDefinedFunctionWildcard = null;
+            if (cmdletContext.Resource_UserDefinedFunction_UserDefinedFunctionWildcard != null)
+            {
+                requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_UserDefinedFunctionWildcard = cmdletContext.Resource_UserDefinedFunction_UserDefinedFunctionWildcard;
+            }
+            if (requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_UserDefinedFunctionWildcard != null)
+            {
+                requestResource_resource_UserDefinedFunction.UserDefinedFunctionWildcard = requestResource_resource_UserDefinedFunction_resource_UserDefinedFunction_UserDefinedFunctionWildcard;
+                requestResource_resource_UserDefinedFunctionIsNull = false;
+            }
+             // determine if requestResource_resource_UserDefinedFunction should be set to null
+            if (requestResource_resource_UserDefinedFunctionIsNull)
+            {
+                requestResource_resource_UserDefinedFunction = null;
+            }
+            if (requestResource_resource_UserDefinedFunction != null)
+            {
+                request.Resource.UserDefinedFunction = requestResource_resource_UserDefinedFunction;
+                requestResourceIsNull = false;
+            }
             Amazon.LakeFormation.Model.TableWithColumnsResource requestResource_resource_TableWithColumns = null;
             
              // populate TableWithColumns
@@ -1106,6 +1266,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public System.String Name { get; set; }
             public System.String Principal_DataLakePrincipalIdentifier { get; set; }
             public System.Boolean? RemoveDefault { get; set; }
+            public System.String Resource_AnyResource_CatalogId { get; set; }
+            public Amazon.LakeFormation.AnyResourceSupportedTypes Resource_AnyResource_ResourceType { get; set; }
             public System.String Resource_Catalog_Id { get; set; }
             public System.String Resource_DataCellsFilter_DatabaseName { get; set; }
             public System.String Resource_DataCellsFilter_Name { get; set; }
@@ -1135,6 +1297,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public List<System.String> Resource_TableWithColumns_ColumnWildcard_ExcludedColumnName { get; set; }
             public System.String Resource_TableWithColumns_DatabaseName { get; set; }
             public System.String Resource_TableWithColumns_Name { get; set; }
+            public System.String Resource_UserDefinedFunction_CatalogId { get; set; }
+            public System.String Resource_UserDefinedFunction_DatabaseName { get; set; }
+            public System.String Resource_UserDefinedFunction_Name { get; set; }
+            public Amazon.LakeFormation.Model.UserDefinedFunctionWildcard Resource_UserDefinedFunction_UserDefinedFunctionWildcard { get; set; }
             public System.Func<Amazon.LakeFormation.Model.DetachRLSPolicyResponse, DismountLKFRLSPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

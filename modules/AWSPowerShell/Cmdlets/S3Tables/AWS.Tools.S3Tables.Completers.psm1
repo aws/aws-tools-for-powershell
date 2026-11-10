@@ -149,6 +149,13 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.PartitionDateSource
+        "Write-S3TTableBucketLogging/TableBucketLoggingStatus_LoggingEnabled_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource"
+        {
+            $v = "DeliveryTime","EventTime"
+            break
+        }
+
         # Amazon.S3Tables.SchemaV2FieldType
         {
             ($_ -eq "Start-S3TTableMigration/DestinationTable_Schema_Type") -Or
@@ -243,6 +250,7 @@ $S3T_map = @{
     "SourceType"=@("Start-S3TTableMigration")
     "State"=@("Get-S3TTableMigrationList")
     "StorageClassConfiguration_StorageClass"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketStorageClass")
+    "TableBucketLoggingStatus_LoggingEnabled_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource"=@("Write-S3TTableBucketLogging")
     "Type"=@("Get-S3TTableBucketList","Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration","Write-S3TTableRecordExpirationConfiguration")
 }
@@ -314,6 +322,7 @@ $S3T_SelectMap = @{
                "Get-S3TTable",
                "Get-S3TTableBucket",
                "Get-S3TTableBucketEncryption",
+               "Get-S3TTableBucketLogging",
                "Get-S3TTableBucketMaintenanceConfiguration",
                "Get-S3TTableBucketMetricsConfiguration",
                "Get-S3TTableBucketPolicy",
@@ -336,6 +345,7 @@ $S3T_SelectMap = @{
                "Get-S3TTableList",
                "Get-S3TResourceTag",
                "Write-S3TTableBucketEncryption",
+               "Write-S3TTableBucketLogging",
                "Write-S3TTableBucketMaintenanceConfiguration",
                "Write-S3TTableBucketMetricsConfiguration",
                "Write-S3TTableBucketPolicy",

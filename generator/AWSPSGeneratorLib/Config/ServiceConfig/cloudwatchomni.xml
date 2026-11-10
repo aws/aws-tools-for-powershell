@@ -151,6 +151,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSpaceDataAccess" OutputProperty="Credentials" Verb="Get" Noun="SpaceDataAccess" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTelemetryQueryResults" OutputProperty="*" Verb="Get" Noun="TelemetryQueryResult" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

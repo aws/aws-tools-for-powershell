@@ -79,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProfileAssociation" OutputProperty="ProfileAssociation" Verb="Update" Noun="ProfileAssociation" ShouldProcessTarget="ProfileAssociationId" PipelineParameter="ProfileAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateProfileResourceAssociation" OutputProperty="ProfileResourceAssociation" Verb="Update" Noun="ProfileResourceAssociation" ShouldProcessTarget="ProfileResourceAssociationId" PipelineParameter="ProfileResourceAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

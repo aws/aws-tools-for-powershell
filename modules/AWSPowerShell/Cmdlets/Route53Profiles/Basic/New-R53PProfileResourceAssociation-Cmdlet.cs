@@ -30,7 +30,7 @@ using Amazon.Route53Profiles.Model;
 namespace Amazon.PowerShell.Cmdlets.R53P
 {
     /// <summary>
-    /// Associates a DNS reource configuration to a Route 53 Profile.
+    /// Associates a DNS resource configuration to a Route 53 Profile.
     /// </summary>
     [Cmdlet("New", "R53PProfileResourceAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Profiles.Model.ProfileResourceAssociation")]
@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.R53P
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> Amazon resource number, ARN, of the DNS resource. </para>
+        /// <para> Amazon resource number, ARN, of the resource to associate. Either a private hosted
+        /// zone, DNS Firewall rule group, Resolver rule, or an interface VPC endpoint. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

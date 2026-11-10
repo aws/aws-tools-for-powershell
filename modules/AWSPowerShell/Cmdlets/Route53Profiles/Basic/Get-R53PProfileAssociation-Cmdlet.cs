@@ -30,8 +30,8 @@ using Amazon.Route53Profiles.Model;
 namespace Amazon.PowerShell.Cmdlets.R53P
 {
     /// <summary>
-    /// Retrieves a Route 53 Profile association for a VPC. A VPC can have only one Profile
-    /// association, but a Profile can be associated with up to 5000 VPCs.
+    /// Retrieves a Route 53 Profile association for a VPC. A VPC can have up to two Profile
+    /// associations, and a Profile can be associated with up to 1,000 VPCs.
     /// </summary>
     [Cmdlet("Get", "R53PProfileAssociation")]
     [OutputType("Amazon.Route53Profiles.Model.ProfileAssociation")]

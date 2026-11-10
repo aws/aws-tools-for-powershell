@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The cron expression for the event window, for example, <c>* 0-4,20-23 * * 1,5</c>.
         /// If you specify a cron expression, you can't specify a time range.</para><para>Constraints:</para><ul><li><para>Only hour and day of the week values are supported.</para></li><li><para>For day of the week values, you can specify either integers <c>0</c> through <c>6</c>,
-        /// or alternative single values <c>SUN</c> through <c>SAT</c>.</para></li><li><para>The minute, month, and year must be specified by <c>*</c>.</para></li><li><para>The hour value must be one or a multiple range, for example, <c>0-4</c> or <c>0-4,20-23</c>.</para></li><li><para>Each hour range must be &gt;= 2 hours, for example, <c>0-2</c> or <c>20-23</c>.</para></li><li><para>The event window must be &gt;= 4 hours. The combined total time ranges in the event
-        /// window must be &gt;= 4 hours.</para></li></ul><para>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a>
+        /// or alternative single values <c>SUN</c> through <c>SAT</c>.</para></li><li><para>The minute, month, and year must be specified by <c>*</c>.</para></li><li><para>The hour value must be one or a multiple range, for example, <c>0-4</c> or <c>0-4,20-23</c>.</para></li><li><para>Each hour range must be &gt;= 2 hours, for example, <c>0-2</c> or <c>20-23</c>.</para></li><li><para>The event window must be &gt;= 4 hours. The combined total time ranges in the event window
+        /// must be &gt;= 4 hours.</para></li></ul><para>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a>
         /// on the <i>Wikipedia website</i>.</para>
         /// </para>
         /// </summary>
@@ -111,9 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tags to apply to the event window.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -127,9 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The time range for the event window. If you specify a time range, you can't specify
         /// a cron expression.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

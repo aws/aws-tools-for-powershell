@@ -62,9 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list
         /// of launch permissions for the AMI.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -155,9 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can
         /// be used only when the <c>Attribute</c> parameter is <c>launchPermission</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -171,9 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an organization. This parameter can be used only
         /// when the <c>Attribute</c> parameter is <c>launchPermission</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -186,9 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Not supported.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -202,9 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the
         /// list of launch permissions for the AMI.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -217,9 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The user groups. This parameter can be used only when the <c>Attribute</c> parameter
         /// is <c>launchPermission</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -233,9 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The Amazon Web Services account IDs. This parameter can be used only when the <c>Attribute</c>
         /// parameter is <c>launchPermission</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -320,13 +327,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.LaunchPermission_Remove = new List<Amazon.EC2.Model.LaunchPermission>(this.LaunchPermission_Remove);
             }
             context.OperationType = this.OperationType;
-            if (this.OrganizationalUnitArn != null)
-            {
-                context.OrganizationalUnitArn = new List<System.String>(this.OrganizationalUnitArn);
-            }
             if (this.OrganizationArn != null)
             {
                 context.OrganizationArn = new List<System.String>(this.OrganizationArn);
+            }
+            if (this.OrganizationalUnitArn != null)
+            {
+                context.OrganizationalUnitArn = new List<System.String>(this.OrganizationalUnitArn);
             }
             if (this.ProductCode != null)
             {
@@ -410,13 +417,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.OperationType = cmdletContext.OperationType;
             }
-            if (cmdletContext.OrganizationalUnitArn != null)
-            {
-                request.OrganizationalUnitArns = cmdletContext.OrganizationalUnitArn;
-            }
             if (cmdletContext.OrganizationArn != null)
             {
                 request.OrganizationArns = cmdletContext.OrganizationArn;
+            }
+            if (cmdletContext.OrganizationalUnitArn != null)
+            {
+                request.OrganizationalUnitArns = cmdletContext.OrganizationalUnitArn;
             }
             if (cmdletContext.ProductCode != null)
             {
@@ -497,8 +504,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.LaunchPermission> LaunchPermission_Add { get; set; }
             public List<Amazon.EC2.Model.LaunchPermission> LaunchPermission_Remove { get; set; }
             public Amazon.EC2.OperationType OperationType { get; set; }
-            public List<System.String> OrganizationalUnitArn { get; set; }
             public List<System.String> OrganizationArn { get; set; }
+            public List<System.String> OrganizationalUnitArn { get; set; }
             public List<System.String> ProductCode { get; set; }
             public List<System.String> UserGroup { get; set; }
             public List<System.String> UserId { get; set; }

@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Allows pausing an ongoing task contact.
+    /// Pauses an ongoing task or email contact.
     /// </summary>
     [Cmdlet("Invoke", "CONNPauseContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

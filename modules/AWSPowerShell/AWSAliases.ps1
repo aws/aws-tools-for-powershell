@@ -6043,6 +6043,7 @@ Set-Alias -Name CWOM-GetIntelligenceConfiguration -Value Get-CWOMIntelligenceCon
 Set-Alias -Name CWOM-GetOmniDashboard -Value Get-CWOMOmniDashboard
 Set-Alias -Name CWOM-GetSpace -Value Get-CWOMSpace
 Set-Alias -Name CWOM-GetSpaceCredentialsForOrganization -Value Get-CWOMSpaceCredentialsForOrganization
+Set-Alias -Name CWOM-GetSpaceDataAccess -Value Get-CWOMSpaceDataAccess
 Set-Alias -Name Get-CWOMTelemetryQueryResults -Value Get-CWOMTelemetryQueryResult
 Set-Alias -Name CWOM-GetTelemetryQueryResults -Value Get-CWOMTelemetryQueryResult
 Set-Alias -Name CWOM-GetView -Value Get-CWOMView
@@ -20828,6 +20829,7 @@ Set-Alias -Name LKF-GetDataLakePrincipal -Value Get-LKFDataLakePrincipal
 Set-Alias -Name Get-LKFDataLakeSettings -Value Get-LKFDataLakeSetting
 Set-Alias -Name LKF-GetDataLakeSettings -Value Get-LKFDataLakeSetting
 Set-Alias -Name LKF-GetEffectivePermissionsForPath -Value Get-LKFEffectivePermissionsForPath
+Set-Alias -Name LKF-GetGlueFunctionSessionContext -Value Get-LKFGlueFunctionSessionContext
 Set-Alias -Name LKF-GetLFTag -Value Get-LKFLFTag
 Set-Alias -Name LKF-GetLFTagExpression -Value Get-LKFLFTagExpression
 Set-Alias -Name LKF-GetQueryState -Value Get-LKFQueryState
@@ -20840,6 +20842,8 @@ Set-Alias -Name Get-LKFTableObjects -Value Get-LKFTableObject
 Set-Alias -Name LKF-GetTableObjects -Value Get-LKFTableObject
 Set-Alias -Name Get-LKFTemporaryDataLocationCredentials -Value Get-LKFTemporaryDataLocationCredential
 Set-Alias -Name LKF-GetTemporaryDataLocationCredentials -Value Get-LKFTemporaryDataLocationCredential
+Set-Alias -Name Get-LKFTemporaryGlueFunctionCredentials -Value Get-LKFTemporaryGlueFunctionCredential
+Set-Alias -Name LKF-GetTemporaryGlueFunctionCredentials -Value Get-LKFTemporaryGlueFunctionCredential
 Set-Alias -Name Get-LKFTemporaryGluePartitionCredentials -Value Get-LKFTemporaryGluePartitionCredential
 Set-Alias -Name LKF-GetTemporaryGluePartitionCredentials -Value Get-LKFTemporaryGluePartitionCredential
 Set-Alias -Name Get-LKFTemporaryGlueTableCredentials -Value Get-LKFTemporaryGlueTableCredential
@@ -24784,6 +24788,8 @@ Set-Alias -Name Create-NWFWFirewall -Value New-NWFWFirewall
 Set-Alias -Name NWFW-CreateFirewall -Value New-NWFWFirewall
 Set-Alias -Name Create-NWFWFirewallPolicy -Value New-NWFWFirewallPolicy
 Set-Alias -Name NWFW-CreateFirewallPolicy -Value New-NWFWFirewallPolicy
+Set-Alias -Name Create-NWFWFirewallPolicyV2 -Value New-NWFWFirewallPolicyV2
+Set-Alias -Name NWFW-CreateFirewallPolicyV2 -Value New-NWFWFirewallPolicyV2
 Set-Alias -Name Create-NWFWProxy -Value New-NWFWProxy
 Set-Alias -Name NWFW-CreateProxy -Value New-NWFWProxy
 Set-Alias -Name Create-NWFWProxyConfiguration -Value New-NWFWProxyConfiguration
@@ -24805,6 +24811,8 @@ Set-Alias -Name Delete-NWFWFirewall -Value Remove-NWFWFirewall
 Set-Alias -Name NWFW-DeleteFirewall -Value Remove-NWFWFirewall
 Set-Alias -Name Delete-NWFWFirewallPolicy -Value Remove-NWFWFirewallPolicy
 Set-Alias -Name NWFW-DeleteFirewallPolicy -Value Remove-NWFWFirewallPolicy
+Set-Alias -Name Delete-NWFWFirewallPolicyV2 -Value Remove-NWFWFirewallPolicyV2
+Set-Alias -Name NWFW-DeleteFirewallPolicyV2 -Value Remove-NWFWFirewallPolicyV2
 Set-Alias -Name Delete-NWFWNetworkFirewallTransitGatewayAttachment -Value Remove-NWFWNetworkFirewallTransitGatewayAttachment
 Set-Alias -Name NWFW-DeleteNetworkFirewallTransitGatewayAttachment -Value Remove-NWFWNetworkFirewallTransitGatewayAttachment
 Set-Alias -Name Delete-NWFWProxy -Value Remove-NWFWProxy
@@ -24833,6 +24841,9 @@ Set-Alias -Name Describe-NWFWFirewallMetadata -Value Get-NWFWFirewallMetadata
 Set-Alias -Name NWFW-DescribeFirewallMetadata -Value Get-NWFWFirewallMetadata
 Set-Alias -Name Describe-NWFWFirewallPolicy -Value Get-NWFWFirewallPolicy
 Set-Alias -Name NWFW-DescribeFirewallPolicy -Value Get-NWFWFirewallPolicy
+Set-Alias -Name Describe-NWFWFirewallPolicyV2 -Value Get-NWFWFirewallPolicyV2Detail
+Set-Alias -Name Describe-NWFWFirewallPolicyV2Detail -Value Get-NWFWFirewallPolicyV2Detail
+Set-Alias -Name NWFW-DescribeFirewallPolicyV2 -Value Get-NWFWFirewallPolicyV2Detail
 Set-Alias -Name Describe-NWFWFlowOperation -Value Get-NWFWFlowOperation
 Set-Alias -Name NWFW-DescribeFlowOperation -Value Get-NWFWFlowOperation
 Set-Alias -Name Describe-NWFWLoggingConfiguration -Value Get-NWFWLoggingConfiguration
@@ -24880,6 +24891,9 @@ Set-Alias -Name NWFW-ListContainerAssociations -Value Get-NWFWContainerAssociati
 Set-Alias -Name List-NWFWFirewallPolicies -Value Get-NWFWFirewallPolicyList
 Set-Alias -Name List-NWFWFirewallPolicyList -Value Get-NWFWFirewallPolicyList
 Set-Alias -Name NWFW-ListFirewallPolicies -Value Get-NWFWFirewallPolicyList
+Set-Alias -Name List-NWFWFirewallPoliciesV2 -Value Get-NWFWFirewallPoliciesV2List
+Set-Alias -Name List-NWFWFirewallPoliciesV2List -Value Get-NWFWFirewallPoliciesV2List
+Set-Alias -Name NWFW-ListFirewallPoliciesV2 -Value Get-NWFWFirewallPoliciesV2List
 Set-Alias -Name List-NWFWFirewalls -Value Get-NWFWFirewallList
 Set-Alias -Name List-NWFWFirewallList -Value Get-NWFWFirewallList
 Set-Alias -Name NWFW-ListFirewalls -Value Get-NWFWFirewallList
@@ -24926,6 +24940,7 @@ Set-Alias -Name NWFW-UpdateFirewallDescription -Value Update-NWFWFirewallDescrip
 Set-Alias -Name NWFW-UpdateFirewallEncryptionConfiguration -Value Update-NWFWFirewallEncryptionConfiguration
 Set-Alias -Name NWFW-UpdateFirewallPolicy -Value Update-NWFWFirewallPolicy
 Set-Alias -Name NWFW-UpdateFirewallPolicyChangeProtection -Value Update-NWFWFirewallPolicyChangeProtection
+Set-Alias -Name NWFW-UpdateFirewallPolicyV2 -Value Update-NWFWFirewallPolicyV2
 Set-Alias -Name NWFW-UpdateLoggingConfiguration -Value Update-NWFWLoggingConfiguration
 Set-Alias -Name NWFW-UpdateProxy -Value Update-NWFWProxy
 Set-Alias -Name NWFW-UpdateProxyConfiguration -Value Update-NWFWProxyConfiguration
@@ -30889,6 +30904,7 @@ Set-Alias -Name R53P-ListProfiles -Value Get-R53PProfileList
 Set-Alias -Name R53P-ListTagsForResource -Value Get-R53PResourceTag
 Set-Alias -Name R53P-TagResource -Value Add-R53PResourceTag
 Set-Alias -Name R53P-UntagResource -Value Remove-R53PResourceTag
+Set-Alias -Name R53P-UpdateProfileAssociation -Value Update-R53PProfileAssociation
 Set-Alias -Name R53P-UpdateProfileResourceAssociation -Value Update-R53PProfileResourceAssociation
 Set-Alias -Name Accept-RTBLink -Value Approve-RTBLink
 Set-Alias -Name RTB-AcceptLink -Value Approve-RTBLink
@@ -31438,6 +31454,7 @@ Set-Alias -Name S3T-GetNamespace -Value Get-S3TNamespace
 Set-Alias -Name S3T-GetTable -Value Get-S3TTable
 Set-Alias -Name S3T-GetTableBucket -Value Get-S3TTableBucket
 Set-Alias -Name S3T-GetTableBucketEncryption -Value Get-S3TTableBucketEncryption
+Set-Alias -Name S3T-GetTableBucketLogging -Value Get-S3TTableBucketLogging
 Set-Alias -Name S3T-GetTableBucketMaintenanceConfiguration -Value Get-S3TTableBucketMaintenanceConfiguration
 Set-Alias -Name S3T-GetTableBucketMetricsConfiguration -Value Get-S3TTableBucketMetricsConfiguration
 Set-Alias -Name S3T-GetTableBucketPolicy -Value Get-S3TTableBucketPolicy
@@ -31469,6 +31486,8 @@ Set-Alias -Name S3T-ListTables -Value Get-S3TTableList
 Set-Alias -Name S3T-ListTagsForResource -Value Get-S3TResourceTag
 Set-Alias -Name Put-S3TTableBucketEncryption -Value Write-S3TTableBucketEncryption
 Set-Alias -Name S3T-PutTableBucketEncryption -Value Write-S3TTableBucketEncryption
+Set-Alias -Name Put-S3TTableBucketLogging -Value Write-S3TTableBucketLogging
+Set-Alias -Name S3T-PutTableBucketLogging -Value Write-S3TTableBucketLogging
 Set-Alias -Name Put-S3TTableBucketMaintenanceConfiguration -Value Write-S3TTableBucketMaintenanceConfiguration
 Set-Alias -Name S3T-PutTableBucketMaintenanceConfiguration -Value Write-S3TTableBucketMaintenanceConfiguration
 Set-Alias -Name Put-S3TTableBucketMetricsConfiguration -Value Write-S3TTableBucketMetricsConfiguration

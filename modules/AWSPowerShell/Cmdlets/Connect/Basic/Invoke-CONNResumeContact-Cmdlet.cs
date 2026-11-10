@@ -30,7 +30,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Allows resuming a task contact in a paused state.
+    /// Resumes a task or email contact in a paused state.
     /// </summary>
     [Cmdlet("Invoke", "CONNResumeContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

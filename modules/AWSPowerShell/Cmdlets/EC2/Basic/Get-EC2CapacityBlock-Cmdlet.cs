@@ -50,9 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IDs of the Capacity Blocks.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -81,9 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Block expires, all instances in the Capacity Block are terminated.</para></li><li><para><c>create-date</c> - The date and time at which the Capacity Block was created.</para></li><li><para><c>state</c> - The state of the Capacity Block (<c>active</c> | <c>expired</c> |
         /// <c>unavailable</c> | <c>cancelled</c> | <c>failed</c> | <c>scheduled</c> | <c>payment-pending</c>
         /// | <c>payment-failed</c>).</para></li><li><para><c>tags</c> - The tags assigned to the Capacity Block.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

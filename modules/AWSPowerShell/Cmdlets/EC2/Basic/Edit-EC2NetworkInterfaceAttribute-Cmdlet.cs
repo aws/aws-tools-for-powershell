@@ -51,9 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>A list of subnet IDs to associate with the network interface.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -186,9 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// replaces the current set. You must specify at least one group, even if it's just the
         /// default security group in the VPC. You must specify the ID of the security group,
         /// not the name.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -310,11 +312,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyNetworkInterfaceAttributeResponse, EditEC2NetworkInterfaceAttributeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AssociatePublicIpAddress = this.AssociatePublicIpAddress;
             if (this.AssociatedSubnetId != null)
             {
                 context.AssociatedSubnetId = new List<System.String>(this.AssociatedSubnetId);
             }
-            context.AssociatePublicIpAddress = this.AssociatePublicIpAddress;
             context.Attachment_AttachmentId = this.Attachment_AttachmentId;
             context.Attachment_DefaultEnaQueueCount = this.Attachment_DefaultEnaQueueCount;
             context.Attachment_DeleteOnTermination = this.Attachment_DeleteOnTermination;
@@ -324,9 +326,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ConnectionTrackingSpecification_UdpTimeout = this.ConnectionTrackingSpecification_UdpTimeout;
             context.Description = this.Description;
             context.DryRun = this.DryRun;
-            context.EnablePrimaryIpv6 = this.EnablePrimaryIpv6;
             context.EnaSrdSpecification_EnaSrdEnabled = this.EnaSrdSpecification_EnaSrdEnabled;
             context.EnaSrdUdpSpecification_EnaSrdUdpEnabled = this.EnaSrdUdpSpecification_EnaSrdUdpEnabled;
+            context.EnablePrimaryIpv6 = this.EnablePrimaryIpv6;
             if (this.Group != null)
             {
                 context.Group = new List<System.String>(this.Group);
@@ -355,13 +357,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyNetworkInterfaceAttributeRequest();
             
-            if (cmdletContext.AssociatedSubnetId != null)
-            {
-                request.AssociatedSubnetIds = cmdletContext.AssociatedSubnetId;
-            }
             if (cmdletContext.AssociatePublicIpAddress != null)
             {
                 request.AssociatePublicIpAddress = cmdletContext.AssociatePublicIpAddress.Value;
+            }
+            if (cmdletContext.AssociatedSubnetId != null)
+            {
+                request.AssociatedSubnetIds = cmdletContext.AssociatedSubnetId;
             }
             
              // populate Attachment
@@ -459,10 +461,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (cmdletContext.EnablePrimaryIpv6 != null)
-            {
-                request.EnablePrimaryIpv6 = cmdletContext.EnablePrimaryIpv6.Value;
-            }
             
              // populate EnaSrdSpecification
             var requestEnaSrdSpecificationIsNull = true;
@@ -506,6 +504,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestEnaSrdSpecificationIsNull)
             {
                 request.EnaSrdSpecification = null;
+            }
+            if (cmdletContext.EnablePrimaryIpv6 != null)
+            {
+                request.EnablePrimaryIpv6 = cmdletContext.EnablePrimaryIpv6.Value;
             }
             if (cmdletContext.Group != null)
             {
@@ -574,8 +576,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AssociatedSubnetId { get; set; }
             public System.Boolean? AssociatePublicIpAddress { get; set; }
+            public List<System.String> AssociatedSubnetId { get; set; }
             public System.String Attachment_AttachmentId { get; set; }
             public System.Boolean? Attachment_DefaultEnaQueueCount { get; set; }
             public System.Boolean? Attachment_DeleteOnTermination { get; set; }
@@ -585,9 +587,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? ConnectionTrackingSpecification_UdpTimeout { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? DryRun { get; set; }
-            public System.Boolean? EnablePrimaryIpv6 { get; set; }
             public System.Boolean? EnaSrdSpecification_EnaSrdEnabled { get; set; }
             public System.Boolean? EnaSrdUdpSpecification_EnaSrdUdpEnabled { get; set; }
+            public System.Boolean? EnablePrimaryIpv6 { get; set; }
             public List<System.String> Group { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.Boolean? SourceDestCheck { get; set; }

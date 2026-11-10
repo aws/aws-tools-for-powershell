@@ -80,6 +80,26 @@ $LKF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.LakeFormation.AnyResourceSupportedTypes
+        {
+            ($_ -eq "Add-LKFLFTagsToResource/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Dismount-LKFRLSPolicy/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Get-LKFLakeFormationOptInList/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Get-LKFPermissionList/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Get-LKFResourceLFTag/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Get-LKFRLSPolicyAttachmentList/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Grant-LKFPermission/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Mount-LKFRLSPolicy/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "New-LKFLakeFormationOptIn/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Remove-LKFLakeFormationOptIn/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Remove-LKFLFTagsFromResource/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Revoke-LKFPermission/Resource_AnyResource_ResourceType")
+        }
+        {
+            $v = "TABLE"
+            break
+        }
+
         # Amazon.LakeFormation.ApplicationStatus
         "Update-LKFLakeFormationIdentityCenterConfiguration/ApplicationStatus"
         {
@@ -97,7 +117,7 @@ $LKF_Completers = {
         # Amazon.LakeFormation.DataLakeResourceType
         "Get-LKFPermissionList/ResourceType"
         {
-            $v = "CATALOG","DATABASE","DATA_LOCATION","LF_NAMED_TAG_EXPRESSION","LF_TAG","LF_TAG_POLICY","LF_TAG_POLICY_DATABASE","LF_TAG_POLICY_TABLE","TABLE"
+            $v = "ANY_RESOURCE","CATALOG","DATABASE","DATA_LOCATION","LF_NAMED_TAG_EXPRESSION","LF_TAG","LF_TAG_POLICY","LF_TAG_POLICY_DATABASE","LF_TAG_POLICY_TABLE","TABLE","USER_DEFINED_FUNCTION"
             break
         }
 
@@ -172,6 +192,7 @@ $LKF_map = @{
     "CredentialsScope"=@("Get-LKFTemporaryDataLocationCredential")
     "ExternalFiltering_Status"=@("New-LKFLakeFormationIdentityCenterConfiguration","Update-LKFLakeFormationIdentityCenterConfiguration")
     "LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
+    "Resource_AnyResource_ResourceType"=@("Add-LKFLFTagsToResource","Dismount-LKFRLSPolicy","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Get-LKFRLSPolicyAttachmentList","Grant-LKFPermission","Mount-LKFRLSPolicy","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
     "Resource_LFTagPolicy_ResourceType"=@("Dismount-LKFRLSPolicy","Get-LKFRLSPolicyAttachmentList","Mount-LKFRLSPolicy")
     "ResourceShareType"=@("Get-LKFLFTagList")
     "ResourceType"=@("Get-LKFPermissionList")
@@ -259,6 +280,7 @@ $LKF_SelectMap = @{
                "Get-LKFDataLakePrincipal",
                "Get-LKFDataLakeSetting",
                "Get-LKFEffectivePermissionsForPath",
+               "Get-LKFGlueFunctionSessionContext",
                "Get-LKFLFTag",
                "Get-LKFLFTagExpression",
                "Get-LKFQueryState",
@@ -267,6 +289,7 @@ $LKF_SelectMap = @{
                "Get-LKFRLSPolicy",
                "Get-LKFTableObject",
                "Get-LKFTemporaryDataLocationCredential",
+               "Get-LKFTemporaryGlueFunctionCredential",
                "Get-LKFTemporaryGluePartitionCredential",
                "Get-LKFTemporaryGlueTableCredential",
                "Get-LKFWorkUnitResult",

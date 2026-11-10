@@ -256,9 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Configuration_InsightsType
         /// <summary>
         /// <para>
-        /// <para>The types of insights to generate for a run. Specify one or more values to opt in
-        /// to insights generation when scheduling a run.</para><para>Insights are currently supported for custom mode runs with Instrumentation, Appium
-        /// Java TestNG, and XCTest UI test types.</para><para />
+        /// <para>The types of insights to generate for a run. If you do not specify a value, the default
+        /// is <c>TEST_REPORT</c> for runs that support insights.</para><para>Specify <c>NONE</c> if you do not want the service to generate insights for the run.
+        /// You cannot combine <c>NONE</c> with any other value.</para><para>Insights are supported for custom mode runs of all test types except Appium Ruby and
+        /// Appium Web Ruby.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

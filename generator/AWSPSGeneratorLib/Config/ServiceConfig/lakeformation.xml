@@ -230,6 +230,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGlueFunctionSessionContext" OutputProperty="*" Verb="Get" Noun="GlueFunctionSessionContext" PipelineParameter="DurationSeconds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLFTag" OutputProperty="*" Verb="Get" Noun="LFTag" PipelineParameter="TagKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -287,6 +291,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTemporaryDataLocationCredentials" OutputProperty="*" Verb="Get" Noun="TemporaryDataLocationCredential" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTemporaryGlueFunctionCredentials" OutputProperty="*" Verb="Get" Noun="TemporaryGlueFunctionCredential" PipelineParameter="UserDefinedFunctionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

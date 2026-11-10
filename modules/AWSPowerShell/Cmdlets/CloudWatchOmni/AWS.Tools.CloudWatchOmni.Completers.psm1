@@ -347,6 +347,7 @@ $CWOM_SelectMap = @{
                "Get-CWOMOmniDashboard",
                "Get-CWOMSpace",
                "Get-CWOMSpaceCredentialsForOrganization",
+               "Get-CWOMSpaceDataAccess",
                "Get-CWOMTelemetryQueryResult",
                "Get-CWOMView",
                "Get-CWOMAccessGrantList",

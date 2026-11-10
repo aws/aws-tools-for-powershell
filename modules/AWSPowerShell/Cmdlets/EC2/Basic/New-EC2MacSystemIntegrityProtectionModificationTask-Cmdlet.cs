@@ -221,9 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Specifies tags to apply to the SIP modification task.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -302,8 +303,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.MacCredential = this.MacCredential;
             context.MacSystemIntegrityProtectionConfiguration_AppleInternal = this.MacSystemIntegrityProtectionConfiguration_AppleInternal;
             context.MacSystemIntegrityProtectionConfiguration_BaseSystem = this.MacSystemIntegrityProtectionConfiguration_BaseSystem;
-            context.MacSystemIntegrityProtectionConfiguration_DebuggingRestriction = this.MacSystemIntegrityProtectionConfiguration_DebuggingRestriction;
             context.MacSystemIntegrityProtectionConfiguration_DTraceRestriction = this.MacSystemIntegrityProtectionConfiguration_DTraceRestriction;
+            context.MacSystemIntegrityProtectionConfiguration_DebuggingRestriction = this.MacSystemIntegrityProtectionConfiguration_DebuggingRestriction;
             context.MacSystemIntegrityProtectionConfiguration_FilesystemProtection = this.MacSystemIntegrityProtectionConfiguration_FilesystemProtection;
             context.MacSystemIntegrityProtectionConfiguration_KextSigning = this.MacSystemIntegrityProtectionConfiguration_KextSigning;
             context.MacSystemIntegrityProtectionConfiguration_NvramProtection = this.MacSystemIntegrityProtectionConfiguration_NvramProtection;
@@ -374,16 +375,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.MacSystemIntegrityProtectionConfiguration.BaseSystem = requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_BaseSystem;
                 requestMacSystemIntegrityProtectionConfigurationIsNull = false;
             }
-            Amazon.EC2.MacSystemIntegrityProtectionSettingStatus requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DebuggingRestriction = null;
-            if (cmdletContext.MacSystemIntegrityProtectionConfiguration_DebuggingRestriction != null)
-            {
-                requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DebuggingRestriction = cmdletContext.MacSystemIntegrityProtectionConfiguration_DebuggingRestriction;
-            }
-            if (requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DebuggingRestriction != null)
-            {
-                request.MacSystemIntegrityProtectionConfiguration.DebuggingRestrictions = requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DebuggingRestriction;
-                requestMacSystemIntegrityProtectionConfigurationIsNull = false;
-            }
             Amazon.EC2.MacSystemIntegrityProtectionSettingStatus requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DTraceRestriction = null;
             if (cmdletContext.MacSystemIntegrityProtectionConfiguration_DTraceRestriction != null)
             {
@@ -392,6 +383,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DTraceRestriction != null)
             {
                 request.MacSystemIntegrityProtectionConfiguration.DTraceRestrictions = requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DTraceRestriction;
+                requestMacSystemIntegrityProtectionConfigurationIsNull = false;
+            }
+            Amazon.EC2.MacSystemIntegrityProtectionSettingStatus requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DebuggingRestriction = null;
+            if (cmdletContext.MacSystemIntegrityProtectionConfiguration_DebuggingRestriction != null)
+            {
+                requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DebuggingRestriction = cmdletContext.MacSystemIntegrityProtectionConfiguration_DebuggingRestriction;
+            }
+            if (requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DebuggingRestriction != null)
+            {
+                request.MacSystemIntegrityProtectionConfiguration.DebuggingRestrictions = requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_DebuggingRestriction;
                 requestMacSystemIntegrityProtectionConfigurationIsNull = false;
             }
             Amazon.EC2.MacSystemIntegrityProtectionSettingStatus requestMacSystemIntegrityProtectionConfiguration_macSystemIntegrityProtectionConfiguration_FilesystemProtection = null;
@@ -498,8 +499,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String MacCredential { get; set; }
             public Amazon.EC2.MacSystemIntegrityProtectionSettingStatus MacSystemIntegrityProtectionConfiguration_AppleInternal { get; set; }
             public Amazon.EC2.MacSystemIntegrityProtectionSettingStatus MacSystemIntegrityProtectionConfiguration_BaseSystem { get; set; }
-            public Amazon.EC2.MacSystemIntegrityProtectionSettingStatus MacSystemIntegrityProtectionConfiguration_DebuggingRestriction { get; set; }
             public Amazon.EC2.MacSystemIntegrityProtectionSettingStatus MacSystemIntegrityProtectionConfiguration_DTraceRestriction { get; set; }
+            public Amazon.EC2.MacSystemIntegrityProtectionSettingStatus MacSystemIntegrityProtectionConfiguration_DebuggingRestriction { get; set; }
             public Amazon.EC2.MacSystemIntegrityProtectionSettingStatus MacSystemIntegrityProtectionConfiguration_FilesystemProtection { get; set; }
             public Amazon.EC2.MacSystemIntegrityProtectionSettingStatus MacSystemIntegrityProtectionConfiguration_KextSigning { get; set; }
             public Amazon.EC2.MacSystemIntegrityProtectionSettingStatus MacSystemIntegrityProtectionConfiguration_NvramProtection { get; set; }

@@ -15517,8 +15517,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16211,8 +16211,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16672,9 +16672,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
-               "Get-CSDSuggestion")
+    "Select"=@("Write-CSDDocument",
+               "Get-CSDSuggestion",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -17236,6 +17236,7 @@ $CWOM_SelectMap = @{
                "Get-CWOMOmniDashboard",
                "Get-CWOMSpace",
                "Get-CWOMSpaceCredentialsForOrganization",
+               "Get-CWOMSpaceDataAccess",
                "Get-CWOMTelemetryQueryResult",
                "Get-CWOMView",
                "Get-CWOMAccessGrantList",
@@ -30915,12 +30916,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
+               "New-DDBTableSchema",
+               "New-DDBTable",
                "ConvertFrom-DDBItem",
                "ConvertTo-DDBItem",
                "Add-DDBKeySchema",
-               "New-DDBTable",
-               "Add-DDBIndexSchema",
-               "New-DDBTableSchema")
+               "Add-DDBIndexSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -52191,6 +52192,26 @@ $LKF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.LakeFormation.AnyResourceSupportedTypes
+        {
+            ($_ -eq "Add-LKFLFTagsToResource/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Dismount-LKFRLSPolicy/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Get-LKFLakeFormationOptInList/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Get-LKFPermissionList/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Get-LKFResourceLFTag/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Get-LKFRLSPolicyAttachmentList/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Grant-LKFPermission/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Mount-LKFRLSPolicy/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "New-LKFLakeFormationOptIn/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Remove-LKFLakeFormationOptIn/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Remove-LKFLFTagsFromResource/Resource_AnyResource_ResourceType") -Or
+            ($_ -eq "Revoke-LKFPermission/Resource_AnyResource_ResourceType")
+        }
+        {
+            $v = "TABLE"
+            break
+        }
+
         # Amazon.LakeFormation.ApplicationStatus
         "Update-LKFLakeFormationIdentityCenterConfiguration/ApplicationStatus"
         {
@@ -52208,7 +52229,7 @@ $LKF_Completers = {
         # Amazon.LakeFormation.DataLakeResourceType
         "Get-LKFPermissionList/ResourceType"
         {
-            $v = "CATALOG","DATABASE","DATA_LOCATION","LF_NAMED_TAG_EXPRESSION","LF_TAG","LF_TAG_POLICY","LF_TAG_POLICY_DATABASE","LF_TAG_POLICY_TABLE","TABLE"
+            $v = "ANY_RESOURCE","CATALOG","DATABASE","DATA_LOCATION","LF_NAMED_TAG_EXPRESSION","LF_TAG","LF_TAG_POLICY","LF_TAG_POLICY_DATABASE","LF_TAG_POLICY_TABLE","TABLE","USER_DEFINED_FUNCTION"
             break
         }
 
@@ -52283,6 +52304,7 @@ $LKF_map = @{
     "CredentialsScope"=@("Get-LKFTemporaryDataLocationCredential")
     "ExternalFiltering_Status"=@("New-LKFLakeFormationIdentityCenterConfiguration","Update-LKFLakeFormationIdentityCenterConfiguration")
     "LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
+    "Resource_AnyResource_ResourceType"=@("Add-LKFLFTagsToResource","Dismount-LKFRLSPolicy","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Get-LKFRLSPolicyAttachmentList","Grant-LKFPermission","Mount-LKFRLSPolicy","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
     "Resource_LFTagPolicy_ResourceType"=@("Dismount-LKFRLSPolicy","Get-LKFRLSPolicyAttachmentList","Mount-LKFRLSPolicy")
     "ResourceShareType"=@("Get-LKFLFTagList")
     "ResourceType"=@("Get-LKFPermissionList")
@@ -52370,6 +52392,7 @@ $LKF_SelectMap = @{
                "Get-LKFDataLakePrincipal",
                "Get-LKFDataLakeSetting",
                "Get-LKFEffectivePermissionsForPath",
+               "Get-LKFGlueFunctionSessionContext",
                "Get-LKFLFTag",
                "Get-LKFLFTagExpression",
                "Get-LKFQueryState",
@@ -52378,6 +52401,7 @@ $LKF_SelectMap = @{
                "Get-LKFRLSPolicy",
                "Get-LKFTableObject",
                "Get-LKFTemporaryDataLocationCredential",
+               "Get-LKFTemporaryGlueFunctionCredential",
                "Get-LKFTemporaryGluePartitionCredential",
                "Get-LKFTemporaryGlueTableCredential",
                "Get-LKFWorkUnitResult",
@@ -63117,7 +63141,9 @@ $NWFW_Completers = {
         # Amazon.NetworkFirewall.DNSExpiryExceptionPolicy
         {
             ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy") -Or
-            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy")
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy") -Or
+            ($_ -eq "New-NWFWFirewallPolicyV2/FirewallPolicyV2_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/FirewallPolicyV2_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy")
         }
         {
             $v = "CONTINUE","DROP","REJECT"
@@ -63135,10 +63161,12 @@ $NWFW_Completers = {
         {
             ($_ -eq "New-NWFWFirewall/EncryptionConfiguration_Type") -Or
             ($_ -eq "New-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
+            ($_ -eq "New-NWFWFirewallPolicyV2/EncryptionConfiguration_Type") -Or
             ($_ -eq "New-NWFWRuleGroup/EncryptionConfiguration_Type") -Or
             ($_ -eq "New-NWFWTLSInspectionConfiguration/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWFirewallEncryptionConfiguration/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWRuleGroup/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWTLSInspectionConfiguration/EncryptionConfiguration_Type")
         }
@@ -63156,6 +63184,8 @@ $NWFW_Completers = {
 
         # Amazon.NetworkFirewall.GeneratedRulesType
         {
+            ($_ -eq "New-NWFWRuleGroup/FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType") -Or
+            ($_ -eq "Update-NWFWRuleGroup/FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType") -Or
             ($_ -eq "New-NWFWRuleGroup/RulesSourceList_GeneratedRulesType") -Or
             ($_ -eq "Update-NWFWRuleGroup/RulesSourceList_GeneratedRulesType")
         }
@@ -63168,6 +63198,26 @@ $NWFW_Completers = {
         "New-NWFWVpcEndpointAssociation/SubnetMapping_IPAddressType"
         {
             $v = "DUALSTACK","IPV4","IPV6"
+            break
+        }
+
+        # Amazon.NetworkFirewall.PolicyDefaultAction
+        {
+            ($_ -eq "New-NWFWFirewallPolicyV2/FirewallPolicyV2_FirewallDefaultAction") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/FirewallPolicyV2_FirewallDefaultAction")
+        }
+        {
+            $v = "ACCEPT","ALERT","DROP","REJECT"
+            break
+        }
+
+        # Amazon.NetworkFirewall.PolicyMode
+        {
+            ($_ -eq "New-NWFWFirewallPolicyV2/FirewallPolicyV2_PolicyMode") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/FirewallPolicyV2_PolicyMode")
+        }
+        {
+            $v = "ENFORCE","MONITOR"
             break
         }
 
@@ -63203,7 +63253,9 @@ $NWFW_Completers = {
         # Amazon.NetworkFirewall.Route53ResolvedIPValidationAction
         {
             ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action") -Or
-            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action")
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action") -Or
+            ($_ -eq "New-NWFWFirewallPolicyV2/FirewallPolicyV2_Route53ResolvedIPValidation_Action") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/FirewallPolicyV2_Route53ResolvedIPValidation_Action")
         }
         {
             $v = "ALERT","DROP","REJECT"
@@ -63228,7 +63280,7 @@ $NWFW_Completers = {
             ($_ -eq "Update-NWFWRuleGroup/Type")
         }
         {
-            $v = "STATEFUL","STATEFUL_DOMAIN","STATELESS"
+            $v = "FIREWALL","IPS","STATEFUL","STATEFUL_DOMAIN","STATELESS"
             break
         }
 
@@ -63244,6 +63296,16 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.RuleOutputFormat
+        {
+            ($_ -eq "Get-NWFWFirewallPolicyV2Detail/RuleOutputFormat") -Or
+            ($_ -eq "Get-NWFWRuleGroup/RuleOutputFormat")
+        }
+        {
+            $v = "FIREWALL_RULES","RULES_STRING"
+            break
+        }
+
         # Amazon.NetworkFirewall.StreamExceptionPolicy
         {
             ($_ -eq "New-NWFWFirewallPolicy/StatefulEngineOptions_StreamExceptionPolicy") -Or
@@ -63251,6 +63313,16 @@ $NWFW_Completers = {
         }
         {
             $v = "CONTINUE","DROP","REJECT"
+            break
+        }
+
+        # Amazon.NetworkFirewall.StreamExceptionPolicyV2
+        {
+            ($_ -eq "New-NWFWFirewallPolicyV2/FirewallPolicyV2_StatefulEngineOptions_StreamExceptionPolicy") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyV2/FirewallPolicyV2_StatefulEngineOptions_StreamExceptionPolicy")
+        }
+        {
+            $v = "DROP","REJECT"
             break
         }
 
@@ -63285,12 +63357,19 @@ $NWFW_map = @{
     "DefaultRulePhaseActions_PostRESPONSE"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
     "DefaultRulePhaseActions_PreDNS"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
     "DefaultRulePhaseActions_PreREQUEST"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
-    "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
+    "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWFirewallPolicyV2","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWFirewallPolicyV2","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
     "FirewallPolicy_Route53ResolvedIPValidation_Action"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
+    "FirewallPolicyV2_FirewallDefaultAction"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
+    "FirewallPolicyV2_PolicyMode"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
+    "FirewallPolicyV2_Route53ResolvedIPValidation_Action"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
+    "FirewallPolicyV2_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
+    "FirewallPolicyV2_StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
+    "FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "FlowOperationType"=@("Get-NWFWFlowOperationList")
     "ManagedType"=@("Get-NWFWRuleGroupList")
     "RuleGroupRequestPhase"=@("Update-NWFWProxyRulePriority")
+    "RuleOutputFormat"=@("Get-NWFWFirewallPolicyV2Detail","Get-NWFWRuleGroup")
     "RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Scope"=@("Get-NWFWRuleGroupList")
     "StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
@@ -63360,6 +63439,7 @@ $NWFW_SelectMap = @{
                "New-NWFWContainerAssociation",
                "New-NWFWFirewall",
                "New-NWFWFirewallPolicy",
+               "New-NWFWFirewallPolicyV2",
                "New-NWFWProxy",
                "New-NWFWProxyConfiguration",
                "New-NWFWProxyRuleGroup",
@@ -63370,6 +63450,7 @@ $NWFW_SelectMap = @{
                "Remove-NWFWContainerAssociation",
                "Remove-NWFWFirewall",
                "Remove-NWFWFirewallPolicy",
+               "Remove-NWFWFirewallPolicyV2",
                "Remove-NWFWNetworkFirewallTransitGatewayAttachment",
                "Remove-NWFWProxy",
                "Remove-NWFWProxyConfiguration",
@@ -63383,6 +63464,7 @@ $NWFW_SelectMap = @{
                "Get-NWFWFirewall",
                "Get-NWFWFirewallMetadata",
                "Get-NWFWFirewallPolicy",
+               "Get-NWFWFirewallPolicyV2Detail",
                "Get-NWFWFlowOperation",
                "Get-NWFWLoggingConfiguration",
                "Get-NWFWProxyDetail",
@@ -63402,6 +63484,7 @@ $NWFW_SelectMap = @{
                "Get-NWFWAnalysisReportList",
                "Get-NWFWContainerAssociationList",
                "Get-NWFWFirewallPolicyList",
+               "Get-NWFWFirewallPoliciesV2List",
                "Get-NWFWFirewallList",
                "Get-NWFWFlowOperationResultList",
                "Get-NWFWFlowOperationList",
@@ -63427,6 +63510,7 @@ $NWFW_SelectMap = @{
                "Update-NWFWFirewallEncryptionConfiguration",
                "Update-NWFWFirewallPolicy",
                "Update-NWFWFirewallPolicyChangeProtection",
+               "Update-NWFWFirewallPolicyV2",
                "Update-NWFWLoggingConfiguration",
                "Update-NWFWProxy",
                "Update-NWFWProxyConfiguration",
@@ -69296,6 +69380,16 @@ $PCS_Completers = {
             break
         }
 
+        # Amazon.PCS.LaunchTemplateMode
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/LaunchTemplateMode") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/LaunchTemplateMode")
+        }
+        {
+            $v = "CUSTOM","MANAGED"
+            break
+        }
+
         # Amazon.PCS.NetworkType
         "New-PCSCluster/Networking_NetworkType"
         {
@@ -69367,6 +69461,7 @@ $PCS_Completers = {
 
 $PCS_map = @{
     "Accounting_Mode"=@("New-PCSCluster","Update-PCSCluster")
+    "LaunchTemplateMode"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Networking_NetworkType"=@("New-PCSCluster")
     "NodeLifecycleActions_ScriptCachingPolicy"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
@@ -79771,6 +79866,7 @@ $R53P_SelectMap = @{
                "Get-R53PResourceTag",
                "Add-R53PResourceTag",
                "Remove-R53PResourceTag",
+               "Update-R53PProfileAssociation",
                "Update-R53PProfileResourceAssociation")
 }
 
@@ -80907,18 +81003,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3PreSignedURL",
-               "New-S3Bucket",
-               "Remove-S3Bucket",
-               "Write-S3Object",
-               "Remove-S3MultipartUpload",
-               "Read-S3Object",
-               "Remove-S3Object",
                "Copy-S3Object",
+               "Remove-S3MultipartUpload",
+               "Get-S3PreSignedURL",
                "Test-S3Bucket",
                "Get-S3MultipartUpload",
+               "Mount-S3PSDrive",
+               "Read-S3Object",
+               "Remove-S3Object",
                "Dismount-S3PSDrive",
-               "Mount-S3PSDrive")
+               "Write-S3Object",
+               "Remove-S3Bucket",
+               "New-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -81625,6 +81721,13 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.PartitionDateSource
+        "Write-S3TTableBucketLogging/TableBucketLoggingStatus_LoggingEnabled_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource"
+        {
+            $v = "DeliveryTime","EventTime"
+            break
+        }
+
         # Amazon.S3Tables.SchemaV2FieldType
         {
             ($_ -eq "Start-S3TTableMigration/DestinationTable_Schema_Type") -Or
@@ -81719,6 +81822,7 @@ $S3T_map = @{
     "SourceType"=@("Start-S3TTableMigration")
     "State"=@("Get-S3TTableMigrationList")
     "StorageClassConfiguration_StorageClass"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketStorageClass")
+    "TableBucketLoggingStatus_LoggingEnabled_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource"=@("Write-S3TTableBucketLogging")
     "Type"=@("Get-S3TTableBucketList","Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration","Write-S3TTableRecordExpirationConfiguration")
 }
@@ -81790,6 +81894,7 @@ $S3T_SelectMap = @{
                "Get-S3TTable",
                "Get-S3TTableBucket",
                "Get-S3TTableBucketEncryption",
+               "Get-S3TTableBucketLogging",
                "Get-S3TTableBucketMaintenanceConfiguration",
                "Get-S3TTableBucketMetricsConfiguration",
                "Get-S3TTableBucketPolicy",
@@ -81812,6 +81917,7 @@ $S3T_SelectMap = @{
                "Get-S3TTableList",
                "Get-S3TResourceTag",
                "Write-S3TTableBucketEncryption",
+               "Write-S3TTableBucketLogging",
                "Write-S3TTableBucketMaintenanceConfiguration",
                "Write-S3TTableBucketMetricsConfiguration",
                "Write-S3TTableBucketPolicy",
@@ -91029,8 +91135,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -97798,6 +97904,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -97837,41 +97981,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

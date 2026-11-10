@@ -61,9 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Security group VPC association filters.</para><ul><li><para><c>group-id</c>: The security group ID.</para></li><li><para><c>group-owner-id</c>: The group owner ID.</para></li><li><para><c>state</c>: The state of the association.</para></li><li><para><c>vpc-id</c>: The ID of the associated VPC.</para></li><li><para><c>vpc-owner-id</c>: The account ID of the VPC owner.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

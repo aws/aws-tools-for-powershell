@@ -90,6 +90,16 @@ $PCS_Completers = {
             break
         }
 
+        # Amazon.PCS.LaunchTemplateMode
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/LaunchTemplateMode") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/LaunchTemplateMode")
+        }
+        {
+            $v = "CUSTOM","MANAGED"
+            break
+        }
+
         # Amazon.PCS.NetworkType
         "New-PCSCluster/Networking_NetworkType"
         {
@@ -161,6 +171,7 @@ $PCS_Completers = {
 
 $PCS_map = @{
     "Accounting_Mode"=@("New-PCSCluster","Update-PCSCluster")
+    "LaunchTemplateMode"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Networking_NetworkType"=@("New-PCSCluster")
     "NodeLifecycleActions_ScriptCachingPolicy"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")

@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <para>
         /// <para>The name-value string pairs that specify additional settings for the remote access
         /// session.</para><ul><li><para><c>appium:version</c>: The major version of the Appium server to use for the session
-        /// (for example, 2 or 3). The service may reject the selected version if it is not available
-        /// for the selected device.</para></li></ul><para />
+        /// (for example, 2 or 3). The service might reject the selected version if it is not
+        /// available for the selected device.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
