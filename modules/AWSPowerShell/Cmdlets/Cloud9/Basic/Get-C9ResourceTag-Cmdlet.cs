@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         {
             public System.String ResourceARN { get; set; }
             public System.Func<Amazon.Cloud9.Model.ListTagsForResourceResponse, GetC9ResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Tags, cmdlet, "Tags");
         }
         
     }

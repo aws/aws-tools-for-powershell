@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCAR
             public System.String SessionName { get; set; }
             public System.String TenantId { get; set; }
             public System.Func<Amazon.AccountAccessRuntime.Model.GetRoleCredentialsResponse, GetACCARRoleCredentialCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CredentialsDetails;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.CredentialsDetails, cmdlet, "CredentialsDetails");
         }
         
     }

@@ -401,7 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.Boolean? UndoRedoDisabled { get; set; }
             public System.String UserArn { get; set; }
             public System.Func<Amazon.QuickSight.Model.GetDashboardEmbedUrlResponse, GetQSDashboardEmbedUrlCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EmbedUrl;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.EmbedUrl, cmdlet, "EmbedUrl");
         }
         
     }

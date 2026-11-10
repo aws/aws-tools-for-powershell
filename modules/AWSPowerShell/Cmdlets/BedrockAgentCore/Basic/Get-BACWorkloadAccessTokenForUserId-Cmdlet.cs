@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String UserId { get; set; }
             public System.String WorkloadName { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenForUserIdResponse, GetBACWorkloadAccessTokenForUserIdCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.WorkloadAccessToken;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.WorkloadAccessToken, cmdlet, "WorkloadAccessToken");
         }
         
     }

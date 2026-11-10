@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             public System.String AttachmentId { get; set; }
             public System.String CaseId { get; set; }
             public System.Func<Amazon.SecurityIR.Model.GetCaseAttachmentDownloadUrlResponse, GetSecurityIRCaseAttachmentDownloadUrlCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AttachmentPresignedUrl;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.AttachmentPresignedUrl, cmdlet, "AttachmentPresignedUrl");
         }
         
     }

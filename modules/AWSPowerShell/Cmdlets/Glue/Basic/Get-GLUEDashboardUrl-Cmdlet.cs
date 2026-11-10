@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String ResourceId { get; set; }
             public Amazon.Glue.GlueResourceType ResourceType { get; set; }
             public System.Func<Amazon.Glue.Model.GetDashboardUrlResponse, GetGLUEDashboardUrlCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Url;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.Url, cmdlet, "Url");
         }
         
     }

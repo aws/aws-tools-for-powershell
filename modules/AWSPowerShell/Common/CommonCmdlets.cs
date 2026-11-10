@@ -529,7 +529,9 @@ namespace Amazon.PowerShell.Common
     /// Controls the display of sensitive information in the PowerShell console output.
     /// When set to false (default), sensitive data is masked in the console display.
     /// When set to true, sensitive data is shown in plain text.
-    /// Note: This setting only affects console display - stored variables retain the original unmasked data regardless of this setting.
+    /// Redaction applies only when PowerShell displays output. The value and its type are unchanged.
+    /// Out-File, redirection operators, Out-String and piping to a native command also display output, so they write the redaction text.
+    /// A cmdlet whose output is masked writes a note naming its -Select property, which -InformationAction Ignore silences.
     /// This cmdlet sets a shell variable AWSPowerShell_Show_Sensitive_Data using the scope.
     /// </summary>
     [Cmdlet("Set", "AWSSensitiveDataConfiguration")]

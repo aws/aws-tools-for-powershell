@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.ListDomainObjectTypesResponse, GetCPFDomainObjectTypeListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Items, cmdlet, "Items");
         }
         
     }

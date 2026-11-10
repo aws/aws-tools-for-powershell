@@ -136,6 +136,7 @@ namespace AWSPowerShellGenerator
                     OutputFolder = basePath,
                     Name = options.AssemblyName,
                     TargetAssemblies = targetAssemblies,
+                    IncludeSensitiveDataViews = includeCore,
                     Options = options
                 };
                 formatsGenerator.Generate();
@@ -294,6 +295,7 @@ namespace AWSPowerShellGenerator
                     OutputFolder = basePath,
                     Name = assemblyName,
                     TargetAssemblies = targetAssemblies,
+                    IncludeSensitiveDataViews = includeCore,
                     Options = options
                 };
                 formatsGenerator.Generate();

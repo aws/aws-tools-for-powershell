@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             public System.String InstanceId { get; set; }
             public System.Func<Amazon.Connect.Model.GetFederationTokenResponse, GetCONNFederationTokenCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Credentials;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Credentials, cmdlet, "Credentials");
         }
         
     }

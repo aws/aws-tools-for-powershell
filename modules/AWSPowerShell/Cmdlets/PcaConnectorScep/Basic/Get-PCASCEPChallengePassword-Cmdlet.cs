@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.PCASCEP
         {
             public System.String ChallengeArn { get; set; }
             public System.Func<Amazon.PcaConnectorScep.Model.GetChallengePasswordResponse, GetPCASCEPChallengePasswordCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Password;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.Password, cmdlet, "Password");
         }
         
     }

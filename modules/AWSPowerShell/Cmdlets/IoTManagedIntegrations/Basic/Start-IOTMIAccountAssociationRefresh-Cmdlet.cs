@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         {
             public System.String AccountAssociationId { get; set; }
             public System.Func<Amazon.IoTManagedIntegrations.Model.StartAccountAssociationRefreshResponse, StartIOTMIAccountAssociationRefreshCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.OAuthAuthorizationUrl;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.OAuthAuthorizationUrl, cmdlet, "OAuthAuthorizationUrl");
         }
         
     }

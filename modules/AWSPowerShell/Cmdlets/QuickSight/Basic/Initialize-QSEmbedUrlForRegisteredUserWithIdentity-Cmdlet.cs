@@ -1299,7 +1299,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String QuickSightConsole_InitialPath { get; set; }
             public System.Int64? SessionLifetimeInMinute { get; set; }
             public System.Func<Amazon.QuickSight.Model.GenerateEmbedUrlForRegisteredUserWithIdentityResponse, InitializeQSEmbedUrlForRegisteredUserWithIdentityCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EmbedUrl;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.EmbedUrl, cmdlet, "EmbedUrl");
         }
         
     }

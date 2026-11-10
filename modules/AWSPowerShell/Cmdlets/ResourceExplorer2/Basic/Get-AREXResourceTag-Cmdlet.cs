@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         {
             public System.String ResourceArn { get; set; }
             public System.Func<Amazon.ResourceExplorer2.Model.ListTagsForResourceResponse, GetAREXResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Tags, cmdlet, "Tags");
         }
         
     }

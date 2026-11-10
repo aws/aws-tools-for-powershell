@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             public System.String AssessmentId { get; set; }
             public List<System.String> DelegationId { get; set; }
             public System.Func<Amazon.AuditManager.Model.BatchDeleteDelegationByAssessmentResponse, RemoveAUDMDelegationByAssessmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Errors;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Errors, cmdlet, "Errors");
         }
         
     }

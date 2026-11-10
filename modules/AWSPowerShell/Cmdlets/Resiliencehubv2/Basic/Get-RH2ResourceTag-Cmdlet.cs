@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         {
             public System.String ResourceArn { get; set; }
             public System.Func<Amazon.Resiliencehubv2.Model.ListTagsForResourceResponse, GetRH2ResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Tags, cmdlet, "Tags");
         }
         
     }

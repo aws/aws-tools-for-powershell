@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
             public System.String Context_TargetAccountId { get; set; }
             public Amazon.CloudWatchOmni.OrganizationCredentialType CredentialType { get; set; }
             public System.Func<Amazon.CloudWatchOmni.Model.GetSpaceCredentialsForOrganizationResponse, GetCWOMSpaceCredentialsForOrganizationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Credentials;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Credentials, cmdlet, "Credentials");
         }
         
     }

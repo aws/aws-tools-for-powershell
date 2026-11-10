@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         {
             public System.String ResourceArn { get; set; }
             public System.Func<Amazon.Mgn.Model.ListTagsForResourceResponse, GetMGNResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Tags, cmdlet, "Tags");
         }
         
     }

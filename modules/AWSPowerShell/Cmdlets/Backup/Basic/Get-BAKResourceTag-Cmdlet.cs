@@ -374,7 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.String NextToken { get; set; }
             public System.String ResourceArn { get; set; }
             public System.Func<Amazon.Backup.Model.ListTagsResponse, GetBAKResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Tags, cmdlet, "Tags");
         }
         
     }

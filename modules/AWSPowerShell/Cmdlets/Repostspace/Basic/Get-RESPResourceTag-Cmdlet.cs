@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
         {
             public System.String ResourceArn { get; set; }
             public System.Func<Amazon.Repostspace.Model.ListTagsForResourceResponse, GetRESPResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Tags, cmdlet, "Tags");
         }
         
     }

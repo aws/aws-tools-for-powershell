@@ -301,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public byte[] Recipient_AttestationDocument { get; set; }
             public Amazon.KeyManagementService.KeyEncryptionMechanism Recipient_KeyEncryptionAlgorithm { get; set; }
             public System.Func<Amazon.KeyManagementService.Model.GenerateRandomResponse, NewKMSRandomCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Plaintext;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Plaintext, cmdlet, "Plaintext");
         }
         
     }

@@ -459,7 +459,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String UserContextData_IpAddress { get; set; }
             public System.String Username { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse, ConfirmCGIPUserRegistrationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Session;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.Session, cmdlet, "Session");
         }
         
     }

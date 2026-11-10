@@ -1280,12 +1280,28 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     }
                     else
                     {
-                        writer.WriteLine($"(response, cmdlet) => response.{Operation.OutputProperty};");
+                        writer.WriteLine($"(response, cmdlet) => {GetDefaultSelectValue(Operation.OutputProperty, MethodAnalysis.AnalyzedResult.SingleResultProperty?.BaseProperty)};");
                     }
                 }
                 writer.DecreaseIndent();
             }
             writer.CloseRegion();
+        }
+
+        /// <summary>
+        /// A sensitive property returned on its own has no redacting format view, so the default output tags the
+        /// value to be redacted on the host. An explicit -Select of the same property
+        /// still returns the raw value.
+        /// </summary>
+        public static string GetDefaultSelectValue(string outputProperty, PropertyInfo outputPropertyInfo)
+        {
+            var value = $"response.{outputProperty}";
+            if (outputPropertyInfo == null || !outputPropertyInfo.IsSensitive())
+                return value;
+
+            return outputPropertyInfo.PropertyType == typeof(string)
+                ? $"Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost({value}, cmdlet, \"{outputProperty}\")"
+                : $"Amazon.PowerShell.Common.SensitiveOutput.TagForHost({value}, cmdlet, \"{outputProperty}\")";
         }
 
         /// <summary>

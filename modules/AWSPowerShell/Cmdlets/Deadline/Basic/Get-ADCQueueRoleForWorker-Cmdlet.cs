@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String QueueId { get; set; }
             public System.String WorkerId { get; set; }
             public System.Func<Amazon.Deadline.Model.AssumeQueueRoleForWorkerResponse, GetADCQueueRoleForWorkerCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Credentials;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Credentials, cmdlet, "Credentials");
         }
         
     }

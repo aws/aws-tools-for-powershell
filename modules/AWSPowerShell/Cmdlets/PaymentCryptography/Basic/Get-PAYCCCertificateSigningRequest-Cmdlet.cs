@@ -381,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             public System.String KeyIdentifier { get; set; }
             public Amazon.PaymentCryptography.SigningAlgorithmType SigningAlgorithm { get; set; }
             public System.Func<Amazon.PaymentCryptography.Model.GetCertificateSigningRequestResponse, GetPAYCCCertificateSigningRequestCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CertificateSigningRequest;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.CertificateSigningRequest, cmdlet, "CertificateSigningRequest");
         }
         
     }

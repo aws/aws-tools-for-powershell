@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
             public System.String SnapshotId { get; set; }
             public System.Int32? StartingBlockIndex { get; set; }
             public System.Func<Amazon.EBS.Model.ListSnapshotBlocksResponse, GetEBSSnapshotBlockListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Blocks;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Blocks, cmdlet, "Blocks");
         }
         
     }

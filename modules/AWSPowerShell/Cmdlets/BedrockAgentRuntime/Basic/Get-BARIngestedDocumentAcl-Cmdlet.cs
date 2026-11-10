@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String DocumentId { get; set; }
             public System.String KnowledgeBaseId { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.GetIngestedDocumentAclResponse, GetBARIngestedDocumentAclCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DocumentAcl;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.DocumentAcl, cmdlet, "DocumentAcl");
         }
         
     }

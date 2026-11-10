@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             public System.String DomainName { get; set; }
             public System.Func<Amazon.Route53Domains.Model.RetrieveDomainAuthCodeResponse, GetR53DDomainAuthCodeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AuthCode;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.AuthCode, cmdlet, "AuthCode");
         }
         
     }

@@ -469,7 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String RecommenderName { get; set; }
             public List<Amazon.CustomerProfiles.Model.RecommenderPromotionalFilter> RecommenderPromotionalFilter { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.GetProfileRecommendationsResponse, GetCPFProfileRecommendationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Recommendations;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Recommendations, cmdlet, "Recommendations");
         }
         
     }

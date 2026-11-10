@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String FarmId { get; set; }
             public System.String QueueId { get; set; }
             public System.Func<Amazon.Deadline.Model.AssumeQueueRoleForReadResponse, GetADCQueueRoleForReadCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Credentials;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Credentials, cmdlet, "Credentials");
         }
         
     }

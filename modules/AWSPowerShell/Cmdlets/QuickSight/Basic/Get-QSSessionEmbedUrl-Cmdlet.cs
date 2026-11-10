@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.Int64? SessionLifetimeInMinute { get; set; }
             public System.String UserArn { get; set; }
             public System.Func<Amazon.QuickSight.Model.GetSessionEmbedUrlResponse, GetQSSessionEmbedUrlCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EmbedUrl;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.EmbedUrl, cmdlet, "EmbedUrl");
         }
         
     }

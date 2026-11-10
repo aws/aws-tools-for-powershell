@@ -18,6 +18,12 @@ namespace AWSPowerShellGenerator.Generators
 
         public List<Assembly> TargetAssemblies { get; set; }
 
+        /// <summary>
+        /// Set for the module that holds Amazon.PowerShell.Common (AWS.Tools.Common, or a monolithic module):
+        /// adds the generic AWS.Tools.SensitiveData views, which every service module relies on.
+        /// </summary>
+        public bool IncludeSensitiveDataViews { get; set; }
+
         #endregion
 
         #region Private properties
@@ -35,6 +41,26 @@ namespace AWSPowerShellGenerator.Generators
         // Keep in sync with Amazon.PowerShell.Common.BaseCmdlet.SensitiveDataRedactionMessage
         // (separate assembly, so it cannot be shared directly).
         private const string SensitiveDataRedactionMessage = "*** sensitive data redacted from host ***";
+
+        // Keep in sync with Amazon.PowerShell.Common.SensitiveOutput.TypeName.
+        public const string SensitiveDataTypeName = "AWS.Tools.SensitiveData";
+
+        private const string ShowSensitiveDataCondition =
+            "(Test-Path variable:AWSPowerShell_Show_Sensitive_Data) -and $true.Equals((Get-Variable AWSPowerShell_Show_Sensitive_Data).Value)";
+
+        // Generic views serve tagged values with no per-type view: dictionaries, Documents and streams. The tag also
+        // sticks to the base object, so show mode renders entries or properties; formatting the base object would
+        // select these views again. One line, because a table or wide cell shows only the first line.
+        private const string GenericSensitiveValueScript =
+            "if(" + ShowSensitiveDataCondition + "){$b = $_.PSObject.BaseObject; " +
+            "if($b.GetType().FullName -eq 'Amazon.Runtime.Documents.Document' -and $b.IsDictionary()){$b = $b.AsDictionary()} " +
+            "if($b -is [System.Collections.IDictionary]){($b.GetEnumerator() | ForEach-Object { \"$_\" }) -join ', '} " +
+            "elseif($b -is [System.Collections.IEnumerable]){(@($b) | ForEach-Object { \"$_\" }) -join ', '} " +
+            "else{($b.PSObject.Properties | ForEach-Object { '{0}: {1}' -f $_.Name, $_.Value }) -join ', '}} " +
+            "else{'" + SensitiveDataRedactionMessage + "'}";
+
+        private const string StringSensitiveValueScript =
+            "if(" + ShowSensitiveDataCondition + "){$_.PSObject.BaseObject} else{'" + SensitiveDataRedactionMessage + "'}";
         #endregion
 
 
@@ -58,6 +84,7 @@ namespace AWSPowerShellGenerator.Generators
             }
 
             var cmdletType = typeof(Cmdlet);
+            var sensitiveOutputTypes = GetSensitiveOutputTypes(types.Where(t => t.IsSubclassOf(cmdletType)));
             types.RemoveAll(t =>
             {
                 var isPrivate = !t.IsPublic || t.IsNestedPrivate;
@@ -89,6 +116,8 @@ namespace AWSPowerShellGenerator.Generators
                 {
                     writer.WriteStartDocument();
                     writer.WriteStartElement("Configuration");
+                    if (IncludeSensitiveDataViews)
+                        WriteSensitiveDataDefaultSettings(writer);
                     writer.WriteStartElement("ViewDefinitions");
 
                     foreach (var type in types)
@@ -104,6 +133,14 @@ namespace AWSPowerShellGenerator.Generators
                         Logger.Log(new string('<', 20));
                         Logger.Log();
                     }
+
+                    foreach (var type in types.Where(sensitiveOutputTypes.Contains))
+                    {
+                        WriteSensitiveOutputViews(writer, type, GetProperties(GetConfig(type), type).Select(p => p.Name).ToList());
+                    }
+
+                    if (IncludeSensitiveDataViews)
+                        WriteGenericSensitiveDataViews(writer);
 
                     foreach (var cfd in ConfigCollection.CustomFormatDocuments)
                     {
@@ -129,6 +166,166 @@ namespace AWSPowerShellGenerator.Generators
         }
 
         #endregion
+
+        /// <summary>
+        /// Returns the element types of the sensitive non-string properties of the cmdlets' response types. A cmdlet
+        /// that returns one of these properties on its own tags each element, and only the tagged views apply to it,
+        /// so a view for a property that is never returned on its own is unused.
+        /// </summary>
+        public static HashSet<Type> GetSensitiveOutputTypes(IEnumerable<Type> cmdletTypes)
+        {
+            var result = new HashSet<Type>();
+            foreach (var cmdletType in cmdletTypes)
+            {
+                var responseType = cmdletType.GetCustomAttributesData()
+                    .Where(a => a.AttributeType.FullName == "Amazon.PowerShell.Common.AWSCmdletAttribute")
+                    .SelectMany(a => a.NamedArguments)
+                    .Where(a => a.MemberName == "SelectReturnType")
+                    .Select(a => a.TypedValue.Value as Type)
+                    .FirstOrDefault();
+                if (responseType == null)
+                    continue;
+
+                foreach (var property in responseType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly))
+                {
+                    if (property.PropertyType == typeof(string) || !property.IsSensitive())
+                        continue;
+
+                    var propertyType = property.PropertyType;
+                    result.Add(propertyType.IsGenericType && propertyType.GetGenericTypeDefinition() == typeof(List<>)
+                        ? propertyType.GetGenericArguments()[0]
+                        : propertyType);
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Writes table and list views for a tagged element type, default kind first. Every column is redacted:
+        /// the SDK marks the response member as sensitive, not the element's own properties.
+        /// </summary>
+        public static void WriteSensitiveOutputViews(XmlWriter writer, Type type, IList<string> propertyNames)
+        {
+            if (propertyNames.Count == 0)
+                return;
+
+            var typeName = $"{SensitiveDataTypeName}#{type.FullName}";
+            var isTableDefault = propertyNames.Count <= 4;
+            foreach (var isTable in new[] { isTableDefault, !isTableDefault })
+            {
+                var columns = propertyNames.Select(name => (name, $"if({ShowSensitiveDataCondition}){{$_.{name}}} else{{'{SensitiveDataRedactionMessage}'}}"));
+                WriteScriptView(writer, $"{(isTable ? "Table" : "List")} view node for {typeName}", typeName, isTable ? "Table" : "List", columns.ToList());
+            }
+        }
+
+        /// <summary>
+        /// Writes the string view, then the table, list, custom and wide views for AWS.Tools.SensitiveData.
+        /// </summary>
+        public static void WriteGenericSensitiveDataViews(XmlWriter writer)
+        {
+            // One custom view: out of band, it also renders Format-Table, Format-List, Format-Wide and a string mixed
+            // with other objects (Get-Date; $u), and writes the whole value when redaction is off.
+            var stringTypeName = $"{SensitiveDataTypeName}#{typeof(string).FullName}";
+            var stringColumn = new List<(string, string)> { ("Value", StringSensitiveValueScript) };
+            WriteScriptView(writer, $"Custom view node for {stringTypeName}", stringTypeName, "Custom", stringColumn, outOfBand: true);
+
+            var column = new List<(string, string)> { ("Value", GenericSensitiveValueScript) };
+            foreach (var kind in new[] { "Table", "List", "Custom", "Wide" })
+            {
+                WriteScriptView(writer, $"{kind} view node for {SensitiveDataTypeName}", SensitiveDataTypeName, kind, column);
+            }
+        }
+
+        /// <summary>
+        /// Dictionaries and Documents are IEnumerable; without CoreOnly the formatter unrolls them and never sees the tag.
+        /// </summary>
+        public static void WriteSensitiveDataDefaultSettings(XmlWriter writer)
+        {
+            writer.WriteStartElement("DefaultSettings");
+            writer.WriteStartElement("EnumerableExpansions");
+            writer.WriteStartElement("EnumerableExpansion");
+            writer.WriteStartElement("EntrySelectedBy");
+            writer.WriteElementString("TypeName", SensitiveDataTypeName);
+            writer.WriteEndElement();
+            writer.WriteElementString("Expand", "CoreOnly");
+            writer.WriteEndElement();
+            writer.WriteEndElement();
+            writer.WriteEndElement();
+        }
+
+        private static void WriteScriptView(XmlWriter writer, string viewName, string typeName, string kind, IList<(string Label, string Script)> columns, bool outOfBand = false)
+        {
+            writer.WriteStartElement("View");
+            writer.WriteElementString("Name", viewName);
+            writer.WriteStartElement("ViewSelectedBy");
+            writer.WriteElementString("TypeName", typeName);
+            writer.WriteEndElement();
+            if (outOfBand)
+                writer.WriteElementString("OutOfBand", string.Empty);
+            writer.WriteStartElement(kind + "Control");
+            switch (kind)
+            {
+                case "Table":
+                    writer.WriteStartElement("TableHeaders");
+                    foreach (var column in columns)
+                    {
+                        writer.WriteStartElement("TableColumnHeader");
+                        writer.WriteElementString("Label", column.Label);
+                        writer.WriteEndElement();
+                    }
+                    writer.WriteEndElement();
+                    writer.WriteStartElement("TableRowEntries");
+                    writer.WriteStartElement("TableRowEntry");
+                    writer.WriteStartElement("TableColumnItems");
+                    foreach (var column in columns)
+                    {
+                        writer.WriteStartElement("TableColumnItem");
+                        writer.WriteElementString("ScriptBlock", column.Script);
+                        writer.WriteEndElement();
+                    }
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                    break;
+                case "List":
+                    writer.WriteStartElement("ListEntries");
+                    writer.WriteStartElement("ListEntry");
+                    writer.WriteStartElement("ListItems");
+                    foreach (var column in columns)
+                    {
+                        writer.WriteStartElement("ListItem");
+                        writer.WriteElementString("Label", column.Label);
+                        writer.WriteElementString("ScriptBlock", column.Script);
+                        writer.WriteEndElement();
+                    }
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                    break;
+                case "Custom":
+                    writer.WriteStartElement("CustomEntries");
+                    writer.WriteStartElement("CustomEntry");
+                    writer.WriteStartElement("CustomItem");
+                    writer.WriteStartElement("ExpressionBinding");
+                    writer.WriteElementString("ScriptBlock", columns[0].Script);
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                    break;
+                case "Wide":
+                    writer.WriteStartElement("WideEntries");
+                    writer.WriteStartElement("WideEntry");
+                    writer.WriteStartElement("WideItem");
+                    writer.WriteElementString("ScriptBlock", columns[0].Script);
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                    break;
+            }
+            writer.WriteEndElement();
+            writer.WriteEndElement();
+        }
 
         private void LoadCustomFormatDocuments(string configurationsFolderRoot)
         {
@@ -269,14 +466,28 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        private void GenerateView_NonReflective(ConfigModel config, XmlWriter writer, Type targetType)
+        public static void GenerateView_NonReflective(ConfigModel config, XmlWriter writer, Type targetType)
         {
             if (config.Columns.Count == 0) return;
             bool isTableView = config.Columns.Count <= 4;
 
+            // The first view written is the default display view, so keep it unchanged.
+            WriteView(config, writer, targetType, isTableView, string.Format("View node for {0}", targetType.FullName));
+
+            // Format-Table and Format-List only use a view of their own kind; without one they fall back to
+            // displaying raw property values. When the type has sensitive properties, also emit the other view
+            // kind so both cmdlets redact them.
+            if (config.Columns.Any(column => column.IsSensitive))
+            {
+                WriteView(config, writer, targetType, !isTableView, string.Format("{0} view node for {1}", isTableView ? "List" : "Table", targetType.FullName));
+            }
+        }
+
+        private static void WriteView(ConfigModel config, XmlWriter writer, Type targetType, bool isTableView, string viewName)
+        {
             writer.WriteStartElement("View");
             {
-                writer.WriteElementString("Name", string.Format("View node for {0}", targetType.FullName));
+                writer.WriteElementString("Name", viewName);
 
                 writer.WriteStartElement("ViewSelectedBy");
                 {
@@ -332,7 +543,7 @@ namespace AWSPowerShellGenerator.Generators
                                                 writer.WriteElementString("Label", column.PropertyName);
 
                                             string scriptBlockValue =
-                                                $"if((Test-Path variable:AWSPowerShell_Show_Sensitive_Data) -and $true.Equals((Get-Variable AWSPowerShell_Show_Sensitive_Data).Value)){{$_.{column.PropertyName}}} else{{'{SensitiveDataRedactionMessage}'}}";
+                                                $"if({ShowSensitiveDataCondition}){{$_.{column.PropertyName}}} else{{'{SensitiveDataRedactionMessage}'}}";
                                             writer.WriteElementString("ScriptBlock", scriptBlockValue);
                                         }
                                         else if (!string.IsNullOrEmpty(column.PropertyName))

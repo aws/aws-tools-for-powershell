@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         {
             public System.String AccountId { get; set; }
             public System.Func<Amazon.TaxSettings.Model.GetTaxRegistrationResponse, GetTSATaxRegistrationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.TaxRegistration;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.TaxRegistration, cmdlet, "TaxRegistration");
         }
         
     }

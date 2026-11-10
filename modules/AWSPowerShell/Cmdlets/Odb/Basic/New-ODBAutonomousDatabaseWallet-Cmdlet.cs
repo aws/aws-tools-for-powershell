@@ -356,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             public System.String PasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId { get; set; }
             public Amazon.Odb.WalletType WalletType { get; set; }
             public System.Func<Amazon.Odb.Model.CreateAutonomousDatabaseWalletResponse, NewODBAutonomousDatabaseWalletCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AutonomousDatabaseWalletFile;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.AutonomousDatabaseWalletFile, cmdlet, "AutonomousDatabaseWalletFile");
         }
         
     }

@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String VpnConnectionDeviceTypeId { get; set; }
             public System.String VpnConnectionId { get; set; }
             public System.Func<Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse, GetEC2VpnConnectionDeviceSampleConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.VpnConnectionDeviceSampleConfiguration;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.VpnConnectionDeviceSampleConfiguration, cmdlet, "VpnConnectionDeviceSampleConfiguration");
         }
         
     }

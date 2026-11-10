@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             public System.Int64? PasswordLength { get; set; }
             public System.Boolean? RequireEachIncludedType { get; set; }
             public System.Func<Amazon.SecretsManager.Model.GetRandomPasswordResponse, GetSECRandomPasswordCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RandomPassword;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.RandomPassword, cmdlet, "RandomPassword");
         }
         
     }

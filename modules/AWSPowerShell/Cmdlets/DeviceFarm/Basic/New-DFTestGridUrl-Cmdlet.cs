@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.Int32? ExpiresInSecond { get; set; }
             public System.String ProjectArn { get; set; }
             public System.Func<Amazon.DeviceFarm.Model.CreateTestGridUrlResponse, NewDFTestGridUrlCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Url;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.Url, cmdlet, "Url");
         }
         
     }

@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String ResourceCredentialProviderName { get; set; }
             public System.String WorkloadIdentityToken { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.GetResourceApiKeyResponse, GetBACResourceApiKeyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApiKey;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.ApiKey, cmdlet, "ApiKey");
         }
         
     }

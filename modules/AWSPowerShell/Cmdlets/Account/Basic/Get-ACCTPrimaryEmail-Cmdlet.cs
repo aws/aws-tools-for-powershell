@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         {
             public System.String AccountId { get; set; }
             public System.Func<Amazon.Account.Model.GetPrimaryEmailResponse, GetACCTPrimaryEmailCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PrimaryEmail;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.PrimaryEmail, cmdlet, "PrimaryEmail");
         }
         
     }

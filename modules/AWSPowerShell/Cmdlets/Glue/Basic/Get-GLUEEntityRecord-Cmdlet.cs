@@ -403,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String OrderBy { get; set; }
             public List<System.String> SelectedField { get; set; }
             public System.Func<Amazon.Glue.Model.GetEntityRecordsResponse, GetGLUEEntityRecordCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Records;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.TagForHost(response.Records, cmdlet, "Records");
         }
         
     }

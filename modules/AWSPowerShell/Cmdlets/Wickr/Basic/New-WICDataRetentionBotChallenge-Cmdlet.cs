@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.WIC
         {
             public System.String NetworkId { get; set; }
             public System.Func<Amazon.Wickr.Model.CreateDataRetentionBotChallengeResponse, NewWICDataRetentionBotChallengeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Challenge;
+                (response, cmdlet) => Amazon.PowerShell.Common.SensitiveOutput.RedactOnHost(response.Challenge, cmdlet, "Challenge");
         }
         
     }
