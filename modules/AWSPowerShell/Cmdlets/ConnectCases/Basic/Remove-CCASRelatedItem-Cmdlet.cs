@@ -36,7 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// This API cannot be used on a FILE type related attachment. To delete this type of
     /// file, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteAttachedFile.html">DeleteAttachedFile</a>
     /// API
-    /// </para></note>
+    /// </para></note><para>
+    /// If the case is the secondary case of a merge that is running, the request fails with
+    /// a <c>ConflictException</c>. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html">StartMergeCases</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "CCASRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

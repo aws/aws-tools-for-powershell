@@ -129,6 +129,26 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String IncludedOauth2ProviderConfig_AuthorizationEndpoint { get; set; }
         #endregion
         
+        #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The private certificate authority (CA) configurations for the identity provider. Use
+        /// this to have AgentCore Identity trust a private CA when establishing TLS connections
+        /// to identity provider endpoints. You can specify only one certificate authority configuration
+        /// in this list. Provide the certificate by reference to an Amazon S3 object or an Amazon
+        /// Web Services Secrets Manager secret. You can use this only together with <c>privateEndpoint</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfigurations")]
+        public Amazon.BedrockAgentCoreControl.Model.CertificateConfiguration[] Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod
         /// <summary>
         /// <para>
@@ -1009,6 +1029,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey = this.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey;
             context.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId = this.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId;
             context.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource = this.Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource;
+            if (this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration != null)
+            {
+                context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.CertificateConfiguration>(this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration);
+            }
             context.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod = this.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod;
             context.CustomOauth2ProviderConfig_ClientId = this.CustomOauth2ProviderConfig_ClientId;
             context.CustomOauth2ProviderConfig_ClientSecret = this.CustomOauth2ProviderConfig_ClientSecret;
@@ -1828,6 +1852,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate CustomOauth2ProviderConfig
             var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull = true;
             requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig = new Amazon.BedrockAgentCoreControl.Model.CustomOauth2ProviderConfigInput();
+            List<Amazon.BedrockAgentCoreControl.Model.CertificateConfiguration> requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration = null;
+            if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration = cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration;
+            }
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration != null)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig.CertificateConfigurations = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfigIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.ClientAuthenticationMethodType requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod = null;
             if (cmdletContext.Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod != null)
             {
@@ -2365,6 +2399,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey { get; set; }
             public System.String Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId { get; set; }
             public Amazon.BedrockAgentCoreControl.SecretSourceType Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretSource { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.CertificateConfiguration> Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration { get; set; }
             public Amazon.BedrockAgentCoreControl.ClientAuthenticationMethodType Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod { get; set; }
             public System.String CustomOauth2ProviderConfig_ClientId { get; set; }
             public System.String CustomOauth2ProviderConfig_ClientSecret { get; set; }

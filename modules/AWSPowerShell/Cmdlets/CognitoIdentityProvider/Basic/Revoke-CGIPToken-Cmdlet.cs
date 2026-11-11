@@ -82,6 +82,23 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String ClientSecret { get; set; }
         #endregion
         
+        #region Parameter RevokeAssociatedSession
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to also revoke the SSO session that is linked to the token session
+        /// being revoked. <c>NONE</c>, the default, revokes only the token session that is associated
+        /// with the refresh token. <c>LINKED</c> also revokes the parent SSO session that the
+        /// token session came through; the other token sessions that came through that SSO session
+        /// aren't revoked. <c>LINKED</c> has no effect when session tracking is disabled or when
+        /// the token session has no parent SSO session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RevokeAssociatedSessions")]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.RevokeAssociatedSessionsType")]
+        public Amazon.CognitoIdentityProvider.RevokeAssociatedSessionsType RevokeAssociatedSession { get; set; }
+        #endregion
+        
         #region Parameter Token
         /// <summary>
         /// <para>
@@ -152,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             #endif
             context.ClientSecret = this.ClientSecret;
+            context.RevokeAssociatedSession = this.RevokeAssociatedSession;
             context.Token = this.Token;
             #if MODULAR
             if (this.Token == null && ParameterWasBound(nameof(this.Token)))
@@ -182,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.ClientSecret != null)
             {
                 request.ClientSecret = cmdletContext.ClientSecret;
+            }
+            if (cmdletContext.RevokeAssociatedSession != null)
+            {
+                request.RevokeAssociatedSessions = cmdletContext.RevokeAssociatedSession;
             }
             if (cmdletContext.Token != null)
             {
@@ -244,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             public System.String ClientId { get; set; }
             public System.String ClientSecret { get; set; }
+            public Amazon.CognitoIdentityProvider.RevokeAssociatedSessionsType RevokeAssociatedSession { get; set; }
             public System.String Token { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.RevokeTokenResponse, RevokeCGIPTokenCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

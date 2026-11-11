@@ -299,6 +299,17 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.RevokeAssociatedSessionsType
+        {
+            ($_ -eq "Revoke-CGIPToken/RevokeAssociatedSession") -Or
+            ($_ -eq "Revoke-CGIPUserSession/RevokeAssociatedSession") -Or
+            ($_ -eq "Revoke-CGIPUserSessionAdmin/RevokeAssociatedSession")
+        }
+        {
+            $v = "LINKED","NONE"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.SecurityPolicyType
         {
             ($_ -eq "New-CGIPUserPoolDomain/CustomDomainConfig_SecurityPolicy") -Or
@@ -371,6 +382,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.UserSessionTrackingType
+        "Set-CGIPUserPoolSessionConfiguration/UserSessionTracking"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.UserVerificationType
         "Set-CGIPUserPoolMfaConfig/WebAuthnConfiguration_UserVerification"
         {
@@ -420,6 +438,7 @@ $CGIP_map = @{
     "PreventUserExistenceError"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
     "RefreshTokenRotation_Feature"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
+    "RevokeAssociatedSession"=@("Revoke-CGIPToken","Revoke-CGIPUserSession","Revoke-CGIPUserSessionAdmin")
     "Status"=@("Update-CGIPUserPoolReplica")
     "TermsSource"=@("New-CGIPTerm","Update-CGIPTerm")
     "TokenValidityUnits_AccessToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
@@ -427,6 +446,7 @@ $CGIP_map = @{
     "TokenValidityUnits_RefreshToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "UserPoolAddOns_AdvancedSecurityMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "UserPoolTier"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "UserSessionTracking"=@("Set-CGIPUserPoolSessionConfiguration")
     "VerificationMessageTemplate_DefaultEmailOption"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "WebAuthnConfiguration_FactorConfiguration"=@("Set-CGIPUserPoolMfaConfig")
     "WebAuthnConfiguration_UserVerification"=@("Set-CGIPUserPoolMfaConfig")
@@ -502,9 +522,11 @@ $CGIP_SelectMap = @{
                "Get-CGIPDeviceListAdmin",
                "Get-CGIPGroupsForUserAdmin",
                "Get-CGIPUserAuthEventListAdmin",
+               "Get-CGIPUserSessionListAdmin",
                "Remove-CGIPUserFromGroupAdmin",
                "Reset-CGIPUserPasswordAdmin",
                "Send-CGIPAuthChallengeResponseAdmin",
+               "Revoke-CGIPUserSessionAdmin",
                "Set-CGIPUserMFAPreferenceAdmin",
                "Set-CGIPUserPasswordAdmin",
                "Set-CGIPUserSettingAdmin",
@@ -567,7 +589,9 @@ $CGIP_SelectMap = @{
                "Get-CGIPUser",
                "Get-CGIPUserAttributeVerificationCode",
                "Get-CGIPUserAuthFactor",
+               "Get-CGIPUserPoolClientSessionConfiguration",
                "Get-CGIPUserPoolMfaConfig",
+               "Get-CGIPUserPoolSessionConfiguration",
                "Disconnect-CGIPDeviceGlobal",
                "Start-CGIPAuth",
                "Get-CGIPDeviceList",
@@ -582,16 +606,20 @@ $CGIP_SelectMap = @{
                "Get-CGIPUserPoolReplicaList",
                "Get-CGIPUserPoolList",
                "Get-CGIPUserList",
+               "Get-CGIPUserSessionList",
                "Get-CGIPUsersInGroup",
                "Get-CGIPWebAuthnCredentialList",
                "Send-CGIPConfirmationCode",
                "Send-CGIPAuthChallengeResponse",
                "Revoke-CGIPToken",
+               "Revoke-CGIPUserSession",
                "Set-CGIPLogDeliveryConfiguration",
                "Set-CGIPRiskConfiguration",
                "Set-CGIPUICustomization",
                "Set-CGIPUserMFAPreference",
+               "Set-CGIPUserPoolClientSessionConfiguration",
                "Set-CGIPUserPoolMfaConfig",
+               "Set-CGIPUserPoolSessionConfiguration",
                "Set-CGIPUserSetting",
                "Register-CGIPUserInPool",
                "Start-CGIPUserImportJob",

@@ -1,4 +1,46 @@
-﻿### 5.0.332 (2026-11-10 20:00Z)
+﻿### 5.0.333 (2026-11-11 20:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.368.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCAgentRuntime: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_CertificateConfiguration.
+    * Modified cmdlet New-BACCGateway: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_CertificateConfiguration.
+    * Modified cmdlet New-BACCHarness: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_CertificateConfiguration.
+    * Modified cmdlet New-BACCOauth2CredentialProvider: added parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration.
+    * Modified cmdlet New-BACCPaymentManager: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_CertificateConfiguration.
+    * Modified cmdlet New-BACCRegistry: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_CertificateConfiguration.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_CertificateConfiguration.
+    * Modified cmdlet Update-BACCGateway: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_CertificateConfiguration.
+    * Modified cmdlet Update-BACCHarness: added parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CertificateConfiguration.
+    * Modified cmdlet Update-BACCOauth2CredentialProvider: added parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_CertificateConfiguration.
+    * Modified cmdlet Update-BACCPaymentManager: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_CertificateConfiguration.
+    * Modified cmdlet Update-BACCRegistry: added parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_CertificateConfiguration.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPUserPoolClientSessionConfiguration leveraging the GetUserPoolClientSessionConfiguration service API.
+    * Added cmdlet Get-CGIPUserPoolSessionConfiguration leveraging the GetUserPoolSessionConfiguration service API.
+    * Added cmdlet Get-CGIPUserSessionList leveraging the ListUserSessions service API.
+    * Added cmdlet Get-CGIPUserSessionListAdmin leveraging the AdminListUserSessions service API.
+    * Added cmdlet Revoke-CGIPUserSession leveraging the RevokeUserSession service API.
+    * Added cmdlet Revoke-CGIPUserSessionAdmin leveraging the AdminRevokeUserSession service API.
+    * Added cmdlet Set-CGIPUserPoolClientSessionConfiguration leveraging the SetUserPoolClientSessionConfiguration service API.
+    * Added cmdlet Set-CGIPUserPoolSessionConfiguration leveraging the SetUserPoolSessionConfiguration service API.
+    * Modified cmdlet Revoke-CGIPToken: added parameter RevokeAssociatedSession.
+  * Amazon Config
+    * Modified cmdlet Write-CFGConnector: added parameters ConnectorConfiguration_Gcp_GcpOrganizationId, ConnectorConfiguration_Gcp_ServiceAccountEmail and ConnectorConfiguration_Gcp_WorkloadIdentityPoolProvider.
+  * Amazon Connect Cases
+    * Added cmdlet Get-CCASMergeCasesStatus leveraging the GetMergeCasesStatus service API.
+    * Added cmdlet Start-CCASMergeCase leveraging the StartMergeCases service API.
+  * Amazon Kinesis Analytics V2
+    * Added cmdlet Export-KINA2Snapshot leveraging the ExportSnapshot service API.
+    * Added cmdlet Get-KINA2SnapshotDetail leveraging the DescribeSnapshot service API.
+    * Added cmdlet Get-KINA2SnapshotList leveraging the ListSnapshots service API.
+    * Added cmdlet Get-KINA2SnapshotOperationDetail leveraging the DescribeSnapshotOperation service API.
+    * Added cmdlet Get-KINA2SnapshotOperationList leveraging the ListSnapshotOperations service API.
+    * Added cmdlet Import-KINA2Snapshot leveraging the ImportSnapshot service API.
+    * Added cmdlet New-KINA2Snapshot leveraging the CreateSnapshot service API.
+    * Added cmdlet Remove-KINA2Snapshot leveraging the DeleteSnapshot service API.
+  * Amazon Marketplace Metering
+    * Modified cmdlet Send-MMMeteringData: added parameter UsageQuantityAsDecimal.
+
+### 5.0.332 (2026-11-10 20:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.367.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCAgentRuntime: added parameters HooksConfiguration_Build_Warmup_Action_HttpPost_Path, HooksConfiguration_Build_Warmup_Action_HttpPost_Port and ResourceConfiguration.

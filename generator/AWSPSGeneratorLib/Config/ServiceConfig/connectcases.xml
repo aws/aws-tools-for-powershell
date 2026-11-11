@@ -140,6 +140,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMergeCasesStatus" OutputProperty="*" Verb="Get" Noun="MergeCasesStatus" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTemplate" OutputProperty="*" Verb="Get" Noun="Template" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -192,6 +196,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchRelatedItems" OutputProperty="RelatedItems" Verb="Search" Noun="RelatedItem" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMergeCases" Verb="Start" Noun="MergeCase" ShouldProcessTarget="CaseId,DomainId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

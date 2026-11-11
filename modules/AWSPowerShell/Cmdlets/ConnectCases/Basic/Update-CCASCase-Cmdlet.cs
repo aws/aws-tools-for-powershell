@@ -37,6 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// Updates the values of fields on a case. Fields to be updated are received as an array
     /// of id/value pairs identical to the <c>CreateCase</c> input.
     /// </para><para>
+    /// If the case is the secondary case of a merge that is running, the request fails with
+    /// a <c>ConflictException</c>. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html">StartMergeCases</a>.
+    /// </para><para>
     /// If the action is successful, the service sends back an HTTP 200 response with an empty
     /// HTTP body.
     /// </para>

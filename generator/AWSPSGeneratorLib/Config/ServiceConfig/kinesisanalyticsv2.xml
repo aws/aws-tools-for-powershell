@@ -58,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="*" Verb="New" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -86,6 +90,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="*" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeApplication" OutputProperty="ApplicationDetail" Verb="Get" Noun="Application" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -102,10 +110,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshot" OutputProperty="SnapshotInfoDetails" Verb="Get" Noun="SnapshotDetail" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshotOperation" OutputProperty="SnapshotOperationInfoDetails" Verb="Get" Noun="SnapshotOperationDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DiscoverInputSchema" OutputProperty="*" Verb="Find" Noun="InputSchema" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="InputProcessingConfiguration_InputLambdaProcessor_ResourceARN" NewName="InputLambdaProcessor_ResourceARN" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportSnapshot" OutputProperty="*" Verb="Export" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportSnapshot" OutputProperty="*" Verb="Import" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApplicationOperations" OutputProperty="ApplicationOperationInfoList" Verb="Get" Noun="ApplicationOperationList" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -121,6 +145,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApplicationVersions" OutputProperty="ApplicationVersionSummaries" Verb="Get" Noun="ApplicationVersionList" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSnapshotOperations" OutputProperty="SnapshotOperationInfoList" Verb="Get" Noun="SnapshotOperationList" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSnapshots" OutputProperty="SnapshotInfoList" Verb="Get" Noun="SnapshotList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

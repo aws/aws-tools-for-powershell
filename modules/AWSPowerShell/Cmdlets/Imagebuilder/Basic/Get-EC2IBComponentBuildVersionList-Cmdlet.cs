@@ -62,7 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in a single request.</para>
+        /// <para>The maximum number of items to return in a single request. If you don't specify a
+        /// value, Image Builder returns up to 25 items. The largest page size that you can request
+        /// is 100 items. A page can contain fewer items than the maximum, with a <c>nextToken</c>
+        /// to continue paging.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

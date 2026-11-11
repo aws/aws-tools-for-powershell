@@ -79,6 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// If you submit records more than six hours after events occur, the records won't be
     /// accepted. The timestamp in your request determines when an event is recorded.
     /// </para><para>
+    /// To report fractional usage, use <c>UsageQuantityAsDecimal</c> instead of <c>UsageQuantity</c>.
+    /// </para><para>
     /// You can optionally include multiple usage allocations, to provide customers with usage
     /// data split into buckets by tags that you define or allow the customer to define.
     /// </para><para>
@@ -153,9 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.MM
         #region Parameter UsageAllocation
         /// <summary>
         /// <para>
-        /// <para>The set of <c>UsageAllocations</c> to submit.</para><para>The sum of all <c>UsageAllocation</c> quantities must equal the <c>UsageQuantity</c>
-        /// of the <c>MeterUsage</c> request, and each <c>UsageAllocation</c> must have a unique
-        /// set of tags (include no tags).</para><para />
+        /// <para>The set of <c>UsageAllocations</c> to submit.</para><para>The sum of all <c>UsageAllocation</c> quantities must equal the usage quantity of
+        /// the <c>MeterUsage</c> request (<c>UsageQuantity</c> or <c>UsageQuantityAsDecimal</c>),
+        /// and each <c>UsageAllocation</c> must have a unique set of tags (include no tags).
+        /// Allocations must use the same type of quantity as the request: <c>AllocatedUsageQuantity</c>
+        /// with <c>UsageQuantity</c>, or <c>AllocatedUsageQuantityAsDecimal</c> with <c>UsageQuantityAsDecimal</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -185,14 +189,18 @@ namespace Amazon.PowerShell.Cmdlets.MM
         public System.String UsageDimension { get; set; }
         #endregion
         
-        #region Parameter UsageQuantity
+        #region Parameter UsageQuantityAsDecimal
         /// <summary>
         /// <para>
-        /// <para>Consumption value for the hour. Defaults to <c>0</c> if not specified.</para>
+        /// <para>The consumption value for the hour, as a decimal string. Use this instead of <c>UsageQuantity</c>
+        /// to report fractional usage.</para><para>A non-negative decimal number, for example <c>17.42</c>.</para><para>You can't specify both <c>UsageQuantity</c> and <c>UsageQuantityAsDecimal</c>. If
+        /// you provide <c>UsageAllocations</c>, each allocation must use <c>AllocatedUsageQuantityAsDecimal</c>.</para><para>Quantities are compared by value when checking for duplicate or retried requests,
+        /// so <c>17</c>, <c>17.0</c>, and <c>17.00</c> are the same quantity, whether you send
+        /// it in <c>UsageQuantity</c> or <c>UsageQuantityAsDecimal</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? UsageQuantity { get; set; }
+        public System.String UsageQuantityAsDecimal { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -210,6 +218,20 @@ namespace Amazon.PowerShell.Cmdlets.MM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter UsageQuantity
+        /// <summary>
+        /// <para>
+        /// <para>The consumption value for the hour, as a whole number. Defaults to <c>0</c> if neither
+        /// <c>UsageQuantity</c> nor <c>UsageQuantityAsDecimal</c> is specified.</para><para>Use <c>UsageQuantityAsDecimal</c> instead. You can't specify both <c>UsageQuantity</c>
+        /// and <c>UsageQuantityAsDecimal</c>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use UsageQuantityAsDecimal instead.")]
+        public System.Int32? UsageQuantity { get; set; }
         #endregion
         
         #region Parameter Select
@@ -286,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
             }
             #endif
             context.UsageQuantity = this.UsageQuantity;
+            context.UsageQuantityAsDecimal = this.UsageQuantityAsDecimal;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -329,6 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.MM
             if (cmdletContext.UsageQuantity != null)
             {
                 request.UsageQuantity = cmdletContext.UsageQuantity.Value;
+            }
+            if (cmdletContext.UsageQuantityAsDecimal != null)
+            {
+                request.UsageQuantityAsDecimal = cmdletContext.UsageQuantityAsDecimal;
             }
             
             CmdletOutput output;
@@ -391,7 +418,9 @@ namespace Amazon.PowerShell.Cmdlets.MM
             public System.DateTime? Timestamp { get; set; }
             public List<Amazon.AWSMarketplaceMetering.Model.UsageAllocation> UsageAllocation { get; set; }
             public System.String UsageDimension { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? UsageQuantity { get; set; }
+            public System.String UsageQuantityAsDecimal { get; set; }
             public System.Func<Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse, SendMMMeteringDataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MeteringRecordId;
         }

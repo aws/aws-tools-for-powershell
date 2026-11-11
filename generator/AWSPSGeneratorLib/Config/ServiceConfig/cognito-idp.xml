@@ -106,6 +106,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AdminListUserSessions" OutputProperty="Sessions" Verb="Get" Noun="UserSessionListAdmin" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AdminRemoveUserFromGroup" Verb="Remove" Noun="UserFromGroupAdmin" ShouldProcessTarget="Username" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -115,6 +119,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AdminRespondToAuthChallenge" OutputProperty="*" Verb="Send" Noun="AuthChallengeResponseAdmin" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminRevokeUserSession" Verb="Revoke" Noun="UserSessionAdmin" ShouldProcessTarget="SessionId,UserPoolId,Username" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -387,7 +395,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetUserPoolClientSessionConfiguration" OutputProperty="*" Verb="Get" Noun="UserPoolClientSessionConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUserPoolMfaConfig" OutputProperty="*" Verb="Get" Noun="UserPoolMfaConfig" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserPoolSessionConfiguration" OutputProperty="*" Verb="Get" Noun="UserPoolSessionConfiguration" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -451,6 +467,10 @@
             <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListUserSessions" OutputProperty="Sessions" Verb="Get" Noun="UserSessionList" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUsersInGroup" OutputProperty="Users" Verb="Get" Noun="UsersInGroup" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
@@ -469,6 +489,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RevokeToken" Verb="Revoke" Noun="Token" ShouldProcessTarget="ClientId" PipelineParameter="Token" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeUserSession" Verb="Revoke" Noun="UserSession" ShouldProcessTarget="SessionId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -508,7 +532,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SetUserPoolClientSessionConfiguration" OutputProperty="*" Verb="Set" Noun="UserPoolClientSessionConfiguration" ShouldProcessTarget="ClientId,UserPoolId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetUserPoolMfaConfig" OutputProperty="*" Verb="Set" Noun="UserPoolMfaConfig" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetUserPoolSessionConfiguration" OutputProperty="*" Verb="Set" Noun="UserPoolSessionConfiguration" ShouldProcessTarget="UserPoolId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

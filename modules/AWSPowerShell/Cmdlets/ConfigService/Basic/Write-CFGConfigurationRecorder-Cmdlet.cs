@@ -319,8 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigurationRecorder_ScopeConfiguration_ScopeType
         /// <summary>
         /// <para>
-        /// <para>The type of scope for the third-party cloud resources. Valid values include <c>tenant</c>
-        /// and <c>subscription</c>.</para>
+        /// <para>The type of scope for the third-party cloud resources. Valid values include:</para><ul><li><para><c>tenant</c> – Applies to all resources in an Azure tenant</para></li><li><para><c>subscription</c> – Applies to resources in the Azure subscriptions you specify</para></li><li><para><c>organization</c> – Applies to all resources in a Google Cloud organization</para></li><li><para><c>project</c> – Applies to resources in the Google Cloud projects you specify</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,7 +330,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The list of specific scope values for the third-party cloud resources. For example,
-        /// a list of Azure subscriptions or management groups.</para><para />
+        /// a list of Azure subscription IDs, or a list of Google Cloud project IDs. Don't specify
+        /// <c>scopeValues</c> when <c>scopeType</c> is <c>tenant</c> or <c>organization</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

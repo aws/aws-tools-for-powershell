@@ -373,7 +373,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNEvaluationForm/LanguageConfiguration_FormLanguage")
         }
         {
-            $v = "de-DE","en-US","es-ES","fr-FR","it-IT","ja-JP","ko-KR","ms-MY","pt-BR","zh-CN"
+            $v = "af-ZA","am-ET","ar-AE","ar-SA","be-BY","bg-BG","bn-BD","bs-BA","ca-ES","ckb-IQ","ckb-IR","cs-CZ","cy-GB","da-DK","de-AT","de-CH","de-DE","el-GR","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-SG","en-US","en-WL","en-ZA","es-ES","es-MX","es-US","et-EE","eu-ES","fa-AF","fa-IR","fi-FI","fr-BE","fr-CA","fr-FR","ga-IE","gl-ES","gu-IN","he-IL","hi-IN","hmn","hr-HR","ht-HT","hu-HU","hy-AM","id-ID","is-IS","it-IT","ja-JP","jv-ID","ka-GE","kk-KZ","km-KH","kn-IN","ko-KR","lg-UG","lo-LA","lt-LT","lv-LV","mk-MK","ml-IN","mr-IN","ms-MY","my-MM","ne-NP","nl-BE","nl-NL","no-NO","or-IN","pa-IN","pl-PL","ps-AF","pt-BR","pt-PT","ro-RO","ru-RU","si-LK","sk-SK","sl-SI","so-SO","sq-AL","sr-RS","su-ID","sv-SE","sw-BI","sw-KE","sw-RW","sw-TZ","sw-UG","ta-IN","te-IN","th-TH","tl-PH","tr-TR","uk-UA","uz-UZ","vi-VN","xh-ZA","yue-HK","zh-CN","zh-TW","zu-ZA"
             break
         }
 

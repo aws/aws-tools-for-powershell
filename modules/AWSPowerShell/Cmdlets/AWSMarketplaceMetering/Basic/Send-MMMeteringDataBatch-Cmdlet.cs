@@ -79,6 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// tagging</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-tagging">BatchMeterUsage
     /// with usage allocation tagging code example</a> in the <i>Amazon Web Services Marketplace
     /// Seller Guide</i>.
+    /// </para><para>
+    /// To report fractional usage, use <c>QuantityAsDecimal</c> instead of <c>Quantity</c>
+    /// in each <c>UsageRecord</c>.
     /// </para><para><c>BatchMeterUsage</c> returns a list of <c>UsageRecordResult</c> objects, which
     /// have each <c>UsageRecord</c>. It also returns a list of <c>UnprocessedRecords</c>,
     /// which indicate errors on the service side that should be retried.

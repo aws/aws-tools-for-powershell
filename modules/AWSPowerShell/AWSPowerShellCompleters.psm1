@@ -15517,8 +15517,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16211,8 +16211,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -20094,6 +20094,17 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.RevokeAssociatedSessionsType
+        {
+            ($_ -eq "Revoke-CGIPToken/RevokeAssociatedSession") -Or
+            ($_ -eq "Revoke-CGIPUserSession/RevokeAssociatedSession") -Or
+            ($_ -eq "Revoke-CGIPUserSessionAdmin/RevokeAssociatedSession")
+        }
+        {
+            $v = "LINKED","NONE"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.SecurityPolicyType
         {
             ($_ -eq "New-CGIPUserPoolDomain/CustomDomainConfig_SecurityPolicy") -Or
@@ -20166,6 +20177,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.UserSessionTrackingType
+        "Set-CGIPUserPoolSessionConfiguration/UserSessionTracking"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.UserVerificationType
         "Set-CGIPUserPoolMfaConfig/WebAuthnConfiguration_UserVerification"
         {
@@ -20215,6 +20233,7 @@ $CGIP_map = @{
     "PreventUserExistenceError"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
     "RefreshTokenRotation_Feature"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
+    "RevokeAssociatedSession"=@("Revoke-CGIPToken","Revoke-CGIPUserSession","Revoke-CGIPUserSessionAdmin")
     "Status"=@("Update-CGIPUserPoolReplica")
     "TermsSource"=@("New-CGIPTerm","Update-CGIPTerm")
     "TokenValidityUnits_AccessToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
@@ -20222,6 +20241,7 @@ $CGIP_map = @{
     "TokenValidityUnits_RefreshToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "UserPoolAddOns_AdvancedSecurityMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "UserPoolTier"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "UserSessionTracking"=@("Set-CGIPUserPoolSessionConfiguration")
     "VerificationMessageTemplate_DefaultEmailOption"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "WebAuthnConfiguration_FactorConfiguration"=@("Set-CGIPUserPoolMfaConfig")
     "WebAuthnConfiguration_UserVerification"=@("Set-CGIPUserPoolMfaConfig")
@@ -20297,9 +20317,11 @@ $CGIP_SelectMap = @{
                "Get-CGIPDeviceListAdmin",
                "Get-CGIPGroupsForUserAdmin",
                "Get-CGIPUserAuthEventListAdmin",
+               "Get-CGIPUserSessionListAdmin",
                "Remove-CGIPUserFromGroupAdmin",
                "Reset-CGIPUserPasswordAdmin",
                "Send-CGIPAuthChallengeResponseAdmin",
+               "Revoke-CGIPUserSessionAdmin",
                "Set-CGIPUserMFAPreferenceAdmin",
                "Set-CGIPUserPasswordAdmin",
                "Set-CGIPUserSettingAdmin",
@@ -20362,7 +20384,9 @@ $CGIP_SelectMap = @{
                "Get-CGIPUser",
                "Get-CGIPUserAttributeVerificationCode",
                "Get-CGIPUserAuthFactor",
+               "Get-CGIPUserPoolClientSessionConfiguration",
                "Get-CGIPUserPoolMfaConfig",
+               "Get-CGIPUserPoolSessionConfiguration",
                "Disconnect-CGIPDeviceGlobal",
                "Start-CGIPAuth",
                "Get-CGIPDeviceList",
@@ -20377,16 +20401,20 @@ $CGIP_SelectMap = @{
                "Get-CGIPUserPoolReplicaList",
                "Get-CGIPUserPoolList",
                "Get-CGIPUserList",
+               "Get-CGIPUserSessionList",
                "Get-CGIPUsersInGroup",
                "Get-CGIPWebAuthnCredentialList",
                "Send-CGIPConfirmationCode",
                "Send-CGIPAuthChallengeResponse",
                "Revoke-CGIPToken",
+               "Revoke-CGIPUserSession",
                "Set-CGIPLogDeliveryConfiguration",
                "Set-CGIPRiskConfiguration",
                "Set-CGIPUICustomization",
                "Set-CGIPUserMFAPreference",
+               "Set-CGIPUserPoolClientSessionConfiguration",
                "Set-CGIPUserPoolMfaConfig",
+               "Set-CGIPUserPoolSessionConfiguration",
                "Set-CGIPUserSetting",
                "Register-CGIPUserInPool",
                "Start-CGIPUserImportJob",
@@ -22104,7 +22132,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNEvaluationForm/LanguageConfiguration_FormLanguage")
         }
         {
-            $v = "de-DE","en-US","es-ES","fr-FR","it-IT","ja-JP","ko-KR","ms-MY","pt-BR","zh-CN"
+            $v = "af-ZA","am-ET","ar-AE","ar-SA","be-BY","bg-BG","bn-BD","bs-BA","ca-ES","ckb-IQ","ckb-IR","cs-CZ","cy-GB","da-DK","de-AT","de-CH","de-DE","el-GR","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-SG","en-US","en-WL","en-ZA","es-ES","es-MX","es-US","et-EE","eu-ES","fa-AF","fa-IR","fi-FI","fr-BE","fr-CA","fr-FR","ga-IE","gl-ES","gu-IN","he-IL","hi-IN","hmn","hr-HR","ht-HT","hu-HU","hy-AM","id-ID","is-IS","it-IT","ja-JP","jv-ID","ka-GE","kk-KZ","km-KH","kn-IN","ko-KR","lg-UG","lo-LA","lt-LT","lv-LV","mk-MK","ml-IN","mr-IN","ms-MY","my-MM","ne-NP","nl-BE","nl-NL","no-NO","or-IN","pa-IN","pl-PL","ps-AF","pt-BR","pt-PT","ro-RO","ru-RU","si-LK","sk-SK","sl-SI","so-SO","sq-AL","sr-RS","su-ID","sv-SE","sw-BI","sw-KE","sw-RW","sw-TZ","sw-UG","ta-IN","te-IN","th-TH","tl-PH","tr-TR","uk-UA","uz-UZ","vi-VN","xh-ZA","yue-HK","zh-CN","zh-TW","zu-ZA"
             break
         }
 
@@ -23729,6 +23757,7 @@ $CCAS_SelectMap = @{
                "Get-CCASCaseEventConfiguration",
                "Get-CCASDomain",
                "Get-CCASLayout",
+               "Get-CCASMergeCasesStatus",
                "Get-CCASTemplate",
                "Get-CCASCaseRuleList",
                "Get-CCASCasesForContactList",
@@ -23742,6 +23771,7 @@ $CCAS_SelectMap = @{
                "Search-CCASAllRelatedItem",
                "Search-CCASCase",
                "Search-CCASRelatedItem",
+               "Start-CCASMergeCase",
                "Add-CCASResourceTag",
                "Remove-CCASResourceTag",
                "Update-CCASCase",
@@ -30916,12 +30946,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTableSchema",
                "New-DDBTable",
-               "ConvertFrom-DDBItem",
                "ConvertTo-DDBItem",
+               "Add-DDBIndexSchema",
+               "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
-               "Add-DDBIndexSchema")
+               "New-DDBTableSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -31663,7 +31693,7 @@ $EC2_Completers = {
         # Amazon.EC2.FlowLogsResourceType
         "New-EC2FlowLog/ResourceType"
         {
-            $v = "NetworkInterface","RegionalNatGateway","Subnet","TransitGateway","TransitGatewayAttachment","VPC"
+            $v = "CoreNetwork","CoreNetworkAttachment","CoreNetworkEdge","NetworkInterface","RegionalNatGateway","Subnet","TransitGateway","TransitGatewayAttachment","VPC"
             break
         }
 
@@ -41507,8 +41537,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -51530,6 +51560,17 @@ $KINA2_Completers = {
             break
         }
 
+        # Amazon.KinesisAnalyticsV2.KeyType
+        {
+            ($_ -eq "Import-KINA2Snapshot/DestinationEncryptionConfiguration_KeyType") -Or
+            ($_ -eq "Export-KINA2Snapshot/ExportDestinationConfiguration_DestinationEncryptionConfiguration_KeyType") -Or
+            ($_ -eq "Import-KINA2Snapshot/ImportSourceConfiguration_SourceEncryptionConfiguration_KeyType")
+        }
+        {
+            $v = "AWS_OWNED_KEY","CUSTOMER_MANAGED_KEY"
+            break
+        }
+
         # Amazon.KinesisAnalyticsV2.OperationStatus
         "Get-KINA2ApplicationOperationList/OperationStatus"
         {
@@ -51544,6 +51585,58 @@ $KINA2_Completers = {
         }
         {
             $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_18","FLINK-1_19","FLINK-1_20","FLINK-1_6","FLINK-1_8","FLINK-2_2","FLINK-2_3","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotFormat
+        "Import-KINA2Snapshot/SnapshotFormat"
+        {
+            $v = "CANONICAL"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotInitiator
+        "Get-KINA2SnapshotList/SnapshotInitiator"
+        {
+            $v = "SYSTEM","USER"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotInitiatorOperation
+        "Get-KINA2SnapshotList/SnapshotInitiatorOperation"
+        {
+            $v = "CreateSnapshot","ImportSnapshot","SystemCreateSnapshot"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotOperation
+        "Get-KINA2SnapshotOperationList/SnapshotOperation"
+        {
+            $v = "CreateSnapshot","DeleteSnapshot","ExportSnapshot","ImportSnapshot","SystemCreateSnapshot"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotOperationStatus
+        "Get-KINA2SnapshotOperationList/SnapshotOperationStatus"
+        {
+            $v = "CANCELLED","FAILED","IN_PROGRESS","SUCCESSFUL"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotStatus
+        "Get-KINA2SnapshotList/SnapshotStatus"
+        {
+            $v = "CREATING","DELETING","FAILED","READY"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.StorageLocationType
+        {
+            ($_ -eq "Export-KINA2Snapshot/ExportDestinationConfiguration_DestinationType") -Or
+            ($_ -eq "Import-KINA2Snapshot/ImportSourceConfiguration_SourceType")
+        }
+        {
+            $v = "S3"
             break
         }
 
@@ -51564,9 +51657,20 @@ $KINA2_Completers = {
 
 $KINA2_map = @{
     "ApplicationMode"=@("New-KINA2Application")
+    "DestinationEncryptionConfiguration_KeyType"=@("Import-KINA2Snapshot")
+    "ExportDestinationConfiguration_DestinationEncryptionConfiguration_KeyType"=@("Export-KINA2Snapshot")
+    "ExportDestinationConfiguration_DestinationType"=@("Export-KINA2Snapshot")
+    "ImportSourceConfiguration_SourceEncryptionConfiguration_KeyType"=@("Import-KINA2Snapshot")
+    "ImportSourceConfiguration_SourceType"=@("Import-KINA2Snapshot")
     "OperationStatus"=@("Get-KINA2ApplicationOperationList")
     "RuntimeEnvironment"=@("New-KINA2Application")
     "RuntimeEnvironmentUpdate"=@("Update-KINA2Application")
+    "SnapshotFormat"=@("Import-KINA2Snapshot")
+    "SnapshotInitiator"=@("Get-KINA2SnapshotList")
+    "SnapshotInitiatorOperation"=@("Get-KINA2SnapshotList")
+    "SnapshotOperation"=@("Get-KINA2SnapshotOperationList")
+    "SnapshotOperationStatus"=@("Get-KINA2SnapshotOperationList")
+    "SnapshotStatus"=@("Get-KINA2SnapshotList")
     "UrlType"=@("New-KINA2ApplicationPresignedUrl")
 }
 
@@ -51629,6 +51733,7 @@ $KINA2_SelectMap = @{
                "New-KINA2Application",
                "New-KINA2ApplicationPresignedUrl",
                "New-KINA2ApplicationSnapshot",
+               "New-KINA2Snapshot",
                "Remove-KINA2Application",
                "Remove-KINA2ApplicationCloudWatchLoggingOption",
                "Remove-KINA2ApplicationInputProcessingConfiguration",
@@ -51636,15 +51741,22 @@ $KINA2_SelectMap = @{
                "Remove-KINA2ApplicationReferenceDataSource",
                "Remove-KINA2ApplicationSnapshot",
                "Remove-KINA2ApplicationVpcConfiguration",
+               "Remove-KINA2Snapshot",
                "Get-KINA2Application",
                "Get-KINA2ApplicationOperation",
                "Get-KINA2ApplicationSnapshot",
                "Get-KINA2ApplicationVersion",
+               "Get-KINA2SnapshotDetail",
+               "Get-KINA2SnapshotOperationDetail",
                "Find-KINA2InputSchema",
+               "Export-KINA2Snapshot",
+               "Import-KINA2Snapshot",
                "Get-KINA2ApplicationOperationList",
                "Get-KINA2ApplicationList",
                "Get-KINA2ApplicationSnapshotList",
                "Get-KINA2ApplicationVersionList",
+               "Get-KINA2SnapshotOperationList",
+               "Get-KINA2SnapshotList",
                "Get-KINA2ResourceTag",
                "Undo-KINA2Application",
                "Start-KINA2Application",
@@ -81003,18 +81115,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Copy-S3Object",
-               "Remove-S3MultipartUpload",
-               "Get-S3PreSignedURL",
-               "Test-S3Bucket",
-               "Get-S3MultipartUpload",
+               "New-S3Bucket",
                "Mount-S3PSDrive",
-               "Read-S3Object",
-               "Remove-S3Object",
-               "Dismount-S3PSDrive",
-               "Write-S3Object",
+               "Get-S3PreSignedURL",
+               "Copy-S3Object",
                "Remove-S3Bucket",
-               "New-S3Bucket")
+               "Get-S3MultipartUpload",
+               "Write-S3Object",
+               "Dismount-S3PSDrive",
+               "Remove-S3MultipartUpload",
+               "Test-S3Bucket",
+               "Read-S3Object",
+               "Remove-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -91135,8 +91247,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

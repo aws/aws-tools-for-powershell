@@ -74,6 +74,33 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String ConnectorConfiguration_Azure_ClientIdentifier { get; set; }
         #endregion
         
+        #region Parameter ConnectorConfiguration_Gcp_GcpOrganizationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Google Cloud organization that contains the connector's management project,
+        /// which is the project of the service account in <c>serviceAccountEmail</c>.</para><para>Required if the management project belongs to an organization. A connector needs an
+        /// organization ID to record an entire organization or more than one project. Omit it
+        /// only if the management project doesn't belong to an organization. In that case, the
+        /// connector can record only the management project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorConfiguration_Gcp_GcpOrganizationId { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorConfiguration_Gcp_ServiceAccountEmail
+        /// <summary>
+        /// <para>
+        /// <para>The email address of the Google Cloud service account that Config uses to access your
+        /// Google Cloud resources. The format is <c>SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com</c>.</para><para>The project that contains this service account is the connector's management project.
+        /// If the connector has no <c>gcpOrganizationId</c>, it can record only the management
+        /// project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorConfiguration_Gcp_ServiceAccountEmail { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -99,6 +126,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ConnectorConfiguration_Azure_TenantIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorConfiguration_Gcp_WorkloadIdentityPoolProvider
+        /// <summary>
+        /// <para>
+        /// <para>The full resource name of the Google Cloud workload identity pool provider that trusts
+        /// Config. The format is <c>projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorConfiguration_Gcp_WorkloadIdentityPoolProvider { get; set; }
         #endregion
         
         #region Parameter Select
@@ -149,6 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             context.ConnectorConfiguration_Azure_ClientIdentifier = this.ConnectorConfiguration_Azure_ClientIdentifier;
             context.ConnectorConfiguration_Azure_TenantIdentifier = this.ConnectorConfiguration_Azure_TenantIdentifier;
+            context.ConnectorConfiguration_Gcp_GcpOrganizationId = this.ConnectorConfiguration_Gcp_GcpOrganizationId;
+            context.ConnectorConfiguration_Gcp_ServiceAccountEmail = this.ConnectorConfiguration_Gcp_ServiceAccountEmail;
+            context.ConnectorConfiguration_Gcp_WorkloadIdentityPoolProvider = this.ConnectorConfiguration_Gcp_WorkloadIdentityPoolProvider;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ConfigService.Model.Tag>(this.Tag);
@@ -206,6 +247,51 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConnectorConfiguration_connectorConfiguration_Azure != null)
             {
                 request.ConnectorConfiguration.Azure = requestConnectorConfiguration_connectorConfiguration_Azure;
+                requestConnectorConfigurationIsNull = false;
+            }
+            Amazon.ConfigService.Model.GcpConnectorConfiguration requestConnectorConfiguration_connectorConfiguration_Gcp = null;
+            
+             // populate Gcp
+            var requestConnectorConfiguration_connectorConfiguration_GcpIsNull = true;
+            requestConnectorConfiguration_connectorConfiguration_Gcp = new Amazon.ConfigService.Model.GcpConnectorConfiguration();
+            System.String requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_GcpOrganizationId = null;
+            if (cmdletContext.ConnectorConfiguration_Gcp_GcpOrganizationId != null)
+            {
+                requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_GcpOrganizationId = cmdletContext.ConnectorConfiguration_Gcp_GcpOrganizationId;
+            }
+            if (requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_GcpOrganizationId != null)
+            {
+                requestConnectorConfiguration_connectorConfiguration_Gcp.GcpOrganizationId = requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_GcpOrganizationId;
+                requestConnectorConfiguration_connectorConfiguration_GcpIsNull = false;
+            }
+            System.String requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_ServiceAccountEmail = null;
+            if (cmdletContext.ConnectorConfiguration_Gcp_ServiceAccountEmail != null)
+            {
+                requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_ServiceAccountEmail = cmdletContext.ConnectorConfiguration_Gcp_ServiceAccountEmail;
+            }
+            if (requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_ServiceAccountEmail != null)
+            {
+                requestConnectorConfiguration_connectorConfiguration_Gcp.ServiceAccountEmail = requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_ServiceAccountEmail;
+                requestConnectorConfiguration_connectorConfiguration_GcpIsNull = false;
+            }
+            System.String requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_WorkloadIdentityPoolProvider = null;
+            if (cmdletContext.ConnectorConfiguration_Gcp_WorkloadIdentityPoolProvider != null)
+            {
+                requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_WorkloadIdentityPoolProvider = cmdletContext.ConnectorConfiguration_Gcp_WorkloadIdentityPoolProvider;
+            }
+            if (requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_WorkloadIdentityPoolProvider != null)
+            {
+                requestConnectorConfiguration_connectorConfiguration_Gcp.WorkloadIdentityPoolProvider = requestConnectorConfiguration_connectorConfiguration_Gcp_connectorConfiguration_Gcp_WorkloadIdentityPoolProvider;
+                requestConnectorConfiguration_connectorConfiguration_GcpIsNull = false;
+            }
+             // determine if requestConnectorConfiguration_connectorConfiguration_Gcp should be set to null
+            if (requestConnectorConfiguration_connectorConfiguration_GcpIsNull)
+            {
+                requestConnectorConfiguration_connectorConfiguration_Gcp = null;
+            }
+            if (requestConnectorConfiguration_connectorConfiguration_Gcp != null)
+            {
+                request.ConnectorConfiguration.Gcp = requestConnectorConfiguration_connectorConfiguration_Gcp;
                 requestConnectorConfigurationIsNull = false;
             }
              // determine if request.ConnectorConfiguration should be set to null
@@ -274,6 +360,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             public System.String ConnectorConfiguration_Azure_ClientIdentifier { get; set; }
             public System.String ConnectorConfiguration_Azure_TenantIdentifier { get; set; }
+            public System.String ConnectorConfiguration_Gcp_GcpOrganizationId { get; set; }
+            public System.String ConnectorConfiguration_Gcp_ServiceAccountEmail { get; set; }
+            public System.String ConnectorConfiguration_Gcp_WorkloadIdentityPoolProvider { get; set; }
             public List<Amazon.ConfigService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ConfigService.Model.PutConnectorResponse, WriteCFGConnectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;

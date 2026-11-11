@@ -87,6 +87,17 @@ $KINA2_Completers = {
             break
         }
 
+        # Amazon.KinesisAnalyticsV2.KeyType
+        {
+            ($_ -eq "Import-KINA2Snapshot/DestinationEncryptionConfiguration_KeyType") -Or
+            ($_ -eq "Export-KINA2Snapshot/ExportDestinationConfiguration_DestinationEncryptionConfiguration_KeyType") -Or
+            ($_ -eq "Import-KINA2Snapshot/ImportSourceConfiguration_SourceEncryptionConfiguration_KeyType")
+        }
+        {
+            $v = "AWS_OWNED_KEY","CUSTOMER_MANAGED_KEY"
+            break
+        }
+
         # Amazon.KinesisAnalyticsV2.OperationStatus
         "Get-KINA2ApplicationOperationList/OperationStatus"
         {
@@ -101,6 +112,58 @@ $KINA2_Completers = {
         }
         {
             $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_18","FLINK-1_19","FLINK-1_20","FLINK-1_6","FLINK-1_8","FLINK-2_2","FLINK-2_3","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotFormat
+        "Import-KINA2Snapshot/SnapshotFormat"
+        {
+            $v = "CANONICAL"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotInitiator
+        "Get-KINA2SnapshotList/SnapshotInitiator"
+        {
+            $v = "SYSTEM","USER"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotInitiatorOperation
+        "Get-KINA2SnapshotList/SnapshotInitiatorOperation"
+        {
+            $v = "CreateSnapshot","ImportSnapshot","SystemCreateSnapshot"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotOperation
+        "Get-KINA2SnapshotOperationList/SnapshotOperation"
+        {
+            $v = "CreateSnapshot","DeleteSnapshot","ExportSnapshot","ImportSnapshot","SystemCreateSnapshot"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotOperationStatus
+        "Get-KINA2SnapshotOperationList/SnapshotOperationStatus"
+        {
+            $v = "CANCELLED","FAILED","IN_PROGRESS","SUCCESSFUL"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.SnapshotStatus
+        "Get-KINA2SnapshotList/SnapshotStatus"
+        {
+            $v = "CREATING","DELETING","FAILED","READY"
+            break
+        }
+
+        # Amazon.KinesisAnalyticsV2.StorageLocationType
+        {
+            ($_ -eq "Export-KINA2Snapshot/ExportDestinationConfiguration_DestinationType") -Or
+            ($_ -eq "Import-KINA2Snapshot/ImportSourceConfiguration_SourceType")
+        }
+        {
+            $v = "S3"
             break
         }
 
@@ -121,9 +184,20 @@ $KINA2_Completers = {
 
 $KINA2_map = @{
     "ApplicationMode"=@("New-KINA2Application")
+    "DestinationEncryptionConfiguration_KeyType"=@("Import-KINA2Snapshot")
+    "ExportDestinationConfiguration_DestinationEncryptionConfiguration_KeyType"=@("Export-KINA2Snapshot")
+    "ExportDestinationConfiguration_DestinationType"=@("Export-KINA2Snapshot")
+    "ImportSourceConfiguration_SourceEncryptionConfiguration_KeyType"=@("Import-KINA2Snapshot")
+    "ImportSourceConfiguration_SourceType"=@("Import-KINA2Snapshot")
     "OperationStatus"=@("Get-KINA2ApplicationOperationList")
     "RuntimeEnvironment"=@("New-KINA2Application")
     "RuntimeEnvironmentUpdate"=@("Update-KINA2Application")
+    "SnapshotFormat"=@("Import-KINA2Snapshot")
+    "SnapshotInitiator"=@("Get-KINA2SnapshotList")
+    "SnapshotInitiatorOperation"=@("Get-KINA2SnapshotList")
+    "SnapshotOperation"=@("Get-KINA2SnapshotOperationList")
+    "SnapshotOperationStatus"=@("Get-KINA2SnapshotOperationList")
+    "SnapshotStatus"=@("Get-KINA2SnapshotList")
     "UrlType"=@("New-KINA2ApplicationPresignedUrl")
 }
 
@@ -186,6 +260,7 @@ $KINA2_SelectMap = @{
                "New-KINA2Application",
                "New-KINA2ApplicationPresignedUrl",
                "New-KINA2ApplicationSnapshot",
+               "New-KINA2Snapshot",
                "Remove-KINA2Application",
                "Remove-KINA2ApplicationCloudWatchLoggingOption",
                "Remove-KINA2ApplicationInputProcessingConfiguration",
@@ -193,15 +268,22 @@ $KINA2_SelectMap = @{
                "Remove-KINA2ApplicationReferenceDataSource",
                "Remove-KINA2ApplicationSnapshot",
                "Remove-KINA2ApplicationVpcConfiguration",
+               "Remove-KINA2Snapshot",
                "Get-KINA2Application",
                "Get-KINA2ApplicationOperation",
                "Get-KINA2ApplicationSnapshot",
                "Get-KINA2ApplicationVersion",
+               "Get-KINA2SnapshotDetail",
+               "Get-KINA2SnapshotOperationDetail",
                "Find-KINA2InputSchema",
+               "Export-KINA2Snapshot",
+               "Import-KINA2Snapshot",
                "Get-KINA2ApplicationOperationList",
                "Get-KINA2ApplicationList",
                "Get-KINA2ApplicationSnapshotList",
                "Get-KINA2ApplicationVersionList",
+               "Get-KINA2SnapshotOperationList",
+               "Get-KINA2SnapshotList",
                "Get-KINA2ResourceTag",
                "Undo-KINA2Application",
                "Start-KINA2Application",
