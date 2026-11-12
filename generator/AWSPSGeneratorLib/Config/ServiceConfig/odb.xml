@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateVirtualMachinesToCloudVmCluster" OutputProperty="*" Verb="Add" Noun="VirtualMachinesToCloudVmCluster" ShouldProcessTarget="CloudVmClusterId" PipelineParameter="CloudVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateVirtualMachinesToExadbVmCluster" OutputProperty="*" Verb="Add" Noun="VirtualMachinesToExadbVmCluster" ShouldProcessTarget="ExadbVmClusterId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -108,6 +112,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateIamRoleFromResource" Verb="Remove" Noun="IamRoleFromResource" ShouldProcessTarget="IamRoleArn,ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateVirtualMachinesFromCloudVmCluster" OutputProperty="*" Verb="Remove" Noun="VirtualMachinesFromCloudVmCluster" ShouldProcessTarget="CloudVmClusterId" PipelineParameter="CloudVmClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -319,7 +327,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCloudAutonomousVmCluster" OutputProperty="*" Verb="Update" Noun="CloudAutonomousVmCluster" ShouldProcessTarget="CloudAutonomousVmClusterId" PipelineParameter="CloudAutonomousVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateCloudExadataInfrastructure" OutputProperty="*" Verb="Update" Noun="CloudExadataInfrastructure" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCloudExadataInfrastructureStorageCapacity" OutputProperty="*" Verb="Update" Noun="CloudExadataInfrastructureStorageCapacity" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCloudVmCluster" OutputProperty="*" Verb="Update" Noun="CloudVmCluster" ShouldProcessTarget="CloudVmClusterId" PipelineParameter="CloudVmClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

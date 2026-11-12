@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ApiGatewayV2Exclusion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to exclude Amazon API Gateway V2 traffic from encryption enforcement.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.VpcEncryptionControlExclusionStateInput")]
+        public Amazon.EC2.VpcEncryptionControlExclusionStateInput ApiGatewayV2Exclusion { get; set; }
+        #endregion
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>
@@ -85,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.VpcEncryptionControlExclusionStateInput")]
         public Amazon.EC2.VpcEncryptionControlExclusionStateInput ElasticFileSystemExclusion { get; set; }
+        #endregion
+        
+        #region Parameter GlobalAcceleratorExclusion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to exclude AWS Global Accelerator traffic from encryption enforcement.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.VpcEncryptionControlExclusionStateInput")]
+        public Amazon.EC2.VpcEncryptionControlExclusionStateInput GlobalAcceleratorExclusion { get; set; }
         #endregion
         
         #region Parameter InternetGatewayExclusion
@@ -227,9 +249,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyVpcEncryptionControlResponse, EditEC2VpcEncryptionControlCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ApiGatewayV2Exclusion = this.ApiGatewayV2Exclusion;
             context.DryRun = this.DryRun;
             context.EgressOnlyInternetGatewayExclusion = this.EgressOnlyInternetGatewayExclusion;
             context.ElasticFileSystemExclusion = this.ElasticFileSystemExclusion;
+            context.GlobalAcceleratorExclusion = this.GlobalAcceleratorExclusion;
             context.InternetGatewayExclusion = this.InternetGatewayExclusion;
             context.LambdaExclusion = this.LambdaExclusion;
             context.Mode = this.Mode;
@@ -260,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyVpcEncryptionControlRequest();
             
+            if (cmdletContext.ApiGatewayV2Exclusion != null)
+            {
+                request.ApiGatewayV2Exclusion = cmdletContext.ApiGatewayV2Exclusion;
+            }
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
@@ -271,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ElasticFileSystemExclusion != null)
             {
                 request.ElasticFileSystemExclusion = cmdletContext.ElasticFileSystemExclusion;
+            }
+            if (cmdletContext.GlobalAcceleratorExclusion != null)
+            {
+                request.GlobalAcceleratorExclusion = cmdletContext.GlobalAcceleratorExclusion;
             }
             if (cmdletContext.InternetGatewayExclusion != null)
             {
@@ -359,9 +391,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.EC2.VpcEncryptionControlExclusionStateInput ApiGatewayV2Exclusion { get; set; }
             public System.Boolean? DryRun { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput EgressOnlyInternetGatewayExclusion { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput ElasticFileSystemExclusion { get; set; }
+            public Amazon.EC2.VpcEncryptionControlExclusionStateInput GlobalAcceleratorExclusion { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput InternetGatewayExclusion { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput LambdaExclusion { get; set; }
             public Amazon.EC2.VpcEncryptionControlMode Mode { get; set; }

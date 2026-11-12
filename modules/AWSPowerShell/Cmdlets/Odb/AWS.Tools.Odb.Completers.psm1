@@ -215,6 +215,8 @@ $ODB_Completers = {
             ($_ -eq "New-ODBCloudVmCluster/LicenseModel") -Or
             ($_ -eq "New-ODBExadbVmCluster/LicenseModel") -Or
             ($_ -eq "Update-ODBAutonomousDatabase/LicenseModel") -Or
+            ($_ -eq "Update-ODBCloudAutonomousVmCluster/LicenseModel") -Or
+            ($_ -eq "Update-ODBCloudVmCluster/LicenseModel") -Or
             ($_ -eq "Update-ODBExadbVmCluster/LicenseModel")
         }
         {
@@ -236,6 +238,7 @@ $ODB_Completers = {
         {
             ($_ -eq "New-ODBCloudAutonomousVmCluster/MaintenanceWindow_PatchingMode") -Or
             ($_ -eq "New-ODBCloudExadataInfrastructure/MaintenanceWindow_PatchingMode") -Or
+            ($_ -eq "Update-ODBCloudAutonomousVmCluster/MaintenanceWindow_PatchingMode") -Or
             ($_ -eq "Update-ODBCloudExadataInfrastructure/MaintenanceWindow_PatchingMode")
         }
         {
@@ -254,6 +257,7 @@ $ODB_Completers = {
         {
             ($_ -eq "New-ODBCloudAutonomousVmCluster/MaintenanceWindow_Preference") -Or
             ($_ -eq "New-ODBCloudExadataInfrastructure/MaintenanceWindow_Preference") -Or
+            ($_ -eq "Update-ODBCloudAutonomousVmCluster/MaintenanceWindow_Preference") -Or
             ($_ -eq "Update-ODBCloudExadataInfrastructure/MaintenanceWindow_Preference")
         }
         {
@@ -363,10 +367,10 @@ $ODB_map = @{
     "EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "EncryptionKeyProvider"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "KmsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
-    "LicenseModel"=@("New-ODBAutonomousDatabase","New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster","New-ODBExadbVmCluster","Update-ODBAutonomousDatabase","Update-ODBExadbVmCluster")
+    "LicenseModel"=@("New-ODBAutonomousDatabase","New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster","New-ODBExadbVmCluster","Update-ODBAutonomousDatabase","Update-ODBCloudAutonomousVmCluster","Update-ODBCloudVmCluster","Update-ODBExadbVmCluster")
     "LongTermBackupSchedule_RepeatCadence"=@("Update-ODBAutonomousDatabase")
-    "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
-    "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
+    "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudAutonomousVmCluster","Update-ODBCloudExadataInfrastructure")
+    "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudAutonomousVmCluster","Update-ODBCloudExadataInfrastructure")
     "OpenMode"=@("Update-ODBAutonomousDatabase")
     "PasswordSource"=@("New-ODBAutonomousDatabaseWallet")
     "PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType"=@("New-ODBAutonomousDatabaseWallet")
@@ -446,6 +450,7 @@ $ODB_SelectCompleters = {
 $ODB_SelectMap = @{
     "Select"=@("Approve-ODBMarketplaceRegistration",
                "Add-ODBIamRoleToResource",
+               "Add-ODBVirtualMachinesToCloudVmCluster",
                "Add-ODBVirtualMachinesToExadbVmCluster",
                "New-ODBAutonomousDatabase",
                "New-ODBAutonomousDatabaseBackup",
@@ -467,6 +472,7 @@ $ODB_SelectMap = @{
                "Remove-ODBOdbNetwork",
                "Remove-ODBOdbPeeringConnection",
                "Remove-ODBIamRoleFromResource",
+               "Remove-ODBVirtualMachinesFromCloudVmCluster",
                "Remove-ODBVirtualMachinesFromExadbVmCluster",
                "Start-ODBAutonomousDatabaseFailover",
                "Get-ODBAutonomousDatabase",
@@ -519,7 +525,10 @@ $ODB_SelectMap = @{
                "Remove-ODBResourceTag",
                "Update-ODBAutonomousDatabase",
                "Update-ODBAutonomousDatabaseBackup",
+               "Update-ODBCloudAutonomousVmCluster",
                "Update-ODBCloudExadataInfrastructure",
+               "Update-ODBCloudExadataInfrastructureStorageCapacity",
+               "Update-ODBCloudVmCluster",
                "Update-ODBExadbVmCluster",
                "Update-ODBExascaleCloudExadataInfrastructure",
                "Update-ODBExascaleDbStorageVault",

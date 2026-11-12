@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter RtmpPushSettings_ApplicationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the RTMP application on the destination server. Together with the stream
+        /// name, the application name forms the RTMP URL path, in the pattern <c>rtmp://destinationAddress/applicationName/streamName</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RtmpPushSettings_ApplicationName { get; set; }
+        #endregion
+        
         #region Parameter EncryptionKeyConfiguration_Automatic
         /// <summary>
         /// <para>
@@ -114,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaConnect.FlowTransitEncryptionKeyType")]
         public Amazon.MediaConnect.FlowTransitEncryptionKeyType RouterIntegrationTransitEncryption_EncryptionKeyType { get; set; }
+        #endregion
+        
+        #region Parameter RtmpPushSettings_TlsEncryption_EncryptionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of TLS encryption to use for the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.TlsEncryptionType")]
+        public Amazon.MediaConnect.TlsEncryptionType RtmpPushSettings_TlsEncryption_EncryptionType { get; set; }
         #endregion
         
         #region Parameter FlowArn
@@ -275,6 +297,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.Protocol Protocol { get; set; }
         #endregion
         
+        #region Parameter RtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public
+        /// <summary>
+        /// <para>
+        /// <para>The TLS encryption configuration that validates the destination by using a publicly
+        /// trusted certificate authority.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaConnect.Model.PublicTlsEncryptionConfiguration RtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public { get; set; }
+        #endregion
+        
         #region Parameter RemoteId
         /// <summary>
         /// <para>
@@ -358,6 +391,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StreamId { get; set; }
+        #endregion
+        
+        #region Parameter RtmpPushSettings_StreamName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the RTMP stream that the output publishes to the destination application.
+        /// The stream name forms the final segment of the RTMP URL path.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RtmpPushSettings_StreamName { get; set; }
         #endregion
         
         #region Parameter VpcInterfaceAttachment_VpcInterfaceName
@@ -456,6 +500,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.SecretsManager_RoleArn = this.SecretsManager_RoleArn;
             context.SecretsManager_SecretArn = this.SecretsManager_SecretArn;
             context.RouterIntegrationTransitEncryption_EncryptionKeyType = this.RouterIntegrationTransitEncryption_EncryptionKeyType;
+            context.RtmpPushSettings_ApplicationName = this.RtmpPushSettings_ApplicationName;
+            context.RtmpPushSettings_StreamName = this.RtmpPushSettings_StreamName;
+            context.RtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public = this.RtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public;
+            context.RtmpPushSettings_TlsEncryption_EncryptionType = this.RtmpPushSettings_TlsEncryption_EncryptionType;
             context.SenderControlPort = this.SenderControlPort;
             context.SenderIpAddress = this.SenderIpAddress;
             context.SmoothingLatency = this.SmoothingLatency;
@@ -628,6 +676,85 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             {
                 request.RouterIntegrationTransitEncryption = null;
             }
+            
+             // populate RtmpPushSettings
+            var requestRtmpPushSettingsIsNull = true;
+            request.RtmpPushSettings = new Amazon.MediaConnect.Model.RtmpPushOutputSettings();
+            System.String requestRtmpPushSettings_rtmpPushSettings_ApplicationName = null;
+            if (cmdletContext.RtmpPushSettings_ApplicationName != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_ApplicationName = cmdletContext.RtmpPushSettings_ApplicationName;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_ApplicationName != null)
+            {
+                request.RtmpPushSettings.ApplicationName = requestRtmpPushSettings_rtmpPushSettings_ApplicationName;
+                requestRtmpPushSettingsIsNull = false;
+            }
+            System.String requestRtmpPushSettings_rtmpPushSettings_StreamName = null;
+            if (cmdletContext.RtmpPushSettings_StreamName != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_StreamName = cmdletContext.RtmpPushSettings_StreamName;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_StreamName != null)
+            {
+                request.RtmpPushSettings.StreamName = requestRtmpPushSettings_rtmpPushSettings_StreamName;
+                requestRtmpPushSettingsIsNull = false;
+            }
+            Amazon.MediaConnect.Model.TlsEncryption requestRtmpPushSettings_rtmpPushSettings_TlsEncryption = null;
+            
+             // populate TlsEncryption
+            var requestRtmpPushSettings_rtmpPushSettings_TlsEncryptionIsNull = true;
+            requestRtmpPushSettings_rtmpPushSettings_TlsEncryption = new Amazon.MediaConnect.Model.TlsEncryption();
+            Amazon.MediaConnect.TlsEncryptionType requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionType = null;
+            if (cmdletContext.RtmpPushSettings_TlsEncryption_EncryptionType != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionType = cmdletContext.RtmpPushSettings_TlsEncryption_EncryptionType;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionType != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_TlsEncryption.EncryptionType = requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionType;
+                requestRtmpPushSettings_rtmpPushSettings_TlsEncryptionIsNull = false;
+            }
+            Amazon.MediaConnect.Model.TlsEncryptionConfiguration requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration = null;
+            
+             // populate EncryptionConfiguration
+            var requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfigurationIsNull = true;
+            requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration = new Amazon.MediaConnect.Model.TlsEncryptionConfiguration();
+            Amazon.MediaConnect.Model.PublicTlsEncryptionConfiguration requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration_rtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public = null;
+            if (cmdletContext.RtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration_rtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public = cmdletContext.RtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration_rtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration.Public = requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration_rtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public;
+                requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfigurationIsNull = false;
+            }
+             // determine if requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration should be set to null
+            if (requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfigurationIsNull)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration = null;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_TlsEncryption.EncryptionConfiguration = requestRtmpPushSettings_rtmpPushSettings_TlsEncryption_rtmpPushSettings_TlsEncryption_EncryptionConfiguration;
+                requestRtmpPushSettings_rtmpPushSettings_TlsEncryptionIsNull = false;
+            }
+             // determine if requestRtmpPushSettings_rtmpPushSettings_TlsEncryption should be set to null
+            if (requestRtmpPushSettings_rtmpPushSettings_TlsEncryptionIsNull)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_TlsEncryption = null;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_TlsEncryption != null)
+            {
+                request.RtmpPushSettings.TlsEncryption = requestRtmpPushSettings_rtmpPushSettings_TlsEncryption;
+                requestRtmpPushSettingsIsNull = false;
+            }
+             // determine if request.RtmpPushSettings should be set to null
+            if (requestRtmpPushSettingsIsNull)
+            {
+                request.RtmpPushSettings = null;
+            }
             if (cmdletContext.SenderControlPort != null)
             {
                 request.SenderControlPort = cmdletContext.SenderControlPort.Value;
@@ -740,6 +867,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.String SecretsManager_RoleArn { get; set; }
             public System.String SecretsManager_SecretArn { get; set; }
             public Amazon.MediaConnect.FlowTransitEncryptionKeyType RouterIntegrationTransitEncryption_EncryptionKeyType { get; set; }
+            public System.String RtmpPushSettings_ApplicationName { get; set; }
+            public System.String RtmpPushSettings_StreamName { get; set; }
+            public Amazon.MediaConnect.Model.PublicTlsEncryptionConfiguration RtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public { get; set; }
+            public Amazon.MediaConnect.TlsEncryptionType RtmpPushSettings_TlsEncryption_EncryptionType { get; set; }
             public System.Int32? SenderControlPort { get; set; }
             public System.String SenderIpAddress { get; set; }
             public System.Int32? SmoothingLatency { get; set; }

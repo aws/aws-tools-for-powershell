@@ -46,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CheckSubdomainAvailability" OutputProperty="*" Verb="Test" Noun="SubdomainAvailability" PipelineParameter="SubdomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CloseInstancePublicPorts" OutputProperty="Operation" Verb="Close" Noun="InstancePublicPort" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -174,6 +178,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubdomain" OutputProperty="*" Verb="New" Noun="Subdomain" ShouldProcessTarget="SubdomainName" PipelineParameter="SubdomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlarm" OutputProperty="Operations" Verb="Remove" Noun="Alarm" ShouldProcessTarget="AlarmName" PipelineParameter="AlarmName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -257,6 +265,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRelationalDatabaseSnapshot" OutputProperty="Operations" Verb="Remove" Noun="RelationalDatabaseSnapshot" ShouldProcessTarget="RelationalDatabaseSnapshotName" PipelineParameter="RelationalDatabaseSnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubdomain" OutputProperty="*" Verb="Remove" Noun="Subdomain" ShouldProcessTarget="SubdomainName" PipelineParameter="SubdomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -560,6 +572,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSubdomains" OutputProperty="Subdomains" Verb="Get" Noun="Subdomain" PipelineParameter="SubdomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportKeyPair" OutputProperty="Operation" Verb="Import" Noun="KeyPair" ShouldProcessTarget="KeyPairName" PipelineParameter="PublicKeyBase64" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -708,6 +724,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRelationalDatabaseParameters" OutputProperty="Operations" Verb="Update" Noun="RelationalDatabaseParameter" ShouldProcessTarget="RelationalDatabaseName" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubdomainAssociation" OutputProperty="*" Verb="Update" Noun="SubdomainAssociation" ShouldProcessTarget="SubdomainName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -212,6 +212,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.FabricSwitchingMode
+        {
+            ($_ -eq "New-EMCNRouterOutput/FabricConfiguration_SwitchingMode") -Or
+            ($_ -eq "Update-EMCNRouterOutput/FabricConfiguration_SwitchingMode")
+        }
+        {
+            $v = "IMMEDIATE","KEY_FRAME"
+            break
+        }
+
         # Amazon.MediaConnect.FailoverInputSourcePriorityMode
         {
             ($_ -eq "New-EMCNRouterInput/Failover_SourcePriorityMode") -Or
@@ -355,7 +365,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNFlowSource/Protocol")
         }
         {
-            $v = "cdi","fujitsu-qos","ndi-speed-hq","rist","rtp","rtp-fec","srt-caller","srt-listener","st2110-jpegxs","udp","zixi-pull","zixi-push"
+            $v = "cdi","fujitsu-qos","ndi-speed-hq","rist","rtmp-push","rtp","rtp-fec","srt-caller","srt-listener","st2110-jpegxs","udp","zixi-pull","zixi-push"
             break
         }
 
@@ -372,7 +382,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNRouterInput/Standard_Protocol")
         }
         {
-            $v = "RIST","RTP","SRT_CALLER","SRT_LISTENER"
+            $v = "RIST","RTMP_PUSH","RTP","SRT_CALLER","SRT_LISTENER"
             break
         }
 
@@ -425,6 +435,16 @@ $EMCN_Completers = {
         }
         {
             $v = "GLOBAL","REGIONAL"
+            break
+        }
+
+        # Amazon.MediaConnect.RtmpPushNamingType
+        {
+            ($_ -eq "New-EMCNRouterInput/Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingType") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingType")
+        }
+        {
+            $v = "AUTOMATIC","MANUAL"
             break
         }
 
@@ -489,7 +509,8 @@ $EMCN_Completers = {
         # Amazon.MediaConnect.TlsEncryptionType
         {
             ($_ -eq "New-EMCNRouterOutput/Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType") -Or
-            ($_ -eq "Update-EMCNRouterOutput/Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType")
+            ($_ -eq "Update-EMCNRouterOutput/Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType") -Or
+            ($_ -eq "Update-EMCNFlowOutput/RtmpPushSettings_TlsEncryption_EncryptionType")
         }
         {
             $v = "PUBLIC"
@@ -516,6 +537,7 @@ $EMCN_map = @{
     "Configuration_SourceEndpoint_EndpointLifecycleManagement"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "Configuration_Standard_DestinationNetworkingType"=@("Register-EMCNDestinationEndpoint","Update-EMCNDestinationEndpoint")
     "Configuration_Standard_Protocol"=@("Register-EMCNDestinationEndpoint","Register-EMCNSourceEndpoint","Update-EMCNDestinationEndpoint","Update-EMCNSourceEndpoint")
+    "Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState"=@("Register-EMCNDestinationEndpoint","Register-EMCNSourceEndpoint","Update-EMCNDestinationEndpoint","Update-EMCNSourceEndpoint")
     "Configuration_Standard_SourceNetworkingType"=@("Register-EMCNSourceEndpoint","Update-EMCNSourceEndpoint")
@@ -526,6 +548,7 @@ $EMCN_map = @{
     "EncodingConfig_EncodingProfile"=@("New-EMCNFlow","Update-EMCNFlow")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
     "FabricConfiguration_RecoveryLatencyMode"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "FabricConfiguration_SwitchingMode"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "Failover_SourcePriorityMode"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "FlowSize"=@("New-EMCNFlow","Update-EMCNFlow")
     "Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")
@@ -548,6 +571,7 @@ $EMCN_map = @{
     "RouterIntegrationTransitDecryption_EncryptionKeyType"=@("Update-EMCNFlowSource")
     "RouterIntegrationTransitEncryption_EncryptionKeyType"=@("Update-EMCNFlowOutput")
     "RoutingScope"=@("New-EMCNRouterInput","New-EMCNRouterOutput","Update-EMCNRouterInput","Update-EMCNRouterOutput")
+    "RtmpPushSettings_TlsEncryption_EncryptionType"=@("Update-EMCNFlowOutput")
     "Rtp_ForwardErrorCorrection"=@("New-EMCNRouterInput","New-EMCNRouterOutput","Update-EMCNRouterInput","Update-EMCNRouterOutput")
     "SourceFailoverConfig_FailoverMode"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
     "SourceFailoverConfig_State"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")

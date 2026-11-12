@@ -1551,10 +1551,14 @@ $EC2_Completers = {
 
         # Amazon.EC2.VpcEncryptionControlExclusionStateInput
         {
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/ApiGatewayV2") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/ApiGatewayV2Exclusion") -Or
             ($_ -eq "Edit-EC2AccountVpcEncryptionControl/EgressOnlyInternetGateway") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/EgressOnlyInternetGatewayExclusion") -Or
             ($_ -eq "Edit-EC2AccountVpcEncryptionControl/ElasticFileSystem") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/ElasticFileSystemExclusion") -Or
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/GlobalAccelerator") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/GlobalAcceleratorExclusion") -Or
             ($_ -eq "Edit-EC2AccountVpcEncryptionControl/InternetGateway") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/InternetGatewayExclusion") -Or
             ($_ -eq "Edit-EC2AccountVpcEncryptionControl/Lambda") -Or
@@ -1563,8 +1567,10 @@ $EC2_Completers = {
             ($_ -eq "Edit-EC2VpcEncryptionControl/NatGatewayExclusion") -Or
             ($_ -eq "Edit-EC2AccountVpcEncryptionControl/VirtualPrivateGateway") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/VirtualPrivateGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_ApiGatewayV2Exclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_EgressOnlyInternetGatewayExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_ElasticFileSystemExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_GlobalAcceleratorExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_InternetGatewayExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_LambdaExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_NatGatewayExclusion") -Or
@@ -1655,6 +1661,8 @@ $EC2_map = @{
     "Affinity"=@("Edit-EC2InstancePlacement")
     "Aggregation"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck")
     "AllowedImagesSettingsState"=@("Enable-EC2AllowedImagesSetting")
+    "ApiGatewayV2"=@("Edit-EC2AccountVpcEncryptionControl")
+    "ApiGatewayV2Exclusion"=@("Edit-EC2VpcEncryptionControl")
     "ApplyCancellationCharge"=@("Remove-EC2CapacityReservation")
     "Architecture"=@("Register-EC2Image")
     "AttachmentType"=@("New-EC2VerifiedAccessEndpoint")
@@ -1697,6 +1705,8 @@ $EC2_map = @{
     "ExportToS3Task_ContainerFormat"=@("New-EC2InstanceExportTask")
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
     "ExternalAuthorityConfiguration_Type"=@("Edit-EC2IpamScope","New-EC2IpamScope")
+    "GlobalAccelerator"=@("Edit-EC2AccountVpcEncryptionControl")
+    "GlobalAcceleratorExclusion"=@("Edit-EC2VpcEncryptionControl")
     "HostMaintenance"=@("Edit-EC2Host","New-EC2Host")
     "HostnameType"=@("Edit-EC2PublicIpDnsNameOption")
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
@@ -1845,8 +1855,10 @@ $EC2_map = @{
     "VirtualPrivateGateway"=@("Edit-EC2AccountVpcEncryptionControl")
     "VirtualPrivateGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "VolumeType"=@("Copy-EC2Volume","Edit-EC2Volume","New-EC2Volume")
+    "VpcEncryptionControl_ApiGatewayV2Exclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_EgressOnlyInternetGatewayExclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_ElasticFileSystemExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_GlobalAcceleratorExclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_InternetGatewayExclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_LambdaExclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_Mode"=@("New-EC2Vpc")
@@ -2025,6 +2037,7 @@ $EC2_SelectMap = @{
                "New-EC2LocalGatewayVirtualInterfaceGroup",
                "New-EC2MacSystemIntegrityProtectionModificationTask",
                "New-EC2ManagedPrefixList",
+               "New-EC2MetricCategory",
                "New-EC2NatGateway",
                "New-EC2NetworkAcl",
                "New-EC2NetworkAclEntry",
@@ -2124,6 +2137,7 @@ $EC2_SelectMap = @{
                "Remove-EC2LocalGatewayVirtualInterface",
                "Remove-EC2LocalGatewayVirtualInterfaceGroup",
                "Remove-EC2ManagedPrefixList",
+               "Remove-EC2MetricCategory",
                "Remove-EC2NatGateway",
                "Remove-EC2NetworkAcl",
                "Remove-EC2NetworkAclEntry",
@@ -2293,6 +2307,7 @@ $EC2_SelectMap = @{
                "Get-EC2MacHost",
                "Get-EC2MacModificationTask",
                "Get-EC2ManagedPrefixList",
+               "Get-EC2MetricCategoryDetail",
                "Get-EC2MovingAddress",
                "Get-EC2NatGateway",
                "Get-EC2NetworkAcl",
@@ -2592,6 +2607,7 @@ $EC2_SelectMap = @{
                "Edit-EC2LocalGatewayRoute",
                "Edit-EC2ManagedPrefixList",
                "Edit-EC2ManagedResourceVisibility",
+               "Edit-EC2MetricCategory",
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2PrivateDnsNameOption",
                "Edit-EC2PublicIpDnsNameOption",
@@ -2718,8 +2734,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap

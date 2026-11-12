@@ -80,6 +80,13 @@ $SEC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SecretsManager.ReplicaRestrictionType
+        "Add-SECCrossAccountReplica/ReplicaRestriction"
+        {
+            $v = "NoRestriction","SameOrg"
+            break
+        }
+
         # Amazon.SecretsManager.SortByType
         "Get-SECSecretList/SortBy"
         {
@@ -103,6 +110,7 @@ $SEC_Completers = {
 }
 
 $SEC_map = @{
+    "ReplicaRestriction"=@("Add-SECCrossAccountReplica")
     "SortBy"=@("Get-SECSecretList")
     "SortOrder"=@("Get-SECSecretList")
 }
@@ -157,15 +165,18 @@ $SEC_SelectCompleters = {
 }
 
 $SEC_SelectMap = @{
-    "Select"=@("Get-SECBatchSecretValue",
+    "Select"=@("Add-SECCrossAccountReplica",
+               "Get-SECBatchSecretValue",
                "Stop-SECSecretRotation",
                "New-SECSecret",
                "Remove-SECResourcePolicy",
                "Remove-SECSecret",
                "Get-SECSecret",
+               "Remove-SECCrossAccountReplica",
                "Get-SECRandomPassword",
                "Get-SECResourcePolicy",
                "Get-SECSecretValue",
+               "Get-SECResourcePolicyList",
                "Get-SECSecretList",
                "Get-SECSecretVersionIdList",
                "Write-SECResourcePolicy",

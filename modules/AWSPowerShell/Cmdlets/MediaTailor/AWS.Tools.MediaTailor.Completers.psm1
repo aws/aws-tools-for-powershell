@@ -128,7 +128,7 @@ $EMT_Completers = {
         # Amazon.MediaTailor.FunctionType
         "Write-EMTFunction/FunctionType"
         {
-            $v = "AWS_SERVICE_REQUEST","CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR","VAST_REQUEST"
+            $v = "AWS_SERVICE_REQUEST","CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HLS_TAG_PROCESSOR","HTTP_REQUEST","SEQUENTIAL_EXECUTOR","VAST_REQUEST"
             break
         }
 
@@ -204,6 +204,7 @@ $EMT_Completers = {
             ($_ -eq "Write-EMTFunction/AwsServiceRequestConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/ConcurrentExecutorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/CustomOutputConfiguration_Runtime") -Or
+            ($_ -eq "Write-EMTFunction/HlsTagProcessorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/SequentialExecutorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/VastRequestConfiguration_Runtime")
@@ -257,6 +258,7 @@ $EMT_map = @{
     "ConcurrentExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "CustomOutputConfiguration_Runtime"=@("Write-EMTFunction")
     "FunctionType"=@("Write-EMTFunction")
+    "HlsTagProcessorConfiguration_Runtime"=@("Write-EMTFunction")
     "HttpRequest_CompressRequest"=@("Set-EMTPlaybackConfiguration")
     "HttpRequest_Method"=@("Set-EMTPlaybackConfiguration")
     "HttpRequestConfiguration_MethodType"=@("Write-EMTFunction")

@@ -38,6 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
     ///  
     /// <para>
     /// Returns a list of investigations associated with the specified GuardDuty detector.
+    /// You can filter the investigations by status, risk level, confidence, finding ID, and
+    /// investigation type, and sort them by start time, end time, status, risk level, or
+    /// confidence.
     /// </para><para>
     /// An administrator account sees all investigations across the organization. Member accounts
     /// see only the investigations that belong to them.
@@ -65,6 +68,24 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.GuardDuty.InvestigationSortField")]
         public Amazon.GuardDuty.InvestigationSortField SortCriteria_AttributeName { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_Criterion
+        /// <summary>
+        /// <para>
+        /// <para>A map of investigation attributes to the conditions that they must match. When you
+        /// specify more than one attribute, an investigation must match the conditions for every
+        /// attribute. Valid attributes and values:</para><ul><li><para><c>STATUS</c> – <c>RUNNING</c>, <c>COMPLETED</c>, and <c>FAILED</c>.</para></li><li><para><c>RISK_LEVEL</c> – <c>Info</c>, <c>Low</c>, <c>Medium</c>, <c>High</c>, and <c>Critical</c>.</para></li><li><para><c>CONFIDENCE</c> – <c>Unknown</c>, <c>Low</c>, <c>Medium</c>, and <c>High</c>.</para></li><li><para><c>FINDING_ID</c> – A finding ID, which is 32 lowercase hexadecimal characters.</para></li><li><para><c>INVESTIGATION_TYPE</c> – <c>FINDING</c>, <c>ACCOUNT</c>, and <c>ORGANIZATION</c>.</para></li></ul><para>Values are case sensitive. GuardDuty sets the risk level, confidence, and investigation
+        /// type of an investigation only when the investigation completes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable FilterCriteria_Criterion { get; set; }
         #endregion
         
         #region Parameter DetectorId
@@ -178,6 +199,14 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.FilterCriteria_Criterion != null)
+            {
+                context.FilterCriteria_Criterion = new Dictionary<System.String, Amazon.GuardDuty.Model.InvestigationFilterCondition>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FilterCriteria_Criterion.Keys)
+                {
+                    context.FilterCriteria_Criterion.Add((String)hashKey, (Amazon.GuardDuty.Model.InvestigationFilterCondition)(this.FilterCriteria_Criterion[hashKey]));
+                }
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -212,6 +241,25 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (cmdletContext.DetectorId != null)
             {
                 request.DetectorId = cmdletContext.DetectorId;
+            }
+            
+             // populate FilterCriteria
+            var requestFilterCriteriaIsNull = true;
+            request.FilterCriteria = new Amazon.GuardDuty.Model.InvestigationFilterCriteria();
+            Dictionary<System.String, Amazon.GuardDuty.Model.InvestigationFilterCondition> requestFilterCriteria_filterCriteria_Criterion = null;
+            if (cmdletContext.FilterCriteria_Criterion != null)
+            {
+                requestFilterCriteria_filterCriteria_Criterion = cmdletContext.FilterCriteria_Criterion;
+            }
+            if (requestFilterCriteria_filterCriteria_Criterion != null)
+            {
+                request.FilterCriteria.Criterion = requestFilterCriteria_filterCriteria_Criterion;
+                requestFilterCriteriaIsNull = false;
+            }
+             // determine if request.FilterCriteria should be set to null
+            if (requestFilterCriteriaIsNull)
+            {
+                request.FilterCriteria = null;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -326,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DetectorId { get; set; }
+            public Dictionary<System.String, Amazon.GuardDuty.Model.InvestigationFilterCondition> FilterCriteria_Criterion { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.GuardDuty.InvestigationSortField SortCriteria_AttributeName { get; set; }

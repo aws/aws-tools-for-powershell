@@ -540,6 +540,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMetricCategory" OutputProperty="MetricCategory" Verb="New" Noun="MetricCategory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateNatGateway" OutputProperty="*" Verb="New" Noun="NatGateway" ShouldProcessTarget="SubnetId" PipelineParameter="SubnetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -955,6 +959,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteManagedPrefixList" OutputProperty="PrefixList" Verb="Remove" Noun="ManagedPrefixList" ShouldProcessTarget="PrefixListId" PipelineParameter="PrefixListId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMetricCategory" OutputProperty="MetricCategoryId" Verb="Remove" Noun="MetricCategory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1643,6 +1651,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeManagedPrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="ManagedPrefixList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetricCategories" OutputProperty="MetricCategories" Verb="Get" Noun="MetricCategoryDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2941,6 +2953,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyManagedResourceVisibility" OutputProperty="Visibility" Verb="Edit" Noun="ManagedResourceVisibility" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyMetricCategory" OutputProperty="MetricCategory" Verb="Edit" Noun="MetricCategory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

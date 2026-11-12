@@ -251,8 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>
         /// <para>A map of lifecycle hook event names to function identifiers. The function mapping
         /// specifies which function MediaTailor executes at each lifecycle hook during ad insertion.
-        /// Valid keys are <c>PRE_SESSION_INITIALIZATION</c>, <c>PRE_ADS_REQUEST</c>, <c>POST_ADS_RESPONSE</c>,
-        /// and <c>PRE_MANIFEST_INSERTION</c>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions
+        /// Valid keys are <c>PRE_SESSION_INITIALIZATION</c>, <c>POST_ORIGIN_RESPONSE</c>, <c>PRE_ADS_REQUEST</c>,
+        /// <c>POST_ADS_RESPONSE</c>, and <c>PRE_MANIFEST_INSERTION</c>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions
         /// lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This

@@ -31,7 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Returns information about one or more of your Amazon Lightsail content delivery network
-    /// (CDN) distributions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// (CDN) distributions.
+    /// 
+    ///  <note><para>
+    /// The <c>defaultRootObject</c> and <c>customErrorResponses</c> values are returned only
+    /// when you specify <c>distributionName</c> to retrieve a single distribution. When you
+    /// call <c>GetDistributions</c> without a distribution name to list all distributions,
+    /// these two fields aren't included in the response.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LSDistribution")]
     [OutputType("Amazon.Lightsail.Model.LightsailDistribution")]

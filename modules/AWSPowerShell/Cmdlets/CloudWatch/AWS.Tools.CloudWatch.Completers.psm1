@@ -118,6 +118,13 @@ $CW_Completers = {
             break
         }
 
+        # Amazon.CloudWatch.QueryType
+        "Write-CWMetricDataQueryDefinition/Type"
+        {
+            $v = "METRIC_MATH","PROMQL","SQL"
+            break
+        }
+
         # Amazon.CloudWatch.RecentlyActive
         "Get-CWMetricList/RecentlyActive"
         {
@@ -184,6 +191,7 @@ $CW_map = @{
     "ScanBy"=@("Get-CWAlarmHistory","Get-CWMetricData")
     "StateValue"=@("Get-CWAlarm","Set-CWAlarmState")
     "Statistic"=@("Get-CWAlarmForMetric","Write-CWMetricAlarm")
+    "Type"=@("Write-CWMetricDataQueryDefinition")
     "Unit"=@("Get-CWAlarmForMetric","Get-CWMetricStatistic","Write-CWMetricAlarm")
 }
 
@@ -244,6 +252,7 @@ $CW_SelectMap = @{
                "Remove-CWAnomalyDetector",
                "Remove-CWDashboard",
                "Remove-CWInsightRule",
+               "Remove-CWMetricDataQueryDefinition",
                "Remove-CWMetricStream",
                "Remove-CWResourceMetricsConfiguration",
                "Get-CWAlarmContributor",
@@ -262,6 +271,7 @@ $CW_SelectMap = @{
                "Get-CWDataset",
                "Get-CWInsightRuleReport",
                "Get-CWMetricData",
+               "Get-CWMetricDataQueryDefinition",
                "Get-CWMetricStatistic",
                "Get-CWMetricStream",
                "Get-CWMetricWidgetImage",
@@ -270,6 +280,7 @@ $CW_SelectMap = @{
                "Get-CWAlarmMuteRuleList",
                "Get-CWDashboardList",
                "Get-CWManagedInsightRule",
+               "Get-CWMetricDataQueryDefinitionList",
                "Get-CWMetricList",
                "Get-CWMetricStreamList",
                "Get-CWResourceTag",
@@ -282,6 +293,7 @@ $CW_SelectMap = @{
                "Write-CWManagedInsightRule",
                "Write-CWMetricAlarm",
                "Write-CWMetricData",
+               "Write-CWMetricDataQueryDefinition",
                "Write-CWMetricStream",
                "Set-CWAlarmState",
                "Start-CWMetricStream",

@@ -58,6 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter PolicyName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the resource policy to retrieve. If you don't specify this field, Secrets
+        /// Manager uses <c>default</c>. If you specify a name other than <c>default</c> and no
+        /// policy with that name exists, the operation returns a <c>ResourceNotFoundException</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PolicyName { get; set; }
+        #endregion
+        
         #region Parameter SecretId
         /// <summary>
         /// <para>
@@ -107,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 context.Select = CreateSelectDelegate<Amazon.SecretsManager.Model.GetResourcePolicyResponse, GetSECResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.PolicyName = this.PolicyName;
             context.SecretId = this.SecretId;
             #if MODULAR
             if (this.SecretId == null && ParameterWasBound(nameof(this.SecretId)))
@@ -130,6 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             // create request
             var request = new Amazon.SecretsManager.Model.GetResourcePolicyRequest();
             
+            if (cmdletContext.PolicyName != null)
+            {
+                request.PolicyName = cmdletContext.PolicyName;
+            }
             if (cmdletContext.SecretId != null)
             {
                 request.SecretId = cmdletContext.SecretId;
@@ -189,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String PolicyName { get; set; }
             public System.String SecretId { get; set; }
             public System.Func<Amazon.SecretsManager.Model.GetResourcePolicyResponse, GetSECResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -199,6 +199,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.SummaryFormat
+        "Get-GDInvestigation/SummaryFormat"
+        {
+            $v = "STRING","STRUCTURED"
+            break
+        }
+
         # Amazon.GuardDuty.ThreatEntitySetFormat
         "New-GDThreatEntitySet/Format"
         {
@@ -249,6 +256,7 @@ $GD_map = @{
     "SortCriteria_AttributeName"=@("Get-GDCoverageList","Get-GDInvestigationList")
     "SortCriteria_OrderBy"=@("Get-GDCoverageList","Get-GDInvestigationList")
     "Status"=@("Get-GDCustomDetectionRuleOrgConfigurationList")
+    "SummaryFormat"=@("Get-GDInvestigation")
     "Tagging_Status"=@("New-GDMalwareProtectionPlan","Update-GDMalwareProtectionPlan")
     "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
@@ -372,6 +380,7 @@ $GD_SelectMap = @{
                "Get-GDDetectorList",
                "Get-GDFilterList",
                "Get-GDFindingList",
+               "Get-GDInvestigationRecordList",
                "Get-GDInvestigationList",
                "Get-GDInvitationList",
                "Get-GDIPSetList",

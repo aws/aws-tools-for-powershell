@@ -41,10 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// Update the encryption configuration of the instance by specifying <c>EncryptionConfiguration</c>.
     /// </para></li><li><para>
     /// Enable permission sets for the instance by specifying <c>PermissionSetsEnabled</c>.
+    /// </para></li><li><para>
+    /// Update the network configuration of the instance by specifying <c>NetworkConfiguration</c>.
     /// </para></li></ul><para>
-    /// If you specify both <c>EncryptionConfiguration</c> and <c>PermissionSetsEnabled</c>
-    /// in a request, the request returns a <c>ValidationException</c>. To perform both operations,
-    /// call <c>UpdateInstance</c> separately for each. You can make the two calls in parallel.
+    /// A request that specifies more than one of <c>EncryptionConfiguration</c>, <c>PermissionSetsEnabled</c>,
+    /// and <c>NetworkConfiguration</c> returns a <c>ValidationException</c>. To perform more
+    /// than one of these operations, call <c>UpdateInstance</c> separately for each. The
+    /// calls can be made in parallel.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SSOADMNInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,6 +62,44 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter NetworkConfiguration_AllowSourceIp
+        /// <summary>
+        /// <para>
+        /// <para>Allows access from the IPv4 or IPv6 CIDR blocks that you specify, in addition to the
+        /// VPCs allowed by <c>RestrictSourceVpcs</c>. If you don't specify this value, no additional
+        /// IP address ranges are allowed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_AllowSourceIps")]
+        public System.String[] NetworkConfiguration_AllowSourceIp { get; set; }
+        #endregion
+        
+        #region Parameter NetworkConfiguration_ExcludeApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>Exempts the applications that you specify from the network access control, so that
+        /// access to them is unchanged. You can specify both Amazon Web Services managed applications
+        /// and customer managed applications, and you can use wildcards. These applications are
+        /// not restricted by <c>RestrictSourceVpcs</c> or <c>AllowSourceIps</c>. If you don't
+        /// specify this value, the controls apply to all applications.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_ExcludeApplicationArns")]
+        public System.String[] NetworkConfiguration_ExcludeApplicationArn { get; set; }
+        #endregion
         
         #region Parameter InstanceArn
         /// <summary>
@@ -116,13 +157,46 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>Enables permission sets for this Identity Center instance. The only accepted value
-        /// is <c>true </c>. After permission sets are enabled, they cannot be disabled.</para><note><para>You can't set <c>EncryptionConfiguration</c> and <c>PermissionSetsEnabled</c> in the
-        /// same request. To configure both, make two separate <c>UpdateInstance</c> calls. You
-        /// can make these calls in parallel.</para></note>
+        /// is <c>true </c>. After permission sets are enabled, they cannot be disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? PermissionSetsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter NetworkConfiguration_RestrictSourceVpc
+        /// <summary>
+        /// <para>
+        /// <para>Limits access to the VPC endpoints in the VPCs that you specify. These VPCs must be
+        /// in your organization, or in the Amazon Web Services account for an account instance.
+        /// If you don't specify this value, access is allowed from any VPC in your organization
+        /// or Amazon Web Services account.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_RestrictSourceVpcs")]
+        public System.String[] NetworkConfiguration_RestrictSourceVpc { get; set; }
+        #endregion
+        
+        #region Parameter NetworkConfiguration_VpceAccessRequired
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether access to your Identity Center instance and to applications must
+        /// originate from a VPC endpoint. When this value is <c>true</c> and no other field is
+        /// specified, access is allowed from any VPC in your organization, or from any VPC in
+        /// the Amazon Web Services account for an account instance, and applies to all applications.
+        /// When this value is <c>false</c>, no network access control is enforced and the values
+        /// of <c>RestrictSourceVpcs</c>, <c>AllowSourceIps</c>, and <c>ExcludeApplicationArns</c>
+        /// are cleared.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? NetworkConfiguration_VpceAccessRequired { get; set; }
         #endregion
         
         #region Parameter Select
@@ -180,6 +254,19 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             }
             #endif
             context.Name = this.Name;
+            if (this.NetworkConfiguration_AllowSourceIp != null)
+            {
+                context.NetworkConfiguration_AllowSourceIp = new List<System.String>(this.NetworkConfiguration_AllowSourceIp);
+            }
+            if (this.NetworkConfiguration_ExcludeApplicationArn != null)
+            {
+                context.NetworkConfiguration_ExcludeApplicationArn = new List<System.String>(this.NetworkConfiguration_ExcludeApplicationArn);
+            }
+            if (this.NetworkConfiguration_RestrictSourceVpc != null)
+            {
+                context.NetworkConfiguration_RestrictSourceVpc = new List<System.String>(this.NetworkConfiguration_RestrictSourceVpc);
+            }
+            context.NetworkConfiguration_VpceAccessRequired = this.NetworkConfiguration_VpceAccessRequired;
             context.PermissionSetsEnabled = this.PermissionSetsEnabled;
             
             // allow further manipulation of loaded context prior to processing
@@ -233,6 +320,55 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate NetworkConfiguration
+            var requestNetworkConfigurationIsNull = true;
+            request.NetworkConfiguration = new Amazon.SSOAdmin.Model.NetworkConfigurationInfo();
+            List<System.String> requestNetworkConfiguration_networkConfiguration_AllowSourceIp = null;
+            if (cmdletContext.NetworkConfiguration_AllowSourceIp != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AllowSourceIp = cmdletContext.NetworkConfiguration_AllowSourceIp;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_AllowSourceIp != null)
+            {
+                request.NetworkConfiguration.AllowSourceIps = requestNetworkConfiguration_networkConfiguration_AllowSourceIp;
+                requestNetworkConfigurationIsNull = false;
+            }
+            List<System.String> requestNetworkConfiguration_networkConfiguration_ExcludeApplicationArn = null;
+            if (cmdletContext.NetworkConfiguration_ExcludeApplicationArn != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_ExcludeApplicationArn = cmdletContext.NetworkConfiguration_ExcludeApplicationArn;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_ExcludeApplicationArn != null)
+            {
+                request.NetworkConfiguration.ExcludeApplicationArns = requestNetworkConfiguration_networkConfiguration_ExcludeApplicationArn;
+                requestNetworkConfigurationIsNull = false;
+            }
+            List<System.String> requestNetworkConfiguration_networkConfiguration_RestrictSourceVpc = null;
+            if (cmdletContext.NetworkConfiguration_RestrictSourceVpc != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_RestrictSourceVpc = cmdletContext.NetworkConfiguration_RestrictSourceVpc;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_RestrictSourceVpc != null)
+            {
+                request.NetworkConfiguration.RestrictSourceVpcs = requestNetworkConfiguration_networkConfiguration_RestrictSourceVpc;
+                requestNetworkConfigurationIsNull = false;
+            }
+            System.Boolean? requestNetworkConfiguration_networkConfiguration_VpceAccessRequired = null;
+            if (cmdletContext.NetworkConfiguration_VpceAccessRequired != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_VpceAccessRequired = cmdletContext.NetworkConfiguration_VpceAccessRequired.Value;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_VpceAccessRequired != null)
+            {
+                request.NetworkConfiguration.VpceAccessRequired = requestNetworkConfiguration_networkConfiguration_VpceAccessRequired.Value;
+                requestNetworkConfigurationIsNull = false;
+            }
+             // determine if request.NetworkConfiguration should be set to null
+            if (requestNetworkConfigurationIsNull)
+            {
+                request.NetworkConfiguration = null;
             }
             if (cmdletContext.PermissionSetsEnabled != null)
             {
@@ -297,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public System.String InstanceArn { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> NetworkConfiguration_AllowSourceIp { get; set; }
+            public List<System.String> NetworkConfiguration_ExcludeApplicationArn { get; set; }
+            public List<System.String> NetworkConfiguration_RestrictSourceVpc { get; set; }
+            public System.Boolean? NetworkConfiguration_VpceAccessRequired { get; set; }
             public System.Boolean? PermissionSetsEnabled { get; set; }
             public System.Func<Amazon.SSOAdmin.Model.UpdateInstanceResponse, UpdateSSOADMNInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

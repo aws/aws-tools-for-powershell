@@ -139,6 +139,7 @@ $R53_Completers = {
         {
             ($_ -eq "Test-R53DNSAnswer/RecordType") -Or
             ($_ -eq "Get-R53ResourceRecordSet/StartRecordType") -Or
+            ($_ -eq "Get-R53ResourceRecordSetProtectionList/StartRecordType") -Or
             ($_ -eq "Get-R53TrafficPolicyInstanceList/TrafficPolicyInstanceTypeMarker") -Or
             ($_ -eq "Get-R53TrafficPolicyInstancesByHostedZone/TrafficPolicyInstanceTypeMarker") -Or
             ($_ -eq "Get-R53TrafficPolicyInstancesByPolicy/TrafficPolicyInstanceTypeMarker")
@@ -189,7 +190,7 @@ $R53_map = @{
     "InsufficientDataHealthStatus"=@("Update-R53HealthCheck")
     "RecordType"=@("Test-R53DNSAnswer")
     "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResourceList")
-    "StartRecordType"=@("Get-R53ResourceRecordSet")
+    "StartRecordType"=@("Get-R53ResourceRecordSet","Get-R53ResourceRecordSetProtectionList")
     "TrafficPolicyInstanceTypeMarker"=@("Get-R53TrafficPolicyInstanceList","Get-R53TrafficPolicyInstancesByHostedZone","Get-R53TrafficPolicyInstancesByPolicy")
     "Type"=@("Get-R53AccountLimit","Get-R53HostedZoneLimit","Get-R53ReusableDelegationSetLimit")
     "VPC_VPCRegion"=@("New-R53HostedZone","New-R53VPCAssociationAuthorization","Register-R53VPCWithHostedZone","Remove-R53VPCAssociationAuthorization","Unregister-R53VPCFromHostedZone")
@@ -256,6 +257,7 @@ $R53_SelectMap = @{
                "New-R53HostedZone",
                "New-R53KeySigningKey",
                "New-R53QueryLoggingConfig",
+               "New-R53ResourceRecordSetProtection",
                "New-R53ReusableDelegationSet",
                "New-R53TrafficPolicy",
                "New-R53TrafficPolicyInstance",
@@ -267,6 +269,7 @@ $R53_SelectMap = @{
                "Remove-R53HostedZone",
                "Remove-R53KeySigningKey",
                "Remove-R53QueryLoggingConfig",
+               "Remove-R53ResourceRecordSetProtection",
                "Remove-R53ReusableDelegationSet",
                "Remove-R53TrafficPolicy",
                "Remove-R53TrafficPolicyInstance",
@@ -300,6 +303,7 @@ $R53_SelectMap = @{
                "Get-R53HostedZoneList",
                "Get-R53HostedZonesByVPC",
                "Get-R53QueryLoggingConfigList",
+               "Get-R53ResourceRecordSetProtectionList",
                "Get-R53ResourceRecordSet",
                "Get-R53ReusableDelegationSetList",
                "Get-R53TagsForResource",

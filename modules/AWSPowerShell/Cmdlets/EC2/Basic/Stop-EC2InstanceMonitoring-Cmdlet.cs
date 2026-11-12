@@ -81,6 +81,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public object[] InstanceId { get; set; }
         #endregion
         
+        #region Parameter MetricCategoryId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the metric categories to remove from the instances. If you specify metric
+        /// categories, only those metric categories are removed and detailed monitoring remains
+        /// enabled. If you don't specify metric categories, detailed monitoring and all metric
+        /// categories are turned off.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricCategoryIds")]
+        public System.String[] MetricCategoryId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'InstanceMonitorings'.
@@ -133,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.InstanceId = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
             }
             
+            if (this.MetricCategoryId != null)
+            {
+                context.MetricCategoryId = new List<System.String>(this.MetricCategoryId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -156,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceIds = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.MetricCategoryId != null)
+            {
+                request.MetricCategoryIds = cmdletContext.MetricCategoryId;
             }
             
             CmdletOutput output;
@@ -214,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? DryRun { get; set; }
             public List<System.String> InstanceId { get; set; }
+            public List<System.String> MetricCategoryId { get; set; }
             public System.Func<Amazon.EC2.Model.UnmonitorInstancesResponse, StopEC2InstanceMonitoringCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InstanceMonitorings;
         }

@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public System.String CloudExadataInfrastructureId { get; set; }
         #endregion
         
+        #region Parameter ComputeCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of database servers for the Exadata infrastructure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ComputeCount { get; set; }
+        #endregion
+        
         #region Parameter MaintenanceWindow_CustomActionTimeoutInMin
         /// <summary>
         /// <para>
@@ -85,6 +95,16 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.Odb.Model.DayOfWeek[] MaintenanceWindow_DaysOfWeek { get; set; }
+        #endregion
+        
+        #region Parameter DisplayName
+        /// <summary>
+        /// <para>
+        /// <para>A new user-friendly name for the Exadata infrastructure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DisplayName { get; set; }
         #endregion
         
         #region Parameter MaintenanceWindow_HoursOfDay
@@ -171,6 +191,16 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public System.Boolean? MaintenanceWindow_SkipRu { get; set; }
         #endregion
         
+        #region Parameter StorageCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of storage servers to activate for the Exadata infrastructure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageCount { get; set; }
+        #endregion
+        
         #region Parameter MaintenanceWindow_WeeksOfMonth
         /// <summary>
         /// <para>
@@ -239,6 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
                 WriteWarning("You are passing $null as a value for parameter CloudExadataInfrastructureId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ComputeCount = this.ComputeCount;
+            context.DisplayName = this.DisplayName;
             context.MaintenanceWindow_CustomActionTimeoutInMin = this.MaintenanceWindow_CustomActionTimeoutInMin;
             if (this.MaintenanceWindow_DaysOfWeek != null)
             {
@@ -261,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             {
                 context.MaintenanceWindow_WeeksOfMonth = new List<System.Int32>(this.MaintenanceWindow_WeeksOfMonth);
             }
+            context.StorageCount = this.StorageCount;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -280,6 +313,14 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.CloudExadataInfrastructureId != null)
             {
                 request.CloudExadataInfrastructureId = cmdletContext.CloudExadataInfrastructureId;
+            }
+            if (cmdletContext.ComputeCount != null)
+            {
+                request.ComputeCount = cmdletContext.ComputeCount.Value;
+            }
+            if (cmdletContext.DisplayName != null)
+            {
+                request.DisplayName = cmdletContext.DisplayName;
             }
             
              // populate MaintenanceWindow
@@ -390,6 +431,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             {
                 request.MaintenanceWindow = null;
             }
+            if (cmdletContext.StorageCount != null)
+            {
+                request.StorageCount = cmdletContext.StorageCount.Value;
+            }
             
             CmdletOutput output;
             
@@ -446,6 +491,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CloudExadataInfrastructureId { get; set; }
+            public System.Int32? ComputeCount { get; set; }
+            public System.String DisplayName { get; set; }
             public System.Int32? MaintenanceWindow_CustomActionTimeoutInMin { get; set; }
             public List<Amazon.Odb.Model.DayOfWeek> MaintenanceWindow_DaysOfWeek { get; set; }
             public List<System.Int32> MaintenanceWindow_HoursOfDay { get; set; }
@@ -456,6 +503,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             public Amazon.Odb.PreferenceType MaintenanceWindow_Preference { get; set; }
             public System.Boolean? MaintenanceWindow_SkipRu { get; set; }
             public List<System.Int32> MaintenanceWindow_WeeksOfMonth { get; set; }
+            public System.Int32? StorageCount { get; set; }
             public System.Func<Amazon.Odb.Model.UpdateCloudExadataInfrastructureResponse, UpdateODBCloudExadataInfrastructureCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

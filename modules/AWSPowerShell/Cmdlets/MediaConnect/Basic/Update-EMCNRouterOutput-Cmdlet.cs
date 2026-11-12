@@ -128,6 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.Model.DefaultMaintenanceConfiguration MaintenanceConfiguration_Default { get; set; }
         #endregion
         
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_DefaultAction
+        /// <summary>
+        /// <para>
+        /// <para>The action to apply to an elementary stream that doesn't match any rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Processors_SingleProgramTransportStreamPidMap_DefaultAction { get; set; }
+        #endregion
+        
         #region Parameter Rist_DestinationAddress
         /// <summary>
         /// <para>
@@ -323,6 +333,32 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.ForwardErrorCorrectionState Rtp_ForwardErrorCorrection { get; set; }
         #endregion
         
+        #region Parameter FabricConfiguration_SwitchingConfiguration_Immediate
+        /// <summary>
+        /// <para>
+        /// <para>The switching configuration where the router output switches to the new router input
+        /// immediately.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaConnect.Model.ImmediateFabricSwitchingConfiguration FabricConfiguration_SwitchingConfiguration_Immediate { get; set; }
+        #endregion
+        
+        #region Parameter FabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time, in milliseconds, that the router output waits for a key frame on
+        /// the new input before it switches. Set this value to at least the GOP (Group of Pictures)
+        /// duration of your content, which your upstream encoder determines. If the wait time
+        /// is shorter than the GOP duration, MediaConnect makes a best effort to switch without
+        /// a key frame. The default is 3000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMilliseconds")]
+        public System.Int64? FabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond { get; set; }
+        #endregion
+        
         #region Parameter MaximumBitrate
         /// <summary>
         /// <para>
@@ -398,6 +434,56 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_Standard_NetworkInterfaceArn")]
         public System.String Standard_NetworkInterfaceArn { get; set; }
+        #endregion
+        
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough
+        /// <summary>
+        /// <para>
+        /// <para>The PCR PID configuration that passes through the PCR PID from the source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaConnect.Model.Passthrough Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough { get; set; }
+        #endregion
+        
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough
+        /// <summary>
+        /// <para>
+        /// <para>The PMT PID configuration that passes through the PMT PID from the source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaConnect.Model.Passthrough Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough { get; set; }
+        #endregion
+        
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough
+        /// <summary>
+        /// <para>
+        /// <para>The program number configuration that passes through the program number from the source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaConnect.Model.Passthrough Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough { get; set; }
+        #endregion
+        
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough
+        /// <summary>
+        /// <para>
+        /// <para>The TSID configuration that passes through the TSID from the source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaConnect.Model.Passthrough Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough { get; set; }
+        #endregion
+        
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram
+        /// <summary>
+        /// <para>
+        /// <para>The number of PIDs in the range for automatic PID assignment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram { get; set; }
         #endregion
         
         #region Parameter SrtListener_Port
@@ -504,6 +590,23 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.RoutingScope RoutingScope { get; set; }
         #endregion
         
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_Rule
+        /// <summary>
+        /// <para>
+        /// <para>The ordered list of up to 32 rules that determine the action for each elementary stream.
+        /// MediaConnect applies the first rule that matches.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Processors_SingleProgramTransportStreamPidMap_Rules")]
+        public Amazon.MediaConnect.Model.PidMapRule[] Processors_SingleProgramTransportStreamPidMap_Rule { get; set; }
+        #endregion
+        
         #region Parameter MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn
         /// <summary>
         /// <para>
@@ -561,6 +664,59 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn { get; set; }
         #endregion
         
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set
+        /// <summary>
+        /// <para>
+        /// <para>The PCR PID to use for the router output. MediaConnect applies this value only when
+        /// the PCR is carried on its own PID. If the PCR is carried on an elementary stream,
+        /// this value has no effect. If you also set the PMT PID, the two values must be different.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set { get; set; }
+        #endregion
+        
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set
+        /// <summary>
+        /// <para>
+        /// <para>The PMT PID to use for the router output. If you also set the PCR PID, the two values
+        /// must be different.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set { get; set; }
+        #endregion
+        
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set
+        /// <summary>
+        /// <para>
+        /// <para>The program number to use for the router output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set { get; set; }
+        #endregion
+        
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set
+        /// <summary>
+        /// <para>
+        /// <para>The TSID to use for the router output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set { get; set; }
+        #endregion
+        
+        #region Parameter Processors_SingleProgramTransportStreamPidMap_Auto_StartPid
+        /// <summary>
+        /// <para>
+        /// <para>The first PID in the range for automatic PID assignment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Processors_SingleProgramTransportStreamPidMap_Auto_StartPid { get; set; }
+        #endregion
+        
         #region Parameter SrtCaller_StreamId
         /// <summary>
         /// <para>
@@ -581,6 +737,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName { get; set; }
+        #endregion
+        
+        #region Parameter FabricConfiguration_SwitchingMode
+        /// <summary>
+        /// <para>
+        /// <para>The switching mode that the router output uses when it switches to a new router input.
+        /// Valid values include the following:</para><ul><li><para><c>IMMEDIATE</c> (default) – Switches to the new router input immediately.</para></li><li><para><c>KEY_FRAME</c> – Waits for a key frame on the new router input before it switches.</para></li></ul><para>If you specify it, it must match the switching configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.FabricSwitchingMode")]
+        public Amazon.MediaConnect.FabricSwitchingMode FabricConfiguration_SwitchingMode { get; set; }
         #endregion
         
         #region Parameter Tier
@@ -701,11 +869,29 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.SrtListener_MinimumLatencyMillisecond = this.SrtListener_MinimumLatencyMillisecond;
             context.SrtListener_Port = this.SrtListener_Port;
             context.FabricConfiguration_RecoveryLatencyMode = this.FabricConfiguration_RecoveryLatencyMode;
+            context.FabricConfiguration_SwitchingConfiguration_Immediate = this.FabricConfiguration_SwitchingConfiguration_Immediate;
+            context.FabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond = this.FabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond;
+            context.FabricConfiguration_SwitchingMode = this.FabricConfiguration_SwitchingMode;
             context.MaintenanceConfiguration_Default = this.MaintenanceConfiguration_Default;
             context.PreferredDayTime_Day = this.PreferredDayTime_Day;
             context.PreferredDayTime_Time = this.PreferredDayTime_Time;
             context.MaximumBitrate = this.MaximumBitrate;
             context.Name = this.Name;
+            context.Processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram = this.Processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram;
+            context.Processors_SingleProgramTransportStreamPidMap_Auto_StartPid = this.Processors_SingleProgramTransportStreamPidMap_Auto_StartPid;
+            context.Processors_SingleProgramTransportStreamPidMap_DefaultAction = this.Processors_SingleProgramTransportStreamPidMap_DefaultAction;
+            context.Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough = this.Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough;
+            context.Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set = this.Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set;
+            context.Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough = this.Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough;
+            context.Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set = this.Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set;
+            context.Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough = this.Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough;
+            context.Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set = this.Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set;
+            if (this.Processors_SingleProgramTransportStreamPidMap_Rule != null)
+            {
+                context.Processors_SingleProgramTransportStreamPidMap_Rule = new List<Amazon.MediaConnect.Model.PidMapRule>(this.Processors_SingleProgramTransportStreamPidMap_Rule);
+            }
+            context.Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough = this.Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough;
+            context.Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set = this.Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set;
             context.RoutingScope = this.RoutingScope;
             context.Tier = this.Tier;
             
@@ -1526,6 +1712,66 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 request.FabricConfiguration.RecoveryLatencyMode = requestFabricConfiguration_fabricConfiguration_RecoveryLatencyMode;
                 requestFabricConfigurationIsNull = false;
             }
+            Amazon.MediaConnect.FabricSwitchingMode requestFabricConfiguration_fabricConfiguration_SwitchingMode = null;
+            if (cmdletContext.FabricConfiguration_SwitchingMode != null)
+            {
+                requestFabricConfiguration_fabricConfiguration_SwitchingMode = cmdletContext.FabricConfiguration_SwitchingMode;
+            }
+            if (requestFabricConfiguration_fabricConfiguration_SwitchingMode != null)
+            {
+                request.FabricConfiguration.SwitchingMode = requestFabricConfiguration_fabricConfiguration_SwitchingMode;
+                requestFabricConfigurationIsNull = false;
+            }
+            Amazon.MediaConnect.Model.FabricSwitchingConfiguration requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration = null;
+            
+             // populate SwitchingConfiguration
+            var requestFabricConfiguration_fabricConfiguration_SwitchingConfigurationIsNull = true;
+            requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration = new Amazon.MediaConnect.Model.FabricSwitchingConfiguration();
+            Amazon.MediaConnect.Model.ImmediateFabricSwitchingConfiguration requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_Immediate = null;
+            if (cmdletContext.FabricConfiguration_SwitchingConfiguration_Immediate != null)
+            {
+                requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_Immediate = cmdletContext.FabricConfiguration_SwitchingConfiguration_Immediate;
+            }
+            if (requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_Immediate != null)
+            {
+                requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration.Immediate = requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_Immediate;
+                requestFabricConfiguration_fabricConfiguration_SwitchingConfigurationIsNull = false;
+            }
+            Amazon.MediaConnect.Model.KeyFrameFabricSwitchingConfiguration requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame = null;
+            
+             // populate KeyFrame
+            var requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrameIsNull = true;
+            requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame = new Amazon.MediaConnect.Model.KeyFrameFabricSwitchingConfiguration();
+            System.Int64? requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame_fabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond = null;
+            if (cmdletContext.FabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond != null)
+            {
+                requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame_fabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond = cmdletContext.FabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond.Value;
+            }
+            if (requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame_fabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond != null)
+            {
+                requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame.KeyFrameWaitMilliseconds = requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame_fabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond.Value;
+                requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrameIsNull = false;
+            }
+             // determine if requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame should be set to null
+            if (requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrameIsNull)
+            {
+                requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame = null;
+            }
+            if (requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame != null)
+            {
+                requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration.KeyFrame = requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration_fabricConfiguration_SwitchingConfiguration_KeyFrame;
+                requestFabricConfiguration_fabricConfiguration_SwitchingConfigurationIsNull = false;
+            }
+             // determine if requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration should be set to null
+            if (requestFabricConfiguration_fabricConfiguration_SwitchingConfigurationIsNull)
+            {
+                requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration = null;
+            }
+            if (requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration != null)
+            {
+                request.FabricConfiguration.SwitchingConfiguration = requestFabricConfiguration_fabricConfiguration_SwitchingConfiguration;
+                requestFabricConfigurationIsNull = false;
+            }
              // determine if request.FabricConfiguration should be set to null
             if (requestFabricConfigurationIsNull)
             {
@@ -1592,6 +1838,225 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate Processors
+            var requestProcessorsIsNull = true;
+            request.Processors = new Amazon.MediaConnect.Model.RouterOutputProcessors();
+            Amazon.MediaConnect.Model.SingleProgramTransportStreamPidMapConfiguration requestProcessors_processors_SingleProgramTransportStreamPidMap = null;
+            
+             // populate SingleProgramTransportStreamPidMap
+            var requestProcessors_processors_SingleProgramTransportStreamPidMapIsNull = true;
+            requestProcessors_processors_SingleProgramTransportStreamPidMap = new Amazon.MediaConnect.Model.SingleProgramTransportStreamPidMapConfiguration();
+            System.String requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_DefaultAction = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_DefaultAction != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_DefaultAction = cmdletContext.Processors_SingleProgramTransportStreamPidMap_DefaultAction;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_DefaultAction != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap.DefaultAction = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_DefaultAction;
+                requestProcessors_processors_SingleProgramTransportStreamPidMapIsNull = false;
+            }
+            List<Amazon.MediaConnect.Model.PidMapRule> requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Rule = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_Rule != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Rule = cmdletContext.Processors_SingleProgramTransportStreamPidMap_Rule;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Rule != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap.Rules = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Rule;
+                requestProcessors_processors_SingleProgramTransportStreamPidMapIsNull = false;
+            }
+            Amazon.MediaConnect.Model.AutoPidMapConfiguration requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto = null;
+            
+             // populate Auto
+            var requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_AutoIsNull = true;
+            requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto = new Amazon.MediaConnect.Model.AutoPidMapConfiguration();
+            System.Int32? requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto_processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto_processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram = cmdletContext.Processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram.Value;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto_processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto.PidsPerProgram = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto_processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram.Value;
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_AutoIsNull = false;
+            }
+            System.Int32? requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto_processors_SingleProgramTransportStreamPidMap_Auto_StartPid = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_Auto_StartPid != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto_processors_SingleProgramTransportStreamPidMap_Auto_StartPid = cmdletContext.Processors_SingleProgramTransportStreamPidMap_Auto_StartPid.Value;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto_processors_SingleProgramTransportStreamPidMap_Auto_StartPid != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto.StartPid = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto_processors_SingleProgramTransportStreamPidMap_Auto_StartPid.Value;
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_AutoIsNull = false;
+            }
+             // determine if requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto should be set to null
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_AutoIsNull)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto = null;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap.Auto = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_Auto;
+                requestProcessors_processors_SingleProgramTransportStreamPidMapIsNull = false;
+            }
+            Amazon.MediaConnect.Model.ProgramClockReferencePidConfiguration requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid = null;
+            
+             // populate ProgramClockReferencePid
+            var requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePidIsNull = true;
+            requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid = new Amazon.MediaConnect.Model.ProgramClockReferencePidConfiguration();
+            Amazon.MediaConnect.Model.Passthrough requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough = cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid.Passthrough = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough;
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePidIsNull = false;
+            }
+            System.Int32? requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set = cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set.Value;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid.Set = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set.Value;
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePidIsNull = false;
+            }
+             // determine if requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid should be set to null
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePidIsNull)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid = null;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap.ProgramClockReferencePid = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid;
+                requestProcessors_processors_SingleProgramTransportStreamPidMapIsNull = false;
+            }
+            Amazon.MediaConnect.Model.ProgramMapTablePidConfiguration requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid = null;
+            
+             // populate ProgramMapTablePid
+            var requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePidIsNull = true;
+            requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid = new Amazon.MediaConnect.Model.ProgramMapTablePidConfiguration();
+            Amazon.MediaConnect.Model.Passthrough requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough = cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid.Passthrough = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough;
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePidIsNull = false;
+            }
+            System.Int32? requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set = cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set.Value;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid.Set = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set.Value;
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePidIsNull = false;
+            }
+             // determine if requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid should be set to null
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePidIsNull)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid = null;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap.ProgramMapTablePid = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid;
+                requestProcessors_processors_SingleProgramTransportStreamPidMapIsNull = false;
+            }
+            Amazon.MediaConnect.Model.ProgramNumberConfiguration requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber = null;
+            
+             // populate ProgramNumber
+            var requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumberIsNull = true;
+            requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber = new Amazon.MediaConnect.Model.ProgramNumberConfiguration();
+            Amazon.MediaConnect.Model.Passthrough requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber_processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber_processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough = cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber_processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber.Passthrough = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber_processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough;
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumberIsNull = false;
+            }
+            System.Int32? requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber_processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber_processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set = cmdletContext.Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set.Value;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber_processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber.Set = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber_processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set.Value;
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumberIsNull = false;
+            }
+             // determine if requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber should be set to null
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumberIsNull)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber = null;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap.ProgramNumber = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_ProgramNumber;
+                requestProcessors_processors_SingleProgramTransportStreamPidMapIsNull = false;
+            }
+            Amazon.MediaConnect.Model.TransportStreamIdConfiguration requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId = null;
+            
+             // populate TransportStreamId
+            var requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamIdIsNull = true;
+            requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId = new Amazon.MediaConnect.Model.TransportStreamIdConfiguration();
+            Amazon.MediaConnect.Model.Passthrough requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId_processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId_processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough = cmdletContext.Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId_processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId.Passthrough = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId_processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough;
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamIdIsNull = false;
+            }
+            System.Int32? requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId_processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set = null;
+            if (cmdletContext.Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId_processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set = cmdletContext.Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set.Value;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId_processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId.Set = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId_processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set.Value;
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamIdIsNull = false;
+            }
+             // determine if requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId should be set to null
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamIdIsNull)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId = null;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId != null)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap.TransportStreamId = requestProcessors_processors_SingleProgramTransportStreamPidMap_processors_SingleProgramTransportStreamPidMap_TransportStreamId;
+                requestProcessors_processors_SingleProgramTransportStreamPidMapIsNull = false;
+            }
+             // determine if requestProcessors_processors_SingleProgramTransportStreamPidMap should be set to null
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMapIsNull)
+            {
+                requestProcessors_processors_SingleProgramTransportStreamPidMap = null;
+            }
+            if (requestProcessors_processors_SingleProgramTransportStreamPidMap != null)
+            {
+                request.Processors.SingleProgramTransportStreamPidMap = requestProcessors_processors_SingleProgramTransportStreamPidMap;
+                requestProcessorsIsNull = false;
+            }
+             // determine if request.Processors should be set to null
+            if (requestProcessorsIsNull)
+            {
+                request.Processors = null;
             }
             if (cmdletContext.RoutingScope != null)
             {
@@ -1698,11 +2163,26 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int64? SrtListener_MinimumLatencyMillisecond { get; set; }
             public System.Int32? SrtListener_Port { get; set; }
             public Amazon.MediaConnect.FabricLatencyMode FabricConfiguration_RecoveryLatencyMode { get; set; }
+            public Amazon.MediaConnect.Model.ImmediateFabricSwitchingConfiguration FabricConfiguration_SwitchingConfiguration_Immediate { get; set; }
+            public System.Int64? FabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond { get; set; }
+            public Amazon.MediaConnect.FabricSwitchingMode FabricConfiguration_SwitchingMode { get; set; }
             public Amazon.MediaConnect.Model.DefaultMaintenanceConfiguration MaintenanceConfiguration_Default { get; set; }
             public Amazon.MediaConnect.Day PreferredDayTime_Day { get; set; }
             public System.String PreferredDayTime_Time { get; set; }
             public System.Int64? MaximumBitrate { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? Processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram { get; set; }
+            public System.Int32? Processors_SingleProgramTransportStreamPidMap_Auto_StartPid { get; set; }
+            public System.String Processors_SingleProgramTransportStreamPidMap_DefaultAction { get; set; }
+            public Amazon.MediaConnect.Model.Passthrough Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough { get; set; }
+            public System.Int32? Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set { get; set; }
+            public Amazon.MediaConnect.Model.Passthrough Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough { get; set; }
+            public System.Int32? Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set { get; set; }
+            public Amazon.MediaConnect.Model.Passthrough Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough { get; set; }
+            public System.Int32? Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set { get; set; }
+            public List<Amazon.MediaConnect.Model.PidMapRule> Processors_SingleProgramTransportStreamPidMap_Rule { get; set; }
+            public Amazon.MediaConnect.Model.Passthrough Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough { get; set; }
+            public System.Int32? Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set { get; set; }
             public Amazon.MediaConnect.RoutingScope RoutingScope { get; set; }
             public Amazon.MediaConnect.RouterOutputTier Tier { get; set; }
             public System.Func<Amazon.MediaConnect.Model.UpdateRouterOutputResponse, UpdateEMCNRouterOutputCmdlet, object> Select { get; set; } =

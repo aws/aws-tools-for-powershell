@@ -144,7 +144,7 @@ $AS_Completers = {
         # Amazon.AutoScaling.MetricType
         "Write-ASScalingPolicy/PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "ALBRequestCountPerTarget","ASGAverageCPUUtilization","ASGAverageNetworkIn","ASGAverageNetworkOut"
+            $v = "ALBRequestCountPerTarget","ASGAverageCPUUtilization","ASGAverageCPUUtilizationHighResolution","ASGAverageNetworkIn","ASGAverageNetworkOut"
             break
         }
 

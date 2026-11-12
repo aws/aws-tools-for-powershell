@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The filters.</para><ul><li><para><c>account-id</c> - A 12-digit Amazon Web Services account ID.</para></li><li><para><c>creation-time</c> - The time when the report was created, in the ISO 8601 format
         /// in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <c>2025-11-29T11:04:43.305Z</c>.
         /// You can use a wildcard (<c>*</c>), for example, <c>2025-11-29T*</c>, which matches
-        /// an entire day.</para></li><li><para><c>resource-type</c> - The resource type (<c>ec2:Instance</c> | <c>ec2:LaunchTemplate</c>).</para></li></ul><para />
+        /// an entire day.</para></li><li><para><c>resource-type</c> - The resource type (<c>ec2:Instance</c> | <c>ec2:LaunchTemplate</c>
+        /// | <c>imagebuilder:ImageRecipe</c> | <c>imagebuilder:ContainerRecipe</c>).</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

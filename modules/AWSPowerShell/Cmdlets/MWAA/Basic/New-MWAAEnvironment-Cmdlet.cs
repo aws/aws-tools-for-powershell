@@ -204,6 +204,17 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterConfiguration_IdentityStoreId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the identity store associated with the IAM Identity Center instance
+        /// for your environment. For example, <c>d-1234567890</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterConfiguration_IdentityStoreId { get; set; }
+        #endregion
+        
         #region Parameter KmsKey
         /// <summary>
         /// <para>
@@ -492,6 +503,17 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         public System.String StartupScriptS3Path { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterConfiguration_StartUrl
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services access portal URL of the IAM Identity Center instance associated
+        /// with your environment. For example, <c>https://my-portal.awsapps.com/start</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterConfiguration_StartUrl { get; set; }
+        #endregion
+        
         #region Parameter NetworkConfiguration_SubnetId
         /// <summary>
         /// <para>
@@ -525,6 +547,28 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Team
+        /// <summary>
+        /// <para>
+        /// <para>A map of teams to configure for Apache Airflow multi-team support on your Amazon MWAA
+        /// environment. Each entry maps a team name to a object that defines the Amazon S3 location
+        /// of that team's DAG code. The team name must match the display name of an Amazon Web
+        /// Services IAM Identity Center group that you associate with your environment, so you
+        /// must configure IAM Identity Center for the environment before you add teams. You can
+        /// configure between <c>1</c> and <c>20</c> teams. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/multi-team-environments.html">Apache
+        /// Airflow multi-team environments</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Teams")]
+        public System.Collections.Hashtable Team { get; set; }
         #endregion
         
         #region Parameter WebserverAccessMode
@@ -626,6 +670,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
                 WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IdentityCenterConfiguration_IdentityStoreId = this.IdentityCenterConfiguration_IdentityStoreId;
+            context.IdentityCenterConfiguration_StartUrl = this.IdentityCenterConfiguration_StartUrl;
             context.KmsKey = this.KmsKey;
             context.DagProcessingLogs_Enabled = this.DagProcessingLogs_Enabled;
             context.DagProcessingLogs_LogLevel = this.DagProcessingLogs_LogLevel;
@@ -678,6 +724,14 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            if (this.Team != null)
+            {
+                context.Team = new Dictionary<System.String, Amazon.MWAA.Model.TeamConfig>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Team.Keys)
+                {
+                    context.Team.Add((String)hashKey, (Amazon.MWAA.Model.TeamConfig)(this.Team[hashKey]));
+                }
+            }
             context.WebserverAccessMode = this.WebserverAccessMode;
             context.WeeklyMaintenanceWindowStart = this.WeeklyMaintenanceWindowStart;
             
@@ -719,6 +773,35 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             if (cmdletContext.ExecutionRoleArn != null)
             {
                 request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
+            }
+            
+             // populate IdentityCenterConfiguration
+            var requestIdentityCenterConfigurationIsNull = true;
+            request.IdentityCenterConfiguration = new Amazon.MWAA.Model.IdentityCenterConfiguration();
+            System.String requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityStoreId = null;
+            if (cmdletContext.IdentityCenterConfiguration_IdentityStoreId != null)
+            {
+                requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityStoreId = cmdletContext.IdentityCenterConfiguration_IdentityStoreId;
+            }
+            if (requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityStoreId != null)
+            {
+                request.IdentityCenterConfiguration.IdentityStoreId = requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityStoreId;
+                requestIdentityCenterConfigurationIsNull = false;
+            }
+            System.String requestIdentityCenterConfiguration_identityCenterConfiguration_StartUrl = null;
+            if (cmdletContext.IdentityCenterConfiguration_StartUrl != null)
+            {
+                requestIdentityCenterConfiguration_identityCenterConfiguration_StartUrl = cmdletContext.IdentityCenterConfiguration_StartUrl;
+            }
+            if (requestIdentityCenterConfiguration_identityCenterConfiguration_StartUrl != null)
+            {
+                request.IdentityCenterConfiguration.StartUrl = requestIdentityCenterConfiguration_identityCenterConfiguration_StartUrl;
+                requestIdentityCenterConfigurationIsNull = false;
+            }
+             // determine if request.IdentityCenterConfiguration should be set to null
+            if (requestIdentityCenterConfigurationIsNull)
+            {
+                request.IdentityCenterConfiguration = null;
             }
             if (cmdletContext.KmsKey != null)
             {
@@ -993,6 +1076,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.Team != null)
+            {
+                request.Teams = cmdletContext.Team;
+            }
             if (cmdletContext.WebserverAccessMode != null)
             {
                 request.WebserverAccessMode = cmdletContext.WebserverAccessMode;
@@ -1062,6 +1149,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             public Amazon.MWAA.EndpointManagement EndpointManagement { get; set; }
             public System.String EnvironmentClass { get; set; }
             public System.String ExecutionRoleArn { get; set; }
+            public System.String IdentityCenterConfiguration_IdentityStoreId { get; set; }
+            public System.String IdentityCenterConfiguration_StartUrl { get; set; }
             public System.String KmsKey { get; set; }
             public System.Boolean? DagProcessingLogs_Enabled { get; set; }
             public Amazon.MWAA.LoggingLevel DagProcessingLogs_LogLevel { get; set; }
@@ -1089,6 +1178,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             public System.String StartupScriptS3ObjectVersion { get; set; }
             public System.String StartupScriptS3Path { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public Dictionary<System.String, Amazon.MWAA.Model.TeamConfig> Team { get; set; }
             public Amazon.MWAA.WebserverAccessMode WebserverAccessMode { get; set; }
             public System.String WeeklyMaintenanceWindowStart { get; set; }
             public System.Func<Amazon.MWAA.Model.CreateEnvironmentResponse, NewMWAAEnvironmentCmdlet, object> Select { get; set; } =

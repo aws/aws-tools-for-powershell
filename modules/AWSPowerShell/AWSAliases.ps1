@@ -11871,6 +11871,8 @@ Set-Alias -Name Create-EC2MacSystemIntegrityProtectionModificationTask -Value Ne
 Set-Alias -Name EC2-CreateMacSystemIntegrityProtectionModificationTask -Value New-EC2MacSystemIntegrityProtectionModificationTask
 Set-Alias -Name Create-EC2ManagedPrefixList -Value New-EC2ManagedPrefixList
 Set-Alias -Name EC2-CreateManagedPrefixList -Value New-EC2ManagedPrefixList
+Set-Alias -Name Create-EC2MetricCategory -Value New-EC2MetricCategory
+Set-Alias -Name EC2-CreateMetricCategory -Value New-EC2MetricCategory
 Set-Alias -Name Create-EC2NatGateway -Value New-EC2NatGateway
 Set-Alias -Name EC2-CreateNatGateway -Value New-EC2NatGateway
 Set-Alias -Name Create-EC2NetworkAcl -Value New-EC2NetworkAcl
@@ -12075,6 +12077,8 @@ Set-Alias -Name Delete-EC2LocalGatewayVirtualInterfaceGroup -Value Remove-EC2Loc
 Set-Alias -Name EC2-DeleteLocalGatewayVirtualInterfaceGroup -Value Remove-EC2LocalGatewayVirtualInterfaceGroup
 Set-Alias -Name Delete-EC2ManagedPrefixList -Value Remove-EC2ManagedPrefixList
 Set-Alias -Name EC2-DeleteManagedPrefixList -Value Remove-EC2ManagedPrefixList
+Set-Alias -Name Delete-EC2MetricCategory -Value Remove-EC2MetricCategory
+Set-Alias -Name EC2-DeleteMetricCategory -Value Remove-EC2MetricCategory
 Set-Alias -Name Delete-EC2NatGateway -Value Remove-EC2NatGateway
 Set-Alias -Name EC2-DeleteNatGateway -Value Remove-EC2NatGateway
 Set-Alias -Name Delete-EC2NetworkAcl -Value Remove-EC2NetworkAcl
@@ -12507,6 +12511,9 @@ Set-Alias -Name EC2-DescribeMacModificationTasks -Value Get-EC2MacModificationTa
 Set-Alias -Name Describe-EC2ManagedPrefixLists -Value Get-EC2ManagedPrefixList
 Set-Alias -Name Describe-EC2ManagedPrefixList -Value Get-EC2ManagedPrefixList
 Set-Alias -Name EC2-DescribeManagedPrefixLists -Value Get-EC2ManagedPrefixList
+Set-Alias -Name Describe-EC2MetricCategories -Value Get-EC2MetricCategoryDetail
+Set-Alias -Name Describe-EC2MetricCategoryDetail -Value Get-EC2MetricCategoryDetail
+Set-Alias -Name EC2-DescribeMetricCategories -Value Get-EC2MetricCategoryDetail
 Set-Alias -Name Describe-EC2MovingAddresses -Value Get-EC2MovingAddress
 Set-Alias -Name Describe-EC2MovingAddress -Value Get-EC2MovingAddress
 Set-Alias -Name EC2-DescribeMovingAddresses -Value Get-EC2MovingAddress
@@ -13109,6 +13116,8 @@ Set-Alias -Name Modify-EC2ManagedPrefixList -Value Edit-EC2ManagedPrefixList
 Set-Alias -Name EC2-ModifyManagedPrefixList -Value Edit-EC2ManagedPrefixList
 Set-Alias -Name Modify-EC2ManagedResourceVisibility -Value Edit-EC2ManagedResourceVisibility
 Set-Alias -Name EC2-ModifyManagedResourceVisibility -Value Edit-EC2ManagedResourceVisibility
+Set-Alias -Name Modify-EC2MetricCategory -Value Edit-EC2MetricCategory
+Set-Alias -Name EC2-ModifyMetricCategory -Value Edit-EC2MetricCategory
 Set-Alias -Name Modify-EC2NetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
 Set-Alias -Name EC2-ModifyNetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
 Set-Alias -Name Modify-EC2PrivateDnsNameOptions -Value Edit-EC2PrivateDnsNameOption
@@ -17395,6 +17404,9 @@ Set-Alias -Name GD-ListFilters -Value Get-GDFilterList
 Set-Alias -Name List-GDFindings -Value Get-GDFindingList
 Set-Alias -Name List-GDFindingList -Value Get-GDFindingList
 Set-Alias -Name GD-ListFindings -Value Get-GDFindingList
+Set-Alias -Name List-GDInvestigationRecords -Value Get-GDInvestigationRecordList
+Set-Alias -Name List-GDInvestigationRecordList -Value Get-GDInvestigationRecordList
+Set-Alias -Name GD-ListInvestigationRecords -Value Get-GDInvestigationRecordList
 Set-Alias -Name List-GDInvestigations -Value Get-GDInvestigationList
 Set-Alias -Name List-GDInvestigationList -Value Get-GDInvestigationList
 Set-Alias -Name GD-ListInvestigations -Value Get-GDInvestigationList
@@ -21458,6 +21470,8 @@ Set-Alias -Name Attach-LSLoadBalancerTlsCertificate -Value Add-LSLoadBalancerTls
 Set-Alias -Name LS-AttachLoadBalancerTlsCertificate -Value Add-LSLoadBalancerTlsCertificate
 Set-Alias -Name Attach-LSStaticIp -Value Mount-LSStaticIp
 Set-Alias -Name LS-AttachStaticIp -Value Mount-LSStaticIp
+Set-Alias -Name Check-LSSubdomainAvailability -Value Test-LSSubdomainAvailability
+Set-Alias -Name LS-CheckSubdomainAvailability -Value Test-LSSubdomainAvailability
 Set-Alias -Name Close-LSInstancePublicPorts -Value Close-LSInstancePublicPort
 Set-Alias -Name LS-CloseInstancePublicPorts -Value Close-LSInstancePublicPort
 Set-Alias -Name LS-CopySnapshot -Value Copy-LSSnapshot
@@ -21511,6 +21525,8 @@ Set-Alias -Name Create-LSRelationalDatabaseFromSnapshot -Value New-LSRelationalD
 Set-Alias -Name LS-CreateRelationalDatabaseFromSnapshot -Value New-LSRelationalDatabaseFromSnapshot
 Set-Alias -Name Create-LSRelationalDatabaseSnapshot -Value New-LSRelationalDatabaseSnapshot
 Set-Alias -Name LS-CreateRelationalDatabaseSnapshot -Value New-LSRelationalDatabaseSnapshot
+Set-Alias -Name Create-LSSubdomain -Value New-LSSubdomain
+Set-Alias -Name LS-CreateSubdomain -Value New-LSSubdomain
 Set-Alias -Name Delete-LSAlarm -Value Remove-LSAlarm
 Set-Alias -Name LS-DeleteAlarm -Value Remove-LSAlarm
 Set-Alias -Name Delete-LSAutoSnapshot -Value Remove-LSAutoSnapshot
@@ -21554,6 +21570,8 @@ Set-Alias -Name Delete-LSRelationalDatabase -Value Remove-LSRelationalDatabase
 Set-Alias -Name LS-DeleteRelationalDatabase -Value Remove-LSRelationalDatabase
 Set-Alias -Name Delete-LSRelationalDatabaseSnapshot -Value Remove-LSRelationalDatabaseSnapshot
 Set-Alias -Name LS-DeleteRelationalDatabaseSnapshot -Value Remove-LSRelationalDatabaseSnapshot
+Set-Alias -Name Delete-LSSubdomain -Value Remove-LSSubdomain
+Set-Alias -Name LS-DeleteSubdomain -Value Remove-LSSubdomain
 Set-Alias -Name Detach-LSCertificateFromDistribution -Value Dismount-LSCertificateFromDistribution
 Set-Alias -Name LS-DetachCertificateFromDistribution -Value Dismount-LSCertificateFromDistribution
 Set-Alias -Name Detach-LSDisk -Value Dismount-LSDisk
@@ -21675,6 +21693,8 @@ Set-Alias -Name LS-GetSetupHistory -Value Get-LSSetupHistory
 Set-Alias -Name LS-GetStaticIp -Value Get-LSStaticIp
 Set-Alias -Name Get-LSStaticIps -Value Get-LSStaticIpList
 Set-Alias -Name LS-GetStaticIps -Value Get-LSStaticIpList
+Set-Alias -Name Get-LSSubdomains -Value Get-LSSubdomain
+Set-Alias -Name LS-GetSubdomains -Value Get-LSSubdomain
 Set-Alias -Name LS-ImportKeyPair -Value Import-LSKeyPair
 Set-Alias -Name Is-LSVpcPeered -Value Test-LSVpcPeered
 Set-Alias -Name LS-IsVpcPeered -Value Test-LSVpcPeered
@@ -21726,6 +21746,7 @@ Set-Alias -Name LS-UpdateLoadBalancerAttribute -Value Update-LSLoadBalancerAttri
 Set-Alias -Name LS-UpdateRelationalDatabase -Value Update-LSRelationalDatabase
 Set-Alias -Name Update-LSRelationalDatabaseParameters -Value Update-LSRelationalDatabaseParameter
 Set-Alias -Name LS-UpdateRelationalDatabaseParameters -Value Update-LSRelationalDatabaseParameter
+Set-Alias -Name LS-UpdateSubdomainAssociation -Value Update-LSSubdomainAssociation
 Set-Alias -Name Associate-LOCTrackerConsumer -Value Register-LOCTrackerConsumer
 Set-Alias -Name LOC-AssociateTrackerConsumer -Value Register-LOCTrackerConsumer
 Set-Alias -Name Delete-LOCDevicePositionHistory -Value Remove-LOCDevicePositionHistoryBatch
@@ -24193,6 +24214,8 @@ Set-Alias -Name CW-DeleteDashboards -Value Remove-CWDashboard
 Set-Alias -Name Delete-CWInsightRules -Value Remove-CWInsightRule
 Set-Alias -Name Delete-CWInsightRule -Value Remove-CWInsightRule
 Set-Alias -Name CW-DeleteInsightRules -Value Remove-CWInsightRule
+Set-Alias -Name Delete-CWMetricDataQueryDefinition -Value Remove-CWMetricDataQueryDefinition
+Set-Alias -Name CW-DeleteMetricDataQueryDefinition -Value Remove-CWMetricDataQueryDefinition
 Set-Alias -Name Delete-CWMetricStream -Value Remove-CWMetricStream
 Set-Alias -Name CW-DeleteMetricStream -Value Remove-CWMetricStream
 Set-Alias -Name Delete-CWResourceMetricsConfiguration -Value Remove-CWResourceMetricsConfiguration
@@ -24229,6 +24252,7 @@ Set-Alias -Name CW-GetDashboard -Value Get-CWDashboard
 Set-Alias -Name CW-GetDataset -Value Get-CWDataset
 Set-Alias -Name CW-GetInsightRuleReport -Value Get-CWInsightRuleReport
 Set-Alias -Name CW-GetMetricData -Value Get-CWMetricData
+Set-Alias -Name CW-GetMetricDataQueryDefinition -Value Get-CWMetricDataQueryDefinition
 Set-Alias -Name Get-CWMetricStatistics -Value Get-CWMetricStatistic
 Set-Alias -Name CW-GetMetricStatistics -Value Get-CWMetricStatistic
 Set-Alias -Name CW-GetMetricStream -Value Get-CWMetricStream
@@ -24244,6 +24268,9 @@ Set-Alias -Name CW-ListDashboards -Value Get-CWDashboardList
 Set-Alias -Name List-CWManagedInsightRules -Value Get-CWManagedInsightRule
 Set-Alias -Name List-CWManagedInsightRule -Value Get-CWManagedInsightRule
 Set-Alias -Name CW-ListManagedInsightRules -Value Get-CWManagedInsightRule
+Set-Alias -Name List-CWMetricDataQueryDefinitions -Value Get-CWMetricDataQueryDefinitionList
+Set-Alias -Name List-CWMetricDataQueryDefinitionList -Value Get-CWMetricDataQueryDefinitionList
+Set-Alias -Name CW-ListMetricDataQueryDefinitions -Value Get-CWMetricDataQueryDefinitionList
 Set-Alias -Name List-CWMetrics -Value Get-CWMetricList
 Set-Alias -Name List-CWMetricList -Value Get-CWMetricList
 Set-Alias -Name CW-ListMetrics -Value Get-CWMetricList
@@ -24270,6 +24297,8 @@ Set-Alias -Name Put-CWMetricAlarm -Value Write-CWMetricAlarm
 Set-Alias -Name CW-PutMetricAlarm -Value Write-CWMetricAlarm
 Set-Alias -Name Put-CWMetricData -Value Write-CWMetricData
 Set-Alias -Name CW-PutMetricData -Value Write-CWMetricData
+Set-Alias -Name Put-CWMetricDataQueryDefinition -Value Write-CWMetricDataQueryDefinition
+Set-Alias -Name CW-PutMetricDataQueryDefinition -Value Write-CWMetricDataQueryDefinition
 Set-Alias -Name Put-CWMetricStream -Value Write-CWMetricStream
 Set-Alias -Name CW-PutMetricStream -Value Write-CWMetricStream
 Set-Alias -Name CW-SetAlarmState -Value Set-CWAlarmState
@@ -24474,6 +24503,8 @@ Set-Alias -Name MWAA-PublishMetrics -Value Publish-MWAAMetric
 Set-Alias -Name MWAA-TagResource -Value Add-MWAAResourceTag
 Set-Alias -Name MWAA-UntagResource -Value Remove-MWAAResourceTag
 Set-Alias -Name MWAA-UpdateEnvironment -Value Update-MWAAEnvironment
+Set-Alias -Name Create-MWAASAirflowUiUrl -Value New-MWAASAirflowUiUrl
+Set-Alias -Name MWAAS-CreateAirflowUiUrl -Value New-MWAASAirflowUiUrl
 Set-Alias -Name Create-MWAASWorkflow -Value New-MWAASWorkflow
 Set-Alias -Name MWAAS-CreateWorkflow -Value New-MWAASWorkflow
 Set-Alias -Name Delete-MWAASWorkflow -Value Remove-MWAASWorkflow
@@ -25530,6 +25561,8 @@ Set-Alias -Name Accept-ODBMarketplaceRegistration -Value Approve-ODBMarketplaceR
 Set-Alias -Name ODB-AcceptMarketplaceRegistration -Value Approve-ODBMarketplaceRegistration
 Set-Alias -Name Associate-ODBIamRoleToResource -Value Add-ODBIamRoleToResource
 Set-Alias -Name ODB-AssociateIamRoleToResource -Value Add-ODBIamRoleToResource
+Set-Alias -Name Associate-ODBVirtualMachinesToCloudVmCluster -Value Add-ODBVirtualMachinesToCloudVmCluster
+Set-Alias -Name ODB-AssociateVirtualMachinesToCloudVmCluster -Value Add-ODBVirtualMachinesToCloudVmCluster
 Set-Alias -Name Associate-ODBVirtualMachinesToExadbVmCluster -Value Add-ODBVirtualMachinesToExadbVmCluster
 Set-Alias -Name ODB-AssociateVirtualMachinesToExadbVmCluster -Value Add-ODBVirtualMachinesToExadbVmCluster
 Set-Alias -Name Create-ODBAutonomousDatabase -Value New-ODBAutonomousDatabase
@@ -25572,6 +25605,8 @@ Set-Alias -Name Delete-ODBOdbPeeringConnection -Value Remove-ODBOdbPeeringConnec
 Set-Alias -Name ODB-DeleteOdbPeeringConnection -Value Remove-ODBOdbPeeringConnection
 Set-Alias -Name Disassociate-ODBIamRoleFromResource -Value Remove-ODBIamRoleFromResource
 Set-Alias -Name ODB-DisassociateIamRoleFromResource -Value Remove-ODBIamRoleFromResource
+Set-Alias -Name Disassociate-ODBVirtualMachinesFromCloudVmCluster -Value Remove-ODBVirtualMachinesFromCloudVmCluster
+Set-Alias -Name ODB-DisassociateVirtualMachinesFromCloudVmCluster -Value Remove-ODBVirtualMachinesFromCloudVmCluster
 Set-Alias -Name Disassociate-ODBVirtualMachinesFromExadbVmCluster -Value Remove-ODBVirtualMachinesFromExadbVmCluster
 Set-Alias -Name ODB-DisassociateVirtualMachinesFromExadbVmCluster -Value Remove-ODBVirtualMachinesFromExadbVmCluster
 Set-Alias -Name Failover-ODBAutonomousDatabase -Value Start-ODBAutonomousDatabaseFailover
@@ -25677,7 +25712,10 @@ Set-Alias -Name ODB-TagResource -Value Add-ODBResourceTag
 Set-Alias -Name ODB-UntagResource -Value Remove-ODBResourceTag
 Set-Alias -Name ODB-UpdateAutonomousDatabase -Value Update-ODBAutonomousDatabase
 Set-Alias -Name ODB-UpdateAutonomousDatabaseBackup -Value Update-ODBAutonomousDatabaseBackup
+Set-Alias -Name ODB-UpdateCloudAutonomousVmCluster -Value Update-ODBCloudAutonomousVmCluster
 Set-Alias -Name ODB-UpdateCloudExadataInfrastructure -Value Update-ODBCloudExadataInfrastructure
+Set-Alias -Name ODB-UpdateCloudExadataInfrastructureStorageCapacity -Value Update-ODBCloudExadataInfrastructureStorageCapacity
+Set-Alias -Name ODB-UpdateCloudVmCluster -Value Update-ODBCloudVmCluster
 Set-Alias -Name ODB-UpdateExadbVmCluster -Value Update-ODBExadbVmCluster
 Set-Alias -Name ODB-UpdateExascaleCloudExadataInfrastructure -Value Update-ODBExascaleCloudExadataInfrastructure
 Set-Alias -Name ODB-UpdateExascaleDbStorageVault -Value Update-ODBExascaleDbStorageVault
@@ -30629,6 +30667,9 @@ Set-Alias -Name Create-R53KeySigningKey -Value New-R53KeySigningKey
 Set-Alias -Name R53-CreateKeySigningKey -Value New-R53KeySigningKey
 Set-Alias -Name Create-R53QueryLoggingConfig -Value New-R53QueryLoggingConfig
 Set-Alias -Name R53-CreateQueryLoggingConfig -Value New-R53QueryLoggingConfig
+Set-Alias -Name Create-R53ResourceRecordSetProtections -Value New-R53ResourceRecordSetProtection
+Set-Alias -Name Create-R53ResourceRecordSetProtection -Value New-R53ResourceRecordSetProtection
+Set-Alias -Name R53-CreateResourceRecordSetProtections -Value New-R53ResourceRecordSetProtection
 Set-Alias -Name Create-R53ReusableDelegationSet -Value New-R53ReusableDelegationSet
 Set-Alias -Name R53-CreateReusableDelegationSet -Value New-R53ReusableDelegationSet
 Set-Alias -Name Create-R53TrafficPolicy -Value New-R53TrafficPolicy
@@ -30651,6 +30692,9 @@ Set-Alias -Name Delete-R53KeySigningKey -Value Remove-R53KeySigningKey
 Set-Alias -Name R53-DeleteKeySigningKey -Value Remove-R53KeySigningKey
 Set-Alias -Name Delete-R53QueryLoggingConfig -Value Remove-R53QueryLoggingConfig
 Set-Alias -Name R53-DeleteQueryLoggingConfig -Value Remove-R53QueryLoggingConfig
+Set-Alias -Name Delete-R53ResourceRecordSetProtections -Value Remove-R53ResourceRecordSetProtection
+Set-Alias -Name Delete-R53ResourceRecordSetProtection -Value Remove-R53ResourceRecordSetProtection
+Set-Alias -Name R53-DeleteResourceRecordSetProtections -Value Remove-R53ResourceRecordSetProtection
 Set-Alias -Name Delete-R53ReusableDelegationSet -Value Remove-R53ReusableDelegationSet
 Set-Alias -Name R53-DeleteReusableDelegationSet -Value Remove-R53ReusableDelegationSet
 Set-Alias -Name Delete-R53TrafficPolicy -Value Remove-R53TrafficPolicy
@@ -30705,6 +30749,9 @@ Set-Alias -Name R53-ListHostedZonesByVPC -Value Get-R53HostedZonesByVPC
 Set-Alias -Name List-R53QueryLoggingConfigs -Value Get-R53QueryLoggingConfigList
 Set-Alias -Name List-R53QueryLoggingConfigList -Value Get-R53QueryLoggingConfigList
 Set-Alias -Name R53-ListQueryLoggingConfigs -Value Get-R53QueryLoggingConfigList
+Set-Alias -Name List-R53ResourceRecordSetProtections -Value Get-R53ResourceRecordSetProtectionList
+Set-Alias -Name List-R53ResourceRecordSetProtectionList -Value Get-R53ResourceRecordSetProtectionList
+Set-Alias -Name R53-ListResourceRecordSetProtections -Value Get-R53ResourceRecordSetProtectionList
 Set-Alias -Name List-R53ResourceRecordSets -Value Get-R53ResourceRecordSet
 Set-Alias -Name List-R53ResourceRecordSet -Value Get-R53ResourceRecordSet
 Set-Alias -Name R53-ListResourceRecordSets -Value Get-R53ResourceRecordSet
@@ -32605,6 +32652,8 @@ Set-Alias -Name SCHM-UntagResource -Value Remove-SCHMResourceTag
 Set-Alias -Name SCHM-UpdateDiscoverer -Value Update-SCHMDiscoverer
 Set-Alias -Name SCHM-UpdateRegistry -Value Update-SCHMRegistry
 Set-Alias -Name SCHM-UpdateSchema -Value Update-SCHMSchema
+Set-Alias -Name Associate-SECCrossAccountReplica -Value Add-SECCrossAccountReplica
+Set-Alias -Name SEC-AssociateCrossAccountReplica -Value Add-SECCrossAccountReplica
 Set-Alias -Name Get-SECSecretValue -Value Get-SECBatchSecretValue
 Set-Alias -Name SEC-BatchGetSecretValue -Value Get-SECBatchSecretValue
 Set-Alias -Name Cancel-SECRotateSecret -Value Stop-SECSecretRotation
@@ -32618,9 +32667,14 @@ Set-Alias -Name Delete-SECSecret -Value Remove-SECSecret
 Set-Alias -Name SEC-DeleteSecret -Value Remove-SECSecret
 Set-Alias -Name Describe-SECSecret -Value Get-SECSecret
 Set-Alias -Name SEC-DescribeSecret -Value Get-SECSecret
+Set-Alias -Name Disassociate-SECCrossAccountReplica -Value Remove-SECCrossAccountReplica
+Set-Alias -Name SEC-DisassociateCrossAccountReplica -Value Remove-SECCrossAccountReplica
 Set-Alias -Name SEC-GetRandomPassword -Value Get-SECRandomPassword
 Set-Alias -Name SEC-GetResourcePolicy -Value Get-SECResourcePolicy
 Set-Alias -Name SEC-GetSecretValue -Value Get-SECSecretValue
+Set-Alias -Name List-SECResourcePolicies -Value Get-SECResourcePolicyList
+Set-Alias -Name List-SECResourcePolicyList -Value Get-SECResourcePolicyList
+Set-Alias -Name SEC-ListResourcePolicies -Value Get-SECResourcePolicyList
 Set-Alias -Name List-SECSecrets -Value Get-SECSecretList
 Set-Alias -Name List-SECSecretList -Value Get-SECSecretList
 Set-Alias -Name SEC-ListSecrets -Value Get-SECSecretList

@@ -353,10 +353,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PredefinedMetricSpecification_PredefinedMetricType
         /// <summary>
         /// <para>
-        /// <para>The metric type. The following predefined metrics are available:</para><ul><li><para><c>ASGAverageCPUUtilization</c> - Average CPU utilization of the Auto Scaling group.</para></li><li><para><c>ASGAverageNetworkIn</c> - Average number of bytes received on all network interfaces
+        /// <para>The metric type. The following predefined metrics are available:</para><ul><li><para><c>ASGAverageCPUUtilization</c> - Average CPU utilization of the Auto Scaling group.</para></li><li><para><c>ASGAverageCPUUtilizationHighResolution</c> - Average CPU utilization of the Auto
+        /// Scaling group using a high-resolution metric.</para></li><li><para><c>ASGAverageNetworkIn</c> - Average number of bytes received on all network interfaces
         /// by the Auto Scaling group.</para></li><li><para><c>ASGAverageNetworkOut</c> - Average number of bytes sent out on all network interfaces
         /// by the Auto Scaling group.</para></li><li><para><c>ALBRequestCountPerTarget</c> - Average Application Load Balancer request count
-        /// per target for your Auto Scaling group.</para></li></ul>
+        /// per target for your Auto Scaling group.</para></li></ul><important><para>To help ensure that target tracking has metric data to use for the <c>ASGAverageCPUUtilizationHighResolution</c>
+        /// metric type, configure the Auto Scaling group's launch template and existing instances
+        /// to publish high-resolution CPU utilization metrics.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

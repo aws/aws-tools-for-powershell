@@ -6281,7 +6281,7 @@ $AS_Completers = {
         # Amazon.AutoScaling.MetricType
         "Write-ASScalingPolicy/PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "ALBRequestCountPerTarget","ASGAverageCPUUtilization","ASGAverageNetworkIn","ASGAverageNetworkOut"
+            $v = "ALBRequestCountPerTarget","ASGAverageCPUUtilization","ASGAverageCPUUtilizationHighResolution","ASGAverageNetworkIn","ASGAverageNetworkOut"
             break
         }
 
@@ -15517,8 +15517,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16211,8 +16211,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16672,9 +16672,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
-               "Write-CSDDocument")
+    "Select"=@("Write-CSDDocument",
+               "Search-CSDDocument",
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -30946,12 +30946,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertTo-DDBItem",
-               "Add-DDBKeySchema",
-               "New-DDBTable",
                "New-DDBTableSchema",
-               "ConvertFrom-DDBItem",
-               "Add-DDBIndexSchema")
+               "Add-DDBIndexSchema",
+               "Add-DDBKeySchema",
+               "ConvertTo-DDBItem",
+               "New-DDBTable",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32669,10 +32669,14 @@ $EC2_Completers = {
 
         # Amazon.EC2.VpcEncryptionControlExclusionStateInput
         {
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/ApiGatewayV2") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/ApiGatewayV2Exclusion") -Or
             ($_ -eq "Edit-EC2AccountVpcEncryptionControl/EgressOnlyInternetGateway") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/EgressOnlyInternetGatewayExclusion") -Or
             ($_ -eq "Edit-EC2AccountVpcEncryptionControl/ElasticFileSystem") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/ElasticFileSystemExclusion") -Or
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/GlobalAccelerator") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/GlobalAcceleratorExclusion") -Or
             ($_ -eq "Edit-EC2AccountVpcEncryptionControl/InternetGateway") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/InternetGatewayExclusion") -Or
             ($_ -eq "Edit-EC2AccountVpcEncryptionControl/Lambda") -Or
@@ -32681,8 +32685,10 @@ $EC2_Completers = {
             ($_ -eq "Edit-EC2VpcEncryptionControl/NatGatewayExclusion") -Or
             ($_ -eq "Edit-EC2AccountVpcEncryptionControl/VirtualPrivateGateway") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/VirtualPrivateGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_ApiGatewayV2Exclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_EgressOnlyInternetGatewayExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_ElasticFileSystemExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_GlobalAcceleratorExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_InternetGatewayExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_LambdaExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_NatGatewayExclusion") -Or
@@ -32773,6 +32779,8 @@ $EC2_map = @{
     "Affinity"=@("Edit-EC2InstancePlacement")
     "Aggregation"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck")
     "AllowedImagesSettingsState"=@("Enable-EC2AllowedImagesSetting")
+    "ApiGatewayV2"=@("Edit-EC2AccountVpcEncryptionControl")
+    "ApiGatewayV2Exclusion"=@("Edit-EC2VpcEncryptionControl")
     "ApplyCancellationCharge"=@("Remove-EC2CapacityReservation")
     "Architecture"=@("Register-EC2Image")
     "AttachmentType"=@("New-EC2VerifiedAccessEndpoint")
@@ -32815,6 +32823,8 @@ $EC2_map = @{
     "ExportToS3Task_ContainerFormat"=@("New-EC2InstanceExportTask")
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
     "ExternalAuthorityConfiguration_Type"=@("Edit-EC2IpamScope","New-EC2IpamScope")
+    "GlobalAccelerator"=@("Edit-EC2AccountVpcEncryptionControl")
+    "GlobalAcceleratorExclusion"=@("Edit-EC2VpcEncryptionControl")
     "HostMaintenance"=@("Edit-EC2Host","New-EC2Host")
     "HostnameType"=@("Edit-EC2PublicIpDnsNameOption")
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
@@ -32963,8 +32973,10 @@ $EC2_map = @{
     "VirtualPrivateGateway"=@("Edit-EC2AccountVpcEncryptionControl")
     "VirtualPrivateGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "VolumeType"=@("Copy-EC2Volume","Edit-EC2Volume","New-EC2Volume")
+    "VpcEncryptionControl_ApiGatewayV2Exclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_EgressOnlyInternetGatewayExclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_ElasticFileSystemExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_GlobalAcceleratorExclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_InternetGatewayExclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_LambdaExclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_Mode"=@("New-EC2Vpc")
@@ -33143,6 +33155,7 @@ $EC2_SelectMap = @{
                "New-EC2LocalGatewayVirtualInterfaceGroup",
                "New-EC2MacSystemIntegrityProtectionModificationTask",
                "New-EC2ManagedPrefixList",
+               "New-EC2MetricCategory",
                "New-EC2NatGateway",
                "New-EC2NetworkAcl",
                "New-EC2NetworkAclEntry",
@@ -33242,6 +33255,7 @@ $EC2_SelectMap = @{
                "Remove-EC2LocalGatewayVirtualInterface",
                "Remove-EC2LocalGatewayVirtualInterfaceGroup",
                "Remove-EC2ManagedPrefixList",
+               "Remove-EC2MetricCategory",
                "Remove-EC2NatGateway",
                "Remove-EC2NetworkAcl",
                "Remove-EC2NetworkAclEntry",
@@ -33411,6 +33425,7 @@ $EC2_SelectMap = @{
                "Get-EC2MacHost",
                "Get-EC2MacModificationTask",
                "Get-EC2ManagedPrefixList",
+               "Get-EC2MetricCategoryDetail",
                "Get-EC2MovingAddress",
                "Get-EC2NatGateway",
                "Get-EC2NetworkAcl",
@@ -33710,6 +33725,7 @@ $EC2_SelectMap = @{
                "Edit-EC2LocalGatewayRoute",
                "Edit-EC2ManagedPrefixList",
                "Edit-EC2ManagedResourceVisibility",
+               "Edit-EC2MetricCategory",
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2PrivateDnsNameOption",
                "Edit-EC2PublicIpDnsNameOption",
@@ -33836,8 +33852,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -41537,8 +41553,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -43700,6 +43716,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.SummaryFormat
+        "Get-GDInvestigation/SummaryFormat"
+        {
+            $v = "STRING","STRUCTURED"
+            break
+        }
+
         # Amazon.GuardDuty.ThreatEntitySetFormat
         "New-GDThreatEntitySet/Format"
         {
@@ -43750,6 +43773,7 @@ $GD_map = @{
     "SortCriteria_AttributeName"=@("Get-GDCoverageList","Get-GDInvestigationList")
     "SortCriteria_OrderBy"=@("Get-GDCoverageList","Get-GDInvestigationList")
     "Status"=@("Get-GDCustomDetectionRuleOrgConfigurationList")
+    "SummaryFormat"=@("Get-GDInvestigation")
     "Tagging_Status"=@("New-GDMalwareProtectionPlan","Update-GDMalwareProtectionPlan")
     "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
@@ -43873,6 +43897,7 @@ $GD_SelectMap = @{
                "Get-GDDetectorList",
                "Get-GDFilterList",
                "Get-GDFindingList",
+               "Get-GDInvestigationRecordList",
                "Get-GDInvestigationList",
                "Get-GDInvitationList",
                "Get-GDIPSetList",
@@ -54331,7 +54356,14 @@ $LS_Completers = {
         # Amazon.Lightsail.ResourceType
         "Set-LSIpAddressType/ResourceType"
         {
-            $v = "Alarm","Bucket","Certificate","CloudFormationStackRecord","ContactMethod","ContainerService","Disk","DiskSnapshot","Distribution","Domain","ExportSnapshotRecord","Instance","InstanceSnapshot","KeyPair","LoadBalancer","LoadBalancerTlsCertificate","PeeredVpc","RelationalDatabase","RelationalDatabaseSnapshot","StaticIp"
+            $v = "Alarm","Bucket","Certificate","CloudFormationStackRecord","ContactMethod","ContainerService","Disk","DiskSnapshot","Distribution","Domain","ExportSnapshotRecord","Instance","InstanceSnapshot","KeyPair","LoadBalancer","LoadBalancerTlsCertificate","PeeredVpc","RelationalDatabase","RelationalDatabaseSnapshot","StaticIp","Subdomain"
+            break
+        }
+
+        # Amazon.Lightsail.SubdomainAssociationAction
+        "Update-LSSubdomainAssociation/Action"
+        {
+            $v = "ASSOCIATE","DISASSOCIATE","TRANSFER"
             break
         }
 
@@ -54363,6 +54395,7 @@ $LS_Completers = {
 $LS_map = @{
     "Access"=@("Set-LSResourceAccessForBucket")
     "AccessRules_GetObject"=@("Update-LSBucket")
+    "Action"=@("Update-LSSubdomainAssociation")
     "AddOnRequest_AddOnType"=@("Enable-LSAddOn")
     "AddOnType"=@("Disable-LSAddOn")
     "AppCategory"=@("Get-LSBlueprintList","Get-LSBundleList")
@@ -54448,6 +54481,7 @@ $LS_SelectMap = @{
                "Add-LSInstancesToLoadBalancer",
                "Add-LSLoadBalancerTlsCertificate",
                "Mount-LSStaticIp",
+               "Test-LSSubdomainAvailability",
                "Close-LSInstancePublicPort",
                "Copy-LSSnapshot",
                "New-LSBucket",
@@ -54474,6 +54508,7 @@ $LS_SelectMap = @{
                "New-LSRelationalDatabase",
                "New-LSRelationalDatabaseFromSnapshot",
                "New-LSRelationalDatabaseSnapshot",
+               "New-LSSubdomain",
                "Remove-LSAlarm",
                "Remove-LSAutoSnapshot",
                "Remove-LSBucket",
@@ -54495,6 +54530,7 @@ $LS_SelectMap = @{
                "Remove-LSLoadBalancerTlsCertificate",
                "Remove-LSRelationalDatabase",
                "Remove-LSRelationalDatabaseSnapshot",
+               "Remove-LSSubdomain",
                "Dismount-LSCertificateFromDistribution",
                "Dismount-LSDisk",
                "Dismount-LSInstancesFromLoadBalancer",
@@ -54569,6 +54605,7 @@ $LS_SelectMap = @{
                "Get-LSSetupHistory",
                "Get-LSStaticIp",
                "Get-LSStaticIpList",
+               "Get-LSSubdomain",
                "Import-LSKeyPair",
                "Test-LSVpcPeered",
                "Open-LSInstancePublicPort",
@@ -54603,7 +54640,8 @@ $LS_SelectMap = @{
                "Update-LSInstanceMetadataOption",
                "Update-LSLoadBalancerAttribute",
                "Update-LSRelationalDatabase",
-               "Update-LSRelationalDatabaseParameter")
+               "Update-LSRelationalDatabaseParameter",
+               "Update-LSSubdomainAssociation")
 }
 
 _awsArgumentCompleterRegistration $LS_SelectCompleters $LS_SelectMap
@@ -57460,6 +57498,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.FabricSwitchingMode
+        {
+            ($_ -eq "New-EMCNRouterOutput/FabricConfiguration_SwitchingMode") -Or
+            ($_ -eq "Update-EMCNRouterOutput/FabricConfiguration_SwitchingMode")
+        }
+        {
+            $v = "IMMEDIATE","KEY_FRAME"
+            break
+        }
+
         # Amazon.MediaConnect.FailoverInputSourcePriorityMode
         {
             ($_ -eq "New-EMCNRouterInput/Failover_SourcePriorityMode") -Or
@@ -57603,7 +57651,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNFlowSource/Protocol")
         }
         {
-            $v = "cdi","fujitsu-qos","ndi-speed-hq","rist","rtp","rtp-fec","srt-caller","srt-listener","st2110-jpegxs","udp","zixi-pull","zixi-push"
+            $v = "cdi","fujitsu-qos","ndi-speed-hq","rist","rtmp-push","rtp","rtp-fec","srt-caller","srt-listener","st2110-jpegxs","udp","zixi-pull","zixi-push"
             break
         }
 
@@ -57620,7 +57668,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNRouterInput/Standard_Protocol")
         }
         {
-            $v = "RIST","RTP","SRT_CALLER","SRT_LISTENER"
+            $v = "RIST","RTMP_PUSH","RTP","SRT_CALLER","SRT_LISTENER"
             break
         }
 
@@ -57673,6 +57721,16 @@ $EMCN_Completers = {
         }
         {
             $v = "GLOBAL","REGIONAL"
+            break
+        }
+
+        # Amazon.MediaConnect.RtmpPushNamingType
+        {
+            ($_ -eq "New-EMCNRouterInput/Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingType") -Or
+            ($_ -eq "Update-EMCNRouterInput/Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingType")
+        }
+        {
+            $v = "AUTOMATIC","MANUAL"
             break
         }
 
@@ -57737,7 +57795,8 @@ $EMCN_Completers = {
         # Amazon.MediaConnect.TlsEncryptionType
         {
             ($_ -eq "New-EMCNRouterOutput/Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType") -Or
-            ($_ -eq "Update-EMCNRouterOutput/Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType")
+            ($_ -eq "Update-EMCNRouterOutput/Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType") -Or
+            ($_ -eq "Update-EMCNFlowOutput/RtmpPushSettings_TlsEncryption_EncryptionType")
         }
         {
             $v = "PUBLIC"
@@ -57764,6 +57823,7 @@ $EMCN_map = @{
     "Configuration_SourceEndpoint_EndpointLifecycleManagement"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "Configuration_Standard_DestinationNetworkingType"=@("Register-EMCNDestinationEndpoint","Update-EMCNDestinationEndpoint")
     "Configuration_Standard_Protocol"=@("Register-EMCNDestinationEndpoint","Register-EMCNSourceEndpoint","Update-EMCNDestinationEndpoint","Update-EMCNSourceEndpoint")
+    "Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "Configuration_Standard_ProtocolConfiguration_Rtp_ForwardErrorCorrectionState"=@("Register-EMCNDestinationEndpoint","Register-EMCNSourceEndpoint","Update-EMCNDestinationEndpoint","Update-EMCNSourceEndpoint")
     "Configuration_Standard_SourceNetworkingType"=@("Register-EMCNSourceEndpoint","Update-EMCNSourceEndpoint")
@@ -57774,6 +57834,7 @@ $EMCN_map = @{
     "EncodingConfig_EncodingProfile"=@("New-EMCNFlow","Update-EMCNFlow")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
     "FabricConfiguration_RecoveryLatencyMode"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "FabricConfiguration_SwitchingMode"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "Failover_SourcePriorityMode"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "FlowSize"=@("New-EMCNFlow","Update-EMCNFlow")
     "Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")
@@ -57796,6 +57857,7 @@ $EMCN_map = @{
     "RouterIntegrationTransitDecryption_EncryptionKeyType"=@("Update-EMCNFlowSource")
     "RouterIntegrationTransitEncryption_EncryptionKeyType"=@("Update-EMCNFlowOutput")
     "RoutingScope"=@("New-EMCNRouterInput","New-EMCNRouterOutput","Update-EMCNRouterInput","Update-EMCNRouterOutput")
+    "RtmpPushSettings_TlsEncryption_EncryptionType"=@("Update-EMCNFlowOutput")
     "Rtp_ForwardErrorCorrection"=@("New-EMCNRouterInput","New-EMCNRouterOutput","Update-EMCNRouterInput","Update-EMCNRouterOutput")
     "SourceFailoverConfig_FailoverMode"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
     "SourceFailoverConfig_State"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
@@ -59424,7 +59486,7 @@ $EMT_Completers = {
         # Amazon.MediaTailor.FunctionType
         "Write-EMTFunction/FunctionType"
         {
-            $v = "AWS_SERVICE_REQUEST","CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR","VAST_REQUEST"
+            $v = "AWS_SERVICE_REQUEST","CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HLS_TAG_PROCESSOR","HTTP_REQUEST","SEQUENTIAL_EXECUTOR","VAST_REQUEST"
             break
         }
 
@@ -59500,6 +59562,7 @@ $EMT_Completers = {
             ($_ -eq "Write-EMTFunction/AwsServiceRequestConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/ConcurrentExecutorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/CustomOutputConfiguration_Runtime") -Or
+            ($_ -eq "Write-EMTFunction/HlsTagProcessorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/SequentialExecutorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/VastRequestConfiguration_Runtime")
@@ -59553,6 +59616,7 @@ $EMT_map = @{
     "ConcurrentExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "CustomOutputConfiguration_Runtime"=@("Write-EMTFunction")
     "FunctionType"=@("Write-EMTFunction")
+    "HlsTagProcessorConfiguration_Runtime"=@("Write-EMTFunction")
     "HttpRequest_CompressRequest"=@("Set-EMTPlaybackConfiguration")
     "HttpRequest_Method"=@("Set-EMTPlaybackConfiguration")
     "HttpRequestConfiguration_MethodType"=@("Write-EMTFunction")
@@ -61753,6 +61817,13 @@ $CW_Completers = {
             break
         }
 
+        # Amazon.CloudWatch.QueryType
+        "Write-CWMetricDataQueryDefinition/Type"
+        {
+            $v = "METRIC_MATH","PROMQL","SQL"
+            break
+        }
+
         # Amazon.CloudWatch.RecentlyActive
         "Get-CWMetricList/RecentlyActive"
         {
@@ -61819,6 +61890,7 @@ $CW_map = @{
     "ScanBy"=@("Get-CWAlarmHistory","Get-CWMetricData")
     "StateValue"=@("Get-CWAlarm","Set-CWAlarmState")
     "Statistic"=@("Get-CWAlarmForMetric","Write-CWMetricAlarm")
+    "Type"=@("Write-CWMetricDataQueryDefinition")
     "Unit"=@("Get-CWAlarmForMetric","Get-CWMetricStatistic","Write-CWMetricAlarm")
 }
 
@@ -61879,6 +61951,7 @@ $CW_SelectMap = @{
                "Remove-CWAnomalyDetector",
                "Remove-CWDashboard",
                "Remove-CWInsightRule",
+               "Remove-CWMetricDataQueryDefinition",
                "Remove-CWMetricStream",
                "Remove-CWResourceMetricsConfiguration",
                "Get-CWAlarmContributor",
@@ -61897,6 +61970,7 @@ $CW_SelectMap = @{
                "Get-CWDataset",
                "Get-CWInsightRuleReport",
                "Get-CWMetricData",
+               "Get-CWMetricDataQueryDefinition",
                "Get-CWMetricStatistic",
                "Get-CWMetricStream",
                "Get-CWMetricWidgetImage",
@@ -61905,6 +61979,7 @@ $CW_SelectMap = @{
                "Get-CWAlarmMuteRuleList",
                "Get-CWDashboardList",
                "Get-CWManagedInsightRule",
+               "Get-CWMetricDataQueryDefinitionList",
                "Get-CWMetricList",
                "Get-CWMetricStreamList",
                "Get-CWResourceTag",
@@ -61917,6 +61992,7 @@ $CW_SelectMap = @{
                "Write-CWManagedInsightRule",
                "Write-CWMetricAlarm",
                "Write-CWMetricData",
+               "Write-CWMetricDataQueryDefinition",
                "Write-CWMetricStream",
                "Set-CWAlarmState",
                "Start-CWMetricStream",
@@ -62562,7 +62638,8 @@ $MWAAS_SelectCompleters = {
 }
 
 $MWAAS_SelectMap = @{
-    "Select"=@("New-MWAASWorkflow",
+    "Select"=@("New-MWAASAirflowUiUrl",
+               "New-MWAASWorkflow",
                "Remove-MWAASWorkflow",
                "Get-MWAASTaskInstance",
                "Get-MWAASWorkflow",
@@ -65080,6 +65157,8 @@ $ODB_Completers = {
             ($_ -eq "New-ODBCloudVmCluster/LicenseModel") -Or
             ($_ -eq "New-ODBExadbVmCluster/LicenseModel") -Or
             ($_ -eq "Update-ODBAutonomousDatabase/LicenseModel") -Or
+            ($_ -eq "Update-ODBCloudAutonomousVmCluster/LicenseModel") -Or
+            ($_ -eq "Update-ODBCloudVmCluster/LicenseModel") -Or
             ($_ -eq "Update-ODBExadbVmCluster/LicenseModel")
         }
         {
@@ -65101,6 +65180,7 @@ $ODB_Completers = {
         {
             ($_ -eq "New-ODBCloudAutonomousVmCluster/MaintenanceWindow_PatchingMode") -Or
             ($_ -eq "New-ODBCloudExadataInfrastructure/MaintenanceWindow_PatchingMode") -Or
+            ($_ -eq "Update-ODBCloudAutonomousVmCluster/MaintenanceWindow_PatchingMode") -Or
             ($_ -eq "Update-ODBCloudExadataInfrastructure/MaintenanceWindow_PatchingMode")
         }
         {
@@ -65119,6 +65199,7 @@ $ODB_Completers = {
         {
             ($_ -eq "New-ODBCloudAutonomousVmCluster/MaintenanceWindow_Preference") -Or
             ($_ -eq "New-ODBCloudExadataInfrastructure/MaintenanceWindow_Preference") -Or
+            ($_ -eq "Update-ODBCloudAutonomousVmCluster/MaintenanceWindow_Preference") -Or
             ($_ -eq "Update-ODBCloudExadataInfrastructure/MaintenanceWindow_Preference")
         }
         {
@@ -65228,10 +65309,10 @@ $ODB_map = @{
     "EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "EncryptionKeyProvider"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "KmsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
-    "LicenseModel"=@("New-ODBAutonomousDatabase","New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster","New-ODBExadbVmCluster","Update-ODBAutonomousDatabase","Update-ODBExadbVmCluster")
+    "LicenseModel"=@("New-ODBAutonomousDatabase","New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster","New-ODBExadbVmCluster","Update-ODBAutonomousDatabase","Update-ODBCloudAutonomousVmCluster","Update-ODBCloudVmCluster","Update-ODBExadbVmCluster")
     "LongTermBackupSchedule_RepeatCadence"=@("Update-ODBAutonomousDatabase")
-    "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
-    "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
+    "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudAutonomousVmCluster","Update-ODBCloudExadataInfrastructure")
+    "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudAutonomousVmCluster","Update-ODBCloudExadataInfrastructure")
     "OpenMode"=@("Update-ODBAutonomousDatabase")
     "PasswordSource"=@("New-ODBAutonomousDatabaseWallet")
     "PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType"=@("New-ODBAutonomousDatabaseWallet")
@@ -65311,6 +65392,7 @@ $ODB_SelectCompleters = {
 $ODB_SelectMap = @{
     "Select"=@("Approve-ODBMarketplaceRegistration",
                "Add-ODBIamRoleToResource",
+               "Add-ODBVirtualMachinesToCloudVmCluster",
                "Add-ODBVirtualMachinesToExadbVmCluster",
                "New-ODBAutonomousDatabase",
                "New-ODBAutonomousDatabaseBackup",
@@ -65332,6 +65414,7 @@ $ODB_SelectMap = @{
                "Remove-ODBOdbNetwork",
                "Remove-ODBOdbPeeringConnection",
                "Remove-ODBIamRoleFromResource",
+               "Remove-ODBVirtualMachinesFromCloudVmCluster",
                "Remove-ODBVirtualMachinesFromExadbVmCluster",
                "Start-ODBAutonomousDatabaseFailover",
                "Get-ODBAutonomousDatabase",
@@ -65384,7 +65467,10 @@ $ODB_SelectMap = @{
                "Remove-ODBResourceTag",
                "Update-ODBAutonomousDatabase",
                "Update-ODBAutonomousDatabaseBackup",
+               "Update-ODBCloudAutonomousVmCluster",
                "Update-ODBCloudExadataInfrastructure",
+               "Update-ODBCloudExadataInfrastructureStorageCapacity",
+               "Update-ODBCloudVmCluster",
                "Update-ODBExadbVmCluster",
                "Update-ODBExascaleCloudExadataInfrastructure",
                "Update-ODBExascaleDbStorageVault",
@@ -79218,6 +79304,7 @@ $R53_Completers = {
         {
             ($_ -eq "Test-R53DNSAnswer/RecordType") -Or
             ($_ -eq "Get-R53ResourceRecordSet/StartRecordType") -Or
+            ($_ -eq "Get-R53ResourceRecordSetProtectionList/StartRecordType") -Or
             ($_ -eq "Get-R53TrafficPolicyInstanceList/TrafficPolicyInstanceTypeMarker") -Or
             ($_ -eq "Get-R53TrafficPolicyInstancesByHostedZone/TrafficPolicyInstanceTypeMarker") -Or
             ($_ -eq "Get-R53TrafficPolicyInstancesByPolicy/TrafficPolicyInstanceTypeMarker")
@@ -79268,7 +79355,7 @@ $R53_map = @{
     "InsufficientDataHealthStatus"=@("Update-R53HealthCheck")
     "RecordType"=@("Test-R53DNSAnswer")
     "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResourceList")
-    "StartRecordType"=@("Get-R53ResourceRecordSet")
+    "StartRecordType"=@("Get-R53ResourceRecordSet","Get-R53ResourceRecordSetProtectionList")
     "TrafficPolicyInstanceTypeMarker"=@("Get-R53TrafficPolicyInstanceList","Get-R53TrafficPolicyInstancesByHostedZone","Get-R53TrafficPolicyInstancesByPolicy")
     "Type"=@("Get-R53AccountLimit","Get-R53HostedZoneLimit","Get-R53ReusableDelegationSetLimit")
     "VPC_VPCRegion"=@("New-R53HostedZone","New-R53VPCAssociationAuthorization","Register-R53VPCWithHostedZone","Remove-R53VPCAssociationAuthorization","Unregister-R53VPCFromHostedZone")
@@ -79335,6 +79422,7 @@ $R53_SelectMap = @{
                "New-R53HostedZone",
                "New-R53KeySigningKey",
                "New-R53QueryLoggingConfig",
+               "New-R53ResourceRecordSetProtection",
                "New-R53ReusableDelegationSet",
                "New-R53TrafficPolicy",
                "New-R53TrafficPolicyInstance",
@@ -79346,6 +79434,7 @@ $R53_SelectMap = @{
                "Remove-R53HostedZone",
                "Remove-R53KeySigningKey",
                "Remove-R53QueryLoggingConfig",
+               "Remove-R53ResourceRecordSetProtection",
                "Remove-R53ReusableDelegationSet",
                "Remove-R53TrafficPolicy",
                "Remove-R53TrafficPolicyInstance",
@@ -79379,6 +79468,7 @@ $R53_SelectMap = @{
                "Get-R53HostedZoneList",
                "Get-R53HostedZonesByVPC",
                "Get-R53QueryLoggingConfigList",
+               "Get-R53ResourceRecordSetProtectionList",
                "Get-R53ResourceRecordSet",
                "Get-R53ReusableDelegationSetList",
                "Get-R53TagsForResource",
@@ -81026,18 +81116,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Dismount-S3PSDrive",
-               "Get-S3MultipartUpload",
-               "New-S3Bucket",
-               "Remove-S3MultipartUpload",
                "Test-S3Bucket",
                "Remove-S3Bucket",
-               "Write-S3Object",
-               "Get-S3PreSignedURL",
+               "New-S3Bucket",
+               "Dismount-S3PSDrive",
+               "Mount-S3PSDrive",
+               "Get-S3MultipartUpload",
                "Copy-S3Object",
+               "Remove-S3MultipartUpload",
                "Remove-S3Object",
                "Read-S3Object",
-               "Mount-S3PSDrive")
+               "Write-S3Object",
+               "Get-S3PreSignedURL")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -85740,6 +85830,13 @@ $SEC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SecretsManager.ReplicaRestrictionType
+        "Add-SECCrossAccountReplica/ReplicaRestriction"
+        {
+            $v = "NoRestriction","SameOrg"
+            break
+        }
+
         # Amazon.SecretsManager.SortByType
         "Get-SECSecretList/SortBy"
         {
@@ -85763,6 +85860,7 @@ $SEC_Completers = {
 }
 
 $SEC_map = @{
+    "ReplicaRestriction"=@("Add-SECCrossAccountReplica")
     "SortBy"=@("Get-SECSecretList")
     "SortOrder"=@("Get-SECSecretList")
 }
@@ -85817,15 +85915,18 @@ $SEC_SelectCompleters = {
 }
 
 $SEC_SelectMap = @{
-    "Select"=@("Get-SECBatchSecretValue",
+    "Select"=@("Add-SECCrossAccountReplica",
+               "Get-SECBatchSecretValue",
                "Stop-SECSecretRotation",
                "New-SECSecret",
                "Remove-SECResourcePolicy",
                "Remove-SECSecret",
                "Get-SECSecret",
+               "Remove-SECCrossAccountReplica",
                "Get-SECRandomPassword",
                "Get-SECResourcePolicy",
                "Get-SECSecretValue",
+               "Get-SECResourcePolicyList",
                "Get-SECSecretList",
                "Get-SECSecretVersionIdList",
                "Write-SECResourcePolicy",
@@ -85990,6 +86091,16 @@ $SECAG_Completers = {
         "Add-SECAGArtifact/ArtifactType"
         {
             $v = "DOC","DOCX","JPEG","JSON","MD","PDF","PNG","TXT","YAML"
+            break
+        }
+
+        # Amazon.SecurityAgent.CleanUpStrategy
+        {
+            ($_ -eq "New-SECAGPentest/CleanUpStrategy") -Or
+            ($_ -eq "Update-SECAGPentest/CleanUpStrategy")
+        }
+        {
+            $v = "BEST_EFFORT_DELETE","RETAIN_ALL"
             break
         }
 
@@ -86204,6 +86315,7 @@ $SECAG_Completers = {
 
 $SECAG_map = @{
     "ArtifactType"=@("Add-SECAGArtifact")
+    "CleanUpStrategy"=@("New-SECAGPentest","Update-SECAGPentest")
     "CodeRemediationStrategy"=@("New-SECAGCodeReview","New-SECAGPentest","Update-SECAGCodeReview","Update-SECAGPentest")
     "Confidence"=@("Get-SECAGFindingList")
     "Config_User_Role"=@("New-SECAGMembership")
@@ -91158,8 +91270,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

@@ -151,7 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// values:</para><ul><li><para><c>CUSTOM_OUTPUT</c> – Evaluates expressions and produces output bindings with no
         /// external calls.</para></li><li><para><c>HTTP_REQUEST</c> – Makes an HTTP call to an external service and evaluates output
         /// expressions that can reference the response.</para></li><li><para><c>AWS_SERVICE_REQUEST</c> – Makes an authenticated request to a supported AWS service
-        /// API and evaluates output expressions that can reference the response.</para></li><li><para><c>VAST_REQUEST</c> – Calls a VAST endpoint, parses the response as VAST, and makes
+        /// API and evaluates output expressions that can reference the response.</para></li><li><para><c>HLS_TAG_PROCESSOR</c> – Reads and changes HLS tags in the origin manifest at the
+        /// <c>POST_ORIGIN_RESPONSE</c> lifecycle hook.</para></li><li><para><c>VAST_REQUEST</c> – Calls a VAST endpoint, parses the response as VAST, and makes
         /// the parsed ads available to output expressions.</para></li><li><para><c>SEQUENTIAL_EXECUTOR</c> – Runs a sequence of child functions in order, passing
         /// data between steps through temporary data.</para></li><li><para><c>CONCURRENT_EXECUTOR</c> – Runs a set of child functions in parallel, up to a maximum
         /// concurrency, and combines their output when all functions complete.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function
@@ -370,6 +371,28 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Collections.Hashtable CustomOutputConfiguration_Output { get; set; }
         #endregion
         
+        #region Parameter HlsTagProcessorConfiguration_Output
+        /// <summary>
+        /// <para>
+        /// <para>A map of output bindings that MediaTailor evaluates for each HLS tag that matches
+        /// <c>TagFilter</c> and, when specified, passes <c>RunCondition</c>. The required <c>tag</c>
+        /// binding must return exactly one tag action: <c>$updateTag</c>, <c>$removeTag</c>,
+        /// or <c>$passthroughTag</c>. Optional <c>player_params.&lt;name&gt;</c> bindings write
+        /// strings, numbers, or booleans that persist for the player session. Optional <c>temp.&lt;name&gt;</c>
+        /// bindings hold any JSON value for the current invocation and are not persisted. For
+        /// more information about expression syntax, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata
+        /// expression reference</a> in the <i>MediaTailor User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable HlsTagProcessorConfiguration_Output { get; set; }
+        #endregion
+        
         #region Parameter HttpRequestConfiguration_Output
         /// <summary>
         /// <para>
@@ -471,6 +494,17 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Int32? VastRequestConfiguration_RequestTimeoutMillisecond { get; set; }
         #endregion
         
+        #region Parameter HlsTagProcessorConfiguration_RunCondition
+        /// <summary>
+        /// <para>
+        /// JSONata expression that must evaluate to
+        /// true for the processor to run.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HlsTagProcessorConfiguration_RunCondition { get; set; }
+        #endregion
+        
         #region Parameter AwsServiceRequestConfiguration_Runtime
         /// <summary>
         /// <para>
@@ -507,6 +541,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public Amazon.MediaTailor.RuntimeType CustomOutputConfiguration_Runtime { get; set; }
         #endregion
         
+        #region Parameter HlsTagProcessorConfiguration_Runtime
+        /// <summary>
+        /// <para>
+        /// <para>The expression language used to evaluate expressions in the function configuration.
+        /// The only supported value is <c>JSONATA</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.RuntimeType")]
+        public Amazon.MediaTailor.RuntimeType HlsTagProcessorConfiguration_Runtime { get; set; }
+        #endregion
+        
         #region Parameter HttpRequestConfiguration_Runtime
         /// <summary>
         /// <para>
@@ -541,6 +587,21 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaTailor.RuntimeType")]
         public Amazon.MediaTailor.RuntimeType VastRequestConfiguration_Runtime { get; set; }
+        #endregion
+        
+        #region Parameter HlsTagProcessorConfiguration_TagFilter
+        /// <summary>
+        /// <para>
+        /// <para>A list of HLS tag names that trigger function evaluation. Specify <c>["EXT-X-DATERANGE"]</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] HlsTagProcessorConfiguration_TagFilter { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -831,6 +892,20 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 WriteWarning("You are passing $null as a value for parameter FunctionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.HlsTagProcessorConfiguration_Output != null)
+            {
+                context.HlsTagProcessorConfiguration_Output = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.HlsTagProcessorConfiguration_Output.Keys)
+                {
+                    context.HlsTagProcessorConfiguration_Output.Add((String)hashKey, (System.String)(this.HlsTagProcessorConfiguration_Output[hashKey]));
+                }
+            }
+            context.HlsTagProcessorConfiguration_RunCondition = this.HlsTagProcessorConfiguration_RunCondition;
+            context.HlsTagProcessorConfiguration_Runtime = this.HlsTagProcessorConfiguration_Runtime;
+            if (this.HlsTagProcessorConfiguration_TagFilter != null)
+            {
+                context.HlsTagProcessorConfiguration_TagFilter = new List<System.String>(this.HlsTagProcessorConfiguration_TagFilter);
+            }
             context.HttpRequestConfiguration_Body = this.HttpRequestConfiguration_Body;
             context.HttpRequestConfiguration_Cache_Key = this.HttpRequestConfiguration_Cache_Key;
             context.HttpRequestConfiguration_Cache_TtlMaximumSecond = this.HttpRequestConfiguration_Cache_TtlMaximumSecond;
@@ -1160,6 +1235,55 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.FunctionType != null)
             {
                 request.FunctionType = cmdletContext.FunctionType;
+            }
+            
+             // populate HlsTagProcessorConfiguration
+            var requestHlsTagProcessorConfigurationIsNull = true;
+            request.HlsTagProcessorConfiguration = new Amazon.MediaTailor.Model.HlsTagProcessorConfiguration();
+            Dictionary<System.String, System.String> requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_Output = null;
+            if (cmdletContext.HlsTagProcessorConfiguration_Output != null)
+            {
+                requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_Output = cmdletContext.HlsTagProcessorConfiguration_Output;
+            }
+            if (requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_Output != null)
+            {
+                request.HlsTagProcessorConfiguration.Output = requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_Output;
+                requestHlsTagProcessorConfigurationIsNull = false;
+            }
+            System.String requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_RunCondition = null;
+            if (cmdletContext.HlsTagProcessorConfiguration_RunCondition != null)
+            {
+                requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_RunCondition = cmdletContext.HlsTagProcessorConfiguration_RunCondition;
+            }
+            if (requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_RunCondition != null)
+            {
+                request.HlsTagProcessorConfiguration.RunCondition = requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_RunCondition;
+                requestHlsTagProcessorConfigurationIsNull = false;
+            }
+            Amazon.MediaTailor.RuntimeType requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_Runtime = null;
+            if (cmdletContext.HlsTagProcessorConfiguration_Runtime != null)
+            {
+                requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_Runtime = cmdletContext.HlsTagProcessorConfiguration_Runtime;
+            }
+            if (requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_Runtime != null)
+            {
+                request.HlsTagProcessorConfiguration.Runtime = requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_Runtime;
+                requestHlsTagProcessorConfigurationIsNull = false;
+            }
+            List<System.String> requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_TagFilter = null;
+            if (cmdletContext.HlsTagProcessorConfiguration_TagFilter != null)
+            {
+                requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_TagFilter = cmdletContext.HlsTagProcessorConfiguration_TagFilter;
+            }
+            if (requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_TagFilter != null)
+            {
+                request.HlsTagProcessorConfiguration.TagFilter = requestHlsTagProcessorConfiguration_hlsTagProcessorConfiguration_TagFilter;
+                requestHlsTagProcessorConfigurationIsNull = false;
+            }
+             // determine if request.HlsTagProcessorConfiguration should be set to null
+            if (requestHlsTagProcessorConfigurationIsNull)
+            {
+                request.HlsTagProcessorConfiguration = null;
             }
             
              // populate HttpRequestConfiguration
@@ -1539,6 +1663,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.String Description { get; set; }
             public System.String FunctionId { get; set; }
             public Amazon.MediaTailor.FunctionType FunctionType { get; set; }
+            public Dictionary<System.String, System.String> HlsTagProcessorConfiguration_Output { get; set; }
+            public System.String HlsTagProcessorConfiguration_RunCondition { get; set; }
+            public Amazon.MediaTailor.RuntimeType HlsTagProcessorConfiguration_Runtime { get; set; }
+            public List<System.String> HlsTagProcessorConfiguration_TagFilter { get; set; }
             public System.String HttpRequestConfiguration_Body { get; set; }
             public System.String HttpRequestConfiguration_Cache_Key { get; set; }
             public System.Int32? HttpRequestConfiguration_Cache_TtlMaximumSecond { get; set; }

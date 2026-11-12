@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ApiGatewayV2
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to exclude Amazon API Gateway V2 from account-level encryption enforcement.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.VpcEncryptionControlExclusionStateInput")]
+        public Amazon.EC2.VpcEncryptionControlExclusionStateInput ApiGatewayV2 { get; set; }
+        #endregion
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>
@@ -88,6 +99,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.VpcEncryptionControlExclusionStateInput")]
         public Amazon.EC2.VpcEncryptionControlExclusionStateInput ElasticFileSystem { get; set; }
+        #endregion
+        
+        #region Parameter GlobalAccelerator
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to exclude AWS Global Accelerator from account-level encryption
+        /// enforcement.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.VpcEncryptionControlExclusionStateInput")]
+        public Amazon.EC2.VpcEncryptionControlExclusionStateInput GlobalAccelerator { get; set; }
         #endregion
         
         #region Parameter InternetGateway
@@ -216,9 +239,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyAccountVpcEncryptionControlResponse, EditEC2AccountVpcEncryptionControlCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ApiGatewayV2 = this.ApiGatewayV2;
             context.DryRun = this.DryRun;
             context.EgressOnlyInternetGateway = this.EgressOnlyInternetGateway;
             context.ElasticFileSystem = this.ElasticFileSystem;
+            context.GlobalAccelerator = this.GlobalAccelerator;
             context.InternetGateway = this.InternetGateway;
             context.Lambda = this.Lambda;
             context.Mode = this.Mode;
@@ -242,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyAccountVpcEncryptionControlRequest();
             
+            if (cmdletContext.ApiGatewayV2 != null)
+            {
+                request.ApiGatewayV2 = cmdletContext.ApiGatewayV2;
+            }
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
@@ -253,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ElasticFileSystem != null)
             {
                 request.ElasticFileSystem = cmdletContext.ElasticFileSystem;
+            }
+            if (cmdletContext.GlobalAccelerator != null)
+            {
+                request.GlobalAccelerator = cmdletContext.GlobalAccelerator;
             }
             if (cmdletContext.InternetGateway != null)
             {
@@ -337,9 +370,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.EC2.VpcEncryptionControlExclusionStateInput ApiGatewayV2 { get; set; }
             public System.Boolean? DryRun { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput EgressOnlyInternetGateway { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput ElasticFileSystem { get; set; }
+            public Amazon.EC2.VpcEncryptionControlExclusionStateInput GlobalAccelerator { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput InternetGateway { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput Lambda { get; set; }
             public Amazon.EC2.AccountVpcEncryptionControlMode Mode { get; set; }

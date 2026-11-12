@@ -157,9 +157,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
-               "Write-CSDDocument")
+    "Select"=@("Write-CSDDocument",
+               "Search-CSDDocument",
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap

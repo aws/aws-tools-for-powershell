@@ -76,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public System.Boolean? BlockPublicPolicy { get; set; }
         #endregion
         
+        #region Parameter PolicyName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the resource policy to attach. If you don't specify this field, Secrets
+        /// Manager uses <c>default</c>. You can only attach the <c>default</c> policy; if you
+        /// specify any other name, the operation returns an <c>InvalidParameterException</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PolicyName { get; set; }
+        #endregion
+        
         #region Parameter ResourcePolicy
         /// <summary>
         /// <para>
@@ -161,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BlockPublicPolicy = this.BlockPublicPolicy;
+            context.PolicyName = this.PolicyName;
             context.ResourcePolicy = this.ResourcePolicy;
             #if MODULAR
             if (this.ResourcePolicy == null && ParameterWasBound(nameof(this.ResourcePolicy)))
@@ -194,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             if (cmdletContext.BlockPublicPolicy != null)
             {
                 request.BlockPublicPolicy = cmdletContext.BlockPublicPolicy.Value;
+            }
+            if (cmdletContext.PolicyName != null)
+            {
+                request.PolicyName = cmdletContext.PolicyName;
             }
             if (cmdletContext.ResourcePolicy != null)
             {
@@ -259,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? BlockPublicPolicy { get; set; }
+            public System.String PolicyName { get; set; }
             public System.String ResourcePolicy { get; set; }
             public System.String SecretId { get; set; }
             public System.Func<Amazon.SecretsManager.Model.PutResourcePolicyResponse, WriteSECResourcePolicyCmdlet, object> Select { get; set; } =

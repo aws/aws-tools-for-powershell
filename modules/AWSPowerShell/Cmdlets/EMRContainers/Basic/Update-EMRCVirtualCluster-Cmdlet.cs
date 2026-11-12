@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         /// <para>
         /// <para>The maximum number of job runs that can be in the <c>RUNNING</c> state at any time
         /// for the virtual cluster. As running slots free up, queued job runs start automatically.
-        /// If you omit this field, the service applies no concurrency limit.</para>
+        /// If you omit this field, the service applies a default limit of 1,000 concurrent job
+        /// runs to the virtual cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

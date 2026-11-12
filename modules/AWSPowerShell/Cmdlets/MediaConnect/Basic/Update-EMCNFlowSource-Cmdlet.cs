@@ -66,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter RtmpPushSettings_NamingConfiguration_Manual_ApplicationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the RTMP application. Together with the stream name, the application name
+        /// forms the RTMP URL path, in the pattern <c>rtmp://ingestAddress/applicationName/streamName</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RtmpPushSettings_NamingConfiguration_Manual_ApplicationName { get; set; }
+        #endregion
+        
         #region Parameter NdiSourceSettings_AudioReferenceLevel
         /// <summary>
         /// <para>
@@ -87,6 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RouterIntegrationTransitDecryption_EncryptionKeyConfiguration_Automatic")]
         public Amazon.MediaConnect.Model.AutomaticEncryptionKeyConfiguration EncryptionKeyConfiguration_Automatic { get; set; }
+        #endregion
+        
+        #region Parameter RtmpPushSettings_NamingConfiguration_Automatic
+        /// <summary>
+        /// <para>
+        /// <para>The naming configuration where MediaConnect generates the application and stream names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaConnect.Model.AutomaticRtmpPushNamingConfiguration RtmpPushSettings_NamingConfiguration_Automatic { get; set; }
         #endregion
         
         #region Parameter GatewayBridgeSource_BridgeArn
@@ -359,6 +380,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String StreamId { get; set; }
         #endregion
         
+        #region Parameter RtmpPushSettings_NamingConfiguration_Manual_StreamName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the RTMP stream. The stream name forms the final segment of the RTMP URL
+        /// path.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RtmpPushSettings_NamingConfiguration_Manual_StreamName { get; set; }
+        #endregion
+        
         #region Parameter VpcInterfaceAttachment_VpcInterfaceName
         /// <summary>
         /// <para>
@@ -467,6 +499,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.SecretsManager_RoleArn = this.SecretsManager_RoleArn;
             context.SecretsManager_SecretArn = this.SecretsManager_SecretArn;
             context.RouterIntegrationTransitDecryption_EncryptionKeyType = this.RouterIntegrationTransitDecryption_EncryptionKeyType;
+            context.RtmpPushSettings_NamingConfiguration_Automatic = this.RtmpPushSettings_NamingConfiguration_Automatic;
+            context.RtmpPushSettings_NamingConfiguration_Manual_ApplicationName = this.RtmpPushSettings_NamingConfiguration_Manual_ApplicationName;
+            context.RtmpPushSettings_NamingConfiguration_Manual_StreamName = this.RtmpPushSettings_NamingConfiguration_Manual_StreamName;
             context.SenderControlPort = this.SenderControlPort;
             context.SenderIpAddress = this.SenderIpAddress;
             context.SourceArn = this.SourceArn;
@@ -697,6 +732,75 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             {
                 request.RouterIntegrationTransitDecryption = null;
             }
+            
+             // populate RtmpPushSettings
+            var requestRtmpPushSettingsIsNull = true;
+            request.RtmpPushSettings = new Amazon.MediaConnect.Model.SetRtmpPushSourceSettings();
+            Amazon.MediaConnect.Model.RtmpPushNamingConfiguration requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration = null;
+            
+             // populate NamingConfiguration
+            var requestRtmpPushSettings_rtmpPushSettings_NamingConfigurationIsNull = true;
+            requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration = new Amazon.MediaConnect.Model.RtmpPushNamingConfiguration();
+            Amazon.MediaConnect.Model.AutomaticRtmpPushNamingConfiguration requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Automatic = null;
+            if (cmdletContext.RtmpPushSettings_NamingConfiguration_Automatic != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Automatic = cmdletContext.RtmpPushSettings_NamingConfiguration_Automatic;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Automatic != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration.Automatic = requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Automatic;
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfigurationIsNull = false;
+            }
+            Amazon.MediaConnect.Model.ManualRtmpPushNamingConfiguration requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual = null;
+            
+             // populate Manual
+            var requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_ManualIsNull = true;
+            requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual = new Amazon.MediaConnect.Model.ManualRtmpPushNamingConfiguration();
+            System.String requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual_rtmpPushSettings_NamingConfiguration_Manual_ApplicationName = null;
+            if (cmdletContext.RtmpPushSettings_NamingConfiguration_Manual_ApplicationName != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual_rtmpPushSettings_NamingConfiguration_Manual_ApplicationName = cmdletContext.RtmpPushSettings_NamingConfiguration_Manual_ApplicationName;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual_rtmpPushSettings_NamingConfiguration_Manual_ApplicationName != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual.ApplicationName = requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual_rtmpPushSettings_NamingConfiguration_Manual_ApplicationName;
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_ManualIsNull = false;
+            }
+            System.String requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual_rtmpPushSettings_NamingConfiguration_Manual_StreamName = null;
+            if (cmdletContext.RtmpPushSettings_NamingConfiguration_Manual_StreamName != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual_rtmpPushSettings_NamingConfiguration_Manual_StreamName = cmdletContext.RtmpPushSettings_NamingConfiguration_Manual_StreamName;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual_rtmpPushSettings_NamingConfiguration_Manual_StreamName != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual.StreamName = requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual_rtmpPushSettings_NamingConfiguration_Manual_StreamName;
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_ManualIsNull = false;
+            }
+             // determine if requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual should be set to null
+            if (requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_ManualIsNull)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual = null;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual != null)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration.Manual = requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration_rtmpPushSettings_NamingConfiguration_Manual;
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfigurationIsNull = false;
+            }
+             // determine if requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration should be set to null
+            if (requestRtmpPushSettings_rtmpPushSettings_NamingConfigurationIsNull)
+            {
+                requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration = null;
+            }
+            if (requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration != null)
+            {
+                request.RtmpPushSettings.NamingConfiguration = requestRtmpPushSettings_rtmpPushSettings_NamingConfiguration;
+                requestRtmpPushSettingsIsNull = false;
+            }
+             // determine if request.RtmpPushSettings should be set to null
+            if (requestRtmpPushSettingsIsNull)
+            {
+                request.RtmpPushSettings = null;
+            }
             if (cmdletContext.SenderControlPort != null)
             {
                 request.SenderControlPort = cmdletContext.SenderControlPort.Value;
@@ -804,6 +908,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.String SecretsManager_RoleArn { get; set; }
             public System.String SecretsManager_SecretArn { get; set; }
             public Amazon.MediaConnect.FlowTransitEncryptionKeyType RouterIntegrationTransitDecryption_EncryptionKeyType { get; set; }
+            public Amazon.MediaConnect.Model.AutomaticRtmpPushNamingConfiguration RtmpPushSettings_NamingConfiguration_Automatic { get; set; }
+            public System.String RtmpPushSettings_NamingConfiguration_Manual_ApplicationName { get; set; }
+            public System.String RtmpPushSettings_NamingConfiguration_Manual_StreamName { get; set; }
             public System.Int32? SenderControlPort { get; set; }
             public System.String SenderIpAddress { get; set; }
             public System.String SourceArn { get; set; }

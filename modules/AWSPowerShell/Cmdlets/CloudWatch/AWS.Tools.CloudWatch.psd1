@@ -107,6 +107,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWInsightRuleReport', 
         'Get-CWManagedInsightRule', 
         'Get-CWMetricData', 
+        'Get-CWMetricDataQueryDefinition', 
+        'Get-CWMetricDataQueryDefinitionList', 
         'Get-CWMetricList', 
         'Get-CWMetricStatistic', 
         'Get-CWMetricStream', 
@@ -122,6 +124,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CWDashboard', 
         'Remove-CWDatasetKmsKey', 
         'Remove-CWInsightRule', 
+        'Remove-CWMetricDataQueryDefinition', 
         'Remove-CWMetricStream', 
         'Remove-CWResourceMetricsConfiguration', 
         'Remove-CWResourceTag', 
@@ -141,6 +144,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CWManagedInsightRule', 
         'Write-CWMetricAlarm', 
         'Write-CWMetricData', 
+        'Write-CWMetricDataQueryDefinition', 
         'Write-CWMetricStream')
 
     # Variables to export from this module

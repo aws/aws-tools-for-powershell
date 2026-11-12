@@ -66,6 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// error. For information about deleting records, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>.
     /// 
     /// </para><para>
+    /// You also can't delete a hosted zone that has resource record set protections. To see
+    /// the protections in a hosted zone, use <c>ListResourceRecordSetProtections</c>. To
+    /// delete them, use <c>DeleteResourceRecordSetProtections</c>.
+    /// </para><para>
     /// To verify that the hosted zone has been deleted, do one of the following:
     /// </para><ul><li><para>
     /// Use the <c>GetHostedZone</c> action to request information about the hosted zone.

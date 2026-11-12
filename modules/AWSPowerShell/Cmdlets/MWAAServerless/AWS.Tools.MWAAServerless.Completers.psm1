@@ -149,7 +149,8 @@ $MWAAS_SelectCompleters = {
 }
 
 $MWAAS_SelectMap = @{
-    "Select"=@("New-MWAASWorkflow",
+    "Select"=@("New-MWAASAirflowUiUrl",
+               "New-MWAASWorkflow",
                "Remove-MWAASWorkflow",
                "Get-MWAASTaskInstance",
                "Get-MWAASWorkflow",

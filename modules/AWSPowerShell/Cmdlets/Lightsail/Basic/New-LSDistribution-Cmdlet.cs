@@ -420,6 +420,21 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.Int32? Origin_ResponseTimeout { get; set; }
         #endregion
         
+        #region Parameter SubdomainName
+        /// <summary>
+        /// <para>
+        /// <para>The Lightsail subdomain to create and associate with the distribution (for example,
+        /// <c>mysite</c>, for the web address <c>mysite.amazonlightsail.com</c>).</para><para>After the distribution is deployed, Lightsail creates the subdomain and associates
+        /// it with the distribution. If Lightsail can't create or associate the subdomain, it
+        /// still creates the distribution, but the <c>CreateDistribution</c> operation fails
+        /// and the <c>state</c> of the distribution's <c>subdomain</c> is <c>Error</c>. To check
+        /// the status, use the <c>subdomain</c> parameter of the distribution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubdomainName { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -567,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             context.Origin_ProtocolPolicy = this.Origin_ProtocolPolicy;
             context.Origin_RegionName = this.Origin_RegionName;
             context.Origin_ResponseTimeout = this.Origin_ResponseTimeout;
+            context.SubdomainName = this.SubdomainName;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
@@ -870,6 +886,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 request.Origin = null;
             }
+            if (cmdletContext.SubdomainName != null)
+            {
+                request.SubdomainName = cmdletContext.SubdomainName;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -963,6 +983,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public Amazon.Lightsail.OriginProtocolPolicyEnum Origin_ProtocolPolicy { get; set; }
             public Amazon.Lightsail.RegionName Origin_RegionName { get; set; }
             public System.Int32? Origin_ResponseTimeout { get; set; }
+            public System.String SubdomainName { get; set; }
             public List<Amazon.Lightsail.Model.Tag> Tag { get; set; }
             public Amazon.Lightsail.ViewerMinimumTlsProtocolVersionEnum ViewerMinimumTlsProtocolVersion { get; set; }
             public List<Amazon.Lightsail.Model.WafRule> WafRule { get; set; }

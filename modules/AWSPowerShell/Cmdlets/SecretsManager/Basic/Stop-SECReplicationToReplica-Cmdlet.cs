@@ -30,20 +30,26 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Removes the link between the replica secret and the primary secret and promotes the
-    /// replica to a primary secret in the replica Region.
+    /// Removes the link between a replica secret and its primary secret, and stops replication
+    /// to the replica. You call this operation from the replica account or Region. Depending
+    /// on the type of replica, the behavior is:
     /// 
-    ///  
-    /// <para>
-    /// You must call this operation from the Region in which you want to promote the replica
-    /// to a primary secret.
+    ///  <ul><li><para><b>Cross-Region replica</b>: promotes the replica to a standalone primary secret
+    /// in the replica Region.
+    /// </para></li><li><para><b>Cross-account replica</b>: promotes the replica in your account to a standalone
+    /// secret and stops replication from its primary secret in the other account. Secrets
+    /// Manager updates the primary secret's replication status to <c>Detached</c> for this
+    /// replica.
+    /// </para></li></ul><para>
+    /// To stop cross-account replication from the primary account instead, use <a>DisassociateCrossAccountReplica</a>.
     /// </para><para>
     /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
     /// </para><para><b>Required permissions: </b><c>secretsmanager:StopReplicationToReplica</c>. For
-    /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+    /// cross-account replica secrets, you must also have <c>secretsmanager:DeleteResourcePolicy</c>
+    /// permissions. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
     /// </para>
@@ -64,8 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>The name of the secret or the replica ARN. The replica ARN is the same as the original
-        /// primary secret ARN expect the Region is changed to the replica Region. </para>
+        /// <para>The ARN or name of the replica secret.</para><para>For a cross-region replica, the replica ARN is the same as the original primary secret
+        /// ARN except that the Region is changed to the replica Region. For a cross-account replica,
+        /// this is the ARN or name of the replica secret in your account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

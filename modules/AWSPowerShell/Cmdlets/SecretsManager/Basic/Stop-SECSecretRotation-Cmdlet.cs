@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// from the partially created version. You also need to determine whether to roll back
     /// to the previous version of the secret by moving the staging label <c>AWSCURRENT</c>
     /// to the version that has <c>AWSPENDING</c>. To determine which version has a specific
-    /// staging label, call <a>ListSecretVersionIds</a>. Then use <a>UpdateSecretVersionStage</a>
+    /// staging label, call <a>DescribeSecret</a>. Then use <a>UpdateSecretVersionStage</a>
     /// to change staging labels. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How
     /// rotation works</a>.
     /// </para><para>

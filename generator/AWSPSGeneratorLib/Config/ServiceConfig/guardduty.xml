@@ -304,6 +304,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInvestigationRecords" OutputProperty="*" Verb="Get" Noun="InvestigationRecordList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListInvestigations" OutputProperty="Investigations" Verb="Get" Noun="InvestigationList" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

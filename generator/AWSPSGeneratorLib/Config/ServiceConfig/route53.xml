@@ -79,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceRecordSetProtections" Verb="New" Noun="ResourceRecordSetProtection" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateReusableDelegationSet" OutputProperty="*" Verb="New" Noun="ReusableDelegationSet" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
@@ -122,6 +126,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteQueryLoggingConfig" Verb="Remove" Noun="QueryLoggingConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceRecordSetProtections" Verb="Remove" Noun="ResourceRecordSetProtection" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -265,6 +273,10 @@
         <ServiceOperation MethodName="ListQueryLoggingConfigs" OutputProperty="QueryLoggingConfigs" Verb="Get" Noun="QueryLoggingConfigList" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceRecordSetProtections" OutputProperty="ResourceRecordSetProtections" Verb="Get" Noun="ResourceRecordSetProtectionList" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListResourceRecordSets" OutputProperty="*" Verb="Get" Noun="ResourceRecordSet" PositionalParameters="StartRecordName;StartRecordType" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">

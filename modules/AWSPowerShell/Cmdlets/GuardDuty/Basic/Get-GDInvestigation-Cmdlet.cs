@@ -39,6 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// <para>
     /// Retrieves the results and status of a specific GuardDuty investigation.
     /// </para><para>
+    /// GuardDuty returns the results, including the summary and the scope of the investigation,
+    /// only when the investigation status is <c>COMPLETED</c>. By default, GuardDuty returns
+    /// the summary as text in <c>Summary</c>. To return a typed summary in <c>SummaryData</c>
+    /// instead, set <c>SummaryFormat</c> to <c>STRUCTURED</c>.
+    /// </para><para>
     /// An administrator account can retrieve any investigation within the organization. Member
     /// accounts can only retrieve investigations that belong to them.
     /// </para>
@@ -92,6 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.String InvestigationId { get; set; }
         #endregion
         
+        #region Parameter SummaryFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format in which to return the investigation summary. Possible values:</para><ul><li><para><c>STRING</c> – (Default) Returns the summary as text in <c>Summary</c>.</para></li><li><para><c>STRUCTURED</c> – Returns a typed summary in <c>SummaryData</c>.</para></li></ul><para>GuardDuty returns a summary only when the investigation status is <c>COMPLETED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GuardDuty.SummaryFormat")]
+        public Amazon.GuardDuty.SummaryFormat SummaryFormat { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Investigation'.
@@ -136,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 WriteWarning("You are passing $null as a value for parameter InvestigationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SummaryFormat = this.SummaryFormat;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -159,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (cmdletContext.InvestigationId != null)
             {
                 request.InvestigationId = cmdletContext.InvestigationId;
+            }
+            if (cmdletContext.SummaryFormat != null)
+            {
+                request.SummaryFormat = cmdletContext.SummaryFormat;
             }
             
             CmdletOutput output;
@@ -217,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             public System.String DetectorId { get; set; }
             public System.String InvestigationId { get; set; }
+            public Amazon.GuardDuty.SummaryFormat SummaryFormat { get; set; }
             public System.Func<Amazon.GuardDuty.Model.GetInvestigationResponse, GetGDInvestigationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Investigation;
         }

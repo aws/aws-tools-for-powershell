@@ -1,4 +1,72 @@
-﻿### 5.0.334 (2026-11-12 00:38Z)
+﻿### 5.0.335 (2026-11-12 20:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.1.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for AWS Import/Export
+  * Amazon CloudWatch
+    * Added cmdlet Get-CWMetricDataQueryDefinition leveraging the GetMetricDataQueryDefinition service API.
+    * Added cmdlet Get-CWMetricDataQueryDefinitionList leveraging the ListMetricDataQueryDefinitions service API.
+    * Added cmdlet Remove-CWMetricDataQueryDefinition leveraging the DeleteMetricDataQueryDefinition service API.
+    * Added cmdlet Write-CWMetricDataQueryDefinition leveraging the PutMetricDataQueryDefinition service API.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2MetricCategory leveraging the ModifyMetricCategory service API.
+    * Added cmdlet Get-EC2MetricCategoryDetail leveraging the DescribeMetricCategories service API.
+    * Added cmdlet New-EC2MetricCategory leveraging the CreateMetricCategory service API.
+    * Added cmdlet Remove-EC2MetricCategory leveraging the DeleteMetricCategory service API.
+    * Modified cmdlet Edit-EC2AccountVpcEncryptionControl: added parameters ApiGatewayV2 and GlobalAccelerator.
+    * Modified cmdlet Edit-EC2VpcEncryptionControl: added parameters ApiGatewayV2Exclusion and GlobalAcceleratorExclusion.
+    * Modified cmdlet New-EC2Vpc: added parameters VpcEncryptionControl_ApiGatewayV2Exclusion and VpcEncryptionControl_GlobalAcceleratorExclusion.
+    * Modified cmdlet Start-EC2InstanceMonitoring: added parameter MetricCategoryId.
+    * Modified cmdlet Stop-EC2InstanceMonitoring: added parameter MetricCategoryId.
+  * Amazon GuardDuty
+    * Added cmdlet Get-GDInvestigationRecordList leveraging the ListInvestigationRecords service API.
+    * Modified cmdlet Get-GDInvestigation: added parameter SummaryFormat.
+    * Modified cmdlet Get-GDInvestigationList: added parameter FilterCriteria_Criterion.
+  * Amazon Lightsail
+    * Added cmdlet Get-LSSubdomain leveraging the GetSubdomains service API.
+    * Added cmdlet New-LSSubdomain leveraging the CreateSubdomain service API.
+    * Added cmdlet Remove-LSSubdomain leveraging the DeleteSubdomain service API.
+    * Added cmdlet Test-LSSubdomainAvailability leveraging the CheckSubdomainAvailability service API.
+    * Added cmdlet Update-LSSubdomainAssociation leveraging the UpdateSubdomainAssociation service API.
+    * Modified cmdlet New-LSDistribution: added parameter SubdomainName.
+  * Amazon Route 53
+    * Added cmdlet Get-R53ResourceRecordSetProtectionList leveraging the ListResourceRecordSetProtections service API.
+    * Added cmdlet New-R53ResourceRecordSetProtection leveraging the CreateResourceRecordSetProtections service API.
+    * Added cmdlet Remove-R53ResourceRecordSetProtection leveraging the DeleteResourceRecordSetProtections service API.
+  * AmazonMWAA
+    * Modified cmdlet New-MWAAEnvironment: added parameters IdentityCenterConfiguration_IdentityStoreId, IdentityCenterConfiguration_StartUrl and Team.
+    * Modified cmdlet Update-MWAAEnvironment: added parameters IdentityCenterConfiguration_IdentityStoreId, IdentityCenterConfiguration_StartUrl, Teams_AddOrUpdate and Teams_Remove.
+  * AmazonMWAAServerless
+    * Added cmdlet New-MWAASAirflowUiUrl leveraging the CreateAirflowUiUrl service API.
+  * AWS Elemental MediaConnect
+    * Modified cmdlet New-EMCNRouterInput: added parameters Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingConfiguration_Automatic, Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingConfiguration_Manual_ApplicationName, Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingConfiguration_Manual_StreamName, Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingType and Configuration_Standard_ProtocolConfiguration_RtmpPush_Port.
+    * Modified cmdlet New-EMCNRouterOutput: added parameters FabricConfiguration_SwitchingConfiguration_Immediate, FabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond, FabricConfiguration_SwitchingMode, Processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram, Processors_SingleProgramTransportStreamPidMap_Auto_StartPid, Processors_SingleProgramTransportStreamPidMap_DefaultAction, Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough, Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set, Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough, Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set, Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough, Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set, Processors_SingleProgramTransportStreamPidMap_Rule, Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough and Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set.
+    * Modified cmdlet Update-EMCNFlowOutput: added parameters RtmpPushSettings_ApplicationName, RtmpPushSettings_StreamName, RtmpPushSettings_TlsEncryption_EncryptionConfiguration_Public and RtmpPushSettings_TlsEncryption_EncryptionType.
+    * Modified cmdlet Update-EMCNFlowSource: added parameters RtmpPushSettings_NamingConfiguration_Automatic, RtmpPushSettings_NamingConfiguration_Manual_ApplicationName and RtmpPushSettings_NamingConfiguration_Manual_StreamName.
+    * Modified cmdlet Update-EMCNRouterInput: added parameters Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingConfiguration_Automatic, Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingConfiguration_Manual_ApplicationName, Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingConfiguration_Manual_StreamName, Configuration_Standard_ProtocolConfiguration_RtmpPush_NamingType and Configuration_Standard_ProtocolConfiguration_RtmpPush_Port.
+    * Modified cmdlet Update-EMCNRouterOutput: added parameters FabricConfiguration_SwitchingConfiguration_Immediate, FabricConfiguration_SwitchingConfiguration_KeyFrame_KeyFrameWaitMillisecond, FabricConfiguration_SwitchingMode, Processors_SingleProgramTransportStreamPidMap_Auto_PidsPerProgram, Processors_SingleProgramTransportStreamPidMap_Auto_StartPid, Processors_SingleProgramTransportStreamPidMap_DefaultAction, Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Passthrough, Processors_SingleProgramTransportStreamPidMap_ProgramClockReferencePid_Set, Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Passthrough, Processors_SingleProgramTransportStreamPidMap_ProgramMapTablePid_Set, Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Passthrough, Processors_SingleProgramTransportStreamPidMap_ProgramNumber_Set, Processors_SingleProgramTransportStreamPidMap_Rule, Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Passthrough and Processors_SingleProgramTransportStreamPidMap_TransportStreamId_Set.
+  * AWS Elemental MediaTailor
+    * Modified cmdlet Write-EMTFunction: added parameters HlsTagProcessorConfiguration_Output, HlsTagProcessorConfiguration_RunCondition, HlsTagProcessorConfiguration_Runtime and HlsTagProcessorConfiguration_TagFilter.
+  * AWS Secrets Manager
+    * Added cmdlet Add-SECCrossAccountReplica leveraging the AssociateCrossAccountReplica service API.
+    * Added cmdlet Get-SECResourcePolicyList leveraging the ListResourcePolicies service API.
+    * Added cmdlet Remove-SECCrossAccountReplica leveraging the DisassociateCrossAccountReplica service API.
+    * Modified cmdlet Get-SECResourcePolicy: added parameter PolicyName.
+    * Modified cmdlet New-SECSecret: added parameter CrossAccountPrimaryARN.
+    * Modified cmdlet Remove-SECResourcePolicy: added parameter PolicyName.
+    * Modified cmdlet Write-SECResourcePolicy: added parameter PolicyName.
+  * AWS Security Agent
+    * Modified cmdlet New-SECAGPentest: added parameter CleanUpStrategy.
+    * Modified cmdlet Update-SECAGPentest: added parameter CleanUpStrategy.
+  * AWS Single Sign-On Admin
+    * Modified cmdlet Update-SSOADMNInstance: added parameters NetworkConfiguration_AllowSourceIp, NetworkConfiguration_ExcludeApplicationArn, NetworkConfiguration_RestrictSourceVpc and NetworkConfiguration_VpceAccessRequired.
+  * Oracle Database@Amazon Web Services
+    * Added cmdlet Add-ODBVirtualMachinesToCloudVmCluster leveraging the AssociateVirtualMachinesToCloudVmCluster service API.
+    * Added cmdlet Remove-ODBVirtualMachinesFromCloudVmCluster leveraging the DisassociateVirtualMachinesFromCloudVmCluster service API.
+    * Added cmdlet Update-ODBCloudAutonomousVmCluster leveraging the UpdateCloudAutonomousVmCluster service API.
+    * Added cmdlet Update-ODBCloudExadataInfrastructureStorageCapacity leveraging the UpdateCloudExadataInfrastructureStorageCapacity service API.
+    * Added cmdlet Update-ODBCloudVmCluster leveraging the UpdateCloudVmCluster service API.
+    * Modified cmdlet Update-ODBCloudExadataInfrastructure: added parameters ComputeCount, DisplayName and StorageCount.
+
+### 5.0.334 (2026-11-12 00:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.333 (2026-11-11 20:01Z)

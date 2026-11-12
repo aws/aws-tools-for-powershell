@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// Creates a new secret. A <i>secret</i> can be a password, a set of credentials such
     /// as a user name and password, an OAuth token, or other secret information that you
     /// store in an encrypted form in Secrets Manager. The secret also includes the connection
-    /// information to access a database or other service, which Secrets Manager doesn't encrypt.
-    /// A secret in Secrets Manager consists of both the protected secret data and the important
-    /// information needed to manage the secret.
+    /// information to access a database or other service. Secrets Manager does not encrypt
+    /// this connection information. A secret in Secrets Manager consists of both the encrypted
+    /// secret versions and the metadata that Secrets Manager uses to manage the secret.
     /// 
     ///  
     /// <para>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para><para>
     /// To create a secret, you can provide the secret value to be encrypted in either the
     /// <c>SecretString</c> parameter or the <c>SecretBinary</c> parameter, but not both.
-    /// If you include <c>SecretString</c> or <c>SecretBinary</c> then Secrets Manager creates
+    /// If you include <c>SecretString</c> or <c>SecretBinary</c>, then Secrets Manager creates
     /// an initial secret version and automatically attaches the staging label <c>AWSCURRENT</c>
     /// to it.
     /// </para><para>
@@ -61,12 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// managed key <c>aws/secretsmanager</c>. If this key doesn't already exist in your account,
     /// then Secrets Manager creates it for you automatically. All users and roles in the
     /// Amazon Web Services account automatically have access to use <c>aws/secretsmanager</c>.
-    /// Creating <c>aws/secretsmanager</c> can result in a one-time significant delay in returning
-    /// the result.
+    /// Creating <c>aws/secretsmanager</c> can result in a one-time delay to complete the
+    /// secret creation.
     /// </para><para>
     /// If the secret is in a different Amazon Web Services account from the credentials calling
     /// the API, then you can't use <c>aws/secretsmanager</c> to encrypt the secret, and you
     /// must create and use a customer managed KMS key. 
+    /// </para><para>
+    /// To create a cross-account replica secret, include <c>CrossAccountPrimaryARN</c>. The
+    /// replica must use a customer managed KMS key, and can't include <c>AddReplicaRegions</c>,
+    /// <c>Description</c>, <c>SecretBinary</c>, <c>SecretString</c>, or <c>Type</c>.
     /// </para><para>
     /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
     /// include sensitive information in request parameters except <c>SecretBinary</c> or
@@ -74,8 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// Secrets Manager events with CloudTrail</a>.
     /// </para><para><b>Required permissions: </b><c>secretsmanager:CreateSecret</c>. If you include
     /// tags in the secret, you also need <c>secretsmanager:TagResource</c>. To add replica
-    /// Regions, you must also have <c>secretsmanager:ReplicateSecretToRegions</c>. For more
-    /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+    /// Regions, you must also have <c>secretsmanager:ReplicateSecretToRegions</c>. To create
+    /// a cross-account replica secret, you must also have <c>secretsmanager:PutResourcePolicy</c>
+    /// permissions. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
     /// </para><para>
@@ -139,6 +144,21 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter CrossAccountPrimaryARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of a primary secret in another Amazon Web Services account. Include this field
+        /// to create a cross-account replica secret that receives replicated data from that primary
+        /// secret. The primary secret must be in the same Amazon Web Services Region and partition
+        /// as the replica, and you must specify a customer managed KMS key in <c>KmsKeyId</c>.
+        /// You can't include <c>SecretString</c>, <c>SecretBinary</c>, <c>Description</c>, <c>AddReplicaRegions</c>,
+        /// or <c>Type</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CrossAccountPrimaryARN { get; set; }
         #endregion
         
         #region Parameter Description
@@ -324,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 context.AddReplicaRegion = new List<Amazon.SecretsManager.Model.ReplicaRegionType>(this.AddReplicaRegion);
             }
             context.ClientRequestToken = this.ClientRequestToken;
+            context.CrossAccountPrimaryARN = this.CrossAccountPrimaryARN;
             context.Description = this.Description;
             context.ForceOverwriteReplicaSecret = this.ForceOverwriteReplicaSecret;
             context.KmsKeyId = this.KmsKeyId;
@@ -368,6 +389,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 if (cmdletContext.ClientRequestToken != null)
                 {
                     request.ClientRequestToken = cmdletContext.ClientRequestToken;
+                }
+                if (cmdletContext.CrossAccountPrimaryARN != null)
+                {
+                    request.CrossAccountPrimaryARN = cmdletContext.CrossAccountPrimaryARN;
                 }
                 if (cmdletContext.Description != null)
                 {
@@ -467,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         {
             public List<Amazon.SecretsManager.Model.ReplicaRegionType> AddReplicaRegion { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public System.String CrossAccountPrimaryARN { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? ForceOverwriteReplicaSecret { get; set; }
             public System.String KmsKeyId { get; set; }

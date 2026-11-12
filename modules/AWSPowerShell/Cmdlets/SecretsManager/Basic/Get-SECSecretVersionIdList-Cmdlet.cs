@@ -37,7 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     ///  
     /// <para>
     /// To list the secrets in the account, use <a>ListSecrets</a>.
-    /// </para><para>
+    /// </para><note><para><c>ListSecretVersionIds</c> only returns versions that contain a secret value. To
+    /// see all version IDs that have staging labels attached, including ones without a secret
+    /// value, call <c>DescribeSecret</c> and check <c>VersionIdsToStages</c>.
+    /// </para></note><para>
     /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging

@@ -45,6 +45,24 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Teams_AddOrUpdate
+        /// <summary>
+        /// <para>
+        /// <para>A map of teams to add to your environment, or to update if they already exist. Each
+        /// entry maps a team name to its settings. Each team name must match the display name
+        /// of an Amazon Web Services IAM Identity Center group associated with your environment.
+        /// You can configure between <c>1</c> and <c>20</c> teams.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Teams_AddOrUpdate { get; set; }
+        #endregion
+        
         #region Parameter AirflowConfigurationOption
         /// <summary>
         /// <para>
@@ -170,6 +188,17 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ExecutionRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter IdentityCenterConfiguration_IdentityStoreId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the identity store associated with the IAM Identity Center instance
+        /// for your environment. For example, <c>d-1234567890</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterConfiguration_IdentityStoreId { get; set; }
         #endregion
         
         #region Parameter DagProcessingLogs_LogLevel
@@ -342,6 +371,23 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         public System.String PluginsS3Path { get; set; }
         #endregion
         
+        #region Parameter Teams_Remove
+        /// <summary>
+        /// <para>
+        /// <para>A list of team names to remove from your environment. For example, <c>team-a</c>.
+        /// You can remove between <c>1</c> and <c>20</c> teams in a single update. Removing a
+        /// team does not delete the team's DAG code from Amazon S3.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Teams_Remove { get; set; }
+        #endregion
+        
         #region Parameter RequirementsS3ObjectVersion
         /// <summary>
         /// <para>
@@ -437,6 +483,17 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StartupScriptS3Path { get; set; }
+        #endregion
+        
+        #region Parameter IdentityCenterConfiguration_StartUrl
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services access portal URL of the IAM Identity Center instance associated
+        /// with your environment. For example, <c>https://my-portal.awsapps.com/start</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterConfiguration_StartUrl { get; set; }
         #endregion
         
         #region Parameter WebserverAccessMode
@@ -537,6 +594,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             context.DagS3Path = this.DagS3Path;
             context.EnvironmentClass = this.EnvironmentClass;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
+            context.IdentityCenterConfiguration_IdentityStoreId = this.IdentityCenterConfiguration_IdentityStoreId;
+            context.IdentityCenterConfiguration_StartUrl = this.IdentityCenterConfiguration_StartUrl;
             context.DagProcessingLogs_Enabled = this.DagProcessingLogs_Enabled;
             context.DagProcessingLogs_LogLevel = this.DagProcessingLogs_LogLevel;
             context.SchedulerLogs_Enabled = this.SchedulerLogs_Enabled;
@@ -570,6 +629,18 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             context.SourceBucketArn = this.SourceBucketArn;
             context.StartupScriptS3ObjectVersion = this.StartupScriptS3ObjectVersion;
             context.StartupScriptS3Path = this.StartupScriptS3Path;
+            if (this.Teams_AddOrUpdate != null)
+            {
+                context.Teams_AddOrUpdate = new Dictionary<System.String, Amazon.MWAA.Model.TeamConfig>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Teams_AddOrUpdate.Keys)
+                {
+                    context.Teams_AddOrUpdate.Add((String)hashKey, (Amazon.MWAA.Model.TeamConfig)(this.Teams_AddOrUpdate[hashKey]));
+                }
+            }
+            if (this.Teams_Remove != null)
+            {
+                context.Teams_Remove = new List<System.String>(this.Teams_Remove);
+            }
             context.WebserverAccessMode = this.WebserverAccessMode;
             context.WeeklyMaintenanceWindowStart = this.WeeklyMaintenanceWindowStart;
             context.WorkerReplacementStrategy = this.WorkerReplacementStrategy;
@@ -608,6 +679,35 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             if (cmdletContext.ExecutionRoleArn != null)
             {
                 request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
+            }
+            
+             // populate IdentityCenterConfiguration
+            var requestIdentityCenterConfigurationIsNull = true;
+            request.IdentityCenterConfiguration = new Amazon.MWAA.Model.IdentityCenterConfiguration();
+            System.String requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityStoreId = null;
+            if (cmdletContext.IdentityCenterConfiguration_IdentityStoreId != null)
+            {
+                requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityStoreId = cmdletContext.IdentityCenterConfiguration_IdentityStoreId;
+            }
+            if (requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityStoreId != null)
+            {
+                request.IdentityCenterConfiguration.IdentityStoreId = requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityStoreId;
+                requestIdentityCenterConfigurationIsNull = false;
+            }
+            System.String requestIdentityCenterConfiguration_identityCenterConfiguration_StartUrl = null;
+            if (cmdletContext.IdentityCenterConfiguration_StartUrl != null)
+            {
+                requestIdentityCenterConfiguration_identityCenterConfiguration_StartUrl = cmdletContext.IdentityCenterConfiguration_StartUrl;
+            }
+            if (requestIdentityCenterConfiguration_identityCenterConfiguration_StartUrl != null)
+            {
+                request.IdentityCenterConfiguration.StartUrl = requestIdentityCenterConfiguration_identityCenterConfiguration_StartUrl;
+                requestIdentityCenterConfigurationIsNull = false;
+            }
+             // determine if request.IdentityCenterConfiguration should be set to null
+            if (requestIdentityCenterConfigurationIsNull)
+            {
+                request.IdentityCenterConfiguration = null;
             }
             
              // populate LoggingConfiguration
@@ -864,6 +964,35 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             {
                 request.StartupScriptS3Path = cmdletContext.StartupScriptS3Path;
             }
+            
+             // populate Teams
+            var requestTeamsIsNull = true;
+            request.Teams = new Amazon.MWAA.Model.UpdateTeamsInput();
+            Dictionary<System.String, Amazon.MWAA.Model.TeamConfig> requestTeams_teams_AddOrUpdate = null;
+            if (cmdletContext.Teams_AddOrUpdate != null)
+            {
+                requestTeams_teams_AddOrUpdate = cmdletContext.Teams_AddOrUpdate;
+            }
+            if (requestTeams_teams_AddOrUpdate != null)
+            {
+                request.Teams.AddOrUpdate = requestTeams_teams_AddOrUpdate;
+                requestTeamsIsNull = false;
+            }
+            List<System.String> requestTeams_teams_Remove = null;
+            if (cmdletContext.Teams_Remove != null)
+            {
+                requestTeams_teams_Remove = cmdletContext.Teams_Remove;
+            }
+            if (requestTeams_teams_Remove != null)
+            {
+                request.Teams.Remove = requestTeams_teams_Remove;
+                requestTeamsIsNull = false;
+            }
+             // determine if request.Teams should be set to null
+            if (requestTeamsIsNull)
+            {
+                request.Teams = null;
+            }
             if (cmdletContext.WebserverAccessMode != null)
             {
                 request.WebserverAccessMode = cmdletContext.WebserverAccessMode;
@@ -936,6 +1065,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             public System.String DagS3Path { get; set; }
             public System.String EnvironmentClass { get; set; }
             public System.String ExecutionRoleArn { get; set; }
+            public System.String IdentityCenterConfiguration_IdentityStoreId { get; set; }
+            public System.String IdentityCenterConfiguration_StartUrl { get; set; }
             public System.Boolean? DagProcessingLogs_Enabled { get; set; }
             public Amazon.MWAA.LoggingLevel DagProcessingLogs_LogLevel { get; set; }
             public System.Boolean? SchedulerLogs_Enabled { get; set; }
@@ -960,6 +1091,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             public System.String SourceBucketArn { get; set; }
             public System.String StartupScriptS3ObjectVersion { get; set; }
             public System.String StartupScriptS3Path { get; set; }
+            public Dictionary<System.String, Amazon.MWAA.Model.TeamConfig> Teams_AddOrUpdate { get; set; }
+            public List<System.String> Teams_Remove { get; set; }
             public Amazon.MWAA.WebserverAccessMode WebserverAccessMode { get; set; }
             public System.String WeeklyMaintenanceWindowStart { get; set; }
             public Amazon.MWAA.WorkerReplacementStrategy WorkerReplacementStrategy { get; set; }

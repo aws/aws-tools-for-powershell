@@ -168,6 +168,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LSSetupHistory', 
         'Get-LSStaticIp', 
         'Get-LSStaticIpList', 
+        'Get-LSSubdomain', 
         'Import-LSKeyPair', 
         'Mount-LSCertificateToDistribution', 
         'Mount-LSStaticIp', 
@@ -196,6 +197,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-LSRelationalDatabaseFromSnapshot', 
         'New-LSRelationalDatabaseSnapshot', 
         'New-LSStaticIp', 
+        'New-LSSubdomain', 
         'Open-LSInstancePublicPort', 
         'Read-LSDefaultKeyPair', 
         'Register-LSContainerImage', 
@@ -223,6 +225,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LSRelationalDatabaseSnapshot', 
         'Remove-LSResourceTag', 
         'Remove-LSStaticIp', 
+        'Remove-LSSubdomain', 
         'Reset-LSDistributionCache', 
         'Restart-LSInstance', 
         'Restart-LSRelationalDatabase', 
@@ -238,6 +241,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-LSInstance', 
         'Stop-LSRelationalDatabase', 
         'Test-LSAlarm', 
+        'Test-LSSubdomainAvailability', 
         'Test-LSVpcPeered', 
         'Update-LSBucket', 
         'Update-LSBucketBundle', 
@@ -248,7 +252,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-LSInstanceMetadataOption', 
         'Update-LSLoadBalancerAttribute', 
         'Update-LSRelationalDatabase', 
-        'Update-LSRelationalDatabaseParameter')
+        'Update-LSRelationalDatabaseParameter', 
+        'Update-LSSubdomainAssociation')
 
     # Variables to export from this module
     VariablesToExport = '*'

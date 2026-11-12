@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Creates a report that shows how your image is used across other Amazon Web Services
     /// accounts. The report provides visibility into which accounts are using the specified
-    /// image, and how many resources (EC2 instances or launch templates) are referencing
-    /// it.
+    /// image, and how many resources (EC2 instances, EC2 launch templates, Image Builder
+    /// image recipes, or Image Builder container recipes) are referencing it.
     /// 
     ///  
     /// <para>

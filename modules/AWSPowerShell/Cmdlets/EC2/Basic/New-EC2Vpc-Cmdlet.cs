@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? AmazonProvidedIpv6CidrBlock { get; set; }
         #endregion
         
+        #region Parameter VpcEncryptionControl_ApiGatewayV2Exclusion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to exclude Amazon API Gateway V2 traffic from encryption enforcement.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.VpcEncryptionControlExclusionStateInput")]
+        public Amazon.EC2.VpcEncryptionControlExclusionStateInput VpcEncryptionControl_ApiGatewayV2Exclusion { get; set; }
+        #endregion
+        
         #region Parameter CidrBlock
         /// <summary>
         /// <para>
@@ -120,6 +131,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.VpcEncryptionControlExclusionStateInput")]
         public Amazon.EC2.VpcEncryptionControlExclusionStateInput VpcEncryptionControl_ElasticFileSystemExclusion { get; set; }
+        #endregion
+        
+        #region Parameter VpcEncryptionControl_GlobalAcceleratorExclusion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to exclude AWS Global Accelerator traffic from encryption enforcement.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.VpcEncryptionControlExclusionStateInput")]
+        public Amazon.EC2.VpcEncryptionControlExclusionStateInput VpcEncryptionControl_GlobalAcceleratorExclusion { get; set; }
         #endregion
         
         #region Parameter InstanceTenancy
@@ -375,8 +397,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
+            context.VpcEncryptionControl_ApiGatewayV2Exclusion = this.VpcEncryptionControl_ApiGatewayV2Exclusion;
             context.VpcEncryptionControl_EgressOnlyInternetGatewayExclusion = this.VpcEncryptionControl_EgressOnlyInternetGatewayExclusion;
             context.VpcEncryptionControl_ElasticFileSystemExclusion = this.VpcEncryptionControl_ElasticFileSystemExclusion;
+            context.VpcEncryptionControl_GlobalAcceleratorExclusion = this.VpcEncryptionControl_GlobalAcceleratorExclusion;
             context.VpcEncryptionControl_InternetGatewayExclusion = this.VpcEncryptionControl_InternetGatewayExclusion;
             context.VpcEncryptionControl_LambdaExclusion = this.VpcEncryptionControl_LambdaExclusion;
             context.VpcEncryptionControl_Mode = this.VpcEncryptionControl_Mode;
@@ -452,6 +476,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate VpcEncryptionControl
             var requestVpcEncryptionControlIsNull = true;
             request.VpcEncryptionControl = new Amazon.EC2.Model.VpcEncryptionControlConfiguration();
+            Amazon.EC2.VpcEncryptionControlExclusionStateInput requestVpcEncryptionControl_vpcEncryptionControl_ApiGatewayV2Exclusion = null;
+            if (cmdletContext.VpcEncryptionControl_ApiGatewayV2Exclusion != null)
+            {
+                requestVpcEncryptionControl_vpcEncryptionControl_ApiGatewayV2Exclusion = cmdletContext.VpcEncryptionControl_ApiGatewayV2Exclusion;
+            }
+            if (requestVpcEncryptionControl_vpcEncryptionControl_ApiGatewayV2Exclusion != null)
+            {
+                request.VpcEncryptionControl.ApiGatewayV2Exclusion = requestVpcEncryptionControl_vpcEncryptionControl_ApiGatewayV2Exclusion;
+                requestVpcEncryptionControlIsNull = false;
+            }
             Amazon.EC2.VpcEncryptionControlExclusionStateInput requestVpcEncryptionControl_vpcEncryptionControl_EgressOnlyInternetGatewayExclusion = null;
             if (cmdletContext.VpcEncryptionControl_EgressOnlyInternetGatewayExclusion != null)
             {
@@ -470,6 +504,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestVpcEncryptionControl_vpcEncryptionControl_ElasticFileSystemExclusion != null)
             {
                 request.VpcEncryptionControl.ElasticFileSystemExclusion = requestVpcEncryptionControl_vpcEncryptionControl_ElasticFileSystemExclusion;
+                requestVpcEncryptionControlIsNull = false;
+            }
+            Amazon.EC2.VpcEncryptionControlExclusionStateInput requestVpcEncryptionControl_vpcEncryptionControl_GlobalAcceleratorExclusion = null;
+            if (cmdletContext.VpcEncryptionControl_GlobalAcceleratorExclusion != null)
+            {
+                requestVpcEncryptionControl_vpcEncryptionControl_GlobalAcceleratorExclusion = cmdletContext.VpcEncryptionControl_GlobalAcceleratorExclusion;
+            }
+            if (requestVpcEncryptionControl_vpcEncryptionControl_GlobalAcceleratorExclusion != null)
+            {
+                request.VpcEncryptionControl.GlobalAcceleratorExclusion = requestVpcEncryptionControl_vpcEncryptionControl_GlobalAcceleratorExclusion;
                 requestVpcEncryptionControlIsNull = false;
             }
             Amazon.EC2.VpcEncryptionControlExclusionStateInput requestVpcEncryptionControl_vpcEncryptionControl_InternetGatewayExclusion = null;
@@ -614,8 +658,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? Ipv6NetmaskLength { get; set; }
             public System.String Ipv6Pool { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public Amazon.EC2.VpcEncryptionControlExclusionStateInput VpcEncryptionControl_ApiGatewayV2Exclusion { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput VpcEncryptionControl_EgressOnlyInternetGatewayExclusion { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput VpcEncryptionControl_ElasticFileSystemExclusion { get; set; }
+            public Amazon.EC2.VpcEncryptionControlExclusionStateInput VpcEncryptionControl_GlobalAcceleratorExclusion { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput VpcEncryptionControl_InternetGatewayExclusion { get; set; }
             public Amazon.EC2.VpcEncryptionControlExclusionStateInput VpcEncryptionControl_LambdaExclusion { get; set; }
             public Amazon.EC2.VpcEncryptionControlMode VpcEncryptionControl_Mode { get; set; }

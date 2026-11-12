@@ -33,8 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// Retrieves the details of a secret. It does not include the encrypted secret value.
     /// Secrets Manager only returns fields that have a value in the response. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// The <c>VersionIdsToStages</c> field in the response includes every version ID that
+    /// has a staging label attached, even if that version doesn't contain a secret value.
+    /// In contrast, <c>ListSecretVersionIds</c> only returns versions that contain a secret
+    /// value. To check whether a secret version contains a value, call <a>GetSecretValue</a>.
+    /// </para></note><para>
     /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging

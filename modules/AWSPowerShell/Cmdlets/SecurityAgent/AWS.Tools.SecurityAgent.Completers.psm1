@@ -87,6 +87,16 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.CleanUpStrategy
+        {
+            ($_ -eq "New-SECAGPentest/CleanUpStrategy") -Or
+            ($_ -eq "Update-SECAGPentest/CleanUpStrategy")
+        }
+        {
+            $v = "BEST_EFFORT_DELETE","RETAIN_ALL"
+            break
+        }
+
         # Amazon.SecurityAgent.CodeRemediationStrategy
         {
             ($_ -eq "New-SECAGCodeReview/CodeRemediationStrategy") -Or
@@ -298,6 +308,7 @@ $SECAG_Completers = {
 
 $SECAG_map = @{
     "ArtifactType"=@("Add-SECAGArtifact")
+    "CleanUpStrategy"=@("New-SECAGPentest","Update-SECAGPentest")
     "CodeRemediationStrategy"=@("New-SECAGCodeReview","New-SECAGPentest","Update-SECAGCodeReview","Update-SECAGPentest")
     "Confidence"=@("Get-SECAGFindingList")
     "Config_User_Role"=@("New-SECAGMembership")

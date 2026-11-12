@@ -345,7 +345,14 @@ $LS_Completers = {
         # Amazon.Lightsail.ResourceType
         "Set-LSIpAddressType/ResourceType"
         {
-            $v = "Alarm","Bucket","Certificate","CloudFormationStackRecord","ContactMethod","ContainerService","Disk","DiskSnapshot","Distribution","Domain","ExportSnapshotRecord","Instance","InstanceSnapshot","KeyPair","LoadBalancer","LoadBalancerTlsCertificate","PeeredVpc","RelationalDatabase","RelationalDatabaseSnapshot","StaticIp"
+            $v = "Alarm","Bucket","Certificate","CloudFormationStackRecord","ContactMethod","ContainerService","Disk","DiskSnapshot","Distribution","Domain","ExportSnapshotRecord","Instance","InstanceSnapshot","KeyPair","LoadBalancer","LoadBalancerTlsCertificate","PeeredVpc","RelationalDatabase","RelationalDatabaseSnapshot","StaticIp","Subdomain"
+            break
+        }
+
+        # Amazon.Lightsail.SubdomainAssociationAction
+        "Update-LSSubdomainAssociation/Action"
+        {
+            $v = "ASSOCIATE","DISASSOCIATE","TRANSFER"
             break
         }
 
@@ -377,6 +384,7 @@ $LS_Completers = {
 $LS_map = @{
     "Access"=@("Set-LSResourceAccessForBucket")
     "AccessRules_GetObject"=@("Update-LSBucket")
+    "Action"=@("Update-LSSubdomainAssociation")
     "AddOnRequest_AddOnType"=@("Enable-LSAddOn")
     "AddOnType"=@("Disable-LSAddOn")
     "AppCategory"=@("Get-LSBlueprintList","Get-LSBundleList")
@@ -462,6 +470,7 @@ $LS_SelectMap = @{
                "Add-LSInstancesToLoadBalancer",
                "Add-LSLoadBalancerTlsCertificate",
                "Mount-LSStaticIp",
+               "Test-LSSubdomainAvailability",
                "Close-LSInstancePublicPort",
                "Copy-LSSnapshot",
                "New-LSBucket",
@@ -488,6 +497,7 @@ $LS_SelectMap = @{
                "New-LSRelationalDatabase",
                "New-LSRelationalDatabaseFromSnapshot",
                "New-LSRelationalDatabaseSnapshot",
+               "New-LSSubdomain",
                "Remove-LSAlarm",
                "Remove-LSAutoSnapshot",
                "Remove-LSBucket",
@@ -509,6 +519,7 @@ $LS_SelectMap = @{
                "Remove-LSLoadBalancerTlsCertificate",
                "Remove-LSRelationalDatabase",
                "Remove-LSRelationalDatabaseSnapshot",
+               "Remove-LSSubdomain",
                "Dismount-LSCertificateFromDistribution",
                "Dismount-LSDisk",
                "Dismount-LSInstancesFromLoadBalancer",
@@ -583,6 +594,7 @@ $LS_SelectMap = @{
                "Get-LSSetupHistory",
                "Get-LSStaticIp",
                "Get-LSStaticIpList",
+               "Get-LSSubdomain",
                "Import-LSKeyPair",
                "Test-LSVpcPeered",
                "Open-LSInstancePublicPort",
@@ -617,7 +629,8 @@ $LS_SelectMap = @{
                "Update-LSInstanceMetadataOption",
                "Update-LSLoadBalancerAttribute",
                "Update-LSRelationalDatabase",
-               "Update-LSRelationalDatabaseParameter")
+               "Update-LSRelationalDatabaseParameter",
+               "Update-LSSubdomainAssociation")
 }
 
 _awsArgumentCompleterRegistration $LS_SelectCompleters $LS_SelectMap
