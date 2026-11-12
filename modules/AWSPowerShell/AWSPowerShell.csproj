@@ -54,13 +54,16 @@
       then it cannot load the version specified here. So we compile with an older version but ship the newer version that .NET SDK ships.
       -->
     <PackageReference Include="System.Text.Json" Version="6.0.11" />
-    <!-- Pin System.Memory to 4.5.5 to match the version AWSSDK.Core and service DLLs were compiled against (asm 4.0.1.2).
+    <!-- Pin System.Memory to 4.6.3 to match the version AWSSDK.Core 4.1 and service DLLs are compiled against (asm 4.0.2.0 netstandard2.0, 4.0.5.0 net472).
          System.Text.Json 6.0.11 transitively pulls 4.5.4 (asm 4.0.1.1), causing MSB3277 against every AWSSDK DLL. -->
-    <PackageReference Include="System.Memory" Version="4.5.5" />
+    <PackageReference Include="System.Memory" Version="4.6.3" />
   </ItemGroup>  
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net472" Version="1.0.3" PrivateAssets="All" />
     <PackageReference Include="Microsoft.PowerShell.5.1.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+    <!-- Pin System.ValueTuple to 4.6.1 (asm 4.0.5.0) to match the AWS SDK for .NET 4.1 net472 dependencies (System.Formats.Cbor).
+         System.Text.Json 6.0.11 transitively pulls 4.5.0 (asm 4.0.3.0), causing MSB3277 for net472. -->
+    <PackageReference Include="System.ValueTuple" Version="4.6.1" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
