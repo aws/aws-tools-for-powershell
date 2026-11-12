@@ -42,7 +42,7 @@ namespace AWSPowerShellGenerator.Utils
         private const string AWSPowerShellNetCoreGuid = "cb0b9b96-f3f2-4eff-b7f4-cbe0a9203683";
         private const string AWSPowerShellGuid = "21f083f2-4c41-4b5d-88ec-7d24c9e88769";
         private readonly string[] AwsToolsCommonSdkAssemblies = { "AWSSDK.Core", "AWSSDK.SecurityToken" };
-        private readonly string[] AdditionalAssemblies = { "aws-crt", "aws-crt-auth", "aws-crt-http", "aws-crt-checksums", "AWSSDK.Extensions.CrtIntegration", "AWSSDK.Extensions.CborProtocol", "System.Formats.Cbor", "System.IO.Hashing" };
+        private readonly string[] AdditionalAssemblies = { "aws-crt", "aws-crt-auth", "aws-crt-http", "aws-crt-checksums", "AWSSDK.Extensions.CrtIntegration", "AWSSDK.Extensions.CborProtocol", "AWSSDK.Extensions.Numerics", "System.Formats.Cbor", "System.IO.Hashing" };
         // Additional service assemblies that are added to Project files and Manifest files.
         private readonly Dictionary<string, List<string>> _additionalServiceAssemblies = new()
         {

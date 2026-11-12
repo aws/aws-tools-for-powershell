@@ -64,6 +64,7 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'aws-crt-checksums.dll',
         'AWSSDK.Extensions.CrtIntegration.dll',
         'AWSSDK.Extensions.CborProtocol.dll',
+        'AWSSDK.Extensions.Numerics.dll',
         'System.Formats.Cbor.dll',
         'System.IO.Hashing.dll'
     )

@@ -21,6 +21,7 @@ namespace Amazon.PowerShell.Common
             "System.Runtime.CompilerServices.Unsafe.dll",
             "System.Formats.Cbor.dll",
             "AWSSDK.Extensions.CborProtocol.dll",
+            "AWSSDK.Extensions.Numerics.dll",
             "Microsoft.Bcl.HashCode.dll",
             "System.IO.Hashing.dll",
             "System.Formats.Asn1.dll",
