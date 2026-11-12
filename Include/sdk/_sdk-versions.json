@@ -219,14 +219,6 @@
             },
             "InPreview"               : false
         },
-        "ImportExport"         : {
-            "Version" : "4.1.0.0",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.1.0.0"
-            },
-            "InPreview"               : false
-        },
         "Kinesis"              : {
             "Version" : "4.1.0.0",
             "AssemblyVersionOverride" : "4.0",
@@ -252,14 +244,6 @@
             "InPreview"               : false
         },
         "MachineLearning"      : {
-            "Version" : "4.1.0.0",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.1.0.0"
-            },
-            "InPreview"               : false
-        },
-        "MobileAnalytics"      : {
             "Version" : "4.1.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {

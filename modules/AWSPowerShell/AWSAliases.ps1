@@ -18091,16 +18091,6 @@ Set-Alias -Name EC2IB-UpdateDistributionConfiguration -Value Update-EC2IBDistrib
 Set-Alias -Name EC2IB-UpdateImagePipeline -Value Update-EC2IBImagePipeline
 Set-Alias -Name EC2IB-UpdateInfrastructureConfiguration -Value Update-EC2IBInfrastructureConfiguration
 Set-Alias -Name EC2IB-UpdateLifecyclePolicy -Value Update-EC2IBLifecyclePolicy
-Set-Alias -Name Cancel-IEJob -Value Stop-IEJob
-Set-Alias -Name IE-CancelJob -Value Stop-IEJob
-Set-Alias -Name Create-IEJob -Value New-IEJob
-Set-Alias -Name IE-CreateJob -Value New-IEJob
-Set-Alias -Name IE-GetShippingLabel -Value Get-IEShippingLabel
-Set-Alias -Name IE-GetStatus -Value Get-IEStatus
-Set-Alias -Name List-IEJobs -Value Get-IEJob
-Set-Alias -Name List-IEJob -Value Get-IEJob
-Set-Alias -Name IE-ListJobs -Value Get-IEJob
-Set-Alias -Name IE-UpdateJob -Value Update-IEJob
 Set-Alias -Name Scan-ISCANSbom -Value Invoke-ISCANSbomScan
 Set-Alias -Name Scan-ISCANSbomScan -Value Invoke-ISCANSbomScan
 Set-Alias -Name ISCAN-ScanSbom -Value Invoke-ISCANSbomScan

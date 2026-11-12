@@ -656,9 +656,6 @@
     <Reference Include="AWSSDK.Imagebuilder">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Imagebuilder.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.ImportExport">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ImportExport.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.Inspector">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Inspector.dll</HintPath>
     </Reference>
@@ -1963,9 +1960,6 @@
     </Reference>
     <Reference Include="AWSSDK.Imagebuilder">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Imagebuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ImportExport">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ImportExport.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Inspector">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Inspector.dll</HintPath>

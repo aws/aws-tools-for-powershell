@@ -250,7 +250,6 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.IdentityManagement.dll',
         'AWSSDK.IdentityStore.dll',
         'AWSSDK.Imagebuilder.dll',
-        'AWSSDK.ImportExport.dll',
         'AWSSDK.Inspector.dll',
         'AWSSDK.Inspector2.dll',
         'AWSSDK.InspectorScan.dll',

@@ -970,7 +970,6 @@
     need to keep them for backward compatibility -->
     <Library Name="AWSSDK.IotData" />
     <Library Name="AWSSDK.KinesisVideoArchivedMedia" />
-    <Library Name="AWSSDK.MobileAnalytics" />
     <Library Name="AWSSDK.PinpointSMSVoice" />
     <Library Name="AWSSDK.Signer" />
     <Library Name="AWSSDK.SimpleDB" />
