@@ -25,6 +25,9 @@
     <None Update="XmlTests\Valid\overrides.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="XmlTests\ServiceNameOverride\eks-auth.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
 	<None Include="YamlData\*\metadata\*.yaml">
 		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>

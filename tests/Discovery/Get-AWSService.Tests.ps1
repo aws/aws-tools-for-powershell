@@ -24,7 +24,8 @@ Describe -Tag "Smoke" "Get-AWSService" {
         }
 
         It "should support filtering by service name" {
-            (Get-AWSService -Service 'AWS Systems Manager' | Where-Object { $_.service -eq 'SimpleSystemsManagement' }).Count | Should -BeGreaterThan 0
+            # Part of the name only: display names follow the service model and can change.
+            (Get-AWSService -Service 'Systems Manager' | Where-Object { $_.service -eq 'SimpleSystemsManagement' }).Count | Should -BeGreaterThan 0
         }
 
         It "should support filtering by service prefix" {

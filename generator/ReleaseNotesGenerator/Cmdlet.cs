@@ -78,7 +78,8 @@ namespace PSReleaseNotesGenerator
             var awsClientCmdletAttribute = RecursiveGetCustomAttributes(Type).FirstOrDefault(attribute => attribute.GetType().FullName == AWSClientCmdletAttribute);
             if (awsClientCmdletAttribute == null)
                 return null;
-            return FixServiceName(GetProperty<string>(awsClientCmdletAttribute, AWSClientCmdletAttribute_ServiceName));
+            // The service's display name exactly as configured (ServiceConfig <ServiceName>), for example "AWS Lambda".
+            return GetProperty<string>(awsClientCmdletAttribute, AWSClientCmdletAttribute_ServiceName);
         }
 
         private string GetServicePrefix()
@@ -145,19 +146,6 @@ namespace PSReleaseNotesGenerator
                 }
                 type = type.BaseType;
             }
-        }
-
-        private static string FixServiceName(string name)
-        {
-            const string serviceNamePrefix = "Amazon ";
-
-            if (name == null)
-                return null;
-            if (name.StartsWith("AWS ", StringComparison.OrdinalIgnoreCase))
-                return serviceNamePrefix + name.Substring(4);
-            if (!name.StartsWith(serviceNamePrefix))
-                return serviceNamePrefix + name;
-            return name;
         }
     }
 }

@@ -56,6 +56,10 @@ namespace Amazon.PowerShell.Common
         /// for which a match can be found are used to assist in the cmdlet results. A 
         /// regular expression can always be supplied for the parameter value.
         /// </para>
+        /// <para>
+        /// Service names can change, for example when a service is renamed. Use the service
+        /// prefix in scripts that need a lookup that keeps working.
+        /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public string Service { get; set; }
@@ -228,6 +232,10 @@ namespace Amazon.PowerShell.Common
         /// When partial names are used (as opposed to a prefix code) all services 
         /// for which a match can be found are used to assist in the cmdlet results. A 
         /// regular expression can always be supplied for the parameter value.
+        /// </para>
+        /// <para>
+        /// Service names can change, for example when a service is renamed. Use the service
+        /// prefix in scripts that need a lookup that keeps working.
         /// </para>
         /// <para>
         /// If this is the only parameter supplied to the cmdlet, the output will list all

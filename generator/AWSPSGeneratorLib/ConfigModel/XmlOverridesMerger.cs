@@ -102,10 +102,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         break;
                     case nameof(ConfigModel.C2jFilename):
                         break;
+                    case nameof(ConfigModel.ServiceName):
+                        // The service's display name, not an identifier: the build updates it when the service's model
+                        // name changes. Replaced in place so the rest of the configuration is untouched.
+                        SetServiceName(serviceConfiguration, overrideElementsByName.Single().InnerText);
+                        break;
                     case nameof(ConfigModel.SkipCmdletGeneration):
                     case nameof(ConfigModel.AssemblyName):
                     case nameof(ConfigModel.ServiceNounPrefix):
-                    case nameof(ConfigModel.ServiceName):
                     case nameof(ConfigModel.ServiceId):
                     case nameof(ConfigModel.ServiceClientInterface):
                     case nameof(ConfigModel.ServiceClient):
@@ -129,6 +133,17 @@ namespace AWSPowerShellGenerator.ServiceConfig
             }
 
             return true;
+        }
+
+        private static void SetServiceName(XmlElement serviceConfiguration, string serviceName)
+        {
+            var serviceNameElement = GetChildElementsByTagName(serviceConfiguration, nameof(ConfigModel.ServiceName)).SingleOrDefault();
+            if (serviceNameElement == null)
+            {
+                serviceNameElement = serviceConfiguration.OwnerDocument.CreateElement(nameof(ConfigModel.ServiceName));
+                serviceConfiguration.AppendChild(serviceNameElement);
+            }
+            serviceNameElement.InnerText = serviceName;
         }
 
         private static void MergeOperations(XmlElement destination, IEnumerable<XmlElement> overrides)
@@ -199,9 +214,11 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     validationMessages.AppendLine($"{e.Severity}: {e.Message}");                    
                 });
 
-                var reader = XmlReader.Create(fileName, settings);
                 var document = new XmlDocument();
-                document.Load(reader);
+                using (var reader = XmlReader.Create(fileName, settings))
+                {
+                    document.Load(reader);
+                }
                                 
                 if (hasErrors)
                 {                    
