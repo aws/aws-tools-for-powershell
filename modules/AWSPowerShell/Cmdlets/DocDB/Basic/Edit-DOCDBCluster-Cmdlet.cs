@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Edit", "DOCDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBCluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ModifyDBCluster API operation.", Operation = new[] {"ModifyDBCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyDBClusterResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility ModifyDBCluster API operation.", Operation = new[] {"ModifyDBCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyDBClusterResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBCluster or Amazon.DocDB.Model.ModifyDBClusterResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBCluster object.",
         "The service call response (type Amazon.DocDB.Model.ModifyDBClusterResponse) can be returned by specifying '-Select *'."
@@ -624,7 +624,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.ModifyDBClusterResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.ModifyDBClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "ModifyDBCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "ModifyDBCluster");
             try
             {
                 return client.ModifyDBClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

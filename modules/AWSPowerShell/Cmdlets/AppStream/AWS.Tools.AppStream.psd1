@@ -173,6 +173,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-APSDirectoryConfig', 
         'Update-APSEntitlement', 
         'Update-APSFleet', 
+        'Update-APSImageBuilder', 
         'Update-APSImagePermission', 
         'Update-APSStack', 
         'Update-APSThemeForStack')

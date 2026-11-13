@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ManagedPrefixList")]
     [OutputType("Amazon.EC2.Model.ManagedPrefixList")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeManagedPrefixLists API operation.", Operation = new[] {"DescribeManagedPrefixLists"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeManagedPrefixListsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeManagedPrefixLists API operation.", Operation = new[] {"DescribeManagedPrefixLists"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeManagedPrefixListsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ManagedPrefixList or Amazon.EC2.Model.DescribeManagedPrefixListsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ManagedPrefixList objects.",
         "The service call response (type Amazon.EC2.Model.DescribeManagedPrefixListsResponse) can be returned by specifying '-Select *'."
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeManagedPrefixListsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeManagedPrefixListsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeManagedPrefixLists");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeManagedPrefixLists");
             try
             {
                 return client.DescribeManagedPrefixListsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Dismount", "EC2ImageWatermark", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DetachImageWatermark API operation.", Operation = new[] {"DetachImageWatermark"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachImageWatermarkResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DetachImageWatermark API operation.", Operation = new[] {"DetachImageWatermark"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachImageWatermarkResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DetachImageWatermarkResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DetachImageWatermarkResponse) can be returned by specifying '-Select *'."
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DetachImageWatermarkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachImageWatermarkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DetachImageWatermark");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DetachImageWatermark");
             try
             {
                 return client.DetachImageWatermarkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

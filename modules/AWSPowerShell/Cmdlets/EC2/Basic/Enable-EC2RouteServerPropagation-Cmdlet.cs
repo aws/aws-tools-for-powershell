@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2RouteServerPropagation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.RouteServerPropagation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableRouteServerPropagation API operation.", Operation = new[] {"EnableRouteServerPropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableRouteServerPropagationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableRouteServerPropagation API operation.", Operation = new[] {"EnableRouteServerPropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableRouteServerPropagationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RouteServerPropagation or Amazon.EC2.Model.EnableRouteServerPropagationResponse",
         "This cmdlet returns an Amazon.EC2.Model.RouteServerPropagation object.",
         "The service call response (type Amazon.EC2.Model.EnableRouteServerPropagationResponse) can be returned by specifying '-Select *'."
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableRouteServerPropagationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableRouteServerPropagationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableRouteServerPropagation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableRouteServerPropagation");
             try
             {
                 return client.EnableRouteServerPropagationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

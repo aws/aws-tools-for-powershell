@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2VpcBlockPublicAccessExclusion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.VpcBlockPublicAccessExclusion")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpcBlockPublicAccessExclusion API operation.", Operation = new[] {"DeleteVpcBlockPublicAccessExclusion"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVpcBlockPublicAccessExclusion API operation.", Operation = new[] {"DeleteVpcBlockPublicAccessExclusion"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcBlockPublicAccessExclusion or Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpcBlockPublicAccessExclusion object.",
         "The service call response (type Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse) can be returned by specifying '-Select *'."
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVpcBlockPublicAccessExclusion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVpcBlockPublicAccessExclusion");
             try
             {
                 return client.DeleteVpcBlockPublicAccessExclusionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

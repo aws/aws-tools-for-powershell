@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2MacSystemIntegrityProtectionModificationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.MacModificationTask")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateMacSystemIntegrityProtectionModificationTask API operation.", Operation = new[] {"CreateMacSystemIntegrityProtectionModificationTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateMacSystemIntegrityProtectionModificationTaskResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateMacSystemIntegrityProtectionModificationTask API operation.", Operation = new[] {"CreateMacSystemIntegrityProtectionModificationTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateMacSystemIntegrityProtectionModificationTaskResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.MacModificationTask or Amazon.EC2.Model.CreateMacSystemIntegrityProtectionModificationTaskResponse",
         "This cmdlet returns an Amazon.EC2.Model.MacModificationTask object.",
         "The service call response (type Amazon.EC2.Model.CreateMacSystemIntegrityProtectionModificationTaskResponse) can be returned by specifying '-Select *'."
@@ -473,7 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateMacSystemIntegrityProtectionModificationTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateMacSystemIntegrityProtectionModificationTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateMacSystemIntegrityProtectionModificationTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateMacSystemIntegrityProtectionModificationTask");
             try
             {
                 return client.CreateMacSystemIntegrityProtectionModificationTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

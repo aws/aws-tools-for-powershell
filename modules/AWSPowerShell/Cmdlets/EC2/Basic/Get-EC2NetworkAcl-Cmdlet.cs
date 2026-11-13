@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2NetworkAcl")]
     [OutputType("Amazon.EC2.Model.NetworkAcl")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeNetworkAcls API operation.", Operation = new[] {"DescribeNetworkAcls"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkAclsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeNetworkAcls API operation.", Operation = new[] {"DescribeNetworkAcls"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkAclsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkAcl or Amazon.EC2.Model.DescribeNetworkAclsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.NetworkAcl objects.",
         "The service call response (type Amazon.EC2.Model.DescribeNetworkAclsResponse) can be returned by specifying '-Select *'."
@@ -395,7 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeNetworkAclsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeNetworkAclsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeNetworkAcls");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeNetworkAcls");
             try
             {
                 return client.DescribeNetworkAclsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

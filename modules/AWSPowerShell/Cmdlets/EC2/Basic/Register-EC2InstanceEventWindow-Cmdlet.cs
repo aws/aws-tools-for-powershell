@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2InstanceEventWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.InstanceEventWindow")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateInstanceEventWindow API operation.", Operation = new[] {"AssociateInstanceEventWindow"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateInstanceEventWindowResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateInstanceEventWindow API operation.", Operation = new[] {"AssociateInstanceEventWindow"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateInstanceEventWindowResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceEventWindow or Amazon.EC2.Model.AssociateInstanceEventWindowResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceEventWindow object.",
         "The service call response (type Amazon.EC2.Model.AssociateInstanceEventWindowResponse) can be returned by specifying '-Select *'."
@@ -299,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateInstanceEventWindowResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateInstanceEventWindowRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateInstanceEventWindow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateInstanceEventWindow");
             try
             {
                 return client.AssociateInstanceEventWindowAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

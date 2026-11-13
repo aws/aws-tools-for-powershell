@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2DhcpOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateDhcpOptions API operation.", Operation = new[] {"AssociateDhcpOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateDhcpOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateDhcpOptions API operation.", Operation = new[] {"AssociateDhcpOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateDhcpOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.AssociateDhcpOptionsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.AssociateDhcpOptionsResponse) be returned by specifying '-Select *'."
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateDhcpOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateDhcpOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateDhcpOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateDhcpOptions");
             try
             {
                 return client.AssociateDhcpOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Import", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ImportImageResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ImportImage API operation.", Operation = new[] {"ImportImage"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ImportImage API operation.", Operation = new[] {"ImportImage"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportImageResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportImageResponse",
         "This cmdlet returns an Amazon.EC2.Model.ImportImageResponse object containing multiple properties."
     )]
@@ -528,7 +528,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ImportImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ImportImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ImportImage");
             try
             {
                 return client.ImportImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

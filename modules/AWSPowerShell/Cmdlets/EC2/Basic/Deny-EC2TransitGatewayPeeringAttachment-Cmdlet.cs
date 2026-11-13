@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Deny", "EC2TransitGatewayPeeringAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayPeeringAttachment")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RejectTransitGatewayPeeringAttachment API operation.", Operation = new[] {"RejectTransitGatewayPeeringAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectTransitGatewayPeeringAttachmentResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RejectTransitGatewayPeeringAttachment API operation.", Operation = new[] {"RejectTransitGatewayPeeringAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectTransitGatewayPeeringAttachmentResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayPeeringAttachment or Amazon.EC2.Model.RejectTransitGatewayPeeringAttachmentResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayPeeringAttachment object.",
         "The service call response (type Amazon.EC2.Model.RejectTransitGatewayPeeringAttachmentResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RejectTransitGatewayPeeringAttachmentResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RejectTransitGatewayPeeringAttachmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RejectTransitGatewayPeeringAttachment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RejectTransitGatewayPeeringAttachment");
             try
             {
                 return client.RejectTransitGatewayPeeringAttachmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

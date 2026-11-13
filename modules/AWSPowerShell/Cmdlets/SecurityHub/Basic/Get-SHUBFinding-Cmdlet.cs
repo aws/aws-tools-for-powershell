@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBFinding")]
     [OutputType("Amazon.SecurityHub.Model.AwsSecurityFinding")]
-    [AWSCmdlet("Calls the AWS Security Hub GetFindings API operation.", Operation = new[] {"GetFindings"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetFindings API operation.", Operation = new[] {"GetFindings"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.AwsSecurityFinding or Amazon.SecurityHub.Model.GetFindingsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.AwsSecurityFinding objects.",
         "The service call response (type Amazon.SecurityHub.Model.GetFindingsResponse) can be returned by specifying '-Select *'."
@@ -368,7 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetFindingsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetFindingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetFindings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetFindings");
             try
             {
                 return client.GetFindingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

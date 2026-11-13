@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2Tag")]
     [OutputType("Amazon.EC2.Model.TagDescription")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeTags API operation.", Operation = new[] {"DescribeTags"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeTagsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeTags API operation.", Operation = new[] {"DescribeTags"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeTagsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TagDescription or Amazon.EC2.Model.DescribeTagsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.TagDescription objects.",
         "The service call response (type Amazon.EC2.Model.DescribeTagsResponse) can be returned by specifying '-Select *'."
@@ -356,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeTags");
             try
             {
                 return client.DescribeTagsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Deny", "EC2TransitGatewayMulticastDomainAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayMulticastDomainAssociations")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RejectTransitGatewayMulticastDomainAssociations API operation.", Operation = new[] {"RejectTransitGatewayMulticastDomainAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectTransitGatewayMulticastDomainAssociationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RejectTransitGatewayMulticastDomainAssociations API operation.", Operation = new[] {"RejectTransitGatewayMulticastDomainAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectTransitGatewayMulticastDomainAssociationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastDomainAssociations or Amazon.EC2.Model.RejectTransitGatewayMulticastDomainAssociationsResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastDomainAssociations object.",
         "The service call response (type Amazon.EC2.Model.RejectTransitGatewayMulticastDomainAssociationsResponse) can be returned by specifying '-Select *'."
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RejectTransitGatewayMulticastDomainAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RejectTransitGatewayMulticastDomainAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RejectTransitGatewayMulticastDomainAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RejectTransitGatewayMulticastDomainAssociations");
             try
             {
                 return client.RejectTransitGatewayMulticastDomainAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

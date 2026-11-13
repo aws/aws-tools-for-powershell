@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ServiceLinkVirtualInterface")]
     [OutputType("Amazon.EC2.Model.ServiceLinkVirtualInterface")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeServiceLinkVirtualInterfaces API operation.", Operation = new[] {"DescribeServiceLinkVirtualInterfaces"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeServiceLinkVirtualInterfacesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeServiceLinkVirtualInterfaces API operation.", Operation = new[] {"DescribeServiceLinkVirtualInterfaces"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeServiceLinkVirtualInterfacesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ServiceLinkVirtualInterface or Amazon.EC2.Model.DescribeServiceLinkVirtualInterfacesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ServiceLinkVirtualInterface objects.",
         "The service call response (type Amazon.EC2.Model.DescribeServiceLinkVirtualInterfacesResponse) can be returned by specifying '-Select *'."
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeServiceLinkVirtualInterfacesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeServiceLinkVirtualInterfacesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeServiceLinkVirtualInterfaces");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeServiceLinkVirtualInterfaces");
             try
             {
                 return client.DescribeServiceLinkVirtualInterfacesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

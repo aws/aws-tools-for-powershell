@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDocumentDescription")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeDocument API operation.", Operation = new[] {"DescribeDocument"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeDocument API operation.", Operation = new[] {"DescribeDocument"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription or Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DocumentDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse) can be returned by specifying '-Select *'."
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeDocument");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeDocument");
             try
             {
                 return client.DescribeDocumentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

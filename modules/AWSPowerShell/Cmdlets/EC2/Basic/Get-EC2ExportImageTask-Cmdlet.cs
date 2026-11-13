@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ExportImageTask")]
     [OutputType("Amazon.EC2.Model.ExportImageTask")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeExportImageTasks API operation.", Operation = new[] {"DescribeExportImageTasks"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeExportImageTasksResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeExportImageTasks API operation.", Operation = new[] {"DescribeExportImageTasks"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeExportImageTasksResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ExportImageTask or Amazon.EC2.Model.DescribeExportImageTasksResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ExportImageTask objects.",
         "The service call response (type Amazon.EC2.Model.DescribeExportImageTasksResponse) can be returned by specifying '-Select *'."
@@ -375,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeExportImageTasksResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeExportImageTasksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeExportImageTasks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeExportImageTasks");
             try
             {
                 return client.DescribeExportImageTasksAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2VerifiedAccessTrustProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.VerifiedAccessTrustProvider")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVerifiedAccessTrustProvider API operation.", Operation = new[] {"DeleteVerifiedAccessTrustProvider"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVerifiedAccessTrustProviderResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVerifiedAccessTrustProvider API operation.", Operation = new[] {"DeleteVerifiedAccessTrustProvider"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVerifiedAccessTrustProviderResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessTrustProvider or Amazon.EC2.Model.DeleteVerifiedAccessTrustProviderResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessTrustProvider object.",
         "The service call response (type Amazon.EC2.Model.DeleteVerifiedAccessTrustProviderResponse) can be returned by specifying '-Select *'."
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteVerifiedAccessTrustProviderResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVerifiedAccessTrustProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVerifiedAccessTrustProvider");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVerifiedAccessTrustProvider");
             try
             {
                 return client.DeleteVerifiedAccessTrustProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

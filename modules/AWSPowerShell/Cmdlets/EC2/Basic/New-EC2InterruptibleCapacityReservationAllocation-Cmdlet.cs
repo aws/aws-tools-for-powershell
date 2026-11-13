@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2InterruptibleCapacityReservationAllocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateInterruptibleCapacityReservationAllocationResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateInterruptibleCapacityReservationAllocation API operation.", Operation = new[] {"CreateInterruptibleCapacityReservationAllocation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateInterruptibleCapacityReservationAllocationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateInterruptibleCapacityReservationAllocation API operation.", Operation = new[] {"CreateInterruptibleCapacityReservationAllocation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateInterruptibleCapacityReservationAllocationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateInterruptibleCapacityReservationAllocationResponse",
         "This cmdlet returns an Amazon.EC2.Model.CreateInterruptibleCapacityReservationAllocationResponse object containing multiple properties."
     )]
@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateInterruptibleCapacityReservationAllocationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateInterruptibleCapacityReservationAllocationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateInterruptibleCapacityReservationAllocation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateInterruptibleCapacityReservationAllocation");
             try
             {
                 return client.CreateInterruptibleCapacityReservationAllocationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

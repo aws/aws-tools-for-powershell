@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Reset", "EC2InstanceAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ResetInstanceAttribute API operation.", Operation = new[] {"ResetInstanceAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetInstanceAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ResetInstanceAttribute API operation.", Operation = new[] {"ResetInstanceAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetInstanceAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ResetInstanceAttributeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ResetInstanceAttributeResponse) be returned by specifying '-Select *'."
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ResetInstanceAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetInstanceAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ResetInstanceAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ResetInstanceAttribute");
             try
             {
                 return client.ResetInstanceAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

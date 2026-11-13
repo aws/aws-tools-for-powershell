@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2MetricCategory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.MetricCategory")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateMetricCategory API operation.", Operation = new[] {"CreateMetricCategory"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateMetricCategoryResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateMetricCategory API operation.", Operation = new[] {"CreateMetricCategory"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateMetricCategoryResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.MetricCategory or Amazon.EC2.Model.CreateMetricCategoryResponse",
         "This cmdlet returns an Amazon.EC2.Model.MetricCategory object.",
         "The service call response (type Amazon.EC2.Model.CreateMetricCategoryResponse) can be returned by specifying '-Select *'."
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateMetricCategoryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateMetricCategoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateMetricCategory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateMetricCategory");
             try
             {
                 return client.CreateMetricCategoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

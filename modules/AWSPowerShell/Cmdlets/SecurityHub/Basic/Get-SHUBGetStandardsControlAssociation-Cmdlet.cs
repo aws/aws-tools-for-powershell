@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBGetStandardsControlAssociation")]
     [OutputType("Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub BatchGetStandardsControlAssociations API operation.", Operation = new[] {"BatchGetStandardsControlAssociations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub BatchGetStandardsControlAssociations API operation.", Operation = new[] {"BatchGetStandardsControlAssociations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse object containing multiple properties."
     )]
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "BatchGetStandardsControlAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "BatchGetStandardsControlAssociations");
             try
             {
                 return client.BatchGetStandardsControlAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

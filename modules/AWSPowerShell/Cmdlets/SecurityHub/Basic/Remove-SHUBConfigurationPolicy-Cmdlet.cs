@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Remove", "SHUBConfigurationPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub DeleteConfigurationPolicy API operation.", Operation = new[] {"DeleteConfigurationPolicy"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteConfigurationPolicyResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DeleteConfigurationPolicy API operation.", Operation = new[] {"DeleteConfigurationPolicy"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteConfigurationPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DeleteConfigurationPolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.DeleteConfigurationPolicyResponse) be returned by specifying '-Select *'."
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DeleteConfigurationPolicyResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DeleteConfigurationPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DeleteConfigurationPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DeleteConfigurationPolicy");
             try
             {
                 return client.DeleteConfigurationPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteRule API operation.", Operation = new[] {"DeleteRule"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteRuleResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteRule API operation.", Operation = new[] {"DeleteRule"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteRuleResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteRuleResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.DeleteRuleResponse) be returned by specifying '-Select *'."
@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteRuleResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteRule");
             try
             {
                 return client.DeleteRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

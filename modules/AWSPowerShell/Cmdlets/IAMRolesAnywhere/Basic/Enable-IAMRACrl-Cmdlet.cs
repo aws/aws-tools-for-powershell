@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter CrlId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the certificate revocation list (CRL).</para>
+        /// <para>The certificate revocation list (CRL) to act on. You can specify one of the following:</para><ul><li><para>The CRL ID.</para></li><li><para>The CRL ARN.</para></li><li><para>The alias ARN of the CRL.</para></li></ul><para>An ARN must be for a CRL in your account and Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

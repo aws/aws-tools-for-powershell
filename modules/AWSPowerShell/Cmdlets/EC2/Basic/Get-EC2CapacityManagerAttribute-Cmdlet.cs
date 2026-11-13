@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2CapacityManagerAttribute")]
     [OutputType("Amazon.EC2.Model.GetCapacityManagerAttributesResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetCapacityManagerAttributes API operation.", Operation = new[] {"GetCapacityManagerAttributes"}, SelectReturnType = typeof(Amazon.EC2.Model.GetCapacityManagerAttributesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetCapacityManagerAttributes API operation.", Operation = new[] {"GetCapacityManagerAttributes"}, SelectReturnType = typeof(Amazon.EC2.Model.GetCapacityManagerAttributesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetCapacityManagerAttributesResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetCapacityManagerAttributesResponse object containing multiple properties."
     )]
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetCapacityManagerAttributesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetCapacityManagerAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetCapacityManagerAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetCapacityManagerAttributes");
             try
             {
                 return client.GetCapacityManagerAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

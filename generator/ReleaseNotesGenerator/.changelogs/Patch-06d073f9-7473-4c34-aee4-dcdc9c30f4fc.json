@@ -1,4 +1,0 @@
-{
-  "Type": "Patch",
-  "Description": "Service display names (ServiceName, as shown by Get-AWSService and in cmdlet help) now follow each service's model and may change when a service is renamed. Services whose display name differs from their model switch to the model's name the next time they are updated. Scripts that look up services by display name (`Get-AWSService -Service \"<name>\"`, `Get-AWSCmdletName -Service \"<name>\"`) may stop matching; use the noun prefix (for example `-Service CONN`) for stable lookups."
-}

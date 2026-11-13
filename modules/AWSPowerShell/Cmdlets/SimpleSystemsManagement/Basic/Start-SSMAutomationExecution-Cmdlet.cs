@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Start", "SSMAutomationExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager StartAutomationExecution API operation.", Operation = new[] {"StartAutomationExecution"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartAutomationExecutionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) StartAutomationExecution API operation.", Operation = new[] {"StartAutomationExecution"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartAutomationExecutionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.StartAutomationExecutionResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.StartAutomationExecutionResponse) can be returned by specifying '-Select *'."
@@ -532,7 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.StartAutomationExecutionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.StartAutomationExecutionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "StartAutomationExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "StartAutomationExecution");
             try
             {
                 return client.StartAutomationExecutionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Set", "EC2Route", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReplaceRoute API operation.", Operation = new[] {"ReplaceRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceRouteResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReplaceRoute API operation.", Operation = new[] {"ReplaceRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceRouteResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ReplaceRouteResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ReplaceRouteResponse) be returned by specifying '-Select *'."
@@ -438,7 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ReplaceRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceRouteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ReplaceRoute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReplaceRoute");
             try
             {
                 return client.ReplaceRouteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

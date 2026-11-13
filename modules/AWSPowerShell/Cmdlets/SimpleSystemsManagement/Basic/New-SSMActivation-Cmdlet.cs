@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("New", "SSMActivation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.CreateActivationResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager CreateActivation API operation.", Operation = new[] {"CreateActivation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateActivationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) CreateActivation API operation.", Operation = new[] {"CreateActivation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateActivationResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CreateActivationResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.CreateActivationResponse object containing multiple properties."
     )]
@@ -312,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.CreateActivationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateActivationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "CreateActivation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "CreateActivation");
             try
             {
                 return client.CreateActivationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

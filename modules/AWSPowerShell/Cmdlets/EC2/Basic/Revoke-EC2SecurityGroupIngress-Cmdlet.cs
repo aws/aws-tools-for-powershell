@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Revoke", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.RevokeSecurityGroupIngressResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RevokeSecurityGroupIngress API operation.", Operation = new[] {"RevokeSecurityGroupIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.RevokeSecurityGroupIngressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RevokeSecurityGroupIngress API operation.", Operation = new[] {"RevokeSecurityGroupIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.RevokeSecurityGroupIngressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RevokeSecurityGroupIngressResponse",
         "This cmdlet returns an Amazon.EC2.Model.RevokeSecurityGroupIngressResponse object containing multiple properties."
     )]
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RevokeSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RevokeSecurityGroupIngressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RevokeSecurityGroupIngress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RevokeSecurityGroupIngress");
             try
             {
                 return client.RevokeSecurityGroupIngressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

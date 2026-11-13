@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Edit", "SSMDocumentPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager ModifyDocumentPermission API operation.", Operation = new[] {"ModifyDocumentPermission"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ModifyDocumentPermission API operation.", Operation = new[] {"ModifyDocumentPermission"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse) be returned by specifying '-Select *'."
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ModifyDocumentPermission");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ModifyDocumentPermission");
             try
             {
                 return client.ModifyDocumentPermissionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

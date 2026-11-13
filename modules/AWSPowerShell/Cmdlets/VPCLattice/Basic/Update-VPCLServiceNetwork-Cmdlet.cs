@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Update", "VPCLServiceNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.UpdateServiceNetworkResponse")]
-    [AWSCmdlet("Calls the VPC Lattice UpdateServiceNetwork API operation.", Operation = new[] {"UpdateServiceNetwork"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.UpdateServiceNetworkResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice UpdateServiceNetwork API operation.", Operation = new[] {"UpdateServiceNetwork"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.UpdateServiceNetworkResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.UpdateServiceNetworkResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.UpdateServiceNetworkResponse object containing multiple properties."
     )]
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.UpdateServiceNetworkResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.UpdateServiceNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "UpdateServiceNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "UpdateServiceNetwork");
             try
             {
                 return client.UpdateServiceNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

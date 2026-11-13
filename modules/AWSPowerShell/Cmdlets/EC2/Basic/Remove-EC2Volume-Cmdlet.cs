@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVolume API operation.", Operation = new[] {"DeleteVolume"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVolumeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVolume API operation.", Operation = new[] {"DeleteVolume"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVolumeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteVolumeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteVolumeResponse) be returned by specifying '-Select *'."
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteVolumeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVolumeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVolume");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVolume");
             try
             {
                 return client.DeleteVolumeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

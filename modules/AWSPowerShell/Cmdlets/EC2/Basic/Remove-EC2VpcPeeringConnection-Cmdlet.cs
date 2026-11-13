@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpcPeeringConnection API operation.", Operation = new[] {"DeleteVpcPeeringConnection"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcPeeringConnectionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVpcPeeringConnection API operation.", Operation = new[] {"DeleteVpcPeeringConnection"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcPeeringConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteVpcPeeringConnectionResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteVpcPeeringConnectionResponse) be returned by specifying '-Select *'."
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteVpcPeeringConnectionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpcPeeringConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVpcPeeringConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVpcPeeringConnection");
             try
             {
                 return client.DeleteVpcPeeringConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

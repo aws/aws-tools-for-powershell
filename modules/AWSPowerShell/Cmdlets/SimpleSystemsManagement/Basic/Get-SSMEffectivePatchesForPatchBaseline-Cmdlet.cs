@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMEffectivePatchesForPatchBaseline")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.EffectivePatch")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeEffectivePatchesForPatchBaseline API operation.", Operation = new[] {"DescribeEffectivePatchesForPatchBaseline"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeEffectivePatchesForPatchBaseline API operation.", Operation = new[] {"DescribeEffectivePatchesForPatchBaseline"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.EffectivePatch or Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.EffectivePatch objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineResponse) can be returned by specifying '-Select *'."
@@ -343,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeEffectivePatchesForPatchBaseline");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeEffectivePatchesForPatchBaseline");
             try
             {
                 return client.DescribeEffectivePatchesForPatchBaselineAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

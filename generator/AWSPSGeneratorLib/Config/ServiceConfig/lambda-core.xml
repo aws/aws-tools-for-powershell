@@ -23,11 +23,47 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRuntime" OutputProperty="*" Verb="New" Noun="Runtime" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRuntimeAlias" OutputProperty="*" Verb="New" Noun="RuntimeAlias" ShouldProcessTarget="Name,RuntimeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRuntimeVersion" OutputProperty="*" Verb="New" Noun="RuntimeVersion" ShouldProcessTarget="Name,RuntimeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNetworkConnector" OutputProperty="*" Verb="Remove" Noun="NetworkConnector" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRuntime" Verb="Remove" Noun="Runtime" ShouldProcessTarget="RuntimeName" PipelineParameter="RuntimeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRuntimeAlias" Verb="Remove" Noun="RuntimeAlias" ShouldProcessTarget="Name,RuntimeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRuntimeVersion" Verb="Remove" Noun="RuntimeVersion" ShouldProcessTarget="Name,RuntimeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetNetworkConnector" OutputProperty="*" Verb="Get" Noun="NetworkConnector" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRuntime" OutputProperty="*" Verb="Get" Noun="Runtime" PipelineParameter="RuntimeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRuntimeAlias" OutputProperty="*" Verb="Get" Noun="RuntimeAlias" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRuntimeVersion" OutputProperty="*" Verb="Get" Noun="RuntimeVersion" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -39,7 +75,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRuntimeAliases" OutputProperty="Items" Verb="Get" Noun="RuntimeAliasList" PipelineParameter="RuntimeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRuntimes" OutputProperty="Items" Verb="Get" Noun="RuntimeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRuntimeVersions" OutputProperty="Items" Verb="Get" Noun="RuntimeVersionList" PipelineParameter="RuntimeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreRuntime" OutputProperty="*" Verb="Restore" Noun="Runtime" ShouldProcessTarget="RuntimeName" PipelineParameter="RuntimeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateNetworkConnector" OutputProperty="*" Verb="Update" Noun="NetworkConnector" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRuntime" OutputProperty="*" Verb="Update" Noun="Runtime" ShouldProcessTarget="RuntimeName" PipelineParameter="RuntimeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRuntimeAlias" OutputProperty="*" Verb="Update" Noun="RuntimeAlias" ShouldProcessTarget="Name,RuntimeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRuntimeVersion" OutputProperty="*" Verb="Update" Noun="RuntimeVersion" ShouldProcessTarget="Name,RuntimeName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

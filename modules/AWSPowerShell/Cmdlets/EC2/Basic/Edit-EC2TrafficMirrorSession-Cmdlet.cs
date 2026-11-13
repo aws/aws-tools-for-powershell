@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2TrafficMirrorSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TrafficMirrorSession")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyTrafficMirrorSession API operation.", Operation = new[] {"ModifyTrafficMirrorSession"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyTrafficMirrorSessionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyTrafficMirrorSession API operation.", Operation = new[] {"ModifyTrafficMirrorSession"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyTrafficMirrorSessionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TrafficMirrorSession or Amazon.EC2.Model.ModifyTrafficMirrorSessionResponse",
         "This cmdlet returns an Amazon.EC2.Model.TrafficMirrorSession object.",
         "The service call response (type Amazon.EC2.Model.ModifyTrafficMirrorSessionResponse) can be returned by specifying '-Select *'."
@@ -311,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyTrafficMirrorSessionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyTrafficMirrorSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyTrafficMirrorSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyTrafficMirrorSession");
             try
             {
                 return client.ModifyTrafficMirrorSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Set", "SSMParameterVersionLabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager LabelParameterVersion API operation.", Operation = new[] {"LabelParameterVersion"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.LabelParameterVersionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) LabelParameterVersion API operation.", Operation = new[] {"LabelParameterVersion"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.LabelParameterVersionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.LabelParameterVersionResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.LabelParameterVersionResponse) can be returned by specifying '-Select *'."
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.LabelParameterVersionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.LabelParameterVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "LabelParameterVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "LabelParameterVersion");
             try
             {
                 return client.LabelParameterVersionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

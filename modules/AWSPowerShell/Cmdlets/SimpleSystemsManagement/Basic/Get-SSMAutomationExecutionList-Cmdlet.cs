@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMAutomationExecutionList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AutomationExecutionMetadata")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeAutomationExecutions API operation.", Operation = new[] {"DescribeAutomationExecutions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeAutomationExecutions API operation.", Operation = new[] {"DescribeAutomationExecutions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AutomationExecutionMetadata or Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.AutomationExecutionMetadata objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsResponse) can be returned by specifying '-Select *'."
@@ -339,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeAutomationExecutions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeAutomationExecutions");
             try
             {
                 return client.DescribeAutomationExecutionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

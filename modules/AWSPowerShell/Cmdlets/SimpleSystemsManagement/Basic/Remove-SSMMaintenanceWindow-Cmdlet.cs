@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMMaintenanceWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteMaintenanceWindow API operation.", Operation = new[] {"DeleteMaintenanceWindow"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteMaintenanceWindowResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeleteMaintenanceWindow API operation.", Operation = new[] {"DeleteMaintenanceWindow"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteMaintenanceWindowResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.DeleteMaintenanceWindowResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DeleteMaintenanceWindowResponse) can be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeleteMaintenanceWindowResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteMaintenanceWindowRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteMaintenanceWindow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeleteMaintenanceWindow");
             try
             {
                 return client.DeleteMaintenanceWindowAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

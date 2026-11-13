@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2TransitGatewayMulticastGroupMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayMulticastDeregisteredGroupMembers")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeregisterTransitGatewayMulticastGroupMembers API operation.", Operation = new[] {"DeregisterTransitGatewayMulticastGroupMembers"}, SelectReturnType = typeof(Amazon.EC2.Model.DeregisterTransitGatewayMulticastGroupMembersResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeregisterTransitGatewayMulticastGroupMembers API operation.", Operation = new[] {"DeregisterTransitGatewayMulticastGroupMembers"}, SelectReturnType = typeof(Amazon.EC2.Model.DeregisterTransitGatewayMulticastGroupMembersResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastDeregisteredGroupMembers or Amazon.EC2.Model.DeregisterTransitGatewayMulticastGroupMembersResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastDeregisteredGroupMembers object.",
         "The service call response (type Amazon.EC2.Model.DeregisterTransitGatewayMulticastGroupMembersResponse) can be returned by specifying '-Select *'."
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeregisterTransitGatewayMulticastGroupMembersResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeregisterTransitGatewayMulticastGroupMembersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeregisterTransitGatewayMulticastGroupMembers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeregisterTransitGatewayMulticastGroupMembers");
             try
             {
                 return client.DeregisterTransitGatewayMulticastGroupMembersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

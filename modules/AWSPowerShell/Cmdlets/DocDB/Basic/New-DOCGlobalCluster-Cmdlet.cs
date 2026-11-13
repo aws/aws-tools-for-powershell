@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("New", "DOCGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.GlobalCluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) CreateGlobalCluster API operation.", Operation = new[] {"CreateGlobalCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.CreateGlobalClusterResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility CreateGlobalCluster API operation.", Operation = new[] {"CreateGlobalCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.CreateGlobalClusterResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.GlobalCluster or Amazon.DocDB.Model.CreateGlobalClusterResponse",
         "This cmdlet returns an Amazon.DocDB.Model.GlobalCluster object.",
         "The service call response (type Amazon.DocDB.Model.CreateGlobalClusterResponse) can be returned by specifying '-Select *'."
@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.CreateGlobalClusterResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.CreateGlobalClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "CreateGlobalCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "CreateGlobalCluster");
             try
             {
                 return client.CreateGlobalClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBStandard")]
     [OutputType("Amazon.SecurityHub.Model.Standard")]
-    [AWSCmdlet("Calls the AWS Security Hub DescribeStandards API operation.", Operation = new[] {"DescribeStandards"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DescribeStandardsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DescribeStandards API operation.", Operation = new[] {"DescribeStandards"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DescribeStandardsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Standard or Amazon.SecurityHub.Model.DescribeStandardsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.Standard objects.",
         "The service call response (type Amazon.SecurityHub.Model.DescribeStandardsResponse) can be returned by specifying '-Select *'."
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DescribeStandardsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DescribeStandardsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DescribeStandards");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DescribeStandards");
             try
             {
                 return client.DescribeStandardsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

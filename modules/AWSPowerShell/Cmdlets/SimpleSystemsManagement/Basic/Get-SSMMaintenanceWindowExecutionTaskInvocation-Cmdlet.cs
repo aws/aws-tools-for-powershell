@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowExecutionTaskInvocation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetMaintenanceWindowExecutionTaskInvocation API operation.", Operation = new[] {"GetMaintenanceWindowExecutionTaskInvocation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetMaintenanceWindowExecutionTaskInvocation API operation.", Operation = new[] {"GetMaintenanceWindowExecutionTaskInvocation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse object containing multiple properties."
     )]
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetMaintenanceWindowExecutionTaskInvocation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetMaintenanceWindowExecutionTaskInvocation");
             try
             {
                 return client.GetMaintenanceWindowExecutionTaskInvocationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

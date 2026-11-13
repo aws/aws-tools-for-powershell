@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2InstanceTpmEkPub")]
     [OutputType("Amazon.EC2.Model.GetInstanceTpmEkPubResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetInstanceTpmEkPub API operation.", Operation = new[] {"GetInstanceTpmEkPub"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceTpmEkPubResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetInstanceTpmEkPub API operation.", Operation = new[] {"GetInstanceTpmEkPub"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceTpmEkPubResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetInstanceTpmEkPubResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetInstanceTpmEkPubResponse object containing multiple properties."
     )]
@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetInstanceTpmEkPubResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetInstanceTpmEkPubRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetInstanceTpmEkPub");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetInstanceTpmEkPub");
             try
             {
                 return client.GetInstanceTpmEkPubAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

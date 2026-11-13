@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Lock", "EC2Snapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.LockSnapshotResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) LockSnapshot API operation.", Operation = new[] {"LockSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.LockSnapshotResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud LockSnapshot API operation.", Operation = new[] {"LockSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.LockSnapshotResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LockSnapshotResponse",
         "This cmdlet returns an Amazon.EC2.Model.LockSnapshotResponse object containing multiple properties."
     )]
@@ -292,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.LockSnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.LockSnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "LockSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "LockSnapshot");
             try
             {
                 return client.LockSnapshotAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

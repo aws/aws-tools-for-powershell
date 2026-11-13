@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2DeclarativePoliciesReportSummary")]
     [OutputType("Amazon.EC2.Model.GetDeclarativePoliciesReportSummaryResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetDeclarativePoliciesReportSummary API operation.", Operation = new[] {"GetDeclarativePoliciesReportSummary"}, SelectReturnType = typeof(Amazon.EC2.Model.GetDeclarativePoliciesReportSummaryResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetDeclarativePoliciesReportSummary API operation.", Operation = new[] {"GetDeclarativePoliciesReportSummary"}, SelectReturnType = typeof(Amazon.EC2.Model.GetDeclarativePoliciesReportSummaryResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetDeclarativePoliciesReportSummaryResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetDeclarativePoliciesReportSummaryResponse object containing multiple properties."
     )]
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetDeclarativePoliciesReportSummaryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetDeclarativePoliciesReportSummaryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetDeclarativePoliciesReportSummary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetDeclarativePoliciesReportSummary");
             try
             {
                 return client.GetDeclarativePoliciesReportSummaryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Unregister", "SSMDefaultHostManagementConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeregisterDefaultHostManagementConfiguration API operation.", Operation = new[] {"DeregisterDefaultHostManagementConfiguration"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeregisterDefaultHostManagementConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeregisterDefaultHostManagementConfiguration API operation.", Operation = new[] {"DeregisterDefaultHostManagementConfiguration"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeregisterDefaultHostManagementConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeregisterDefaultHostManagementConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DeregisterDefaultHostManagementConfigurationResponse) be returned by specifying '-Select *'."
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeregisterDefaultHostManagementConfigurationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeregisterDefaultHostManagementConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeregisterDefaultHostManagementConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeregisterDefaultHostManagementConfiguration");
             try
             {
                 return client.DeregisterDefaultHostManagementConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

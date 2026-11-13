@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamDiscoveredResourceCidr")]
     [OutputType("Amazon.EC2.Model.IpamDiscoveredResourceCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamDiscoveredResourceCidrs API operation.", Operation = new[] {"GetIpamDiscoveredResourceCidrs"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamDiscoveredResourceCidrsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamDiscoveredResourceCidrs API operation.", Operation = new[] {"GetIpamDiscoveredResourceCidrs"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamDiscoveredResourceCidrsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamDiscoveredResourceCidr or Amazon.EC2.Model.GetIpamDiscoveredResourceCidrsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamDiscoveredResourceCidr objects.",
         "The service call response (type Amazon.EC2.Model.GetIpamDiscoveredResourceCidrsResponse) can be returned by specifying '-Select *'."
@@ -293,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamDiscoveredResourceCidrsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamDiscoveredResourceCidrsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamDiscoveredResourceCidrs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamDiscoveredResourceCidrs");
             try
             {
                 return client.GetIpamDiscoveredResourceCidrsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

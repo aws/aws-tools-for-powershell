@@ -23,67 +23,70 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.NetworkFirewall;
-using Amazon.NetworkFirewall.Model;
+using Amazon.LambdaCore;
+using Amazon.LambdaCore.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.NWFW
+namespace Amazon.PowerShell.Cmdlets.LMC
 {
     /// <summary>
-    /// Deletes the specified <a>ProxyRuleGroup</a>.
+    /// Retrieves the configuration, state, and metadata of a runtime version.
     /// </summary>
-    [Cmdlet("Remove", "NWFWProxyRuleGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupResponse")]
-    [AWSCmdlet("Calls the AWS Network Firewall DeleteProxyRuleGroup API operation.", Operation = new[] {"DeleteProxyRuleGroup"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupResponse))]
-    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupResponse object containing multiple properties."
+    [Cmdlet("Get", "LMCRuntimeVersion")]
+    [OutputType("Amazon.LambdaCore.Model.GetRuntimeVersionResponse")]
+    [AWSCmdlet("Calls the AWS Lambda Core GetRuntimeVersion API operation.", Operation = new[] {"GetRuntimeVersion"}, SelectReturnType = typeof(Amazon.LambdaCore.Model.GetRuntimeVersionResponse))]
+    [AWSCmdletOutput("Amazon.LambdaCore.Model.GetRuntimeVersionResponse",
+        "This cmdlet returns an Amazon.LambdaCore.Model.GetRuntimeVersionResponse object containing multiple properties."
     )]
-    public partial class RemoveNWFWProxyRuleGroupCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class GetLMCRuntimeVersionCmdlet : AmazonLambdaCoreClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ProxyRuleGroupArn
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a proxy rule group.</para><para>You must specify the ARN or the name, and you can specify both. </para>
+        /// The name of the runtime version to retrieve.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyRuleGroupArn { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter ProxyRuleGroupName
+        #region Parameter RuntimeName
         /// <summary>
         /// <para>
-        /// <para>The descriptive name of the proxy rule group. You can't change the name of a proxy
-        /// rule group after you create it.</para><para>You must specify the ARN or the name, and you can specify both. </para>
+        /// The name or ARN of the runtime.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyRuleGroupName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RuntimeName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupResponse).
-        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LambdaCore.Model.GetRuntimeVersionResponse).
+        /// Specifying the name of a property of type Amazon.LambdaCore.Model.GetRuntimeVersionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -95,12 +98,6 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProxyRuleGroupName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-NWFWProxyRuleGroup (DeleteProxyRuleGroup)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -108,11 +105,23 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupResponse, RemoveNWFWProxyRuleGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LambdaCore.Model.GetRuntimeVersionResponse, GetLMCRuntimeVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ProxyRuleGroupArn = this.ProxyRuleGroupArn;
-            context.ProxyRuleGroupName = this.ProxyRuleGroupName;
+            context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.RuntimeName = this.RuntimeName;
+            #if MODULAR
+            if (this.RuntimeName == null && ParameterWasBound(nameof(this.RuntimeName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RuntimeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,15 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupRequest();
+            var request = new Amazon.LambdaCore.Model.GetRuntimeVersionRequest();
             
-            if (cmdletContext.ProxyRuleGroupArn != null)
+            if (cmdletContext.Name != null)
             {
-                request.ProxyRuleGroupArn = cmdletContext.ProxyRuleGroupArn;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.ProxyRuleGroupName != null)
+            if (cmdletContext.RuntimeName != null)
             {
-                request.ProxyRuleGroupName = cmdletContext.ProxyRuleGroupName;
+                request.RuntimeName = cmdletContext.RuntimeName;
             }
             
             CmdletOutput output;
@@ -170,12 +179,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupRequest request)
+        private Amazon.LambdaCore.Model.GetRuntimeVersionResponse CallAWSServiceOperation(IAmazonLambdaCore client, Amazon.LambdaCore.Model.GetRuntimeVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "DeleteProxyRuleGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda Core", "GetRuntimeVersion");
             try
             {
-                return client.DeleteProxyRuleGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetRuntimeVersionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -192,9 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProxyRuleGroupArn { get; set; }
-            public System.String ProxyRuleGroupName { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.DeleteProxyRuleGroupResponse, RemoveNWFWProxyRuleGroupCmdlet, object> Select { get; set; } =
+            public System.String Name { get; set; }
+            public System.String RuntimeName { get; set; }
+            public System.Func<Amazon.LambdaCore.Model.GetRuntimeVersionResponse, GetLMCRuntimeVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

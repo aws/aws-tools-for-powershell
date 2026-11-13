@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateAssociation API operation.", Operation = new[] {"UpdateAssociation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) UpdateAssociation API operation.", Operation = new[] {"UpdateAssociation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateAssociationResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription or Amazon.SimpleSystemsManagement.Model.UpdateAssociationResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.AssociationDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateAssociationResponse) can be returned by specifying '-Select *'."
@@ -794,7 +794,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UpdateAssociationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "UpdateAssociation");
             try
             {
                 return client.UpdateAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

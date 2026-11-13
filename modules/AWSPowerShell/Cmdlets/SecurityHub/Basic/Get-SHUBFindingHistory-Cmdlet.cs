@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBFindingHistory")]
     [OutputType("Amazon.SecurityHub.Model.FindingHistoryRecord")]
-    [AWSCmdlet("Calls the AWS Security Hub GetFindingHistory API operation.", Operation = new[] {"GetFindingHistory"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingHistoryResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetFindingHistory API operation.", Operation = new[] {"GetFindingHistory"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingHistoryResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.FindingHistoryRecord or Amazon.SecurityHub.Model.GetFindingHistoryResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.FindingHistoryRecord objects.",
         "The service call response (type Amazon.SecurityHub.Model.GetFindingHistoryResponse) can be returned by specifying '-Select *'."
@@ -341,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetFindingHistoryResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetFindingHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetFindingHistory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetFindingHistory");
             try
             {
                 return client.GetFindingHistoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

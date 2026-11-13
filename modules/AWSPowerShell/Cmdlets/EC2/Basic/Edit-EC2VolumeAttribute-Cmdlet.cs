@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VolumeAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVolumeAttribute API operation.", Operation = new[] {"ModifyVolumeAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVolumeAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVolumeAttribute API operation.", Operation = new[] {"ModifyVolumeAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVolumeAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ModifyVolumeAttributeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ModifyVolumeAttributeResponse) be returned by specifying '-Select *'."
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVolumeAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVolumeAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVolumeAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVolumeAttribute");
             try
             {
                 return client.ModifyVolumeAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMOpsMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteOpsMetadata API operation.", Operation = new[] {"DeleteOpsMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteOpsMetadataResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeleteOpsMetadata API operation.", Operation = new[] {"DeleteOpsMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteOpsMetadataResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteOpsMetadataResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteOpsMetadataResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeleteOpsMetadataResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteOpsMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteOpsMetadata");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeleteOpsMetadata");
             try
             {
                 return client.DeleteOpsMetadataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

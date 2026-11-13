@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2InstanceUefiData")]
     [OutputType("Amazon.EC2.Model.GetInstanceUefiDataResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetInstanceUefiData API operation.", Operation = new[] {"GetInstanceUefiData"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceUefiDataResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetInstanceUefiData API operation.", Operation = new[] {"GetInstanceUefiData"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceUefiDataResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetInstanceUefiDataResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetInstanceUefiDataResponse object containing multiple properties."
     )]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetInstanceUefiDataResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetInstanceUefiDataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetInstanceUefiData");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetInstanceUefiData");
             try
             {
                 return client.GetInstanceUefiDataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

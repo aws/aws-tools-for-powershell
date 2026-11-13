@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamPoolAllocationDetail")]
     [OutputType("Amazon.EC2.Model.IpamPoolAllocation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeIpamPoolAllocations API operation.", Operation = new[] {"DescribeIpamPoolAllocations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeIpamPoolAllocationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeIpamPoolAllocations API operation.", Operation = new[] {"DescribeIpamPoolAllocations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeIpamPoolAllocationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPoolAllocation or Amazon.EC2.Model.DescribeIpamPoolAllocationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamPoolAllocation objects.",
         "The service call response (type Amazon.EC2.Model.DescribeIpamPoolAllocationsResponse) can be returned by specifying '-Select *'."
@@ -287,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeIpamPoolAllocationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeIpamPoolAllocationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeIpamPoolAllocations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeIpamPoolAllocations");
             try
             {
                 return client.DescribeIpamPoolAllocationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

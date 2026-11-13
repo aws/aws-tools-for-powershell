@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2NetworkInsightsAccessScopeContent")]
     [OutputType("Amazon.EC2.Model.NetworkInsightsAccessScopeContent")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetNetworkInsightsAccessScopeContent API operation.", Operation = new[] {"GetNetworkInsightsAccessScopeContent"}, SelectReturnType = typeof(Amazon.EC2.Model.GetNetworkInsightsAccessScopeContentResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetNetworkInsightsAccessScopeContent API operation.", Operation = new[] {"GetNetworkInsightsAccessScopeContent"}, SelectReturnType = typeof(Amazon.EC2.Model.GetNetworkInsightsAccessScopeContentResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInsightsAccessScopeContent or Amazon.EC2.Model.GetNetworkInsightsAccessScopeContentResponse",
         "This cmdlet returns an Amazon.EC2.Model.NetworkInsightsAccessScopeContent object.",
         "The service call response (type Amazon.EC2.Model.GetNetworkInsightsAccessScopeContentResponse) can be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetNetworkInsightsAccessScopeContentResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetNetworkInsightsAccessScopeContentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetNetworkInsightsAccessScopeContent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetNetworkInsightsAccessScopeContent");
             try
             {
                 return client.GetNetworkInsightsAccessScopeContentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBSecurityHubV2")]
     [OutputType("Amazon.SecurityHub.Model.DescribeSecurityHubV2Response")]
-    [AWSCmdlet("Calls the AWS Security Hub DescribeSecurityHubV2 API operation.", Operation = new[] {"DescribeSecurityHubV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DescribeSecurityHubV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub DescribeSecurityHubV2 API operation.", Operation = new[] {"DescribeSecurityHubV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DescribeSecurityHubV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.DescribeSecurityHubV2Response",
         "This cmdlet returns an Amazon.SecurityHub.Model.DescribeSecurityHubV2Response object containing multiple properties."
     )]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DescribeSecurityHubV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DescribeSecurityHubV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DescribeSecurityHubV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DescribeSecurityHubV2");
             try
             {
                 return client.DescribeSecurityHubV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

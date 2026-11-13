@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2SnapshotBlockPublicAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.SnapshotBlockPublicAccessState")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableSnapshotBlockPublicAccess API operation.", Operation = new[] {"DisableSnapshotBlockPublicAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableSnapshotBlockPublicAccessResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableSnapshotBlockPublicAccess API operation.", Operation = new[] {"DisableSnapshotBlockPublicAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableSnapshotBlockPublicAccessResponse))]
     [AWSCmdletOutput("Amazon.EC2.SnapshotBlockPublicAccessState or Amazon.EC2.Model.DisableSnapshotBlockPublicAccessResponse",
         "This cmdlet returns an Amazon.EC2.SnapshotBlockPublicAccessState object.",
         "The service call response (type Amazon.EC2.Model.DisableSnapshotBlockPublicAccessResponse) can be returned by specifying '-Select *'."
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableSnapshotBlockPublicAccessResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableSnapshotBlockPublicAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableSnapshotBlockPublicAccess");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableSnapshotBlockPublicAccess");
             try
             {
                 return client.DisableSnapshotBlockPublicAccessAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

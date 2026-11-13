@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2IpamPrefixListResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamPrefixListResolver")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIpamPrefixListResolver API operation.", Operation = new[] {"ModifyIpamPrefixListResolver"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyIpamPrefixListResolver API operation.", Operation = new[] {"ModifyIpamPrefixListResolver"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPrefixListResolver or Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamPrefixListResolver object.",
         "The service call response (type Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse) can be returned by specifying '-Select *'."
@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIpamPrefixListResolverRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyIpamPrefixListResolver");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyIpamPrefixListResolver");
             try
             {
                 return client.ModifyIpamPrefixListResolverAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

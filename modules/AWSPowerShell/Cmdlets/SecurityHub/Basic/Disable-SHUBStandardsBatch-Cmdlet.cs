@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Disable", "SHUBStandardsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.StandardsSubscription")]
-    [AWSCmdlet("Calls the AWS Security Hub BatchDisableStandards API operation.", Operation = new[] {"BatchDisableStandards"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchDisableStandardsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub BatchDisableStandards API operation.", Operation = new[] {"BatchDisableStandards"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchDisableStandardsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.StandardsSubscription or Amazon.SecurityHub.Model.BatchDisableStandardsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.StandardsSubscription objects.",
         "The service call response (type Amazon.SecurityHub.Model.BatchDisableStandardsResponse) can be returned by specifying '-Select *'."
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.BatchDisableStandardsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.BatchDisableStandardsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "BatchDisableStandards");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "BatchDisableStandards");
             try
             {
                 return client.BatchDisableStandardsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Edit", "DOCDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ModifyDBClusterParameterGroup API operation.", Operation = new[] {"ModifyDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyDBClusterParameterGroupResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility ModifyDBClusterParameterGroup API operation.", Operation = new[] {"ModifyDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyDBClusterParameterGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.DocDB.Model.ModifyDBClusterParameterGroupResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.DocDB.Model.ModifyDBClusterParameterGroupResponse) can be returned by specifying '-Select *'."
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.ModifyDBClusterParameterGroupResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.ModifyDBClusterParameterGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "ModifyDBClusterParameterGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "ModifyDBClusterParameterGroup");
             try
             {
                 return client.ModifyDBClusterParameterGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

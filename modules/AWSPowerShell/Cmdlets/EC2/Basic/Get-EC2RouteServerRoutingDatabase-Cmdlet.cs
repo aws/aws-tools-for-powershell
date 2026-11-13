@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2RouteServerRoutingDatabase")]
     [OutputType("Amazon.EC2.Model.GetRouteServerRoutingDatabaseResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetRouteServerRoutingDatabase API operation.", Operation = new[] {"GetRouteServerRoutingDatabase"}, SelectReturnType = typeof(Amazon.EC2.Model.GetRouteServerRoutingDatabaseResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetRouteServerRoutingDatabase API operation.", Operation = new[] {"GetRouteServerRoutingDatabase"}, SelectReturnType = typeof(Amazon.EC2.Model.GetRouteServerRoutingDatabaseResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetRouteServerRoutingDatabaseResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetRouteServerRoutingDatabaseResponse object containing multiple properties."
     )]
@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetRouteServerRoutingDatabaseResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetRouteServerRoutingDatabaseRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetRouteServerRoutingDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetRouteServerRoutingDatabase");
             try
             {
                 return client.GetRouteServerRoutingDatabaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

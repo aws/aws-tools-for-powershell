@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBStandardsControlAssociationList")]
     [OutputType("Amazon.SecurityHub.Model.StandardsControlAssociationSummary")]
-    [AWSCmdlet("Calls the AWS Security Hub ListStandardsControlAssociations API operation.", Operation = new[] {"ListStandardsControlAssociations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListStandardsControlAssociationsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListStandardsControlAssociations API operation.", Operation = new[] {"ListStandardsControlAssociations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListStandardsControlAssociationsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.StandardsControlAssociationSummary or Amazon.SecurityHub.Model.ListStandardsControlAssociationsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.StandardsControlAssociationSummary objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListStandardsControlAssociationsResponse) can be returned by specifying '-Select *'."
@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListStandardsControlAssociationsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListStandardsControlAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListStandardsControlAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListStandardsControlAssociations");
             try
             {
                 return client.ListStandardsControlAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

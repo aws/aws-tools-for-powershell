@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableImage API operation.", Operation = new[] {"DisableImage"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableImage API operation.", Operation = new[] {"DisableImage"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableImageResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DisableImageResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DisableImageResponse) can be returned by specifying '-Select *'."
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableImage");
             try
             {
                 return client.DisableImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

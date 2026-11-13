@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2LocalGatewayRouteTableVpcAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.LocalGatewayRouteTableVpcAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateLocalGatewayRouteTableVpcAssociation API operation.", Operation = new[] {"CreateLocalGatewayRouteTableVpcAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateLocalGatewayRouteTableVpcAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateLocalGatewayRouteTableVpcAssociation API operation.", Operation = new[] {"CreateLocalGatewayRouteTableVpcAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateLocalGatewayRouteTableVpcAssociationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRouteTableVpcAssociation or Amazon.EC2.Model.CreateLocalGatewayRouteTableVpcAssociationResponse",
         "This cmdlet returns an Amazon.EC2.Model.LocalGatewayRouteTableVpcAssociation object.",
         "The service call response (type Amazon.EC2.Model.CreateLocalGatewayRouteTableVpcAssociationResponse) can be returned by specifying '-Select *'."
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateLocalGatewayRouteTableVpcAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateLocalGatewayRouteTableVpcAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateLocalGatewayRouteTableVpcAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateLocalGatewayRouteTableVpcAssociation");
             try
             {
                 return client.CreateLocalGatewayRouteTableVpcAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

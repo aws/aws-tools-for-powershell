@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2SnapshotTier", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifySnapshotTierResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifySnapshotTier API operation.", Operation = new[] {"ModifySnapshotTier"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySnapshotTierResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifySnapshotTier API operation.", Operation = new[] {"ModifySnapshotTier"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySnapshotTierResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifySnapshotTierResponse",
         "This cmdlet returns an Amazon.EC2.Model.ModifySnapshotTierResponse object containing multiple properties."
     )]
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifySnapshotTierResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifySnapshotTierRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifySnapshotTier");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifySnapshotTier");
             try
             {
                 return client.ModifySnapshotTierAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

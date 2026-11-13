@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2StoreImageTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateStoreImageTask API operation.", Operation = new[] {"CreateStoreImageTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateStoreImageTaskResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateStoreImageTask API operation.", Operation = new[] {"CreateStoreImageTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateStoreImageTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.CreateStoreImageTaskResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.CreateStoreImageTaskResponse) can be returned by specifying '-Select *'."
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateStoreImageTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateStoreImageTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateStoreImageTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateStoreImageTask");
             try
             {
                 return client.CreateStoreImageTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2LocalGatewayVirtualInterfaceGroup")]
     [OutputType("Amazon.EC2.Model.LocalGatewayVirtualInterfaceGroup")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeLocalGatewayVirtualInterfaceGroups API operation.", Operation = new[] {"DescribeLocalGatewayVirtualInterfaceGroups"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeLocalGatewayVirtualInterfaceGroupsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeLocalGatewayVirtualInterfaceGroups API operation.", Operation = new[] {"DescribeLocalGatewayVirtualInterfaceGroups"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeLocalGatewayVirtualInterfaceGroupsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayVirtualInterfaceGroup or Amazon.EC2.Model.DescribeLocalGatewayVirtualInterfaceGroupsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.LocalGatewayVirtualInterfaceGroup objects.",
         "The service call response (type Amazon.EC2.Model.DescribeLocalGatewayVirtualInterfaceGroupsResponse) can be returned by specifying '-Select *'."
@@ -377,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeLocalGatewayVirtualInterfaceGroupsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeLocalGatewayVirtualInterfaceGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeLocalGatewayVirtualInterfaceGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeLocalGatewayVirtualInterfaceGroups");
             try
             {
                 return client.DescribeLocalGatewayVirtualInterfaceGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,8 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// If you have a large number of network interfaces, the operation fails unless you use
-    /// pagination or one of the following filters: <c>group-id</c>, <c>mac-address</c>, <c>private-dns-name</c>,
-    /// <c>private-ip-address</c>, <c>subnet-id</c>, or <c>vpc-id</c>.
+    /// pagination or one of the following filters: <c>attachment.instance-id</c>, <c>group-id</c>,
+    /// <c>mac-address</c>, <c>private-dns-name</c>, <c>private-ip-address</c>, <c>subnet-id</c>,
+    /// or <c>vpc-id</c>.
     /// </para><important><para>
     /// We strongly recommend using only paginated requests. Unpaginated requests are susceptible
     /// to throttling and timeouts.
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2NetworkInterface")]
     [OutputType("Amazon.EC2.Model.NetworkInterface")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeNetworkInterfaces API operation.", Operation = new[] {"DescribeNetworkInterfaces"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkInterfacesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeNetworkInterfaces API operation.", Operation = new[] {"DescribeNetworkInterfaces"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkInterfacesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInterface or Amazon.EC2.Model.DescribeNetworkInterfacesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.NetworkInterface objects.",
         "The service call response (type Amazon.EC2.Model.DescribeNetworkInterfacesResponse) can be returned by specifying '-Select *'."
@@ -447,7 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeNetworkInterfacesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeNetworkInterfacesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeNetworkInterfaces");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeNetworkInterfaces");
             try
             {
                 return client.DescribeNetworkInterfacesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

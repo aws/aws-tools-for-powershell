@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Edit", "DOCDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBSubnetGroup")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ModifyDBSubnetGroup API operation.", Operation = new[] {"ModifyDBSubnetGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyDBSubnetGroupResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility ModifyDBSubnetGroup API operation.", Operation = new[] {"ModifyDBSubnetGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyDBSubnetGroupResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBSubnetGroup or Amazon.DocDB.Model.ModifyDBSubnetGroupResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBSubnetGroup object.",
         "The service call response (type Amazon.DocDB.Model.ModifyDBSubnetGroupResponse) can be returned by specifying '-Select *'."
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.ModifyDBSubnetGroupResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.ModifyDBSubnetGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "ModifyDBSubnetGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "ModifyDBSubnetGroup");
             try
             {
                 return client.ModifyDBSubnetGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

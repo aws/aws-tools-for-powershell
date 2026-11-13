@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMOpsMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateOpsMetadata API operation.", Operation = new[] {"UpdateOpsMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateOpsMetadataResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) UpdateOpsMetadata API operation.", Operation = new[] {"UpdateOpsMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateOpsMetadataResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.UpdateOpsMetadataResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateOpsMetadataResponse) can be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UpdateOpsMetadataResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateOpsMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateOpsMetadata");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "UpdateOpsMetadata");
             try
             {
                 return client.UpdateOpsMetadataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2CoipCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CoipCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateCoipCidr API operation.", Operation = new[] {"CreateCoipCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCoipCidrResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateCoipCidr API operation.", Operation = new[] {"CreateCoipCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCoipCidrResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CoipCidr or Amazon.EC2.Model.CreateCoipCidrResponse",
         "This cmdlet returns an Amazon.EC2.Model.CoipCidr object.",
         "The service call response (type Amazon.EC2.Model.CreateCoipCidrResponse) can be returned by specifying '-Select *'."
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateCoipCidrResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateCoipCidrRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateCoipCidr");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateCoipCidr");
             try
             {
                 return client.CreateCoipCidrAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

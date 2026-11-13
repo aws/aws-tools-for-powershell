@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2TransitGatewayConnectPeer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayConnectPeer")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTransitGatewayConnectPeer API operation.", Operation = new[] {"CreateTransitGatewayConnectPeer"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayConnectPeerResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateTransitGatewayConnectPeer API operation.", Operation = new[] {"CreateTransitGatewayConnectPeer"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayConnectPeerResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayConnectPeer or Amazon.EC2.Model.CreateTransitGatewayConnectPeerResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayConnectPeer object.",
         "The service call response (type Amazon.EC2.Model.CreateTransitGatewayConnectPeerResponse) can be returned by specifying '-Select *'."
@@ -337,7 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateTransitGatewayConnectPeerResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateTransitGatewayConnectPeerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateTransitGatewayConnectPeer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateTransitGatewayConnectPeer");
             try
             {
                 return client.CreateTransitGatewayConnectPeerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -23,53 +23,68 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.NetworkFirewall;
-using Amazon.NetworkFirewall.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.NWFW
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes the specified <a>ProxyConfiguration</a>.
+    /// Disassociates a flex cost allocation policy from one or more network resources.
     /// </summary>
-    [Cmdlet("Remove", "NWFWProxyConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.NetworkFirewall.Model.DeleteProxyConfigurationResponse")]
-    [AWSCmdlet("Calls the AWS Network Firewall DeleteProxyConfiguration API operation.", Operation = new[] {"DeleteProxyConfiguration"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DeleteProxyConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.DeleteProxyConfigurationResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.DeleteProxyConfigurationResponse object containing multiple properties."
+    [Cmdlet("Unregister", "EC2NetworkingFlexCostAllocationPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateNetworkingFlexCostAllocationPolicy API operation.", Operation = new[] {"DisassociateNetworkingFlexCostAllocationPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyResponse",
+        "This cmdlet returns an Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyResponse object containing multiple properties."
     )]
-    public partial class RemoveNWFWProxyConfigurationCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class UnregisterEC2NetworkingFlexCostAllocationPolicyCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ProxyConfigurationArn
+        #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a proxy configuration.</para><para>You must specify the ARN or the name, and you can specify both. </para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyConfigurationArn { get; set; }
+        public System.Boolean? DryRun { get; set; }
         #endregion
         
-        #region Parameter ProxyConfigurationName
+        #region Parameter FcaPolicyAssociationId
         /// <summary>
         /// <para>
-        /// <para>The descriptive name of the proxy configuration. You can't change the name of a proxy
-        /// configuration after you create it.</para><para>You must specify the ARN or the name, and you can specify both. </para>
+        /// <para>The IDs of the policy associations to remove. You can specify up to 100 association
+        /// IDs. This parameter is required.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyConfigurationName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("FcaPolicyAssociationIds")]
+        public System.String[] FcaPolicyAssociationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.DeleteProxyConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.DeleteProxyConfigurationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProxyConfigurationName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-NWFWProxyConfiguration (DeleteProxyConfiguration)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-EC2NetworkingFlexCostAllocationPolicy (DisassociateNetworkingFlexCostAllocationPolicy)"))
             {
                 return;
             }
@@ -108,11 +123,20 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.DeleteProxyConfigurationResponse, RemoveNWFWProxyConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyResponse, UnregisterEC2NetworkingFlexCostAllocationPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ProxyConfigurationArn = this.ProxyConfigurationArn;
-            context.ProxyConfigurationName = this.ProxyConfigurationName;
+            context.DryRun = this.DryRun;
+            if (this.FcaPolicyAssociationId != null)
+            {
+                context.FcaPolicyAssociationId = new List<System.String>(this.FcaPolicyAssociationId);
+            }
+            #if MODULAR
+            if (this.FcaPolicyAssociationId == null && ParameterWasBound(nameof(this.FcaPolicyAssociationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FcaPolicyAssociationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,15 +151,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkFirewall.Model.DeleteProxyConfigurationRequest();
+            var request = new Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyRequest();
             
-            if (cmdletContext.ProxyConfigurationArn != null)
+            if (cmdletContext.DryRun != null)
             {
-                request.ProxyConfigurationArn = cmdletContext.ProxyConfigurationArn;
+                request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (cmdletContext.ProxyConfigurationName != null)
+            if (cmdletContext.FcaPolicyAssociationId != null)
             {
-                request.ProxyConfigurationName = cmdletContext.ProxyConfigurationName;
+                request.FcaPolicyAssociationIds = cmdletContext.FcaPolicyAssociationId;
             }
             
             CmdletOutput output;
@@ -170,12 +194,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkFirewall.Model.DeleteProxyConfigurationResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.DeleteProxyConfigurationRequest request)
+        private Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "DeleteProxyConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateNetworkingFlexCostAllocationPolicy");
             try
             {
-                return client.DeleteProxyConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DisassociateNetworkingFlexCostAllocationPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -192,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProxyConfigurationArn { get; set; }
-            public System.String ProxyConfigurationName { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.DeleteProxyConfigurationResponse, RemoveNWFWProxyConfigurationCmdlet, object> Select { get; set; } =
+            public System.Boolean? DryRun { get; set; }
+            public List<System.String> FcaPolicyAssociationId { get; set; }
+            public System.Func<Amazon.EC2.Model.DisassociateNetworkingFlexCostAllocationPolicyResponse, UnregisterEC2NetworkingFlexCostAllocationPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

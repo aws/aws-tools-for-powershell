@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Copy", "EC2Snapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CopySnapshot API operation.", Operation = new[] {"CopySnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.CopySnapshotResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CopySnapshot API operation.", Operation = new[] {"CopySnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.CopySnapshotResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.CopySnapshotResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.CopySnapshotResponse) can be returned by specifying '-Select *'."
@@ -126,12 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationRegion
         /// <summary>
         /// <para>
-        /// <para>The destination Region to use in the <c>PresignedUrl</c> parameter of a snapshot copy
-        /// operation. This parameter is only valid for specifying the destination Region in a
-        /// <c>PresignedUrl</c> parameter, where it is required.</para><para>The snapshot copy is sent to the regional endpoint that you sent the HTTP request
-        /// to (for example, <c>ec2.us-east-1.amazonaws.com</c>). With the CLI, this is specified
-        /// using the <c>--region</c> parameter or the default Region in your Amazon Web Services
-        /// configuration file.</para>
+        /// <para>Deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -396,7 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CopySnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CopySnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CopySnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CopySnapshot");
             try
             {
                 return client.CopySnapshotAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

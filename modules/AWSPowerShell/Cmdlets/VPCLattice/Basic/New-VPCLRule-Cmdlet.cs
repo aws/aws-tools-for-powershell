@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("New", "VPCLRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.CreateRuleResponse")]
-    [AWSCmdlet("Calls the VPC Lattice CreateRule API operation.", Operation = new[] {"CreateRule"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.CreateRuleResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice CreateRule API operation.", Operation = new[] {"CreateRule"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.CreateRuleResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.CreateRuleResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.CreateRuleResponse object containing multiple properties."
     )]
@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter PathMatch_CaseSensitive
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the match is case sensitive.</para>
+        /// <para>Specifies whether the match is case sensitive. Defaults to <c>true</c> (case-sensitive
+        /// matching). Set to <c>false</c> to match the path case-insensitively.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -573,7 +574,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.CreateRuleResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.CreateRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "CreateRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "CreateRule");
             try
             {
                 return client.CreateRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

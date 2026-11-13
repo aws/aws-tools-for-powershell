@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Stop", "EC2BundleTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.BundleTask")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CancelBundleTask API operation.", Operation = new[] {"CancelBundleTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelBundleTaskResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CancelBundleTask API operation.", Operation = new[] {"CancelBundleTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelBundleTaskResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.BundleTask or Amazon.EC2.Model.CancelBundleTaskResponse",
         "This cmdlet returns an Amazon.EC2.Model.BundleTask object.",
         "The service call response (type Amazon.EC2.Model.CancelBundleTaskResponse) can be returned by specifying '-Select *'."
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CancelBundleTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelBundleTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CancelBundleTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CancelBundleTask");
             try
             {
                 return client.CancelBundleTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

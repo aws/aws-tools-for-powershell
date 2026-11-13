@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VerifiedAccessEndpoint")]
     [OutputType("Amazon.EC2.Model.VerifiedAccessEndpoint")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVerifiedAccessEndpoints API operation.", Operation = new[] {"DescribeVerifiedAccessEndpoints"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVerifiedAccessEndpointsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVerifiedAccessEndpoints API operation.", Operation = new[] {"DescribeVerifiedAccessEndpoints"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVerifiedAccessEndpointsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessEndpoint or Amazon.EC2.Model.DescribeVerifiedAccessEndpointsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.VerifiedAccessEndpoint objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVerifiedAccessEndpointsResponse) can be returned by specifying '-Select *'."
@@ -289,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVerifiedAccessEndpointsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVerifiedAccessEndpointsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVerifiedAccessEndpoints");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVerifiedAccessEndpoints");
             try
             {
                 return client.DescribeVerifiedAccessEndpointsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

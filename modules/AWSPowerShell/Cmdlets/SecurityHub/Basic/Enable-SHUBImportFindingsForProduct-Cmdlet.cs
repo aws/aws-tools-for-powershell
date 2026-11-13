@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Enable", "SHUBImportFindingsForProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Hub EnableImportFindingsForProduct API operation.", Operation = new[] {"EnableImportFindingsForProduct"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.EnableImportFindingsForProductResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub EnableImportFindingsForProduct API operation.", Operation = new[] {"EnableImportFindingsForProduct"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.EnableImportFindingsForProductResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.EnableImportFindingsForProductResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SecurityHub.Model.EnableImportFindingsForProductResponse) can be returned by specifying '-Select *'."
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.EnableImportFindingsForProductResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.EnableImportFindingsForProductRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "EnableImportFindingsForProduct");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "EnableImportFindingsForProduct");
             try
             {
                 return client.EnableImportFindingsForProductAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

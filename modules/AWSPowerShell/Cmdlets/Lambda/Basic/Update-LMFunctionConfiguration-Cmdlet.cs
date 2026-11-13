@@ -488,6 +488,28 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public Amazon.Lambda.Runtime Runtime { get; set; }
         #endregion
         
+        #region Parameter RuntimeConfig_RuntimeAlias
+        /// <summary>
+        /// <para>
+        /// <para>The name of the customer-managed runtime alias that your function uses. A runtime
+        /// alias is a name that points to a runtime version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RuntimeConfig_RuntimeAlias { get; set; }
+        #endregion
+        
+        #region Parameter RuntimeConfig_RuntimeArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the customer-managed runtime that your function
+        /// uses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RuntimeConfig_RuntimeArn { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
@@ -717,6 +739,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.RevisionId = this.RevisionId;
             context.Role = this.Role;
             context.Runtime = this.Runtime;
+            context.RuntimeConfig_RuntimeAlias = this.RuntimeConfig_RuntimeAlias;
+            context.RuntimeConfig_RuntimeArn = this.RuntimeConfig_RuntimeArn;
             context.SnapStart_ApplyOn = this.SnapStart_ApplyOn;
             context.Timeout = this.Timeout;
             context.TracingConfig_Mode = this.TracingConfig_Mode;
@@ -1072,6 +1096,35 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 request.Runtime = cmdletContext.Runtime;
             }
             
+             // populate RuntimeConfig
+            var requestRuntimeConfigIsNull = true;
+            request.RuntimeConfig = new Amazon.Lambda.Model.FunctionRuntimeConfig();
+            System.String requestRuntimeConfig_runtimeConfig_RuntimeAlias = null;
+            if (cmdletContext.RuntimeConfig_RuntimeAlias != null)
+            {
+                requestRuntimeConfig_runtimeConfig_RuntimeAlias = cmdletContext.RuntimeConfig_RuntimeAlias;
+            }
+            if (requestRuntimeConfig_runtimeConfig_RuntimeAlias != null)
+            {
+                request.RuntimeConfig.RuntimeAlias = requestRuntimeConfig_runtimeConfig_RuntimeAlias;
+                requestRuntimeConfigIsNull = false;
+            }
+            System.String requestRuntimeConfig_runtimeConfig_RuntimeArn = null;
+            if (cmdletContext.RuntimeConfig_RuntimeArn != null)
+            {
+                requestRuntimeConfig_runtimeConfig_RuntimeArn = cmdletContext.RuntimeConfig_RuntimeArn;
+            }
+            if (requestRuntimeConfig_runtimeConfig_RuntimeArn != null)
+            {
+                request.RuntimeConfig.RuntimeArn = requestRuntimeConfig_runtimeConfig_RuntimeArn;
+                requestRuntimeConfigIsNull = false;
+            }
+             // determine if request.RuntimeConfig should be set to null
+            if (requestRuntimeConfigIsNull)
+            {
+                request.RuntimeConfig = null;
+            }
+            
              // populate SnapStart
             var requestSnapStartIsNull = true;
             request.SnapStart = new Amazon.Lambda.Model.SnapStart();
@@ -1258,6 +1311,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String RevisionId { get; set; }
             public System.String Role { get; set; }
             public Amazon.Lambda.Runtime Runtime { get; set; }
+            public System.String RuntimeConfig_RuntimeAlias { get; set; }
+            public System.String RuntimeConfig_RuntimeArn { get; set; }
             public Amazon.Lambda.SnapStartApplyOn SnapStart_ApplyOn { get; set; }
             public System.Int32? Timeout { get; set; }
             public Amazon.Lambda.TracingMode TracingConfig_Mode { get; set; }

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VolumesInRecycleBinList")]
     [OutputType("Amazon.EC2.Model.VolumeRecycleBinInfo")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ListVolumesInRecycleBin API operation.", Operation = new[] {"ListVolumesInRecycleBin"}, SelectReturnType = typeof(Amazon.EC2.Model.ListVolumesInRecycleBinResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ListVolumesInRecycleBin API operation.", Operation = new[] {"ListVolumesInRecycleBin"}, SelectReturnType = typeof(Amazon.EC2.Model.ListVolumesInRecycleBinResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VolumeRecycleBinInfo or Amazon.EC2.Model.ListVolumesInRecycleBinResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.VolumeRecycleBinInfo objects.",
         "The service call response (type Amazon.EC2.Model.ListVolumesInRecycleBinResponse) can be returned by specifying '-Select *'."
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ListVolumesInRecycleBinResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ListVolumesInRecycleBinRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ListVolumesInRecycleBin");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ListVolumesInRecycleBin");
             try
             {
                 return client.ListVolumesInRecycleBinAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

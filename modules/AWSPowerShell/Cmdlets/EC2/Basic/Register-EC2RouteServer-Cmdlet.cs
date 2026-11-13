@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2RouteServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.RouteServerAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateRouteServer API operation.", Operation = new[] {"AssociateRouteServer"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateRouteServerResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateRouteServer API operation.", Operation = new[] {"AssociateRouteServer"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateRouteServerResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RouteServerAssociation or Amazon.EC2.Model.AssociateRouteServerResponse",
         "This cmdlet returns an Amazon.EC2.Model.RouteServerAssociation object.",
         "The service call response (type Amazon.EC2.Model.AssociateRouteServerResponse) can be returned by specifying '-Select *'."
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateRouteServerResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateRouteServerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateRouteServer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateRouteServer");
             try
             {
                 return client.AssociateRouteServerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

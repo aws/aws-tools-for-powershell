@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2SpotDatafeedSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SpotDatafeedSubscription")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateSpotDatafeedSubscription API operation.", Operation = new[] {"CreateSpotDatafeedSubscription"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateSpotDatafeedSubscription API operation.", Operation = new[] {"CreateSpotDatafeedSubscription"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotDatafeedSubscription or Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse",
         "This cmdlet returns an Amazon.EC2.Model.SpotDatafeedSubscription object.",
         "The service call response (type Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse) can be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateSpotDatafeedSubscriptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateSpotDatafeedSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateSpotDatafeedSubscription");
             try
             {
                 return client.CreateSpotDatafeedSubscriptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

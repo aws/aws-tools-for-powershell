@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2TransitGatewayConnectPeer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.TransitGatewayConnectPeer")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTransitGatewayConnectPeer API operation.", Operation = new[] {"DeleteTransitGatewayConnectPeer"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayConnectPeerResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteTransitGatewayConnectPeer API operation.", Operation = new[] {"DeleteTransitGatewayConnectPeer"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayConnectPeerResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayConnectPeer or Amazon.EC2.Model.DeleteTransitGatewayConnectPeerResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayConnectPeer object.",
         "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayConnectPeerResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteTransitGatewayConnectPeerResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTransitGatewayConnectPeerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteTransitGatewayConnectPeer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteTransitGatewayConnectPeer");
             try
             {
                 return client.DeleteTransitGatewayConnectPeerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Deny", "EC2TransitGatewayClientVpnAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayClientVpnAttachment")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RejectTransitGatewayClientVpnAttachment API operation.", Operation = new[] {"RejectTransitGatewayClientVpnAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectTransitGatewayClientVpnAttachmentResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RejectTransitGatewayClientVpnAttachment API operation.", Operation = new[] {"RejectTransitGatewayClientVpnAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectTransitGatewayClientVpnAttachmentResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayClientVpnAttachment or Amazon.EC2.Model.RejectTransitGatewayClientVpnAttachmentResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayClientVpnAttachment object.",
         "The service call response (type Amazon.EC2.Model.RejectTransitGatewayClientVpnAttachmentResponse) can be returned by specifying '-Select *'."
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RejectTransitGatewayClientVpnAttachmentResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RejectTransitGatewayClientVpnAttachmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RejectTransitGatewayClientVpnAttachment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RejectTransitGatewayClientVpnAttachment");
             try
             {
                 return client.RejectTransitGatewayClientVpnAttachmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

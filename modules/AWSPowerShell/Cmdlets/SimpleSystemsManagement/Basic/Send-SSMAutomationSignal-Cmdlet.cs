@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Send", "SSMAutomationSignal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager SendAutomationSignal API operation.", Operation = new[] {"SendAutomationSignal"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) SendAutomationSignal API operation.", Operation = new[] {"SendAutomationSignal"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse) be returned by specifying '-Select *'."
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.SendAutomationSignalRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "SendAutomationSignal");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "SendAutomationSignal");
             try
             {
                 return client.SendAutomationSignalAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

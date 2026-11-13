@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2TransitGatewayMulticastDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.TransitGatewayMulticastDomain")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTransitGatewayMulticastDomain API operation.", Operation = new[] {"DeleteTransitGatewayMulticastDomain"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayMulticastDomainResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteTransitGatewayMulticastDomain API operation.", Operation = new[] {"DeleteTransitGatewayMulticastDomain"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayMulticastDomainResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastDomain or Amazon.EC2.Model.DeleteTransitGatewayMulticastDomainResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastDomain object.",
         "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayMulticastDomainResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteTransitGatewayMulticastDomainResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTransitGatewayMulticastDomainRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteTransitGatewayMulticastDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteTransitGatewayMulticastDomain");
             try
             {
                 return client.DeleteTransitGatewayMulticastDomainAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2TransitGatewayMulticastDomainAssociation")]
     [OutputType("Amazon.EC2.Model.TransitGatewayMulticastDomainAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetTransitGatewayMulticastDomainAssociations API operation.", Operation = new[] {"GetTransitGatewayMulticastDomainAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.GetTransitGatewayMulticastDomainAssociationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetTransitGatewayMulticastDomainAssociations API operation.", Operation = new[] {"GetTransitGatewayMulticastDomainAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.GetTransitGatewayMulticastDomainAssociationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastDomainAssociation or Amazon.EC2.Model.GetTransitGatewayMulticastDomainAssociationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.TransitGatewayMulticastDomainAssociation objects.",
         "The service call response (type Amazon.EC2.Model.GetTransitGatewayMulticastDomainAssociationsResponse) can be returned by specifying '-Select *'."
@@ -380,7 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetTransitGatewayMulticastDomainAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetTransitGatewayMulticastDomainAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetTransitGatewayMulticastDomainAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetTransitGatewayMulticastDomainAssociations");
             try
             {
                 return client.GetTransitGatewayMulticastDomainAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

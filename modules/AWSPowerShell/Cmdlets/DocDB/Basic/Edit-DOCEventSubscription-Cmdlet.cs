@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Edit", "DOCEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.EventSubscription")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ModifyEventSubscription API operation.", Operation = new[] {"ModifyEventSubscription"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyEventSubscriptionResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility ModifyEventSubscription API operation.", Operation = new[] {"ModifyEventSubscription"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyEventSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.EventSubscription or Amazon.DocDB.Model.ModifyEventSubscriptionResponse",
         "This cmdlet returns an Amazon.DocDB.Model.EventSubscription object.",
         "The service call response (type Amazon.DocDB.Model.ModifyEventSubscriptionResponse) can be returned by specifying '-Select *'."
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.ModifyEventSubscriptionResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.ModifyEventSubscriptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "ModifyEventSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "ModifyEventSubscription");
             try
             {
                 return client.ModifyEventSubscriptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

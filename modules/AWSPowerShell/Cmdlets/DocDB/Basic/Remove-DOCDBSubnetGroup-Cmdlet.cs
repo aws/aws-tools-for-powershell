@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Remove", "DOCDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DeleteDBSubnetGroup API operation.", Operation = new[] {"DeleteDBSubnetGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBSubnetGroupResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DeleteDBSubnetGroup API operation.", Operation = new[] {"DeleteDBSubnetGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBSubnetGroupResponse))]
     [AWSCmdletOutput("None or Amazon.DocDB.Model.DeleteDBSubnetGroupResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.DocDB.Model.DeleteDBSubnetGroupResponse) be returned by specifying '-Select *'."
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DeleteDBSubnetGroupResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DeleteDBSubnetGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DeleteDBSubnetGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DeleteDBSubnetGroup");
             try
             {
                 return client.DeleteDBSubnetGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

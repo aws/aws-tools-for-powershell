@@ -131,6 +131,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.ClientTypeType
+        "Get-CGIPUserPoolClientList/ClientType"
+        {
+            $v = "DCR","REGULAR"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.CompromisedCredentialsEventActionType
         "Set-CGIPRiskConfiguration/Actions_EventAction"
         {
@@ -320,6 +327,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.StatusType
+        {
+            ($_ -eq "New-CGIPUserPool/DcrConfiguration_EnableStatus") -Or
+            ($_ -eq "Update-CGIPUserPool/DcrConfiguration_EnableStatus")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.TermsEnforcementType
         {
             ($_ -eq "New-CGIPTerm/Enforcement") -Or
@@ -416,9 +433,11 @@ $CGIP_map = @{
     "AdvancedSecurityAdditionalFlows_CustomAuthMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "AuthFlow"=@("Start-CGIPAuth","Start-CGIPAuthAdmin")
     "ChallengeName"=@("Send-CGIPAuthChallengeResponse","Send-CGIPAuthChallengeResponseAdmin")
+    "ClientType"=@("Get-CGIPUserPoolClientList")
     "CustomDomainConfig_SecurityPolicy"=@("New-CGIPUserPoolDomain","Update-CGIPUserPoolDomain")
     "CustomEmailSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "CustomSMSSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "DcrConfiguration_EnableStatus"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "DeletionProtection"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "DeviceRememberedStatus"=@("Edit-CGIPDeviceStatus","Edit-CGIPDeviceStatusAdmin")
     "EmailConfiguration_EmailSendingAccount"=@("New-CGIPUserPool","Update-CGIPUserPool")

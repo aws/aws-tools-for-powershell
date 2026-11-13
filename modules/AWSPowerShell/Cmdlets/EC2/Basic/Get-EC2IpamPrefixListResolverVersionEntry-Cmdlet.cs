@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamPrefixListResolverVersionEntry")]
     [OutputType("Amazon.EC2.Model.IpamPrefixListResolverVersionEntry")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamPrefixListResolverVersionEntries API operation.", Operation = new[] {"GetIpamPrefixListResolverVersionEntries"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamPrefixListResolverVersionEntries API operation.", Operation = new[] {"GetIpamPrefixListResolverVersionEntries"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPrefixListResolverVersionEntry or Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamPrefixListResolverVersionEntry objects.",
         "The service call response (type Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse) can be returned by specifying '-Select *'."
@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamPrefixListResolverVersionEntries");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamPrefixListResolverVersionEntries");
             try
             {
                 return client.GetIpamPrefixListResolverVersionEntriesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

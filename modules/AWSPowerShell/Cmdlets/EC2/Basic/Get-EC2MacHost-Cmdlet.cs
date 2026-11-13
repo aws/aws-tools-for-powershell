@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2MacHost")]
     [OutputType("Amazon.EC2.Model.MacHost")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeMacHosts API operation.", Operation = new[] {"DescribeMacHosts"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeMacHostsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeMacHosts API operation.", Operation = new[] {"DescribeMacHosts"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeMacHostsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.MacHost or Amazon.EC2.Model.DescribeMacHostsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.MacHost objects.",
         "The service call response (type Amazon.EC2.Model.DescribeMacHostsResponse) can be returned by specifying '-Select *'."
@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeMacHostsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeMacHostsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeMacHosts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeMacHosts");
             try
             {
                 return client.DescribeMacHostsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

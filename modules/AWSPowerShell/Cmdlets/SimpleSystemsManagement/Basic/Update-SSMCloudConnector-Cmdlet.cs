@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMCloudConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateCloudConnector API operation.", Operation = new[] {"UpdateCloudConnector"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateCloudConnectorResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) UpdateCloudConnector API operation.", Operation = new[] {"UpdateCloudConnector"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateCloudConnectorResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.UpdateCloudConnectorResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateCloudConnectorResponse) can be returned by specifying '-Select *'."
@@ -102,6 +102,42 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter Configuration_GcpConfiguration_OrganizationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the GCP organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_GcpConfiguration_OrganizationId { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_GcpConfiguration_Targets_Project
+        /// <summary>
+        /// <para>
+        /// <para>A list of GCP projects to target.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_GcpConfiguration_Targets_Projects")]
+        public Amazon.SimpleSystemsManagement.Model.GcpProject[] Configuration_GcpConfiguration_Targets_Project { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_GcpConfiguration_ServiceAccountEmail
+        /// <summary>
+        /// <para>
+        /// <para>The email address of the GCP service account used for authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_GcpConfiguration_ServiceAccountEmail { get; set; }
+        #endregion
+        
         #region Parameter Configuration_AzureConfiguration_Targets_Subscription
         /// <summary>
         /// <para>
@@ -136,6 +172,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Configuration_AzureConfiguration_TenantId { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_GcpConfiguration_WorkloadIdentityPoolProvider
+        /// <summary>
+        /// <para>
+        /// <para>The full resource name of the GCP workload identity pool provider used for authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_GcpConfiguration_WorkloadIdentityPoolProvider { get; set; }
         #endregion
         
         #region Parameter Select
@@ -199,6 +245,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             context.Configuration_AzureConfiguration_TenantDisplayName = this.Configuration_AzureConfiguration_TenantDisplayName;
             context.Configuration_AzureConfiguration_TenantId = this.Configuration_AzureConfiguration_TenantId;
+            context.Configuration_GcpConfiguration_OrganizationId = this.Configuration_GcpConfiguration_OrganizationId;
+            context.Configuration_GcpConfiguration_ServiceAccountEmail = this.Configuration_GcpConfiguration_ServiceAccountEmail;
+            if (this.Configuration_GcpConfiguration_Targets_Project != null)
+            {
+                context.Configuration_GcpConfiguration_Targets_Project = new List<Amazon.SimpleSystemsManagement.Model.GcpProject>(this.Configuration_GcpConfiguration_Targets_Project);
+            }
+            context.Configuration_GcpConfiguration_WorkloadIdentityPoolProvider = this.Configuration_GcpConfiguration_WorkloadIdentityPoolProvider;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             
@@ -225,6 +278,76 @@ namespace Amazon.PowerShell.Cmdlets.SSM
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.SimpleSystemsManagement.Model.CloudConnectorConfiguration();
+            Amazon.SimpleSystemsManagement.Model.GcpConfiguration requestConfiguration_configuration_GcpConfiguration = null;
+            
+             // populate GcpConfiguration
+            var requestConfiguration_configuration_GcpConfigurationIsNull = true;
+            requestConfiguration_configuration_GcpConfiguration = new Amazon.SimpleSystemsManagement.Model.GcpConfiguration();
+            System.String requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_OrganizationId = null;
+            if (cmdletContext.Configuration_GcpConfiguration_OrganizationId != null)
+            {
+                requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_OrganizationId = cmdletContext.Configuration_GcpConfiguration_OrganizationId;
+            }
+            if (requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_OrganizationId != null)
+            {
+                requestConfiguration_configuration_GcpConfiguration.OrganizationId = requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_OrganizationId;
+                requestConfiguration_configuration_GcpConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_ServiceAccountEmail = null;
+            if (cmdletContext.Configuration_GcpConfiguration_ServiceAccountEmail != null)
+            {
+                requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_ServiceAccountEmail = cmdletContext.Configuration_GcpConfiguration_ServiceAccountEmail;
+            }
+            if (requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_ServiceAccountEmail != null)
+            {
+                requestConfiguration_configuration_GcpConfiguration.ServiceAccountEmail = requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_ServiceAccountEmail;
+                requestConfiguration_configuration_GcpConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_WorkloadIdentityPoolProvider = null;
+            if (cmdletContext.Configuration_GcpConfiguration_WorkloadIdentityPoolProvider != null)
+            {
+                requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_WorkloadIdentityPoolProvider = cmdletContext.Configuration_GcpConfiguration_WorkloadIdentityPoolProvider;
+            }
+            if (requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_WorkloadIdentityPoolProvider != null)
+            {
+                requestConfiguration_configuration_GcpConfiguration.WorkloadIdentityPoolProvider = requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_WorkloadIdentityPoolProvider;
+                requestConfiguration_configuration_GcpConfigurationIsNull = false;
+            }
+            Amazon.SimpleSystemsManagement.Model.GcpConfigurationTargets requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets = null;
+            
+             // populate Targets
+            var requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_TargetsIsNull = true;
+            requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets = new Amazon.SimpleSystemsManagement.Model.GcpConfigurationTargets();
+            List<Amazon.SimpleSystemsManagement.Model.GcpProject> requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets_configuration_GcpConfiguration_Targets_Project = null;
+            if (cmdletContext.Configuration_GcpConfiguration_Targets_Project != null)
+            {
+                requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets_configuration_GcpConfiguration_Targets_Project = cmdletContext.Configuration_GcpConfiguration_Targets_Project;
+            }
+            if (requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets_configuration_GcpConfiguration_Targets_Project != null)
+            {
+                requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets.Projects = requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets_configuration_GcpConfiguration_Targets_Project;
+                requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_TargetsIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets should be set to null
+            if (requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_TargetsIsNull)
+            {
+                requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets = null;
+            }
+            if (requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets != null)
+            {
+                requestConfiguration_configuration_GcpConfiguration.Targets = requestConfiguration_configuration_GcpConfiguration_configuration_GcpConfiguration_Targets;
+                requestConfiguration_configuration_GcpConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_GcpConfiguration should be set to null
+            if (requestConfiguration_configuration_GcpConfigurationIsNull)
+            {
+                requestConfiguration_configuration_GcpConfiguration = null;
+            }
+            if (requestConfiguration_configuration_GcpConfiguration != null)
+            {
+                request.Configuration.GcpConfiguration = requestConfiguration_configuration_GcpConfiguration;
+                requestConfigurationIsNull = false;
+            }
             Amazon.SimpleSystemsManagement.Model.AzureConfiguration requestConfiguration_configuration_AzureConfiguration = null;
             
              // populate AzureConfiguration
@@ -353,7 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UpdateCloudConnectorResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateCloudConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateCloudConnector");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "UpdateCloudConnector");
             try
             {
                 return client.UpdateCloudConnectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -379,6 +502,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<Amazon.SimpleSystemsManagement.Model.AzureSubscription> Configuration_AzureConfiguration_Targets_Subscription { get; set; }
             public System.String Configuration_AzureConfiguration_TenantDisplayName { get; set; }
             public System.String Configuration_AzureConfiguration_TenantId { get; set; }
+            public System.String Configuration_GcpConfiguration_OrganizationId { get; set; }
+            public System.String Configuration_GcpConfiguration_ServiceAccountEmail { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.GcpProject> Configuration_GcpConfiguration_Targets_Project { get; set; }
+            public System.String Configuration_GcpConfiguration_WorkloadIdentityPoolProvider { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.UpdateCloudConnectorResponse, UpdateSSMCloudConnectorCmdlet, object> Select { get; set; } =

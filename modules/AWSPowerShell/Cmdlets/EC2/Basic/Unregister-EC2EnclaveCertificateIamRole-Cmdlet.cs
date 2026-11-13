@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2EnclaveCertificateIamRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateEnclaveCertificateIamRole API operation.", Operation = new[] {"DisassociateEnclaveCertificateIamRole"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateEnclaveCertificateIamRoleResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateEnclaveCertificateIamRole API operation.", Operation = new[] {"DisassociateEnclaveCertificateIamRole"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateEnclaveCertificateIamRoleResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DisassociateEnclaveCertificateIamRoleResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DisassociateEnclaveCertificateIamRoleResponse) can be returned by specifying '-Select *'."
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisassociateEnclaveCertificateIamRoleResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateEnclaveCertificateIamRoleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisassociateEnclaveCertificateIamRole");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateEnclaveCertificateIamRole");
             try
             {
                 return client.DisassociateEnclaveCertificateIamRoleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

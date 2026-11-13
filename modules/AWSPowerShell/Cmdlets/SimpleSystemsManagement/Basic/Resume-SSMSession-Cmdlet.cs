@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Resume", "SSMSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager ResumeSession API operation.", Operation = new[] {"ResumeSession"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ResumeSession API operation.", Operation = new[] {"ResumeSession"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse object containing multiple properties."
     )]
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ResumeSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ResumeSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ResumeSession");
             try
             {
                 return client.ResumeSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VerifiedAccessGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVerifiedAccessGroupPolicy API operation.", Operation = new[] {"ModifyVerifiedAccessGroupPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVerifiedAccessGroupPolicy API operation.", Operation = new[] {"ModifyVerifiedAccessGroupPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse",
         "This cmdlet returns an Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse object containing multiple properties."
     )]
@@ -285,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVerifiedAccessGroupPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVerifiedAccessGroupPolicy");
             try
             {
                 return client.ModifyVerifiedAccessGroupPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

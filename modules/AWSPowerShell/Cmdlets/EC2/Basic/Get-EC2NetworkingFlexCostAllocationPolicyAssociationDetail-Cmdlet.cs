@@ -23,36 +23,80 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.NetworkFirewall;
-using Amazon.NetworkFirewall.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.NWFW
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Retrieves the metadata for the proxy configuration that you have defined. Depending
-    /// on your setting for max results and the number of proxy configurations, a single call
-    /// might not return the full list.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the associations between your flex cost allocation policies and network
+    /// resources. We recommend using pagination to ensure that the operation returns quickly
+    /// and successfully.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "NWFWProxyConfigurationList")]
-    [OutputType("Amazon.NetworkFirewall.Model.ProxyConfigurationMetadata")]
-    [AWSCmdlet("Calls the AWS Network Firewall ListProxyConfigurations API operation.", Operation = new[] {"ListProxyConfigurations"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.ListProxyConfigurationsResponse))]
-    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.ProxyConfigurationMetadata or Amazon.NetworkFirewall.Model.ListProxyConfigurationsResponse",
-        "This cmdlet returns a collection of Amazon.NetworkFirewall.Model.ProxyConfigurationMetadata objects.",
-        "The service call response (type Amazon.NetworkFirewall.Model.ListProxyConfigurationsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EC2NetworkingFlexCostAllocationPolicyAssociationDetail")]
+    [OutputType("Amazon.EC2.Model.FlexCostAllocationPolicyAssociationDescription")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeNetworkingFlexCostAllocationPolicyAssociations API operation.", Operation = new[] {"DescribeNetworkingFlexCostAllocationPolicyAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkingFlexCostAllocationPolicyAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.FlexCostAllocationPolicyAssociationDescription or Amazon.EC2.Model.DescribeNetworkingFlexCostAllocationPolicyAssociationsResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.FlexCostAllocationPolicyAssociationDescription objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeNetworkingFlexCostAllocationPolicyAssociationsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetNWFWProxyConfigurationListCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class GetEC2NetworkingFlexCostAllocationPolicyAssociationDetailCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
+        #region Parameter FcaPolicyAssociationId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the policy associations to describe.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FcaPolicyAssociationIds")]
+        public System.String[] FcaPolicyAssociationId { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>The filters.</para><ul><li><para><c>fca-policy-id</c> - The ID of the policy.</para></li><li><para><c>managed-by</c> - The entity that manages the association (<c>account</c> | <c>declarative-policy</c>).</para></li><li><para><c>resource-id</c> - The ID of the associated network resource.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of objects that you want Network Firewall to return for this request.
-        /// If more objects are available, in the response, Network Firewall provides a <c>NextToken</c>
-        /// value that you can use in a subsequent call to get the next batch of objects.</para>
+        /// <para>The maximum number of results to return in a single call. The range is 5 to 1000.
+        /// To retrieve the remaining results, make another call with the returned <c>nextToken</c>
+        /// value.</para><para>Default: 100</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -68,11 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When you request a list of objects with a <c>MaxResults</c> setting, if the number
-        /// of objects that are still available for retrieval exceeds the maximum you requested,
-        /// Network Firewall returns a <c>NextToken</c> value in the response. To retrieve the
-        /// next batch of objects, use the token returned from the prior request in your next
-        /// request.</para>
+        /// <para>The token for the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -85,13 +125,13 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProxyConfigurations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.ListProxyConfigurationsResponse).
-        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.ListProxyConfigurationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'FcaPolicyAssociations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeNetworkingFlexCostAllocationPolicyAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeNetworkingFlexCostAllocationPolicyAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProxyConfigurations";
+        public string Select { get; set; } = "FcaPolicyAssociations";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -120,8 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.ListProxyConfigurationsResponse, GetNWFWProxyConfigurationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeNetworkingFlexCostAllocationPolicyAssociationsResponse, GetEC2NetworkingFlexCostAllocationPolicyAssociationDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.DryRun = this.DryRun;
+            if (this.FcaPolicyAssociationId != null)
+            {
+                context.FcaPolicyAssociationId = new List<System.String>(this.FcaPolicyAssociationId);
+            }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -150,8 +199,20 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.NetworkFirewall.Model.ListProxyConfigurationsRequest();
+            var request = new Amazon.EC2.Model.DescribeNetworkingFlexCostAllocationPolicyAssociationsRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
+            if (cmdletContext.FcaPolicyAssociationId != null)
+            {
+                request.FcaPolicyAssociationIds = cmdletContext.FcaPolicyAssociationId;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -213,12 +274,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkFirewall.Model.ListProxyConfigurationsResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.ListProxyConfigurationsRequest request)
+        private Amazon.EC2.Model.DescribeNetworkingFlexCostAllocationPolicyAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeNetworkingFlexCostAllocationPolicyAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "ListProxyConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeNetworkingFlexCostAllocationPolicyAssociations");
             try
             {
-                return client.ListProxyConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeNetworkingFlexCostAllocationPolicyAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -235,10 +296,13 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
+            public List<System.String> FcaPolicyAssociationId { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.ListProxyConfigurationsResponse, GetNWFWProxyConfigurationListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProxyConfigurations;
+            public System.Func<Amazon.EC2.Model.DescribeNetworkingFlexCostAllocationPolicyAssociationsResponse, GetEC2NetworkingFlexCostAllocationPolicyAssociationDetailCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.FcaPolicyAssociations;
         }
         
     }

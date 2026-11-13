@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceMaintenanceOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceMaintenanceOptions API operation.", Operation = new[] {"ModifyInstanceMaintenanceOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyInstanceMaintenanceOptions API operation.", Operation = new[] {"ModifyInstanceMaintenanceOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse",
         "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse object containing multiple properties."
     )]
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstanceMaintenanceOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyInstanceMaintenanceOptions");
             try
             {
                 return client.ModifyInstanceMaintenanceOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

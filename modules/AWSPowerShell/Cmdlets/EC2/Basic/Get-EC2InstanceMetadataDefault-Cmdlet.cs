@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2InstanceMetadataDefault")]
     [OutputType("Amazon.EC2.Model.InstanceMetadataDefaultsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetInstanceMetadataDefaults API operation.", Operation = new[] {"GetInstanceMetadataDefaults"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetInstanceMetadataDefaults API operation.", Operation = new[] {"GetInstanceMetadataDefaults"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceMetadataDefaultsResponse or Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceMetadataDefaultsResponse object.",
         "The service call response (type Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse) can be returned by specifying '-Select *'."
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetInstanceMetadataDefaultsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetInstanceMetadataDefaults");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetInstanceMetadataDefaults");
             try
             {
                 return client.GetInstanceMetadataDefaultsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

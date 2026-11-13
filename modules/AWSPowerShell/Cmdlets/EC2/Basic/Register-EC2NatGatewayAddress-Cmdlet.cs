@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2NatGatewayAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssociateNatGatewayAddressResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateNatGatewayAddress API operation.", Operation = new[] {"AssociateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateNatGatewayAddressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateNatGatewayAddress API operation.", Operation = new[] {"AssociateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateNatGatewayAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssociateNatGatewayAddressResponse",
         "This cmdlet returns an Amazon.EC2.Model.AssociateNatGatewayAddressResponse object containing multiple properties."
     )]
@@ -305,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateNatGatewayAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateNatGatewayAddressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateNatGatewayAddress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateNatGatewayAddress");
             try
             {
                 return client.AssociateNatGatewayAddressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

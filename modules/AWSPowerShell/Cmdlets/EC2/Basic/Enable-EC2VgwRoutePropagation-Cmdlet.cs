@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2VgwRoutePropagation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableVgwRoutePropagation API operation.", Operation = new[] {"EnableVgwRoutePropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableVgwRoutePropagationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableVgwRoutePropagation API operation.", Operation = new[] {"EnableVgwRoutePropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableVgwRoutePropagationResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.EnableVgwRoutePropagationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.EnableVgwRoutePropagationResponse) be returned by specifying '-Select *'."
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableVgwRoutePropagationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableVgwRoutePropagationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableVgwRoutePropagation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableVgwRoutePropagation");
             try
             {
                 return client.EnableVgwRoutePropagationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

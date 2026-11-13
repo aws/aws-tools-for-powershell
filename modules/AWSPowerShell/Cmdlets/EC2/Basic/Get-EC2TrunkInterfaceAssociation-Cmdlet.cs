@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2TrunkInterfaceAssociation")]
     [OutputType("Amazon.EC2.Model.TrunkInterfaceAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeTrunkInterfaceAssociations API operation.", Operation = new[] {"DescribeTrunkInterfaceAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeTrunkInterfaceAssociationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeTrunkInterfaceAssociations API operation.", Operation = new[] {"DescribeTrunkInterfaceAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeTrunkInterfaceAssociationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TrunkInterfaceAssociation or Amazon.EC2.Model.DescribeTrunkInterfaceAssociationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.TrunkInterfaceAssociation objects.",
         "The service call response (type Amazon.EC2.Model.DescribeTrunkInterfaceAssociationsResponse) can be returned by specifying '-Select *'."
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeTrunkInterfaceAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeTrunkInterfaceAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeTrunkInterfaceAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeTrunkInterfaceAssociations");
             try
             {
                 return client.DescribeTrunkInterfaceAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

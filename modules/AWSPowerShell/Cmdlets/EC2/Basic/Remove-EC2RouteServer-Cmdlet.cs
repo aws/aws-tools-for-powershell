@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2RouteServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.RouteServer")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteRouteServer API operation.", Operation = new[] {"DeleteRouteServer"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteRouteServerResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteRouteServer API operation.", Operation = new[] {"DeleteRouteServer"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteRouteServerResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RouteServer or Amazon.EC2.Model.DeleteRouteServerResponse",
         "This cmdlet returns an Amazon.EC2.Model.RouteServer object.",
         "The service call response (type Amazon.EC2.Model.DeleteRouteServerResponse) can be returned by specifying '-Select *'."
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteRouteServerResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteRouteServerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteRouteServer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteRouteServer");
             try
             {
                 return client.DeleteRouteServerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

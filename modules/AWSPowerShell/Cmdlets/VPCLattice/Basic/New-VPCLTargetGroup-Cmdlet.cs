@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("New", "VPCLTargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.CreateTargetGroupResponse")]
-    [AWSCmdlet("Calls the VPC Lattice CreateTargetGroup API operation.", Operation = new[] {"CreateTargetGroup"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.CreateTargetGroupResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice CreateTargetGroup API operation.", Operation = new[] {"CreateTargetGroup"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.CreateTargetGroupResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.CreateTargetGroupResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.CreateTargetGroupResponse object containing multiple properties."
     )]
@@ -659,7 +659,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.CreateTargetGroupResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.CreateTargetGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "CreateTargetGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "CreateTargetGroup");
             try
             {
                 return client.CreateTargetGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

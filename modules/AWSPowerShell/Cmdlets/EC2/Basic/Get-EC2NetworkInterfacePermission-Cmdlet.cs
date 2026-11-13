@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2NetworkInterfacePermission")]
     [OutputType("Amazon.EC2.Model.NetworkInterfacePermission")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeNetworkInterfacePermissions API operation.", Operation = new[] {"DescribeNetworkInterfacePermissions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkInterfacePermissionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeNetworkInterfacePermissions API operation.", Operation = new[] {"DescribeNetworkInterfacePermissions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkInterfacePermissionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInterfacePermission or Amazon.EC2.Model.DescribeNetworkInterfacePermissionsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.NetworkInterfacePermission objects.",
         "The service call response (type Amazon.EC2.Model.DescribeNetworkInterfacePermissionsResponse) can be returned by specifying '-Select *'."
@@ -360,7 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeNetworkInterfacePermissionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeNetworkInterfacePermissionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeNetworkInterfacePermissions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeNetworkInterfacePermissions");
             try
             {
                 return client.DescribeNetworkInterfacePermissionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

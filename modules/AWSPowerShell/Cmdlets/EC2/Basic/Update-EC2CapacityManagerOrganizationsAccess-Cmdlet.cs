@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Update", "EC2CapacityManagerOrganizationsAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.UpdateCapacityManagerOrganizationsAccessResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) UpdateCapacityManagerOrganizationsAccess API operation.", Operation = new[] {"UpdateCapacityManagerOrganizationsAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.UpdateCapacityManagerOrganizationsAccessResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud UpdateCapacityManagerOrganizationsAccess API operation.", Operation = new[] {"UpdateCapacityManagerOrganizationsAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.UpdateCapacityManagerOrganizationsAccessResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.UpdateCapacityManagerOrganizationsAccessResponse",
         "This cmdlet returns an Amazon.EC2.Model.UpdateCapacityManagerOrganizationsAccessResponse object containing multiple properties."
     )]
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.UpdateCapacityManagerOrganizationsAccessResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UpdateCapacityManagerOrganizationsAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "UpdateCapacityManagerOrganizationsAccess");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "UpdateCapacityManagerOrganizationsAccess");
             try
             {
                 return client.UpdateCapacityManagerOrganizationsAccessAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

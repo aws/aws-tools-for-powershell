@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2Fleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateFleetResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateFleet API operation.", Operation = new[] {"CreateFleet"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateFleetResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateFleet API operation.", Operation = new[] {"CreateFleet"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateFleetResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateFleetResponse",
         "This cmdlet returns an Amazon.EC2.Model.CreateFleetResponse object containing multiple properties."
     )]
@@ -1147,7 +1147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateFleetResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateFleetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateFleet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateFleet");
             try
             {
                 return client.CreateFleetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

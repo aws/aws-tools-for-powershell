@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2RouteServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.RouteServer")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyRouteServer API operation.", Operation = new[] {"ModifyRouteServer"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyRouteServerResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyRouteServer API operation.", Operation = new[] {"ModifyRouteServer"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyRouteServerResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RouteServer or Amazon.EC2.Model.ModifyRouteServerResponse",
         "This cmdlet returns an Amazon.EC2.Model.RouteServer object.",
         "The service call response (type Amazon.EC2.Model.ModifyRouteServerResponse) can be returned by specifying '-Select *'."
@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyRouteServerResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyRouteServerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyRouteServer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyRouteServer");
             try
             {
                 return client.ModifyRouteServerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2ClientVpnTargetNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateClientVpnTargetNetwork API operation.", Operation = new[] {"AssociateClientVpnTargetNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateClientVpnTargetNetwork API operation.", Operation = new[] {"AssociateClientVpnTargetNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse",
         "This cmdlet returns an Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse object containing multiple properties."
     )]
@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateClientVpnTargetNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateClientVpnTargetNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateClientVpnTargetNetwork");
             try
             {
                 return client.AssociateClientVpnTargetNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

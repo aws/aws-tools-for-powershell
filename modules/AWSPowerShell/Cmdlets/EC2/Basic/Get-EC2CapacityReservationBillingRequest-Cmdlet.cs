@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2CapacityReservationBillingRequest")]
     [OutputType("Amazon.EC2.Model.CapacityReservationBillingRequest")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeCapacityReservationBillingRequests API operation.", Operation = new[] {"DescribeCapacityReservationBillingRequests"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCapacityReservationBillingRequestsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeCapacityReservationBillingRequests API operation.", Operation = new[] {"DescribeCapacityReservationBillingRequests"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCapacityReservationBillingRequestsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CapacityReservationBillingRequest or Amazon.EC2.Model.DescribeCapacityReservationBillingRequestsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.CapacityReservationBillingRequest objects.",
         "The service call response (type Amazon.EC2.Model.DescribeCapacityReservationBillingRequestsResponse) can be returned by specifying '-Select *'."
@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeCapacityReservationBillingRequestsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeCapacityReservationBillingRequestsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeCapacityReservationBillingRequests");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeCapacityReservationBillingRequests");
             try
             {
                 return client.DescribeCapacityReservationBillingRequestsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

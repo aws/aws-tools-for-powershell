@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLDomainVerification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteDomainVerification API operation.", Operation = new[] {"DeleteDomainVerification"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteDomainVerificationResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteDomainVerification API operation.", Operation = new[] {"DeleteDomainVerification"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteDomainVerificationResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteDomainVerificationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.DeleteDomainVerificationResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteDomainVerificationResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteDomainVerificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteDomainVerification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteDomainVerification");
             try
             {
                 return client.DeleteDomainVerificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

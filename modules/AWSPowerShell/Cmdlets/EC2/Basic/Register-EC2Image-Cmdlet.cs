@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RegisterImage API operation.", Operation = new[] {"RegisterImage"}, SelectReturnType = typeof(Amazon.EC2.Model.RegisterImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RegisterImage API operation.", Operation = new[] {"RegisterImage"}, SelectReturnType = typeof(Amazon.EC2.Model.RegisterImageResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.RegisterImageResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.RegisterImageResponse) can be returned by specifying '-Select *'."
@@ -539,7 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RegisterImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RegisterImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RegisterImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RegisterImage");
             try
             {
                 return client.RegisterImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

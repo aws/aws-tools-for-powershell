@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Request", "DOCSwitchoverGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.GlobalCluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) SwitchoverGlobalCluster API operation.", Operation = new[] {"SwitchoverGlobalCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.SwitchoverGlobalClusterResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility SwitchoverGlobalCluster API operation.", Operation = new[] {"SwitchoverGlobalCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.SwitchoverGlobalClusterResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.GlobalCluster or Amazon.DocDB.Model.SwitchoverGlobalClusterResponse",
         "This cmdlet returns an Amazon.DocDB.Model.GlobalCluster object.",
         "The service call response (type Amazon.DocDB.Model.SwitchoverGlobalClusterResponse) can be returned by specifying '-Select *'."
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.SwitchoverGlobalClusterResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.SwitchoverGlobalClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "SwitchoverGlobalCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "SwitchoverGlobalCluster");
             try
             {
                 return client.SwitchoverGlobalClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

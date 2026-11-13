@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2ScheduledInstancePurchase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ScheduledInstance")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) PurchaseScheduledInstances API operation.", Operation = new[] {"PurchaseScheduledInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.PurchaseScheduledInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud PurchaseScheduledInstances API operation.", Operation = new[] {"PurchaseScheduledInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.PurchaseScheduledInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ScheduledInstance or Amazon.EC2.Model.PurchaseScheduledInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ScheduledInstance objects.",
         "The service call response (type Amazon.EC2.Model.PurchaseScheduledInstancesResponse) can be returned by specifying '-Select *'."
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.PurchaseScheduledInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.PurchaseScheduledInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "PurchaseScheduledInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "PurchaseScheduledInstances");
             try
             {
                 return client.PurchaseScheduledInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

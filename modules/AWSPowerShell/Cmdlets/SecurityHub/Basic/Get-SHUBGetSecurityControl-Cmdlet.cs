@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBGetSecurityControl")]
     [OutputType("Amazon.SecurityHub.Model.BatchGetSecurityControlsResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub BatchGetSecurityControls API operation.", Operation = new[] {"BatchGetSecurityControls"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchGetSecurityControlsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub BatchGetSecurityControls API operation.", Operation = new[] {"BatchGetSecurityControls"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchGetSecurityControlsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.BatchGetSecurityControlsResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.BatchGetSecurityControlsResponse object containing multiple properties."
     )]
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.BatchGetSecurityControlsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.BatchGetSecurityControlsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "BatchGetSecurityControls");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "BatchGetSecurityControls");
             try
             {
                 return client.BatchGetSecurityControlsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

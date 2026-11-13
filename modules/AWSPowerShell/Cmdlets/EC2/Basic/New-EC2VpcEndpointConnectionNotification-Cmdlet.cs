@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2VpcEndpointConnectionNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVpcEndpointConnectionNotification API operation.", Operation = new[] {"CreateVpcEndpointConnectionNotification"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateVpcEndpointConnectionNotification API operation.", Operation = new[] {"CreateVpcEndpointConnectionNotification"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse",
         "This cmdlet returns an Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse object containing multiple properties."
     )]
@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateVpcEndpointConnectionNotification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateVpcEndpointConnectionNotification");
             try
             {
                 return client.CreateVpcEndpointConnectionNotificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

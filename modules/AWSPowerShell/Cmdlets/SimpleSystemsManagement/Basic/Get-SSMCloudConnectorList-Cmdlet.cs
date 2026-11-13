@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMCloudConnectorList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.CloudConnectorSummary")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListCloudConnectors API operation.", Operation = new[] {"ListCloudConnectors"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListCloudConnectorsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ListCloudConnectors API operation.", Operation = new[] {"ListCloudConnectors"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListCloudConnectorsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CloudConnectorSummary or Amazon.SimpleSystemsManagement.Model.ListCloudConnectorsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.CloudConnectorSummary objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListCloudConnectorsResponse) can be returned by specifying '-Select *'."
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListCloudConnectorsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListCloudConnectorsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListCloudConnectors");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ListCloudConnectors");
             try
             {
                 return client.ListCloudConnectorsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

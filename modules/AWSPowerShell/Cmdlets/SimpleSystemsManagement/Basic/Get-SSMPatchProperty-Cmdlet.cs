@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMPatchProperty")]
     [OutputType("System.Collections.Generic.Dictionary<System.String, System.String>")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribePatchProperties API operation.", Operation = new[] {"DescribePatchProperties"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribePatchPropertiesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribePatchProperties API operation.", Operation = new[] {"DescribePatchProperties"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribePatchPropertiesResponse))]
     [AWSCmdletOutput("System.Collections.Generic.Dictionary<System.String, System.String> or Amazon.SimpleSystemsManagement.Model.DescribePatchPropertiesResponse",
         "This cmdlet returns a collection of Dictionary<System.String, System.String> objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribePatchPropertiesResponse) can be returned by specifying '-Select *'."
@@ -417,7 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribePatchPropertiesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribePatchPropertiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribePatchProperties");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribePatchProperties");
             try
             {
                 return client.DescribePatchPropertiesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

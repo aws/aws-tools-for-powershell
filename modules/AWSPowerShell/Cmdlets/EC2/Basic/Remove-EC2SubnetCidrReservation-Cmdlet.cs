@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2SubnetCidrReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.SubnetCidrReservation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSubnetCidrReservation API operation.", Operation = new[] {"DeleteSubnetCidrReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSubnetCidrReservationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteSubnetCidrReservation API operation.", Operation = new[] {"DeleteSubnetCidrReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSubnetCidrReservationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SubnetCidrReservation or Amazon.EC2.Model.DeleteSubnetCidrReservationResponse",
         "This cmdlet returns an Amazon.EC2.Model.SubnetCidrReservation object.",
         "The service call response (type Amazon.EC2.Model.DeleteSubnetCidrReservationResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteSubnetCidrReservationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSubnetCidrReservationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteSubnetCidrReservation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteSubnetCidrReservation");
             try
             {
                 return client.DeleteSubnetCidrReservationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

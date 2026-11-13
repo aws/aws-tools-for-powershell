@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteAssociation API operation.", Operation = new[] {"DeleteAssociation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeleteAssociation API operation.", Operation = new[] {"DeleteAssociation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteAssociationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteAssociationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteAssociationResponse) be returned by specifying '-Select *'."
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeleteAssociationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeleteAssociation");
             try
             {
                 return client.DeleteAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

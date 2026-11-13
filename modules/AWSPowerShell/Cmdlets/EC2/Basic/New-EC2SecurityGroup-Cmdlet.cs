@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateSecurityGroup API operation.", Operation = new[] {"CreateSecurityGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSecurityGroupResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateSecurityGroup API operation.", Operation = new[] {"CreateSecurityGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSecurityGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.CreateSecurityGroupResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.CreateSecurityGroupResponse) can be returned by specifying '-Select *'."
@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateSecurityGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateSecurityGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateSecurityGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateSecurityGroup");
             try
             {
                 return client.CreateSecurityGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLAuthPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteAuthPolicy API operation.", Operation = new[] {"DeleteAuthPolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteAuthPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteAuthPolicy API operation.", Operation = new[] {"DeleteAuthPolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteAuthPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteAuthPolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.DeleteAuthPolicyResponse) be returned by specifying '-Select *'."
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteAuthPolicyResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteAuthPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteAuthPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteAuthPolicy");
             try
             {
                 return client.DeleteAuthPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

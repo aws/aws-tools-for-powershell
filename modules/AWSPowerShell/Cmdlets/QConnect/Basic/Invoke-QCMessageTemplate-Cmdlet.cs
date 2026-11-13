@@ -292,6 +292,39 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String CustomerProfileAttributes_BusinessPhoneNumber { get; set; }
         #endregion
         
+        #region Parameter Attributes_CustomerProfileAttributes_CalculatedAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The calculated attributes from the customer profile that are used with the message
+        /// template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Attributes_CustomerProfileAttributes_CalculatedAttributes")]
+        public System.Collections.Hashtable Attributes_CustomerProfileAttributes_CalculatedAttribute { get; set; }
+        #endregion
+        
+        #region Parameter Attributes_CaseAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The case attributes that are used with the message template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Attributes_CaseAttributes")]
+        public System.Collections.Hashtable Attributes_CaseAttribute { get; set; }
+        #endregion
+        
         #region Parameter CustomerProfileAttributes_City
         /// <summary>
         /// <para>
@@ -680,6 +713,22 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String CustomerProfileAttributes_Province { get; set; }
         #endregion
         
+        #region Parameter Attributes_CustomerProfileAttributes_Recommendation
+        /// <summary>
+        /// <para>
+        /// <para>The recommendations that are associated with the customer profile.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Attributes_CustomerProfileAttributes_Recommendations")]
+        public Amazon.QConnect.Model.ProfileRecommendation[] Attributes_CustomerProfileAttributes_Recommendation { get; set; }
+        #endregion
+        
         #region Parameter CustomerProfileAttributes_ShippingAddress1
         /// <summary>
         /// <para>
@@ -849,6 +898,14 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             context.AgentAttributes_FirstName = this.AgentAttributes_FirstName;
             context.AgentAttributes_LastName = this.AgentAttributes_LastName;
+            if (this.Attributes_CaseAttribute != null)
+            {
+                context.Attributes_CaseAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Attributes_CaseAttribute.Keys)
+                {
+                    context.Attributes_CaseAttribute.Add((String)hashKey, (System.String)(this.Attributes_CaseAttribute[hashKey]));
+                }
+            }
             if (this.Attributes_CustomAttribute != null)
             {
                 context.Attributes_CustomAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -877,6 +934,14 @@ namespace Amazon.PowerShell.Cmdlets.QC
             context.CustomerProfileAttributes_BusinessEmailAddress = this.CustomerProfileAttributes_BusinessEmailAddress;
             context.CustomerProfileAttributes_BusinessName = this.CustomerProfileAttributes_BusinessName;
             context.CustomerProfileAttributes_BusinessPhoneNumber = this.CustomerProfileAttributes_BusinessPhoneNumber;
+            if (this.Attributes_CustomerProfileAttributes_CalculatedAttribute != null)
+            {
+                context.Attributes_CustomerProfileAttributes_CalculatedAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Attributes_CustomerProfileAttributes_CalculatedAttribute.Keys)
+                {
+                    context.Attributes_CustomerProfileAttributes_CalculatedAttribute.Add((String)hashKey, (System.String)(this.Attributes_CustomerProfileAttributes_CalculatedAttribute[hashKey]));
+                }
+            }
             context.CustomerProfileAttributes_City = this.CustomerProfileAttributes_City;
             context.CustomerProfileAttributes_Country = this.CustomerProfileAttributes_Country;
             context.CustomerProfileAttributes_County = this.CustomerProfileAttributes_County;
@@ -911,6 +976,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             context.CustomerProfileAttributes_ProfileARN = this.CustomerProfileAttributes_ProfileARN;
             context.CustomerProfileAttributes_ProfileId = this.CustomerProfileAttributes_ProfileId;
             context.CustomerProfileAttributes_Province = this.CustomerProfileAttributes_Province;
+            if (this.Attributes_CustomerProfileAttributes_Recommendation != null)
+            {
+                context.Attributes_CustomerProfileAttributes_Recommendation = new List<Amazon.QConnect.Model.ProfileRecommendation>(this.Attributes_CustomerProfileAttributes_Recommendation);
+            }
             context.CustomerProfileAttributes_ShippingAddress1 = this.CustomerProfileAttributes_ShippingAddress1;
             context.CustomerProfileAttributes_ShippingAddress2 = this.CustomerProfileAttributes_ShippingAddress2;
             context.CustomerProfileAttributes_ShippingAddress3 = this.CustomerProfileAttributes_ShippingAddress3;
@@ -959,6 +1028,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
              // populate Attributes
             var requestAttributesIsNull = true;
             request.Attributes = new Amazon.QConnect.Model.MessageTemplateAttributes();
+            Dictionary<System.String, System.String> requestAttributes_attributes_CaseAttribute = null;
+            if (cmdletContext.Attributes_CaseAttribute != null)
+            {
+                requestAttributes_attributes_CaseAttribute = cmdletContext.Attributes_CaseAttribute;
+            }
+            if (requestAttributes_attributes_CaseAttribute != null)
+            {
+                request.Attributes.CaseAttributes = requestAttributes_attributes_CaseAttribute;
+                requestAttributesIsNull = false;
+            }
             Dictionary<System.String, System.String> requestAttributes_attributes_CustomAttribute = null;
             if (cmdletContext.Attributes_CustomAttribute != null)
             {
@@ -1284,6 +1363,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 requestAttributes_attributes_CustomerProfileAttributes.BusinessPhoneNumber = requestAttributes_attributes_CustomerProfileAttributes_customerProfileAttributes_BusinessPhoneNumber;
                 requestAttributes_attributes_CustomerProfileAttributesIsNull = false;
             }
+            Dictionary<System.String, System.String> requestAttributes_attributes_CustomerProfileAttributes_attributes_CustomerProfileAttributes_CalculatedAttribute = null;
+            if (cmdletContext.Attributes_CustomerProfileAttributes_CalculatedAttribute != null)
+            {
+                requestAttributes_attributes_CustomerProfileAttributes_attributes_CustomerProfileAttributes_CalculatedAttribute = cmdletContext.Attributes_CustomerProfileAttributes_CalculatedAttribute;
+            }
+            if (requestAttributes_attributes_CustomerProfileAttributes_attributes_CustomerProfileAttributes_CalculatedAttribute != null)
+            {
+                requestAttributes_attributes_CustomerProfileAttributes.CalculatedAttributes = requestAttributes_attributes_CustomerProfileAttributes_attributes_CustomerProfileAttributes_CalculatedAttribute;
+                requestAttributes_attributes_CustomerProfileAttributesIsNull = false;
+            }
             System.String requestAttributes_attributes_CustomerProfileAttributes_customerProfileAttributes_City = null;
             if (cmdletContext.CustomerProfileAttributes_City != null)
             {
@@ -1554,6 +1643,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 requestAttributes_attributes_CustomerProfileAttributes.Province = requestAttributes_attributes_CustomerProfileAttributes_customerProfileAttributes_Province;
                 requestAttributes_attributes_CustomerProfileAttributesIsNull = false;
             }
+            List<Amazon.QConnect.Model.ProfileRecommendation> requestAttributes_attributes_CustomerProfileAttributes_attributes_CustomerProfileAttributes_Recommendation = null;
+            if (cmdletContext.Attributes_CustomerProfileAttributes_Recommendation != null)
+            {
+                requestAttributes_attributes_CustomerProfileAttributes_attributes_CustomerProfileAttributes_Recommendation = cmdletContext.Attributes_CustomerProfileAttributes_Recommendation;
+            }
+            if (requestAttributes_attributes_CustomerProfileAttributes_attributes_CustomerProfileAttributes_Recommendation != null)
+            {
+                requestAttributes_attributes_CustomerProfileAttributes.Recommendations = requestAttributes_attributes_CustomerProfileAttributes_attributes_CustomerProfileAttributes_Recommendation;
+                requestAttributes_attributes_CustomerProfileAttributesIsNull = false;
+            }
             System.String requestAttributes_attributes_CustomerProfileAttributes_customerProfileAttributes_ShippingAddress1 = null;
             if (cmdletContext.CustomerProfileAttributes_ShippingAddress1 != null)
             {
@@ -1744,6 +1843,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         {
             public System.String AgentAttributes_FirstName { get; set; }
             public System.String AgentAttributes_LastName { get; set; }
+            public Dictionary<System.String, System.String> Attributes_CaseAttribute { get; set; }
             public Dictionary<System.String, System.String> Attributes_CustomAttribute { get; set; }
             public System.String CustomerProfileAttributes_AccountNumber { get; set; }
             public System.String CustomerProfileAttributes_AdditionalInformation { get; set; }
@@ -1765,6 +1865,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String CustomerProfileAttributes_BusinessEmailAddress { get; set; }
             public System.String CustomerProfileAttributes_BusinessName { get; set; }
             public System.String CustomerProfileAttributes_BusinessPhoneNumber { get; set; }
+            public Dictionary<System.String, System.String> Attributes_CustomerProfileAttributes_CalculatedAttribute { get; set; }
             public System.String CustomerProfileAttributes_City { get; set; }
             public System.String CustomerProfileAttributes_Country { get; set; }
             public System.String CustomerProfileAttributes_County { get; set; }
@@ -1792,6 +1893,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String CustomerProfileAttributes_ProfileARN { get; set; }
             public System.String CustomerProfileAttributes_ProfileId { get; set; }
             public System.String CustomerProfileAttributes_Province { get; set; }
+            public List<Amazon.QConnect.Model.ProfileRecommendation> Attributes_CustomerProfileAttributes_Recommendation { get; set; }
             public System.String CustomerProfileAttributes_ShippingAddress1 { get; set; }
             public System.String CustomerProfileAttributes_ShippingAddress2 { get; set; }
             public System.String CustomerProfileAttributes_ShippingAddress3 { get; set; }

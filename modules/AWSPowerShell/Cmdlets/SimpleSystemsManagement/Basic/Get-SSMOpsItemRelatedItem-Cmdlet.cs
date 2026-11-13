@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMOpsItemRelatedItem")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemSummary")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListOpsItemRelatedItems API operation.", Operation = new[] {"ListOpsItemRelatedItems"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ListOpsItemRelatedItems API operation.", Operation = new[] {"ListOpsItemRelatedItems"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemSummary or Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemSummary objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse) can be returned by specifying '-Select *'."
@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListOpsItemRelatedItems");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ListOpsItemRelatedItems");
             try
             {
                 return client.ListOpsItemRelatedItemsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2IdFormat", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIdFormat API operation.", Operation = new[] {"ModifyIdFormat"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIdFormatResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyIdFormat API operation.", Operation = new[] {"ModifyIdFormat"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIdFormatResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ModifyIdFormatResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ModifyIdFormatResponse) be returned by specifying '-Select *'."
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyIdFormatResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIdFormatRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyIdFormat");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyIdFormat");
             try
             {
                 return client.ModifyIdFormatAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Stop", "SSMSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager TerminateSession API operation.", Operation = new[] {"TerminateSession"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.TerminateSessionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) TerminateSession API operation.", Operation = new[] {"TerminateSession"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.TerminateSessionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.TerminateSessionResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.TerminateSessionResponse) can be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.TerminateSessionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.TerminateSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "TerminateSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "TerminateSession");
             try
             {
                 return client.TerminateSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

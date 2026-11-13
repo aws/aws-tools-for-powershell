@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2CustomerGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CustomerGateway")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateCustomerGateway API operation.", Operation = new[] {"CreateCustomerGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCustomerGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateCustomerGateway API operation.", Operation = new[] {"CreateCustomerGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCustomerGatewayResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CustomerGateway or Amazon.EC2.Model.CreateCustomerGatewayResponse",
         "This cmdlet returns an Amazon.EC2.Model.CustomerGateway object.",
         "The service call response (type Amazon.EC2.Model.CreateCustomerGatewayResponse) can be returned by specifying '-Select *'."
@@ -328,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateCustomerGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateCustomerGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateCustomerGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateCustomerGateway");
             try
             {
                 return client.CreateCustomerGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

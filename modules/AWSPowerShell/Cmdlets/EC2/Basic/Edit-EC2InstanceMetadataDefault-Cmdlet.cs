@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceMetadataDefault", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceMetadataDefaults API operation.", Operation = new[] {"ModifyInstanceMetadataDefaults"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyInstanceMetadataDefaults API operation.", Operation = new[] {"ModifyInstanceMetadataDefaults"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse) can be returned by specifying '-Select *'."
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstanceMetadataDefaultsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstanceMetadataDefaults");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyInstanceMetadataDefaults");
             try
             {
                 return client.ModifyInstanceMetadataDefaultsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

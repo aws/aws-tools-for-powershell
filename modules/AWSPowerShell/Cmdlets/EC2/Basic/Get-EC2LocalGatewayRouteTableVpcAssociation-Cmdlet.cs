@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2LocalGatewayRouteTableVpcAssociation")]
     [OutputType("Amazon.EC2.Model.LocalGatewayRouteTableVpcAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeLocalGatewayRouteTableVpcAssociations API operation.", Operation = new[] {"DescribeLocalGatewayRouteTableVpcAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeLocalGatewayRouteTableVpcAssociationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeLocalGatewayRouteTableVpcAssociations API operation.", Operation = new[] {"DescribeLocalGatewayRouteTableVpcAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeLocalGatewayRouteTableVpcAssociationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRouteTableVpcAssociation or Amazon.EC2.Model.DescribeLocalGatewayRouteTableVpcAssociationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.LocalGatewayRouteTableVpcAssociation objects.",
         "The service call response (type Amazon.EC2.Model.DescribeLocalGatewayRouteTableVpcAssociationsResponse) can be returned by specifying '-Select *'."
@@ -377,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeLocalGatewayRouteTableVpcAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeLocalGatewayRouteTableVpcAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeLocalGatewayRouteTableVpcAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeLocalGatewayRouteTableVpcAssociations");
             try
             {
                 return client.DescribeLocalGatewayRouteTableVpcAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

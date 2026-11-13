@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowTarget")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTarget")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeMaintenanceWindowTargets API operation.", Operation = new[] {"DescribeMaintenanceWindowTargets"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowTargetsResponse), LegacyAlias="Get-SSMMaintenanceWindowTargets")]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeMaintenanceWindowTargets API operation.", Operation = new[] {"DescribeMaintenanceWindowTargets"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowTargetsResponse), LegacyAlias="Get-SSMMaintenanceWindowTargets")]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTarget or Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowTargetsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTarget objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowTargetsResponse) can be returned by specifying '-Select *'."
@@ -372,7 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowTargetsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowTargetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeMaintenanceWindowTargets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeMaintenanceWindowTargets");
             try
             {
                 return client.DescribeMaintenanceWindowTargetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

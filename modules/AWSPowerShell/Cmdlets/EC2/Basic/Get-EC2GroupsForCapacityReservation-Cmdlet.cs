@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2GroupsForCapacityReservation")]
     [OutputType("Amazon.EC2.Model.CapacityReservationGroup")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetGroupsForCapacityReservation API operation.", Operation = new[] {"GetGroupsForCapacityReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.GetGroupsForCapacityReservationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetGroupsForCapacityReservation API operation.", Operation = new[] {"GetGroupsForCapacityReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.GetGroupsForCapacityReservationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CapacityReservationGroup or Amazon.EC2.Model.GetGroupsForCapacityReservationResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.CapacityReservationGroup objects.",
         "The service call response (type Amazon.EC2.Model.GetGroupsForCapacityReservationResponse) can be returned by specifying '-Select *'."
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetGroupsForCapacityReservationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetGroupsForCapacityReservationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetGroupsForCapacityReservation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetGroupsForCapacityReservation");
             try
             {
                 return client.GetGroupsForCapacityReservationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

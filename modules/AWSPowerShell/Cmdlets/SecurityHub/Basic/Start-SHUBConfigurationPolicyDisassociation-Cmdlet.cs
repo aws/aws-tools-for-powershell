@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Start", "SHUBConfigurationPolicyDisassociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub StartConfigurationPolicyDisassociation API operation.", Operation = new[] {"StartConfigurationPolicyDisassociation"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.StartConfigurationPolicyDisassociationResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub StartConfigurationPolicyDisassociation API operation.", Operation = new[] {"StartConfigurationPolicyDisassociation"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.StartConfigurationPolicyDisassociationResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.StartConfigurationPolicyDisassociationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.StartConfigurationPolicyDisassociationResponse) be returned by specifying '-Select *'."
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.StartConfigurationPolicyDisassociationResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.StartConfigurationPolicyDisassociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "StartConfigurationPolicyDisassociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "StartConfigurationPolicyDisassociation");
             try
             {
                 return client.StartConfigurationPolicyDisassociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2NetworkAclEntry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateNetworkAclEntry API operation.", Operation = new[] {"CreateNetworkAclEntry"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNetworkAclEntryResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateNetworkAclEntry API operation.", Operation = new[] {"CreateNetworkAclEntry"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNetworkAclEntryResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.CreateNetworkAclEntryResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.CreateNetworkAclEntryResponse) be returned by specifying '-Select *'."
@@ -456,7 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateNetworkAclEntryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateNetworkAclEntryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateNetworkAclEntry");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateNetworkAclEntry");
             try
             {
                 return client.CreateNetworkAclEntryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

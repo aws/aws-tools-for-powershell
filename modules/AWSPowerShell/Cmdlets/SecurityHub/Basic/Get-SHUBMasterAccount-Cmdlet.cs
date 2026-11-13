@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBMasterAccount")]
     [OutputType("Amazon.SecurityHub.Model.Invitation")]
-    [AWSCmdlet("Calls the AWS Security Hub GetMasterAccount API operation.", Operation = new[] {"GetMasterAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetMasterAccountResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetMasterAccount API operation.", Operation = new[] {"GetMasterAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetMasterAccountResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Invitation or Amazon.SecurityHub.Model.GetMasterAccountResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.Invitation object.",
         "The service call response (type Amazon.SecurityHub.Model.GetMasterAccountResponse) can be returned by specifying '-Select *'."
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetMasterAccountResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetMasterAccountRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetMasterAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetMasterAccount");
             try
             {
                 return client.GetMasterAccountAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

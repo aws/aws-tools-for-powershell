@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2SpotDatafeedSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSpotDatafeedSubscription API operation.", Operation = new[] {"DeleteSpotDatafeedSubscription"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteSpotDatafeedSubscription API operation.", Operation = new[] {"DeleteSpotDatafeedSubscription"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionResponse) be returned by specifying '-Select *'."
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteSpotDatafeedSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteSpotDatafeedSubscription");
             try
             {
                 return client.DeleteSpotDatafeedSubscriptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

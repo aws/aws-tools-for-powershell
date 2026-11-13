@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Stop", "EC2ImportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CancelImportTaskResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CancelImportTask API operation.", Operation = new[] {"CancelImportTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelImportTaskResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CancelImportTask API operation.", Operation = new[] {"CancelImportTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelImportTaskResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CancelImportTaskResponse",
         "This cmdlet returns an Amazon.EC2.Model.CancelImportTaskResponse object containing multiple properties."
     )]
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CancelImportTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelImportTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CancelImportTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CancelImportTask");
             try
             {
                 return client.CancelImportTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

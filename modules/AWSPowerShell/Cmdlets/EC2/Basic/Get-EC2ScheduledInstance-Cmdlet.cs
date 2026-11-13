@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ScheduledInstance")]
     [OutputType("Amazon.EC2.Model.ScheduledInstance")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeScheduledInstances API operation.", Operation = new[] {"DescribeScheduledInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeScheduledInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeScheduledInstances API operation.", Operation = new[] {"DescribeScheduledInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeScheduledInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ScheduledInstance or Amazon.EC2.Model.DescribeScheduledInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ScheduledInstance objects.",
         "The service call response (type Amazon.EC2.Model.DescribeScheduledInstancesResponse) can be returned by specifying '-Select *'."
@@ -449,7 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeScheduledInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeScheduledInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeScheduledInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeScheduledInstances");
             try
             {
                 return client.DescribeScheduledInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

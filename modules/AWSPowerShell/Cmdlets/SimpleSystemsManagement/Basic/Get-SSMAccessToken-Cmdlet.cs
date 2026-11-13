@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMAccessToken")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetAccessTokenResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetAccessToken API operation.", Operation = new[] {"GetAccessToken"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetAccessTokenResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetAccessToken API operation.", Operation = new[] {"GetAccessToken"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetAccessTokenResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetAccessTokenResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetAccessTokenResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetAccessTokenResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetAccessTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetAccessToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetAccessToken");
             try
             {
                 return client.GetAccessTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

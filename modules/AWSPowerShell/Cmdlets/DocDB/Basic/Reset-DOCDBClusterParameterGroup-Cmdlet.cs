@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Reset", "DOCDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ResetDBClusterParameterGroup API operation.", Operation = new[] {"ResetDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.ResetDBClusterParameterGroupResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility ResetDBClusterParameterGroup API operation.", Operation = new[] {"ResetDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.ResetDBClusterParameterGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.DocDB.Model.ResetDBClusterParameterGroupResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.DocDB.Model.ResetDBClusterParameterGroupResponse) can be returned by specifying '-Select *'."
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.ResetDBClusterParameterGroupResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.ResetDBClusterParameterGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "ResetDBClusterParameterGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "ResetDBClusterParameterGroup");
             try
             {
                 return client.ResetDBClusterParameterGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

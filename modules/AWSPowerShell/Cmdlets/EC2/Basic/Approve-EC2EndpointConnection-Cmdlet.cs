@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Approve", "EC2EndpointConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.UnsuccessfulItem")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AcceptVpcEndpointConnections API operation.", Operation = new[] {"AcceptVpcEndpointConnections"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptVpcEndpointConnectionsResponse), LegacyAlias="Confirm-EC2EndpointConnection")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AcceptVpcEndpointConnections API operation.", Operation = new[] {"AcceptVpcEndpointConnections"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptVpcEndpointConnectionsResponse), LegacyAlias="Confirm-EC2EndpointConnection")]
     [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem or Amazon.EC2.Model.AcceptVpcEndpointConnectionsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.UnsuccessfulItem objects.",
         "The service call response (type Amazon.EC2.Model.AcceptVpcEndpointConnectionsResponse) can be returned by specifying '-Select *'."
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AcceptVpcEndpointConnectionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AcceptVpcEndpointConnectionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AcceptVpcEndpointConnections");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AcceptVpcEndpointConnections");
             try
             {
                 return client.AcceptVpcEndpointConnectionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamAddressHistory")]
     [OutputType("Amazon.EC2.Model.IpamAddressHistoryRecord")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamAddressHistory API operation.", Operation = new[] {"GetIpamAddressHistory"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamAddressHistoryResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamAddressHistory API operation.", Operation = new[] {"GetIpamAddressHistory"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamAddressHistoryResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamAddressHistoryRecord or Amazon.EC2.Model.GetIpamAddressHistoryResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamAddressHistoryRecord objects.",
         "The service call response (type Amazon.EC2.Model.GetIpamAddressHistoryResponse) can be returned by specifying '-Select *'."
@@ -318,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamAddressHistoryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamAddressHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamAddressHistory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamAddressHistory");
             try
             {
                 return client.GetIpamAddressHistoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

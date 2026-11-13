@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2LaunchTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.LaunchTemplate")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteLaunchTemplate API operation.", Operation = new[] {"DeleteLaunchTemplate"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLaunchTemplateResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteLaunchTemplate API operation.", Operation = new[] {"DeleteLaunchTemplate"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLaunchTemplateResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LaunchTemplate or Amazon.EC2.Model.DeleteLaunchTemplateResponse",
         "This cmdlet returns an Amazon.EC2.Model.LaunchTemplate object.",
         "The service call response (type Amazon.EC2.Model.DeleteLaunchTemplateResponse) can be returned by specifying '-Select *'."
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteLaunchTemplateResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteLaunchTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteLaunchTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteLaunchTemplate");
             try
             {
                 return client.DeleteLaunchTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

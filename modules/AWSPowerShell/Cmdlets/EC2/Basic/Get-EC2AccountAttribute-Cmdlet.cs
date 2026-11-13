@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2AccountAttribute")]
     [OutputType("Amazon.EC2.Model.AccountAttribute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAccountAttributesResponse), LegacyAlias="Get-EC2AccountAttributes")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAccountAttributesResponse), LegacyAlias="Get-EC2AccountAttributes")]
     [AWSCmdletOutput("Amazon.EC2.Model.AccountAttribute or Amazon.EC2.Model.DescribeAccountAttributesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.AccountAttribute objects.",
         "The service call response (type Amazon.EC2.Model.DescribeAccountAttributesResponse) can be returned by specifying '-Select *'."
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeAccountAttributesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeAccountAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeAccountAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeAccountAttributes");
             try
             {
                 return client.DescribeAccountAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

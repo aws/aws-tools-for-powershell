@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation")]
     [OutputType("Amazon.EC2.Model.LocalGatewayRouteTableVirtualInterfaceGroupAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations API operation.", Operation = new[] {"DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations API operation.", Operation = new[] {"DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRouteTableVirtualInterfaceGroupAssociation or Amazon.EC2.Model.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.LocalGatewayRouteTableVirtualInterfaceGroupAssociation objects.",
         "The service call response (type Amazon.EC2.Model.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse) can be returned by specifying '-Select *'."
@@ -380,7 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations");
             try
             {
                 return client.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

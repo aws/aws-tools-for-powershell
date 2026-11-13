@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2FpgaImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateFpgaImageResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateFpgaImage API operation.", Operation = new[] {"CreateFpgaImage"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateFpgaImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateFpgaImage API operation.", Operation = new[] {"CreateFpgaImage"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateFpgaImageResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateFpgaImageResponse",
         "This cmdlet returns an Amazon.EC2.Model.CreateFpgaImageResponse object containing multiple properties."
     )]
@@ -342,7 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateFpgaImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateFpgaImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateFpgaImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateFpgaImage");
             try
             {
                 return client.CreateFpgaImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

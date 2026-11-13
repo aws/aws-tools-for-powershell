@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2CapacityManager", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.EnableCapacityManagerResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableCapacityManager API operation.", Operation = new[] {"EnableCapacityManager"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableCapacityManagerResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableCapacityManager API operation.", Operation = new[] {"EnableCapacityManager"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableCapacityManagerResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.EnableCapacityManagerResponse",
         "This cmdlet returns an Amazon.EC2.Model.EnableCapacityManagerResponse object containing multiple properties."
     )]
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableCapacityManagerResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableCapacityManagerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableCapacityManager");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableCapacityManager");
             try
             {
                 return client.EnableCapacityManagerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

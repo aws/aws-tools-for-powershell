@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2CapacityManagerDataExport")]
     [OutputType("Amazon.EC2.Model.CapacityManagerDataExportResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeCapacityManagerDataExports API operation.", Operation = new[] {"DescribeCapacityManagerDataExports"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeCapacityManagerDataExports API operation.", Operation = new[] {"DescribeCapacityManagerDataExports"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CapacityManagerDataExportResponse or Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.CapacityManagerDataExportResponse objects.",
         "The service call response (type Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse) can be returned by specifying '-Select *'."
@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeCapacityManagerDataExportsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeCapacityManagerDataExports");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeCapacityManagerDataExports");
             try
             {
                 return client.DescribeCapacityManagerDataExportsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

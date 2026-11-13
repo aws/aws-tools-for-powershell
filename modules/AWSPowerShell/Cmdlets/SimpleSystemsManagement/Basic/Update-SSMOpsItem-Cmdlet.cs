@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMOpsItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateOpsItem API operation.", Operation = new[] {"UpdateOpsItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateOpsItemResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) UpdateOpsItem API operation.", Operation = new[] {"UpdateOpsItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateOpsItemResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateOpsItemResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateOpsItemResponse) be returned by specifying '-Select *'."
@@ -466,7 +466,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UpdateOpsItemResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateOpsItemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateOpsItem");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "UpdateOpsItem");
             try
             {
                 return client.UpdateOpsItemAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

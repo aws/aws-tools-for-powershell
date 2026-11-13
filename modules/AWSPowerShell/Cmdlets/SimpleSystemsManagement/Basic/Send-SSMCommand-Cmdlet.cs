@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Send", "SSMCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Command")]
-    [AWSCmdlet("Calls the AWS Systems Manager SendCommand API operation.", Operation = new[] {"SendCommand"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.SendCommandResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) SendCommand API operation.", Operation = new[] {"SendCommand"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.SendCommandResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Command or Amazon.SimpleSystemsManagement.Model.SendCommandResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.Command object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.SendCommandResponse) can be returned by specifying '-Select *'."
@@ -665,7 +665,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.SendCommandResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.SendCommandRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "SendCommand");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "SendCommand");
             try
             {
                 return client.SendCommandAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

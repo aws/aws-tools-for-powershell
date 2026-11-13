@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Copy", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.Volume")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CopyVolumes API operation.", Operation = new[] {"CopyVolumes"}, SelectReturnType = typeof(Amazon.EC2.Model.CopyVolumesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CopyVolumes API operation.", Operation = new[] {"CopyVolumes"}, SelectReturnType = typeof(Amazon.EC2.Model.CopyVolumesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Volume or Amazon.EC2.Model.CopyVolumesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Volume objects.",
         "The service call response (type Amazon.EC2.Model.CopyVolumesResponse) can be returned by specifying '-Select *'."
@@ -359,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CopyVolumesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CopyVolumesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CopyVolumes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CopyVolumes");
             try
             {
                 return client.CopyVolumesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

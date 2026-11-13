@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("New", "SHUBActionTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Hub CreateActionTarget API operation.", Operation = new[] {"CreateActionTarget"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateActionTargetResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub CreateActionTarget API operation.", Operation = new[] {"CreateActionTarget"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateActionTargetResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.CreateActionTargetResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SecurityHub.Model.CreateActionTargetResponse) can be returned by specifying '-Select *'."
@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.CreateActionTargetResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.CreateActionTargetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "CreateActionTarget");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "CreateActionTarget");
             try
             {
                 return client.CreateActionTargetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

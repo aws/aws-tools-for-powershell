@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMActivation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Activation")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeActivations API operation.", Operation = new[] {"DescribeActivations"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeActivationsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeActivations API operation.", Operation = new[] {"DescribeActivations"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeActivationsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Activation or Amazon.SimpleSystemsManagement.Model.DescribeActivationsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.Activation objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeActivationsResponse) can be returned by specifying '-Select *'."
@@ -341,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeActivationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeActivationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeActivations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeActivations");
             try
             {
                 return client.DescribeActivationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

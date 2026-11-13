@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Import", "SHUBFindingsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.BatchImportFindingsResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub BatchImportFindings API operation.", Operation = new[] {"BatchImportFindings"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchImportFindingsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub BatchImportFindings API operation.", Operation = new[] {"BatchImportFindings"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchImportFindingsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.BatchImportFindingsResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.BatchImportFindingsResponse object containing multiple properties."
     )]
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.BatchImportFindingsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.BatchImportFindingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "BatchImportFindings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "BatchImportFindings");
             try
             {
                 return client.BatchImportFindingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

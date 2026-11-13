@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Enable", "SHUBOrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub EnableOrganizationAdminAccount API operation.", Operation = new[] {"EnableOrganizationAdminAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub EnableOrganizationAdminAccount API operation.", Operation = new[] {"EnableOrganizationAdminAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse object containing multiple properties."
     )]
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.EnableOrganizationAdminAccountResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.EnableOrganizationAdminAccountRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "EnableOrganizationAdminAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "EnableOrganizationAdminAccount");
             try
             {
                 return client.EnableOrganizationAdminAccountAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

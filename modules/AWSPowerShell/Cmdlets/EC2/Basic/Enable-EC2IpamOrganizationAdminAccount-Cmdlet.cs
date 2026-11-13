@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2IpamOrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableIpamOrganizationAdminAccount API operation.", Operation = new[] {"EnableIpamOrganizationAdminAccount"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableIpamOrganizationAdminAccountResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableIpamOrganizationAdminAccount API operation.", Operation = new[] {"EnableIpamOrganizationAdminAccount"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableIpamOrganizationAdminAccountResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableIpamOrganizationAdminAccountResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.EnableIpamOrganizationAdminAccountResponse) can be returned by specifying '-Select *'."
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableIpamOrganizationAdminAccountResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableIpamOrganizationAdminAccountRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableIpamOrganizationAdminAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableIpamOrganizationAdminAccount");
             try
             {
                 return client.EnableIpamOrganizationAdminAccountAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

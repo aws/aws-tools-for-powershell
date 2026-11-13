@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VpcEndpointConnectionNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVpcEndpointConnectionNotification API operation.", Operation = new[] {"ModifyVpcEndpointConnectionNotification"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcEndpointConnectionNotificationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVpcEndpointConnectionNotification API operation.", Operation = new[] {"ModifyVpcEndpointConnectionNotification"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcEndpointConnectionNotificationResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyVpcEndpointConnectionNotificationResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyVpcEndpointConnectionNotificationResponse) can be returned by specifying '-Select *'."
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVpcEndpointConnectionNotificationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcEndpointConnectionNotificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVpcEndpointConnectionNotification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVpcEndpointConnectionNotification");
             try
             {
                 return client.ModifyVpcEndpointConnectionNotificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

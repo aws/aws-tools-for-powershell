@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2VpnConcentrator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpnConcentrator API operation.", Operation = new[] {"DeleteVpnConcentrator"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpnConcentratorResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVpnConcentrator API operation.", Operation = new[] {"DeleteVpnConcentrator"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpnConcentratorResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DeleteVpnConcentratorResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DeleteVpnConcentratorResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteVpnConcentratorResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpnConcentratorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVpnConcentrator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVpnConcentrator");
             try
             {
                 return client.DeleteVpnConcentratorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

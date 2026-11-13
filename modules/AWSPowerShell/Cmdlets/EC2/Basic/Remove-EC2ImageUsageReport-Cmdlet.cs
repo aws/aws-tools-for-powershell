@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2ImageUsageReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteImageUsageReport API operation.", Operation = new[] {"DeleteImageUsageReport"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteImageUsageReportResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteImageUsageReport API operation.", Operation = new[] {"DeleteImageUsageReport"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteImageUsageReportResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DeleteImageUsageReportResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DeleteImageUsageReportResponse) can be returned by specifying '-Select *'."
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteImageUsageReportResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteImageUsageReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteImageUsageReport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteImageUsageReport");
             try
             {
                 return client.DeleteImageUsageReportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

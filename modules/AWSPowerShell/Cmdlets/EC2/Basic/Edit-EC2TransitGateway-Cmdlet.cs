@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2TransitGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGateway")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyTransitGateway API operation.", Operation = new[] {"ModifyTransitGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyTransitGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyTransitGateway API operation.", Operation = new[] {"ModifyTransitGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyTransitGatewayResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGateway or Amazon.EC2.Model.ModifyTransitGatewayResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGateway object.",
         "The service call response (type Amazon.EC2.Model.ModifyTransitGatewayResponse) can be returned by specifying '-Select *'."
@@ -500,7 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyTransitGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyTransitGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyTransitGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyTransitGateway");
             try
             {
                 return client.ModifyTransitGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

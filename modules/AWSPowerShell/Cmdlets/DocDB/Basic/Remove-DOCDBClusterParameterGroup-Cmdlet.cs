@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Remove", "DOCDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DeleteDBClusterParameterGroup API operation.", Operation = new[] {"DeleteDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBClusterParameterGroupResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DeleteDBClusterParameterGroup API operation.", Operation = new[] {"DeleteDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBClusterParameterGroupResponse))]
     [AWSCmdletOutput("None or Amazon.DocDB.Model.DeleteDBClusterParameterGroupResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.DocDB.Model.DeleteDBClusterParameterGroupResponse) be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DeleteDBClusterParameterGroupResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DeleteDBClusterParameterGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DeleteDBClusterParameterGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DeleteDBClusterParameterGroup");
             try
             {
                 return client.DeleteDBClusterParameterGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

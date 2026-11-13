@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2TrunkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateTrunkInterface API operation.", Operation = new[] {"DisassociateTrunkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateTrunkInterfaceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateTrunkInterface API operation.", Operation = new[] {"DisassociateTrunkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateTrunkInterfaceResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DisassociateTrunkInterfaceResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DisassociateTrunkInterfaceResponse) can be returned by specifying '-Select *'."
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisassociateTrunkInterfaceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateTrunkInterfaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisassociateTrunkInterface");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateTrunkInterface");
             try
             {
                 return client.DisassociateTrunkInterfaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

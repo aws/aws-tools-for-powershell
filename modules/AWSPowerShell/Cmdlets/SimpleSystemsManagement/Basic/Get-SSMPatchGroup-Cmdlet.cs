@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMPatchGroup")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.PatchGroupPatchBaselineMapping")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribePatchGroups API operation.", Operation = new[] {"DescribePatchGroups"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribePatchGroups API operation.", Operation = new[] {"DescribePatchGroups"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.PatchGroupPatchBaselineMapping or Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.PatchGroupPatchBaselineMapping objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsResponse) can be returned by specifying '-Select *'."
@@ -338,7 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribePatchGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribePatchGroups");
             try
             {
                 return client.DescribePatchGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

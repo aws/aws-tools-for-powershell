@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamRouteProtectionFinding")]
     [OutputType("Amazon.EC2.Model.GetIpamRouteProtectionFindingsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamRouteProtectionFindings API operation.", Operation = new[] {"GetIpamRouteProtectionFindings"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamRouteProtectionFindingsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamRouteProtectionFindings API operation.", Operation = new[] {"GetIpamRouteProtectionFindings"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamRouteProtectionFindingsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetIpamRouteProtectionFindingsResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetIpamRouteProtectionFindingsResponse object containing multiple properties."
     )]
@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamRouteProtectionFindingsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamRouteProtectionFindingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamRouteProtectionFindings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamRouteProtectionFindings");
             try
             {
                 return client.GetIpamRouteProtectionFindingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

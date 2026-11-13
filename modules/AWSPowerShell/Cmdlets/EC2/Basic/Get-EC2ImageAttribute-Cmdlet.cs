@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ImageAttribute")]
     [OutputType("Amazon.EC2.Model.ImageAttribute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeImageAttribute API operation.", Operation = new[] {"DescribeImageAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeImageAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeImageAttribute API operation.", Operation = new[] {"DescribeImageAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeImageAttributeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ImageAttribute or Amazon.EC2.Model.DescribeImageAttributeResponse",
         "This cmdlet returns an Amazon.EC2.Model.ImageAttribute object.",
         "The service call response (type Amazon.EC2.Model.DescribeImageAttributeResponse) can be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeImageAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeImageAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeImageAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeImageAttribute");
             try
             {
                 return client.DescribeImageAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
-    [AWSClientCmdlet("Amazon Elastic Compute Cloud (EC2)", "EC2", "2016-11-15", "EC2")]
+    [AWSClientCmdlet("Amazon Elastic Compute Cloud", "EC2", "2016-11-15", "EC2")]
     public abstract partial class AmazonEC2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonEC2 Client { get; private set; }

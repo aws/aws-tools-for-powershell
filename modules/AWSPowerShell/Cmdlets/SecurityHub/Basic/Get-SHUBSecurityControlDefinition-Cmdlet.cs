@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBSecurityControlDefinition")]
     [OutputType("Amazon.SecurityHub.Model.SecurityControlDefinition")]
-    [AWSCmdlet("Calls the AWS Security Hub GetSecurityControlDefinition API operation.", Operation = new[] {"GetSecurityControlDefinition"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetSecurityControlDefinitionResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetSecurityControlDefinition API operation.", Operation = new[] {"GetSecurityControlDefinition"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetSecurityControlDefinitionResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.SecurityControlDefinition or Amazon.SecurityHub.Model.GetSecurityControlDefinitionResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.SecurityControlDefinition object.",
         "The service call response (type Amazon.SecurityHub.Model.GetSecurityControlDefinitionResponse) can be returned by specifying '-Select *'."
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetSecurityControlDefinitionResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetSecurityControlDefinitionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetSecurityControlDefinition");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetSecurityControlDefinition");
             try
             {
                 return client.GetSecurityControlDefinitionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

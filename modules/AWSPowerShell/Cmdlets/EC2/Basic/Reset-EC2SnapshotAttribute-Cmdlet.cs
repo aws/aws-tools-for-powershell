@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Reset", "EC2SnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ResetSnapshotAttribute API operation.", Operation = new[] {"ResetSnapshotAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetSnapshotAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ResetSnapshotAttribute API operation.", Operation = new[] {"ResetSnapshotAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetSnapshotAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ResetSnapshotAttributeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ResetSnapshotAttributeResponse) be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ResetSnapshotAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetSnapshotAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ResetSnapshotAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ResetSnapshotAttribute");
             try
             {
                 return client.ResetSnapshotAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

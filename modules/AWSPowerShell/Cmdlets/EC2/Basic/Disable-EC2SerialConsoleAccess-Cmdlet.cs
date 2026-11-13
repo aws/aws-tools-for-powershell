@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2SerialConsoleAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableSerialConsoleAccess API operation.", Operation = new[] {"DisableSerialConsoleAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableSerialConsoleAccessResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableSerialConsoleAccess API operation.", Operation = new[] {"DisableSerialConsoleAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableSerialConsoleAccessResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DisableSerialConsoleAccessResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DisableSerialConsoleAccessResponse) can be returned by specifying '-Select *'."
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableSerialConsoleAccessResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableSerialConsoleAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableSerialConsoleAccess");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableSerialConsoleAccess");
             try
             {
                 return client.DisableSerialConsoleAccessAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

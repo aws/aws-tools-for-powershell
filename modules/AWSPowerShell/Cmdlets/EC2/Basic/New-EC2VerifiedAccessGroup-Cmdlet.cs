@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2VerifiedAccessGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VerifiedAccessGroup")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVerifiedAccessGroup API operation.", Operation = new[] {"CreateVerifiedAccessGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVerifiedAccessGroupResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateVerifiedAccessGroup API operation.", Operation = new[] {"CreateVerifiedAccessGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVerifiedAccessGroupResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessGroup or Amazon.EC2.Model.CreateVerifiedAccessGroupResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessGroup object.",
         "The service call response (type Amazon.EC2.Model.CreateVerifiedAccessGroupResponse) can be returned by specifying '-Select *'."
@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateVerifiedAccessGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateVerifiedAccessGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateVerifiedAccessGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateVerifiedAccessGroup");
             try
             {
                 return client.CreateVerifiedAccessGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

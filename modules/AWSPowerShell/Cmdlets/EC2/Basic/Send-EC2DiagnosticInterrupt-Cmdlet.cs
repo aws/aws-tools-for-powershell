@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Send", "EC2DiagnosticInterrupt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) SendDiagnosticInterrupt API operation.", Operation = new[] {"SendDiagnosticInterrupt"}, SelectReturnType = typeof(Amazon.EC2.Model.SendDiagnosticInterruptResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud SendDiagnosticInterrupt API operation.", Operation = new[] {"SendDiagnosticInterrupt"}, SelectReturnType = typeof(Amazon.EC2.Model.SendDiagnosticInterruptResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.SendDiagnosticInterruptResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.SendDiagnosticInterruptResponse) be returned by specifying '-Select *'."
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.SendDiagnosticInterruptResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.SendDiagnosticInterruptRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "SendDiagnosticInterrupt");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "SendDiagnosticInterrupt");
             try
             {
                 return client.SendDiagnosticInterruptAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

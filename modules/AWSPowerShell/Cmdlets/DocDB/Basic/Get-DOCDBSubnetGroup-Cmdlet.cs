@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Get", "DOCDBSubnetGroup")]
     [OutputType("Amazon.DocDB.Model.DBSubnetGroup")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DescribeDBSubnetGroups API operation.", Operation = new[] {"DescribeDBSubnetGroups"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeDBSubnetGroupsResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DescribeDBSubnetGroups API operation.", Operation = new[] {"DescribeDBSubnetGroups"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeDBSubnetGroupsResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBSubnetGroup or Amazon.DocDB.Model.DescribeDBSubnetGroupsResponse",
         "This cmdlet returns a collection of Amazon.DocDB.Model.DBSubnetGroup objects.",
         "The service call response (type Amazon.DocDB.Model.DescribeDBSubnetGroupsResponse) can be returned by specifying '-Select *'."
@@ -343,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DescribeDBSubnetGroupsResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DescribeDBSubnetGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DescribeDBSubnetGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DescribeDBSubnetGroups");
             try
             {
                 return client.DescribeDBSubnetGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

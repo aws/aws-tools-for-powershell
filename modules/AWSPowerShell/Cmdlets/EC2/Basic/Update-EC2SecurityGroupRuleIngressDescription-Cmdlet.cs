@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Update", "EC2SecurityGroupRuleIngressDescription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) UpdateSecurityGroupRuleDescriptionsIngress API operation.", Operation = new[] {"UpdateSecurityGroupRuleDescriptionsIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsIngressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud UpdateSecurityGroupRuleDescriptionsIngress API operation.", Operation = new[] {"UpdateSecurityGroupRuleDescriptionsIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsIngressResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsIngressResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsIngressResponse) can be returned by specifying '-Select *'."
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsIngressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsIngressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "UpdateSecurityGroupRuleDescriptionsIngress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "UpdateSecurityGroupRuleDescriptionsIngress");
             try
             {
                 return client.UpdateSecurityGroupRuleDescriptionsIngressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

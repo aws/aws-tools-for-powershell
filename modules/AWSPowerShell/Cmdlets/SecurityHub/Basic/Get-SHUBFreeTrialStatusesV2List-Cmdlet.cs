@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBFreeTrialStatusesV2List")]
     [OutputType("Amazon.SecurityHub.Model.AccountFreeTrialStatus")]
-    [AWSCmdlet("Calls the AWS Security Hub ListFreeTrialStatusesV2 API operation.", Operation = new[] {"ListFreeTrialStatusesV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListFreeTrialStatusesV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListFreeTrialStatusesV2 API operation.", Operation = new[] {"ListFreeTrialStatusesV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListFreeTrialStatusesV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.AccountFreeTrialStatus or Amazon.SecurityHub.Model.ListFreeTrialStatusesV2Response",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.AccountFreeTrialStatus objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListFreeTrialStatusesV2Response) can be returned by specifying '-Select *'."
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListFreeTrialStatusesV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListFreeTrialStatusesV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListFreeTrialStatusesV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListFreeTrialStatusesV2");
             try
             {
                 return client.ListFreeTrialStatusesV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

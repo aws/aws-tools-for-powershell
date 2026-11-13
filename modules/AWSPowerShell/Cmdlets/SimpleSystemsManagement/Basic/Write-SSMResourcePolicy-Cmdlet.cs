@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Write", "SSMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse object containing multiple properties."
     )]
@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.PutResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "PutResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "PutResourcePolicy");
             try
             {
                 return client.PutResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

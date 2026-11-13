@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLResourceEndpointAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.VPCLattice.Model.DeleteResourceEndpointAssociationResponse")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteResourceEndpointAssociation API operation.", Operation = new[] {"DeleteResourceEndpointAssociation"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteResourceEndpointAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteResourceEndpointAssociation API operation.", Operation = new[] {"DeleteResourceEndpointAssociation"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteResourceEndpointAssociationResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.DeleteResourceEndpointAssociationResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.DeleteResourceEndpointAssociationResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteResourceEndpointAssociationResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteResourceEndpointAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteResourceEndpointAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteResourceEndpointAssociation");
             try
             {
                 return client.DeleteResourceEndpointAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

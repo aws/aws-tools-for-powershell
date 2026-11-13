@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Update", "SHUBOrganizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub UpdateOrganizationConfiguration API operation.", Operation = new[] {"UpdateOrganizationConfiguration"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateOrganizationConfigurationResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub UpdateOrganizationConfiguration API operation.", Operation = new[] {"UpdateOrganizationConfiguration"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateOrganizationConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.UpdateOrganizationConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.UpdateOrganizationConfigurationResponse) be returned by specifying '-Select *'."
@@ -113,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para> Describes whether central configuration could be enabled as the <c>ConfigurationType</c>
         /// for the organization. If your <c>ConfigurationType</c> is local configuration, then
-        /// the value of <c>Status</c> is always <c>ENABLED</c>. </para>
+        /// the value of <c>Status</c> is always <c>ENABLED</c>. </para><para> If the value of <c>Status</c> is <c>DISABLED</c>, central configuration is disabled
+        /// because the organization is managed by Security Hub CSPM policies in Organizations.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -286,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.UpdateOrganizationConfigurationResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.UpdateOrganizationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "UpdateOrganizationConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "UpdateOrganizationConfiguration");
             try
             {
                 return client.UpdateOrganizationConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

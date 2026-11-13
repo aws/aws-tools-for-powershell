@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMCommandInvocationDetail")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetCommandInvocation API operation.", Operation = new[] {"GetCommandInvocation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetCommandInvocation API operation.", Operation = new[] {"GetCommandInvocation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse object containing multiple properties."
     )]
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetCommandInvocationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetCommandInvocation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetCommandInvocation");
             try
             {
                 return client.GetCommandInvocationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

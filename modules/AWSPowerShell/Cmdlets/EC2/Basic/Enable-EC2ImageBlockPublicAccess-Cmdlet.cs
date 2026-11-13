@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2ImageBlockPublicAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.ImageBlockPublicAccessEnabledState")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableImageBlockPublicAccess API operation.", Operation = new[] {"EnableImageBlockPublicAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableImageBlockPublicAccessResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableImageBlockPublicAccess API operation.", Operation = new[] {"EnableImageBlockPublicAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableImageBlockPublicAccessResponse))]
     [AWSCmdletOutput("Amazon.EC2.ImageBlockPublicAccessEnabledState or Amazon.EC2.Model.EnableImageBlockPublicAccessResponse",
         "This cmdlet returns an Amazon.EC2.ImageBlockPublicAccessEnabledState object.",
         "The service call response (type Amazon.EC2.Model.EnableImageBlockPublicAccessResponse) can be returned by specifying '-Select *'."
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableImageBlockPublicAccessResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableImageBlockPublicAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableImageBlockPublicAccess");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableImageBlockPublicAccess");
             try
             {
                 return client.EnableImageBlockPublicAccessAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

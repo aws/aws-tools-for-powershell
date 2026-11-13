@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2AllowedImagesSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.AllowedImagesSettingsDisabledState")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableAllowedImagesSettings API operation.", Operation = new[] {"DisableAllowedImagesSettings"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableAllowedImagesSettingsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableAllowedImagesSettings API operation.", Operation = new[] {"DisableAllowedImagesSettings"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableAllowedImagesSettingsResponse))]
     [AWSCmdletOutput("Amazon.EC2.AllowedImagesSettingsDisabledState or Amazon.EC2.Model.DisableAllowedImagesSettingsResponse",
         "This cmdlet returns an Amazon.EC2.AllowedImagesSettingsDisabledState object.",
         "The service call response (type Amazon.EC2.Model.DisableAllowedImagesSettingsResponse) can be returned by specifying '-Select *'."
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableAllowedImagesSettingsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableAllowedImagesSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableAllowedImagesSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableAllowedImagesSettings");
             try
             {
                 return client.DisableAllowedImagesSettingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

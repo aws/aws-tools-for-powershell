@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2InstanceBundle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.BundleTask")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) BundleInstance API operation.", Operation = new[] {"BundleInstance"}, SelectReturnType = typeof(Amazon.EC2.Model.BundleInstanceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud BundleInstance API operation.", Operation = new[] {"BundleInstance"}, SelectReturnType = typeof(Amazon.EC2.Model.BundleInstanceResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.BundleTask or Amazon.EC2.Model.BundleInstanceResponse",
         "This cmdlet returns an Amazon.EC2.Model.BundleTask object.",
         "The service call response (type Amazon.EC2.Model.BundleInstanceResponse) can be returned by specifying '-Select *'."
@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.BundleInstanceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.BundleInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "BundleInstance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "BundleInstance");
             try
             {
                 return client.BundleInstanceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

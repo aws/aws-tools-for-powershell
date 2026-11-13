@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReleaseAddress API operation.", Operation = new[] {"ReleaseAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.ReleaseAddressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReleaseAddress API operation.", Operation = new[] {"ReleaseAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.ReleaseAddressResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ReleaseAddressResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ReleaseAddressResponse) be returned by specifying '-Select *'."
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ReleaseAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReleaseAddressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ReleaseAddress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReleaseAddress");
             try
             {
                 return client.ReleaseAddressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

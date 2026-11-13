@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2InternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteInternetGateway API operation.", Operation = new[] {"DeleteInternetGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteInternetGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteInternetGateway API operation.", Operation = new[] {"DeleteInternetGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteInternetGatewayResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteInternetGatewayResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteInternetGatewayResponse) be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteInternetGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteInternetGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteInternetGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteInternetGateway");
             try
             {
                 return client.DeleteInternetGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

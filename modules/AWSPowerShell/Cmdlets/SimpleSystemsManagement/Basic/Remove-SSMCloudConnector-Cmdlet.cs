@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMCloudConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteCloudConnector API operation.", Operation = new[] {"DeleteCloudConnector"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteCloudConnectorResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeleteCloudConnector API operation.", Operation = new[] {"DeleteCloudConnector"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteCloudConnectorResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.DeleteCloudConnectorResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DeleteCloudConnectorResponse) can be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeleteCloudConnectorResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteCloudConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteCloudConnector");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeleteCloudConnector");
             try
             {
                 return client.DeleteCloudConnectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

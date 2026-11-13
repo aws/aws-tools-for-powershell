@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2VerifiedAccessEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.VerifiedAccessEndpoint")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVerifiedAccessEndpoint API operation.", Operation = new[] {"DeleteVerifiedAccessEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVerifiedAccessEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVerifiedAccessEndpoint API operation.", Operation = new[] {"DeleteVerifiedAccessEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVerifiedAccessEndpointResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessEndpoint or Amazon.EC2.Model.DeleteVerifiedAccessEndpointResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessEndpoint object.",
         "The service call response (type Amazon.EC2.Model.DeleteVerifiedAccessEndpointResponse) can be returned by specifying '-Select *'."
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteVerifiedAccessEndpointResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVerifiedAccessEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVerifiedAccessEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVerifiedAccessEndpoint");
             try
             {
                 return client.DeleteVerifiedAccessEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

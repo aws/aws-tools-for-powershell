@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2LocalGateway")]
     [OutputType("Amazon.EC2.Model.LocalGateway")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeLocalGateways API operation.", Operation = new[] {"DescribeLocalGateways"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeLocalGatewaysResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeLocalGateways API operation.", Operation = new[] {"DescribeLocalGateways"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeLocalGatewaysResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGateway or Amazon.EC2.Model.DescribeLocalGatewaysResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.LocalGateway objects.",
         "The service call response (type Amazon.EC2.Model.DescribeLocalGatewaysResponse) can be returned by specifying '-Select *'."
@@ -376,7 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeLocalGatewaysResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeLocalGatewaysRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeLocalGateways");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeLocalGateways");
             try
             {
                 return client.DescribeLocalGatewaysAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

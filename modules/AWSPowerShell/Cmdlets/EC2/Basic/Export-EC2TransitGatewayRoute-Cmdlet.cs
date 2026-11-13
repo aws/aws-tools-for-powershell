@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Export", "EC2TransitGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ExportTransitGatewayRoutes API operation.", Operation = new[] {"ExportTransitGatewayRoutes"}, SelectReturnType = typeof(Amazon.EC2.Model.ExportTransitGatewayRoutesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ExportTransitGatewayRoutes API operation.", Operation = new[] {"ExportTransitGatewayRoutes"}, SelectReturnType = typeof(Amazon.EC2.Model.ExportTransitGatewayRoutesResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.ExportTransitGatewayRoutesResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.ExportTransitGatewayRoutesResponse) can be returned by specifying '-Select *'."
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ExportTransitGatewayRoutesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ExportTransitGatewayRoutesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ExportTransitGatewayRoutes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ExportTransitGatewayRoutes");
             try
             {
                 return client.ExportTransitGatewayRoutesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

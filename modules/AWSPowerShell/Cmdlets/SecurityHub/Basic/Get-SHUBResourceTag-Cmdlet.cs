@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBResourceTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Hub ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

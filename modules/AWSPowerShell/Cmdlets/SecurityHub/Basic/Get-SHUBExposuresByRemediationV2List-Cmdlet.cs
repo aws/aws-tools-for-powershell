@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBExposuresByRemediationV2List")]
     [OutputType("Amazon.SecurityHub.Model.ListExposuresByRemediationV2Response")]
-    [AWSCmdlet("Calls the AWS Security Hub ListExposuresByRemediationV2 API operation.", Operation = new[] {"ListExposuresByRemediationV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListExposuresByRemediationV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListExposuresByRemediationV2 API operation.", Operation = new[] {"ListExposuresByRemediationV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListExposuresByRemediationV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.ListExposuresByRemediationV2Response",
         "This cmdlet returns an Amazon.SecurityHub.Model.ListExposuresByRemediationV2Response object containing multiple properties."
     )]
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListExposuresByRemediationV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListExposuresByRemediationV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListExposuresByRemediationV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListExposuresByRemediationV2");
             try
             {
                 return client.ListExposuresByRemediationV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

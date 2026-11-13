@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceCreditSpecification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceCreditSpecification API operation.", Operation = new[] {"ModifyInstanceCreditSpecification"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyInstanceCreditSpecification API operation.", Operation = new[] {"ModifyInstanceCreditSpecification"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse",
         "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse object containing multiple properties."
     )]
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstanceCreditSpecificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstanceCreditSpecification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyInstanceCreditSpecification");
             try
             {
                 return client.ModifyInstanceCreditSpecificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

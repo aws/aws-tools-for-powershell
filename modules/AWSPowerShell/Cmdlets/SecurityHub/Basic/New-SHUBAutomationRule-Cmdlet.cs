@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("New", "SHUBAutomationRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Hub CreateAutomationRule API operation.", Operation = new[] {"CreateAutomationRule"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateAutomationRuleResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub CreateAutomationRule API operation.", Operation = new[] {"CreateAutomationRule"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateAutomationRuleResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.CreateAutomationRuleResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SecurityHub.Model.CreateAutomationRuleResponse) can be returned by specifying '-Select *'."
@@ -1570,7 +1570,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.CreateAutomationRuleResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.CreateAutomationRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "CreateAutomationRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "CreateAutomationRule");
             try
             {
                 return client.CreateAutomationRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

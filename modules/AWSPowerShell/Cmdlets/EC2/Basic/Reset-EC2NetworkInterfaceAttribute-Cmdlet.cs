@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Reset", "EC2NetworkInterfaceAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ResetNetworkInterfaceAttribute API operation.", Operation = new[] {"ResetNetworkInterfaceAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetNetworkInterfaceAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ResetNetworkInterfaceAttribute API operation.", Operation = new[] {"ResetNetworkInterfaceAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetNetworkInterfaceAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ResetNetworkInterfaceAttributeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ResetNetworkInterfaceAttributeResponse) be returned by specifying '-Select *'."
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ResetNetworkInterfaceAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetNetworkInterfaceAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ResetNetworkInterfaceAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ResetNetworkInterfaceAttribute");
             try
             {
                 return client.ResetNetworkInterfaceAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

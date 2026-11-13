@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMSession")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Session")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeSessions API operation.", Operation = new[] {"DescribeSessions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeSessionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeSessions API operation.", Operation = new[] {"DescribeSessions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeSessionsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Session or Amazon.SimpleSystemsManagement.Model.DescribeSessionsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.Session objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeSessionsResponse) can be returned by specifying '-Select *'."
@@ -372,7 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeSessionsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeSessionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeSessions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeSessions");
             try
             {
                 return client.DescribeSessionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2IpamResourceDiscovery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamResourceDiscovery")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIpamResourceDiscovery API operation.", Operation = new[] {"ModifyIpamResourceDiscovery"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyIpamResourceDiscovery API operation.", Operation = new[] {"ModifyIpamResourceDiscovery"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamResourceDiscovery or Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamResourceDiscovery object.",
         "The service call response (type Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse) can be returned by specifying '-Select *'."
@@ -316,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIpamResourceDiscoveryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyIpamResourceDiscovery");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyIpamResourceDiscovery");
             try
             {
                 return client.ModifyIpamResourceDiscoveryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

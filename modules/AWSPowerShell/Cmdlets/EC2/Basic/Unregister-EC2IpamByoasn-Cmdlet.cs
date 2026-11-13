@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2IpamByoasn", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AsnAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateIpamByoasn API operation.", Operation = new[] {"DisassociateIpamByoasn"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateIpamByoasnResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateIpamByoasn API operation.", Operation = new[] {"DisassociateIpamByoasn"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateIpamByoasnResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AsnAssociation or Amazon.EC2.Model.DisassociateIpamByoasnResponse",
         "This cmdlet returns an Amazon.EC2.Model.AsnAssociation object.",
         "The service call response (type Amazon.EC2.Model.DisassociateIpamByoasnResponse) can be returned by specifying '-Select *'."
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisassociateIpamByoasnResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateIpamByoasnRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisassociateIpamByoasn");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateIpamByoasn");
             try
             {
                 return client.DisassociateIpamByoasnAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

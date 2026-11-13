@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMAutomationStepExecution")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.StepExecution")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeAutomationStepExecutions API operation.", Operation = new[] {"DescribeAutomationStepExecutions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeAutomationStepExecutionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeAutomationStepExecutions API operation.", Operation = new[] {"DescribeAutomationStepExecutions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeAutomationStepExecutionsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.StepExecution or Amazon.SimpleSystemsManagement.Model.DescribeAutomationStepExecutionsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.StepExecution objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAutomationStepExecutionsResponse) can be returned by specifying '-Select *'."
@@ -391,7 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeAutomationStepExecutionsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAutomationStepExecutionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeAutomationStepExecutions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeAutomationStepExecutions");
             try
             {
                 return client.DescribeAutomationStepExecutionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

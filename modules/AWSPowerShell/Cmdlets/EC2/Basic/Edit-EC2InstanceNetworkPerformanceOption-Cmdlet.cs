@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceNetworkPerformanceOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyInstanceNetworkPerformanceOptionsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceNetworkPerformanceOptions API operation.", Operation = new[] {"ModifyInstanceNetworkPerformanceOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceNetworkPerformanceOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyInstanceNetworkPerformanceOptions API operation.", Operation = new[] {"ModifyInstanceNetworkPerformanceOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceNetworkPerformanceOptionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyInstanceNetworkPerformanceOptionsResponse",
         "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceNetworkPerformanceOptionsResponse object containing multiple properties."
     )]
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyInstanceNetworkPerformanceOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstanceNetworkPerformanceOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstanceNetworkPerformanceOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyInstanceNetworkPerformanceOptions");
             try
             {
                 return client.ModifyInstanceNetworkPerformanceOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

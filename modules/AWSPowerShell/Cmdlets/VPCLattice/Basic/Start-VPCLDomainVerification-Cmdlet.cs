@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Start", "VPCLDomainVerification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.StartDomainVerificationResponse")]
-    [AWSCmdlet("Calls the VPC Lattice StartDomainVerification API operation.", Operation = new[] {"StartDomainVerification"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.StartDomainVerificationResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice StartDomainVerification API operation.", Operation = new[] {"StartDomainVerification"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.StartDomainVerificationResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.StartDomainVerificationResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.StartDomainVerificationResponse object containing multiple properties."
     )]
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.StartDomainVerificationResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.StartDomainVerificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "StartDomainVerification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "StartDomainVerification");
             try
             {
                 return client.StartDomainVerificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

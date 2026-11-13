@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMAssociationExecution")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationExecution")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeAssociationExecutions API operation.", Operation = new[] {"DescribeAssociationExecutions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeAssociationExecutionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeAssociationExecutions API operation.", Operation = new[] {"DescribeAssociationExecutions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeAssociationExecutionsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationExecution or Amazon.SimpleSystemsManagement.Model.DescribeAssociationExecutionsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.AssociationExecution objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAssociationExecutionsResponse) can be returned by specifying '-Select *'."
@@ -370,7 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeAssociationExecutionsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAssociationExecutionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeAssociationExecutions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeAssociationExecutions");
             try
             {
                 return client.DescribeAssociationExecutionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

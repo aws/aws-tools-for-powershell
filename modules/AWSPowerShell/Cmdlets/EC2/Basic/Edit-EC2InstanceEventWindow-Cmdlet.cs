@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceEventWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.InstanceEventWindow")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceEventWindow API operation.", Operation = new[] {"ModifyInstanceEventWindow"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceEventWindowResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyInstanceEventWindow API operation.", Operation = new[] {"ModifyInstanceEventWindow"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceEventWindowResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceEventWindow or Amazon.EC2.Model.ModifyInstanceEventWindowResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceEventWindow object.",
         "The service call response (type Amazon.EC2.Model.ModifyInstanceEventWindowResponse) can be returned by specifying '-Select *'."
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyInstanceEventWindowResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstanceEventWindowRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstanceEventWindow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyInstanceEventWindow");
             try
             {
                 return client.ModifyInstanceEventWindowAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

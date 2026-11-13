@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2SecondaryNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.SecondaryNetwork")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSecondaryNetwork API operation.", Operation = new[] {"DeleteSecondaryNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSecondaryNetworkResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteSecondaryNetwork API operation.", Operation = new[] {"DeleteSecondaryNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSecondaryNetworkResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SecondaryNetwork or Amazon.EC2.Model.DeleteSecondaryNetworkResponse",
         "This cmdlet returns an Amazon.EC2.Model.SecondaryNetwork object.",
         "The service call response (type Amazon.EC2.Model.DeleteSecondaryNetworkResponse) can be returned by specifying '-Select *'."
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteSecondaryNetworkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSecondaryNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteSecondaryNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteSecondaryNetwork");
             try
             {
                 return client.DeleteSecondaryNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

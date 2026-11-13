@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2AddressAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AddressAttribute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyAddressAttribute API operation.", Operation = new[] {"ModifyAddressAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyAddressAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyAddressAttribute API operation.", Operation = new[] {"ModifyAddressAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyAddressAttributeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AddressAttribute or Amazon.EC2.Model.ModifyAddressAttributeResponse",
         "This cmdlet returns an Amazon.EC2.Model.AddressAttribute object.",
         "The service call response (type Amazon.EC2.Model.ModifyAddressAttributeResponse) can be returned by specifying '-Select *'."
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyAddressAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyAddressAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyAddressAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyAddressAttribute");
             try
             {
                 return client.ModifyAddressAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

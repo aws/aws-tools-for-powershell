@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2TransitGatewayMulticastDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayMulticastDomain")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTransitGatewayMulticastDomain API operation.", Operation = new[] {"CreateTransitGatewayMulticastDomain"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayMulticastDomainResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateTransitGatewayMulticastDomain API operation.", Operation = new[] {"CreateTransitGatewayMulticastDomain"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayMulticastDomainResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastDomain or Amazon.EC2.Model.CreateTransitGatewayMulticastDomainResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastDomain object.",
         "The service call response (type Amazon.EC2.Model.CreateTransitGatewayMulticastDomainResponse) can be returned by specifying '-Select *'."
@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateTransitGatewayMulticastDomainResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateTransitGatewayMulticastDomainRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateTransitGatewayMulticastDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateTransitGatewayMulticastDomain");
             try
             {
                 return client.CreateTransitGatewayMulticastDomainAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

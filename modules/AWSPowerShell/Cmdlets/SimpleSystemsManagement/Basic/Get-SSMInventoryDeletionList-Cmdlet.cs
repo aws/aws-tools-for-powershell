@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMInventoryDeletionList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InventoryDeletionStatusItem")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeInventoryDeletions API operation.", Operation = new[] {"DescribeInventoryDeletions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeInventoryDeletionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeInventoryDeletions API operation.", Operation = new[] {"DescribeInventoryDeletions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeInventoryDeletionsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InventoryDeletionStatusItem or Amazon.SimpleSystemsManagement.Model.DescribeInventoryDeletionsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.InventoryDeletionStatusItem objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeInventoryDeletionsResponse) can be returned by specifying '-Select *'."
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeInventoryDeletionsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeInventoryDeletionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeInventoryDeletions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeInventoryDeletions");
             try
             {
                 return client.DescribeInventoryDeletionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

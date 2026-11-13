@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamPolicyAllocationRule")]
     [OutputType("Amazon.EC2.Model.IpamPolicyDocument")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamPolicyAllocationRules API operation.", Operation = new[] {"GetIpamPolicyAllocationRules"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamPolicyAllocationRulesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamPolicyAllocationRules API operation.", Operation = new[] {"GetIpamPolicyAllocationRules"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamPolicyAllocationRulesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPolicyDocument or Amazon.EC2.Model.GetIpamPolicyAllocationRulesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamPolicyDocument objects.",
         "The service call response (type Amazon.EC2.Model.GetIpamPolicyAllocationRulesResponse) can be returned by specifying '-Select *'."
@@ -309,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamPolicyAllocationRulesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamPolicyAllocationRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamPolicyAllocationRules");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamPolicyAllocationRules");
             try
             {
                 return client.GetIpamPolicyAllocationRulesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Remove", "DOCDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DocDB.Model.DBClusterSnapshot")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DeleteDBClusterSnapshot API operation.", Operation = new[] {"DeleteDBClusterSnapshot"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBClusterSnapshotResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DeleteDBClusterSnapshot API operation.", Operation = new[] {"DeleteDBClusterSnapshot"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBClusterSnapshotResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBClusterSnapshot or Amazon.DocDB.Model.DeleteDBClusterSnapshotResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBClusterSnapshot object.",
         "The service call response (type Amazon.DocDB.Model.DeleteDBClusterSnapshotResponse) can be returned by specifying '-Select *'."
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DeleteDBClusterSnapshotResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DeleteDBClusterSnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DeleteDBClusterSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DeleteDBClusterSnapshot");
             try
             {
                 return client.DeleteDBClusterSnapshotAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

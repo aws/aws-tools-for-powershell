@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2HostReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.PurchaseHostReservationResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) PurchaseHostReservation API operation.", Operation = new[] {"PurchaseHostReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.PurchaseHostReservationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud PurchaseHostReservation API operation.", Operation = new[] {"PurchaseHostReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.PurchaseHostReservationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.PurchaseHostReservationResponse",
         "This cmdlet returns an Amazon.EC2.Model.PurchaseHostReservationResponse object containing multiple properties."
     )]
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.PurchaseHostReservationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.PurchaseHostReservationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "PurchaseHostReservation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "PurchaseHostReservation");
             try
             {
                 return client.PurchaseHostReservationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

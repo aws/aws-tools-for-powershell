@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2Host", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyHostsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyHosts API operation.", Operation = new[] {"ModifyHosts"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyHostsResponse), LegacyAlias="Edit-EC2Hosts")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyHosts API operation.", Operation = new[] {"ModifyHosts"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyHostsResponse), LegacyAlias="Edit-EC2Hosts")]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyHostsResponse",
         "This cmdlet returns an Amazon.EC2.Model.ModifyHostsResponse object containing multiple properties."
     )]
@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyHostsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyHostsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyHosts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyHosts");
             try
             {
                 return client.ModifyHostsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

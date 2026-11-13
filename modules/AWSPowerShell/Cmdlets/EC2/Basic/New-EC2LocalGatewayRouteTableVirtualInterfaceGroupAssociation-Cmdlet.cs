@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.LocalGatewayRouteTableVirtualInterfaceGroupAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation API operation.", Operation = new[] {"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation API operation.", Operation = new[] {"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRouteTableVirtualInterfaceGroupAssociation or Amazon.EC2.Model.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse",
         "This cmdlet returns an Amazon.EC2.Model.LocalGatewayRouteTableVirtualInterfaceGroupAssociation object.",
         "The service call response (type Amazon.EC2.Model.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse) can be returned by specifying '-Select *'."
@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation");
             try
             {
                 return client.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

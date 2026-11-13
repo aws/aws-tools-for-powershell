@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2PublicIpv4Pool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeletePublicIpv4Pool API operation.", Operation = new[] {"DeletePublicIpv4Pool"}, SelectReturnType = typeof(Amazon.EC2.Model.DeletePublicIpv4PoolResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeletePublicIpv4Pool API operation.", Operation = new[] {"DeletePublicIpv4Pool"}, SelectReturnType = typeof(Amazon.EC2.Model.DeletePublicIpv4PoolResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DeletePublicIpv4PoolResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DeletePublicIpv4PoolResponse) can be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeletePublicIpv4PoolResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeletePublicIpv4PoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeletePublicIpv4Pool");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeletePublicIpv4Pool");
             try
             {
                 return client.DeletePublicIpv4PoolAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

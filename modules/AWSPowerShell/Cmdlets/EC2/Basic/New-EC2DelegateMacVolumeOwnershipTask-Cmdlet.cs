@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2DelegateMacVolumeOwnershipTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.MacModificationTask")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateDelegateMacVolumeOwnershipTask API operation.", Operation = new[] {"CreateDelegateMacVolumeOwnershipTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateDelegateMacVolumeOwnershipTaskResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateDelegateMacVolumeOwnershipTask API operation.", Operation = new[] {"CreateDelegateMacVolumeOwnershipTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateDelegateMacVolumeOwnershipTaskResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.MacModificationTask or Amazon.EC2.Model.CreateDelegateMacVolumeOwnershipTaskResponse",
         "This cmdlet returns an Amazon.EC2.Model.MacModificationTask object.",
         "The service call response (type Amazon.EC2.Model.CreateDelegateMacVolumeOwnershipTaskResponse) can be returned by specifying '-Select *'."
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateDelegateMacVolumeOwnershipTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateDelegateMacVolumeOwnershipTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateDelegateMacVolumeOwnershipTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateDelegateMacVolumeOwnershipTask");
             try
             {
                 return client.CreateDelegateMacVolumeOwnershipTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

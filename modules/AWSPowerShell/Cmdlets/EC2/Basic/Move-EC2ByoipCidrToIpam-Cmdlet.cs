@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Move", "EC2ByoipCidrToIpam", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ByoipCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) MoveByoipCidrToIpam API operation.", Operation = new[] {"MoveByoipCidrToIpam"}, SelectReturnType = typeof(Amazon.EC2.Model.MoveByoipCidrToIpamResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud MoveByoipCidrToIpam API operation.", Operation = new[] {"MoveByoipCidrToIpam"}, SelectReturnType = typeof(Amazon.EC2.Model.MoveByoipCidrToIpamResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ByoipCidr or Amazon.EC2.Model.MoveByoipCidrToIpamResponse",
         "This cmdlet returns an Amazon.EC2.Model.ByoipCidr object.",
         "The service call response (type Amazon.EC2.Model.MoveByoipCidrToIpamResponse) can be returned by specifying '-Select *'."
@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.MoveByoipCidrToIpamResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.MoveByoipCidrToIpamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "MoveByoipCidrToIpam");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "MoveByoipCidrToIpam");
             try
             {
                 return client.MoveByoipCidrToIpamAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

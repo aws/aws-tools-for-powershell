@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Get", "VPCLListenerList")]
     [OutputType("Amazon.VPCLattice.Model.ListenerSummary")]
-    [AWSCmdlet("Calls the VPC Lattice ListListeners API operation.", Operation = new[] {"ListListeners"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListListenersResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice ListListeners API operation.", Operation = new[] {"ListListeners"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListListenersResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.ListenerSummary or Amazon.VPCLattice.Model.ListListenersResponse",
         "This cmdlet returns a collection of Amazon.VPCLattice.Model.ListenerSummary objects.",
         "The service call response (type Amazon.VPCLattice.Model.ListListenersResponse) can be returned by specifying '-Select *'."
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.ListListenersResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.ListListenersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "ListListeners");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "ListListeners");
             try
             {
                 return client.ListListenersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

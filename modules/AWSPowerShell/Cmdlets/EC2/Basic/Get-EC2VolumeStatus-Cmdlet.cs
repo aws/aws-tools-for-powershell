@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VolumeStatus")]
     [OutputType("Amazon.EC2.Model.VolumeStatusItem")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVolumeStatus API operation.", Operation = new[] {"DescribeVolumeStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVolumeStatusResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVolumeStatus API operation.", Operation = new[] {"DescribeVolumeStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVolumeStatusResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VolumeStatusItem or Amazon.EC2.Model.DescribeVolumeStatusResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.VolumeStatusItem objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVolumeStatusResponse) can be returned by specifying '-Select *'."
@@ -97,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>action.code</c> - The action code for the event (for example, <c>enable-volume-io</c>).</para></li><li><para><c>action.description</c> - A description of the action.</para></li><li><para><c>action.event-id</c> - The event ID associated with the action.</para></li><li><para><c>availability-zone</c> - The Availability Zone of the instance.</para></li><li><para><c>event.description</c> - A description of the event.</para></li><li><para><c>event.event-id</c> - The event ID.</para></li><li><para><c>event.event-type</c> - The event type (for <c>io-enabled</c>: <c>passed</c> |
+        /// <para>The filters.</para><ul><li><para><c>action.code</c> - The action code for the event (for example, <c>enable-volume-io</c>).</para></li><li><para><c>action.description</c> - A description of the action.</para></li><li><para><c>action.event-id</c> - The event ID associated with the action.</para></li><li><para><c>attachment-status.instance-id</c> - The ID of the instance that the volume is
+        /// attached to.</para></li><li><para><c>attachment-status.io-performance</c> - The I/O performance status of the volume's
+        /// attachment to the instance.</para></li><li><para><c>availability-zone</c> - The Availability Zone of the instance.</para></li><li><para><c>event.description</c> - A description of the event.</para></li><li><para><c>event.event-id</c> - The event ID.</para></li><li><para><c>event.event-type</c> - The event type (for <c>io-enabled</c>: <c>passed</c> |
         /// <c>failed</c>; for <c>io-performance</c>: <c>io-performance:degraded</c> | <c>io-performance:severely-degraded</c>
         /// | <c>io-performance:stalled</c>).</para></li><li><para><c>event.not-after</c> - The latest end time for the event.</para></li><li><para><c>event.not-before</c> - The earliest start time for the event.</para></li><li><para><c>volume-status.details-name</c> - The cause for <c>volume-status.status</c> (<c>io-enabled</c>
         /// | <c>io-performance</c>).</para></li><li><para><c>volume-status.details-status</c> - The status of <c>volume-status.details-name</c>
@@ -435,7 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVolumeStatusResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVolumeStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVolumeStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVolumeStatus");
             try
             {
                 return client.DescribeVolumeStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

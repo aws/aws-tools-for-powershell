@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2LaunchTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.LaunchTemplate")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateLaunchTemplate API operation.", Operation = new[] {"CreateLaunchTemplate"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateLaunchTemplateResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateLaunchTemplate API operation.", Operation = new[] {"CreateLaunchTemplate"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateLaunchTemplateResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LaunchTemplate or Amazon.EC2.Model.CreateLaunchTemplateResponse",
         "This cmdlet returns an Amazon.EC2.Model.LaunchTemplate object.",
         "The service call response (type Amazon.EC2.Model.CreateLaunchTemplateResponse) can be returned by specifying '-Select *'."
@@ -318,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateLaunchTemplateResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateLaunchTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateLaunchTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateLaunchTemplate");
             try
             {
                 return client.CreateLaunchTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

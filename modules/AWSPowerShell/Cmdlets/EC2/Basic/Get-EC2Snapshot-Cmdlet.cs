@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2Snapshot", DefaultParameterSetName="ByFilter")]
     [OutputType("Amazon.EC2.Model.Snapshot")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeSnapshots API operation.", Operation = new[] {"DescribeSnapshots"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSnapshotsResponse), LegacyAlias="Get-EC2Snapshots")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSnapshots API operation.", Operation = new[] {"DescribeSnapshots"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSnapshotsResponse), LegacyAlias="Get-EC2Snapshots")]
     [AWSCmdletOutput("Amazon.EC2.Model.Snapshot or Amazon.EC2.Model.DescribeSnapshotsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Snapshot objects.",
         "The service call response (type Amazon.EC2.Model.DescribeSnapshotsResponse) can be returned by specifying '-Select *'."
@@ -487,7 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeSnapshotsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSnapshotsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeSnapshots");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeSnapshots");
             try
             {
                 return client.DescribeSnapshotsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

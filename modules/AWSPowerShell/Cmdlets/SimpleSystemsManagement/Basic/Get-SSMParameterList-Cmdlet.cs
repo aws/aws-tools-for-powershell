@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMParameterList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ParameterMetadata")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeParameters API operation.", Operation = new[] {"DescribeParameters"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeParametersResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeParameters API operation.", Operation = new[] {"DescribeParameters"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeParametersResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ParameterMetadata or Amazon.SimpleSystemsManagement.Model.DescribeParametersResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.ParameterMetadata objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeParametersResponse) can be returned by specifying '-Select *'."
@@ -412,7 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeParametersResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeParametersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeParameters");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeParameters");
             try
             {
                 return client.DescribeParametersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

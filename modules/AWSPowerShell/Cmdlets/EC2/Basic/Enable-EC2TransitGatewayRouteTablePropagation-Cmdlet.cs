@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2TransitGatewayRouteTablePropagation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayPropagation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableTransitGatewayRouteTablePropagation API operation.", Operation = new[] {"EnableTransitGatewayRouteTablePropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableTransitGatewayRouteTablePropagationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableTransitGatewayRouteTablePropagation API operation.", Operation = new[] {"EnableTransitGatewayRouteTablePropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableTransitGatewayRouteTablePropagationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayPropagation or Amazon.EC2.Model.EnableTransitGatewayRouteTablePropagationResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayPropagation object.",
         "The service call response (type Amazon.EC2.Model.EnableTransitGatewayRouteTablePropagationResponse) can be returned by specifying '-Select *'."
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableTransitGatewayRouteTablePropagationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableTransitGatewayRouteTablePropagationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableTransitGatewayRouteTablePropagation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableTransitGatewayRouteTablePropagation");
             try
             {
                 return client.EnableTransitGatewayRouteTablePropagationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

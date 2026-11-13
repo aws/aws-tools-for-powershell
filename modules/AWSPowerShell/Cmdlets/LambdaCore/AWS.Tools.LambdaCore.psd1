@@ -90,9 +90,25 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMCNetworkConnector', 
         'Get-LMCNetworkConnectorList', 
         'Get-LMCNetworkConnectorVersionList', 
+        'Get-LMCRuntime', 
+        'Get-LMCRuntimeAlias', 
+        'Get-LMCRuntimeAliasList', 
+        'Get-LMCRuntimeList', 
+        'Get-LMCRuntimeVersion', 
+        'Get-LMCRuntimeVersionList', 
         'New-LMCNetworkConnector', 
+        'New-LMCRuntime', 
+        'New-LMCRuntimeAlias', 
+        'New-LMCRuntimeVersion', 
         'Remove-LMCNetworkConnector', 
-        'Update-LMCNetworkConnector')
+        'Remove-LMCRuntime', 
+        'Remove-LMCRuntimeAlias', 
+        'Remove-LMCRuntimeVersion', 
+        'Restore-LMCRuntime', 
+        'Update-LMCNetworkConnector', 
+        'Update-LMCRuntime', 
+        'Update-LMCRuntimeAlias', 
+        'Update-LMCRuntimeVersion')
 
     # Variables to export from this module
     VariablesToExport = '*'

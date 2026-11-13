@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamExternalResourceVerificationToken")]
     [OutputType("Amazon.EC2.Model.IpamExternalResourceVerificationToken")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeIpamExternalResourceVerificationTokens API operation.", Operation = new[] {"DescribeIpamExternalResourceVerificationTokens"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeIpamExternalResourceVerificationTokensResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeIpamExternalResourceVerificationTokens API operation.", Operation = new[] {"DescribeIpamExternalResourceVerificationTokens"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeIpamExternalResourceVerificationTokensResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamExternalResourceVerificationToken or Amazon.EC2.Model.DescribeIpamExternalResourceVerificationTokensResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamExternalResourceVerificationToken objects.",
         "The service call response (type Amazon.EC2.Model.DescribeIpamExternalResourceVerificationTokensResponse) can be returned by specifying '-Select *'."
@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeIpamExternalResourceVerificationTokensResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeIpamExternalResourceVerificationTokensRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeIpamExternalResourceVerificationTokens");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeIpamExternalResourceVerificationTokens");
             try
             {
                 return client.DescribeIpamExternalResourceVerificationTokensAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

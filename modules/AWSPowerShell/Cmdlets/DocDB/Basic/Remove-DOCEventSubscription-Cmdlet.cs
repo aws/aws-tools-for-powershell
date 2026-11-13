@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Remove", "DOCEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DocDB.Model.EventSubscription")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DeleteEventSubscription API operation.", Operation = new[] {"DeleteEventSubscription"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteEventSubscriptionResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DeleteEventSubscription API operation.", Operation = new[] {"DeleteEventSubscription"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteEventSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.EventSubscription or Amazon.DocDB.Model.DeleteEventSubscriptionResponse",
         "This cmdlet returns an Amazon.DocDB.Model.EventSubscription object.",
         "The service call response (type Amazon.DocDB.Model.DeleteEventSubscriptionResponse) can be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DeleteEventSubscriptionResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DeleteEventSubscriptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DeleteEventSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DeleteEventSubscription");
             try
             {
                 return client.DeleteEventSubscriptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

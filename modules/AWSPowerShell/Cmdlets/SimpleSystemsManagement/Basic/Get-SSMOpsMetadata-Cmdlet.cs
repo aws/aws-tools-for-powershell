@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMOpsMetadata")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetOpsMetadataResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetOpsMetadata API operation.", Operation = new[] {"GetOpsMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetOpsMetadataResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetOpsMetadata API operation.", Operation = new[] {"GetOpsMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetOpsMetadataResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetOpsMetadataResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetOpsMetadataResponse object containing multiple properties."
     )]
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetOpsMetadataResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetOpsMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetOpsMetadata");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetOpsMetadata");
             try
             {
                 return client.GetOpsMetadataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2AccountVpcEncryptionControlDetail")]
     [OutputType("Amazon.EC2.Model.AccountVpcEncryptionControl")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeAccountVpcEncryptionControl API operation.", Operation = new[] {"DescribeAccountVpcEncryptionControl"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAccountVpcEncryptionControlResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeAccountVpcEncryptionControl API operation.", Operation = new[] {"DescribeAccountVpcEncryptionControl"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAccountVpcEncryptionControlResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AccountVpcEncryptionControl or Amazon.EC2.Model.DescribeAccountVpcEncryptionControlResponse",
         "This cmdlet returns an Amazon.EC2.Model.AccountVpcEncryptionControl object.",
         "The service call response (type Amazon.EC2.Model.DescribeAccountVpcEncryptionControlResponse) can be returned by specifying '-Select *'."
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeAccountVpcEncryptionControlResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeAccountVpcEncryptionControlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeAccountVpcEncryptionControl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeAccountVpcEncryptionControl");
             try
             {
                 return client.DescribeAccountVpcEncryptionControlAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

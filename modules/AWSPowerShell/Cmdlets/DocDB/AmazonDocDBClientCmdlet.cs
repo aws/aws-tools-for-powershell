@@ -28,7 +28,7 @@ using Amazon.DocDB.Model;
 
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
-    [AWSClientCmdlet("Amazon DocumentDB (with MongoDB compatibility)", "DOC", "2014-10-31", "DocDB")]
+    [AWSClientCmdlet("Amazon DocumentDB with MongoDB compatibility", "DOC", "2014-10-31", "DocDB")]
     public abstract partial class AmazonDocDBClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDocDB Client { get; private set; }

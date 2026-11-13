@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2ImageDeprecation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableImageDeprecation API operation.", Operation = new[] {"EnableImageDeprecation"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableImageDeprecationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableImageDeprecation API operation.", Operation = new[] {"EnableImageDeprecation"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableImageDeprecationResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableImageDeprecationResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.EnableImageDeprecationResponse) can be returned by specifying '-Select *'."
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableImageDeprecationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableImageDeprecationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableImageDeprecation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableImageDeprecation");
             try
             {
                 return client.EnableImageDeprecationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

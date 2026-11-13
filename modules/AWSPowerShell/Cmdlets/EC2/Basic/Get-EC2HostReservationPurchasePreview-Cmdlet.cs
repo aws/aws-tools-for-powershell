@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2HostReservationPurchasePreview")]
     [OutputType("Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetHostReservationPurchasePreview API operation.", Operation = new[] {"GetHostReservationPurchasePreview"}, SelectReturnType = typeof(Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetHostReservationPurchasePreview API operation.", Operation = new[] {"GetHostReservationPurchasePreview"}, SelectReturnType = typeof(Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse object containing multiple properties."
     )]
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetHostReservationPurchasePreviewRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetHostReservationPurchasePreview");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetHostReservationPurchasePreview");
             try
             {
                 return client.GetHostReservationPurchasePreviewAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

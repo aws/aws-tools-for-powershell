@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("New", "SHUBConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateConnectorResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub CreateConnector API operation.", Operation = new[] {"CreateConnector"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateConnectorResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub CreateConnector API operation.", Operation = new[] {"CreateConnector"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateConnectorResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.CreateConnectorResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.CreateConnectorResponse object containing multiple properties."
     )]
@@ -373,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.CreateConnectorResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.CreateConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "CreateConnector");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "CreateConnector");
             try
             {
                 return client.CreateConnectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

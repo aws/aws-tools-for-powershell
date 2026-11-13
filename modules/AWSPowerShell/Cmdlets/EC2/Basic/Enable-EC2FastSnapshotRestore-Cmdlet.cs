@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2FastSnapshotRestore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.EnableFastSnapshotRestoresResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableFastSnapshotRestores API operation.", Operation = new[] {"EnableFastSnapshotRestores"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableFastSnapshotRestoresResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableFastSnapshotRestores API operation.", Operation = new[] {"EnableFastSnapshotRestores"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableFastSnapshotRestoresResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.EnableFastSnapshotRestoresResponse",
         "This cmdlet returns an Amazon.EC2.Model.EnableFastSnapshotRestoresResponse object containing multiple properties."
     )]
@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableFastSnapshotRestoresResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableFastSnapshotRestoresRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableFastSnapshotRestores");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableFastSnapshotRestores");
             try
             {
                 return client.EnableFastSnapshotRestoresAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

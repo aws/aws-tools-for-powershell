@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Remove", "SHUBMemberAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub DisassociateMembers API operation.", Operation = new[] {"DisassociateMembers"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisassociateMembersResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DisassociateMembers API operation.", Operation = new[] {"DisassociateMembers"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisassociateMembersResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DisassociateMembersResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.DisassociateMembersResponse) be returned by specifying '-Select *'."
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DisassociateMembersResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DisassociateMembersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DisassociateMembers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DisassociateMembers");
             try
             {
                 return client.DisassociateMembersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

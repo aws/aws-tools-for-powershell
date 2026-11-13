@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLTargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.VPCLattice.Model.DeleteTargetGroupResponse")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteTargetGroup API operation.", Operation = new[] {"DeleteTargetGroup"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteTargetGroupResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteTargetGroup API operation.", Operation = new[] {"DeleteTargetGroup"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteTargetGroupResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.DeleteTargetGroupResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.DeleteTargetGroupResponse object containing multiple properties."
     )]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteTargetGroupResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteTargetGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteTargetGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteTargetGroup");
             try
             {
                 return client.DeleteTargetGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

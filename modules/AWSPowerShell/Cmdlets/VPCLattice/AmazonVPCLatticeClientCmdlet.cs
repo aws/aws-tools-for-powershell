@@ -28,7 +28,7 @@ using Amazon.VPCLattice.Model;
 
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
-    [AWSClientCmdlet("VPC Lattice", "VPCL", "2022-11-30", "VPCLattice")]
+    [AWSClientCmdlet("Amazon VPC Lattice", "VPCL", "2022-11-30", "VPCLattice")]
     public abstract partial class AmazonVPCLatticeClientCmdlet : ServiceCmdlet
     {
         protected IAmazonVPCLattice Client { get; private set; }

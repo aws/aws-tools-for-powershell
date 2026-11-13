@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2TransitGatewayMulticastGroupSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayMulticastRegisteredGroupSources")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RegisterTransitGatewayMulticastGroupSources API operation.", Operation = new[] {"RegisterTransitGatewayMulticastGroupSources"}, SelectReturnType = typeof(Amazon.EC2.Model.RegisterTransitGatewayMulticastGroupSourcesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RegisterTransitGatewayMulticastGroupSources API operation.", Operation = new[] {"RegisterTransitGatewayMulticastGroupSources"}, SelectReturnType = typeof(Amazon.EC2.Model.RegisterTransitGatewayMulticastGroupSourcesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastRegisteredGroupSources or Amazon.EC2.Model.RegisterTransitGatewayMulticastGroupSourcesResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastRegisteredGroupSources object.",
         "The service call response (type Amazon.EC2.Model.RegisterTransitGatewayMulticastGroupSourcesResponse) can be returned by specifying '-Select *'."
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RegisterTransitGatewayMulticastGroupSourcesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RegisterTransitGatewayMulticastGroupSourcesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RegisterTransitGatewayMulticastGroupSources");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RegisterTransitGatewayMulticastGroupSources");
             try
             {
                 return client.RegisterTransitGatewayMulticastGroupSourcesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service VPC Lattice
+# Argument completions for service Amazon VPC Lattice
 
 
 $VPCL_Completers = {
@@ -141,7 +141,10 @@ $VPCL_Completers = {
         }
 
         # Amazon.VPCLattice.ResourceConfigDnsResolution
-        "New-VPCLResourceGateway/ResourceConfigDnsResolution"
+        {
+            ($_ -eq "New-VPCLResourceGateway/ResourceConfigDnsResolution") -Or
+            ($_ -eq "Update-VPCLResourceGateway/ResourceConfigDnsResolution")
+        }
         {
             $v = "IN_VPC","PUBLIC"
             break
@@ -226,7 +229,7 @@ $VPCL_map = @{
     "HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
     "IpAddressType"=@("New-VPCLResourceGateway")
     "Protocol"=@("New-VPCLListener","New-VPCLResourceConfiguration")
-    "ResourceConfigDnsResolution"=@("New-VPCLResourceGateway")
+    "ResourceConfigDnsResolution"=@("New-VPCLResourceGateway","Update-VPCLResourceGateway")
     "ServiceNetworkLogType"=@("New-VPCLAccessLogSubscription")
     "TargetGroupType"=@("Get-VPCLTargetGroupList")
     "Type"=@("New-VPCLResourceConfiguration","New-VPCLTargetGroup")

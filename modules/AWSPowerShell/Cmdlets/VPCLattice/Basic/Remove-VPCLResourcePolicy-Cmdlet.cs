@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteResourcePolicyResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.DeleteResourcePolicyResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteResourcePolicyResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteResourcePolicy");
             try
             {
                 return client.DeleteResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

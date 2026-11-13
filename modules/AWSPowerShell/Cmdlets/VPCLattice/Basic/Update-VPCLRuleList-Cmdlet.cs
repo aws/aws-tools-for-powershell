@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Update", "VPCLRuleList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.BatchUpdateRuleResponse")]
-    [AWSCmdlet("Calls the VPC Lattice BatchUpdateRule API operation.", Operation = new[] {"BatchUpdateRule"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.BatchUpdateRuleResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice BatchUpdateRule API operation.", Operation = new[] {"BatchUpdateRule"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.BatchUpdateRuleResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.BatchUpdateRuleResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.BatchUpdateRuleResponse object containing multiple properties."
     )]
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.BatchUpdateRuleResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.BatchUpdateRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "BatchUpdateRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "BatchUpdateRule");
             try
             {
                 return client.BatchUpdateRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

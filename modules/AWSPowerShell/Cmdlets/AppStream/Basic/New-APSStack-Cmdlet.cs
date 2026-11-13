@@ -167,6 +167,19 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String FeedbackURL { get; set; }
         #endregion
         
+        #region Parameter AgentAccessConfig_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key
+        /// that encrypts Replay Session artifacts while WorkSpaces Applications processes them.
+        /// The key must be in the same Region as the stack, and ReplaySessionEnabled must be
+        /// true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AgentAccessConfig_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -205,11 +218,24 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String RedirectURL { get; set; }
         #endregion
         
+        #region Parameter AgentAccessConfig_ReplaySessionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications
+        /// delivers a video combining session screenshots, a transcript, and a report for each
+        /// session. Requires the COMPUTER_VISION agent action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AgentAccessConfig_ReplaySessionEnabled { get; set; }
+        #endregion
+        
         #region Parameter AgentAccessConfig_S3BucketArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are
-        /// stored. Required when ScreenshotsUploadEnabled is true.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and
+        /// Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled
+        /// is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The list of agent access settings that define permissions for each agent action. You
-        /// must specify at least one setting.</para><para />
+        /// must specify at least one setting, and at least one agent action must be enabled.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -407,6 +433,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 context.AccessEndpoint = new List<Amazon.AppStream.Model.AccessEndpoint>(this.AccessEndpoint);
             }
+            context.AgentAccessConfig_KmsKeyArn = this.AgentAccessConfig_KmsKeyArn;
+            context.AgentAccessConfig_ReplaySessionEnabled = this.AgentAccessConfig_ReplaySessionEnabled;
             context.AgentAccessConfig_S3BucketArn = this.AgentAccessConfig_S3BucketArn;
             context.AgentAccessConfig_ScreenImageFormat = this.AgentAccessConfig_ScreenImageFormat;
             context.AgentAccessConfig_ScreenResolution = this.AgentAccessConfig_ScreenResolution;
@@ -484,6 +512,26 @@ namespace Amazon.PowerShell.Cmdlets.APS
              // populate AgentAccessConfig
             var requestAgentAccessConfigIsNull = true;
             request.AgentAccessConfig = new Amazon.AppStream.Model.AgentAccessConfig();
+            System.String requestAgentAccessConfig_agentAccessConfig_KmsKeyArn = null;
+            if (cmdletContext.AgentAccessConfig_KmsKeyArn != null)
+            {
+                requestAgentAccessConfig_agentAccessConfig_KmsKeyArn = cmdletContext.AgentAccessConfig_KmsKeyArn;
+            }
+            if (requestAgentAccessConfig_agentAccessConfig_KmsKeyArn != null)
+            {
+                request.AgentAccessConfig.KmsKeyArn = requestAgentAccessConfig_agentAccessConfig_KmsKeyArn;
+                requestAgentAccessConfigIsNull = false;
+            }
+            System.Boolean? requestAgentAccessConfig_agentAccessConfig_ReplaySessionEnabled = null;
+            if (cmdletContext.AgentAccessConfig_ReplaySessionEnabled != null)
+            {
+                requestAgentAccessConfig_agentAccessConfig_ReplaySessionEnabled = cmdletContext.AgentAccessConfig_ReplaySessionEnabled.Value;
+            }
+            if (requestAgentAccessConfig_agentAccessConfig_ReplaySessionEnabled != null)
+            {
+                request.AgentAccessConfig.ReplaySessionEnabled = requestAgentAccessConfig_agentAccessConfig_ReplaySessionEnabled.Value;
+                requestAgentAccessConfigIsNull = false;
+            }
             System.String requestAgentAccessConfig_agentAccessConfig_S3BucketArn = null;
             if (cmdletContext.AgentAccessConfig_S3BucketArn != null)
             {
@@ -747,6 +795,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.AppStream.Model.AccessEndpoint> AccessEndpoint { get; set; }
+            public System.String AgentAccessConfig_KmsKeyArn { get; set; }
+            public System.Boolean? AgentAccessConfig_ReplaySessionEnabled { get; set; }
             public System.String AgentAccessConfig_S3BucketArn { get; set; }
             public Amazon.AppStream.ScreenImageFormat AgentAccessConfig_ScreenImageFormat { get; set; }
             public Amazon.AppStream.ScreenResolution AgentAccessConfig_ScreenResolution { get; set; }

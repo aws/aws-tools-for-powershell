@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2IpamPoolAllocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamPoolAllocation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIpamPoolAllocation API operation.", Operation = new[] {"ModifyIpamPoolAllocation"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamPoolAllocationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyIpamPoolAllocation API operation.", Operation = new[] {"ModifyIpamPoolAllocation"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamPoolAllocationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPoolAllocation or Amazon.EC2.Model.ModifyIpamPoolAllocationResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamPoolAllocation object.",
         "The service call response (type Amazon.EC2.Model.ModifyIpamPoolAllocationResponse) can be returned by specifying '-Select *'."
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyIpamPoolAllocationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIpamPoolAllocationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyIpamPoolAllocation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyIpamPoolAllocation");
             try
             {
                 return client.ModifyIpamPoolAllocationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

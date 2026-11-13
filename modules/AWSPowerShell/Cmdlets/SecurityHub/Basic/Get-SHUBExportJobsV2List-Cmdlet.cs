@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBExportJobsV2List")]
     [OutputType("Amazon.SecurityHub.Model.ExportSummary")]
-    [AWSCmdlet("Calls the AWS Security Hub ListExportJobsV2 API operation.", Operation = new[] {"ListExportJobsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListExportJobsV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListExportJobsV2 API operation.", Operation = new[] {"ListExportJobsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListExportJobsV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.ExportSummary or Amazon.SecurityHub.Model.ListExportJobsV2Response",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.ExportSummary objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListExportJobsV2Response) can be returned by specifying '-Select *'."
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListExportJobsV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListExportJobsV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListExportJobsV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListExportJobsV2");
             try
             {
                 return client.ListExportJobsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -5,7 +5,7 @@
     <C2jFilename>docdb</C2jFilename>
     <AssemblyName>DocDB</AssemblyName>
     <ServiceNounPrefix>DOC</ServiceNounPrefix>
-    <ServiceName>Amazon DocumentDB (with MongoDB compatibility)</ServiceName>
+    <ServiceName>Amazon DocumentDB with MongoDB compatibility</ServiceName>
     <ServiceId>DocDB</ServiceId>
     <ServiceClientInterface>IAmazonDocDB</ServiceClientInterface>
     <ServiceClient>AmazonDocDBClient</ServiceClient>

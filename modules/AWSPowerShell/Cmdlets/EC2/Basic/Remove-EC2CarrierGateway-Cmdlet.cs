@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2CarrierGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.CarrierGateway")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteCarrierGateway API operation.", Operation = new[] {"DeleteCarrierGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteCarrierGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteCarrierGateway API operation.", Operation = new[] {"DeleteCarrierGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteCarrierGatewayResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CarrierGateway or Amazon.EC2.Model.DeleteCarrierGatewayResponse",
         "This cmdlet returns an Amazon.EC2.Model.CarrierGateway object.",
         "The service call response (type Amazon.EC2.Model.DeleteCarrierGatewayResponse) can be returned by specifying '-Select *'."
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteCarrierGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteCarrierGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteCarrierGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteCarrierGateway");
             try
             {
                 return client.DeleteCarrierGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

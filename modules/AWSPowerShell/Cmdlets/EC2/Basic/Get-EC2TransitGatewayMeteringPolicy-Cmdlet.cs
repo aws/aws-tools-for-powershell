@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2TransitGatewayMeteringPolicy")]
     [OutputType("Amazon.EC2.Model.TransitGatewayMeteringPolicy")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeTransitGatewayMeteringPolicies API operation.", Operation = new[] {"DescribeTransitGatewayMeteringPolicies"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeTransitGatewayMeteringPoliciesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeTransitGatewayMeteringPolicies API operation.", Operation = new[] {"DescribeTransitGatewayMeteringPolicies"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeTransitGatewayMeteringPoliciesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMeteringPolicy or Amazon.EC2.Model.DescribeTransitGatewayMeteringPoliciesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.TransitGatewayMeteringPolicy objects.",
         "The service call response (type Amazon.EC2.Model.DescribeTransitGatewayMeteringPoliciesResponse) can be returned by specifying '-Select *'."
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeTransitGatewayMeteringPoliciesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeTransitGatewayMeteringPoliciesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeTransitGatewayMeteringPolicies");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeTransitGatewayMeteringPolicies");
             try
             {
                 return client.DescribeTransitGatewayMeteringPoliciesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

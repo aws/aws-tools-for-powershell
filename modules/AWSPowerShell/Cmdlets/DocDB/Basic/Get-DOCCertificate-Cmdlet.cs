@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Get", "DOCCertificate")]
     [OutputType("Amazon.DocDB.Model.Certificate")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DescribeCertificates API operation.", Operation = new[] {"DescribeCertificates"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeCertificatesResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DescribeCertificates API operation.", Operation = new[] {"DescribeCertificates"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeCertificatesResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.Certificate or Amazon.DocDB.Model.DescribeCertificatesResponse",
         "This cmdlet returns a collection of Amazon.DocDB.Model.Certificate objects.",
         "The service call response (type Amazon.DocDB.Model.DescribeCertificatesResponse) can be returned by specifying '-Select *'."
@@ -345,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DescribeCertificatesResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DescribeCertificatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DescribeCertificates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DescribeCertificates");
             try
             {
                 return client.DescribeCertificatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

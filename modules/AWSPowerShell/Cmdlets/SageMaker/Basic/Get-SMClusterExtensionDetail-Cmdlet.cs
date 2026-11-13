@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// Retrieves information about an extension installed on a SageMaker HyperPod cluster.
     /// The information includes the extension's version, configuration, and status, and a
     /// summary of how many cluster nodes are running the current version and configuration
-    /// of the extension.
+    /// of the extension. If the extension has problems on some nodes, the response also lists
+    /// the problems and how many nodes each one affects.
     /// </summary>
     [Cmdlet("Get", "SMClusterExtensionDetail")]
     [OutputType("Amazon.SageMaker.Model.DescribeClusterExtensionResponse")]

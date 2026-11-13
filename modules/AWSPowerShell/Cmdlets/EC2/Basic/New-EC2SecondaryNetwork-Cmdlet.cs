@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2SecondaryNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SecondaryNetwork")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateSecondaryNetwork API operation.", Operation = new[] {"CreateSecondaryNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSecondaryNetworkResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateSecondaryNetwork API operation.", Operation = new[] {"CreateSecondaryNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSecondaryNetworkResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SecondaryNetwork or Amazon.EC2.Model.CreateSecondaryNetworkResponse",
         "This cmdlet returns an Amazon.EC2.Model.SecondaryNetwork object.",
         "The service call response (type Amazon.EC2.Model.CreateSecondaryNetworkResponse) can be returned by specifying '-Select *'."
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateSecondaryNetworkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateSecondaryNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateSecondaryNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateSecondaryNetwork");
             try
             {
                 return client.CreateSecondaryNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

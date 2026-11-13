@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBInsightResult")]
     [OutputType("Amazon.SecurityHub.Model.InsightResults")]
-    [AWSCmdlet("Calls the AWS Security Hub GetInsightResults API operation.", Operation = new[] {"GetInsightResults"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetInsightResultsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetInsightResults API operation.", Operation = new[] {"GetInsightResults"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetInsightResultsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.InsightResults or Amazon.SecurityHub.Model.GetInsightResultsResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.InsightResults object.",
         "The service call response (type Amazon.SecurityHub.Model.GetInsightResultsResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetInsightResultsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetInsightResultsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetInsightResults");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetInsightResults");
             try
             {
                 return client.GetInsightResultsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

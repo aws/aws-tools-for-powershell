@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2AddressTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AddressTransfer")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableAddressTransfer API operation.", Operation = new[] {"DisableAddressTransfer"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableAddressTransferResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableAddressTransfer API operation.", Operation = new[] {"DisableAddressTransfer"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableAddressTransferResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AddressTransfer or Amazon.EC2.Model.DisableAddressTransferResponse",
         "This cmdlet returns an Amazon.EC2.Model.AddressTransfer object.",
         "The service call response (type Amazon.EC2.Model.DisableAddressTransferResponse) can be returned by specifying '-Select *'."
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableAddressTransferResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableAddressTransferRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableAddressTransfer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableAddressTransfer");
             try
             {
                 return client.DisableAddressTransferAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

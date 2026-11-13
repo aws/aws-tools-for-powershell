@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2LocalGatewayVirtualInterfaceGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.LocalGatewayVirtualInterfaceGroup")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteLocalGatewayVirtualInterfaceGroup API operation.", Operation = new[] {"DeleteLocalGatewayVirtualInterfaceGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceGroupResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteLocalGatewayVirtualInterfaceGroup API operation.", Operation = new[] {"DeleteLocalGatewayVirtualInterfaceGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceGroupResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayVirtualInterfaceGroup or Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceGroupResponse",
         "This cmdlet returns an Amazon.EC2.Model.LocalGatewayVirtualInterfaceGroup object.",
         "The service call response (type Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceGroupResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteLocalGatewayVirtualInterfaceGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteLocalGatewayVirtualInterfaceGroup");
             try
             {
                 return client.DeleteLocalGatewayVirtualInterfaceGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

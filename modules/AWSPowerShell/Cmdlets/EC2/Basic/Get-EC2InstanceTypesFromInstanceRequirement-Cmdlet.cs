@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2InstanceTypesFromInstanceRequirement")]
     [OutputType("Amazon.EC2.Model.InstanceTypeInfoFromInstanceRequirements")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetInstanceTypesFromInstanceRequirements API operation.", Operation = new[] {"GetInstanceTypesFromInstanceRequirements"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceTypesFromInstanceRequirementsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetInstanceTypesFromInstanceRequirements API operation.", Operation = new[] {"GetInstanceTypesFromInstanceRequirements"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceTypesFromInstanceRequirementsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceTypeInfoFromInstanceRequirements or Amazon.EC2.Model.GetInstanceTypesFromInstanceRequirementsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceTypeInfoFromInstanceRequirements objects.",
         "The service call response (type Amazon.EC2.Model.GetInstanceTypesFromInstanceRequirementsResponse) can be returned by specifying '-Select *'."
@@ -1422,7 +1422,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetInstanceTypesFromInstanceRequirementsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetInstanceTypesFromInstanceRequirementsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetInstanceTypesFromInstanceRequirements");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetInstanceTypesFromInstanceRequirements");
             try
             {
                 return client.GetInstanceTypesFromInstanceRequirementsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

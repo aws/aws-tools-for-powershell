@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VpcPeeringConnectionOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVpcPeeringConnectionOptions API operation.", Operation = new[] {"ModifyVpcPeeringConnectionOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVpcPeeringConnectionOptions API operation.", Operation = new[] {"ModifyVpcPeeringConnectionOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsResponse",
         "This cmdlet returns an Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsResponse object containing multiple properties."
     )]
@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVpcPeeringConnectionOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVpcPeeringConnectionOptions");
             try
             {
                 return client.ModifyVpcPeeringConnectionOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

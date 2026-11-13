@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>The Amazon Resource Name (ARN) of the image version whose build versions you want
         /// to retrieve. The ARN must specify an exact version (<c>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</c>)
         /// - wildcards aren't allowed. This parameter is optional. If you don't specify it, Image
-        /// Builder returns build versions for all of the images in your account.</para>
+        /// Builder returns build versions for all of the images in your account.</para><para>If the ARN that you specify doesn't exist, Image Builder returns an empty list rather
+        /// than a <c>ResourceNotFoundException</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

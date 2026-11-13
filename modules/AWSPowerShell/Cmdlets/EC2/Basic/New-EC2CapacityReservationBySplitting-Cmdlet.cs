@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2CapacityReservationBySplitting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateCapacityReservationBySplitting API operation.", Operation = new[] {"CreateCapacityReservationBySplitting"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateCapacityReservationBySplitting API operation.", Operation = new[] {"CreateCapacityReservationBySplitting"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse",
         "This cmdlet returns an Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse object containing multiple properties."
     )]
@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateCapacityReservationBySplittingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateCapacityReservationBySplitting");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateCapacityReservationBySplitting");
             try
             {
                 return client.CreateCapacityReservationBySplittingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

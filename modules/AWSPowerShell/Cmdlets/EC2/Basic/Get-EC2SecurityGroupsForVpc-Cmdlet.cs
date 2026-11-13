@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SecurityGroupsForVpc")]
     [OutputType("Amazon.EC2.Model.SecurityGroupForVpc")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetSecurityGroupsForVpc API operation.", Operation = new[] {"GetSecurityGroupsForVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.GetSecurityGroupsForVpcResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetSecurityGroupsForVpc API operation.", Operation = new[] {"GetSecurityGroupsForVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.GetSecurityGroupsForVpcResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SecurityGroupForVpc or Amazon.EC2.Model.GetSecurityGroupsForVpcResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.SecurityGroupForVpc objects.",
         "The service call response (type Amazon.EC2.Model.GetSecurityGroupsForVpcResponse) can be returned by specifying '-Select *'."
@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetSecurityGroupsForVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetSecurityGroupsForVpcRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetSecurityGroupsForVpc");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetSecurityGroupsForVpc");
             try
             {
                 return client.GetSecurityGroupsForVpcAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

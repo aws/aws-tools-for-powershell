@@ -53,6 +53,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// To retrieve information about firewalls, use <a>ListFirewalls</a> and <a>DescribeFirewall</a>.
     /// </para><para>
     /// To generate a report on the last 30 days of traffic monitored by a firewall, use <a>StartAnalysisReport</a>.
+    /// </para><para>
+    /// To create a proxy mode firewall, specify <c>VpcEndpoint</c> and <c>NatGatewayCreateMappings</c>
+    /// instead of <c>VpcId</c> and <c>SubnetMappings</c>. A proxy mode firewall is an explicit
+    /// forward proxy. Your clients send HTTP and HTTPS proxy requests to the firewall's proxy
+    /// DNS name, which <c>DescribeFirewall</c> returns in each Availability Zone's <c>Attachment</c>.
+    /// The firewall evaluates proxy traffic with the stateful rules in its firewall policy,
+    /// and sends allowed traffic out through the NAT gateway in the same Availability Zone.
+    /// Your clients don't need route table changes. In each Availability Zone, the firewall
+    /// has one endpoint and one NAT gateway, which Network Firewall creates for you. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "NWFWFirewall", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -100,6 +109,26 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.Model.AvailabilityZoneMapping[] AvailabilityZoneMapping { get; set; }
         #endregion
         
+        #region Parameter ProxySettings_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the certificate that the firewall's HTTPS proxy
+        /// listener presents to clients. The certificate must be an Certificate Manager (ACM)
+        /// certificate in the same account and Region as the firewall. Its subject alternative
+        /// names must cover <c>DomainName</c>, either exactly or with a wildcard that matches
+        /// exactly one label. For example, <c>*.example.com</c> covers <c>proxy.example.com</c>.
+        /// If you don't specify this, Network Firewall uses a certificate that it manages for
+        /// a domain name that it generates.</para><para>You manage and renew the certificate in ACM, and Network Firewall uses renewed certificates
+        /// automatically. While the firewall uses the certificate, you can't delete it from ACM.
+        /// Your clients must trust the certificate's certificate authority.</para><para>If you specify <c>CertificateArn</c>, you must also specify <c>DomainName</c>. You
+        /// can set them only when you create the firewall. When you call <c>UpdateProxySettings</c>,
+        /// specify the same values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProxySettings_CertificateArn { get; set; }
+        #endregion
+        
         #region Parameter DeleteProtection
         /// <summary>
         /// <para>
@@ -121,6 +150,26 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ProxySettings_DomainName
+        /// <summary>
+        /// <para>
+        /// <para>The domain name that your clients use to reach the firewall's proxy. The name must
+        /// have at least two labels and at most 253 characters. It can't contain a wildcard or
+        /// use the <c>proxy-<i>id</i>.nfw.<i>region</i>.amazonaws.com</c> format, and the certificate
+        /// in <c>CertificateArn</c> must cover it. If you don't specify this, Network Firewall
+        /// generates a domain name.</para><para>Network Firewall creates the Route 53 private hosted zones that resolve this name
+        /// to the firewall endpoints, so you don't need to configure DNS. A VPC can have only
+        /// one private hosted zone with a given name. If a VPC that the firewall serves already
+        /// has one with this name, Network Firewall can't set up the Availability Zones in that
+        /// VPC.</para><para>If you specify <c>DomainName</c>, you must also specify <c>CertificateArn</c>. You
+        /// can set them only when you create the firewall. When you call <c>UpdateProxySettings</c>,
+        /// specify the same values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProxySettings_DomainName { get; set; }
         #endregion
         
         #region Parameter EnabledAnalysisType
@@ -206,7 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter ProxySettings_ListenerProperty
         /// <summary>
         /// <para>
-        /// <para>Listener properties for HTTP and HTTPS traffic. </para><para />
+        /// <para>The listeners of the firewall's proxy. Specify at least one listener, and at most
+        /// one HTTP listener and one HTTPS listener. Each listener needs a port from 1 to 65535,
+        /// and the two listeners must use different ports.</para><para>If you don't specify listeners when you create the firewall, the firewall listens
+        /// for HTTP on port 3128 and HTTPS on port 8443.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -219,12 +271,20 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.Model.ListenerProperty[] ProxySettings_ListenerProperty { get; set; }
         #endregion
         
-        #region Parameter NatGatewayMapping
+        #region Parameter NatGatewayCreateMapping
         /// <summary>
         /// <para>
-        /// <para>The NAT gateways that the firewall uses to proxy traffic when <c>NoSourcePreservation</c>
-        /// is <c>TRUE</c>. Network Firewall attaches the firewall to each NAT gateway that you
-        /// specify, so that egress traffic is proxied through the NAT gateway. </para><para />
+        /// <para>The NAT gateways that Network Firewall creates for a proxy mode firewall, one for
+        /// each Availability Zone. When you specify this, you create a proxy mode firewall. Destinations
+        /// see the IP address of the NAT gateway in the client's Availability Zone as the source
+        /// of the traffic.</para><para>Specify one mapping for each Availability Zone in <c>VpcEndpoint</c>, and no other
+        /// Availability Zones. Each NAT gateway subnet must be in the <c>VpcEndpoint</c> VPC
+        /// and can't be one of the firewall endpoint subnets.</para><para>You need permission to call the Amazon EC2 <c>CreateNatGateway</c> action.</para><para>If Network Firewall can't set up an Availability Zone, for example because Amazon
+        /// EC2 rejects the NAT gateway, it removes the Availability Zone from the firewall. It
+        /// also deletes the NAT gateway that it created there. The Availability Zone's <c>Attachment</c>
+        /// status is <c>FAILED</c>, and its status message explains why. You can add the Availability
+        /// Zone again with <c>AssociateSubnets</c>. If no Availability Zone can be set up, the
+        /// firewall status is <c>FAILED</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -233,22 +293,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("NatGatewayMappings")]
-        public Amazon.NetworkFirewall.Model.NatGatewayMapping[] NatGatewayMapping { get; set; }
-        #endregion
-        
-        #region Parameter NoSourcePreservation
-        /// <summary>
-        /// <para>
-        /// <para>Optional. Indicates whether the firewall operates in proxy mode, in which the source
-        /// IP address of the traffic is not preserved. When set to <c>TRUE</c>, the firewall
-        /// proxies traffic through a NAT gateway and the traffic reaching the destination uses
-        /// the NAT gateway's IP address as the source. </para><para>When you set this to <c>TRUE</c>, you must specify <c>NatGatewayMappings</c> and <c>VpcEndpoint</c>
-        /// instead of a top-level <c>VpcId</c> and <c>SubnetMappings</c>. </para><para>You can't change this setting after you create the firewall. </para><para>Default value: <c>FALSE</c></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? NoSourcePreservation { get; set; }
+        [Alias("NatGatewayCreateMappings")]
+        public Amazon.NetworkFirewall.Model.NatGatewayCreateMapping[] NatGatewayCreateMapping { get; set; }
         #endregion
         
         #region Parameter SubnetChangeProtection
@@ -285,8 +331,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter VpcEndpoint_SubnetMapping
         /// <summary>
         /// <para>
-        /// <para>The subnets in which Network Firewall creates the firewall endpoint for a proxy mode
-        /// firewall. Each subnet must belong to a different Availability Zone in the VPC. </para><para />
+        /// <para>The subnets where Network Firewall creates the firewall endpoints of a proxy mode
+        /// firewall. Specify one subnet for each Availability Zone, and a NAT gateway mapping
+        /// in each of those Availability Zones.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -331,6 +378,22 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String TransitGatewayId { get; set; }
         #endregion
         
+        #region Parameter TransparentFilteringNatScope
+        /// <summary>
+        /// <para>
+        /// <para>How a proxy mode firewall handles traffic that isn't sent to its proxy listener. If
+        /// you don't specify a value, the firewall uses <c>NAT_ALL</c>. You can choose from the
+        /// following values:</para><ul><li><para><c>NAT_ALL</c> - After inspection, the firewall sends this traffic out through its
+        /// NAT gateway, which translates the source address.</para></li><li><para><c>NAT_NONE</c> - After inspection, the firewall returns this traffic to the firewall
+        /// endpoint without address translation.</para></li></ul><para>You can specify this only for a proxy mode firewall, and you can't change it after
+        /// you create the firewall.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.TransparentFilteringNatScope")]
+        public Amazon.NetworkFirewall.TransparentFilteringNatScope TransparentFilteringNatScope { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_Type
         /// <summary>
         /// <para>
@@ -346,8 +409,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter VpcEndpoint_VpcId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the VPC where Network Firewall creates the proxy mode firewall
-        /// endpoint. </para>
+        /// <para>The ID of the VPC where Network Firewall creates the endpoints and NAT gateways of
+        /// a proxy mode firewall.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -439,11 +502,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             }
             #endif
             context.FirewallPolicyChangeProtection = this.FirewallPolicyChangeProtection;
-            if (this.NatGatewayMapping != null)
+            if (this.NatGatewayCreateMapping != null)
             {
-                context.NatGatewayMapping = new List<Amazon.NetworkFirewall.Model.NatGatewayMapping>(this.NatGatewayMapping);
+                context.NatGatewayCreateMapping = new List<Amazon.NetworkFirewall.Model.NatGatewayCreateMapping>(this.NatGatewayCreateMapping);
             }
-            context.NoSourcePreservation = this.NoSourcePreservation;
+            context.ProxySettings_CertificateArn = this.ProxySettings_CertificateArn;
+            context.ProxySettings_DomainName = this.ProxySettings_DomainName;
             if (this.ProxySettings_ListenerProperty != null)
             {
                 context.ProxySettings_ListenerProperty = new List<Amazon.NetworkFirewall.Model.ListenerProperty>(this.ProxySettings_ListenerProperty);
@@ -458,6 +522,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.Tag = new List<Amazon.NetworkFirewall.Model.Tag>(this.Tag);
             }
             context.TransitGatewayId = this.TransitGatewayId;
+            context.TransparentFilteringNatScope = this.TransparentFilteringNatScope;
             if (this.VpcEndpoint_SubnetMapping != null)
             {
                 context.VpcEndpoint_SubnetMapping = new List<Amazon.NetworkFirewall.Model.SubnetMapping>(this.VpcEndpoint_SubnetMapping);
@@ -541,18 +606,34 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             {
                 request.FirewallPolicyChangeProtection = cmdletContext.FirewallPolicyChangeProtection.Value;
             }
-            if (cmdletContext.NatGatewayMapping != null)
+            if (cmdletContext.NatGatewayCreateMapping != null)
             {
-                request.NatGatewayMappings = cmdletContext.NatGatewayMapping;
-            }
-            if (cmdletContext.NoSourcePreservation != null)
-            {
-                request.NoSourcePreservation = cmdletContext.NoSourcePreservation.Value;
+                request.NatGatewayCreateMappings = cmdletContext.NatGatewayCreateMapping;
             }
             
              // populate ProxySettings
             var requestProxySettingsIsNull = true;
             request.ProxySettings = new Amazon.NetworkFirewall.Model.ProxySettings();
+            System.String requestProxySettings_proxySettings_CertificateArn = null;
+            if (cmdletContext.ProxySettings_CertificateArn != null)
+            {
+                requestProxySettings_proxySettings_CertificateArn = cmdletContext.ProxySettings_CertificateArn;
+            }
+            if (requestProxySettings_proxySettings_CertificateArn != null)
+            {
+                request.ProxySettings.CertificateArn = requestProxySettings_proxySettings_CertificateArn;
+                requestProxySettingsIsNull = false;
+            }
+            System.String requestProxySettings_proxySettings_DomainName = null;
+            if (cmdletContext.ProxySettings_DomainName != null)
+            {
+                requestProxySettings_proxySettings_DomainName = cmdletContext.ProxySettings_DomainName;
+            }
+            if (requestProxySettings_proxySettings_DomainName != null)
+            {
+                request.ProxySettings.DomainName = requestProxySettings_proxySettings_DomainName;
+                requestProxySettingsIsNull = false;
+            }
             List<Amazon.NetworkFirewall.Model.ListenerProperty> requestProxySettings_proxySettings_ListenerProperty = null;
             if (cmdletContext.ProxySettings_ListenerProperty != null)
             {
@@ -583,6 +664,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.TransitGatewayId != null)
             {
                 request.TransitGatewayId = cmdletContext.TransitGatewayId;
+            }
+            if (cmdletContext.TransparentFilteringNatScope != null)
+            {
+                request.TransparentFilteringNatScope = cmdletContext.TransparentFilteringNatScope;
             }
             
              // populate VpcEndpoint
@@ -682,13 +767,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.String FirewallName { get; set; }
             public System.String FirewallPolicyArn { get; set; }
             public System.Boolean? FirewallPolicyChangeProtection { get; set; }
-            public List<Amazon.NetworkFirewall.Model.NatGatewayMapping> NatGatewayMapping { get; set; }
-            public System.Boolean? NoSourcePreservation { get; set; }
+            public List<Amazon.NetworkFirewall.Model.NatGatewayCreateMapping> NatGatewayCreateMapping { get; set; }
+            public System.String ProxySettings_CertificateArn { get; set; }
+            public System.String ProxySettings_DomainName { get; set; }
             public List<Amazon.NetworkFirewall.Model.ListenerProperty> ProxySettings_ListenerProperty { get; set; }
             public System.Boolean? SubnetChangeProtection { get; set; }
             public List<Amazon.NetworkFirewall.Model.SubnetMapping> SubnetMapping { get; set; }
             public List<Amazon.NetworkFirewall.Model.Tag> Tag { get; set; }
             public System.String TransitGatewayId { get; set; }
+            public Amazon.NetworkFirewall.TransparentFilteringNatScope TransparentFilteringNatScope { get; set; }
             public List<Amazon.NetworkFirewall.Model.SubnetMapping> VpcEndpoint_SubnetMapping { get; set; }
             public System.String VpcEndpoint_VpcId { get; set; }
             public System.String VpcId { get; set; }

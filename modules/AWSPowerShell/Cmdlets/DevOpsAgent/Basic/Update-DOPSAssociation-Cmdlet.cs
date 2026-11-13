@@ -331,6 +331,19 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_Pagerduty_CustomerEmail { get; set; }
         #endregion
         
+        #region Parameter Configuration_Msteams_Bidirectional_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether bidirectional communication is enabled for this association. If
+        /// you set this value to <c>true</c>, you can mention the agent in the configured Microsoft
+        /// Teams channel and it responds in that channel. If you omit this parameter or set it
+        /// to <c>false</c>, the agent only sends one-way notifications.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Configuration_Msteams_Bidirectional_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Slack_Bidirectional_Enabled
         /// <summary>
         /// <para>
@@ -645,6 +658,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_Dynatrace_Resources")]
         public System.String[] Configuration_Dynatrace_Resource { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Msteams_Bidirectional_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that the agent assumes to exchange
+        /// messages with the Microsoft Teams team for this association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Msteams_Bidirectional_RoleArn { get; set; }
         #endregion
         
         #region Parameter Configuration_Slack_Bidirectional_RoleArn
@@ -970,6 +994,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 context.Configuration_Mcpserversigv4_Tool = new List<System.String>(this.Configuration_Mcpserversigv4_Tool);
             }
             context.Configuration_Mcpserversplunk = this.Configuration_Mcpserversplunk;
+            context.Configuration_Msteams_Bidirectional_Enabled = this.Configuration_Msteams_Bidirectional_Enabled;
+            context.Configuration_Msteams_Bidirectional_RoleArn = this.Configuration_Msteams_Bidirectional_RoleArn;
             context.Configuration_Msteams_TeamId = this.Configuration_Msteams_TeamId;
             context.Configuration_Msteams_TeamName = this.Configuration_Msteams_TeamName;
             context.Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId = this.Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId;
@@ -1457,6 +1483,61 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Azuredevops = requestConfiguration_configuration_Azuredevops;
                 requestConfigurationIsNull = false;
             }
+            Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration requestConfiguration_configuration_Mcpservergrafana = null;
+            
+             // populate Mcpservergrafana
+            var requestConfiguration_configuration_McpservergrafanaIsNull = true;
+            requestConfiguration_configuration_Mcpservergrafana = new Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration();
+            List<Amazon.DevOpsAgent.Model.MCPToolDetail> requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool = null;
+            if (cmdletContext.Configuration_Mcpservergrafana_EnabledElevatedTool != null)
+            {
+                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool = cmdletContext.Configuration_Mcpservergrafana_EnabledElevatedTool;
+            }
+            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool != null)
+            {
+                requestConfiguration_configuration_Mcpservergrafana.EnabledElevatedTools = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool;
+                requestConfiguration_configuration_McpservergrafanaIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint = null;
+            if (cmdletContext.Configuration_Mcpservergrafana_Endpoint != null)
+            {
+                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint = cmdletContext.Configuration_Mcpservergrafana_Endpoint;
+            }
+            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint != null)
+            {
+                requestConfiguration_configuration_Mcpservergrafana.Endpoint = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint;
+                requestConfiguration_configuration_McpservergrafanaIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId = null;
+            if (cmdletContext.Configuration_Mcpservergrafana_OrganizationId != null)
+            {
+                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId = cmdletContext.Configuration_Mcpservergrafana_OrganizationId;
+            }
+            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId != null)
+            {
+                requestConfiguration_configuration_Mcpservergrafana.OrganizationId = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId;
+                requestConfiguration_configuration_McpservergrafanaIsNull = false;
+            }
+            List<System.String> requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool = null;
+            if (cmdletContext.Configuration_Mcpservergrafana_Tool != null)
+            {
+                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool = cmdletContext.Configuration_Mcpservergrafana_Tool;
+            }
+            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool != null)
+            {
+                requestConfiguration_configuration_Mcpservergrafana.Tools = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool;
+                requestConfiguration_configuration_McpservergrafanaIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Mcpservergrafana should be set to null
+            if (requestConfiguration_configuration_McpservergrafanaIsNull)
+            {
+                requestConfiguration_configuration_Mcpservergrafana = null;
+            }
+            if (requestConfiguration_configuration_Mcpservergrafana != null)
+            {
+                request.Configuration.Mcpservergrafana = requestConfiguration_configuration_Mcpservergrafana;
+                requestConfigurationIsNull = false;
+            }
             Amazon.DevOpsAgent.Model.MSTeamsConfiguration requestConfiguration_configuration_Msteams = null;
             
              // populate Msteams
@@ -1480,6 +1561,41 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_Msteams_configuration_Msteams_TeamName != null)
             {
                 requestConfiguration_configuration_Msteams.TeamName = requestConfiguration_configuration_Msteams_configuration_Msteams_TeamName;
+                requestConfiguration_configuration_MsteamsIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.MSTeamsBidirectionalConfiguration requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional = null;
+            
+             // populate Bidirectional
+            var requestConfiguration_configuration_Msteams_configuration_Msteams_BidirectionalIsNull = true;
+            requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional = new Amazon.DevOpsAgent.Model.MSTeamsBidirectionalConfiguration();
+            System.Boolean? requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional_configuration_Msteams_Bidirectional_Enabled = null;
+            if (cmdletContext.Configuration_Msteams_Bidirectional_Enabled != null)
+            {
+                requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional_configuration_Msteams_Bidirectional_Enabled = cmdletContext.Configuration_Msteams_Bidirectional_Enabled.Value;
+            }
+            if (requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional_configuration_Msteams_Bidirectional_Enabled != null)
+            {
+                requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional.Enabled = requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional_configuration_Msteams_Bidirectional_Enabled.Value;
+                requestConfiguration_configuration_Msteams_configuration_Msteams_BidirectionalIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional_configuration_Msteams_Bidirectional_RoleArn = null;
+            if (cmdletContext.Configuration_Msteams_Bidirectional_RoleArn != null)
+            {
+                requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional_configuration_Msteams_Bidirectional_RoleArn = cmdletContext.Configuration_Msteams_Bidirectional_RoleArn;
+            }
+            if (requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional_configuration_Msteams_Bidirectional_RoleArn != null)
+            {
+                requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional.RoleArn = requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional_configuration_Msteams_Bidirectional_RoleArn;
+                requestConfiguration_configuration_Msteams_configuration_Msteams_BidirectionalIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional should be set to null
+            if (requestConfiguration_configuration_Msteams_configuration_Msteams_BidirectionalIsNull)
+            {
+                requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional = null;
+            }
+            if (requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional != null)
+            {
+                requestConfiguration_configuration_Msteams.Bidirectional = requestConfiguration_configuration_Msteams_configuration_Msteams_Bidirectional;
                 requestConfiguration_configuration_MsteamsIsNull = false;
             }
             Amazon.DevOpsAgent.Model.MSTeamsTransmissionTarget requestConfiguration_configuration_Msteams_configuration_Msteams_TransmissionTarget = null;
@@ -1575,61 +1691,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_Msteams != null)
             {
                 request.Configuration.Msteams = requestConfiguration_configuration_Msteams;
-                requestConfigurationIsNull = false;
-            }
-            Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration requestConfiguration_configuration_Mcpservergrafana = null;
-            
-             // populate Mcpservergrafana
-            var requestConfiguration_configuration_McpservergrafanaIsNull = true;
-            requestConfiguration_configuration_Mcpservergrafana = new Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration();
-            List<Amazon.DevOpsAgent.Model.MCPToolDetail> requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool = null;
-            if (cmdletContext.Configuration_Mcpservergrafana_EnabledElevatedTool != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool = cmdletContext.Configuration_Mcpservergrafana_EnabledElevatedTool;
-            }
-            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana.EnabledElevatedTools = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool;
-                requestConfiguration_configuration_McpservergrafanaIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint = null;
-            if (cmdletContext.Configuration_Mcpservergrafana_Endpoint != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint = cmdletContext.Configuration_Mcpservergrafana_Endpoint;
-            }
-            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana.Endpoint = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint;
-                requestConfiguration_configuration_McpservergrafanaIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId = null;
-            if (cmdletContext.Configuration_Mcpservergrafana_OrganizationId != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId = cmdletContext.Configuration_Mcpservergrafana_OrganizationId;
-            }
-            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana.OrganizationId = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId;
-                requestConfiguration_configuration_McpservergrafanaIsNull = false;
-            }
-            List<System.String> requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool = null;
-            if (cmdletContext.Configuration_Mcpservergrafana_Tool != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool = cmdletContext.Configuration_Mcpservergrafana_Tool;
-            }
-            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana.Tools = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool;
-                requestConfiguration_configuration_McpservergrafanaIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Mcpservergrafana should be set to null
-            if (requestConfiguration_configuration_McpservergrafanaIsNull)
-            {
-                requestConfiguration_configuration_Mcpservergrafana = null;
-            }
-            if (requestConfiguration_configuration_Mcpservergrafana != null)
-            {
-                request.Configuration.Mcpservergrafana = requestConfiguration_configuration_Mcpservergrafana;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.SlackConfiguration requestConfiguration_configuration_Slack = null;
@@ -2178,6 +2239,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public List<Amazon.DevOpsAgent.Model.MCPToolDetail> Configuration_Mcpserversigv4_ToolDetail { get; set; }
             public List<System.String> Configuration_Mcpserversigv4_Tool { get; set; }
             public Amazon.DevOpsAgent.Model.MCPServerSplunkConfiguration Configuration_Mcpserversplunk { get; set; }
+            public System.Boolean? Configuration_Msteams_Bidirectional_Enabled { get; set; }
+            public System.String Configuration_Msteams_Bidirectional_RoleArn { get; set; }
             public System.String Configuration_Msteams_TeamId { get; set; }
             public System.String Configuration_Msteams_TeamName { get; set; }
             public System.String Configuration_Msteams_TransmissionTarget_OpsOncallTarget_ChannelId { get; set; }

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2EnclaveCertificateIamRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssociateEnclaveCertificateIamRoleResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateEnclaveCertificateIamRole API operation.", Operation = new[] {"AssociateEnclaveCertificateIamRole"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateEnclaveCertificateIamRoleResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateEnclaveCertificateIamRole API operation.", Operation = new[] {"AssociateEnclaveCertificateIamRole"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateEnclaveCertificateIamRoleResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssociateEnclaveCertificateIamRoleResponse",
         "This cmdlet returns an Amazon.EC2.Model.AssociateEnclaveCertificateIamRoleResponse object containing multiple properties."
     )]
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateEnclaveCertificateIamRoleResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateEnclaveCertificateIamRoleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateEnclaveCertificateIamRole");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateEnclaveCertificateIamRole");
             try
             {
                 return client.AssociateEnclaveCertificateIamRoleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

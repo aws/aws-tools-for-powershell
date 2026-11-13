@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2RouteTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteRouteTable API operation.", Operation = new[] {"DeleteRouteTable"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteRouteTableResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteRouteTable API operation.", Operation = new[] {"DeleteRouteTable"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteRouteTableResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteRouteTableResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteRouteTableResponse) be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteRouteTableResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteRouteTableRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteRouteTable");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteRouteTable");
             try
             {
                 return client.DeleteRouteTableAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

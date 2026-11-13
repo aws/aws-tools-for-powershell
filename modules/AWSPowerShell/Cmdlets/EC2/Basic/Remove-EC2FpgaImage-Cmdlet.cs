@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2FpgaImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteFpgaImage API operation.", Operation = new[] {"DeleteFpgaImage"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteFpgaImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteFpgaImage API operation.", Operation = new[] {"DeleteFpgaImage"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteFpgaImageResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DeleteFpgaImageResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DeleteFpgaImageResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteFpgaImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteFpgaImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteFpgaImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteFpgaImage");
             try
             {
                 return client.DeleteFpgaImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

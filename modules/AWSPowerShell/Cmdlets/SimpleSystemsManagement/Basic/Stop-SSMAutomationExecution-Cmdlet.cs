@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Stop", "SSMAutomationExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager StopAutomationExecution API operation.", Operation = new[] {"StopAutomationExecution"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) StopAutomationExecution API operation.", Operation = new[] {"StopAutomationExecution"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse) be returned by specifying '-Select *'."
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "StopAutomationExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "StopAutomationExecution");
             try
             {
                 return client.StopAutomationExecutionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

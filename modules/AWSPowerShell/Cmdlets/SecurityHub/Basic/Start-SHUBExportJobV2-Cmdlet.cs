@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Start", "SHUBExportJobV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Hub StartExportJobV2 API operation.", Operation = new[] {"StartExportJobV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.StartExportJobV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub StartExportJobV2 API operation.", Operation = new[] {"StartExportJobV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.StartExportJobV2Response))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.StartExportJobV2Response",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SecurityHub.Model.StartExportJobV2Response) can be returned by specifying '-Select *'."
@@ -496,7 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.StartExportJobV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.StartExportJobV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "StartExportJobV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "StartExportJobV2");
             try
             {
                 return client.StartExportJobV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

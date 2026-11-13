@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2AccountVpcEncryptionControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AccountVpcEncryptionControl")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyAccountVpcEncryptionControl API operation.", Operation = new[] {"ModifyAccountVpcEncryptionControl"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyAccountVpcEncryptionControlResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyAccountVpcEncryptionControl API operation.", Operation = new[] {"ModifyAccountVpcEncryptionControl"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyAccountVpcEncryptionControlResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AccountVpcEncryptionControl or Amazon.EC2.Model.ModifyAccountVpcEncryptionControlResponse",
         "This cmdlet returns an Amazon.EC2.Model.AccountVpcEncryptionControl object.",
         "The service call response (type Amazon.EC2.Model.ModifyAccountVpcEncryptionControlResponse) can be returned by specifying '-Select *'."
@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyAccountVpcEncryptionControlResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyAccountVpcEncryptionControlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyAccountVpcEncryptionControl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyAccountVpcEncryptionControl");
             try
             {
                 return client.ModifyAccountVpcEncryptionControlAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

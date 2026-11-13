@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VpnConcentrator")]
     [OutputType("Amazon.EC2.Model.VpnConcentrator")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVpnConcentrators API operation.", Operation = new[] {"DescribeVpnConcentrators"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpnConcentratorsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVpnConcentrators API operation.", Operation = new[] {"DescribeVpnConcentrators"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpnConcentratorsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpnConcentrator or Amazon.EC2.Model.DescribeVpnConcentratorsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.VpnConcentrator objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVpnConcentratorsResponse) can be returned by specifying '-Select *'."
@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVpnConcentratorsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVpnConcentratorsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVpnConcentrators");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVpnConcentrators");
             try
             {
                 return client.DescribeVpnConcentratorsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

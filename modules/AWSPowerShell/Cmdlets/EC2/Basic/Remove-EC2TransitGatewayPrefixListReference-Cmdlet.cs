@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2TransitGatewayPrefixListReference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.TransitGatewayPrefixListReference")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTransitGatewayPrefixListReference API operation.", Operation = new[] {"DeleteTransitGatewayPrefixListReference"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayPrefixListReferenceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteTransitGatewayPrefixListReference API operation.", Operation = new[] {"DeleteTransitGatewayPrefixListReference"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayPrefixListReferenceResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayPrefixListReference or Amazon.EC2.Model.DeleteTransitGatewayPrefixListReferenceResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayPrefixListReference object.",
         "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayPrefixListReferenceResponse) can be returned by specifying '-Select *'."
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteTransitGatewayPrefixListReferenceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTransitGatewayPrefixListReferenceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteTransitGatewayPrefixListReference");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteTransitGatewayPrefixListReference");
             try
             {
                 return client.DeleteTransitGatewayPrefixListReferenceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

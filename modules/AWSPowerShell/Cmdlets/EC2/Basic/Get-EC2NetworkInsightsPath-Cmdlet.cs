@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2NetworkInsightsPath")]
     [OutputType("Amazon.EC2.Model.NetworkInsightsPath")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeNetworkInsightsPaths API operation.", Operation = new[] {"DescribeNetworkInsightsPaths"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkInsightsPathsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeNetworkInsightsPaths API operation.", Operation = new[] {"DescribeNetworkInsightsPaths"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkInsightsPathsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInsightsPath or Amazon.EC2.Model.DescribeNetworkInsightsPathsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.NetworkInsightsPath objects.",
         "The service call response (type Amazon.EC2.Model.DescribeNetworkInsightsPathsResponse) can be returned by specifying '-Select *'."
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeNetworkInsightsPathsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeNetworkInsightsPathsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeNetworkInsightsPaths");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeNetworkInsightsPaths");
             try
             {
                 return client.DescribeNetworkInsightsPathsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

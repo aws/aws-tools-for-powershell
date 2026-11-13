@@ -37,17 +37,20 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     ///  
     /// <para>
     /// You can use the <c>Scopes</c> parameter to define the data boundary for the query.
-    /// Currently, <c>Scopes</c> supports <c>AwsOrganizations</c>, which lets you retrieve
-    /// resources from your entire organization or from specific organizational units. Only
-    /// the delegated administrator account can use <c>Scopes</c>.
+    /// Currently, <c>Scopes</c> supports <c>AwsOrganizations</c>. With <c>AwsOrganizations</c>,
+    /// you can retrieve resources from your entire organization or from specific organizational
+    /// units. Only the delegated administrator account can use <c>Scopes</c>.
     /// </para><para>
     /// You can use the <c>Filters</c> parameter to further refine results based on resource
     /// attributes, such as <c>ResourceType</c> or <c>Region</c>.
+    /// </para><para>
+    /// This operation returns paginated results. To retrieve additional results, use the
+    /// <c>NextToken</c> value from the previous response.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBSoftwareResourcesV2")]
     [OutputType("Amazon.SecurityHub.Model.SoftwareResourceResult")]
-    [AWSCmdlet("Calls the AWS Security Hub GetSoftwareResourcesV2 API operation.", Operation = new[] {"GetSoftwareResourcesV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetSoftwareResourcesV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetSoftwareResourcesV2 API operation.", Operation = new[] {"GetSoftwareResourcesV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetSoftwareResourcesV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.SoftwareResourceResult or Amazon.SecurityHub.Model.GetSoftwareResourcesV2Response",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.SoftwareResourceResult objects.",
         "The service call response (type Amazon.SecurityHub.Model.GetSoftwareResourcesV2Response) can be returned by specifying '-Select *'."
@@ -425,7 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetSoftwareResourcesV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetSoftwareResourcesV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetSoftwareResourcesV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetSoftwareResourcesV2");
             try
             {
                 return client.GetSoftwareResourcesV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

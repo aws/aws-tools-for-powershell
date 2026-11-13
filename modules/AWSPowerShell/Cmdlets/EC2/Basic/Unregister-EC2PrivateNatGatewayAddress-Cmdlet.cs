@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2PrivateNatGatewayAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) UnassignPrivateNatGatewayAddress API operation.", Operation = new[] {"UnassignPrivateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud UnassignPrivateNatGatewayAddress API operation.", Operation = new[] {"UnassignPrivateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse",
         "This cmdlet returns an Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse object containing multiple properties."
     )]
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UnassignPrivateNatGatewayAddressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "UnassignPrivateNatGatewayAddress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "UnassignPrivateNatGatewayAddress");
             try
             {
                 return client.UnassignPrivateNatGatewayAddressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Get", "VPCLResourcePolicy")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the VPC Lattice GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetResourcePolicyResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.VPCLattice.Model.GetResourcePolicyResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.VPCLattice.Model.GetResourcePolicyResponse) can be returned by specifying '-Select *'."
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.GetResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "GetResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "GetResourcePolicy");
             try
             {
                 return client.GetResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

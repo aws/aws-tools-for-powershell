@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMCloudConnector")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetCloudConnectorResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetCloudConnector API operation.", Operation = new[] {"GetCloudConnector"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetCloudConnectorResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetCloudConnector API operation.", Operation = new[] {"GetCloudConnector"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetCloudConnectorResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetCloudConnectorResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetCloudConnectorResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetCloudConnectorResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetCloudConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetCloudConnector");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetCloudConnector");
             try
             {
                 return client.GetCloudConnectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

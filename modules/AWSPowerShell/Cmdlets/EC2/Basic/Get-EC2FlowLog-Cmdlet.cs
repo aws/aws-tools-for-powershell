@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2FlowLog")]
     [OutputType("Amazon.EC2.Model.FlowLog")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeFlowLogs API operation.", Operation = new[] {"DescribeFlowLogs"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeFlowLogsResponse), LegacyAlias="Get-EC2FlowLogs")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeFlowLogs API operation.", Operation = new[] {"DescribeFlowLogs"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeFlowLogsResponse), LegacyAlias="Get-EC2FlowLogs")]
     [AWSCmdletOutput("Amazon.EC2.Model.FlowLog or Amazon.EC2.Model.DescribeFlowLogsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.FlowLog objects.",
         "The service call response (type Amazon.EC2.Model.DescribeFlowLogsResponse) can be returned by specifying '-Select *'."
@@ -381,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeFlowLogsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeFlowLogsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeFlowLogs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeFlowLogs");
             try
             {
                 return client.DescribeFlowLogsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

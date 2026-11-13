@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status of the queues listed.</para><ul><li><para><c>ACTIVE</c>–The queues are active.</para></li><li><para><c>SCHEDULING</c>–The queues are scheduling.</para></li><li><para><c>SCHEDULING_BLOCKED</c>–The queue scheduling is blocked for these queues.</para></li></ul>
+        /// <para>The status of the queues listed.</para><ul><li><para><c>ACTIVE</c> - The queues are active.</para></li><li><para><c>SCHEDULING</c> - The queues are scheduling.</para></li><li><para><c>SCHEDULING_BLOCKED</c> - The queue scheduling is blocked for these queues.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

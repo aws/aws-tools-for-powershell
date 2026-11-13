@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ElasticGpu")]
     [OutputType("Amazon.EC2.Model.ElasticGpus")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeElasticGpus API operation.", Operation = new[] {"DescribeElasticGpus"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeElasticGpusResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeElasticGpus API operation.", Operation = new[] {"DescribeElasticGpus"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeElasticGpusResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ElasticGpus or Amazon.EC2.Model.DescribeElasticGpusResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ElasticGpus objects.",
         "The service call response (type Amazon.EC2.Model.DescribeElasticGpusResponse) can be returned by specifying '-Select *'."
@@ -384,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeElasticGpusResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeElasticGpusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeElasticGpus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeElasticGpus");
             try
             {
                 return client.DescribeElasticGpusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

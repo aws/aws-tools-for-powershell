@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamByoasn")]
     [OutputType("Amazon.EC2.Model.Byoasn")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeIpamByoasn API operation.", Operation = new[] {"DescribeIpamByoasn"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeIpamByoasnResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeIpamByoasn API operation.", Operation = new[] {"DescribeIpamByoasn"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeIpamByoasnResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Byoasn or Amazon.EC2.Model.DescribeIpamByoasnResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Byoasn objects.",
         "The service call response (type Amazon.EC2.Model.DescribeIpamByoasnResponse) can be returned by specifying '-Select *'."
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeIpamByoasnResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeIpamByoasnRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeIpamByoasn");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeIpamByoasn");
             try
             {
                 return client.DescribeIpamByoasnAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

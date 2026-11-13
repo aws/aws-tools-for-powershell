@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2ManagedResourceVisibility", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ManagedResourceVisibilitySettings")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyManagedResourceVisibility API operation.", Operation = new[] {"ModifyManagedResourceVisibility"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyManagedResourceVisibilityResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyManagedResourceVisibility API operation.", Operation = new[] {"ModifyManagedResourceVisibility"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyManagedResourceVisibilityResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ManagedResourceVisibilitySettings or Amazon.EC2.Model.ModifyManagedResourceVisibilityResponse",
         "This cmdlet returns an Amazon.EC2.Model.ManagedResourceVisibilitySettings object.",
         "The service call response (type Amazon.EC2.Model.ModifyManagedResourceVisibilityResponse) can be returned by specifying '-Select *'."
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyManagedResourceVisibilityResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyManagedResourceVisibilityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyManagedResourceVisibility");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyManagedResourceVisibility");
             try
             {
                 return client.ModifyManagedResourceVisibilityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

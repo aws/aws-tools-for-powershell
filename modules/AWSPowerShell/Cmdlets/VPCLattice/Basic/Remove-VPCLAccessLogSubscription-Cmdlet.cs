@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLAccessLogSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteAccessLogSubscription API operation.", Operation = new[] {"DeleteAccessLogSubscription"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteAccessLogSubscriptionResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteAccessLogSubscription API operation.", Operation = new[] {"DeleteAccessLogSubscription"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteAccessLogSubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteAccessLogSubscriptionResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.DeleteAccessLogSubscriptionResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteAccessLogSubscriptionResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteAccessLogSubscriptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteAccessLogSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteAccessLogSubscription");
             try
             {
                 return client.DeleteAccessLogSubscriptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

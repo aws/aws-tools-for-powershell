@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2PublicIpv4Pool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreatePublicIpv4Pool API operation.", Operation = new[] {"CreatePublicIpv4Pool"}, SelectReturnType = typeof(Amazon.EC2.Model.CreatePublicIpv4PoolResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreatePublicIpv4Pool API operation.", Operation = new[] {"CreatePublicIpv4Pool"}, SelectReturnType = typeof(Amazon.EC2.Model.CreatePublicIpv4PoolResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.CreatePublicIpv4PoolResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.CreatePublicIpv4PoolResponse) can be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreatePublicIpv4PoolResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreatePublicIpv4PoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreatePublicIpv4Pool");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreatePublicIpv4Pool");
             try
             {
                 return client.CreatePublicIpv4PoolAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

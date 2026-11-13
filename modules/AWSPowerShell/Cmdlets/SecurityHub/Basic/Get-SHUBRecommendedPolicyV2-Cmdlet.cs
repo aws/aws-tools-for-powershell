@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBRecommendedPolicyV2")]
     [OutputType("Amazon.SecurityHub.Model.GetRecommendedPolicyV2Response")]
-    [AWSCmdlet("Calls the AWS Security Hub GetRecommendedPolicyV2 API operation.", Operation = new[] {"GetRecommendedPolicyV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetRecommendedPolicyV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetRecommendedPolicyV2 API operation.", Operation = new[] {"GetRecommendedPolicyV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetRecommendedPolicyV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.GetRecommendedPolicyV2Response",
         "This cmdlet returns an Amazon.SecurityHub.Model.GetRecommendedPolicyV2Response object containing multiple properties."
     )]
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetRecommendedPolicyV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetRecommendedPolicyV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetRecommendedPolicyV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetRecommendedPolicyV2");
             try
             {
                 return client.GetRecommendedPolicyV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

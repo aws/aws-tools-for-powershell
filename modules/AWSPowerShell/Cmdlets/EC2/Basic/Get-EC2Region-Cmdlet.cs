@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2Region")]
     [OutputType("Amazon.EC2.Model.Region")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeRegions API operation.", Operation = new[] {"DescribeRegions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeRegionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeRegions API operation.", Operation = new[] {"DescribeRegions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeRegionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Region or Amazon.EC2.Model.DescribeRegionsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Region objects.",
         "The service call response (type Amazon.EC2.Model.DescribeRegionsResponse) can be returned by specifying '-Select *'."
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeRegionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeRegionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeRegions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeRegions");
             try
             {
                 return client.DescribeRegionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

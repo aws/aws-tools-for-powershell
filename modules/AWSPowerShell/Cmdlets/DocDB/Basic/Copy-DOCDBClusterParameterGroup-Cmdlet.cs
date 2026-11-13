@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Copy", "DOCDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBClusterParameterGroup")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) CopyDBClusterParameterGroup API operation.", Operation = new[] {"CopyDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.CopyDBClusterParameterGroupResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility CopyDBClusterParameterGroup API operation.", Operation = new[] {"CopyDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.CopyDBClusterParameterGroupResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBClusterParameterGroup or Amazon.DocDB.Model.CopyDBClusterParameterGroupResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBClusterParameterGroup object.",
         "The service call response (type Amazon.DocDB.Model.CopyDBClusterParameterGroupResponse) can be returned by specifying '-Select *'."
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.CopyDBClusterParameterGroupResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.CopyDBClusterParameterGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "CopyDBClusterParameterGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "CopyDBClusterParameterGroup");
             try
             {
                 return client.CopyDBClusterParameterGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

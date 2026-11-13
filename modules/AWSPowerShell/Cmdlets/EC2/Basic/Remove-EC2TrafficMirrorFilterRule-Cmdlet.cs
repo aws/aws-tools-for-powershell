@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2TrafficMirrorFilterRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTrafficMirrorFilterRule API operation.", Operation = new[] {"DeleteTrafficMirrorFilterRule"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTrafficMirrorFilterRuleResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteTrafficMirrorFilterRule API operation.", Operation = new[] {"DeleteTrafficMirrorFilterRule"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTrafficMirrorFilterRuleResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.DeleteTrafficMirrorFilterRuleResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.DeleteTrafficMirrorFilterRuleResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteTrafficMirrorFilterRuleResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTrafficMirrorFilterRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteTrafficMirrorFilterRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteTrafficMirrorFilterRule");
             try
             {
                 return client.DeleteTrafficMirrorFilterRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

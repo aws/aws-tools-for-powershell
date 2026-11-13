@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2CapacityReservationCancellationQuote", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CapacityReservationCancellationQuote")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateCapacityReservationCancellationQuote API operation.", Operation = new[] {"CreateCapacityReservationCancellationQuote"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateCapacityReservationCancellationQuote API operation.", Operation = new[] {"CreateCapacityReservationCancellationQuote"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CapacityReservationCancellationQuote or Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse",
         "This cmdlet returns an Amazon.EC2.Model.CapacityReservationCancellationQuote object.",
         "The service call response (type Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse) can be returned by specifying '-Select *'."
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateCapacityReservationCancellationQuoteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateCapacityReservationCancellationQuote");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateCapacityReservationCancellationQuote");
             try
             {
                 return client.CreateCapacityReservationCancellationQuoteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

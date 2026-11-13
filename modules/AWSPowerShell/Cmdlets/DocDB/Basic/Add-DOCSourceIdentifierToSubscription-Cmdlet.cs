@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Add", "DOCSourceIdentifierToSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.EventSubscription")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) AddSourceIdentifierToSubscription API operation.", Operation = new[] {"AddSourceIdentifierToSubscription"}, SelectReturnType = typeof(Amazon.DocDB.Model.AddSourceIdentifierToSubscriptionResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility AddSourceIdentifierToSubscription API operation.", Operation = new[] {"AddSourceIdentifierToSubscription"}, SelectReturnType = typeof(Amazon.DocDB.Model.AddSourceIdentifierToSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.EventSubscription or Amazon.DocDB.Model.AddSourceIdentifierToSubscriptionResponse",
         "This cmdlet returns an Amazon.DocDB.Model.EventSubscription object.",
         "The service call response (type Amazon.DocDB.Model.AddSourceIdentifierToSubscriptionResponse) can be returned by specifying '-Select *'."
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.AddSourceIdentifierToSubscriptionResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.AddSourceIdentifierToSubscriptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "AddSourceIdentifierToSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "AddSourceIdentifierToSubscription");
             try
             {
                 return client.AddSourceIdentifierToSubscriptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

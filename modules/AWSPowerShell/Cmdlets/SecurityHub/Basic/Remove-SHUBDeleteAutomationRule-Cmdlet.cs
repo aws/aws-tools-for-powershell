@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Remove", "SHUBDeleteAutomationRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SecurityHub.Model.BatchDeleteAutomationRulesResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub BatchDeleteAutomationRules API operation.", Operation = new[] {"BatchDeleteAutomationRules"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchDeleteAutomationRulesResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub BatchDeleteAutomationRules API operation.", Operation = new[] {"BatchDeleteAutomationRules"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchDeleteAutomationRulesResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.BatchDeleteAutomationRulesResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.BatchDeleteAutomationRulesResponse object containing multiple properties."
     )]
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.BatchDeleteAutomationRulesResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.BatchDeleteAutomationRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "BatchDeleteAutomationRules");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "BatchDeleteAutomationRules");
             try
             {
                 return client.BatchDeleteAutomationRulesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

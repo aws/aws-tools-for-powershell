@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMOpsSummary")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.OpsEntity")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetOpsSummary API operation.", Operation = new[] {"GetOpsSummary"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetOpsSummaryResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetOpsSummary API operation.", Operation = new[] {"GetOpsSummary"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetOpsSummaryResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.OpsEntity or Amazon.SimpleSystemsManagement.Model.GetOpsSummaryResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.OpsEntity objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetOpsSummaryResponse) can be returned by specifying '-Select *'."
@@ -417,7 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetOpsSummaryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetOpsSummaryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetOpsSummary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetOpsSummary");
             try
             {
                 return client.GetOpsSummaryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

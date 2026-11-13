@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2Template")]
     [OutputType("Amazon.EC2.Model.LaunchTemplate")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeLaunchTemplates API operation.", Operation = new[] {"DescribeLaunchTemplates"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeLaunchTemplatesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeLaunchTemplates API operation.", Operation = new[] {"DescribeLaunchTemplates"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeLaunchTemplatesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LaunchTemplate or Amazon.EC2.Model.DescribeLaunchTemplatesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.LaunchTemplate objects.",
         "The service call response (type Amazon.EC2.Model.DescribeLaunchTemplatesResponse) can be returned by specifying '-Select *'."
@@ -430,7 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeLaunchTemplatesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeLaunchTemplatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeLaunchTemplates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeLaunchTemplates");
             try
             {
                 return client.DescribeLaunchTemplatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

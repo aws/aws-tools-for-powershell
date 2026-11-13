@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2AssociatedIpv6PoolCidr")]
     [OutputType("Amazon.EC2.Model.Ipv6CidrAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetAssociatedIpv6PoolCidrs API operation.", Operation = new[] {"GetAssociatedIpv6PoolCidrs"}, SelectReturnType = typeof(Amazon.EC2.Model.GetAssociatedIpv6PoolCidrsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetAssociatedIpv6PoolCidrs API operation.", Operation = new[] {"GetAssociatedIpv6PoolCidrs"}, SelectReturnType = typeof(Amazon.EC2.Model.GetAssociatedIpv6PoolCidrsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Ipv6CidrAssociation or Amazon.EC2.Model.GetAssociatedIpv6PoolCidrsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Ipv6CidrAssociation objects.",
         "The service call response (type Amazon.EC2.Model.GetAssociatedIpv6PoolCidrsResponse) can be returned by specifying '-Select *'."
@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetAssociatedIpv6PoolCidrsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetAssociatedIpv6PoolCidrsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetAssociatedIpv6PoolCidrs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetAssociatedIpv6PoolCidrs");
             try
             {
                 return client.GetAssociatedIpv6PoolCidrsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

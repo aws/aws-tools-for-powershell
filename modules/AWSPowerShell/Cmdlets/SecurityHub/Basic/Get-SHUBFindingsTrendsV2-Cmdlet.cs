@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBFindingsTrendsV2")]
     [OutputType("Amazon.SecurityHub.Model.GetFindingsTrendsV2Response")]
-    [AWSCmdlet("Calls the AWS Security Hub GetFindingsTrendsV2 API operation.", Operation = new[] {"GetFindingsTrendsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingsTrendsV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetFindingsTrendsV2 API operation.", Operation = new[] {"GetFindingsTrendsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingsTrendsV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.GetFindingsTrendsV2Response",
         "This cmdlet returns an Amazon.SecurityHub.Model.GetFindingsTrendsV2Response object containing multiple properties."
     )]
@@ -324,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetFindingsTrendsV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetFindingsTrendsV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetFindingsTrendsV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetFindingsTrendsV2");
             try
             {
                 return client.GetFindingsTrendsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

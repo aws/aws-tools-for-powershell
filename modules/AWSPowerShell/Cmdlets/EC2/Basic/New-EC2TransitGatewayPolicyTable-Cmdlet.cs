@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2TransitGatewayPolicyTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayPolicyTable")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTransitGatewayPolicyTable API operation.", Operation = new[] {"CreateTransitGatewayPolicyTable"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateTransitGatewayPolicyTable API operation.", Operation = new[] {"CreateTransitGatewayPolicyTable"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayPolicyTable or Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayPolicyTable object.",
         "The service call response (type Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse) can be returned by specifying '-Select *'."
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateTransitGatewayPolicyTableResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateTransitGatewayPolicyTableRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateTransitGatewayPolicyTable");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateTransitGatewayPolicyTable");
             try
             {
                 return client.CreateTransitGatewayPolicyTableAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

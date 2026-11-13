@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMPatchBaselineForPatchGroup")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetPatchBaselineForPatchGroup API operation.", Operation = new[] {"GetPatchBaselineForPatchGroup"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetPatchBaselineForPatchGroup API operation.", Operation = new[] {"GetPatchBaselineForPatchGroup"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupResponse object containing multiple properties."
     )]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetPatchBaselineForPatchGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetPatchBaselineForPatchGroup");
             try
             {
                 return client.GetPatchBaselineForPatchGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

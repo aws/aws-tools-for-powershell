@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Disable", "SHUBOrganizationAdminAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub DisableOrganizationAdminAccount API operation.", Operation = new[] {"DisableOrganizationAdminAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisableOrganizationAdminAccountResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DisableOrganizationAdminAccount API operation.", Operation = new[] {"DisableOrganizationAdminAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisableOrganizationAdminAccountResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DisableOrganizationAdminAccountResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.DisableOrganizationAdminAccountResponse) be returned by specifying '-Select *'."
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DisableOrganizationAdminAccountResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DisableOrganizationAdminAccountRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DisableOrganizationAdminAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DisableOrganizationAdminAccount");
             try
             {
                 return client.DisableOrganizationAdminAccountAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

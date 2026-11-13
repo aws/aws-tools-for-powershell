@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Host", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.ReleaseHostsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReleaseHosts API operation.", Operation = new[] {"ReleaseHosts"}, SelectReturnType = typeof(Amazon.EC2.Model.ReleaseHostsResponse), LegacyAlias="ReleaseHosts")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReleaseHosts API operation.", Operation = new[] {"ReleaseHosts"}, SelectReturnType = typeof(Amazon.EC2.Model.ReleaseHostsResponse), LegacyAlias="ReleaseHosts")]
     [AWSCmdletOutput("Amazon.EC2.Model.ReleaseHostsResponse",
         "This cmdlet returns an Amazon.EC2.Model.ReleaseHostsResponse object containing multiple properties."
     )]
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ReleaseHostsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReleaseHostsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ReleaseHosts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReleaseHosts");
             try
             {
                 return client.ReleaseHostsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

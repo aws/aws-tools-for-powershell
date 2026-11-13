@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMResourceTag")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Tag")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Tag or Amazon.SimpleSystemsManagement.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.Tag objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

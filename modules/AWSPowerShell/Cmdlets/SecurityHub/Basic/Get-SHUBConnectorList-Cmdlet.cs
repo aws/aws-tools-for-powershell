@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBConnectorList")]
     [OutputType("Amazon.SecurityHub.Model.CspmConnectorSummary")]
-    [AWSCmdlet("Calls the AWS Security Hub ListConnectors API operation.", Operation = new[] {"ListConnectors"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListConnectorsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListConnectors API operation.", Operation = new[] {"ListConnectors"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListConnectorsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.CspmConnectorSummary or Amazon.SecurityHub.Model.ListConnectorsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.CspmConnectorSummary objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListConnectorsResponse) can be returned by specifying '-Select *'."
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListConnectorsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListConnectorsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListConnectors");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListConnectors");
             try
             {
                 return client.ListConnectorsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

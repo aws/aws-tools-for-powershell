@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2LocalGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.LocalGatewayRoute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyLocalGatewayRoute API operation.", Operation = new[] {"ModifyLocalGatewayRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyLocalGatewayRouteResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyLocalGatewayRoute API operation.", Operation = new[] {"ModifyLocalGatewayRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyLocalGatewayRouteResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRoute or Amazon.EC2.Model.ModifyLocalGatewayRouteResponse",
         "This cmdlet returns an Amazon.EC2.Model.LocalGatewayRoute object.",
         "The service call response (type Amazon.EC2.Model.ModifyLocalGatewayRouteResponse) can be returned by specifying '-Select *'."
@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyLocalGatewayRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyLocalGatewayRouteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyLocalGatewayRoute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyLocalGatewayRoute");
             try
             {
                 return client.ModifyLocalGatewayRouteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

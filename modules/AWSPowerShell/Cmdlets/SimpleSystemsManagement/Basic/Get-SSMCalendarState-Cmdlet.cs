@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMCalendarState")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetCalendarState API operation.", Operation = new[] {"GetCalendarState"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetCalendarState API operation.", Operation = new[] {"GetCalendarState"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse object containing multiple properties."
     )]
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetCalendarStateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetCalendarState");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetCalendarState");
             try
             {
                 return client.GetCalendarStateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

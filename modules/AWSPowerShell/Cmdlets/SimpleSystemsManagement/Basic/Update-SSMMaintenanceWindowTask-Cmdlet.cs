@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMMaintenanceWindowTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateMaintenanceWindowTask API operation.", Operation = new[] {"UpdateMaintenanceWindowTask"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) UpdateMaintenanceWindowTask API operation.", Operation = new[] {"UpdateMaintenanceWindowTask"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskResponse object containing multiple properties."
     )]
@@ -1254,7 +1254,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateMaintenanceWindowTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "UpdateMaintenanceWindowTask");
             try
             {
                 return client.UpdateMaintenanceWindowTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

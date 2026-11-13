@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Import", "EC2KeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName="PreEncodedToBase64")]
     [OutputType("Amazon.EC2.Model.ImportKeyPairResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ImportKeyPair API operation.", Operation = new[] {"ImportKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportKeyPairResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ImportKeyPair API operation.", Operation = new[] {"ImportKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportKeyPairResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportKeyPairResponse",
         "This cmdlet returns an Amazon.EC2.Model.ImportKeyPairResponse object containing multiple properties."
     )]
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ImportKeyPairResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportKeyPairRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ImportKeyPair");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ImportKeyPair");
             try
             {
                 return client.ImportKeyPairAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

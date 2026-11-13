@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Disable", "SHUBSecurityHub", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub DisableSecurityHub API operation.", Operation = new[] {"DisableSecurityHub"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisableSecurityHubResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DisableSecurityHub API operation.", Operation = new[] {"DisableSecurityHub"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisableSecurityHubResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DisableSecurityHubResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.DisableSecurityHubResponse) be returned by specifying '-Select *'."
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DisableSecurityHubResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DisableSecurityHubRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DisableSecurityHub");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DisableSecurityHub");
             try
             {
                 return client.DisableSecurityHubAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

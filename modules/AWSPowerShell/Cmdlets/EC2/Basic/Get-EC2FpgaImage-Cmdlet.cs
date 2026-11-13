@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2FpgaImage")]
     [OutputType("Amazon.EC2.Model.FpgaImage")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeFpgaImages API operation.", Operation = new[] {"DescribeFpgaImages"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeFpgaImagesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeFpgaImages API operation.", Operation = new[] {"DescribeFpgaImages"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeFpgaImagesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.FpgaImage or Amazon.EC2.Model.DescribeFpgaImagesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.FpgaImage objects.",
         "The service call response (type Amazon.EC2.Model.DescribeFpgaImagesResponse) can be returned by specifying '-Select *'."
@@ -412,7 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeFpgaImagesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeFpgaImagesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeFpgaImages");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeFpgaImages");
             try
             {
                 return client.DescribeFpgaImagesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

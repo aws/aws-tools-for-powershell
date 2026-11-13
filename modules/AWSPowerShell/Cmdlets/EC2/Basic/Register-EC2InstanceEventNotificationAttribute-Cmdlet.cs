@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2InstanceEventNotificationAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.InstanceTagNotificationAttribute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RegisterInstanceEventNotificationAttributes API operation.", Operation = new[] {"RegisterInstanceEventNotificationAttributes"}, SelectReturnType = typeof(Amazon.EC2.Model.RegisterInstanceEventNotificationAttributesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RegisterInstanceEventNotificationAttributes API operation.", Operation = new[] {"RegisterInstanceEventNotificationAttributes"}, SelectReturnType = typeof(Amazon.EC2.Model.RegisterInstanceEventNotificationAttributesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceTagNotificationAttribute or Amazon.EC2.Model.RegisterInstanceEventNotificationAttributesResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceTagNotificationAttribute object.",
         "The service call response (type Amazon.EC2.Model.RegisterInstanceEventNotificationAttributesResponse) can be returned by specifying '-Select *'."
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RegisterInstanceEventNotificationAttributesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RegisterInstanceEventNotificationAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RegisterInstanceEventNotificationAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RegisterInstanceEventNotificationAttributes");
             try
             {
                 return client.RegisterInstanceEventNotificationAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

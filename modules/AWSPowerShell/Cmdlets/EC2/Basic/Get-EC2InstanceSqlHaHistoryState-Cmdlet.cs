@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2InstanceSqlHaHistoryState")]
     [OutputType("Amazon.EC2.Model.RegisteredInstance")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstanceSqlHaHistoryStates API operation.", Operation = new[] {"DescribeInstanceSqlHaHistoryStates"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceSqlHaHistoryStatesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeInstanceSqlHaHistoryStates API operation.", Operation = new[] {"DescribeInstanceSqlHaHistoryStates"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceSqlHaHistoryStatesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RegisteredInstance or Amazon.EC2.Model.DescribeInstanceSqlHaHistoryStatesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.RegisteredInstance objects.",
         "The service call response (type Amazon.EC2.Model.DescribeInstanceSqlHaHistoryStatesResponse) can be returned by specifying '-Select *'."
@@ -299,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeInstanceSqlHaHistoryStatesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstanceSqlHaHistoryStatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeInstanceSqlHaHistoryStates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeInstanceSqlHaHistoryStates");
             try
             {
                 return client.DescribeInstanceSqlHaHistoryStatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

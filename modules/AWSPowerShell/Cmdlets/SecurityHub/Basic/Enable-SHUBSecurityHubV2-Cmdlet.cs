@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Enable", "SHUBSecurityHubV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Hub EnableSecurityHubV2 API operation.", Operation = new[] {"EnableSecurityHubV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.EnableSecurityHubV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub EnableSecurityHubV2 API operation.", Operation = new[] {"EnableSecurityHubV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.EnableSecurityHubV2Response))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.EnableSecurityHubV2Response",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SecurityHub.Model.EnableSecurityHubV2Response) can be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.EnableSecurityHubV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.EnableSecurityHubV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "EnableSecurityHubV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "EnableSecurityHubV2");
             try
             {
                 return client.EnableSecurityHubV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

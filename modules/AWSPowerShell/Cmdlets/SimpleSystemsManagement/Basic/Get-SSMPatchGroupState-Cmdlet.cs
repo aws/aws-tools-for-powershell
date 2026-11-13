@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMPatchGroupState")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribePatchGroupState API operation.", Operation = new[] {"DescribePatchGroupState"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribePatchGroupState API operation.", Operation = new[] {"DescribePatchGroupState"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribePatchGroupState");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribePatchGroupState");
             try
             {
                 return client.DescribePatchGroupStateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

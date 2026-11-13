@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ClientVpnEndpointAuthorizationPolicy")]
     [OutputType("Amazon.EC2.Model.GetClientVpnEndpointAuthorizationPolicyResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetClientVpnEndpointAuthorizationPolicy API operation.", Operation = new[] {"GetClientVpnEndpointAuthorizationPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.GetClientVpnEndpointAuthorizationPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetClientVpnEndpointAuthorizationPolicy API operation.", Operation = new[] {"GetClientVpnEndpointAuthorizationPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.GetClientVpnEndpointAuthorizationPolicyResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetClientVpnEndpointAuthorizationPolicyResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetClientVpnEndpointAuthorizationPolicyResponse object containing multiple properties."
     )]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetClientVpnEndpointAuthorizationPolicyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetClientVpnEndpointAuthorizationPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetClientVpnEndpointAuthorizationPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetClientVpnEndpointAuthorizationPolicy");
             try
             {
                 return client.GetClientVpnEndpointAuthorizationPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

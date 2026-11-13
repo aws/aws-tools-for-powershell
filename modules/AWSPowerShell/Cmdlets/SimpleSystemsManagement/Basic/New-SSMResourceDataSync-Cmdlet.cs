@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("New", "SSMResourceDataSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager CreateResourceDataSync API operation.", Operation = new[] {"CreateResourceDataSync"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateResourceDataSyncResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) CreateResourceDataSync API operation.", Operation = new[] {"CreateResourceDataSync"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateResourceDataSyncResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.CreateResourceDataSyncResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.CreateResourceDataSyncResponse) be returned by specifying '-Select *'."
@@ -552,7 +552,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.CreateResourceDataSyncResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateResourceDataSyncRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "CreateResourceDataSync");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "CreateResourceDataSync");
             try
             {
                 return client.CreateResourceDataSyncAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDocumentMetadataHistory")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ListDocumentMetadataHistoryResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListDocumentMetadataHistory API operation.", Operation = new[] {"ListDocumentMetadataHistory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListDocumentMetadataHistoryResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ListDocumentMetadataHistory API operation.", Operation = new[] {"ListDocumentMetadataHistory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListDocumentMetadataHistoryResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ListDocumentMetadataHistoryResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.ListDocumentMetadataHistoryResponse object containing multiple properties."
     )]
@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListDocumentMetadataHistoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListDocumentMetadataHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListDocumentMetadataHistory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ListDocumentMetadataHistory");
             try
             {
                 return client.ListDocumentMetadataHistoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

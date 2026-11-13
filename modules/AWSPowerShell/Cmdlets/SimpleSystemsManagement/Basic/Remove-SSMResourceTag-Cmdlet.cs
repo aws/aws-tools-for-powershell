@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse) be returned by specifying '-Select *'."
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "RemoveTagsFromResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "RemoveTagsFromResource");
             try
             {
                 return client.RemoveTagsFromResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

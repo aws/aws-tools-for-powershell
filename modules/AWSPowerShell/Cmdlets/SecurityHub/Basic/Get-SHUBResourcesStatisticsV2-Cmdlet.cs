@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBResourcesStatisticsV2")]
     [OutputType("Amazon.SecurityHub.Model.GroupByResult")]
-    [AWSCmdlet("Calls the AWS Security Hub GetResourcesStatisticsV2 API operation.", Operation = new[] {"GetResourcesStatisticsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetResourcesStatisticsV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetResourcesStatisticsV2 API operation.", Operation = new[] {"GetResourcesStatisticsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetResourcesStatisticsV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.GroupByResult or Amazon.SecurityHub.Model.GetResourcesStatisticsV2Response",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.GroupByResult objects.",
         "The service call response (type Amazon.SecurityHub.Model.GetResourcesStatisticsV2Response) can be returned by specifying '-Select *'."
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetResourcesStatisticsV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetResourcesStatisticsV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetResourcesStatisticsV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetResourcesStatisticsV2");
             try
             {
                 return client.GetResourcesStatisticsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

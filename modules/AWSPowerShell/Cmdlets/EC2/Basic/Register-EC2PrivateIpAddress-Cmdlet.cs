@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2PrivateIpAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssignedPrivateIpAddress")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssignPrivateIpAddresses API operation.", Operation = new[] {"AssignPrivateIpAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.AssignPrivateIpAddressesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssignPrivateIpAddresses API operation.", Operation = new[] {"AssignPrivateIpAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.AssignPrivateIpAddressesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssignedPrivateIpAddress or Amazon.EC2.Model.AssignPrivateIpAddressesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.AssignedPrivateIpAddress objects.",
         "The service call response (type Amazon.EC2.Model.AssignPrivateIpAddressesResponse) can be returned by specifying '-Select *'."
@@ -292,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssignPrivateIpAddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssignPrivateIpAddressesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssignPrivateIpAddresses");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssignPrivateIpAddresses");
             try
             {
                 return client.AssignPrivateIpAddressesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

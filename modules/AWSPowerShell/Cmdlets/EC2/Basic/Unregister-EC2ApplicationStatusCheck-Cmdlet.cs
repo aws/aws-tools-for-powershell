@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2ApplicationStatusCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DisassociateApplicationStatusCheckResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateApplicationStatusCheck API operation.", Operation = new[] {"DisassociateApplicationStatusCheck"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateApplicationStatusCheckResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateApplicationStatusCheck API operation.", Operation = new[] {"DisassociateApplicationStatusCheck"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateApplicationStatusCheckResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DisassociateApplicationStatusCheckResponse",
         "This cmdlet returns an Amazon.EC2.Model.DisassociateApplicationStatusCheckResponse object containing multiple properties."
     )]
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisassociateApplicationStatusCheckResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateApplicationStatusCheckRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisassociateApplicationStatusCheck");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateApplicationStatusCheck");
             try
             {
                 return client.DisassociateApplicationStatusCheckAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

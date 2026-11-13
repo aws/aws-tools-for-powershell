@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Search", "EC2LocalGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.LocalGatewayRoute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) SearchLocalGatewayRoutes API operation.", Operation = new[] {"SearchLocalGatewayRoutes"}, SelectReturnType = typeof(Amazon.EC2.Model.SearchLocalGatewayRoutesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud SearchLocalGatewayRoutes API operation.", Operation = new[] {"SearchLocalGatewayRoutes"}, SelectReturnType = typeof(Amazon.EC2.Model.SearchLocalGatewayRoutesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRoute or Amazon.EC2.Model.SearchLocalGatewayRoutesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.LocalGatewayRoute objects.",
         "The service call response (type Amazon.EC2.Model.SearchLocalGatewayRoutesResponse) can be returned by specifying '-Select *'."
@@ -392,7 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.SearchLocalGatewayRoutesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.SearchLocalGatewayRoutesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "SearchLocalGatewayRoutes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "SearchLocalGatewayRoutes");
             try
             {
                 return client.SearchLocalGatewayRoutesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

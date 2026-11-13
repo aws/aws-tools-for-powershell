@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Get", "VPCLAccessLogSubscriptionList")]
     [OutputType("Amazon.VPCLattice.Model.AccessLogSubscriptionSummary")]
-    [AWSCmdlet("Calls the VPC Lattice ListAccessLogSubscriptions API operation.", Operation = new[] {"ListAccessLogSubscriptions"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListAccessLogSubscriptionsResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice ListAccessLogSubscriptions API operation.", Operation = new[] {"ListAccessLogSubscriptions"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListAccessLogSubscriptionsResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.AccessLogSubscriptionSummary or Amazon.VPCLattice.Model.ListAccessLogSubscriptionsResponse",
         "This cmdlet returns a collection of Amazon.VPCLattice.Model.AccessLogSubscriptionSummary objects.",
         "The service call response (type Amazon.VPCLattice.Model.ListAccessLogSubscriptionsResponse) can be returned by specifying '-Select *'."
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.ListAccessLogSubscriptionsResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.ListAccessLogSubscriptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "ListAccessLogSubscriptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "ListAccessLogSubscriptions");
             try
             {
                 return client.ListAccessLogSubscriptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

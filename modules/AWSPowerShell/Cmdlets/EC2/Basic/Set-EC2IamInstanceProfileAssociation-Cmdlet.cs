@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Set", "EC2IamInstanceProfileAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IamInstanceProfileAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReplaceIamInstanceProfileAssociation API operation.", Operation = new[] {"ReplaceIamInstanceProfileAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceIamInstanceProfileAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReplaceIamInstanceProfileAssociation API operation.", Operation = new[] {"ReplaceIamInstanceProfileAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceIamInstanceProfileAssociationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IamInstanceProfileAssociation or Amazon.EC2.Model.ReplaceIamInstanceProfileAssociationResponse",
         "This cmdlet returns an Amazon.EC2.Model.IamInstanceProfileAssociation object.",
         "The service call response (type Amazon.EC2.Model.ReplaceIamInstanceProfileAssociationResponse) can be returned by specifying '-Select *'."
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ReplaceIamInstanceProfileAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceIamInstanceProfileAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ReplaceIamInstanceProfileAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReplaceIamInstanceProfileAssociation");
             try
             {
                 return client.ReplaceIamInstanceProfileAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

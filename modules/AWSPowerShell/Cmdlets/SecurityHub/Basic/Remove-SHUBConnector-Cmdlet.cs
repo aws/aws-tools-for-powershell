@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Remove", "SHUBConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SecurityHub.CspmEnablementStatus")]
-    [AWSCmdlet("Calls the AWS Security Hub DeleteConnector API operation.", Operation = new[] {"DeleteConnector"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteConnectorResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DeleteConnector API operation.", Operation = new[] {"DeleteConnector"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteConnectorResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.CspmEnablementStatus or Amazon.SecurityHub.Model.DeleteConnectorResponse",
         "This cmdlet returns an Amazon.SecurityHub.CspmEnablementStatus object.",
         "The service call response (type Amazon.SecurityHub.Model.DeleteConnectorResponse) can be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DeleteConnectorResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DeleteConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DeleteConnector");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DeleteConnector");
             try
             {
                 return client.DeleteConnectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

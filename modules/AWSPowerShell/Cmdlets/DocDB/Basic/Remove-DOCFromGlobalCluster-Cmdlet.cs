@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Remove", "DOCFromGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DocDB.Model.GlobalCluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) RemoveFromGlobalCluster API operation.", Operation = new[] {"RemoveFromGlobalCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.RemoveFromGlobalClusterResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility RemoveFromGlobalCluster API operation.", Operation = new[] {"RemoveFromGlobalCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.RemoveFromGlobalClusterResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.GlobalCluster or Amazon.DocDB.Model.RemoveFromGlobalClusterResponse",
         "This cmdlet returns an Amazon.DocDB.Model.GlobalCluster object.",
         "The service call response (type Amazon.DocDB.Model.RemoveFromGlobalClusterResponse) can be returned by specifying '-Select *'."
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.RemoveFromGlobalClusterResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.RemoveFromGlobalClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "RemoveFromGlobalCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "RemoveFromGlobalCluster");
             try
             {
                 return client.RemoveFromGlobalClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamDiscoveredPublicAddress")]
     [OutputType("Amazon.EC2.Model.GetIpamDiscoveredPublicAddressesResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamDiscoveredPublicAddresses API operation.", Operation = new[] {"GetIpamDiscoveredPublicAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamDiscoveredPublicAddressesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamDiscoveredPublicAddresses API operation.", Operation = new[] {"GetIpamDiscoveredPublicAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamDiscoveredPublicAddressesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetIpamDiscoveredPublicAddressesResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetIpamDiscoveredPublicAddressesResponse object containing multiple properties."
     )]
@@ -289,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamDiscoveredPublicAddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamDiscoveredPublicAddressesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamDiscoveredPublicAddresses");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamDiscoveredPublicAddresses");
             try
             {
                 return client.GetIpamDiscoveredPublicAddressesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

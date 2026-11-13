@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2IpamPrefixListResolverTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.IpamPrefixListResolverTarget")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteIpamPrefixListResolverTarget API operation.", Operation = new[] {"DeleteIpamPrefixListResolverTarget"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamPrefixListResolverTargetResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteIpamPrefixListResolverTarget API operation.", Operation = new[] {"DeleteIpamPrefixListResolverTarget"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamPrefixListResolverTargetResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPrefixListResolverTarget or Amazon.EC2.Model.DeleteIpamPrefixListResolverTargetResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamPrefixListResolverTarget object.",
         "The service call response (type Amazon.EC2.Model.DeleteIpamPrefixListResolverTargetResponse) can be returned by specifying '-Select *'."
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteIpamPrefixListResolverTargetResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteIpamPrefixListResolverTargetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteIpamPrefixListResolverTarget");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteIpamPrefixListResolverTarget");
             try
             {
                 return client.DeleteIpamPrefixListResolverTargetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

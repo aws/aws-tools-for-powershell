@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("New", "SHUBRecommendedPolicyV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub GenerateRecommendedPolicyV2 API operation.", Operation = new[] {"GenerateRecommendedPolicyV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub GenerateRecommendedPolicyV2 API operation.", Operation = new[] {"GenerateRecommendedPolicyV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response) be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GenerateRecommendedPolicyV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GenerateRecommendedPolicyV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GenerateRecommendedPolicyV2");
             try
             {
                 return client.GenerateRecommendedPolicyV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Add", "SHUBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.TagResourceResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

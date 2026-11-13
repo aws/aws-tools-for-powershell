@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBOrganizationAdminAccountList")]
     [OutputType("Amazon.SecurityHub.Model.AdminAccount")]
-    [AWSCmdlet("Calls the AWS Security Hub ListOrganizationAdminAccounts API operation.", Operation = new[] {"ListOrganizationAdminAccounts"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListOrganizationAdminAccountsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListOrganizationAdminAccounts API operation.", Operation = new[] {"ListOrganizationAdminAccounts"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListOrganizationAdminAccountsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.AdminAccount or Amazon.SecurityHub.Model.ListOrganizationAdminAccountsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.AdminAccount objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListOrganizationAdminAccountsResponse) can be returned by specifying '-Select *'."
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListOrganizationAdminAccountsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListOrganizationAdminAccountsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListOrganizationAdminAccounts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListOrganizationAdminAccounts");
             try
             {
                 return client.ListOrganizationAdminAccountsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

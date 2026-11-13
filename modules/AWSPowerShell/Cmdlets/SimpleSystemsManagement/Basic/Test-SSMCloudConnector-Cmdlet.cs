@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Test", "SSMCloudConnector")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ValidationFinding")]
-    [AWSCmdlet("Calls the AWS Systems Manager ValidateCloudConnector API operation.", Operation = new[] {"ValidateCloudConnector"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ValidateCloudConnectorResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ValidateCloudConnector API operation.", Operation = new[] {"ValidateCloudConnector"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ValidateCloudConnectorResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ValidationFinding or Amazon.SimpleSystemsManagement.Model.ValidateCloudConnectorResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.ValidationFinding objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ValidateCloudConnectorResponse) can be returned by specifying '-Select *'."
@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ValidateCloudConnectorResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ValidateCloudConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ValidateCloudConnector");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ValidateCloudConnector");
             try
             {
                 return client.ValidateCloudConnectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Update", "VPCLResourceGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.UpdateResourceGatewayResponse")]
-    [AWSCmdlet("Calls the VPC Lattice UpdateResourceGateway API operation.", Operation = new[] {"UpdateResourceGateway"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.UpdateResourceGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice UpdateResourceGateway API operation.", Operation = new[] {"UpdateResourceGateway"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.UpdateResourceGatewayResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.UpdateResourceGatewayResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.UpdateResourceGatewayResponse object containing multiple properties."
     )]
@@ -43,6 +43,21 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter ResourceConfigDnsResolution
+        /// <summary>
+        /// <para>
+        /// <para>Indicates how DNS is resolved for resource configurations associated with this resource
+        /// gateway.</para><ul><li><para><c>IN_VPC</c> - DNS resolution occurs privately within the resource gateway's VPC.
+        /// Use this when your resource domain names are hosted in private Route 53 hosted zones
+        /// or on-premises DNS servers reachable from the VPC.</para></li><li><para><c>PUBLIC</c> - DNS resolution occurs against public DNS resolvers. Use this when
+        /// your resource domain names are publicly resolvable.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.VPCLattice.ResourceConfigDnsResolution")]
+        public Amazon.VPCLattice.ResourceConfigDnsResolution ResourceConfigDnsResolution { get; set; }
+        #endregion
         
         #region Parameter ResourceGatewayIdentifier
         /// <summary>
@@ -123,6 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
                 context.Select = CreateSelectDelegate<Amazon.VPCLattice.Model.UpdateResourceGatewayResponse, UpdateVPCLResourceGatewayCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ResourceConfigDnsResolution = this.ResourceConfigDnsResolution;
             context.ResourceGatewayIdentifier = this.ResourceGatewayIdentifier;
             #if MODULAR
             if (this.ResourceGatewayIdentifier == null && ParameterWasBound(nameof(this.ResourceGatewayIdentifier)))
@@ -150,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             // create request
             var request = new Amazon.VPCLattice.Model.UpdateResourceGatewayRequest();
             
+            if (cmdletContext.ResourceConfigDnsResolution != null)
+            {
+                request.ResourceConfigDnsResolution = cmdletContext.ResourceConfigDnsResolution;
+            }
             if (cmdletContext.ResourceGatewayIdentifier != null)
             {
                 request.ResourceGatewayIdentifier = cmdletContext.ResourceGatewayIdentifier;
@@ -193,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.UpdateResourceGatewayResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.UpdateResourceGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "UpdateResourceGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "UpdateResourceGateway");
             try
             {
                 return client.UpdateResourceGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -213,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.VPCLattice.ResourceConfigDnsResolution ResourceConfigDnsResolution { get; set; }
             public System.String ResourceGatewayIdentifier { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.Func<Amazon.VPCLattice.Model.UpdateResourceGatewayResponse, UpdateVPCLResourceGatewayCmdlet, object> Select { get; set; } =

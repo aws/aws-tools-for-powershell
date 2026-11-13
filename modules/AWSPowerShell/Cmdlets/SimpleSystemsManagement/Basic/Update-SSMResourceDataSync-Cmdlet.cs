@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMResourceDataSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateResourceDataSync API operation.", Operation = new[] {"UpdateResourceDataSync"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateResourceDataSyncResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) UpdateResourceDataSync API operation.", Operation = new[] {"UpdateResourceDataSync"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateResourceDataSyncResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateResourceDataSyncResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateResourceDataSyncResponse) be returned by specifying '-Select *'."
@@ -414,7 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UpdateResourceDataSyncResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateResourceDataSyncRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateResourceDataSync");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "UpdateResourceDataSync");
             try
             {
                 return client.UpdateResourceDataSyncAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

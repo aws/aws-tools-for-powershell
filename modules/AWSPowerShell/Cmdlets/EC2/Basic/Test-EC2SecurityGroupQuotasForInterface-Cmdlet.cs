@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Test", "EC2SecurityGroupQuotasForInterface")]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ValidateSecurityGroupQuotasForInterface API operation.", Operation = new[] {"ValidateSecurityGroupQuotasForInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.ValidateSecurityGroupQuotasForInterfaceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ValidateSecurityGroupQuotasForInterface API operation.", Operation = new[] {"ValidateSecurityGroupQuotasForInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.ValidateSecurityGroupQuotasForInterfaceResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ValidateSecurityGroupQuotasForInterfaceResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ValidateSecurityGroupQuotasForInterfaceResponse) can be returned by specifying '-Select *'."
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ValidateSecurityGroupQuotasForInterfaceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ValidateSecurityGroupQuotasForInterfaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ValidateSecurityGroupQuotasForInterface");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ValidateSecurityGroupQuotasForInterface");
             try
             {
                 return client.ValidateSecurityGroupQuotasForInterfaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

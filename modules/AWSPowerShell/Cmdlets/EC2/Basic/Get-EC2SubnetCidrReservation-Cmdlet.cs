@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SubnetCidrReservation")]
     [OutputType("Amazon.EC2.Model.GetSubnetCidrReservationsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetSubnetCidrReservations API operation.", Operation = new[] {"GetSubnetCidrReservations"}, SelectReturnType = typeof(Amazon.EC2.Model.GetSubnetCidrReservationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetSubnetCidrReservations API operation.", Operation = new[] {"GetSubnetCidrReservations"}, SelectReturnType = typeof(Amazon.EC2.Model.GetSubnetCidrReservationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetSubnetCidrReservationsResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetSubnetCidrReservationsResponse object containing multiple properties."
     )]
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetSubnetCidrReservationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetSubnetCidrReservationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetSubnetCidrReservations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetSubnetCidrReservations");
             try
             {
                 return client.GetSubnetCidrReservationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

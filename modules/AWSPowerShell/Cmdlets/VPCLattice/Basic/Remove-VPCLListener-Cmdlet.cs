@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLListener", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteListener API operation.", Operation = new[] {"DeleteListener"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteListenerResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteListener API operation.", Operation = new[] {"DeleteListener"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteListenerResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteListenerResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.DeleteListenerResponse) be returned by specifying '-Select *'."
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteListenerResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteListenerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteListener");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteListener");
             try
             {
                 return client.DeleteListenerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

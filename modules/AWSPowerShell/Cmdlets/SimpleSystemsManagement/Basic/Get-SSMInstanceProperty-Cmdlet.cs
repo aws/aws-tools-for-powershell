@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMInstanceProperty")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstanceProperty")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeInstanceProperties API operation.", Operation = new[] {"DescribeInstanceProperties"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeInstancePropertiesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeInstanceProperties API operation.", Operation = new[] {"DescribeInstanceProperties"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeInstancePropertiesResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InstanceProperty or Amazon.SimpleSystemsManagement.Model.DescribeInstancePropertiesResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.InstanceProperty objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeInstancePropertiesResponse) can be returned by specifying '-Select *'."
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeInstancePropertiesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeInstancePropertiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeInstanceProperties");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeInstanceProperties");
             try
             {
                 return client.DescribeInstancePropertiesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Restore", "EC2AddressToClassic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.RestoreAddressToClassicResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RestoreAddressToClassic API operation.", Operation = new[] {"RestoreAddressToClassic"}, SelectReturnType = typeof(Amazon.EC2.Model.RestoreAddressToClassicResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RestoreAddressToClassic API operation.", Operation = new[] {"RestoreAddressToClassic"}, SelectReturnType = typeof(Amazon.EC2.Model.RestoreAddressToClassicResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RestoreAddressToClassicResponse",
         "This cmdlet returns an Amazon.EC2.Model.RestoreAddressToClassicResponse object containing multiple properties."
     )]
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RestoreAddressToClassicResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RestoreAddressToClassicRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RestoreAddressToClassic");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RestoreAddressToClassic");
             try
             {
                 return client.RestoreAddressToClassicAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2QueuedReservedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.DeleteQueuedReservedInstancesResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteQueuedReservedInstances API operation.", Operation = new[] {"DeleteQueuedReservedInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteQueuedReservedInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteQueuedReservedInstances API operation.", Operation = new[] {"DeleteQueuedReservedInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteQueuedReservedInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DeleteQueuedReservedInstancesResponse",
         "This cmdlet returns an Amazon.EC2.Model.DeleteQueuedReservedInstancesResponse object containing multiple properties."
     )]
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteQueuedReservedInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteQueuedReservedInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteQueuedReservedInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteQueuedReservedInstances");
             try
             {
                 return client.DeleteQueuedReservedInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

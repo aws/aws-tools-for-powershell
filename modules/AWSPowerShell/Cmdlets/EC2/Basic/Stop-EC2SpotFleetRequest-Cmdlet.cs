@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Stop", "EC2SpotFleetRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CancelSpotFleetRequestsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CancelSpotFleetRequests API operation.", Operation = new[] {"CancelSpotFleetRequests"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelSpotFleetRequestsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CancelSpotFleetRequests API operation.", Operation = new[] {"CancelSpotFleetRequests"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelSpotFleetRequestsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CancelSpotFleetRequestsResponse",
         "This cmdlet returns an Amazon.EC2.Model.CancelSpotFleetRequestsResponse object containing multiple properties."
     )]
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CancelSpotFleetRequestsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelSpotFleetRequestsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CancelSpotFleetRequests");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CancelSpotFleetRequests");
             try
             {
                 return client.CancelSpotFleetRequestsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

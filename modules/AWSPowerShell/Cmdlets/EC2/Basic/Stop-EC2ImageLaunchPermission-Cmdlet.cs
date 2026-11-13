@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Stop", "EC2ImageLaunchPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CancelImageLaunchPermission API operation.", Operation = new[] {"CancelImageLaunchPermission"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelImageLaunchPermissionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CancelImageLaunchPermission API operation.", Operation = new[] {"CancelImageLaunchPermission"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelImageLaunchPermissionResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.CancelImageLaunchPermissionResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.CancelImageLaunchPermissionResponse) can be returned by specifying '-Select *'."
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CancelImageLaunchPermissionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelImageLaunchPermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CancelImageLaunchPermission");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CancelImageLaunchPermission");
             try
             {
                 return client.CancelImageLaunchPermissionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

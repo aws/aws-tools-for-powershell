@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Add", "SSMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse) be returned by specifying '-Select *'."
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.AddTagsToResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "AddTagsToResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "AddTagsToResource");
             try
             {
                 return client.AddTagsToResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

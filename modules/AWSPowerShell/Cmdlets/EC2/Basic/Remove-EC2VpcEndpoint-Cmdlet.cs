@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.UnsuccessfulItem")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpcEndpoints API operation.", Operation = new[] {"DeleteVpcEndpoints"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcEndpointsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVpcEndpoints API operation.", Operation = new[] {"DeleteVpcEndpoints"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcEndpointsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem or Amazon.EC2.Model.DeleteVpcEndpointsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.UnsuccessfulItem objects.",
         "The service call response (type Amazon.EC2.Model.DeleteVpcEndpointsResponse) can be returned by specifying '-Select *'."
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteVpcEndpointsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpcEndpointsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVpcEndpoints");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVpcEndpoints");
             try
             {
                 return client.DeleteVpcEndpointsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

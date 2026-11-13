@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2IpamExternalResourceVerificationToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.IpamExternalResourceVerificationToken")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteIpamExternalResourceVerificationToken API operation.", Operation = new[] {"DeleteIpamExternalResourceVerificationToken"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteIpamExternalResourceVerificationToken API operation.", Operation = new[] {"DeleteIpamExternalResourceVerificationToken"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamExternalResourceVerificationToken or Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamExternalResourceVerificationToken object.",
         "The service call response (type Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse) can be returned by specifying '-Select *'."
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteIpamExternalResourceVerificationToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteIpamExternalResourceVerificationToken");
             try
             {
                 return client.DeleteIpamExternalResourceVerificationTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Copy", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CopyImage API operation.", Operation = new[] {"CopyImage"}, SelectReturnType = typeof(Amazon.EC2.Model.CopyImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CopyImage API operation.", Operation = new[] {"CopyImage"}, SelectReturnType = typeof(Amazon.EC2.Model.CopyImageResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.CopyImageResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.CopyImageResponse) can be returned by specifying '-Select *'."
@@ -491,7 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CopyImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CopyImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CopyImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CopyImage");
             try
             {
                 return client.CopyImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

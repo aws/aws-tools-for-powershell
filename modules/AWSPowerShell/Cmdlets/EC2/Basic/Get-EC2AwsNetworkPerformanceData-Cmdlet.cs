@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2AwsNetworkPerformanceData")]
     [OutputType("Amazon.EC2.Model.DataResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetAwsNetworkPerformanceData API operation.", Operation = new[] {"GetAwsNetworkPerformanceData"}, SelectReturnType = typeof(Amazon.EC2.Model.GetAwsNetworkPerformanceDataResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetAwsNetworkPerformanceData API operation.", Operation = new[] {"GetAwsNetworkPerformanceData"}, SelectReturnType = typeof(Amazon.EC2.Model.GetAwsNetworkPerformanceDataResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DataResponse or Amazon.EC2.Model.GetAwsNetworkPerformanceDataResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.DataResponse objects.",
         "The service call response (type Amazon.EC2.Model.GetAwsNetworkPerformanceDataResponse) can be returned by specifying '-Select *'."
@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetAwsNetworkPerformanceDataResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetAwsNetworkPerformanceDataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetAwsNetworkPerformanceData");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetAwsNetworkPerformanceData");
             try
             {
                 return client.GetAwsNetworkPerformanceDataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

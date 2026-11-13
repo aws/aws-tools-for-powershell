@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2VerifiedAccessEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VerifiedAccessEndpoint")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVerifiedAccessEndpoint API operation.", Operation = new[] {"CreateVerifiedAccessEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVerifiedAccessEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateVerifiedAccessEndpoint API operation.", Operation = new[] {"CreateVerifiedAccessEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVerifiedAccessEndpointResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessEndpoint or Amazon.EC2.Model.CreateVerifiedAccessEndpointResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessEndpoint object.",
         "The service call response (type Amazon.EC2.Model.CreateVerifiedAccessEndpointResponse) can be returned by specifying '-Select *'."
@@ -953,7 +953,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateVerifiedAccessEndpointResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateVerifiedAccessEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateVerifiedAccessEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateVerifiedAccessEndpoint");
             try
             {
                 return client.CreateVerifiedAccessEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

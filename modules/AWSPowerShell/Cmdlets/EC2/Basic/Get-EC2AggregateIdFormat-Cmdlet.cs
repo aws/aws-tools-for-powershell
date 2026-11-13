@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2AggregateIdFormat")]
     [OutputType("Amazon.EC2.Model.DescribeAggregateIdFormatResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeAggregateIdFormat API operation.", Operation = new[] {"DescribeAggregateIdFormat"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAggregateIdFormatResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeAggregateIdFormat API operation.", Operation = new[] {"DescribeAggregateIdFormat"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAggregateIdFormatResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeAggregateIdFormatResponse",
         "This cmdlet returns an Amazon.EC2.Model.DescribeAggregateIdFormatResponse object containing multiple properties."
     )]
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeAggregateIdFormatResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeAggregateIdFormatRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeAggregateIdFormat");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeAggregateIdFormat");
             try
             {
                 return client.DescribeAggregateIdFormatAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

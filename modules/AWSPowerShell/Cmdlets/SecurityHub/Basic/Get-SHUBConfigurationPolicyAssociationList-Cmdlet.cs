@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBConfigurationPolicyAssociationList")]
     [OutputType("Amazon.SecurityHub.Model.ConfigurationPolicyAssociationSummary")]
-    [AWSCmdlet("Calls the AWS Security Hub ListConfigurationPolicyAssociations API operation.", Operation = new[] {"ListConfigurationPolicyAssociations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListConfigurationPolicyAssociationsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListConfigurationPolicyAssociations API operation.", Operation = new[] {"ListConfigurationPolicyAssociations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListConfigurationPolicyAssociationsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.ConfigurationPolicyAssociationSummary or Amazon.SecurityHub.Model.ListConfigurationPolicyAssociationsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.ConfigurationPolicyAssociationSummary objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListConfigurationPolicyAssociationsResponse) can be returned by specifying '-Select *'."
@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> The current status of the association between a target and a configuration policy.
-        /// </para>
+        /// Possible values are <c>PENDING</c>, <c>SUCCESS</c>, <c>FAILED</c>, and <c>DISABLED</c>.
+        /// The value is <c>DISABLED</c> when central configuration is disabled because the organization
+        /// is managed by Security Hub CSPM policies in Organizations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListConfigurationPolicyAssociationsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListConfigurationPolicyAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListConfigurationPolicyAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListConfigurationPolicyAssociations");
             try
             {
                 return client.ListConfigurationPolicyAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

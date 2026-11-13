@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2ClientVpnEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateClientVpnEndpointResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateClientVpnEndpoint API operation.", Operation = new[] {"CreateClientVpnEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateClientVpnEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateClientVpnEndpoint API operation.", Operation = new[] {"CreateClientVpnEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateClientVpnEndpointResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateClientVpnEndpointResponse",
         "This cmdlet returns an Amazon.EC2.Model.CreateClientVpnEndpointResponse object containing multiple properties."
     )]
@@ -890,7 +890,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateClientVpnEndpointResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateClientVpnEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateClientVpnEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateClientVpnEndpoint");
             try
             {
                 return client.CreateClientVpnEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

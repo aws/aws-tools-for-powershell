@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2AllowedImagesSetting")]
     [OutputType("Amazon.EC2.Model.GetAllowedImagesSettingsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetAllowedImagesSettings API operation.", Operation = new[] {"GetAllowedImagesSettings"}, SelectReturnType = typeof(Amazon.EC2.Model.GetAllowedImagesSettingsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetAllowedImagesSettings API operation.", Operation = new[] {"GetAllowedImagesSettings"}, SelectReturnType = typeof(Amazon.EC2.Model.GetAllowedImagesSettingsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetAllowedImagesSettingsResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetAllowedImagesSettingsResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetAllowedImagesSettingsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetAllowedImagesSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetAllowedImagesSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetAllowedImagesSettings");
             try
             {
                 return client.GetAllowedImagesSettingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Add", "DOCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"}, SelectReturnType = typeof(Amazon.DocDB.Model.AddTagsToResourceResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"}, SelectReturnType = typeof(Amazon.DocDB.Model.AddTagsToResourceResponse))]
     [AWSCmdletOutput("None or Amazon.DocDB.Model.AddTagsToResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.DocDB.Model.AddTagsToResourceResponse) be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.AddTagsToResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "AddTagsToResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "AddTagsToResource");
             try
             {
                 return client.AddTagsToResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

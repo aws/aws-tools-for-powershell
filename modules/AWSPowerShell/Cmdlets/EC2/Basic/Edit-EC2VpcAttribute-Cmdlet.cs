@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VpcAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName="DnsSupport")]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVpcAttribute API operation.", Operation = new[] {"ModifyVpcAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVpcAttribute API operation.", Operation = new[] {"ModifyVpcAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ModifyVpcAttributeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ModifyVpcAttributeResponse) be returned by specifying '-Select *'."
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVpcAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVpcAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVpcAttribute");
             try
             {
                 return client.ModifyVpcAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

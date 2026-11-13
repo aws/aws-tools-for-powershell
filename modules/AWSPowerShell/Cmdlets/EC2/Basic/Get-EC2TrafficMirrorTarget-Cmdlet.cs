@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2TrafficMirrorTarget")]
     [OutputType("Amazon.EC2.Model.TrafficMirrorTarget")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeTrafficMirrorTargets API operation.", Operation = new[] {"DescribeTrafficMirrorTargets"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeTrafficMirrorTargetsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeTrafficMirrorTargets API operation.", Operation = new[] {"DescribeTrafficMirrorTargets"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeTrafficMirrorTargetsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TrafficMirrorTarget or Amazon.EC2.Model.DescribeTrafficMirrorTargetsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.TrafficMirrorTarget objects.",
         "The service call response (type Amazon.EC2.Model.DescribeTrafficMirrorTargetsResponse) can be returned by specifying '-Select *'."
@@ -376,7 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeTrafficMirrorTargetsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeTrafficMirrorTargetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeTrafficMirrorTargets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeTrafficMirrorTargets");
             try
             {
                 return client.DescribeTrafficMirrorTargetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

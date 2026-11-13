@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBInvitationList")]
     [OutputType("Amazon.SecurityHub.Model.Invitation")]
-    [AWSCmdlet("Calls the AWS Security Hub ListInvitations API operation.", Operation = new[] {"ListInvitations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListInvitationsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListInvitations API operation.", Operation = new[] {"ListInvitations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListInvitationsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Invitation or Amazon.SecurityHub.Model.ListInvitationsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.Invitation objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListInvitationsResponse) can be returned by specifying '-Select *'."
@@ -321,7 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListInvitationsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListInvitationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListInvitations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListInvitations");
             try
             {
                 return client.ListInvitationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

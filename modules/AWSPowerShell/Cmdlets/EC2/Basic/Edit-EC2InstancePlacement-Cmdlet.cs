@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2InstancePlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstancePlacement API operation.", Operation = new[] {"ModifyInstancePlacement"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstancePlacementResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyInstancePlacement API operation.", Operation = new[] {"ModifyInstancePlacement"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstancePlacementResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyInstancePlacementResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyInstancePlacementResponse) can be returned by specifying '-Select *'."
@@ -307,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyInstancePlacementResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstancePlacementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstancePlacement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyInstancePlacement");
             try
             {
                 return client.ModifyInstancePlacementAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Set", "EC2ImageCriteriaInAllowedImagesSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReplaceImageCriteriaInAllowedImagesSettings API operation.", Operation = new[] {"ReplaceImageCriteriaInAllowedImagesSettings"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceImageCriteriaInAllowedImagesSettingsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReplaceImageCriteriaInAllowedImagesSettings API operation.", Operation = new[] {"ReplaceImageCriteriaInAllowedImagesSettings"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceImageCriteriaInAllowedImagesSettingsResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ReplaceImageCriteriaInAllowedImagesSettingsResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ReplaceImageCriteriaInAllowedImagesSettingsResponse) can be returned by specifying '-Select *'."
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ReplaceImageCriteriaInAllowedImagesSettingsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceImageCriteriaInAllowedImagesSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ReplaceImageCriteriaInAllowedImagesSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReplaceImageCriteriaInAllowedImagesSettings");
             try
             {
                 return client.ReplaceImageCriteriaInAllowedImagesSettingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

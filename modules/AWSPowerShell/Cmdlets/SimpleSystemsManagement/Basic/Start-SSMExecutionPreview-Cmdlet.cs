@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Start", "SSMExecutionPreview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager StartExecutionPreview API operation.", Operation = new[] {"StartExecutionPreview"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartExecutionPreviewResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) StartExecutionPreview API operation.", Operation = new[] {"StartExecutionPreview"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartExecutionPreviewResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.StartExecutionPreviewResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.StartExecutionPreviewResponse) can be returned by specifying '-Select *'."
@@ -417,7 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.StartExecutionPreviewResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.StartExecutionPreviewRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "StartExecutionPreview");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "StartExecutionPreview");
             try
             {
                 return client.StartExecutionPreviewAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

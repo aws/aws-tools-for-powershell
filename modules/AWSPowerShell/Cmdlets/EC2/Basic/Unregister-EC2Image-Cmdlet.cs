@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DeregisterImageResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeregisterImage API operation.", Operation = new[] {"DeregisterImage"}, SelectReturnType = typeof(Amazon.EC2.Model.DeregisterImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeregisterImage API operation.", Operation = new[] {"DeregisterImage"}, SelectReturnType = typeof(Amazon.EC2.Model.DeregisterImageResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DeregisterImageResponse",
         "This cmdlet returns an Amazon.EC2.Model.DeregisterImageResponse object containing multiple properties."
     )]
@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeregisterImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeregisterImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeregisterImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeregisterImage");
             try
             {
                 return client.DeregisterImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

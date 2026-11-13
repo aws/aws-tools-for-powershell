@@ -350,7 +350,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RemoveAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RollbackStack" OutputProperty="StackId" Verb="Undo" Noun="Stack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetAlias" Verb="Set" Noun="Alias" ShouldProcessTarget="AliasName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

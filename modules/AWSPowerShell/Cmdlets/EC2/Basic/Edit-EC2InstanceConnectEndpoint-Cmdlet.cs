@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceConnectEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceConnectEndpoint API operation.", Operation = new[] {"ModifyInstanceConnectEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceConnectEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyInstanceConnectEndpoint API operation.", Operation = new[] {"ModifyInstanceConnectEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceConnectEndpointResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyInstanceConnectEndpointResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyInstanceConnectEndpointResponse) can be returned by specifying '-Select *'."
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyInstanceConnectEndpointResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstanceConnectEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstanceConnectEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyInstanceConnectEndpoint");
             try
             {
                 return client.ModifyInstanceConnectEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

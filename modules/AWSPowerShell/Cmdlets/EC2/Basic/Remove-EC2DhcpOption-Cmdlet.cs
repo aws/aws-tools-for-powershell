@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2DhcpOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteDhcpOptions API operation.", Operation = new[] {"DeleteDhcpOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteDhcpOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteDhcpOptions API operation.", Operation = new[] {"DeleteDhcpOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteDhcpOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteDhcpOptionsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteDhcpOptionsResponse) be returned by specifying '-Select *'."
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteDhcpOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteDhcpOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteDhcpOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteDhcpOptions");
             try
             {
                 return client.DeleteDhcpOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

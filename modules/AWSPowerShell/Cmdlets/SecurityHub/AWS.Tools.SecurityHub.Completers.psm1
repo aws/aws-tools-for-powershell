@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Security Hub
+# Argument completions for service AWS SecurityHub
 
 
 $SHUB_Completers = {
@@ -116,7 +116,7 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.ConfigurationPolicyAssociationStatus
         "Get-SHUBConfigurationPolicyAssociationList/Filters_AssociationStatus"
         {
-            $v = "FAILED","PENDING","SUCCESS"
+            $v = "DISABLED","FAILED","PENDING","SUCCESS"
             break
         }
 
@@ -227,7 +227,7 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.OrganizationConfigurationStatus
         "Update-SHUBOrganizationConfiguration/OrganizationConfiguration_Status"
         {
-            $v = "ENABLED","FAILED","PENDING"
+            $v = "DISABLED","ENABLED","FAILED","PENDING"
             break
         }
 

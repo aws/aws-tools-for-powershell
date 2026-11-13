@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2PublicIpDnsNameOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyPublicIpDnsNameOptions API operation.", Operation = new[] {"ModifyPublicIpDnsNameOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyPublicIpDnsNameOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyPublicIpDnsNameOptions API operation.", Operation = new[] {"ModifyPublicIpDnsNameOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyPublicIpDnsNameOptionsResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyPublicIpDnsNameOptionsResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyPublicIpDnsNameOptionsResponse) can be returned by specifying '-Select *'."
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyPublicIpDnsNameOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyPublicIpDnsNameOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyPublicIpDnsNameOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyPublicIpDnsNameOptions");
             try
             {
                 return client.ModifyPublicIpDnsNameOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

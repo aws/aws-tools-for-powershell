@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2IpamPoolAllocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReleaseIpamPoolAllocation API operation.", Operation = new[] {"ReleaseIpamPoolAllocation"}, SelectReturnType = typeof(Amazon.EC2.Model.ReleaseIpamPoolAllocationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReleaseIpamPoolAllocation API operation.", Operation = new[] {"ReleaseIpamPoolAllocation"}, SelectReturnType = typeof(Amazon.EC2.Model.ReleaseIpamPoolAllocationResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ReleaseIpamPoolAllocationResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ReleaseIpamPoolAllocationResponse) can be returned by specifying '-Select *'."
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ReleaseIpamPoolAllocationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReleaseIpamPoolAllocationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ReleaseIpamPoolAllocation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReleaseIpamPoolAllocation");
             try
             {
                 return client.ReleaseIpamPoolAllocationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

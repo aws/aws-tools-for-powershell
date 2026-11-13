@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Get", "DOCDBCluster")]
     [OutputType("Amazon.DocDB.Model.DBCluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DescribeDBClusters API operation.", Operation = new[] {"DescribeDBClusters"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeDBClustersResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DescribeDBClusters API operation.", Operation = new[] {"DescribeDBClusters"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeDBClustersResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBCluster or Amazon.DocDB.Model.DescribeDBClustersResponse",
         "This cmdlet returns a collection of Amazon.DocDB.Model.DBCluster objects.",
         "The service call response (type Amazon.DocDB.Model.DescribeDBClustersResponse) can be returned by specifying '-Select *'."
@@ -349,7 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DescribeDBClustersResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DescribeDBClustersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DescribeDBClusters");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DescribeDBClusters");
             try
             {
                 return client.DescribeDBClustersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

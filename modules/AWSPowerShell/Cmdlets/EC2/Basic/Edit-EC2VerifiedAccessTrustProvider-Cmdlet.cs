@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VerifiedAccessTrustProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VerifiedAccessTrustProvider")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVerifiedAccessTrustProvider API operation.", Operation = new[] {"ModifyVerifiedAccessTrustProvider"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVerifiedAccessTrustProviderResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVerifiedAccessTrustProvider API operation.", Operation = new[] {"ModifyVerifiedAccessTrustProvider"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVerifiedAccessTrustProviderResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessTrustProvider or Amazon.EC2.Model.ModifyVerifiedAccessTrustProviderResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessTrustProvider object.",
         "The service call response (type Amazon.EC2.Model.ModifyVerifiedAccessTrustProviderResponse) can be returned by specifying '-Select *'."
@@ -637,7 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVerifiedAccessTrustProviderResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVerifiedAccessTrustProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVerifiedAccessTrustProvider");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVerifiedAccessTrustProvider");
             try
             {
                 return client.ModifyVerifiedAccessTrustProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

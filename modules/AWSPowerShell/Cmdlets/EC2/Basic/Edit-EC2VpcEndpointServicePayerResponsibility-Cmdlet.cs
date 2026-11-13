@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VpcEndpointServicePayerResponsibility", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVpcEndpointServicePayerResponsibility API operation.", Operation = new[] {"ModifyVpcEndpointServicePayerResponsibility"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcEndpointServicePayerResponsibilityResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVpcEndpointServicePayerResponsibility API operation.", Operation = new[] {"ModifyVpcEndpointServicePayerResponsibility"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcEndpointServicePayerResponsibilityResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyVpcEndpointServicePayerResponsibilityResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyVpcEndpointServicePayerResponsibilityResponse) can be returned by specifying '-Select *'."
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVpcEndpointServicePayerResponsibilityResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcEndpointServicePayerResponsibilityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVpcEndpointServicePayerResponsibility");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVpcEndpointServicePayerResponsibility");
             try
             {
                 return client.ModifyVpcEndpointServicePayerResponsibilityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

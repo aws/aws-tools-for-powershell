@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Elastic Compute Cloud (EC2)
+# Argument completions for service Amazon Elastic Compute Cloud
 
 
 $EC2_Completers = {
@@ -569,6 +569,20 @@ $EC2_Completers = {
         }
         {
             $v = "instant","maintain","request"
+            break
+        }
+
+        # Amazon.EC2.FlexCostAllocationNetworkResourceScopeType
+        "Register-EC2NetworkingFlexCostAllocationPolicy/NetworkResourceScope_ResourceType"
+        {
+            $v = "account","subnet","vpc"
+            break
+        }
+
+        # Amazon.EC2.FlexCostAllocationNetworkResourceType
+        "New-EC2NetworkingFlexCostAllocationPolicy/NetworkResourceType"
+        {
+            $v = "ec2","natgw","pcx"
             break
         }
 
@@ -1773,6 +1787,8 @@ $EC2_map = @{
     "NestedVirtualization"=@("Edit-EC2InstanceCpuOption")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "NetworkPerformanceOptions_BandwidthWeighting"=@("New-EC2Instance")
+    "NetworkResourceScope_ResourceType"=@("Register-EC2NetworkingFlexCostAllocationPolicy")
+    "NetworkResourceType"=@("New-EC2NetworkingFlexCostAllocationPolicy")
     "NetworkType"=@("New-EC2SecondaryNetwork")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
@@ -1952,6 +1968,7 @@ $EC2_SelectMap = @{
                "Register-EC2IpamByoasn",
                "Register-EC2IpamResourceDiscovery",
                "Register-EC2NatGatewayAddress",
+               "Register-EC2NetworkingFlexCostAllocationPolicy",
                "Register-EC2RouteServer",
                "Register-EC2RouteTable",
                "Register-EC2SecurityGroupVpc",
@@ -2041,6 +2058,7 @@ $EC2_SelectMap = @{
                "New-EC2NatGateway",
                "New-EC2NetworkAcl",
                "New-EC2NetworkAclEntry",
+               "New-EC2NetworkingFlexCostAllocationPolicy",
                "New-EC2NetworkInsightsAccessScope",
                "New-EC2NetworkInsightsPath",
                "New-EC2NetworkInterface",
@@ -2141,6 +2159,7 @@ $EC2_SelectMap = @{
                "Remove-EC2NatGateway",
                "Remove-EC2NetworkAcl",
                "Remove-EC2NetworkAclEntry",
+               "Remove-EC2NetworkingFlexCostAllocationPolicy",
                "Remove-EC2NetworkInsightsAccessScope",
                "Remove-EC2NetworkInsightsAccessScopeAnalysis",
                "Remove-EC2NetworkInsightsAnalysis",
@@ -2311,6 +2330,8 @@ $EC2_SelectMap = @{
                "Get-EC2MovingAddress",
                "Get-EC2NatGateway",
                "Get-EC2NetworkAcl",
+               "Get-EC2NetworkingFlexCostAllocationPolicyDetail",
+               "Get-EC2NetworkingFlexCostAllocationPolicyAssociationDetail",
                "Get-EC2NetworkInsightsAccessScopeAnalysis",
                "Get-EC2NetworkInsightsAccessScope",
                "Get-EC2NetworkInsightsAnalysis",
@@ -2438,6 +2459,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2IpamByoasn",
                "Unregister-EC2IpamResourceDiscovery",
                "Unregister-EC2NatGatewayAddress",
+               "Unregister-EC2NetworkingFlexCostAllocationPolicy",
                "Unregister-EC2RouteServer",
                "Unregister-EC2RouteTable",
                "Unregister-EC2SecurityGroupVpc",
@@ -2530,6 +2552,7 @@ $EC2_SelectMap = @{
                "Get-EC2ManagedPrefixListAssociation",
                "Get-EC2ManagedPrefixListEntry",
                "Get-EC2ManagedResourceVisibility",
+               "Get-EC2NetworkingFlexCostAllocationPolicyVersion",
                "Get-EC2NetworkInsightsAccessScopeAnalysisFinding",
                "Get-EC2NetworkInsightsAccessScopeContent",
                "Get-EC2ReservedInstancesExchangeQuote",
@@ -2608,6 +2631,7 @@ $EC2_SelectMap = @{
                "Edit-EC2ManagedPrefixList",
                "Edit-EC2ManagedResourceVisibility",
                "Edit-EC2MetricCategory",
+               "Edit-EC2NetworkingFlexCostAllocationPolicy",
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2PrivateDnsNameOption",
                "Edit-EC2PublicIpDnsNameOption",
@@ -2734,8 +2758,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap

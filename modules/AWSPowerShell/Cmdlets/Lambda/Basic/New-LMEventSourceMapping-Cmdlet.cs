@@ -184,11 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The mode that Lambda uses to consume records from your self-managed Apache Kafka topic.
-        /// The default is <c>Stream</c>.</para><ul><li><para><c>Stream</c> – Lambda consumes records using a Kafka consumer group and preserves
-        /// the order of records within each partition. This is the default when you omit <c>ConsumptionMode</c>.</para></li><li><para><c>Queue</c> – Lambda consumes records using a Kafka share group. Multiple consumers
-        /// can process records from the same partitions concurrently. Queue mode does not preserve
-        /// per-partition order. Queue mode requires an Apache Kafka cluster running version 4.2
-        /// or later with share groups enabled.</para></li></ul><para>You cannot change <c>ConsumptionMode</c> after you create the event source mapping.
+        /// Valid values are the following:</para><ul><li><para><c>Stream</c> (default) – Lambda consumes records using a Kafka consumer group and
+        /// preserves the order of records within each partition.</para></li><li><para><c>Queue</c> – Lambda consumes records using a Kafka share group. Multiple consumers
+        /// can process records from the same partition concurrently, so Lambda doesn't preserve
+        /// per-partition order. To use Queue mode, your cluster must run Apache Kafka version
+        /// 4.2 or later with share groups enabled.</para></li></ul><para>If you omit this parameter, Lambda uses <c>Stream</c>.</para><para>You cannot change <c>ConsumptionMode</c> after you create the event source mapping.
         /// To use a different consumption mode, create a new event source mapping.</para><para>When <c>ConsumptionMode</c> is <c>Queue</c>, the <c>StartingPosition</c>, <c>StartingPositionTimestamp</c>,
         /// and <c>MaximumBatchingWindowInSeconds</c> parameters are not supported.</para>
         /// </para>
@@ -456,10 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>
         /// <para>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records
         /// after the specified number of retries. The default value is infinite (-1). When set
-        /// to infinite (-1), failed records are retried until the record expires.</para><para>For Kafka <c>Stream</c> consumption mode, the default is <c>-1</c> (infinite retries;
-        /// capped at 10 when an on-failure destination is configured). For Kafka <c>Queue</c>
-        /// consumption mode, the default is <c>0</c>, and if no on-failure destination is configured
-        /// the Kafka broker performs retries.</para>
+        /// to infinite (-1), failed records are retried until the record expires.</para><para>For Kafka event source mappings with <c>ConsumptionMode</c> set to <c>Queue</c>, the
+        /// value -1 (infinite retries) is not supported and the default is 0 (no retries). Lambda
+        /// releases failed records back to the broker, which redelivers them up to the share
+        /// group's <c>group.share.delivery.count.limit</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

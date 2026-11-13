@@ -535,13 +535,14 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// traffic.</para></li></ul><para><c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> matches on how the destination IP address was
         /// resolved, rather than on the domain that the client asserts in its TLS SNI or HTTP
         /// <c>Host</c> header. This target type takes effect when you configure resolved IP validation
-        /// on the firewall policy. For more information, see <a>Route53ResolvedIPValidation</a>.</para><para>Whether you include <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> changes what the generated
-        /// rules match, together with <c>GeneratedRulesType</c>:</para><ul><li><para>Combining <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> with <c>TLS_SNI</c> or <c>HTTP_HOST</c>
-        /// in an <c>ALLOWLIST</c> requires both conditions to match. The SNI or <c>Host</c> header
-        /// must match the domain, <b>and</b> the Route 53 Resolver must have resolved the destination
-        /// IP address for that domain. Network Firewall allows traffic only in that case. Traffic
-        /// that matches one condition, such as a spoofed <c>Host</c> header sent to an unresolved
-        /// IP address, is not allowed.</para></li><li><para>In a <c>DENYLIST</c>, or when <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> is the only target
+        /// on the firewall policy. For more information, see the <c>Route53ResolvedIPValidation</c>
+        /// firewall policy setting.</para><para>Whether you include <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> changes what the generated
+        /// rules match, together with <c>GeneratedRulesType</c>:</para><ul><li><para>In an <c>ALLOWLIST</c>, combining <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> with <c>TLS_SNI</c>
+        /// or <c>HTTP_HOST</c> requires both conditions to match: the SNI or <c>Host</c> header
+        /// matches the domain, <b>and</b> the Route 53 Resolver resolved the destination IP address
+        /// for that domain. Network Firewall allows the traffic only when both conditions match,
+        /// so it blocks traffic that matches just one—for example, a spoofed <c>Host</c> header
+        /// sent to an unresolved IP address.</para></li><li><para>In a <c>DENYLIST</c>, or when <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> is the only target
         /// type, Network Firewall evaluates each condition independently: a match on either the
         /// domain (SNI or <c>Host</c>) or the resolved destination IP address triggers the rule.</para></li><li><para>When you don't include <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c>, the generated rules match
         /// only on the SNI or <c>Host</c> header, without checking how the destination IP address
@@ -571,13 +572,14 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// traffic.</para></li></ul><para><c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> matches on how the destination IP address was
         /// resolved, rather than on the domain that the client asserts in its TLS SNI or HTTP
         /// <c>Host</c> header. This target type takes effect when you configure resolved IP validation
-        /// on the firewall policy. For more information, see <a>Route53ResolvedIPValidation</a>.</para><para>Whether you include <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> changes what the generated
-        /// rules match, together with <c>GeneratedRulesType</c>:</para><ul><li><para>Combining <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> with <c>TLS_SNI</c> or <c>HTTP_HOST</c>
-        /// in an <c>ALLOWLIST</c> requires both conditions to match. The SNI or <c>Host</c> header
-        /// must match the domain, <b>and</b> the Route 53 Resolver must have resolved the destination
-        /// IP address for that domain. Network Firewall allows traffic only in that case. Traffic
-        /// that matches one condition, such as a spoofed <c>Host</c> header sent to an unresolved
-        /// IP address, is not allowed.</para></li><li><para>In a <c>DENYLIST</c>, or when <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> is the only target
+        /// on the firewall policy. For more information, see the <c>Route53ResolvedIPValidation</c>
+        /// firewall policy setting.</para><para>Whether you include <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> changes what the generated
+        /// rules match, together with <c>GeneratedRulesType</c>:</para><ul><li><para>In an <c>ALLOWLIST</c>, combining <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> with <c>TLS_SNI</c>
+        /// or <c>HTTP_HOST</c> requires both conditions to match: the SNI or <c>Host</c> header
+        /// matches the domain, <b>and</b> the Route 53 Resolver resolved the destination IP address
+        /// for that domain. Network Firewall allows the traffic only when both conditions match,
+        /// so it blocks traffic that matches just one—for example, a spoofed <c>Host</c> header
+        /// sent to an unresolved IP address.</para></li><li><para>In a <c>DENYLIST</c>, or when <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c> is the only target
         /// type, Network Firewall evaluates each condition independently: a match on either the
         /// domain (SNI or <c>Host</c>) or the resolved destination IP address triggers the rule.</para></li><li><para>When you don't include <c>AWS_ROUTE_53_RESOLVED_DOMAIN</c>, the generated rules match
         /// only on the SNI or <c>Host</c> header, without checking how the destination IP address

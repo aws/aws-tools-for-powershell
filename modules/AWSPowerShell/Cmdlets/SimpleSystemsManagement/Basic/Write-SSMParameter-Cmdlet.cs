@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Write", "SSMParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Int64")]
-    [AWSCmdlet("Calls the AWS Systems Manager PutParameter API operation.", Operation = new[] {"PutParameter"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutParameterResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) PutParameter API operation.", Operation = new[] {"PutParameter"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutParameterResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.SimpleSystemsManagement.Model.PutParameterResponse",
         "This cmdlet returns a collection of System.Int64 objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.PutParameterResponse) can be returned by specifying '-Select *'."
@@ -77,8 +77,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DataType
         /// <summary>
         /// <para>
-        /// <para>The data type for a <c>String</c> parameter. Supported data types include plain text
-        /// and Amazon Machine Image (AMI) IDs.</para><para><b>The following data type values are supported.</b></para><ul><li><para><c>text</c></para></li><li><para><c>aws:ec2:image</c></para></li><li><para><c>aws:ssm:integration</c></para></li></ul><para>When you create a <c>String</c> parameter and specify <c>aws:ec2:image</c>, Amazon
+        /// <para>The data type of the parameter value. Parameter Store validates the value against
+        /// the data type when you create or update the parameter. The default is <c>text</c>,
+        /// which performs no validation.</para><para><b>The following data type values are supported.</b></para><ul><li><para><c>text</c></para></li><li><para><c>aws:ec2:image</c></para></li><li><para><c>aws:ssm:integration</c></para></li><li><para><c>aws:region</c></para></li><li><para><c>aws:account:id</c></para></li><li><para><c>boolean</c></para></li><li><para><c>integer</c></para></li><li><para><c>float</c></para></li><li><para><c>binary</c></para></li><li><para><c>hostname</c></para></li><li><para><c>email</c></para></li><li><para><c>ipv4-address</c></para></li><li><para><c>ipv6-address</c></para></li><li><para><c>url</c></para></li><li><para><c>json</c></para></li><li><para><c>jsonc</c></para></li></ul><para>For more information about the supported data types, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-data-types.html">Working
+        /// with parameter data types in Parameter Store</a>.</para><note><para>Regardless of a parameter's data type, the Parameter Store API operations that retrieve
+        /// parameters, such as <c>GetParameter</c>, <c>GetParameters</c>, and <c>GetParametersByPath</c>,
+        /// return the parameter value as a string. For example, if a parameter has the data type
+        /// <c>integer</c> and the value <c>443</c>, <c>GetParameter</c> returns the value as
+        /// the string <c>"443"</c>. Convert the value to the type your application needs after
+        /// you retrieve it.</para></note><para>When you create a <c>String</c> parameter and specify <c>aws:ec2:image</c>, Amazon
         /// Web Services Systems Manager validates the parameter value is in the required format,
         /// such as <c>ami-12345abcdeEXAMPLE</c>, and that the specified AMI is available in your
         /// Amazon Web Services account.</para><note><para>If the action is successful, the service sends back an HTTP 200 response which indicates
@@ -237,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// parameter is created in the standard-parameter tier. If one or more options requiring
         /// an advanced parameter are included in the request, Parameter Store create a parameter
         /// in the advanced-parameter tier.</para><para>This approach helps control your parameter-related costs by always creating standard
-        /// parameters unless an advanced parameter is necessary. </para></li></ul><para>Options that require an advanced parameter include the following:</para><ul><li><para>The content size of the parameter is more than 4 KB.</para></li><li><para>The parameter uses a parameter policy.</para></li><li><para>More than 10,000 parameters already exist in your Amazon Web Services account in the
+        /// parameters unless an advanced parameter is necessary. </para></li></ul><para>Options that require an advanced parameter include the following:</para><ul><li><para>The content size of the parameter is more than 4 KB.</para></li><li><para>The parameter uses a parameter policy.</para></li><li><para>The parameter uses the <c>url</c>, <c>json</c>, or <c>jsonc</c> data type.</para></li><li><para>More than 10,000 parameters already exist in your Amazon Web Services account in the
         /// current Amazon Web Services Region.</para></li></ul><para>For more information about configuring the default tier option, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html#ps-default-tier">Specifying
         /// a default parameter tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
@@ -448,7 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.PutParameterResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.PutParameterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "PutParameter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "PutParameter");
             try
             {
                 return client.PutParameterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

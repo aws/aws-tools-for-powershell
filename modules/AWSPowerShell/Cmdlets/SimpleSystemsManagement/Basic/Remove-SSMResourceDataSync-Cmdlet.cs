@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMResourceDataSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteResourceDataSync API operation.", Operation = new[] {"DeleteResourceDataSync"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeleteResourceDataSync API operation.", Operation = new[] {"DeleteResourceDataSync"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncResponse) be returned by specifying '-Select *'."
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteResourceDataSync");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeleteResourceDataSync");
             try
             {
                 return client.DeleteResourceDataSyncAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

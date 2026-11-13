@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2AwsNetworkPerformanceMetricSubscription")]
     [OutputType("Amazon.EC2.Model.Subscription")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeAwsNetworkPerformanceMetricSubscriptions API operation.", Operation = new[] {"DescribeAwsNetworkPerformanceMetricSubscriptions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAwsNetworkPerformanceMetricSubscriptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeAwsNetworkPerformanceMetricSubscriptions API operation.", Operation = new[] {"DescribeAwsNetworkPerformanceMetricSubscriptions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAwsNetworkPerformanceMetricSubscriptionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Subscription or Amazon.EC2.Model.DescribeAwsNetworkPerformanceMetricSubscriptionsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Subscription objects.",
         "The service call response (type Amazon.EC2.Model.DescribeAwsNetworkPerformanceMetricSubscriptionsResponse) can be returned by specifying '-Select *'."
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeAwsNetworkPerformanceMetricSubscriptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeAwsNetworkPerformanceMetricSubscriptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeAwsNetworkPerformanceMetricSubscriptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeAwsNetworkPerformanceMetricSubscriptions");
             try
             {
                 return client.DescribeAwsNetworkPerformanceMetricSubscriptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2NatGatewayAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DisassociateNatGatewayAddressResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateNatGatewayAddress API operation.", Operation = new[] {"DisassociateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateNatGatewayAddressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateNatGatewayAddress API operation.", Operation = new[] {"DisassociateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateNatGatewayAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DisassociateNatGatewayAddressResponse",
         "This cmdlet returns an Amazon.EC2.Model.DisassociateNatGatewayAddressResponse object containing multiple properties."
     )]
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisassociateNatGatewayAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateNatGatewayAddressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisassociateNatGatewayAddress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateNatGatewayAddress");
             try
             {
                 return client.DisassociateNatGatewayAddressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

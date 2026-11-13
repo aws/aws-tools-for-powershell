@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMParameterCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteParameters API operation.", Operation = new[] {"DeleteParameters"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeleteParameters API operation.", Operation = new[] {"DeleteParameters"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse object containing multiple properties."
     )]
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteParametersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteParameters");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeleteParameters");
             try
             {
                 return client.DeleteParametersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

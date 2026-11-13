@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTags API operation.", Operation = new[] {"DeleteTags"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTagsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteTags API operation.", Operation = new[] {"DeleteTags"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTagsResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteTagsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteTagsResponse) be returned by specifying '-Select *'."
@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteTags");
             try
             {
                 return client.DeleteTagsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

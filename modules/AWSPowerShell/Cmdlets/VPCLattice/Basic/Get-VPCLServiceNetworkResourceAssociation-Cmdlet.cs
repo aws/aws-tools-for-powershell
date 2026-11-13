@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Get", "VPCLServiceNetworkResourceAssociation")]
     [OutputType("Amazon.VPCLattice.Model.GetServiceNetworkResourceAssociationResponse")]
-    [AWSCmdlet("Calls the VPC Lattice GetServiceNetworkResourceAssociation API operation.", Operation = new[] {"GetServiceNetworkResourceAssociation"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetServiceNetworkResourceAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice GetServiceNetworkResourceAssociation API operation.", Operation = new[] {"GetServiceNetworkResourceAssociation"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetServiceNetworkResourceAssociationResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.GetServiceNetworkResourceAssociationResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.GetServiceNetworkResourceAssociationResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.GetServiceNetworkResourceAssociationResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.GetServiceNetworkResourceAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "GetServiceNetworkResourceAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "GetServiceNetworkResourceAssociation");
             try
             {
                 return client.GetServiceNetworkResourceAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

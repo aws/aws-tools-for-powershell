@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VpcBlockPublicAccessOption")]
     [OutputType("Amazon.EC2.Model.VpcBlockPublicAccessOptions")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVpcBlockPublicAccessOptions API operation.", Operation = new[] {"DescribeVpcBlockPublicAccessOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcBlockPublicAccessOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVpcBlockPublicAccessOptions API operation.", Operation = new[] {"DescribeVpcBlockPublicAccessOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcBlockPublicAccessOptionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcBlockPublicAccessOptions or Amazon.EC2.Model.DescribeVpcBlockPublicAccessOptionsResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpcBlockPublicAccessOptions object.",
         "The service call response (type Amazon.EC2.Model.DescribeVpcBlockPublicAccessOptionsResponse) can be returned by specifying '-Select *'."
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVpcBlockPublicAccessOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVpcBlockPublicAccessOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVpcBlockPublicAccessOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVpcBlockPublicAccessOptions");
             try
             {
                 return client.DescribeVpcBlockPublicAccessOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

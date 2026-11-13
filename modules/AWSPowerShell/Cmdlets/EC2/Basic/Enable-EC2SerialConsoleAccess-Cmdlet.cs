@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2SerialConsoleAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableSerialConsoleAccess API operation.", Operation = new[] {"EnableSerialConsoleAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableSerialConsoleAccessResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableSerialConsoleAccess API operation.", Operation = new[] {"EnableSerialConsoleAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableSerialConsoleAccessResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableSerialConsoleAccessResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.EnableSerialConsoleAccessResponse) can be returned by specifying '-Select *'."
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableSerialConsoleAccessResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableSerialConsoleAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableSerialConsoleAccess");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableSerialConsoleAccess");
             try
             {
                 return client.EnableSerialConsoleAccessAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

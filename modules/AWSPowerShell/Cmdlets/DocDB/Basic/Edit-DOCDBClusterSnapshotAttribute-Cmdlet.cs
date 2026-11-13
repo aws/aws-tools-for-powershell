@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Edit", "DOCDBClusterSnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBClusterSnapshotAttributesResult")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ModifyDBClusterSnapshotAttribute API operation.", Operation = new[] {"ModifyDBClusterSnapshotAttribute"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyDBClusterSnapshotAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility ModifyDBClusterSnapshotAttribute API operation.", Operation = new[] {"ModifyDBClusterSnapshotAttribute"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyDBClusterSnapshotAttributeResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBClusterSnapshotAttributesResult or Amazon.DocDB.Model.ModifyDBClusterSnapshotAttributeResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBClusterSnapshotAttributesResult object.",
         "The service call response (type Amazon.DocDB.Model.ModifyDBClusterSnapshotAttributeResponse) can be returned by specifying '-Select *'."
@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.ModifyDBClusterSnapshotAttributeResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.ModifyDBClusterSnapshotAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "ModifyDBClusterSnapshotAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "ModifyDBClusterSnapshotAttribute");
             try
             {
                 return client.ModifyDBClusterSnapshotAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

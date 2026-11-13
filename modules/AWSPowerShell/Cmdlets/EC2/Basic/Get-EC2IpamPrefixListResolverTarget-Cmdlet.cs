@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamPrefixListResolverTarget")]
     [OutputType("Amazon.EC2.Model.IpamPrefixListResolverTarget")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeIpamPrefixListResolverTargets API operation.", Operation = new[] {"DescribeIpamPrefixListResolverTargets"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeIpamPrefixListResolverTargetsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeIpamPrefixListResolverTargets API operation.", Operation = new[] {"DescribeIpamPrefixListResolverTargets"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeIpamPrefixListResolverTargetsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPrefixListResolverTarget or Amazon.EC2.Model.DescribeIpamPrefixListResolverTargetsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamPrefixListResolverTarget objects.",
         "The service call response (type Amazon.EC2.Model.DescribeIpamPrefixListResolverTargetsResponse) can be returned by specifying '-Select *'."
@@ -292,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeIpamPrefixListResolverTargetsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeIpamPrefixListResolverTargetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeIpamPrefixListResolverTargets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeIpamPrefixListResolverTargets");
             try
             {
                 return client.DescribeIpamPrefixListResolverTargetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

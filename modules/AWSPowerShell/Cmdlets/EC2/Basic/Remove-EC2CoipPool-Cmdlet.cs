@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2CoipPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.CoipPool")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteCoipPool API operation.", Operation = new[] {"DeleteCoipPool"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteCoipPoolResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteCoipPool API operation.", Operation = new[] {"DeleteCoipPool"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteCoipPoolResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CoipPool or Amazon.EC2.Model.DeleteCoipPoolResponse",
         "This cmdlet returns an Amazon.EC2.Model.CoipPool object.",
         "The service call response (type Amazon.EC2.Model.DeleteCoipPoolResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteCoipPoolResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteCoipPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteCoipPool");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteCoipPool");
             try
             {
                 return client.DeleteCoipPoolAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMDocumentMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateDocumentMetadata API operation.", Operation = new[] {"UpdateDocumentMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateDocumentMetadataResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) UpdateDocumentMetadata API operation.", Operation = new[] {"UpdateDocumentMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateDocumentMetadataResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateDocumentMetadataResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentMetadataResponse) be returned by specifying '-Select *'."
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UpdateDocumentMetadataResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateDocumentMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateDocumentMetadata");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "UpdateDocumentMetadata");
             try
             {
                 return client.UpdateDocumentMetadataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

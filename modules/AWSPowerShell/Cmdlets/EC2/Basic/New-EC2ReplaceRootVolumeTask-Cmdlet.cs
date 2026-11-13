@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2ReplaceRootVolumeTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ReplaceRootVolumeTask")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateReplaceRootVolumeTask API operation.", Operation = new[] {"CreateReplaceRootVolumeTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateReplaceRootVolumeTaskResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateReplaceRootVolumeTask API operation.", Operation = new[] {"CreateReplaceRootVolumeTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateReplaceRootVolumeTaskResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ReplaceRootVolumeTask or Amazon.EC2.Model.CreateReplaceRootVolumeTaskResponse",
         "This cmdlet returns an Amazon.EC2.Model.ReplaceRootVolumeTask object.",
         "The service call response (type Amazon.EC2.Model.CreateReplaceRootVolumeTaskResponse) can be returned by specifying '-Select *'."
@@ -337,7 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateReplaceRootVolumeTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateReplaceRootVolumeTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateReplaceRootVolumeTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateReplaceRootVolumeTask");
             try
             {
                 return client.CreateReplaceRootVolumeTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

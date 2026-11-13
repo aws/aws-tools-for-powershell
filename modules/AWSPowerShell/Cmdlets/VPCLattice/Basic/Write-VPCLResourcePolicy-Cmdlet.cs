@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Write", "VPCLResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.PutResourcePolicyResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.PutResourcePolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.PutResourcePolicyResponse) be returned by specifying '-Select *'."
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.PutResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "PutResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "PutResourcePolicy");
             try
             {
                 return client.PutResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

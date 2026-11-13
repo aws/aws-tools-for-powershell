@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.InstanceStateChange")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) TerminateInstances API operation.", Operation = new[] {"TerminateInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.TerminateInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud TerminateInstances API operation.", Operation = new[] {"TerminateInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.TerminateInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceStateChange or Amazon.EC2.Model.TerminateInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceStateChange objects.",
         "The service call response (type Amazon.EC2.Model.TerminateInstancesResponse) can be returned by specifying '-Select *'."
@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.TerminateInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.TerminateInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "TerminateInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "TerminateInstances");
             try
             {
                 return client.TerminateInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

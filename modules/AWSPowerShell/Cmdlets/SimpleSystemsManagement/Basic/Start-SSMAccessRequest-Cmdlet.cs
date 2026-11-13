@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Start", "SSMAccessRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager StartAccessRequest API operation.", Operation = new[] {"StartAccessRequest"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) StartAccessRequest API operation.", Operation = new[] {"StartAccessRequest"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse) can be returned by specifying '-Select *'."
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.StartAccessRequestRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "StartAccessRequest");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "StartAccessRequest");
             try
             {
                 return client.StartAccessRequestAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

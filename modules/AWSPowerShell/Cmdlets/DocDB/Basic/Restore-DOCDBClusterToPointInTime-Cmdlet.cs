@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Restore", "DOCDBClusterToPointInTime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBCluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) RestoreDBClusterToPointInTime API operation.", Operation = new[] {"RestoreDBClusterToPointInTime"}, SelectReturnType = typeof(Amazon.DocDB.Model.RestoreDBClusterToPointInTimeResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility RestoreDBClusterToPointInTime API operation.", Operation = new[] {"RestoreDBClusterToPointInTime"}, SelectReturnType = typeof(Amazon.DocDB.Model.RestoreDBClusterToPointInTimeResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBCluster or Amazon.DocDB.Model.RestoreDBClusterToPointInTimeResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBCluster object.",
         "The service call response (type Amazon.DocDB.Model.RestoreDBClusterToPointInTimeResponse) can be returned by specifying '-Select *'."
@@ -500,7 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.RestoreDBClusterToPointInTimeResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.RestoreDBClusterToPointInTimeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "RestoreDBClusterToPointInTime");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "RestoreDBClusterToPointInTime");
             try
             {
                 return client.RestoreDBClusterToPointInTimeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

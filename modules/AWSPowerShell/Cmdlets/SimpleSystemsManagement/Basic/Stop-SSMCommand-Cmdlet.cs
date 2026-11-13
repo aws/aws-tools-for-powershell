@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Stop", "SSMCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager CancelCommand API operation.", Operation = new[] {"CancelCommand"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CancelCommandResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) CancelCommand API operation.", Operation = new[] {"CancelCommand"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CancelCommandResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.CancelCommandResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.CancelCommandResponse) be returned by specifying '-Select *'."
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.CancelCommandResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CancelCommandRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "CancelCommand");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "CancelCommand");
             try
             {
                 return client.CancelCommandAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

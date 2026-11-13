@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Start", "EC2VpcEndpointServicePrivateDnsVerification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) StartVpcEndpointServicePrivateDnsVerification API operation.", Operation = new[] {"StartVpcEndpointServicePrivateDnsVerification"}, SelectReturnType = typeof(Amazon.EC2.Model.StartVpcEndpointServicePrivateDnsVerificationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud StartVpcEndpointServicePrivateDnsVerification API operation.", Operation = new[] {"StartVpcEndpointServicePrivateDnsVerification"}, SelectReturnType = typeof(Amazon.EC2.Model.StartVpcEndpointServicePrivateDnsVerificationResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.StartVpcEndpointServicePrivateDnsVerificationResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.StartVpcEndpointServicePrivateDnsVerificationResponse) can be returned by specifying '-Select *'."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.StartVpcEndpointServicePrivateDnsVerificationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.StartVpcEndpointServicePrivateDnsVerificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "StartVpcEndpointServicePrivateDnsVerification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "StartVpcEndpointServicePrivateDnsVerification");
             try
             {
                 return client.StartVpcEndpointServicePrivateDnsVerificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDocumentPermission")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeDocumentPermission API operation.", Operation = new[] {"DescribeDocumentPermission"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeDocumentPermission API operation.", Operation = new[] {"DescribeDocumentPermission"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionResponse) can be returned by specifying '-Select *'."
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeDocumentPermission");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeDocumentPermission");
             try
             {
                 return client.DescribeDocumentPermissionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

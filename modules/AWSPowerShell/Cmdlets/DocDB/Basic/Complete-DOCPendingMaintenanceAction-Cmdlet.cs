@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Complete", "DOCPendingMaintenanceAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.ResourcePendingMaintenanceActions")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ApplyPendingMaintenanceAction API operation.", Operation = new[] {"ApplyPendingMaintenanceAction"}, SelectReturnType = typeof(Amazon.DocDB.Model.ApplyPendingMaintenanceActionResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility ApplyPendingMaintenanceAction API operation.", Operation = new[] {"ApplyPendingMaintenanceAction"}, SelectReturnType = typeof(Amazon.DocDB.Model.ApplyPendingMaintenanceActionResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.ResourcePendingMaintenanceActions or Amazon.DocDB.Model.ApplyPendingMaintenanceActionResponse",
         "This cmdlet returns an Amazon.DocDB.Model.ResourcePendingMaintenanceActions object.",
         "The service call response (type Amazon.DocDB.Model.ApplyPendingMaintenanceActionResponse) can be returned by specifying '-Select *'."
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter ApplyAction
         /// <summary>
         /// <para>
-        /// <para>The pending maintenance action to apply to this resource.</para><para>Valid values: <c>system-update</c>, <c>db-upgrade</c></para>
+        /// <para>The pending maintenance action to apply to this resource.</para><para>Valid values: <c>system-update</c>, <c>db-upgrade</c>, <c>serverless-platform-version-update</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.ApplyPendingMaintenanceActionResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.ApplyPendingMaintenanceActionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "ApplyPendingMaintenanceAction");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "ApplyPendingMaintenanceAction");
             try
             {
                 return client.ApplyPendingMaintenanceActionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ImageBlockPublicAccessState")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetImageBlockPublicAccessState API operation.", Operation = new[] {"GetImageBlockPublicAccessState"}, SelectReturnType = typeof(Amazon.EC2.Model.GetImageBlockPublicAccessStateResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetImageBlockPublicAccessState API operation.", Operation = new[] {"GetImageBlockPublicAccessState"}, SelectReturnType = typeof(Amazon.EC2.Model.GetImageBlockPublicAccessStateResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.GetImageBlockPublicAccessStateResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.GetImageBlockPublicAccessStateResponse) can be returned by specifying '-Select *'."
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetImageBlockPublicAccessStateResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetImageBlockPublicAccessStateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetImageBlockPublicAccessState");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetImageBlockPublicAccessState");
             try
             {
                 return client.GetImageBlockPublicAccessStateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

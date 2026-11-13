@@ -45,6 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// </para><para>
     /// To delete a firewall, remove the delete protection if you need to using <a>UpdateFirewallDeleteProtection</a>,
     /// then delete the firewall by calling <a>DeleteFirewall</a>. 
+    /// </para><para>
+    /// Deleting a proxy mode firewall detaches its NAT gateways. To also delete the NAT gateways
+    /// that Network Firewall created for the firewall, specify <c>DeleteAssociatedNatGateways</c>.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "NWFWFirewall", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -58,6 +62,21 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter DeleteAssociatedNatGateway
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to delete the NAT gateways that Network Firewall created for a proxy
+        /// mode firewall when you delete the firewall. You can choose from the following values:</para><ul><li><para><c>FALSE</c> - Network Firewall detaches the NAT gateways from the firewall and keeps
+        /// them. This is the default.</para></li><li><para><c>TRUE</c> - Network Firewall also deletes the NAT gateways. The firewall status
+        /// stays <c>DELETING</c> until they're deleted. You need permission to call the Amazon
+        /// EC2 <c>DeleteNatGateway</c> action.</para></li></ul><para>You can't specify <c>TRUE</c> for a firewall that isn't a proxy mode firewall.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeleteAssociatedNatGateways")]
+        public System.Boolean? DeleteAssociatedNatGateway { get; set; }
+        #endregion
         
         #region Parameter FirewallArn
         /// <summary>
@@ -126,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.DeleteFirewallResponse, RemoveNWFWFirewallCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DeleteAssociatedNatGateway = this.DeleteAssociatedNatGateway;
             context.FirewallArn = this.FirewallArn;
             context.FirewallName = this.FirewallName;
             
@@ -144,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             // create request
             var request = new Amazon.NetworkFirewall.Model.DeleteFirewallRequest();
             
+            if (cmdletContext.DeleteAssociatedNatGateway != null)
+            {
+                request.DeleteAssociatedNatGateways = cmdletContext.DeleteAssociatedNatGateway.Value;
+            }
             if (cmdletContext.FirewallArn != null)
             {
                 request.FirewallArn = cmdletContext.FirewallArn;
@@ -207,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeleteAssociatedNatGateway { get; set; }
             public System.String FirewallArn { get; set; }
             public System.String FirewallName { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.DeleteFirewallResponse, RemoveNWFWFirewallCmdlet, object> Select { get; set; } =

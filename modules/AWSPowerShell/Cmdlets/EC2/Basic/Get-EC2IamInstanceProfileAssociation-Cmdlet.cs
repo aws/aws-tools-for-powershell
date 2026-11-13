@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IamInstanceProfileAssociation")]
     [OutputType("Amazon.EC2.Model.IamInstanceProfileAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeIamInstanceProfileAssociations API operation.", Operation = new[] {"DescribeIamInstanceProfileAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeIamInstanceProfileAssociationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeIamInstanceProfileAssociations API operation.", Operation = new[] {"DescribeIamInstanceProfileAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeIamInstanceProfileAssociationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IamInstanceProfileAssociation or Amazon.EC2.Model.DescribeIamInstanceProfileAssociationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IamInstanceProfileAssociation objects.",
         "The service call response (type Amazon.EC2.Model.DescribeIamInstanceProfileAssociationsResponse) can be returned by specifying '-Select *'."
@@ -357,7 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeIamInstanceProfileAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeIamInstanceProfileAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeIamInstanceProfileAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeIamInstanceProfileAssociations");
             try
             {
                 return client.DescribeIamInstanceProfileAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

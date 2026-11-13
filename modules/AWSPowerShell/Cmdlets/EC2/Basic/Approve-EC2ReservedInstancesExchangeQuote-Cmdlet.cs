@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Approve", "EC2ReservedInstancesExchangeQuote", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AcceptReservedInstancesExchangeQuote API operation.", Operation = new[] {"AcceptReservedInstancesExchangeQuote"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptReservedInstancesExchangeQuoteResponse), LegacyAlias="Confirm-EC2ReservedInstancesExchangeQuote")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AcceptReservedInstancesExchangeQuote API operation.", Operation = new[] {"AcceptReservedInstancesExchangeQuote"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptReservedInstancesExchangeQuoteResponse), LegacyAlias="Confirm-EC2ReservedInstancesExchangeQuote")]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.AcceptReservedInstancesExchangeQuoteResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.AcceptReservedInstancesExchangeQuoteResponse) can be returned by specifying '-Select *'."
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AcceptReservedInstancesExchangeQuoteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AcceptReservedInstancesExchangeQuoteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AcceptReservedInstancesExchangeQuote");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AcceptReservedInstancesExchangeQuote");
             try
             {
                 return client.AcceptReservedInstancesExchangeQuoteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

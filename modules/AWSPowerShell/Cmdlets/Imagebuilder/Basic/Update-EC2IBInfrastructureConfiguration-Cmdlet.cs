@@ -34,8 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     /// environment in which Image Builder builds and tests your image.
     /// 
     ///  <note><para>
-    /// This operation doesn't support selective updates. The request replaces the configuration,
-    /// so include every setting that you want to keep. Omitted optional properties are cleared.
+    /// This operation doesn't support selective updates. The request replaces the entire
+    /// infrastructure configuration, so include every setting that you want to keep. Any
+    /// optional property that you omit is removed or reset to its default.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "EC2IBInfrastructureConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

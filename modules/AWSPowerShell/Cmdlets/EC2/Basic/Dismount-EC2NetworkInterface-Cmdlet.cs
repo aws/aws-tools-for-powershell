@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Dismount", "EC2NetworkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DetachNetworkInterface API operation.", Operation = new[] {"DetachNetworkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachNetworkInterfaceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DetachNetworkInterface API operation.", Operation = new[] {"DetachNetworkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachNetworkInterfaceResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DetachNetworkInterfaceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DetachNetworkInterfaceResponse) be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DetachNetworkInterfaceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachNetworkInterfaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DetachNetworkInterface");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DetachNetworkInterface");
             try
             {
                 return client.DetachNetworkInterfaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

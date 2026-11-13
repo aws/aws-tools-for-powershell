@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Approve", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpcPeeringConnection")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AcceptVpcPeeringConnection API operation.", Operation = new[] {"AcceptVpcPeeringConnection"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptVpcPeeringConnectionResponse), LegacyAlias="Confirm-EC2VpcPeeringConnection")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AcceptVpcPeeringConnection API operation.", Operation = new[] {"AcceptVpcPeeringConnection"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptVpcPeeringConnectionResponse), LegacyAlias="Confirm-EC2VpcPeeringConnection")]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcPeeringConnection or Amazon.EC2.Model.AcceptVpcPeeringConnectionResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpcPeeringConnection object.",
         "The service call response (type Amazon.EC2.Model.AcceptVpcPeeringConnectionResponse) can be returned by specifying '-Select *'."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AcceptVpcPeeringConnectionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AcceptVpcPeeringConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AcceptVpcPeeringConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AcceptVpcPeeringConnection");
             try
             {
                 return client.AcceptVpcPeeringConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

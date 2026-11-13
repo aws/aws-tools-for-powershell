@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Restore", "DOCDBClusterFromSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBCluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) RestoreDBClusterFromSnapshot API operation.", Operation = new[] {"RestoreDBClusterFromSnapshot"}, SelectReturnType = typeof(Amazon.DocDB.Model.RestoreDBClusterFromSnapshotResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility RestoreDBClusterFromSnapshot API operation.", Operation = new[] {"RestoreDBClusterFromSnapshot"}, SelectReturnType = typeof(Amazon.DocDB.Model.RestoreDBClusterFromSnapshotResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBCluster or Amazon.DocDB.Model.RestoreDBClusterFromSnapshotResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBCluster object.",
         "The service call response (type Amazon.DocDB.Model.RestoreDBClusterFromSnapshotResponse) can be returned by specifying '-Select *'."
@@ -544,7 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.RestoreDBClusterFromSnapshotResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.RestoreDBClusterFromSnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "RestoreDBClusterFromSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "RestoreDBClusterFromSnapshot");
             try
             {
                 return client.RestoreDBClusterFromSnapshotAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

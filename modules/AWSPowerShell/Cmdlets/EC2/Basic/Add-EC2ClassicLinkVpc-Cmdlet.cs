@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Add", "EC2ClassicLinkVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AttachClassicLinkVpc API operation.", Operation = new[] {"AttachClassicLinkVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.AttachClassicLinkVpcResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AttachClassicLinkVpc API operation.", Operation = new[] {"AttachClassicLinkVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.AttachClassicLinkVpcResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.AttachClassicLinkVpcResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.AttachClassicLinkVpcResponse) can be returned by specifying '-Select *'."
@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AttachClassicLinkVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AttachClassicLinkVpcRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AttachClassicLinkVpc");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AttachClassicLinkVpc");
             try
             {
                 return client.AttachClassicLinkVpcAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

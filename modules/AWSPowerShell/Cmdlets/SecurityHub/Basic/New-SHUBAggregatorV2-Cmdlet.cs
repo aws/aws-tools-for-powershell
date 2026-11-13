@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("New", "SHUBAggregatorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateAggregatorV2Response")]
-    [AWSCmdlet("Calls the AWS Security Hub CreateAggregatorV2 API operation.", Operation = new[] {"CreateAggregatorV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateAggregatorV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub CreateAggregatorV2 API operation.", Operation = new[] {"CreateAggregatorV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateAggregatorV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.CreateAggregatorV2Response",
         "This cmdlet returns an Amazon.SecurityHub.Model.CreateAggregatorV2Response object containing multiple properties."
     )]
@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.CreateAggregatorV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.CreateAggregatorV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "CreateAggregatorV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "CreateAggregatorV2");
             try
             {
                 return client.CreateAggregatorV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

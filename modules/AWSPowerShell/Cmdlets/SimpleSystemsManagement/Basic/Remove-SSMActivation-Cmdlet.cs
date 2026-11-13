@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMActivation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteActivation API operation.", Operation = new[] {"DeleteActivation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteActivationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeleteActivation API operation.", Operation = new[] {"DeleteActivation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteActivationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteActivationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteActivationResponse) be returned by specifying '-Select *'."
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeleteActivationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteActivationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteActivation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeleteActivation");
             try
             {
                 return client.DeleteActivationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

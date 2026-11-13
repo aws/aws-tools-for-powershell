@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ClientVpnRoute")]
     [OutputType("Amazon.EC2.Model.ClientVpnRoute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeClientVpnRoutes API operation.", Operation = new[] {"DescribeClientVpnRoutes"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeClientVpnRoutesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeClientVpnRoutes API operation.", Operation = new[] {"DescribeClientVpnRoutes"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeClientVpnRoutesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ClientVpnRoute or Amazon.EC2.Model.DescribeClientVpnRoutesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ClientVpnRoute objects.",
         "The service call response (type Amazon.EC2.Model.DescribeClientVpnRoutesResponse) can be returned by specifying '-Select *'."
@@ -380,7 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeClientVpnRoutesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeClientVpnRoutesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeClientVpnRoutes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeClientVpnRoutes");
             try
             {
                 return client.DescribeClientVpnRoutesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

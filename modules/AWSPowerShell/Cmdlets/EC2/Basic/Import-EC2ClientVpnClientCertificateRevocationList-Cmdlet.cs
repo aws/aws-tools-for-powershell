@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Import", "EC2ClientVpnClientCertificateRevocationList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ImportClientVpnClientCertificateRevocationList API operation.", Operation = new[] {"ImportClientVpnClientCertificateRevocationList"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportClientVpnClientCertificateRevocationListResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ImportClientVpnClientCertificateRevocationList API operation.", Operation = new[] {"ImportClientVpnClientCertificateRevocationList"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportClientVpnClientCertificateRevocationListResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ImportClientVpnClientCertificateRevocationListResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ImportClientVpnClientCertificateRevocationListResponse) can be returned by specifying '-Select *'."
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ImportClientVpnClientCertificateRevocationListResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportClientVpnClientCertificateRevocationListRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ImportClientVpnClientCertificateRevocationList");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ImportClientVpnClientCertificateRevocationList");
             try
             {
                 return client.ImportClientVpnClientCertificateRevocationListAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

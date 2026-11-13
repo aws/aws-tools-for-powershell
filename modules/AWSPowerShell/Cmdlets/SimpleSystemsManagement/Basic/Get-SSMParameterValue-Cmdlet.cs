@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMParameterValue")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetParametersResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetParameters API operation.", Operation = new[] {"GetParameters"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetParametersResponse), LegacyAlias="Get-SSMParameterNameList")]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetParameters API operation.", Operation = new[] {"GetParameters"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetParametersResponse), LegacyAlias="Get-SSMParameterNameList")]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetParametersResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetParametersResponse object containing multiple properties."
     )]
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetParametersResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetParametersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetParameters");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetParameters");
             try
             {
                 return client.GetParametersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Snapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSnapshotResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSnapshotResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteSnapshotResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteSnapshotResponse) be returned by specifying '-Select *'."
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteSnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteSnapshot");
             try
             {
                 return client.DeleteSnapshotAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

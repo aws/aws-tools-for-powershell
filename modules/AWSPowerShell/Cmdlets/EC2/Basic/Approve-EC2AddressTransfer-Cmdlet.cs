@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Approve", "EC2AddressTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AddressTransfer")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AcceptAddressTransfer API operation.", Operation = new[] {"AcceptAddressTransfer"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptAddressTransferResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AcceptAddressTransfer API operation.", Operation = new[] {"AcceptAddressTransfer"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptAddressTransferResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AddressTransfer or Amazon.EC2.Model.AcceptAddressTransferResponse",
         "This cmdlet returns an Amazon.EC2.Model.AddressTransfer object.",
         "The service call response (type Amazon.EC2.Model.AcceptAddressTransferResponse) can be returned by specifying '-Select *'."
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AcceptAddressTransferResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AcceptAddressTransferRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AcceptAddressTransfer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AcceptAddressTransfer");
             try
             {
                 return client.AcceptAddressTransferAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

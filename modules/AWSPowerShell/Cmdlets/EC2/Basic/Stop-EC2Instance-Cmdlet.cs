@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Stop", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.InstanceStateChange")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) StopInstances API operation.", Operation = new[] {"StopInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.StopInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud StopInstances API operation.", Operation = new[] {"StopInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.StopInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceStateChange or Amazon.EC2.Model.StopInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceStateChange objects.",
         "The service call response (type Amazon.EC2.Model.StopInstancesResponse) can be returned by specifying '-Select *'."
@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.StopInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.StopInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "StopInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "StopInstances");
             try
             {
                 return client.StopInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

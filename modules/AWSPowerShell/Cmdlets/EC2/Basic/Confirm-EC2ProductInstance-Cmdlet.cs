@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Confirm", "EC2ProductInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ConfirmProductInstanceResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ConfirmProductInstance API operation.", Operation = new[] {"ConfirmProductInstance"}, SelectReturnType = typeof(Amazon.EC2.Model.ConfirmProductInstanceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ConfirmProductInstance API operation.", Operation = new[] {"ConfirmProductInstance"}, SelectReturnType = typeof(Amazon.EC2.Model.ConfirmProductInstanceResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ConfirmProductInstanceResponse",
         "This cmdlet returns an Amazon.EC2.Model.ConfirmProductInstanceResponse object containing multiple properties."
     )]
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ConfirmProductInstanceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ConfirmProductInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ConfirmProductInstance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ConfirmProductInstance");
             try
             {
                 return client.ConfirmProductInstanceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

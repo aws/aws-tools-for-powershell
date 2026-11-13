@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMResourceComplianceSummaryList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ResourceComplianceSummaryItem")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListResourceComplianceSummaries API operation.", Operation = new[] {"ListResourceComplianceSummaries"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ListResourceComplianceSummaries API operation.", Operation = new[] {"ListResourceComplianceSummaries"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ResourceComplianceSummaryItem or Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.ResourceComplianceSummaryItem objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesResponse) can be returned by specifying '-Select *'."
@@ -340,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListResourceComplianceSummaries");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ListResourceComplianceSummaries");
             try
             {
                 return client.ListResourceComplianceSummariesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2TrunkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TrunkInterfaceAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateTrunkInterface API operation.", Operation = new[] {"AssociateTrunkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateTrunkInterfaceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateTrunkInterface API operation.", Operation = new[] {"AssociateTrunkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateTrunkInterfaceResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TrunkInterfaceAssociation or Amazon.EC2.Model.AssociateTrunkInterfaceResponse",
         "This cmdlet returns an Amazon.EC2.Model.TrunkInterfaceAssociation object.",
         "The service call response (type Amazon.EC2.Model.AssociateTrunkInterfaceResponse) can be returned by specifying '-Select *'."
@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateTrunkInterfaceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateTrunkInterfaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateTrunkInterface");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateTrunkInterface");
             try
             {
                 return client.AssociateTrunkInterfaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

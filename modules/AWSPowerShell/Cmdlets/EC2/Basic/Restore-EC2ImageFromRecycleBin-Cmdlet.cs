@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Restore", "EC2ImageFromRecycleBin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RestoreImageFromRecycleBin API operation.", Operation = new[] {"RestoreImageFromRecycleBin"}, SelectReturnType = typeof(Amazon.EC2.Model.RestoreImageFromRecycleBinResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RestoreImageFromRecycleBin API operation.", Operation = new[] {"RestoreImageFromRecycleBin"}, SelectReturnType = typeof(Amazon.EC2.Model.RestoreImageFromRecycleBinResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.RestoreImageFromRecycleBinResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.RestoreImageFromRecycleBinResponse) can be returned by specifying '-Select *'."
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RestoreImageFromRecycleBinResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RestoreImageFromRecycleBinRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RestoreImageFromRecycleBin");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RestoreImageFromRecycleBin");
             try
             {
                 return client.RestoreImageFromRecycleBinAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Grant", "EC2SecurityGroupEgress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AuthorizeSecurityGroupEgressResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AuthorizeSecurityGroupEgress API operation.", Operation = new[] {"AuthorizeSecurityGroupEgress"}, SelectReturnType = typeof(Amazon.EC2.Model.AuthorizeSecurityGroupEgressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AuthorizeSecurityGroupEgress API operation.", Operation = new[] {"AuthorizeSecurityGroupEgress"}, SelectReturnType = typeof(Amazon.EC2.Model.AuthorizeSecurityGroupEgressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AuthorizeSecurityGroupEgressResponse",
         "This cmdlet returns an Amazon.EC2.Model.AuthorizeSecurityGroupEgressResponse object containing multiple properties."
     )]
@@ -258,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AuthorizeSecurityGroupEgressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AuthorizeSecurityGroupEgressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AuthorizeSecurityGroupEgress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AuthorizeSecurityGroupEgress");
             try
             {
                 return client.AuthorizeSecurityGroupEgressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

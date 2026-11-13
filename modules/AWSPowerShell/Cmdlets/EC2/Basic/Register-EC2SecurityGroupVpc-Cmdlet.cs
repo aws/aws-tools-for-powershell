@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2SecurityGroupVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.SecurityGroupVpcAssociationState")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateSecurityGroupVpc API operation.", Operation = new[] {"AssociateSecurityGroupVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateSecurityGroupVpcResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateSecurityGroupVpc API operation.", Operation = new[] {"AssociateSecurityGroupVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateSecurityGroupVpcResponse))]
     [AWSCmdletOutput("Amazon.EC2.SecurityGroupVpcAssociationState or Amazon.EC2.Model.AssociateSecurityGroupVpcResponse",
         "This cmdlet returns an Amazon.EC2.SecurityGroupVpcAssociationState object.",
         "The service call response (type Amazon.EC2.Model.AssociateSecurityGroupVpcResponse) can be returned by specifying '-Select *'."
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateSecurityGroupVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateSecurityGroupVpcRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateSecurityGroupVpc");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateSecurityGroupVpc");
             try
             {
                 return client.AssociateSecurityGroupVpcAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMNodesSummary")]
     [OutputType("System.Collections.Generic.Dictionary<System.String, System.String>")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListNodesSummary API operation.", Operation = new[] {"ListNodesSummary"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListNodesSummaryResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ListNodesSummary API operation.", Operation = new[] {"ListNodesSummary"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListNodesSummaryResponse))]
     [AWSCmdletOutput("System.Collections.Generic.Dictionary<System.String, System.String> or Amazon.SimpleSystemsManagement.Model.ListNodesSummaryResponse",
         "This cmdlet returns a collection of Dictionary<System.String, System.String> objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListNodesSummaryResponse) can be returned by specifying '-Select *'."
@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListNodesSummaryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListNodesSummaryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListNodesSummary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ListNodesSummary");
             try
             {
                 return client.ListNodesSummaryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

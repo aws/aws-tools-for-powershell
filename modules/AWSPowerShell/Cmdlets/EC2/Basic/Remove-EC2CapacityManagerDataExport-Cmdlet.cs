@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2CapacityManagerDataExport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteCapacityManagerDataExport API operation.", Operation = new[] {"DeleteCapacityManagerDataExport"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteCapacityManagerDataExportResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteCapacityManagerDataExport API operation.", Operation = new[] {"DeleteCapacityManagerDataExport"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteCapacityManagerDataExportResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.DeleteCapacityManagerDataExportResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.DeleteCapacityManagerDataExportResponse) can be returned by specifying '-Select *'."
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteCapacityManagerDataExportResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteCapacityManagerDataExportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteCapacityManagerDataExport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteCapacityManagerDataExport");
             try
             {
                 return client.DeleteCapacityManagerDataExportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

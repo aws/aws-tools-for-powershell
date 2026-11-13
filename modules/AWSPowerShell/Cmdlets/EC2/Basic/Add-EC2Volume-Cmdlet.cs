@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Add", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VolumeAttachment")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AttachVolume API operation.", Operation = new[] {"AttachVolume"}, SelectReturnType = typeof(Amazon.EC2.Model.AttachVolumeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AttachVolume API operation.", Operation = new[] {"AttachVolume"}, SelectReturnType = typeof(Amazon.EC2.Model.AttachVolumeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VolumeAttachment or Amazon.EC2.Model.AttachVolumeResponse",
         "This cmdlet returns an Amazon.EC2.Model.VolumeAttachment object.",
         "The service call response (type Amazon.EC2.Model.AttachVolumeResponse) can be returned by specifying '-Select *'."
@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AttachVolumeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AttachVolumeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AttachVolume");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AttachVolume");
             try
             {
                 return client.AttachVolumeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

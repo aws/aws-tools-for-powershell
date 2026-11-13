@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Stop", "EC2DeclarativePoliciesReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CancelDeclarativePoliciesReport API operation.", Operation = new[] {"CancelDeclarativePoliciesReport"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelDeclarativePoliciesReportResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CancelDeclarativePoliciesReport API operation.", Operation = new[] {"CancelDeclarativePoliciesReport"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelDeclarativePoliciesReportResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.CancelDeclarativePoliciesReportResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.CancelDeclarativePoliciesReportResponse) can be returned by specifying '-Select *'."
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CancelDeclarativePoliciesReportResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelDeclarativePoliciesReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CancelDeclarativePoliciesReport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CancelDeclarativePoliciesReport");
             try
             {
                 return client.CancelDeclarativePoliciesReportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

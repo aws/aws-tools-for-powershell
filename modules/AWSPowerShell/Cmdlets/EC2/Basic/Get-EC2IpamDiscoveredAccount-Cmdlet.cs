@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamDiscoveredAccount")]
     [OutputType("Amazon.EC2.Model.IpamDiscoveredAccount")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamDiscoveredAccounts API operation.", Operation = new[] {"GetIpamDiscoveredAccounts"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamDiscoveredAccounts API operation.", Operation = new[] {"GetIpamDiscoveredAccounts"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamDiscoveredAccount or Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamDiscoveredAccount objects.",
         "The service call response (type Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse) can be returned by specifying '-Select *'."
@@ -294,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamDiscoveredAccountsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamDiscoveredAccounts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamDiscoveredAccounts");
             try
             {
                 return client.GetIpamDiscoveredAccountsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

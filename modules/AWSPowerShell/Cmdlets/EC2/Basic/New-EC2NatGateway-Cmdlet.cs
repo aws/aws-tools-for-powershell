@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2NatGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateNatGatewayResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateNatGateway API operation.", Operation = new[] {"CreateNatGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNatGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateNatGateway API operation.", Operation = new[] {"CreateNatGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNatGatewayResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateNatGatewayResponse",
         "This cmdlet returns an Amazon.EC2.Model.CreateNatGatewayResponse object containing multiple properties."
     )]
@@ -427,7 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateNatGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateNatGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateNatGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateNatGateway");
             try
             {
                 return client.CreateNatGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Copy", "EC2FpgaImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CopyFpgaImage API operation.", Operation = new[] {"CopyFpgaImage"}, SelectReturnType = typeof(Amazon.EC2.Model.CopyFpgaImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CopyFpgaImage API operation.", Operation = new[] {"CopyFpgaImage"}, SelectReturnType = typeof(Amazon.EC2.Model.CopyFpgaImageResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.CopyFpgaImageResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.CopyFpgaImageResponse) can be returned by specifying '-Select *'."
@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CopyFpgaImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CopyFpgaImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CopyFpgaImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CopyFpgaImage");
             try
             {
                 return client.CopyFpgaImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

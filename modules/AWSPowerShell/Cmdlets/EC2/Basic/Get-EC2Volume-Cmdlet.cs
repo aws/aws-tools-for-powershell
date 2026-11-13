@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2Volume", DefaultParameterSetName="ByFilter")]
     [OutputType("Amazon.EC2.Model.Volume")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVolumes API operation.", Operation = new[] {"DescribeVolumes"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVolumesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVolumes API operation.", Operation = new[] {"DescribeVolumes"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVolumesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Volume or Amazon.EC2.Model.DescribeVolumesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Volume objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVolumesResponse) can be returned by specifying '-Select *'."
@@ -427,7 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVolumesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVolumesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVolumes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVolumes");
             try
             {
                 return client.DescribeVolumesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2VpcClassicLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableVpcClassicLink API operation.", Operation = new[] {"DisableVpcClassicLink"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableVpcClassicLinkResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableVpcClassicLink API operation.", Operation = new[] {"DisableVpcClassicLink"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableVpcClassicLinkResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DisableVpcClassicLinkResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DisableVpcClassicLinkResponse) can be returned by specifying '-Select *'."
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableVpcClassicLinkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableVpcClassicLinkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableVpcClassicLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableVpcClassicLink");
             try
             {
                 return client.DisableVpcClassicLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

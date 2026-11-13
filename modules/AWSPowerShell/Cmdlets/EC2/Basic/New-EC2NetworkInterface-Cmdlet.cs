@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2NetworkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.NetworkInterface")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateNetworkInterface API operation.", Operation = new[] {"CreateNetworkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNetworkInterfaceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateNetworkInterface API operation.", Operation = new[] {"CreateNetworkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNetworkInterfaceResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInterface or Amazon.EC2.Model.CreateNetworkInterfaceResponse",
         "This cmdlet returns an Amazon.EC2.Model.NetworkInterface object.",
         "The service call response (type Amazon.EC2.Model.CreateNetworkInterfaceResponse) can be returned by specifying '-Select *'."
@@ -620,7 +620,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateNetworkInterfaceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateNetworkInterfaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateNetworkInterface");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateNetworkInterface");
             try
             {
                 return client.CreateNetworkInterfaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

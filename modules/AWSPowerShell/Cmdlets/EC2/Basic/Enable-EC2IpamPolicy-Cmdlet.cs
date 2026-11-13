@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2IpamPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableIpamPolicy API operation.", Operation = new[] {"EnableIpamPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableIpamPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableIpamPolicy API operation.", Operation = new[] {"EnableIpamPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableIpamPolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.EnableIpamPolicyResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.EnableIpamPolicyResponse) can be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableIpamPolicyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableIpamPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableIpamPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableIpamPolicy");
             try
             {
                 return client.EnableIpamPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

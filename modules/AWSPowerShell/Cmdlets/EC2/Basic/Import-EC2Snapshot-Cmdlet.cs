@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Import", "EC2Snapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ImportSnapshotResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ImportSnapshot API operation.", Operation = new[] {"ImportSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportSnapshotResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ImportSnapshot API operation.", Operation = new[] {"ImportSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportSnapshotResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportSnapshotResponse",
         "This cmdlet returns an Amazon.EC2.Model.ImportSnapshotResponse object containing multiple properties."
     )]
@@ -501,7 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ImportSnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportSnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ImportSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ImportSnapshot");
             try
             {
                 return client.ImportSnapshotAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

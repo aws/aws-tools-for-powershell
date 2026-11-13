@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2TransitGatewayPrefixListReference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayPrefixListReference")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTransitGatewayPrefixListReference API operation.", Operation = new[] {"CreateTransitGatewayPrefixListReference"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayPrefixListReferenceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateTransitGatewayPrefixListReference API operation.", Operation = new[] {"CreateTransitGatewayPrefixListReference"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayPrefixListReferenceResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayPrefixListReference or Amazon.EC2.Model.CreateTransitGatewayPrefixListReferenceResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayPrefixListReference object.",
         "The service call response (type Amazon.EC2.Model.CreateTransitGatewayPrefixListReferenceResponse) can be returned by specifying '-Select *'."
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateTransitGatewayPrefixListReferenceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateTransitGatewayPrefixListReferenceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateTransitGatewayPrefixListReference");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateTransitGatewayPrefixListReference");
             try
             {
                 return client.CreateTransitGatewayPrefixListReferenceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VpnConnectionDeviceSampleConfiguration")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetVpnConnectionDeviceSampleConfiguration API operation.", Operation = new[] {"GetVpnConnectionDeviceSampleConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetVpnConnectionDeviceSampleConfiguration API operation.", Operation = new[] {"GetVpnConnectionDeviceSampleConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse) can be returned by specifying '-Select *'."
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetVpnConnectionDeviceSampleConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetVpnConnectionDeviceSampleConfiguration");
             try
             {
                 return client.GetVpnConnectionDeviceSampleConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

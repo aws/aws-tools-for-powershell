@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMAvailablePatch")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Patch")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeAvailablePatches API operation.", Operation = new[] {"DescribeAvailablePatches"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeAvailablePatches API operation.", Operation = new[] {"DescribeAvailablePatches"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Patch or Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.Patch objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesResponse) can be returned by specifying '-Select *'."
@@ -345,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeAvailablePatches");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeAvailablePatches");
             try
             {
                 return client.DescribeAvailablePatchesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

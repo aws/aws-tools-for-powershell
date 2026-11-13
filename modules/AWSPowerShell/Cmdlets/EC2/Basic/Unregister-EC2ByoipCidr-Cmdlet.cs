@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2ByoipCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ByoipCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeprovisionByoipCidr API operation.", Operation = new[] {"DeprovisionByoipCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.DeprovisionByoipCidrResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeprovisionByoipCidr API operation.", Operation = new[] {"DeprovisionByoipCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.DeprovisionByoipCidrResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ByoipCidr or Amazon.EC2.Model.DeprovisionByoipCidrResponse",
         "This cmdlet returns an Amazon.EC2.Model.ByoipCidr object.",
         "The service call response (type Amazon.EC2.Model.DeprovisionByoipCidrResponse) can be returned by specifying '-Select *'."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeprovisionByoipCidrResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeprovisionByoipCidrRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeprovisionByoipCidr");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeprovisionByoipCidr");
             try
             {
                 return client.DeprovisionByoipCidrAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

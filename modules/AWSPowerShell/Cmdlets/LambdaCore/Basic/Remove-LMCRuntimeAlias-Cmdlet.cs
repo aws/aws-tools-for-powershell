@@ -23,81 +23,85 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.NetworkFirewall;
-using Amazon.NetworkFirewall.Model;
+using Amazon.LambdaCore;
+using Amazon.LambdaCore.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.NWFW
+namespace Amazon.PowerShell.Cmdlets.LMC
 {
     /// <summary>
-    /// Deletes the specified <a>ProxyRule</a>(s). currently attached to a <a>ProxyRuleGroup</a>
+    /// Schedules a runtime alias to be deleted. Runtime aliases scheduled for deletion enter
+    /// the PENDING_DELETION state and can be restored during the scheduled deletion window.
+    /// Function invokes fail for functions using runtime aliases that are deleted or pending
+    /// deletion.
     /// </summary>
-    [Cmdlet("Remove", "NWFWProxyRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.NetworkFirewall.Model.ProxyRuleGroup")]
-    [AWSCmdlet("Calls the AWS Network Firewall DeleteProxyRules API operation.", Operation = new[] {"DeleteProxyRules"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DeleteProxyRulesResponse))]
-    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.ProxyRuleGroup or Amazon.NetworkFirewall.Model.DeleteProxyRulesResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.ProxyRuleGroup object.",
-        "The service call response (type Amazon.NetworkFirewall.Model.DeleteProxyRulesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "LMCRuntimeAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Lambda Core DeleteRuntimeAlias API operation.", Operation = new[] {"DeleteRuntimeAlias"}, SelectReturnType = typeof(Amazon.LambdaCore.Model.DeleteRuntimeAliasResponse))]
+    [AWSCmdletOutput("None or Amazon.LambdaCore.Model.DeleteRuntimeAliasResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.LambdaCore.Model.DeleteRuntimeAliasResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveNWFWProxyRuleCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class RemoveLMCRuntimeAliasCmdlet : AmazonLambdaCoreClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ProxyRuleGroupArn
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a proxy rule group.</para><para>You must specify the ARN or the name, and you can specify both. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyRuleGroupArn { get; set; }
-        #endregion
-        
-        #region Parameter ProxyRuleGroupName
-        /// <summary>
-        /// <para>
-        /// <para>The descriptive name of the proxy rule group. You can't change the name of a proxy
-        /// rule group after you create it.</para><para>You must specify the ARN or the name, and you can specify both. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyRuleGroupName { get; set; }
-        #endregion
-        
-        #region Parameter Rule
-        /// <summary>
-        /// <para>
-        /// <para>The proxy rule(s) to remove from the existing proxy rule group. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data
-        /// for this property is returned from the service the property will also be null. This
-        /// was changed to improve performance and allow the SDK and caller to distinguish between
-        /// a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// The name of the runtime alias to delete.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Rules")]
-        public System.String[] Rule { get; set; }
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter RecoveryWindowInDay
+        /// <summary>
+        /// <para>
+        /// Optional. The waiting period, in
+        /// days (7-30), before the runtime alias is permanently deleted.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecoveryWindowInDays")]
+        public System.Int32? RecoveryWindowInDay { get; set; }
+        #endregion
+        
+        #region Parameter RuntimeName
+        /// <summary>
+        /// <para>
+        /// The name or ARN of the runtime.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RuntimeName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProxyRuleGroup'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.DeleteProxyRulesResponse).
-        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.DeleteProxyRulesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LambdaCore.Model.DeleteRuntimeAliasResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProxyRuleGroup";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -119,8 +123,13 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Rule), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-NWFWProxyRule (DeleteProxyRules)"))
+            var targetParameterNames = new string[]
+            {
+                nameof(this.Name),
+                nameof(this.RuntimeName)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-LMCRuntimeAlias (DeleteRuntimeAlias)"))
             {
                 return;
             }
@@ -132,19 +141,22 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.DeleteProxyRulesResponse, RemoveNWFWProxyRuleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LambdaCore.Model.DeleteRuntimeAliasResponse, RemoveLMCRuntimeAliasCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ProxyRuleGroupArn = this.ProxyRuleGroupArn;
-            context.ProxyRuleGroupName = this.ProxyRuleGroupName;
-            if (this.Rule != null)
-            {
-                context.Rule = new List<System.String>(this.Rule);
-            }
+            context.Name = this.Name;
             #if MODULAR
-            if (this.Rule == null && ParameterWasBound(nameof(this.Rule)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter Rule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.RecoveryWindowInDay = this.RecoveryWindowInDay;
+            context.RuntimeName = this.RuntimeName;
+            #if MODULAR
+            if (this.RuntimeName == null && ParameterWasBound(nameof(this.RuntimeName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RuntimeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -161,19 +173,19 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkFirewall.Model.DeleteProxyRulesRequest();
+            var request = new Amazon.LambdaCore.Model.DeleteRuntimeAliasRequest();
             
-            if (cmdletContext.ProxyRuleGroupArn != null)
+            if (cmdletContext.Name != null)
             {
-                request.ProxyRuleGroupArn = cmdletContext.ProxyRuleGroupArn;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.ProxyRuleGroupName != null)
+            if (cmdletContext.RecoveryWindowInDay != null)
             {
-                request.ProxyRuleGroupName = cmdletContext.ProxyRuleGroupName;
+                request.RecoveryWindowInDays = cmdletContext.RecoveryWindowInDay.Value;
             }
-            if (cmdletContext.Rule != null)
+            if (cmdletContext.RuntimeName != null)
             {
-                request.Rules = cmdletContext.Rule;
+                request.RuntimeName = cmdletContext.RuntimeName;
             }
             
             CmdletOutput output;
@@ -208,12 +220,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkFirewall.Model.DeleteProxyRulesResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.DeleteProxyRulesRequest request)
+        private Amazon.LambdaCore.Model.DeleteRuntimeAliasResponse CallAWSServiceOperation(IAmazonLambdaCore client, Amazon.LambdaCore.Model.DeleteRuntimeAliasRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "DeleteProxyRules");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda Core", "DeleteRuntimeAlias");
             try
             {
-                return client.DeleteProxyRulesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteRuntimeAliasAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -230,11 +242,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProxyRuleGroupArn { get; set; }
-            public System.String ProxyRuleGroupName { get; set; }
-            public List<System.String> Rule { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.DeleteProxyRulesResponse, RemoveNWFWProxyRuleCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProxyRuleGroup;
+            public System.String Name { get; set; }
+            public System.Int32? RecoveryWindowInDay { get; set; }
+            public System.String RuntimeName { get; set; }
+            public System.Func<Amazon.LambdaCore.Model.DeleteRuntimeAliasResponse, RemoveLMCRuntimeAliasCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

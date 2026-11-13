@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("New", "SSMOpsMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager CreateOpsMetadata API operation.", Operation = new[] {"CreateOpsMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) CreateOpsMetadata API operation.", Operation = new[] {"CreateOpsMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataResponse) can be returned by specifying '-Select *'."
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "CreateOpsMetadata");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "CreateOpsMetadata");
             try
             {
                 return client.CreateOpsMetadataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

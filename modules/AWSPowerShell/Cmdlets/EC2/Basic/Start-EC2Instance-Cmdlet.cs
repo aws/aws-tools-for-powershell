@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Start", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.InstanceStateChange")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) StartInstances API operation.", Operation = new[] {"StartInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.StartInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud StartInstances API operation.", Operation = new[] {"StartInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.StartInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceStateChange or Amazon.EC2.Model.StartInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceStateChange objects.",
         "The service call response (type Amazon.EC2.Model.StartInstancesResponse) can be returned by specifying '-Select *'."
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.StartInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.StartInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "StartInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "StartInstances");
             try
             {
                 return client.StartInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

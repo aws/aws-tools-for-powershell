@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2CapacityBlock")]
     [OutputType("Amazon.EC2.Model.CapacityBlock")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeCapacityBlocks API operation.", Operation = new[] {"DescribeCapacityBlocks"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCapacityBlocksResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeCapacityBlocks API operation.", Operation = new[] {"DescribeCapacityBlocks"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCapacityBlocksResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CapacityBlock or Amazon.EC2.Model.DescribeCapacityBlocksResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.CapacityBlock objects.",
         "The service call response (type Amazon.EC2.Model.DescribeCapacityBlocksResponse) can be returned by specifying '-Select *'."
@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeCapacityBlocksResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeCapacityBlocksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeCapacityBlocks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeCapacityBlocks");
             try
             {
                 return client.DescribeCapacityBlocksAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

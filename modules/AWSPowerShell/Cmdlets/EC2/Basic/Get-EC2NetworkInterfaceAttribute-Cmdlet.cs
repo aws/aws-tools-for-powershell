@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2NetworkInterfaceAttribute")]
     [OutputType("Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeNetworkInterfaceAttribute API operation.", Operation = new[] {"DescribeNetworkInterfaceAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeNetworkInterfaceAttribute API operation.", Operation = new[] {"DescribeNetworkInterfaceAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse",
         "This cmdlet returns an Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse object containing multiple properties."
     )]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeNetworkInterfaceAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeNetworkInterfaceAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeNetworkInterfaceAttribute");
             try
             {
                 return client.DescribeNetworkInterfaceAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

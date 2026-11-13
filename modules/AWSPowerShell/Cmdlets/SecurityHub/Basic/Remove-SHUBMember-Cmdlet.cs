@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Remove", "SHUBMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SecurityHub.Model.Result")]
-    [AWSCmdlet("Calls the AWS Security Hub DeleteMembers API operation.", Operation = new[] {"DeleteMembers"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteMembersResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DeleteMembers API operation.", Operation = new[] {"DeleteMembers"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteMembersResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Result or Amazon.SecurityHub.Model.DeleteMembersResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.Result objects.",
         "The service call response (type Amazon.SecurityHub.Model.DeleteMembersResponse) can be returned by specifying '-Select *'."
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DeleteMembersResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DeleteMembersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DeleteMembers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DeleteMembers");
             try
             {
                 return client.DeleteMembersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

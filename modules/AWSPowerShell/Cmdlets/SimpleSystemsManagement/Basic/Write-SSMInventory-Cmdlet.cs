@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Write", "SSMInventory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager PutInventory API operation.", Operation = new[] {"PutInventory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutInventoryResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) PutInventory API operation.", Operation = new[] {"PutInventory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutInventoryResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.PutInventoryResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.PutInventoryResponse) can be returned by specifying '-Select *'."
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.PutInventoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.PutInventoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "PutInventory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "PutInventory");
             try
             {
                 return client.PutInventoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

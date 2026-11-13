@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2VpcEncryptionControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.VpcEncryptionControl")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpcEncryptionControl API operation.", Operation = new[] {"DeleteVpcEncryptionControl"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcEncryptionControlResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVpcEncryptionControl API operation.", Operation = new[] {"DeleteVpcEncryptionControl"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcEncryptionControlResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcEncryptionControl or Amazon.EC2.Model.DeleteVpcEncryptionControlResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpcEncryptionControl object.",
         "The service call response (type Amazon.EC2.Model.DeleteVpcEncryptionControlResponse) can be returned by specifying '-Select *'."
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteVpcEncryptionControlResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpcEncryptionControlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVpcEncryptionControl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVpcEncryptionControl");
             try
             {
                 return client.DeleteVpcEncryptionControlAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

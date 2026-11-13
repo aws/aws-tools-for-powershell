@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Get", "DOCDBInstance")]
     [OutputType("Amazon.DocDB.Model.DBInstance")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DescribeDBInstances API operation.", Operation = new[] {"DescribeDBInstances"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeDBInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DescribeDBInstances API operation.", Operation = new[] {"DescribeDBInstances"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeDBInstancesResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBInstance or Amazon.DocDB.Model.DescribeDBInstancesResponse",
         "This cmdlet returns a collection of Amazon.DocDB.Model.DBInstance objects.",
         "The service call response (type Amazon.DocDB.Model.DescribeDBInstancesResponse) can be returned by specifying '-Select *'."
@@ -348,7 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DescribeDBInstancesResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DescribeDBInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DescribeDBInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DescribeDBInstances");
             try
             {
                 return client.DescribeDBInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

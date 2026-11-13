@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SecondarySubnetDetail")]
     [OutputType("Amazon.EC2.Model.SecondarySubnet")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeSecondarySubnets API operation.", Operation = new[] {"DescribeSecondarySubnets"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSecondarySubnetsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSecondarySubnets API operation.", Operation = new[] {"DescribeSecondarySubnets"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSecondarySubnetsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SecondarySubnet or Amazon.EC2.Model.DescribeSecondarySubnetsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.SecondarySubnet objects.",
         "The service call response (type Amazon.EC2.Model.DescribeSecondarySubnetsResponse) can be returned by specifying '-Select *'."
@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeSecondarySubnetsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSecondarySubnetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeSecondarySubnets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeSecondarySubnets");
             try
             {
                 return client.DescribeSecondarySubnetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

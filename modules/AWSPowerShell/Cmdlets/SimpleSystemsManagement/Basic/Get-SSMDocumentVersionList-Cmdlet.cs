@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDocumentVersionList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentVersionInfo")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListDocumentVersions API operation.", Operation = new[] {"ListDocumentVersions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListDocumentVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ListDocumentVersions API operation.", Operation = new[] {"ListDocumentVersions"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListDocumentVersionsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentVersionInfo or Amazon.SimpleSystemsManagement.Model.ListDocumentVersionsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.DocumentVersionInfo objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListDocumentVersionsResponse) can be returned by specifying '-Select *'."
@@ -343,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListDocumentVersionsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListDocumentVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListDocumentVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ListDocumentVersions");
             try
             {
                 return client.ListDocumentVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

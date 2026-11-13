@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Update", "SHUBFindingAggregator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub UpdateFindingAggregator API operation.", Operation = new[] {"UpdateFindingAggregator"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub UpdateFindingAggregator API operation.", Operation = new[] {"UpdateFindingAggregator"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse object containing multiple properties."
     )]
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.UpdateFindingAggregatorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "UpdateFindingAggregator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "UpdateFindingAggregator");
             try
             {
                 return client.UpdateFindingAggregatorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

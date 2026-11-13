@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2FleetInstanceList")]
     [OutputType("Amazon.EC2.Model.ActiveInstance")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeFleetInstances API operation.", Operation = new[] {"DescribeFleetInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeFleetInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeFleetInstances API operation.", Operation = new[] {"DescribeFleetInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeFleetInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ActiveInstance or Amazon.EC2.Model.DescribeFleetInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ActiveInstance objects.",
         "The service call response (type Amazon.EC2.Model.DescribeFleetInstancesResponse) can be returned by specifying '-Select *'."
@@ -383,7 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeFleetInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeFleetInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeFleetInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeFleetInstances");
             try
             {
                 return client.DescribeFleetInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

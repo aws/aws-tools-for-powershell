@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMOpsItemSummary")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.OpsItemSummary")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeOpsItems API operation.", Operation = new[] {"DescribeOpsItems"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeOpsItemsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeOpsItems API operation.", Operation = new[] {"DescribeOpsItems"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeOpsItemsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.OpsItemSummary or Amazon.SimpleSystemsManagement.Model.DescribeOpsItemsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.OpsItemSummary objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeOpsItemsResponse) can be returned by specifying '-Select *'."
@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeOpsItemsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeOpsItemsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeOpsItems");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeOpsItems");
             try
             {
                 return client.DescribeOpsItemsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

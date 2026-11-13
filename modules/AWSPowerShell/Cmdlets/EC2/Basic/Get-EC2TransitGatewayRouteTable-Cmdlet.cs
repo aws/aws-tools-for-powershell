@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2TransitGatewayRouteTable")]
     [OutputType("Amazon.EC2.Model.TransitGatewayRouteTable")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeTransitGatewayRouteTables API operation.", Operation = new[] {"DescribeTransitGatewayRouteTables"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeTransitGatewayRouteTablesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeTransitGatewayRouteTables API operation.", Operation = new[] {"DescribeTransitGatewayRouteTables"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeTransitGatewayRouteTablesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayRouteTable or Amazon.EC2.Model.DescribeTransitGatewayRouteTablesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.TransitGatewayRouteTable objects.",
         "The service call response (type Amazon.EC2.Model.DescribeTransitGatewayRouteTablesResponse) can be returned by specifying '-Select *'."
@@ -379,7 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeTransitGatewayRouteTablesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeTransitGatewayRouteTablesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeTransitGatewayRouteTables");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeTransitGatewayRouteTables");
             try
             {
                 return client.DescribeTransitGatewayRouteTablesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

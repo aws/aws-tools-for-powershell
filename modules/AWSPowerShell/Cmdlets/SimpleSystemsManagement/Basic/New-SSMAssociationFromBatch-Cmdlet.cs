@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("New", "SSMAssociationFromBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager CreateAssociationBatch API operation.", Operation = new[] {"CreateAssociationBatch"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) CreateAssociationBatch API operation.", Operation = new[] {"CreateAssociationBatch"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse object containing multiple properties."
     )]
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "CreateAssociationBatch");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "CreateAssociationBatch");
             try
             {
                 return client.CreateAssociationBatchAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

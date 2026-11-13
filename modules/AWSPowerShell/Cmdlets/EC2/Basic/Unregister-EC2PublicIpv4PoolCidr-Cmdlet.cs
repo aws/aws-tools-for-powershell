@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2PublicIpv4PoolCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DeprovisionPublicIpv4PoolCidrResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeprovisionPublicIpv4PoolCidr API operation.", Operation = new[] {"DeprovisionPublicIpv4PoolCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.DeprovisionPublicIpv4PoolCidrResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeprovisionPublicIpv4PoolCidr API operation.", Operation = new[] {"DeprovisionPublicIpv4PoolCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.DeprovisionPublicIpv4PoolCidrResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DeprovisionPublicIpv4PoolCidrResponse",
         "This cmdlet returns an Amazon.EC2.Model.DeprovisionPublicIpv4PoolCidrResponse object containing multiple properties."
     )]
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeprovisionPublicIpv4PoolCidrResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeprovisionPublicIpv4PoolCidrRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeprovisionPublicIpv4PoolCidr");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeprovisionPublicIpv4PoolCidr");
             try
             {
                 return client.DeprovisionPublicIpv4PoolCidrAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

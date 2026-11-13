@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Subnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSubnet API operation.", Operation = new[] {"DeleteSubnet"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSubnetResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteSubnet API operation.", Operation = new[] {"DeleteSubnet"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSubnetResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteSubnetResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteSubnetResponse) be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteSubnetResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSubnetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteSubnet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteSubnet");
             try
             {
                 return client.DeleteSubnetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

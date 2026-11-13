@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.VPCLattice.Model.DeleteServiceResponse")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteService API operation.", Operation = new[] {"DeleteService"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteServiceResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteService API operation.", Operation = new[] {"DeleteService"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteServiceResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.DeleteServiceResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.DeleteServiceResponse object containing multiple properties."
     )]
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteServiceResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteServiceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteService");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteService");
             try
             {
                 return client.DeleteServiceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

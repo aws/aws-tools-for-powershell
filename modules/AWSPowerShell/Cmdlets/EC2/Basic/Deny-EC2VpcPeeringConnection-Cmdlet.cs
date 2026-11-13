@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Deny", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RejectVpcPeeringConnection API operation.", Operation = new[] {"RejectVpcPeeringConnection"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectVpcPeeringConnectionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RejectVpcPeeringConnection API operation.", Operation = new[] {"RejectVpcPeeringConnection"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectVpcPeeringConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.RejectVpcPeeringConnectionResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.RejectVpcPeeringConnectionResponse) be returned by specifying '-Select *'."
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RejectVpcPeeringConnectionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RejectVpcPeeringConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RejectVpcPeeringConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RejectVpcPeeringConnection");
             try
             {
                 return client.RejectVpcPeeringConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

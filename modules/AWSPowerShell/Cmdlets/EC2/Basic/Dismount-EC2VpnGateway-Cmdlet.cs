@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Dismount", "EC2VpnGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DetachVpnGateway API operation.", Operation = new[] {"DetachVpnGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachVpnGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DetachVpnGateway API operation.", Operation = new[] {"DetachVpnGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachVpnGatewayResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DetachVpnGatewayResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DetachVpnGatewayResponse) be returned by specifying '-Select *'."
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DetachVpnGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachVpnGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DetachVpnGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DetachVpnGateway");
             try
             {
                 return client.DetachVpnGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

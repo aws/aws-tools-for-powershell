@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2FlowLog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.UnsuccessfulItem")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteFlowLogs API operation.", Operation = new[] {"DeleteFlowLogs"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteFlowLogsResponse), LegacyAlias="Remove-EC2FlowLogs")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteFlowLogs API operation.", Operation = new[] {"DeleteFlowLogs"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteFlowLogsResponse), LegacyAlias="Remove-EC2FlowLogs")]
     [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem or Amazon.EC2.Model.DeleteFlowLogsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.UnsuccessfulItem objects.",
         "The service call response (type Amazon.EC2.Model.DeleteFlowLogsResponse) can be returned by specifying '-Select *'."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteFlowLogsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteFlowLogsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteFlowLogs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteFlowLogs");
             try
             {
                 return client.DeleteFlowLogsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

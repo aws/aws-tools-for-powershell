@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2EgressOnlyInternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateEgressOnlyInternetGateway API operation.", Operation = new[] {"CreateEgressOnlyInternetGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateEgressOnlyInternetGateway API operation.", Operation = new[] {"CreateEgressOnlyInternetGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse",
         "This cmdlet returns an Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse object containing multiple properties."
     )]
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateEgressOnlyInternetGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateEgressOnlyInternetGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateEgressOnlyInternetGateway");
             try
             {
                 return client.CreateEgressOnlyInternetGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

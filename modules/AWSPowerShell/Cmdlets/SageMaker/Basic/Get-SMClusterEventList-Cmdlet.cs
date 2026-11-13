@@ -108,6 +108,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String NodeId { get; set; }
         #endregion
         
+        #region Parameter OperationId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier (UUID) of a cluster operation for which to filter events. If
+        /// specified, only events associated with this operation are returned. This ID can be
+        /// obtained from the <c>ListClusterOperations</c> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OperationId { get; set; }
+        #endregion
+        
         #region Parameter ResourceType
         /// <summary>
         /// <para>
@@ -237,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #endif
             context.NextToken = this.NextToken;
             context.NodeId = this.NodeId;
+            context.OperationId = this.OperationId;
             context.ResourceType = this.ResourceType;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
@@ -281,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.NodeId != null)
             {
                 request.NodeId = cmdletContext.NodeId;
+            }
+            if (cmdletContext.OperationId != null)
+            {
+                request.OperationId = cmdletContext.OperationId;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -380,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String NodeId { get; set; }
+            public System.String OperationId { get; set; }
             public Amazon.SageMaker.ClusterEventResourceType ResourceType { get; set; }
             public Amazon.SageMaker.EventSortBy SortBy { get; set; }
             public Amazon.SageMaker.SortOrder SortOrder { get; set; }

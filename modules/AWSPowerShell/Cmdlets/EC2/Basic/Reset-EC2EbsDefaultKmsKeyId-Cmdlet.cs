@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Reset", "EC2EbsDefaultKmsKeyId", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ResetEbsDefaultKmsKeyId API operation.", Operation = new[] {"ResetEbsDefaultKmsKeyId"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetEbsDefaultKmsKeyIdResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ResetEbsDefaultKmsKeyId API operation.", Operation = new[] {"ResetEbsDefaultKmsKeyId"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetEbsDefaultKmsKeyIdResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.ResetEbsDefaultKmsKeyIdResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.ResetEbsDefaultKmsKeyIdResponse) can be returned by specifying '-Select *'."
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ResetEbsDefaultKmsKeyIdResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetEbsDefaultKmsKeyIdRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ResetEbsDefaultKmsKeyId");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ResetEbsDefaultKmsKeyId");
             try
             {
                 return client.ResetEbsDefaultKmsKeyIdAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

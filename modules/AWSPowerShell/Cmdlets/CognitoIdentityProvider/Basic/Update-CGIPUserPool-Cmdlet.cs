@@ -145,6 +145,28 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String[] SignInPolicy_AllowedFirstAuthFactor { get; set; }
         #endregion
         
+        #region Parameter DcrConfiguration_AllowedScope
+        /// <summary>
+        /// <para>
+        /// <para>The scopes that an app client created through dynamic client registration can request,
+        /// in addition to the standard OpenID Connect (OIDC) scopes. You can include custom scopes
+        /// from your resource servers and <c>aws.cognito.signin.user.admin</c>. Registered app
+        /// clients can request the OIDC scopes <c>openid</c>, <c>email</c>, <c>phone</c>, and
+        /// <c>profile</c> without listing them here. If you don't set this value, registered
+        /// app clients can request only the OIDC scopes. A registered app client can't request
+        /// the <c>aws.cognito/dcr/register</c> scope, even if you include it in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DcrConfiguration_AllowedScopes")]
+        public System.String[] DcrConfiguration_AllowedScope { get; set; }
+        #endregion
+        
         #region Parameter UserAttributeUpdateSettings_AttributesRequireVerificationBeforeUpdate
         /// <summary>
         /// <para>
@@ -167,6 +189,29 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] UserAttributeUpdateSettings_AttributesRequireVerificationBeforeUpdate { get; set; }
+        #endregion
+        
+        #region Parameter DcrConfiguration_AuthenticatedGrantType
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth grant types that an app client created through authenticated registration
+        /// can request. If you don't set this value, authenticated registration permits the <c>code</c>
+        /// and <c>client_credentials</c> grant types. If you set an empty list, Amazon Cognito
+        /// rejects authenticated registration requests. Dynamic client registration supports
+        /// the following values. Amazon Cognito accepts <c>implicit</c> in this list but ignores
+        /// it.</para><dl><dt>code</dt><dd><para>Use a code grant flow, which provides an authorization code as the response. This
+        /// code can be exchanged for access tokens with the <c>/oauth2/token</c> endpoint.</para></dd><dt>client_credentials</dt><dd><para>Issue the access token from the <c>/oauth2/token</c> endpoint directly to a non-person
+        /// user using a combination of the client ID and client secret.</para></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DcrConfiguration_AuthenticatedGrantTypes")]
+        public System.String[] DcrConfiguration_AuthenticatedGrantType { get; set; }
         #endregion
         
         #region Parameter AutoVerifiedAttribute
@@ -466,6 +511,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String EmailVerificationSubject { get; set; }
         #endregion
         
+        #region Parameter DcrConfiguration_EnableStatus
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether dynamic client registration is turned on for the user pool. If you
+        /// provide a dynamic client registration configuration without this value, Amazon Cognito
+        /// turns dynamic client registration on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.StatusType")]
+        public Amazon.CognitoIdentityProvider.StatusType DcrConfiguration_EnableStatus { get; set; }
+        #endregion
+        
         #region Parameter SmsConfiguration_EumsSms_ExternalId
         /// <summary>
         /// <para>
@@ -689,6 +747,41 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Policies_PasswordPolicy_MinimumLength")]
         public System.Int32? PasswordPolicy_MinimumLength { get; set; }
+        #endregion
+        
+        #region Parameter DcrConfiguration_OpenDcrEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether open registration is turned on. When open registration is on, applications
+        /// can register app clients without an initial access token. The default value is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DcrConfiguration_OpenDcrEnabled { get; set; }
+        #endregion
+        
+        #region Parameter DcrConfiguration_OpenDcrGrantType
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth grant types that an app client created through open registration can request.
+        /// If you don't set this value, open registration permits only the <c>code</c> grant
+        /// type. If you set an empty list, Amazon Cognito rejects open registration requests.
+        /// If you add <c>client_credentials</c>, anyone can register an app client that requests
+        /// machine-to-machine (M2M) access tokens, and you pay for the M2M token requests that
+        /// those app clients make. Dynamic client registration supports the following values.
+        /// Amazon Cognito accepts <c>implicit</c> in this list but ignores it.</para><dl><dt>code</dt><dd><para>Use a code grant flow, which provides an authorization code as the response. This
+        /// code can be exchanged for access tokens with the <c>/oauth2/token</c> endpoint.</para></dd><dt>client_credentials</dt><dd><para>Issue the access token from the <c>/oauth2/token</c> endpoint directly to a non-person
+        /// user using a combination of the client ID and client secret.</para></dd></dl><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DcrConfiguration_OpenDcrGrantTypes")]
+        public System.String[] DcrConfiguration_OpenDcrGrantType { get; set; }
         #endregion
         
         #region Parameter SmsConfiguration_EumsSms_OriginationIdentity
@@ -1163,6 +1256,20 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.AutoVerifiedAttribute = new List<System.String>(this.AutoVerifiedAttribute);
             }
+            if (this.DcrConfiguration_AllowedScope != null)
+            {
+                context.DcrConfiguration_AllowedScope = new List<System.String>(this.DcrConfiguration_AllowedScope);
+            }
+            if (this.DcrConfiguration_AuthenticatedGrantType != null)
+            {
+                context.DcrConfiguration_AuthenticatedGrantType = new List<System.String>(this.DcrConfiguration_AuthenticatedGrantType);
+            }
+            context.DcrConfiguration_EnableStatus = this.DcrConfiguration_EnableStatus;
+            context.DcrConfiguration_OpenDcrEnabled = this.DcrConfiguration_OpenDcrEnabled;
+            if (this.DcrConfiguration_OpenDcrGrantType != null)
+            {
+                context.DcrConfiguration_OpenDcrGrantType = new List<System.String>(this.DcrConfiguration_OpenDcrGrantType);
+            }
             context.DeletionProtection = this.DeletionProtection;
             context.DeviceConfiguration_ChallengeRequiredOnNewDevice = this.DeviceConfiguration_ChallengeRequiredOnNewDevice;
             context.DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt = this.DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt;
@@ -1364,6 +1471,65 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.AutoVerifiedAttribute != null)
             {
                 request.AutoVerifiedAttributes = cmdletContext.AutoVerifiedAttribute;
+            }
+            
+             // populate DcrConfiguration
+            var requestDcrConfigurationIsNull = true;
+            request.DcrConfiguration = new Amazon.CognitoIdentityProvider.Model.DcrConfigurationType();
+            List<System.String> requestDcrConfiguration_dcrConfiguration_AllowedScope = null;
+            if (cmdletContext.DcrConfiguration_AllowedScope != null)
+            {
+                requestDcrConfiguration_dcrConfiguration_AllowedScope = cmdletContext.DcrConfiguration_AllowedScope;
+            }
+            if (requestDcrConfiguration_dcrConfiguration_AllowedScope != null)
+            {
+                request.DcrConfiguration.AllowedScopes = requestDcrConfiguration_dcrConfiguration_AllowedScope;
+                requestDcrConfigurationIsNull = false;
+            }
+            List<System.String> requestDcrConfiguration_dcrConfiguration_AuthenticatedGrantType = null;
+            if (cmdletContext.DcrConfiguration_AuthenticatedGrantType != null)
+            {
+                requestDcrConfiguration_dcrConfiguration_AuthenticatedGrantType = cmdletContext.DcrConfiguration_AuthenticatedGrantType;
+            }
+            if (requestDcrConfiguration_dcrConfiguration_AuthenticatedGrantType != null)
+            {
+                request.DcrConfiguration.AuthenticatedGrantTypes = requestDcrConfiguration_dcrConfiguration_AuthenticatedGrantType;
+                requestDcrConfigurationIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.StatusType requestDcrConfiguration_dcrConfiguration_EnableStatus = null;
+            if (cmdletContext.DcrConfiguration_EnableStatus != null)
+            {
+                requestDcrConfiguration_dcrConfiguration_EnableStatus = cmdletContext.DcrConfiguration_EnableStatus;
+            }
+            if (requestDcrConfiguration_dcrConfiguration_EnableStatus != null)
+            {
+                request.DcrConfiguration.EnableStatus = requestDcrConfiguration_dcrConfiguration_EnableStatus;
+                requestDcrConfigurationIsNull = false;
+            }
+            System.Boolean? requestDcrConfiguration_dcrConfiguration_OpenDcrEnabled = null;
+            if (cmdletContext.DcrConfiguration_OpenDcrEnabled != null)
+            {
+                requestDcrConfiguration_dcrConfiguration_OpenDcrEnabled = cmdletContext.DcrConfiguration_OpenDcrEnabled.Value;
+            }
+            if (requestDcrConfiguration_dcrConfiguration_OpenDcrEnabled != null)
+            {
+                request.DcrConfiguration.OpenDcrEnabled = requestDcrConfiguration_dcrConfiguration_OpenDcrEnabled.Value;
+                requestDcrConfigurationIsNull = false;
+            }
+            List<System.String> requestDcrConfiguration_dcrConfiguration_OpenDcrGrantType = null;
+            if (cmdletContext.DcrConfiguration_OpenDcrGrantType != null)
+            {
+                requestDcrConfiguration_dcrConfiguration_OpenDcrGrantType = cmdletContext.DcrConfiguration_OpenDcrGrantType;
+            }
+            if (requestDcrConfiguration_dcrConfiguration_OpenDcrGrantType != null)
+            {
+                request.DcrConfiguration.OpenDcrGrantTypes = requestDcrConfiguration_dcrConfiguration_OpenDcrGrantType;
+                requestDcrConfigurationIsNull = false;
+            }
+             // determine if request.DcrConfiguration should be set to null
+            if (requestDcrConfigurationIsNull)
+            {
+                request.DcrConfiguration = null;
             }
             if (cmdletContext.DeletionProtection != null)
             {
@@ -2238,6 +2404,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String InviteMessageTemplate_SMSMessage { get; set; }
             public System.Int32? AdminCreateUserConfig_UnusedAccountValidityDay { get; set; }
             public List<System.String> AutoVerifiedAttribute { get; set; }
+            public List<System.String> DcrConfiguration_AllowedScope { get; set; }
+            public List<System.String> DcrConfiguration_AuthenticatedGrantType { get; set; }
+            public Amazon.CognitoIdentityProvider.StatusType DcrConfiguration_EnableStatus { get; set; }
+            public System.Boolean? DcrConfiguration_OpenDcrEnabled { get; set; }
+            public List<System.String> DcrConfiguration_OpenDcrGrantType { get; set; }
             public Amazon.CognitoIdentityProvider.DeletionProtectionType DeletionProtection { get; set; }
             public System.Boolean? DeviceConfiguration_ChallengeRequiredOnNewDevice { get; set; }
             public System.Boolean? DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt { get; set; }

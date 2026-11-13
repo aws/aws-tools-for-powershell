@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamInternetRegistryAssociationCidr")]
     [OutputType("Amazon.EC2.Model.IpamInternetRegistryAssociationCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamInternetRegistryAssociationCidrs API operation.", Operation = new[] {"GetIpamInternetRegistryAssociationCidrs"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamInternetRegistryAssociationCidrsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamInternetRegistryAssociationCidrs API operation.", Operation = new[] {"GetIpamInternetRegistryAssociationCidrs"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamInternetRegistryAssociationCidrsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamInternetRegistryAssociationCidr or Amazon.EC2.Model.GetIpamInternetRegistryAssociationCidrsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamInternetRegistryAssociationCidr objects.",
         "The service call response (type Amazon.EC2.Model.GetIpamInternetRegistryAssociationCidrsResponse) can be returned by specifying '-Select *'."
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamInternetRegistryAssociationCidrsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamInternetRegistryAssociationCidrsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamInternetRegistryAssociationCidrs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamInternetRegistryAssociationCidrs");
             try
             {
                 return client.GetIpamInternetRegistryAssociationCidrsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -25,7 +25,7 @@
     Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The EC2 module of AWS Tools for PowerShell lets developers and administrators manage Amazon Elastic Compute Cloud (EC2) from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The EC2 module of AWS Tools for PowerShell lets developers and administrators manage Amazon Elastic Compute Cloud from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -191,6 +191,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-EC2ManagedPrefixList', 
         'Edit-EC2ManagedResourceVisibility', 
         'Edit-EC2MetricCategory', 
+        'Edit-EC2NetworkingFlexCostAllocationPolicy', 
         'Edit-EC2NetworkInterfaceAttribute', 
         'Edit-EC2PrivateDnsNameOption', 
         'Edit-EC2PublicIpDnsNameOption', 
@@ -426,6 +427,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2MovingAddress', 
         'Get-EC2NatGateway', 
         'Get-EC2NetworkAcl', 
+        'Get-EC2NetworkingFlexCostAllocationPolicyAssociationDetail', 
+        'Get-EC2NetworkingFlexCostAllocationPolicyDetail', 
+        'Get-EC2NetworkingFlexCostAllocationPolicyVersion', 
         'Get-EC2NetworkInsightsAccessScope', 
         'Get-EC2NetworkInsightsAccessScopeAnalysis', 
         'Get-EC2NetworkInsightsAccessScopeAnalysisFinding', 
@@ -615,6 +619,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EC2NatGateway', 
         'New-EC2NetworkAcl', 
         'New-EC2NetworkAclEntry', 
+        'New-EC2NetworkingFlexCostAllocationPolicy', 
         'New-EC2NetworkInsightsAccessScope', 
         'New-EC2NetworkInsightsPath', 
         'New-EC2NetworkInterface', 
@@ -692,6 +697,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Register-EC2IpamResourceDiscovery', 
         'Register-EC2Ipv6AddressList', 
         'Register-EC2NatGatewayAddress', 
+        'Register-EC2NetworkingFlexCostAllocationPolicy', 
         'Register-EC2PrivateIpAddress', 
         'Register-EC2PrivateNatGatewayAddress', 
         'Register-EC2PublicIpv4PoolCidr', 
@@ -755,6 +761,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EC2NatGateway', 
         'Remove-EC2NetworkAcl', 
         'Remove-EC2NetworkAclEntry', 
+        'Remove-EC2NetworkingFlexCostAllocationPolicy', 
         'Remove-EC2NetworkInsightsAccessScope', 
         'Remove-EC2NetworkInsightsAccessScopeAnalysis', 
         'Remove-EC2NetworkInsightsAnalysis', 
@@ -881,6 +888,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-EC2IpamResourceDiscovery', 
         'Unregister-EC2Ipv6AddressList', 
         'Unregister-EC2NatGatewayAddress', 
+        'Unregister-EC2NetworkingFlexCostAllocationPolicy', 
         'Unregister-EC2PrivateIpAddress', 
         'Unregister-EC2PrivateNatGatewayAddress', 
         'Unregister-EC2PublicIpv4PoolCidr', 

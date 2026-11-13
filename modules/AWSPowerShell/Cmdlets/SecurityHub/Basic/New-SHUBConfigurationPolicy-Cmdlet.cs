@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("New", "SHUBConfigurationPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateConfigurationPolicyResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub CreateConfigurationPolicy API operation.", Operation = new[] {"CreateConfigurationPolicy"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateConfigurationPolicyResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub CreateConfigurationPolicy API operation.", Operation = new[] {"CreateConfigurationPolicy"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateConfigurationPolicyResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.CreateConfigurationPolicyResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.CreateConfigurationPolicyResponse object containing multiple properties."
     )]
@@ -403,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.CreateConfigurationPolicyResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.CreateConfigurationPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "CreateConfigurationPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "CreateConfigurationPolicy");
             try
             {
                 return client.CreateConfigurationPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

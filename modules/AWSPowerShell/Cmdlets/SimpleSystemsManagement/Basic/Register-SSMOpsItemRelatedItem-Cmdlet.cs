@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Register", "SSMOpsItemRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager AssociateOpsItemRelatedItem API operation.", Operation = new[] {"AssociateOpsItemRelatedItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.AssociateOpsItemRelatedItemResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) AssociateOpsItemRelatedItem API operation.", Operation = new[] {"AssociateOpsItemRelatedItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.AssociateOpsItemRelatedItemResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.AssociateOpsItemRelatedItemResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.AssociateOpsItemRelatedItemResponse) can be returned by specifying '-Select *'."
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.AssociateOpsItemRelatedItemResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.AssociateOpsItemRelatedItemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "AssociateOpsItemRelatedItem");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "AssociateOpsItemRelatedItem");
             try
             {
                 return client.AssociateOpsItemRelatedItemAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

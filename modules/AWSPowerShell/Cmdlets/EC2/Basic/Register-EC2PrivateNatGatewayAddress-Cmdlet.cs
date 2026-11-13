@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2PrivateNatGatewayAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssignPrivateNatGatewayAddress API operation.", Operation = new[] {"AssignPrivateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssignPrivateNatGatewayAddress API operation.", Operation = new[] {"AssignPrivateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse",
         "This cmdlet returns an Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse object containing multiple properties."
     )]
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssignPrivateNatGatewayAddressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssignPrivateNatGatewayAddress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssignPrivateNatGatewayAddress");
             try
             {
                 return client.AssignPrivateNatGatewayAddressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

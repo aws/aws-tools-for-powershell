@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLResourceConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteResourceConfiguration API operation.", Operation = new[] {"DeleteResourceConfiguration"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteResourceConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteResourceConfiguration API operation.", Operation = new[] {"DeleteResourceConfiguration"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteResourceConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteResourceConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.DeleteResourceConfigurationResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteResourceConfigurationResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteResourceConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteResourceConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteResourceConfiguration");
             try
             {
                 return client.DeleteResourceConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Get", "VPCLDomainVerificationList")]
     [OutputType("Amazon.VPCLattice.Model.DomainVerificationSummary")]
-    [AWSCmdlet("Calls the VPC Lattice ListDomainVerifications API operation.", Operation = new[] {"ListDomainVerifications"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListDomainVerificationsResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice ListDomainVerifications API operation.", Operation = new[] {"ListDomainVerifications"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListDomainVerificationsResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.DomainVerificationSummary or Amazon.VPCLattice.Model.ListDomainVerificationsResponse",
         "This cmdlet returns a collection of Amazon.VPCLattice.Model.DomainVerificationSummary objects.",
         "The service call response (type Amazon.VPCLattice.Model.ListDomainVerificationsResponse) can be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.ListDomainVerificationsResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.ListDomainVerificationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "ListDomainVerifications");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "ListDomainVerifications");
             try
             {
                 return client.ListDomainVerificationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

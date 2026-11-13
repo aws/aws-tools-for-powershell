@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2ClientVpnEndpointAuthorizationPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.ClientVpnAuthorizationPolicyStatus")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyClientVpnEndpointAuthorizationPolicy API operation.", Operation = new[] {"ModifyClientVpnEndpointAuthorizationPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyClientVpnEndpointAuthorizationPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyClientVpnEndpointAuthorizationPolicy API operation.", Operation = new[] {"ModifyClientVpnEndpointAuthorizationPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyClientVpnEndpointAuthorizationPolicyResponse))]
     [AWSCmdletOutput("Amazon.EC2.ClientVpnAuthorizationPolicyStatus or Amazon.EC2.Model.ModifyClientVpnEndpointAuthorizationPolicyResponse",
         "This cmdlet returns an Amazon.EC2.ClientVpnAuthorizationPolicyStatus object.",
         "The service call response (type Amazon.EC2.Model.ModifyClientVpnEndpointAuthorizationPolicyResponse) can be returned by specifying '-Select *'."
@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyClientVpnEndpointAuthorizationPolicyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyClientVpnEndpointAuthorizationPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyClientVpnEndpointAuthorizationPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyClientVpnEndpointAuthorizationPolicy");
             try
             {
                 return client.ModifyClientVpnEndpointAuthorizationPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

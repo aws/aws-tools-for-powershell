@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2PrincipalIdFormat")]
     [OutputType("Amazon.EC2.Model.PrincipalIdFormat")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribePrincipalIdFormat API operation.", Operation = new[] {"DescribePrincipalIdFormat"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribePrincipalIdFormatResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribePrincipalIdFormat API operation.", Operation = new[] {"DescribePrincipalIdFormat"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribePrincipalIdFormatResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.PrincipalIdFormat or Amazon.EC2.Model.DescribePrincipalIdFormatResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.PrincipalIdFormat objects.",
         "The service call response (type Amazon.EC2.Model.DescribePrincipalIdFormatResponse) can be returned by specifying '-Select *'."
@@ -373,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribePrincipalIdFormatResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribePrincipalIdFormatRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribePrincipalIdFormat");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribePrincipalIdFormat");
             try
             {
                 return client.DescribePrincipalIdFormatAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

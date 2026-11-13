@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2SubnetCidrBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateSubnetCidrBlock API operation.", Operation = new[] {"DisassociateSubnetCidrBlock"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateSubnetCidrBlock API operation.", Operation = new[] {"DisassociateSubnetCidrBlock"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse",
         "This cmdlet returns an Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse object containing multiple properties."
     )]
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateSubnetCidrBlockRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisassociateSubnetCidrBlock");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateSubnetCidrBlock");
             try
             {
                 return client.DisassociateSubnetCidrBlockAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Edit", "SHUBUpdateStandardsControlAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.UnprocessedStandardsControlAssociationUpdate")]
-    [AWSCmdlet("Calls the AWS Security Hub BatchUpdateStandardsControlAssociations API operation.", Operation = new[] {"BatchUpdateStandardsControlAssociations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub BatchUpdateStandardsControlAssociations API operation.", Operation = new[] {"BatchUpdateStandardsControlAssociations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.UnprocessedStandardsControlAssociationUpdate or Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.UnprocessedStandardsControlAssociationUpdate objects.",
         "The service call response (type Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse) can be returned by specifying '-Select *'."
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "BatchUpdateStandardsControlAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "BatchUpdateStandardsControlAssociations");
             try
             {
                 return client.BatchUpdateStandardsControlAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("New", "SSMOpsItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager CreateOpsItem API operation.", Operation = new[] {"CreateOpsItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateOpsItemResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) CreateOpsItem API operation.", Operation = new[] {"CreateOpsItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateOpsItemResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.CreateOpsItemResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateOpsItemResponse) can be returned by specifying '-Select *'."
@@ -503,7 +503,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.CreateOpsItemResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateOpsItemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "CreateOpsItem");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "CreateOpsItem");
             try
             {
                 return client.CreateOpsItemAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

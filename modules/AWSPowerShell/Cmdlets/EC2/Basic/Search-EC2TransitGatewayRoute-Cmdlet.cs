@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Search", "EC2TransitGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SearchTransitGatewayRoutesResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) SearchTransitGatewayRoutes API operation.", Operation = new[] {"SearchTransitGatewayRoutes"}, SelectReturnType = typeof(Amazon.EC2.Model.SearchTransitGatewayRoutesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud SearchTransitGatewayRoutes API operation.", Operation = new[] {"SearchTransitGatewayRoutes"}, SelectReturnType = typeof(Amazon.EC2.Model.SearchTransitGatewayRoutesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SearchTransitGatewayRoutesResponse",
         "This cmdlet returns an Amazon.EC2.Model.SearchTransitGatewayRoutesResponse object containing multiple properties."
     )]
@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.SearchTransitGatewayRoutesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.SearchTransitGatewayRoutesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "SearchTransitGatewayRoutes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "SearchTransitGatewayRoutes");
             try
             {
                 return client.SearchTransitGatewayRoutesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

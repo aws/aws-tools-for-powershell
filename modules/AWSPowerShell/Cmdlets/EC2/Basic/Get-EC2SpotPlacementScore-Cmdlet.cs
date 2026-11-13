@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SpotPlacementScore")]
     [OutputType("Amazon.EC2.Model.SpotPlacementScore")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetSpotPlacementScores API operation.", Operation = new[] {"GetSpotPlacementScores"}, SelectReturnType = typeof(Amazon.EC2.Model.GetSpotPlacementScoresResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetSpotPlacementScores API operation.", Operation = new[] {"GetSpotPlacementScores"}, SelectReturnType = typeof(Amazon.EC2.Model.GetSpotPlacementScoresResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotPlacementScore or Amazon.EC2.Model.GetSpotPlacementScoresResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.SpotPlacementScore objects.",
         "The service call response (type Amazon.EC2.Model.GetSpotPlacementScoresResponse) can be returned by specifying '-Select *'."
@@ -1516,7 +1516,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetSpotPlacementScoresResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetSpotPlacementScoresRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetSpotPlacementScores");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetSpotPlacementScores");
             try
             {
                 return client.GetSpotPlacementScoresAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

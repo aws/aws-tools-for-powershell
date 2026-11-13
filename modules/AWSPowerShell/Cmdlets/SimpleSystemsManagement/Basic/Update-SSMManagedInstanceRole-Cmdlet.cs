@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMManagedInstanceRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateManagedInstanceRole API operation.", Operation = new[] {"UpdateManagedInstanceRole"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) UpdateManagedInstanceRole API operation.", Operation = new[] {"UpdateManagedInstanceRole"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse) be returned by specifying '-Select *'."
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateManagedInstanceRole");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "UpdateManagedInstanceRole");
             try
             {
                 return client.UpdateManagedInstanceRoleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

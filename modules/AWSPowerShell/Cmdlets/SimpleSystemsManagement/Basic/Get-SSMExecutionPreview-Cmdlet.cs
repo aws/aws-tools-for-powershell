@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMExecutionPreview")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetExecutionPreviewResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetExecutionPreview API operation.", Operation = new[] {"GetExecutionPreview"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetExecutionPreviewResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetExecutionPreview API operation.", Operation = new[] {"GetExecutionPreview"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetExecutionPreviewResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetExecutionPreviewResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetExecutionPreviewResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetExecutionPreviewResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetExecutionPreviewRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetExecutionPreview");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetExecutionPreview");
             try
             {
                 return client.GetExecutionPreviewAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

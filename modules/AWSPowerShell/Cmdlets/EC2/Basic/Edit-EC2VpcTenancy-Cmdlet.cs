@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VpcTenancy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVpcTenancy API operation.", Operation = new[] {"ModifyVpcTenancy"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcTenancyResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVpcTenancy API operation.", Operation = new[] {"ModifyVpcTenancy"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcTenancyResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyVpcTenancyResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyVpcTenancyResponse) can be returned by specifying '-Select *'."
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVpcTenancyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcTenancyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVpcTenancy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVpcTenancy");
             try
             {
                 return client.ModifyVpcTenancyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

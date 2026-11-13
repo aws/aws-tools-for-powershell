@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     ///  
     /// <para>
     /// You can use the <c>Scopes</c> parameter to define the data boundary for the query.
-    /// Currently, <c>Scopes</c> supports <c>AwsOrganizations</c>, which lets you retrieve
-    /// software from your entire organization or from specific organizational units. Only
-    /// the delegated administrator account can use <c>Scopes</c>.
+    /// Currently, <c>Scopes</c> supports <c>AwsOrganizations</c>. With <c>AwsOrganizations</c>,
+    /// you can retrieve software from your entire organization or from specific organizational
+    /// units. Only the delegated administrator account can use <c>Scopes</c>.
     /// </para><para>
     /// You can use the <c>Filters</c> parameter to refine results based on package and resource
     /// attributes. You can use <c>Scopes</c> and <c>Filters</c> independently or together.
@@ -48,11 +48,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </para><para>
     /// To list the resources that contain a specific package, use <c>GetSoftwareResourcesV2</c>.
     /// To get counts of software grouped by a field, use <c>GetSoftwareStatisticsV2</c>.
+    /// </para><para>
+    /// This operation returns paginated results. To retrieve additional results, use the
+    /// <c>NextToken</c> value from the previous response.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBSoftwareV2")]
     [OutputType("Amazon.SecurityHub.Model.SoftwareResult")]
-    [AWSCmdlet("Calls the AWS Security Hub GetSoftwareV2 API operation.", Operation = new[] {"GetSoftwareV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetSoftwareV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetSoftwareV2 API operation.", Operation = new[] {"GetSoftwareV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetSoftwareV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.SoftwareResult or Amazon.SecurityHub.Model.GetSoftwareV2Response",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.SoftwareResult objects.",
         "The service call response (type Amazon.SecurityHub.Model.GetSoftwareV2Response) can be returned by specifying '-Select *'."
@@ -356,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetSoftwareV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetSoftwareV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetSoftwareV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetSoftwareV2");
             try
             {
                 return client.GetSoftwareV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

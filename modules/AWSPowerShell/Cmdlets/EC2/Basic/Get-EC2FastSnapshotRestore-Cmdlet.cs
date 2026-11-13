@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2FastSnapshotRestore")]
     [OutputType("Amazon.EC2.Model.DescribeFastSnapshotRestoreSuccessItem")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeFastSnapshotRestores API operation.", Operation = new[] {"DescribeFastSnapshotRestores"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeFastSnapshotRestoresResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeFastSnapshotRestores API operation.", Operation = new[] {"DescribeFastSnapshotRestores"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeFastSnapshotRestoresResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeFastSnapshotRestoreSuccessItem or Amazon.EC2.Model.DescribeFastSnapshotRestoresResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.DescribeFastSnapshotRestoreSuccessItem objects.",
         "The service call response (type Amazon.EC2.Model.DescribeFastSnapshotRestoresResponse) can be returned by specifying '-Select *'."
@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeFastSnapshotRestoresResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeFastSnapshotRestoresRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeFastSnapshotRestores");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeFastSnapshotRestores");
             try
             {
                 return client.DescribeFastSnapshotRestoresAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

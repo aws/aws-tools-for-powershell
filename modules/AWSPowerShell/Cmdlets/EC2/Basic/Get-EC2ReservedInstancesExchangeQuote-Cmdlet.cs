@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ReservedInstancesExchangeQuote")]
     [OutputType("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetReservedInstancesExchangeQuote API operation.", Operation = new[] {"GetReservedInstancesExchangeQuote"}, SelectReturnType = typeof(Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetReservedInstancesExchangeQuote API operation.", Operation = new[] {"GetReservedInstancesExchangeQuote"}, SelectReturnType = typeof(Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse object containing multiple properties."
     )]
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetReservedInstancesExchangeQuote");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetReservedInstancesExchangeQuote");
             try
             {
                 return client.GetReservedInstancesExchangeQuoteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

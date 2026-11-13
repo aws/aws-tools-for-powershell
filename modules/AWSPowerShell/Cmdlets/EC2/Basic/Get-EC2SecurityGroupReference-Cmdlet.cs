@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SecurityGroupReference")]
     [OutputType("Amazon.EC2.Model.SecurityGroupReference")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeSecurityGroupReferences API operation.", Operation = new[] {"DescribeSecurityGroupReferences"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSecurityGroupReferencesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSecurityGroupReferences API operation.", Operation = new[] {"DescribeSecurityGroupReferences"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSecurityGroupReferencesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SecurityGroupReference or Amazon.EC2.Model.DescribeSecurityGroupReferencesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.SecurityGroupReference objects.",
         "The service call response (type Amazon.EC2.Model.DescribeSecurityGroupReferencesResponse) can be returned by specifying '-Select *'."
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeSecurityGroupReferencesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSecurityGroupReferencesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeSecurityGroupReferences");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeSecurityGroupReferences");
             try
             {
                 return client.DescribeSecurityGroupReferencesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -5,7 +5,7 @@
     <C2jFilename>vpc-lattice</C2jFilename>
     <AssemblyName>VPCLattice</AssemblyName>
     <ServiceNounPrefix>VPCL</ServiceNounPrefix>
-    <ServiceName>VPC Lattice</ServiceName>
+    <ServiceName>Amazon VPC Lattice</ServiceName>
     <ServiceId>VPC Lattice</ServiceId>
     <ServiceClientInterface>IAmazonVPCLattice</ServiceClientInterface>
     <ServiceClient>AmazonVPCLatticeClient</ServiceClient>

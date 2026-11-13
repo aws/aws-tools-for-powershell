@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2CreditSpecification")]
     [OutputType("Amazon.EC2.Model.InstanceCreditSpecification")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstanceCreditSpecifications API operation.", Operation = new[] {"DescribeInstanceCreditSpecifications"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceCreditSpecificationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeInstanceCreditSpecifications API operation.", Operation = new[] {"DescribeInstanceCreditSpecifications"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceCreditSpecificationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceCreditSpecification or Amazon.EC2.Model.DescribeInstanceCreditSpecificationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceCreditSpecification objects.",
         "The service call response (type Amazon.EC2.Model.DescribeInstanceCreditSpecificationsResponse) can be returned by specifying '-Select *'."
@@ -402,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeInstanceCreditSpecificationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstanceCreditSpecificationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeInstanceCreditSpecifications");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeInstanceCreditSpecifications");
             try
             {
                 return client.DescribeInstanceCreditSpecificationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

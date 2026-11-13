@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2EndpointServicePermission")]
     [OutputType("Amazon.EC2.Model.AllowedPrincipal")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVpcEndpointServicePermissions API operation.", Operation = new[] {"DescribeVpcEndpointServicePermissions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcEndpointServicePermissionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVpcEndpointServicePermissions API operation.", Operation = new[] {"DescribeVpcEndpointServicePermissions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcEndpointServicePermissionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AllowedPrincipal or Amazon.EC2.Model.DescribeVpcEndpointServicePermissionsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.AllowedPrincipal objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVpcEndpointServicePermissionsResponse) can be returned by specifying '-Select *'."
@@ -376,7 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVpcEndpointServicePermissionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVpcEndpointServicePermissionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVpcEndpointServicePermissions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVpcEndpointServicePermissions");
             try
             {
                 return client.DescribeVpcEndpointServicePermissionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

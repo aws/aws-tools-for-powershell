@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamPolicyOrganizationTarget")]
     [OutputType("Amazon.EC2.Model.IpamPolicyOrganizationTarget")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamPolicyOrganizationTargets API operation.", Operation = new[] {"GetIpamPolicyOrganizationTargets"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamPolicyOrganizationTargetsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamPolicyOrganizationTargets API operation.", Operation = new[] {"GetIpamPolicyOrganizationTargets"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamPolicyOrganizationTargetsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPolicyOrganizationTarget or Amazon.EC2.Model.GetIpamPolicyOrganizationTargetsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamPolicyOrganizationTarget objects.",
         "The service call response (type Amazon.EC2.Model.GetIpamPolicyOrganizationTargetsResponse) can be returned by specifying '-Select *'."
@@ -276,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamPolicyOrganizationTargetsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamPolicyOrganizationTargetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamPolicyOrganizationTargets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamPolicyOrganizationTargets");
             try
             {
                 return client.GetIpamPolicyOrganizationTargetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

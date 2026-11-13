@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2Ipam", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.Ipam")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIpam API operation.", Operation = new[] {"ModifyIpam"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyIpam API operation.", Operation = new[] {"ModifyIpam"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Ipam or Amazon.EC2.Model.ModifyIpamResponse",
         "This cmdlet returns an Amazon.EC2.Model.Ipam object.",
         "The service call response (type Amazon.EC2.Model.ModifyIpamResponse) can be returned by specifying '-Select *'."
@@ -308,7 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyIpamResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIpamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyIpam");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyIpam");
             try
             {
                 return client.ModifyIpamAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

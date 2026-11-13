@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter TrustAnchorId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the trust anchor.</para>
+        /// <para>The trust anchor to act on. You can specify one of the following:</para><ul><li><para>The trust anchor ID.</para></li><li><para>The trust anchor ARN.</para></li><li><para>The alias ARN of the trust anchor.</para></li></ul><para>An ARN must be for a trust anchor in your account and Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -171,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Updates the status of the budget.</para><ul><li><para><c>ACTIVE</c>–The budget is being evaluated.</para></li><li><para><c>INACTIVE</c>–The budget is inactive. This can include Expired, Canceled, or deleted
-        /// Deleted statuses.</para></li></ul>
+        /// <para>Updates the status of the budget.</para><ul><li><para><c>ACTIVE</c> - The budget is being evaluated.</para></li><li><para><c>INACTIVE</c> - The budget is inactive. This can include Expired, Canceled, or
+        /// deleted Deleted statuses.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

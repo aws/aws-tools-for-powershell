@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Revoke", "EC2ClientVpnIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RevokeClientVpnIngress API operation.", Operation = new[] {"RevokeClientVpnIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.RevokeClientVpnIngressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RevokeClientVpnIngress API operation.", Operation = new[] {"RevokeClientVpnIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.RevokeClientVpnIngressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus or Amazon.EC2.Model.RevokeClientVpnIngressResponse",
         "This cmdlet returns an Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus object.",
         "The service call response (type Amazon.EC2.Model.RevokeClientVpnIngressResponse) can be returned by specifying '-Select *'."
@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RevokeClientVpnIngressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RevokeClientVpnIngressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RevokeClientVpnIngress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RevokeClientVpnIngress");
             try
             {
                 return client.RevokeClientVpnIngressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

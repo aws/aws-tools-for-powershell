@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMConnectionStatus")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetConnectionStatusResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetConnectionStatus API operation.", Operation = new[] {"GetConnectionStatus"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetConnectionStatusResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetConnectionStatus API operation.", Operation = new[] {"GetConnectionStatus"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetConnectionStatusResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetConnectionStatusResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetConnectionStatusResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetConnectionStatusResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetConnectionStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetConnectionStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetConnectionStatus");
             try
             {
                 return client.GetConnectionStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

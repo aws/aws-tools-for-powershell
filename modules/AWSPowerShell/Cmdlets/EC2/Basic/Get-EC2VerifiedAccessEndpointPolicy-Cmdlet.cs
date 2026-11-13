@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VerifiedAccessEndpointPolicy")]
     [OutputType("Amazon.EC2.Model.GetVerifiedAccessEndpointPolicyResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetVerifiedAccessEndpointPolicy API operation.", Operation = new[] {"GetVerifiedAccessEndpointPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.GetVerifiedAccessEndpointPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetVerifiedAccessEndpointPolicy API operation.", Operation = new[] {"GetVerifiedAccessEndpointPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.GetVerifiedAccessEndpointPolicyResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetVerifiedAccessEndpointPolicyResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetVerifiedAccessEndpointPolicyResponse object containing multiple properties."
     )]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetVerifiedAccessEndpointPolicyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetVerifiedAccessEndpointPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetVerifiedAccessEndpointPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetVerifiedAccessEndpointPolicy");
             try
             {
                 return client.GetVerifiedAccessEndpointPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

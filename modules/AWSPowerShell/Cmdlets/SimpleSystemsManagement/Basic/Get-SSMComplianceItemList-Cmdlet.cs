@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMComplianceItemList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ComplianceItem")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListComplianceItems API operation.", Operation = new[] {"ListComplianceItems"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListComplianceItemsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ListComplianceItems API operation.", Operation = new[] {"ListComplianceItems"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListComplianceItemsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ComplianceItem or Amazon.SimpleSystemsManagement.Model.ListComplianceItemsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.ComplianceItem objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListComplianceItemsResponse) can be returned by specifying '-Select *'."
@@ -398,7 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListComplianceItemsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListComplianceItemsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListComplianceItems");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ListComplianceItems");
             try
             {
                 return client.ListComplianceItemsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

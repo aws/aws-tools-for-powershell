@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBConfigurationPolicyAssociation")]
     [OutputType("Amazon.SecurityHub.Model.GetConfigurationPolicyAssociationResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub GetConfigurationPolicyAssociation API operation.", Operation = new[] {"GetConfigurationPolicyAssociation"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetConfigurationPolicyAssociationResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetConfigurationPolicyAssociation API operation.", Operation = new[] {"GetConfigurationPolicyAssociation"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetConfigurationPolicyAssociationResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.GetConfigurationPolicyAssociationResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.GetConfigurationPolicyAssociationResponse object containing multiple properties."
     )]
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetConfigurationPolicyAssociationResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetConfigurationPolicyAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetConfigurationPolicyAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetConfigurationPolicyAssociation");
             try
             {
                 return client.GetConfigurationPolicyAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

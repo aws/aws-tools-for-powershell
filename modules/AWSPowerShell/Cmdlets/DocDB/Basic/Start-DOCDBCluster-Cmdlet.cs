@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Start", "DOCDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBCluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) StartDBCluster API operation.", Operation = new[] {"StartDBCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.StartDBClusterResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility StartDBCluster API operation.", Operation = new[] {"StartDBCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.StartDBClusterResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBCluster or Amazon.DocDB.Model.StartDBClusterResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBCluster object.",
         "The service call response (type Amazon.DocDB.Model.StartDBClusterResponse) can be returned by specifying '-Select *'."
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.StartDBClusterResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.StartDBClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "StartDBCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "StartDBCluster");
             try
             {
                 return client.StartDBClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

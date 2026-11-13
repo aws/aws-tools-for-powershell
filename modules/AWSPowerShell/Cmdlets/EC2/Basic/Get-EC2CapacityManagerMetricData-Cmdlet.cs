@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2CapacityManagerMetricData")]
     [OutputType("Amazon.EC2.Model.MetricDataResult")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetCapacityManagerMetricData API operation.", Operation = new[] {"GetCapacityManagerMetricData"}, SelectReturnType = typeof(Amazon.EC2.Model.GetCapacityManagerMetricDataResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetCapacityManagerMetricData API operation.", Operation = new[] {"GetCapacityManagerMetricData"}, SelectReturnType = typeof(Amazon.EC2.Model.GetCapacityManagerMetricDataResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.MetricDataResult or Amazon.EC2.Model.GetCapacityManagerMetricDataResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.MetricDataResult objects.",
         "The service call response (type Amazon.EC2.Model.GetCapacityManagerMetricDataResponse) can be returned by specifying '-Select *'."
@@ -399,7 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetCapacityManagerMetricDataResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetCapacityManagerMetricDataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetCapacityManagerMetricData");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetCapacityManagerMetricData");
             try
             {
                 return client.GetCapacityManagerMetricDataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

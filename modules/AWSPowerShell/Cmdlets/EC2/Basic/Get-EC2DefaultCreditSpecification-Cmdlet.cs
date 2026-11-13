@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2DefaultCreditSpecification")]
     [OutputType("Amazon.EC2.Model.InstanceFamilyCreditSpecification")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetDefaultCreditSpecification API operation.", Operation = new[] {"GetDefaultCreditSpecification"}, SelectReturnType = typeof(Amazon.EC2.Model.GetDefaultCreditSpecificationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetDefaultCreditSpecification API operation.", Operation = new[] {"GetDefaultCreditSpecification"}, SelectReturnType = typeof(Amazon.EC2.Model.GetDefaultCreditSpecificationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceFamilyCreditSpecification or Amazon.EC2.Model.GetDefaultCreditSpecificationResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceFamilyCreditSpecification object.",
         "The service call response (type Amazon.EC2.Model.GetDefaultCreditSpecificationResponse) can be returned by specifying '-Select *'."
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetDefaultCreditSpecificationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetDefaultCreditSpecificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetDefaultCreditSpecification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetDefaultCreditSpecification");
             try
             {
                 return client.GetDefaultCreditSpecificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

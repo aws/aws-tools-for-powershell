@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2EgressOnlyInternetGatewayList")]
     [OutputType("Amazon.EC2.Model.EgressOnlyInternetGateway")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeEgressOnlyInternetGateways API operation.", Operation = new[] {"DescribeEgressOnlyInternetGateways"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeEgressOnlyInternetGatewaysResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeEgressOnlyInternetGateways API operation.", Operation = new[] {"DescribeEgressOnlyInternetGateways"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeEgressOnlyInternetGatewaysResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.EgressOnlyInternetGateway or Amazon.EC2.Model.DescribeEgressOnlyInternetGatewaysResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.EgressOnlyInternetGateway objects.",
         "The service call response (type Amazon.EC2.Model.DescribeEgressOnlyInternetGatewaysResponse) can be returned by specifying '-Select *'."
@@ -384,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeEgressOnlyInternetGatewaysResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeEgressOnlyInternetGatewaysRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeEgressOnlyInternetGateways");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeEgressOnlyInternetGateways");
             try
             {
                 return client.DescribeEgressOnlyInternetGatewaysAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

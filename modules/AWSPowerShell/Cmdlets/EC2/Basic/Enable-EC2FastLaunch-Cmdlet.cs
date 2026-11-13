@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2FastLaunch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.EnableFastLaunchResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableFastLaunch API operation.", Operation = new[] {"EnableFastLaunch"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableFastLaunchResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableFastLaunch API operation.", Operation = new[] {"EnableFastLaunch"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableFastLaunchResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.EnableFastLaunchResponse",
         "This cmdlet returns an Amazon.EC2.Model.EnableFastLaunchResponse object containing multiple properties."
     )]
@@ -333,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableFastLaunchResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableFastLaunchRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableFastLaunch");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableFastLaunch");
             try
             {
                 return client.EnableFastLaunchAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

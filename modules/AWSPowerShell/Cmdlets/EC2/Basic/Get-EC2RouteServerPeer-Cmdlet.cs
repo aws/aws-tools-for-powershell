@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2RouteServerPeer")]
     [OutputType("Amazon.EC2.Model.RouteServerPeer")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeRouteServerPeers API operation.", Operation = new[] {"DescribeRouteServerPeers"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeRouteServerPeersResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeRouteServerPeers API operation.", Operation = new[] {"DescribeRouteServerPeers"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeRouteServerPeersResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RouteServerPeer or Amazon.EC2.Model.DescribeRouteServerPeersResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.RouteServerPeer objects.",
         "The service call response (type Amazon.EC2.Model.DescribeRouteServerPeersResponse) can be returned by specifying '-Select *'."
@@ -274,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeRouteServerPeersResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeRouteServerPeersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeRouteServerPeers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeRouteServerPeers");
             try
             {
                 return client.DescribeRouteServerPeersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

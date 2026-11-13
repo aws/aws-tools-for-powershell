@@ -61,6 +61,26 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         public System.Boolean? AcceptRoleSessionName { get; set; }
         #endregion
         
+        #region Parameter AliasName
+        /// <summary>
+        /// <para>
+        /// <para>An alias for the profile. When you set an alias, the response includes the alias ARN
+        /// of the profile in <c>aliasArn</c>.</para><para>An alias name contains 1 to 256 characters. It must begin with a letter (A-Z or a-z).
+        /// It can contain only letters (A-Z and a-z), numbers (0-9), underscores (_), hyphens
+        /// (-), and forward slashes (/). A forward slash can appear only between two other characters,
+        /// so an alias name can't end with a forward slash or contain two in a row. Alias names
+        /// that begin with <c>aws/</c>, in any combination of uppercase and lowercase letters,
+        /// are reserved. Alias names are case sensitive.</para><para>The alias name must be unique among resources of the same type in your account and
+        /// Region. If another resource of the same type already has the alias, the request fails
+        /// with a <c>ValidationException</c>. An invalid or reserved alias name also causes a
+        /// <c>ValidationException</c>.</para><para>If you omit this parameter or specify an empty string, the resource is created without
+        /// an alias.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AliasName { get; set; }
+        #endregion
+        
         #region Parameter DurationSecond
         /// <summary>
         /// <para>
@@ -227,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AcceptRoleSessionName = this.AcceptRoleSessionName;
+            context.AliasName = this.AliasName;
             context.DurationSecond = this.DurationSecond;
             context.Enabled = this.Enabled;
             if (this.ManagedPolicyArn != null)
@@ -275,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             if (cmdletContext.AcceptRoleSessionName != null)
             {
                 request.AcceptRoleSessionName = cmdletContext.AcceptRoleSessionName.Value;
+            }
+            if (cmdletContext.AliasName != null)
+            {
+                request.AliasName = cmdletContext.AliasName;
             }
             if (cmdletContext.DurationSecond != null)
             {
@@ -364,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AcceptRoleSessionName { get; set; }
+            public System.String AliasName { get; set; }
             public System.Int32? DurationSecond { get; set; }
             public System.Boolean? Enabled { get; set; }
             public List<System.String> ManagedPolicyArn { get; set; }

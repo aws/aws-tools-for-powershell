@@ -30,15 +30,17 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Deletes a service network. You can only delete the service network if there is no
-    /// service or VPC associated with it. If you delete a service network, all resources
-    /// related to the service network, such as the resource policy, auth policy, and access
-    /// log subscriptions, are also deleted. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network">Delete
+    /// Deletes a service network. You can only delete the service network if there are no
+    /// services, VPCs, resource configurations, or service network endpoints associated with
+    /// it. Only the owner of a service network endpoint can remove it from the service network,
+    /// by deleting the endpoint. If you delete a service network, all resources related to
+    /// the service network, such as the resource policy, auth policy, and access log subscriptions,
+    /// are also deleted. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network">Delete
     /// a service network</a> in the <i>Amazon VPC Lattice User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "VPCLServiceNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteServiceNetwork API operation.", Operation = new[] {"DeleteServiceNetwork"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteServiceNetworkResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteServiceNetwork API operation.", Operation = new[] {"DeleteServiceNetwork"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteServiceNetworkResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteServiceNetworkResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.DeleteServiceNetworkResponse) be returned by specifying '-Select *'."
@@ -173,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteServiceNetworkResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteServiceNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteServiceNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteServiceNetwork");
             try
             {
                 return client.DeleteServiceNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2InstanceExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ExportTask")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateInstanceExportTask API operation.", Operation = new[] {"CreateInstanceExportTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateInstanceExportTaskResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateInstanceExportTask API operation.", Operation = new[] {"CreateInstanceExportTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateInstanceExportTaskResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ExportTask or Amazon.EC2.Model.CreateInstanceExportTaskResponse",
         "This cmdlet returns an Amazon.EC2.Model.ExportTask object.",
         "The service call response (type Amazon.EC2.Model.CreateInstanceExportTaskResponse) can be returned by specifying '-Select *'."
@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateInstanceExportTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateInstanceExportTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateInstanceExportTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateInstanceExportTask");
             try
             {
                 return client.CreateInstanceExportTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

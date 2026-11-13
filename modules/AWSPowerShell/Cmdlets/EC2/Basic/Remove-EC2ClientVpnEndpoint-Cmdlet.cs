@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2ClientVpnEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.ClientVpnEndpointStatus")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteClientVpnEndpoint API operation.", Operation = new[] {"DeleteClientVpnEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteClientVpnEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteClientVpnEndpoint API operation.", Operation = new[] {"DeleteClientVpnEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteClientVpnEndpointResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ClientVpnEndpointStatus or Amazon.EC2.Model.DeleteClientVpnEndpointResponse",
         "This cmdlet returns an Amazon.EC2.Model.ClientVpnEndpointStatus object.",
         "The service call response (type Amazon.EC2.Model.DeleteClientVpnEndpointResponse) can be returned by specifying '-Select *'."
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteClientVpnEndpointResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteClientVpnEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteClientVpnEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteClientVpnEndpoint");
             try
             {
                 return client.DeleteClientVpnEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

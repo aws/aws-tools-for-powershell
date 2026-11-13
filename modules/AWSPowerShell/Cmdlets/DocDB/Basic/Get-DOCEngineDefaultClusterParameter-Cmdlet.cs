@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Get", "DOCEngineDefaultClusterParameter")]
     [OutputType("Amazon.DocDB.Model.EngineDefaults")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DescribeEngineDefaultClusterParameters API operation.", Operation = new[] {"DescribeEngineDefaultClusterParameters"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeEngineDefaultClusterParametersResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DescribeEngineDefaultClusterParameters API operation.", Operation = new[] {"DescribeEngineDefaultClusterParameters"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeEngineDefaultClusterParametersResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.EngineDefaults or Amazon.DocDB.Model.DescribeEngineDefaultClusterParametersResponse",
         "This cmdlet returns an Amazon.DocDB.Model.EngineDefaults object.",
         "The service call response (type Amazon.DocDB.Model.DescribeEngineDefaultClusterParametersResponse) can be returned by specifying '-Select *'."
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DescribeEngineDefaultClusterParametersResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DescribeEngineDefaultClusterParametersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DescribeEngineDefaultClusterParameters");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DescribeEngineDefaultClusterParameters");
             try
             {
                 return client.DescribeEngineDefaultClusterParametersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

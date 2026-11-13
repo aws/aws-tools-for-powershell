@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2EndpointConnectionNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.UnsuccessfulItem")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpcEndpointConnectionNotifications API operation.", Operation = new[] {"DeleteVpcEndpointConnectionNotifications"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcEndpointConnectionNotificationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVpcEndpointConnectionNotifications API operation.", Operation = new[] {"DeleteVpcEndpointConnectionNotifications"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcEndpointConnectionNotificationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem or Amazon.EC2.Model.DeleteVpcEndpointConnectionNotificationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.UnsuccessfulItem objects.",
         "The service call response (type Amazon.EC2.Model.DeleteVpcEndpointConnectionNotificationsResponse) can be returned by specifying '-Select *'."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteVpcEndpointConnectionNotificationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpcEndpointConnectionNotificationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVpcEndpointConnectionNotifications");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVpcEndpointConnectionNotifications");
             try
             {
                 return client.DeleteVpcEndpointConnectionNotificationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

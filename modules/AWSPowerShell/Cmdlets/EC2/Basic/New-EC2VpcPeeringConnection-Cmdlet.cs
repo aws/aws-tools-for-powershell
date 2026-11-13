@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpcPeeringConnection")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVpcPeeringConnection API operation.", Operation = new[] {"CreateVpcPeeringConnection"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpcPeeringConnectionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateVpcPeeringConnection API operation.", Operation = new[] {"CreateVpcPeeringConnection"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpcPeeringConnectionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcPeeringConnection or Amazon.EC2.Model.CreateVpcPeeringConnectionResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpcPeeringConnection object.",
         "The service call response (type Amazon.EC2.Model.CreateVpcPeeringConnectionResponse) can be returned by specifying '-Select *'."
@@ -274,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateVpcPeeringConnectionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateVpcPeeringConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateVpcPeeringConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateVpcPeeringConnection");
             try
             {
                 return client.CreateVpcPeeringConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

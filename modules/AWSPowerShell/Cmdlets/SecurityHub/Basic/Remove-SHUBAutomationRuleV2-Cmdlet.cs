@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Remove", "SHUBAutomationRuleV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub DeleteAutomationRuleV2 API operation.", Operation = new[] {"DeleteAutomationRuleV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteAutomationRuleV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub DeleteAutomationRuleV2 API operation.", Operation = new[] {"DeleteAutomationRuleV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteAutomationRuleV2Response))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DeleteAutomationRuleV2Response",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.DeleteAutomationRuleV2Response) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DeleteAutomationRuleV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DeleteAutomationRuleV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DeleteAutomationRuleV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DeleteAutomationRuleV2");
             try
             {
                 return client.DeleteAutomationRuleV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

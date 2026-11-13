@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Start", "SSMSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.StartSessionResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager StartSession API operation.", Operation = new[] {"StartSession"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartSessionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) StartSession API operation.", Operation = new[] {"StartSession"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartSessionResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.StartSessionResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.StartSessionResponse object containing multiple properties."
     )]
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.StartSessionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.StartSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "StartSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "StartSession");
             try
             {
                 return client.StartSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2Snapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.Snapshot")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateSnapshot API operation.", Operation = new[] {"CreateSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSnapshotResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateSnapshot API operation.", Operation = new[] {"CreateSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSnapshotResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Snapshot or Amazon.EC2.Model.CreateSnapshotResponse",
         "This cmdlet returns an Amazon.EC2.Model.Snapshot object.",
         "The service call response (type Amazon.EC2.Model.CreateSnapshotResponse) can be returned by specifying '-Select *'."
@@ -300,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateSnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateSnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateSnapshot");
             try
             {
                 return client.CreateSnapshotAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

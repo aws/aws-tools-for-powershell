@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2TemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.DeleteLaunchTemplateVersionsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteLaunchTemplateVersions API operation.", Operation = new[] {"DeleteLaunchTemplateVersions"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLaunchTemplateVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteLaunchTemplateVersions API operation.", Operation = new[] {"DeleteLaunchTemplateVersions"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLaunchTemplateVersionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DeleteLaunchTemplateVersionsResponse",
         "This cmdlet returns an Amazon.EC2.Model.DeleteLaunchTemplateVersionsResponse object containing multiple properties."
     )]
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteLaunchTemplateVersionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteLaunchTemplateVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteLaunchTemplateVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteLaunchTemplateVersions");
             try
             {
                 return client.DeleteLaunchTemplateVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

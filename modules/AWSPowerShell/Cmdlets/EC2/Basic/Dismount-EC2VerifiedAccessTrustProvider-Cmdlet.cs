@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Dismount", "EC2VerifiedAccessTrustProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DetachVerifiedAccessTrustProvider API operation.", Operation = new[] {"DetachVerifiedAccessTrustProvider"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DetachVerifiedAccessTrustProvider API operation.", Operation = new[] {"DetachVerifiedAccessTrustProvider"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse",
         "This cmdlet returns an Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse object containing multiple properties."
     )]
@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachVerifiedAccessTrustProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DetachVerifiedAccessTrustProvider");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DetachVerifiedAccessTrustProvider");
             try
             {
                 return client.DetachVerifiedAccessTrustProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

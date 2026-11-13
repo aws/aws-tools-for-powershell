@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Start", "EC2DeclarativePoliciesReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) StartDeclarativePoliciesReport API operation.", Operation = new[] {"StartDeclarativePoliciesReport"}, SelectReturnType = typeof(Amazon.EC2.Model.StartDeclarativePoliciesReportResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud StartDeclarativePoliciesReport API operation.", Operation = new[] {"StartDeclarativePoliciesReport"}, SelectReturnType = typeof(Amazon.EC2.Model.StartDeclarativePoliciesReportResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.StartDeclarativePoliciesReportResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.StartDeclarativePoliciesReportResponse) can be returned by specifying '-Select *'."
@@ -293,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.StartDeclarativePoliciesReportResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.StartDeclarativePoliciesReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "StartDeclarativePoliciesReport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "StartDeclarativePoliciesReport");
             try
             {
                 return client.StartDeclarativePoliciesReportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

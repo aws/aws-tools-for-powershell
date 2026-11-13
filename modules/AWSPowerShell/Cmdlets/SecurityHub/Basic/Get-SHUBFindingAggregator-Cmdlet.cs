@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBFindingAggregator")]
     [OutputType("Amazon.SecurityHub.Model.GetFindingAggregatorResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub GetFindingAggregator API operation.", Operation = new[] {"GetFindingAggregator"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingAggregatorResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetFindingAggregator API operation.", Operation = new[] {"GetFindingAggregator"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingAggregatorResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.GetFindingAggregatorResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.GetFindingAggregatorResponse object containing multiple properties."
     )]
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetFindingAggregatorResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetFindingAggregatorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetFindingAggregator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetFindingAggregator");
             try
             {
                 return client.GetFindingAggregatorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

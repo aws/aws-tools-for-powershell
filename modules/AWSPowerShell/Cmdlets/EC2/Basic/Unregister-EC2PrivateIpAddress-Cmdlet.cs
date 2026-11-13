@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2PrivateIpAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) UnassignPrivateIpAddresses API operation.", Operation = new[] {"UnassignPrivateIpAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.UnassignPrivateIpAddressesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud UnassignPrivateIpAddresses API operation.", Operation = new[] {"UnassignPrivateIpAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.UnassignPrivateIpAddressesResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.UnassignPrivateIpAddressesResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.UnassignPrivateIpAddressesResponse) be returned by specifying '-Select *'."
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.UnassignPrivateIpAddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UnassignPrivateIpAddressesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "UnassignPrivateIpAddresses");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "UnassignPrivateIpAddresses");
             try
             {
                 return client.UnassignPrivateIpAddressesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

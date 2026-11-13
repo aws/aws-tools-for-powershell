@@ -35,8 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     /// for each Region.
     /// 
     ///  <note><para>
-    /// This operation doesn't support selective updates. The request replaces the stored
-    /// configuration, so include every setting that you want to keep.
+    /// This operation doesn't support selective updates. The request replaces the entire
+    /// distribution configuration, so include every setting that you want to keep. Any optional
+    /// property that you omit is removed or reset to its default.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "EC2IBDistributionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

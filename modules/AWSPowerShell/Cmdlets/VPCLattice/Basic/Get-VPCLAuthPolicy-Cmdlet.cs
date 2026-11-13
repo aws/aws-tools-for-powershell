@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Get", "VPCLAuthPolicy")]
     [OutputType("Amazon.VPCLattice.Model.GetAuthPolicyResponse")]
-    [AWSCmdlet("Calls the VPC Lattice GetAuthPolicy API operation.", Operation = new[] {"GetAuthPolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetAuthPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice GetAuthPolicy API operation.", Operation = new[] {"GetAuthPolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetAuthPolicyResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.GetAuthPolicyResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.GetAuthPolicyResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.GetAuthPolicyResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.GetAuthPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "GetAuthPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "GetAuthPolicy");
             try
             {
                 return client.GetAuthPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AllocateAddressResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AllocateAddress API operation.", Operation = new[] {"AllocateAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AllocateAddressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AllocateAddress API operation.", Operation = new[] {"AllocateAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AllocateAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AllocateAddressResponse",
         "This cmdlet returns an Amazon.EC2.Model.AllocateAddressResponse object containing multiple properties."
     )]
@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AllocateAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AllocateAddressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AllocateAddress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AllocateAddress");
             try
             {
                 return client.AllocateAddressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

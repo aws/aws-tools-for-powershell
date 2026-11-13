@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2TransitGatewayVpcAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayVpcAttachment")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyTransitGatewayVpcAttachment API operation.", Operation = new[] {"ModifyTransitGatewayVpcAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyTransitGatewayVpcAttachmentResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyTransitGatewayVpcAttachment API operation.", Operation = new[] {"ModifyTransitGatewayVpcAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyTransitGatewayVpcAttachmentResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayVpcAttachment or Amazon.EC2.Model.ModifyTransitGatewayVpcAttachmentResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayVpcAttachment object.",
         "The service call response (type Amazon.EC2.Model.ModifyTransitGatewayVpcAttachmentResponse) can be returned by specifying '-Select *'."
@@ -341,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyTransitGatewayVpcAttachmentResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyTransitGatewayVpcAttachmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyTransitGatewayVpcAttachment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyTransitGatewayVpcAttachment");
             try
             {
                 return client.ModifyTransitGatewayVpcAttachmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2ClientVpnEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyClientVpnEndpoint API operation.", Operation = new[] {"ModifyClientVpnEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyClientVpnEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyClientVpnEndpoint API operation.", Operation = new[] {"ModifyClientVpnEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyClientVpnEndpointResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyClientVpnEndpointResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyClientVpnEndpointResponse) can be returned by specifying '-Select *'."
@@ -789,7 +789,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyClientVpnEndpointResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyClientVpnEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyClientVpnEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyClientVpnEndpoint");
             try
             {
                 return client.ModifyClientVpnEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

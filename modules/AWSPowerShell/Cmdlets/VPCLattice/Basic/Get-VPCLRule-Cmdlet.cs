@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Get", "VPCLRule")]
     [OutputType("Amazon.VPCLattice.Model.GetRuleResponse")]
-    [AWSCmdlet("Calls the VPC Lattice GetRule API operation.", Operation = new[] {"GetRule"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetRuleResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice GetRule API operation.", Operation = new[] {"GetRule"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetRuleResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.GetRuleResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.GetRuleResponse object containing multiple properties."
     )]
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.GetRuleResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.GetRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "GetRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "GetRule");
             try
             {
                 return client.GetRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

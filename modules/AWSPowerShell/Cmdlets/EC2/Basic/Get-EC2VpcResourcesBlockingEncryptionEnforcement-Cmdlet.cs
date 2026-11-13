@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VpcResourcesBlockingEncryptionEnforcement")]
     [OutputType("Amazon.EC2.Model.VpcEncryptionNonCompliantResource")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetVpcResourcesBlockingEncryptionEnforcement API operation.", Operation = new[] {"GetVpcResourcesBlockingEncryptionEnforcement"}, SelectReturnType = typeof(Amazon.EC2.Model.GetVpcResourcesBlockingEncryptionEnforcementResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetVpcResourcesBlockingEncryptionEnforcement API operation.", Operation = new[] {"GetVpcResourcesBlockingEncryptionEnforcement"}, SelectReturnType = typeof(Amazon.EC2.Model.GetVpcResourcesBlockingEncryptionEnforcementResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcEncryptionNonCompliantResource or Amazon.EC2.Model.GetVpcResourcesBlockingEncryptionEnforcementResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.VpcEncryptionNonCompliantResource objects.",
         "The service call response (type Amazon.EC2.Model.GetVpcResourcesBlockingEncryptionEnforcementResponse) can be returned by specifying '-Select *'."
@@ -247,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetVpcResourcesBlockingEncryptionEnforcementResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetVpcResourcesBlockingEncryptionEnforcementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetVpcResourcesBlockingEncryptionEnforcement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetVpcResourcesBlockingEncryptionEnforcement");
             try
             {
                 return client.GetVpcResourcesBlockingEncryptionEnforcementAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

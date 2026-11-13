@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2IpamPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.IpamPolicy")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteIpamPolicy API operation.", Operation = new[] {"DeleteIpamPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteIpamPolicy API operation.", Operation = new[] {"DeleteIpamPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamPolicyResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPolicy or Amazon.EC2.Model.DeleteIpamPolicyResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamPolicy object.",
         "The service call response (type Amazon.EC2.Model.DeleteIpamPolicyResponse) can be returned by specifying '-Select *'."
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteIpamPolicyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteIpamPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteIpamPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteIpamPolicy");
             try
             {
                 return client.DeleteIpamPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

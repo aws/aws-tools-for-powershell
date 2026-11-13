@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2ImageUsageReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateImageUsageReport API operation.", Operation = new[] {"CreateImageUsageReport"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateImageUsageReportResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateImageUsageReport API operation.", Operation = new[] {"CreateImageUsageReport"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateImageUsageReportResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.CreateImageUsageReportResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.CreateImageUsageReportResponse) can be returned by specifying '-Select *'."
@@ -299,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateImageUsageReportResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateImageUsageReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateImageUsageReport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateImageUsageReport");
             try
             {
                 return client.CreateImageUsageReportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

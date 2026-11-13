@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2IpamPoolCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamPoolCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ProvisionIpamPoolCidr API operation.", Operation = new[] {"ProvisionIpamPoolCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.ProvisionIpamPoolCidrResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ProvisionIpamPoolCidr API operation.", Operation = new[] {"ProvisionIpamPoolCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.ProvisionIpamPoolCidrResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPoolCidr or Amazon.EC2.Model.ProvisionIpamPoolCidrResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamPoolCidr object.",
         "The service call response (type Amazon.EC2.Model.ProvisionIpamPoolCidrResponse) can be returned by specifying '-Select *'."
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ProvisionIpamPoolCidrResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ProvisionIpamPoolCidrRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ProvisionIpamPoolCidr");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ProvisionIpamPoolCidr");
             try
             {
                 return client.ProvisionIpamPoolCidrAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

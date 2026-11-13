@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Dismount", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VolumeAttachment")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DetachVolume API operation.", Operation = new[] {"DetachVolume"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachVolumeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DetachVolume API operation.", Operation = new[] {"DetachVolume"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachVolumeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VolumeAttachment or Amazon.EC2.Model.DetachVolumeResponse",
         "This cmdlet returns an Amazon.EC2.Model.VolumeAttachment object.",
         "The service call response (type Amazon.EC2.Model.DetachVolumeResponse) can be returned by specifying '-Select *'."
@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DetachVolumeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachVolumeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DetachVolume");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DetachVolume");
             try
             {
                 return client.DetachVolumeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Export", "EC2VerifiedAccessInstanceClientConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ExportVerifiedAccessInstanceClientConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ExportVerifiedAccessInstanceClientConfiguration API operation.", Operation = new[] {"ExportVerifiedAccessInstanceClientConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.ExportVerifiedAccessInstanceClientConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ExportVerifiedAccessInstanceClientConfiguration API operation.", Operation = new[] {"ExportVerifiedAccessInstanceClientConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.ExportVerifiedAccessInstanceClientConfigurationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ExportVerifiedAccessInstanceClientConfigurationResponse",
         "This cmdlet returns an Amazon.EC2.Model.ExportVerifiedAccessInstanceClientConfigurationResponse object containing multiple properties."
     )]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ExportVerifiedAccessInstanceClientConfigurationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ExportVerifiedAccessInstanceClientConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ExportVerifiedAccessInstanceClientConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ExportVerifiedAccessInstanceClientConfiguration");
             try
             {
                 return client.ExportVerifiedAccessInstanceClientConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

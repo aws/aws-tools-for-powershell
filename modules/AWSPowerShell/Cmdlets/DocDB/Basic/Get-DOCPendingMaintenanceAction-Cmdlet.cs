@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Get", "DOCPendingMaintenanceAction")]
     [OutputType("Amazon.DocDB.Model.ResourcePendingMaintenanceActions")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DescribePendingMaintenanceActions API operation.", Operation = new[] {"DescribePendingMaintenanceActions"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribePendingMaintenanceActionsResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DescribePendingMaintenanceActions API operation.", Operation = new[] {"DescribePendingMaintenanceActions"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribePendingMaintenanceActionsResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.ResourcePendingMaintenanceActions or Amazon.DocDB.Model.DescribePendingMaintenanceActionsResponse",
         "This cmdlet returns a collection of Amazon.DocDB.Model.ResourcePendingMaintenanceActions objects.",
         "The service call response (type Amazon.DocDB.Model.DescribePendingMaintenanceActionsResponse) can be returned by specifying '-Select *'."
@@ -348,7 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DescribePendingMaintenanceActionsResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DescribePendingMaintenanceActionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DescribePendingMaintenanceActions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DescribePendingMaintenanceActions");
             try
             {
                 return client.DescribePendingMaintenanceActionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

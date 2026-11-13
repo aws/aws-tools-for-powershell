@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2InstanceConnectEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.Ec2InstanceConnectEndpoint")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteInstanceConnectEndpoint API operation.", Operation = new[] {"DeleteInstanceConnectEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteInstanceConnectEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteInstanceConnectEndpoint API operation.", Operation = new[] {"DeleteInstanceConnectEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteInstanceConnectEndpointResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Ec2InstanceConnectEndpoint or Amazon.EC2.Model.DeleteInstanceConnectEndpointResponse",
         "This cmdlet returns an Amazon.EC2.Model.Ec2InstanceConnectEndpoint object.",
         "The service call response (type Amazon.EC2.Model.DeleteInstanceConnectEndpointResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteInstanceConnectEndpointResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteInstanceConnectEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteInstanceConnectEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteInstanceConnectEndpoint");
             try
             {
                 return client.DeleteInstanceConnectEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

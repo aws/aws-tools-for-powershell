@@ -45,12 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para>
     /// Create a set of named queries in Athena that you can use to get started quickly
     /// </para></li></ul><note><para><c>GetFlowLogsIntegrationTemplate</c> does not support integration between Amazon
-    /// Web Services Transit Gateway Flow Logs and Amazon Athena.
+    /// Web Services Transit Gateway Flow Logs or Amazon Web Services Cloud WAN Flow Logs
+    /// and Amazon Athena.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "EC2FlowLogsIntegrationTemplate")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetFlowLogsIntegrationTemplate API operation.", Operation = new[] {"GetFlowLogsIntegrationTemplate"}, SelectReturnType = typeof(Amazon.EC2.Model.GetFlowLogsIntegrationTemplateResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetFlowLogsIntegrationTemplate API operation.", Operation = new[] {"GetFlowLogsIntegrationTemplate"}, SelectReturnType = typeof(Amazon.EC2.Model.GetFlowLogsIntegrationTemplateResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.GetFlowLogsIntegrationTemplateResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.GetFlowLogsIntegrationTemplateResponse) can be returned by specifying '-Select *'."
@@ -255,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetFlowLogsIntegrationTemplateResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetFlowLogsIntegrationTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetFlowLogsIntegrationTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetFlowLogsIntegrationTemplate");
             try
             {
                 return client.GetFlowLogsIntegrationTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

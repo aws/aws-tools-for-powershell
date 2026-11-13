@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMPatchBaselineDetail")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetPatchBaselineResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetPatchBaseline API operation.", Operation = new[] {"GetPatchBaseline"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetPatchBaselineResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetPatchBaseline API operation.", Operation = new[] {"GetPatchBaseline"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetPatchBaselineResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetPatchBaselineResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetPatchBaselineResponse object containing multiple properties."
     )]
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetPatchBaselineResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetPatchBaselineRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetPatchBaseline");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetPatchBaseline");
             try
             {
                 return client.GetPatchBaselineAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

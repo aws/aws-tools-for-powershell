@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2EbsEncryptionByDefault")]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetEbsEncryptionByDefault API operation.", Operation = new[] {"GetEbsEncryptionByDefault"}, SelectReturnType = typeof(Amazon.EC2.Model.GetEbsEncryptionByDefaultResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetEbsEncryptionByDefault API operation.", Operation = new[] {"GetEbsEncryptionByDefault"}, SelectReturnType = typeof(Amazon.EC2.Model.GetEbsEncryptionByDefaultResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.GetEbsEncryptionByDefaultResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.GetEbsEncryptionByDefaultResponse) can be returned by specifying '-Select *'."
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetEbsEncryptionByDefaultResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetEbsEncryptionByDefaultRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetEbsEncryptionByDefault");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetEbsEncryptionByDefault");
             try
             {
                 return client.GetEbsEncryptionByDefaultAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

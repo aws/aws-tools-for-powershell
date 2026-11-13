@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2Fleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyFleet API operation.", Operation = new[] {"ModifyFleet"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyFleetResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyFleet API operation.", Operation = new[] {"ModifyFleet"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyFleetResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyFleetResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyFleetResponse) can be returned by specifying '-Select *'."
@@ -391,7 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyFleetResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyFleetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyFleet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyFleet");
             try
             {
                 return client.ModifyFleetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

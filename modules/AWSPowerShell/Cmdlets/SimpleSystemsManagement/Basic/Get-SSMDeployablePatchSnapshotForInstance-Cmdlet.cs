@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDeployablePatchSnapshotForInstance")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetDeployablePatchSnapshotForInstance API operation.", Operation = new[] {"GetDeployablePatchSnapshotForInstance"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetDeployablePatchSnapshotForInstance API operation.", Operation = new[] {"GetDeployablePatchSnapshotForInstance"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse object containing multiple properties."
     )]
@@ -524,7 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetDeployablePatchSnapshotForInstance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetDeployablePatchSnapshotForInstance");
             try
             {
                 return client.GetDeployablePatchSnapshotForInstanceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

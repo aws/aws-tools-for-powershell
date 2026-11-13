@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Unregister", "SSMOpsItemRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DisassociateOpsItemRelatedItem API operation.", Operation = new[] {"DisassociateOpsItemRelatedItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DisassociateOpsItemRelatedItemResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DisassociateOpsItemRelatedItem API operation.", Operation = new[] {"DisassociateOpsItemRelatedItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DisassociateOpsItemRelatedItemResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DisassociateOpsItemRelatedItemResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DisassociateOpsItemRelatedItemResponse) be returned by specifying '-Select *'."
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DisassociateOpsItemRelatedItemResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DisassociateOpsItemRelatedItemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DisassociateOpsItemRelatedItem");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DisassociateOpsItemRelatedItem");
             try
             {
                 return client.DisassociateOpsItemRelatedItemAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

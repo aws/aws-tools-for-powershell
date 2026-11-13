@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2TrafficMirrorFilterRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TrafficMirrorFilterRule")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyTrafficMirrorFilterRule API operation.", Operation = new[] {"ModifyTrafficMirrorFilterRule"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyTrafficMirrorFilterRuleResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyTrafficMirrorFilterRule API operation.", Operation = new[] {"ModifyTrafficMirrorFilterRule"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyTrafficMirrorFilterRuleResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TrafficMirrorFilterRule or Amazon.EC2.Model.ModifyTrafficMirrorFilterRuleResponse",
         "This cmdlet returns an Amazon.EC2.Model.TrafficMirrorFilterRule object.",
         "The service call response (type Amazon.EC2.Model.ModifyTrafficMirrorFilterRuleResponse) can be returned by specifying '-Select *'."
@@ -428,7 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyTrafficMirrorFilterRuleResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyTrafficMirrorFilterRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyTrafficMirrorFilterRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyTrafficMirrorFilterRule");
             try
             {
                 return client.ModifyTrafficMirrorFilterRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

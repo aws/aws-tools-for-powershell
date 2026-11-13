@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBEnabledStandard")]
     [OutputType("Amazon.SecurityHub.Model.StandardsSubscription")]
-    [AWSCmdlet("Calls the AWS Security Hub GetEnabledStandards API operation.", Operation = new[] {"GetEnabledStandards"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetEnabledStandardsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetEnabledStandards API operation.", Operation = new[] {"GetEnabledStandards"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetEnabledStandardsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.StandardsSubscription or Amazon.SecurityHub.Model.GetEnabledStandardsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.StandardsSubscription objects.",
         "The service call response (type Amazon.SecurityHub.Model.GetEnabledStandardsResponse) can be returned by specifying '-Select *'."
@@ -368,7 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetEnabledStandardsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetEnabledStandardsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetEnabledStandards");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetEnabledStandards");
             try
             {
                 return client.GetEnabledStandardsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

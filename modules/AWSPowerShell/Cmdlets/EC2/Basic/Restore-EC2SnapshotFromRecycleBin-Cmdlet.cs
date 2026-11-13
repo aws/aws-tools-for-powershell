@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Restore", "EC2SnapshotFromRecycleBin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.RestoreSnapshotFromRecycleBinResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RestoreSnapshotFromRecycleBin API operation.", Operation = new[] {"RestoreSnapshotFromRecycleBin"}, SelectReturnType = typeof(Amazon.EC2.Model.RestoreSnapshotFromRecycleBinResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RestoreSnapshotFromRecycleBin API operation.", Operation = new[] {"RestoreSnapshotFromRecycleBin"}, SelectReturnType = typeof(Amazon.EC2.Model.RestoreSnapshotFromRecycleBinResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RestoreSnapshotFromRecycleBinResponse",
         "This cmdlet returns an Amazon.EC2.Model.RestoreSnapshotFromRecycleBinResponse object containing multiple properties."
     )]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RestoreSnapshotFromRecycleBinResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RestoreSnapshotFromRecycleBinRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RestoreSnapshotFromRecycleBin");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RestoreSnapshotFromRecycleBin");
             try
             {
                 return client.RestoreSnapshotFromRecycleBinAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

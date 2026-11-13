@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Unregister", "SSMManagedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeregisterManagedInstance API operation.", Operation = new[] {"DeregisterManagedInstance"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeregisterManagedInstance API operation.", Operation = new[] {"DeregisterManagedInstance"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse) be returned by specifying '-Select *'."
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeregisterManagedInstance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeregisterManagedInstance");
             try
             {
                 return client.DeregisterManagedInstanceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

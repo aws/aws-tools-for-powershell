@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2SnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifySnapshotAttribute API operation.", Operation = new[] {"ModifySnapshotAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySnapshotAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifySnapshotAttribute API operation.", Operation = new[] {"ModifySnapshotAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySnapshotAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ModifySnapshotAttributeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ModifySnapshotAttributeResponse) be returned by specifying '-Select *'."
@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifySnapshotAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifySnapshotAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifySnapshotAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifySnapshotAttribute");
             try
             {
                 return client.ModifySnapshotAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

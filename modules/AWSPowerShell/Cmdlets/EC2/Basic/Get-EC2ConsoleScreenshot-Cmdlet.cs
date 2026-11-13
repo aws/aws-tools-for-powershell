@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ConsoleScreenshot")]
     [OutputType("Amazon.EC2.Model.GetConsoleScreenshotResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetConsoleScreenshot API operation.", Operation = new[] {"GetConsoleScreenshot"}, SelectReturnType = typeof(Amazon.EC2.Model.GetConsoleScreenshotResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetConsoleScreenshot API operation.", Operation = new[] {"GetConsoleScreenshot"}, SelectReturnType = typeof(Amazon.EC2.Model.GetConsoleScreenshotResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetConsoleScreenshotResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetConsoleScreenshotResponse object containing multiple properties."
     )]
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetConsoleScreenshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetConsoleScreenshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetConsoleScreenshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetConsoleScreenshot");
             try
             {
                 return client.GetConsoleScreenshotAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

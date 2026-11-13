@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2IpamResourceCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamResourceCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIpamResourceCidr API operation.", Operation = new[] {"ModifyIpamResourceCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamResourceCidrResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyIpamResourceCidr API operation.", Operation = new[] {"ModifyIpamResourceCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamResourceCidrResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamResourceCidr or Amazon.EC2.Model.ModifyIpamResourceCidrResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamResourceCidr object.",
         "The service call response (type Amazon.EC2.Model.ModifyIpamResourceCidrResponse) can be returned by specifying '-Select *'."
@@ -324,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyIpamResourceCidrResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIpamResourceCidrRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyIpamResourceCidr");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyIpamResourceCidr");
             try
             {
                 return client.ModifyIpamResourceCidrAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

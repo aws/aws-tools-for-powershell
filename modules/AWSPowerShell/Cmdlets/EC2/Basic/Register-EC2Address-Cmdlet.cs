@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateAddress API operation.", Operation = new[] {"AssociateAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateAddressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateAddress API operation.", Operation = new[] {"AssociateAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateAddressResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.AssociateAddressResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.AssociateAddressResponse) can be returned by specifying '-Select *'."
@@ -276,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateAddressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateAddress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateAddress");
             try
             {
                 return client.AssociateAddressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

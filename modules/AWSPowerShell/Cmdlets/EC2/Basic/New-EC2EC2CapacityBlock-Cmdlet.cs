@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2EC2CapacityBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CapacityReservation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) PurchaseCapacityBlock API operation.", Operation = new[] {"PurchaseCapacityBlock"}, SelectReturnType = typeof(Amazon.EC2.Model.PurchaseCapacityBlockResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud PurchaseCapacityBlock API operation.", Operation = new[] {"PurchaseCapacityBlock"}, SelectReturnType = typeof(Amazon.EC2.Model.PurchaseCapacityBlockResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CapacityReservation or Amazon.EC2.Model.PurchaseCapacityBlockResponse",
         "This cmdlet returns an Amazon.EC2.Model.CapacityReservation object.",
         "The service call response (type Amazon.EC2.Model.PurchaseCapacityBlockResponse) can be returned by specifying '-Select *'."
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.PurchaseCapacityBlockResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.PurchaseCapacityBlockRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "PurchaseCapacityBlock");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "PurchaseCapacityBlock");
             try
             {
                 return client.PurchaseCapacityBlockAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

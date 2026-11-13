@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2ImageDeregistrationProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableImageDeregistrationProtection API operation.", Operation = new[] {"DisableImageDeregistrationProtection"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableImageDeregistrationProtection API operation.", Operation = new[] {"DisableImageDeregistrationProtection"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse) can be returned by specifying '-Select *'."
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableImageDeregistrationProtectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableImageDeregistrationProtection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableImageDeregistrationProtection");
             try
             {
                 return client.DisableImageDeregistrationProtectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

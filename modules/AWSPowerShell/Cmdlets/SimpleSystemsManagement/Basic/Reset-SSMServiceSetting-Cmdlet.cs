@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Reset", "SSMServiceSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ServiceSetting")]
-    [AWSCmdlet("Calls the AWS Systems Manager ResetServiceSetting API operation.", Operation = new[] {"ResetServiceSetting"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ResetServiceSettingResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ResetServiceSetting API operation.", Operation = new[] {"ResetServiceSetting"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ResetServiceSettingResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ServiceSetting or Amazon.SimpleSystemsManagement.Model.ResetServiceSettingResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.ServiceSetting object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ResetServiceSettingResponse) can be returned by specifying '-Select *'."
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ResetServiceSettingResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ResetServiceSettingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ResetServiceSetting");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ResetServiceSetting");
             try
             {
                 return client.ResetServiceSettingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

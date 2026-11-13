@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2PlacementGroup")]
     [OutputType("Amazon.EC2.Model.PlacementGroup")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribePlacementGroups API operation.", Operation = new[] {"DescribePlacementGroups"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribePlacementGroupsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribePlacementGroups API operation.", Operation = new[] {"DescribePlacementGroups"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribePlacementGroupsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.PlacementGroup or Amazon.EC2.Model.DescribePlacementGroupsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.PlacementGroup objects.",
         "The service call response (type Amazon.EC2.Model.DescribePlacementGroupsResponse) can be returned by specifying '-Select *'."
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribePlacementGroupsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribePlacementGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribePlacementGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribePlacementGroups");
             try
             {
                 return client.DescribePlacementGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

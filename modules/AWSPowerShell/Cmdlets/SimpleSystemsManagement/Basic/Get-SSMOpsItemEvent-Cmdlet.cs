@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMOpsItemEvent")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.OpsItemEventSummary")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListOpsItemEvents API operation.", Operation = new[] {"ListOpsItemEvents"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListOpsItemEventsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ListOpsItemEvents API operation.", Operation = new[] {"ListOpsItemEvents"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListOpsItemEventsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.OpsItemEventSummary or Amazon.SimpleSystemsManagement.Model.ListOpsItemEventsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.OpsItemEventSummary objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListOpsItemEventsResponse) can be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListOpsItemEventsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListOpsItemEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListOpsItemEvents");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ListOpsItemEvents");
             try
             {
                 return client.ListOpsItemEventsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Unregister", "VPCLTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.DeregisterTargetsResponse")]
-    [AWSCmdlet("Calls the VPC Lattice DeregisterTargets API operation.", Operation = new[] {"DeregisterTargets"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeregisterTargetsResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeregisterTargets API operation.", Operation = new[] {"DeregisterTargets"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeregisterTargetsResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.DeregisterTargetsResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.DeregisterTargetsResponse object containing multiple properties."
     )]
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeregisterTargetsResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeregisterTargetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeregisterTargets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeregisterTargets");
             try
             {
                 return client.DeregisterTargetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

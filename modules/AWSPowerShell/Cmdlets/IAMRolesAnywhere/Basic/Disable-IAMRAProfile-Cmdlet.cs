@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the profile.</para>
+        /// <para>The profile to act on. You can specify one of the following:</para><ul><li><para>The profile ID.</para></li><li><para>The profile ARN.</para></li><li><para>The alias ARN of the profile.</para></li></ul><para>An ARN must be for a profile in your account and Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

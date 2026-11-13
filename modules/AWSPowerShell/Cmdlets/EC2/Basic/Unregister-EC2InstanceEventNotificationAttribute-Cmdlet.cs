@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2InstanceEventNotificationAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.InstanceTagNotificationAttribute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeregisterInstanceEventNotificationAttributes API operation.", Operation = new[] {"DeregisterInstanceEventNotificationAttributes"}, SelectReturnType = typeof(Amazon.EC2.Model.DeregisterInstanceEventNotificationAttributesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeregisterInstanceEventNotificationAttributes API operation.", Operation = new[] {"DeregisterInstanceEventNotificationAttributes"}, SelectReturnType = typeof(Amazon.EC2.Model.DeregisterInstanceEventNotificationAttributesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceTagNotificationAttribute or Amazon.EC2.Model.DeregisterInstanceEventNotificationAttributesResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceTagNotificationAttribute object.",
         "The service call response (type Amazon.EC2.Model.DeregisterInstanceEventNotificationAttributesResponse) can be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeregisterInstanceEventNotificationAttributesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeregisterInstanceEventNotificationAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeregisterInstanceEventNotificationAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeregisterInstanceEventNotificationAttributes");
             try
             {
                 return client.DeregisterInstanceEventNotificationAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

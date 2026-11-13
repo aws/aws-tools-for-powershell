@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2VpnConnectionRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVpnConnectionRoute API operation.", Operation = new[] {"CreateVpnConnectionRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpnConnectionRouteResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateVpnConnectionRoute API operation.", Operation = new[] {"CreateVpnConnectionRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpnConnectionRouteResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.CreateVpnConnectionRouteResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.CreateVpnConnectionRouteResponse) be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateVpnConnectionRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateVpnConnectionRouteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateVpnConnectionRoute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateVpnConnectionRoute");
             try
             {
                 return client.CreateVpnConnectionRouteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2IpamRoutingPolicyRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.IpamRoutingPolicyRegistrationDelta")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteIpamRoutingPolicyRegistration API operation.", Operation = new[] {"DeleteIpamRoutingPolicyRegistration"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamRoutingPolicyRegistrationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteIpamRoutingPolicyRegistration API operation.", Operation = new[] {"DeleteIpamRoutingPolicyRegistration"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamRoutingPolicyRegistrationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamRoutingPolicyRegistrationDelta or Amazon.EC2.Model.DeleteIpamRoutingPolicyRegistrationResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamRoutingPolicyRegistrationDelta object.",
         "The service call response (type Amazon.EC2.Model.DeleteIpamRoutingPolicyRegistrationResponse) can be returned by specifying '-Select *'."
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteIpamRoutingPolicyRegistrationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteIpamRoutingPolicyRegistrationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteIpamRoutingPolicyRegistration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteIpamRoutingPolicyRegistration");
             try
             {
                 return client.DeleteIpamRoutingPolicyRegistrationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

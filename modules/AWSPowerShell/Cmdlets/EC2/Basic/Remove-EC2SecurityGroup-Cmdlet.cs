@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.DeleteSecurityGroupResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSecurityGroup API operation.", Operation = new[] {"DeleteSecurityGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSecurityGroupResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteSecurityGroup API operation.", Operation = new[] {"DeleteSecurityGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSecurityGroupResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DeleteSecurityGroupResponse",
         "This cmdlet returns an Amazon.EC2.Model.DeleteSecurityGroupResponse object containing multiple properties."
     )]
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteSecurityGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSecurityGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteSecurityGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteSecurityGroup");
             try
             {
                 return client.DeleteSecurityGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

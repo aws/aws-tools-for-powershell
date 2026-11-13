@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Export", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ExportImageResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ExportImage API operation.", Operation = new[] {"ExportImage"}, SelectReturnType = typeof(Amazon.EC2.Model.ExportImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ExportImage API operation.", Operation = new[] {"ExportImage"}, SelectReturnType = typeof(Amazon.EC2.Model.ExportImageResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ExportImageResponse",
         "This cmdlet returns an Amazon.EC2.Model.ExportImageResponse object containing multiple properties."
     )]
@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ExportImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ExportImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ExportImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ExportImage");
             try
             {
                 return client.ExportImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

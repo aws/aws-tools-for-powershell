@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBFindingsV2")]
     [OutputType("Amazon.Runtime.Documents.Document")]
-    [AWSCmdlet("Calls the AWS Security Hub GetFindingsV2 API operation.", Operation = new[] {"GetFindingsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingsV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetFindingsV2 API operation.", Operation = new[] {"GetFindingsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingsV2Response))]
     [AWSCmdletOutput("Amazon.Runtime.Documents.Document or Amazon.SecurityHub.Model.GetFindingsV2Response",
         "This cmdlet returns a collection of Amazon.Runtime.Documents.Document objects.",
         "The service call response (type Amazon.SecurityHub.Model.GetFindingsV2Response) can be returned by specifying '-Select *'."
@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetFindingsV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetFindingsV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetFindingsV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetFindingsV2");
             try
             {
                 return client.GetFindingsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

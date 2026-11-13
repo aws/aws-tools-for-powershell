@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2PrefixList")]
     [OutputType("Amazon.EC2.Model.PrefixList")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribePrefixLists API operation.", Operation = new[] {"DescribePrefixLists"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribePrefixListsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribePrefixLists API operation.", Operation = new[] {"DescribePrefixLists"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribePrefixListsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.PrefixList or Amazon.EC2.Model.DescribePrefixListsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.PrefixList objects.",
         "The service call response (type Amazon.EC2.Model.DescribePrefixListsResponse) can be returned by specifying '-Select *'."
@@ -370,7 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribePrefixListsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribePrefixListsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribePrefixLists");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribePrefixLists");
             try
             {
                 return client.DescribePrefixListsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Reset", "SSMParameterVersionLabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager UnlabelParameterVersion API operation.", Operation = new[] {"UnlabelParameterVersion"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) UnlabelParameterVersion API operation.", Operation = new[] {"UnlabelParameterVersion"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse object containing multiple properties."
     )]
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UnlabelParameterVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "UnlabelParameterVersion");
             try
             {
                 return client.UnlabelParameterVersionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

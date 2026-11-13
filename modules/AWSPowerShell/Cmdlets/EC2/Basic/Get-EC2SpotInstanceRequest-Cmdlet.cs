@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SpotInstanceRequest")]
     [OutputType("Amazon.EC2.Model.SpotInstanceRequest")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeSpotInstanceRequests API operation.", Operation = new[] {"DescribeSpotInstanceRequests"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSpotInstanceRequestsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSpotInstanceRequests API operation.", Operation = new[] {"DescribeSpotInstanceRequests"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSpotInstanceRequestsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotInstanceRequest or Amazon.EC2.Model.DescribeSpotInstanceRequestsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.SpotInstanceRequest objects.",
         "The service call response (type Amazon.EC2.Model.DescribeSpotInstanceRequestsResponse) can be returned by specifying '-Select *'."
@@ -414,7 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeSpotInstanceRequestsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSpotInstanceRequestsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeSpotInstanceRequests");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeSpotInstanceRequests");
             try
             {
                 return client.DescribeSpotInstanceRequestsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

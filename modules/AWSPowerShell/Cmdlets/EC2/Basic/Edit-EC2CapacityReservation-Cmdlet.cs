@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2CapacityReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyCapacityReservation API operation.", Operation = new[] {"ModifyCapacityReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyCapacityReservationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyCapacityReservation API operation.", Operation = new[] {"ModifyCapacityReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyCapacityReservationResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyCapacityReservationResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyCapacityReservationResponse) can be returned by specifying '-Select *'."
@@ -373,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyCapacityReservationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyCapacityReservationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyCapacityReservation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyCapacityReservation");
             try
             {
                 return client.ModifyCapacityReservationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2AssociatedEnclaveCertificateIamRole")]
     [OutputType("Amazon.EC2.Model.AssociatedRole")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetAssociatedEnclaveCertificateIamRoles API operation.", Operation = new[] {"GetAssociatedEnclaveCertificateIamRoles"}, SelectReturnType = typeof(Amazon.EC2.Model.GetAssociatedEnclaveCertificateIamRolesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetAssociatedEnclaveCertificateIamRoles API operation.", Operation = new[] {"GetAssociatedEnclaveCertificateIamRoles"}, SelectReturnType = typeof(Amazon.EC2.Model.GetAssociatedEnclaveCertificateIamRolesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssociatedRole or Amazon.EC2.Model.GetAssociatedEnclaveCertificateIamRolesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.AssociatedRole objects.",
         "The service call response (type Amazon.EC2.Model.GetAssociatedEnclaveCertificateIamRolesResponse) can be returned by specifying '-Select *'."
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetAssociatedEnclaveCertificateIamRolesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetAssociatedEnclaveCertificateIamRolesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetAssociatedEnclaveCertificateIamRoles");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetAssociatedEnclaveCertificateIamRoles");
             try
             {
                 return client.GetAssociatedEnclaveCertificateIamRolesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

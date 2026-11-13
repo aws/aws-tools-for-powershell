@@ -4455,7 +4455,9 @@ $APS_Completers = {
 
         # Amazon.AppStream.ScreenImageFormat
         {
+            ($_ -eq "New-APSImageBuilder/AgentAccessConfig_ScreenImageFormat") -Or
             ($_ -eq "New-APSStack/AgentAccessConfig_ScreenImageFormat") -Or
+            ($_ -eq "Update-APSImageBuilder/AgentAccessConfig_ScreenImageFormat") -Or
             ($_ -eq "Update-APSStack/AgentAccessConfig_ScreenImageFormat")
         }
         {
@@ -4465,7 +4467,9 @@ $APS_Completers = {
 
         # Amazon.AppStream.ScreenResolution
         {
+            ($_ -eq "New-APSImageBuilder/AgentAccessConfig_ScreenResolution") -Or
             ($_ -eq "New-APSStack/AgentAccessConfig_ScreenResolution") -Or
+            ($_ -eq "Update-APSImageBuilder/AgentAccessConfig_ScreenResolution") -Or
             ($_ -eq "Update-APSStack/AgentAccessConfig_ScreenResolution")
         }
         {
@@ -4512,7 +4516,9 @@ $APS_Completers = {
 
         # Amazon.AppStream.UserControlMode
         {
+            ($_ -eq "New-APSImageBuilder/AgentAccessConfig_UserControlMode") -Or
             ($_ -eq "New-APSStack/AgentAccessConfig_UserControlMode") -Or
+            ($_ -eq "Update-APSImageBuilder/AgentAccessConfig_UserControlMode") -Or
             ($_ -eq "Update-APSStack/AgentAccessConfig_UserControlMode")
         }
         {
@@ -4536,9 +4542,9 @@ $APS_Completers = {
 }
 
 $APS_map = @{
-    "AgentAccessConfig_ScreenImageFormat"=@("New-APSStack","Update-APSStack")
-    "AgentAccessConfig_ScreenResolution"=@("New-APSStack","Update-APSStack")
-    "AgentAccessConfig_UserControlMode"=@("New-APSStack","Update-APSStack")
+    "AgentAccessConfig_ScreenImageFormat"=@("New-APSImageBuilder","New-APSStack","Update-APSImageBuilder","Update-APSStack")
+    "AgentAccessConfig_ScreenResolution"=@("New-APSImageBuilder","New-APSStack","Update-APSImageBuilder","Update-APSStack")
+    "AgentAccessConfig_UserControlMode"=@("New-APSImageBuilder","New-APSStack","Update-APSImageBuilder","Update-APSStack")
     "AgentSoftwareVersion"=@("New-APSImportedImage")
     "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
@@ -4691,6 +4697,7 @@ $APS_SelectMap = @{
                "Update-APSDirectoryConfig",
                "Update-APSEntitlement",
                "Update-APSFleet",
+               "Update-APSImageBuilder",
                "Update-APSImagePermission",
                "Update-APSStack",
                "Update-APSThemeForStack")
@@ -15503,7 +15510,9 @@ $CFN_SelectMap = @{
                "Write-CFNHandlerProgress",
                "Register-CFNPublisher",
                "Register-CFNType",
+               "Remove-CFNAlias",
                "Undo-CFNStack",
+               "Set-CFNAlias",
                "Set-CFNStackPolicy",
                "Set-CFNTypeConfiguration",
                "Set-CFNTypeDefaultVersion",
@@ -15517,8 +15526,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16211,8 +16220,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16672,9 +16681,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
-               "Search-CSDDocument",
-               "Get-CSDSuggestion")
+    "Select"=@("Get-CSDSuggestion",
+               "Write-CSDDocument",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -19926,6 +19935,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.ClientTypeType
+        "Get-CGIPUserPoolClientList/ClientType"
+        {
+            $v = "DCR","REGULAR"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.CompromisedCredentialsEventActionType
         "Set-CGIPRiskConfiguration/Actions_EventAction"
         {
@@ -20115,6 +20131,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.StatusType
+        {
+            ($_ -eq "New-CGIPUserPool/DcrConfiguration_EnableStatus") -Or
+            ($_ -eq "Update-CGIPUserPool/DcrConfiguration_EnableStatus")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.TermsEnforcementType
         {
             ($_ -eq "New-CGIPTerm/Enforcement") -Or
@@ -20211,9 +20237,11 @@ $CGIP_map = @{
     "AdvancedSecurityAdditionalFlows_CustomAuthMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "AuthFlow"=@("Start-CGIPAuth","Start-CGIPAuthAdmin")
     "ChallengeName"=@("Send-CGIPAuthChallengeResponse","Send-CGIPAuthChallengeResponseAdmin")
+    "ClientType"=@("Get-CGIPUserPoolClientList")
     "CustomDomainConfig_SecurityPolicy"=@("New-CGIPUserPoolDomain","Update-CGIPUserPoolDomain")
     "CustomEmailSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "CustomSMSSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "DcrConfiguration_EnableStatus"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "DeletionProtection"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "DeviceRememberedStatus"=@("Edit-CGIPDeviceStatus","Edit-CGIPDeviceStatusAdmin")
     "EmailConfiguration_EmailSendingAccount"=@("New-CGIPUserPool","Update-CGIPUserPool")
@@ -29707,7 +29735,7 @@ $DOCE_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $DOCE_SelectCompleters $DOCE_SelectMap
-# Argument completions for service Amazon DocumentDB (with MongoDB compatibility)
+# Argument completions for service Amazon DocumentDB with MongoDB compatibility
 
 
 $DOC_Completers = {
@@ -30946,12 +30974,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTableSchema",
-               "Add-DDBIndexSchema",
-               "Add-DDBKeySchema",
                "ConvertTo-DDBItem",
                "New-DDBTable",
-               "ConvertFrom-DDBItem")
+               "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem",
+               "New-DDBTableSchema",
+               "Add-DDBIndexSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -31190,7 +31218,7 @@ $EC2IC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $EC2IC_SelectCompleters $EC2IC_SelectMap
-# Argument completions for service Amazon Elastic Compute Cloud (EC2)
+# Argument completions for service Amazon Elastic Compute Cloud
 
 
 $EC2_Completers = {
@@ -31687,6 +31715,20 @@ $EC2_Completers = {
         }
         {
             $v = "instant","maintain","request"
+            break
+        }
+
+        # Amazon.EC2.FlexCostAllocationNetworkResourceScopeType
+        "Register-EC2NetworkingFlexCostAllocationPolicy/NetworkResourceScope_ResourceType"
+        {
+            $v = "account","subnet","vpc"
+            break
+        }
+
+        # Amazon.EC2.FlexCostAllocationNetworkResourceType
+        "New-EC2NetworkingFlexCostAllocationPolicy/NetworkResourceType"
+        {
+            $v = "ec2","natgw","pcx"
             break
         }
 
@@ -32891,6 +32933,8 @@ $EC2_map = @{
     "NestedVirtualization"=@("Edit-EC2InstanceCpuOption")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "NetworkPerformanceOptions_BandwidthWeighting"=@("New-EC2Instance")
+    "NetworkResourceScope_ResourceType"=@("Register-EC2NetworkingFlexCostAllocationPolicy")
+    "NetworkResourceType"=@("New-EC2NetworkingFlexCostAllocationPolicy")
     "NetworkType"=@("New-EC2SecondaryNetwork")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
@@ -33070,6 +33114,7 @@ $EC2_SelectMap = @{
                "Register-EC2IpamByoasn",
                "Register-EC2IpamResourceDiscovery",
                "Register-EC2NatGatewayAddress",
+               "Register-EC2NetworkingFlexCostAllocationPolicy",
                "Register-EC2RouteServer",
                "Register-EC2RouteTable",
                "Register-EC2SecurityGroupVpc",
@@ -33159,6 +33204,7 @@ $EC2_SelectMap = @{
                "New-EC2NatGateway",
                "New-EC2NetworkAcl",
                "New-EC2NetworkAclEntry",
+               "New-EC2NetworkingFlexCostAllocationPolicy",
                "New-EC2NetworkInsightsAccessScope",
                "New-EC2NetworkInsightsPath",
                "New-EC2NetworkInterface",
@@ -33259,6 +33305,7 @@ $EC2_SelectMap = @{
                "Remove-EC2NatGateway",
                "Remove-EC2NetworkAcl",
                "Remove-EC2NetworkAclEntry",
+               "Remove-EC2NetworkingFlexCostAllocationPolicy",
                "Remove-EC2NetworkInsightsAccessScope",
                "Remove-EC2NetworkInsightsAccessScopeAnalysis",
                "Remove-EC2NetworkInsightsAnalysis",
@@ -33429,6 +33476,8 @@ $EC2_SelectMap = @{
                "Get-EC2MovingAddress",
                "Get-EC2NatGateway",
                "Get-EC2NetworkAcl",
+               "Get-EC2NetworkingFlexCostAllocationPolicyDetail",
+               "Get-EC2NetworkingFlexCostAllocationPolicyAssociationDetail",
                "Get-EC2NetworkInsightsAccessScopeAnalysis",
                "Get-EC2NetworkInsightsAccessScope",
                "Get-EC2NetworkInsightsAnalysis",
@@ -33556,6 +33605,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2IpamByoasn",
                "Unregister-EC2IpamResourceDiscovery",
                "Unregister-EC2NatGatewayAddress",
+               "Unregister-EC2NetworkingFlexCostAllocationPolicy",
                "Unregister-EC2RouteServer",
                "Unregister-EC2RouteTable",
                "Unregister-EC2SecurityGroupVpc",
@@ -33648,6 +33698,7 @@ $EC2_SelectMap = @{
                "Get-EC2ManagedPrefixListAssociation",
                "Get-EC2ManagedPrefixListEntry",
                "Get-EC2ManagedResourceVisibility",
+               "Get-EC2NetworkingFlexCostAllocationPolicyVersion",
                "Get-EC2NetworkInsightsAccessScopeAnalysisFinding",
                "Get-EC2NetworkInsightsAccessScopeContent",
                "Get-EC2ReservedInstancesExchangeQuote",
@@ -33726,6 +33777,7 @@ $EC2_SelectMap = @{
                "Edit-EC2ManagedPrefixList",
                "Edit-EC2ManagedResourceVisibility",
                "Edit-EC2MetricCategory",
+               "Edit-EC2NetworkingFlexCostAllocationPolicy",
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2PrivateDnsNameOption",
                "Edit-EC2PublicIpDnsNameOption",
@@ -33852,8 +33904,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -41553,8 +41605,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -52512,6 +52564,18 @@ $LMC_Completers = {
             break
         }
 
+        # Amazon.LambdaCore.RuntimeReleaseState
+        {
+            ($_ -eq "New-LMCRuntime/ReleaseLifecycle_ReleaseState") -Or
+            ($_ -eq "New-LMCRuntimeAlias/ReleaseLifecycle_ReleaseState") -Or
+            ($_ -eq "Update-LMCRuntime/ReleaseLifecycle_ReleaseState") -Or
+            ($_ -eq "Update-LMCRuntimeAlias/ReleaseLifecycle_ReleaseState")
+        }
+        {
+            $v = "DEPRECATED","GA","PREVIEW"
+            break
+        }
+
 
     }
 
@@ -52522,6 +52586,7 @@ $LMC_Completers = {
 
 $LMC_map = @{
     "Configuration_VpcEgressConfiguration_NetworkProtocol"=@("New-LMCNetworkConnector","Update-LMCNetworkConnector")
+    "ReleaseLifecycle_ReleaseState"=@("New-LMCRuntime","New-LMCRuntimeAlias","Update-LMCRuntime","Update-LMCRuntimeAlias")
     "State"=@("Get-LMCNetworkConnectorList","Get-LMCNetworkConnectorVersionList")
 }
 
@@ -52576,11 +52641,27 @@ $LMC_SelectCompleters = {
 
 $LMC_SelectMap = @{
     "Select"=@("New-LMCNetworkConnector",
+               "New-LMCRuntime",
+               "New-LMCRuntimeAlias",
+               "New-LMCRuntimeVersion",
                "Remove-LMCNetworkConnector",
+               "Remove-LMCRuntime",
+               "Remove-LMCRuntimeAlias",
+               "Remove-LMCRuntimeVersion",
                "Get-LMCNetworkConnector",
+               "Get-LMCRuntime",
+               "Get-LMCRuntimeAlias",
+               "Get-LMCRuntimeVersion",
                "Get-LMCNetworkConnectorList",
                "Get-LMCNetworkConnectorVersionList",
-               "Update-LMCNetworkConnector")
+               "Get-LMCRuntimeAliasList",
+               "Get-LMCRuntimeList",
+               "Get-LMCRuntimeVersionList",
+               "Restore-LMCRuntime",
+               "Update-LMCNetworkConnector",
+               "Update-LMCRuntime",
+               "Update-LMCRuntimeAlias",
+               "Update-LMCRuntimeVersion")
 }
 
 _awsArgumentCompleterRegistration $LMC_SelectCompleters $LMC_SelectMap
@@ -53081,7 +53162,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet10","dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java11.al2023","java17","java17.al2023","java21","java25","java8","java8.al2","java8.al2023","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs26.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.15","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4","ruby4.0"
+            $v = "custom","dotnet10","dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java11.al2023","java17","java17.al2023","java21","java25","java8","java8.al2","java8.al2023","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs26.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.15","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4","ruby4.0"
             break
         }
 
@@ -63321,21 +63402,6 @@ $NWFW_Completers = {
             break
         }
 
-        # Amazon.NetworkFirewall.ProxyRulePhaseAction
-        {
-            ($_ -eq "Update-NWFWProxyRule/Action") -Or
-            ($_ -eq "New-NWFWProxyConfiguration/DefaultRulePhaseActions_PostRESPONSE") -Or
-            ($_ -eq "Update-NWFWProxyConfiguration/DefaultRulePhaseActions_PostRESPONSE") -Or
-            ($_ -eq "New-NWFWProxyConfiguration/DefaultRulePhaseActions_PreDNS") -Or
-            ($_ -eq "Update-NWFWProxyConfiguration/DefaultRulePhaseActions_PreDNS") -Or
-            ($_ -eq "New-NWFWProxyConfiguration/DefaultRulePhaseActions_PreREQUEST") -Or
-            ($_ -eq "Update-NWFWProxyConfiguration/DefaultRulePhaseActions_PreREQUEST")
-        }
-        {
-            $v = "ALERT","ALLOW","DENY"
-            break
-        }
-
         # Amazon.NetworkFirewall.ResourceManagedStatus
         "Get-NWFWRuleGroupList/Scope"
         {
@@ -63359,13 +63425,6 @@ $NWFW_Completers = {
         }
         {
             $v = "ALERT","DROP","REJECT"
-            break
-        }
-
-        # Amazon.NetworkFirewall.RuleGroupRequestPhase
-        "Update-NWFWProxyRulePriority/RuleGroupRequestPhase"
-        {
-            $v = "POST_RES","PRE_DNS","PRE_REQ"
             break
         }
 
@@ -63433,13 +63492,10 @@ $NWFW_Completers = {
             break
         }
 
-        # Amazon.NetworkFirewall.TlsInterceptMode
+        # Amazon.NetworkFirewall.TransparentFilteringNatScope
+        "New-NWFWFirewall/TransparentFilteringNatScope"
         {
-            ($_ -eq "New-NWFWProxy/TlsInterceptProperties_TlsInterceptMode") -Or
-            ($_ -eq "Update-NWFWProxy/TlsInterceptProperties_TlsInterceptMode")
-        }
-        {
-            $v = "DISABLED","ENABLED"
+            $v = "NAT_ALL","NAT_NONE"
             break
         }
 
@@ -63452,11 +63508,7 @@ $NWFW_Completers = {
 }
 
 $NWFW_map = @{
-    "Action"=@("Update-NWFWProxyRule")
     "AnalysisType"=@("Start-NWFWAnalysisReport")
-    "DefaultRulePhaseActions_PostRESPONSE"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
-    "DefaultRulePhaseActions_PreDNS"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
-    "DefaultRulePhaseActions_PreREQUEST"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWFirewallPolicyV2","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWFirewallPolicyV2","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
     "FirewallPolicy_Route53ResolvedIPValidation_Action"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
@@ -63468,7 +63520,6 @@ $NWFW_map = @{
     "FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "FlowOperationType"=@("Get-NWFWFlowOperationList")
     "ManagedType"=@("Get-NWFWRuleGroupList")
-    "RuleGroupRequestPhase"=@("Update-NWFWProxyRulePriority")
     "RuleOutputFormat"=@("Get-NWFWFirewallPolicyV2Detail","Get-NWFWRuleGroup")
     "RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Scope"=@("Get-NWFWRuleGroupList")
@@ -63477,7 +63528,7 @@ $NWFW_map = @{
     "StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "SubnetMapping_IPAddressType"=@("New-NWFWVpcEndpointAssociation")
     "SubscriptionStatus"=@("Get-NWFWRuleGroupList")
-    "TlsInterceptProperties_TlsInterceptMode"=@("New-NWFWProxy","Update-NWFWProxy")
+    "TransparentFilteringNatScope"=@("New-NWFWFirewall")
     "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","Get-NWFWRuleGroupSummary","New-NWFWContainerAssociation","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWContainerAssociation","Update-NWFWRuleGroup")
 }
 
@@ -63535,15 +63586,10 @@ $NWFW_SelectMap = @{
                "Join-NWFWAvailabilityZone",
                "Register-NWFWFirewallPolicy",
                "Register-NWFWSubnet",
-               "Mount-NWFWRuleGroupsToProxyConfiguration",
                "New-NWFWContainerAssociation",
                "New-NWFWFirewall",
                "New-NWFWFirewallPolicy",
                "New-NWFWFirewallPolicyV2",
-               "New-NWFWProxy",
-               "New-NWFWProxyConfiguration",
-               "New-NWFWProxyRuleGroup",
-               "New-NWFWProxyRule",
                "New-NWFWRuleGroup",
                "New-NWFWTLSInspectionConfiguration",
                "New-NWFWVpcEndpointAssociation",
@@ -63553,9 +63599,6 @@ $NWFW_SelectMap = @{
                "Remove-NWFWFirewallPolicyV2",
                "Remove-NWFWNetworkFirewallTransitGatewayAttachment",
                "Remove-NWFWProxy",
-               "Remove-NWFWProxyConfiguration",
-               "Remove-NWFWProxyRuleGroup",
-               "Remove-NWFWProxyRule",
                "Remove-NWFWResourcePolicy",
                "Remove-NWFWRuleGroup",
                "Remove-NWFWTLSInspectionConfiguration",
@@ -63568,16 +63611,12 @@ $NWFW_SelectMap = @{
                "Get-NWFWFlowOperation",
                "Get-NWFWLoggingConfiguration",
                "Get-NWFWProxyDetail",
-               "Get-NWFWProxyConfigurationDetail",
-               "Get-NWFWProxyRuleDetail",
-               "Get-NWFWProxyRuleGroupDetail",
                "Get-NWFWResourcePolicy",
                "Get-NWFWRuleGroup",
                "Get-NWFWRuleGroupMetadata",
                "Get-NWFWRuleGroupSummary",
                "Get-NWFWTLSInspectionConfiguration",
                "Get-NWFWVpcEndpointAssociation",
-               "Dismount-NWFWRuleGroupsFromProxyConfiguration",
                "Remove-NWFWAvailabilityZone",
                "Unregister-NWFWSubnet",
                "Get-NWFWAnalysisReportResult",
@@ -63588,9 +63627,6 @@ $NWFW_SelectMap = @{
                "Get-NWFWFirewallList",
                "Get-NWFWFlowOperationResultList",
                "Get-NWFWFlowOperationList",
-               "Get-NWFWProxyList",
-               "Get-NWFWProxyConfigurationList",
-               "Get-NWFWProxyRuleGroupList",
                "Get-NWFWRuleGroupList",
                "Get-NWFWResourceTag",
                "Get-NWFWTLSInspectionConfigurationList",
@@ -63612,11 +63648,6 @@ $NWFW_SelectMap = @{
                "Update-NWFWFirewallPolicyChangeProtection",
                "Update-NWFWFirewallPolicyV2",
                "Update-NWFWLoggingConfiguration",
-               "Update-NWFWProxy",
-               "Update-NWFWProxyConfiguration",
-               "Update-NWFWProxyRule",
-               "Update-NWFWProxyRuleGroupPriority",
-               "Update-NWFWProxyRulePriority",
                "Update-NWFWProxySetting",
                "Update-NWFWRuleGroup",
                "Update-NWFWSubnetChangeProtection",
@@ -66798,7 +66829,7 @@ $ORG_Completers = {
             ($_ -eq "Get-ORGEffectivePolicyValidationErrorList/PolicyType")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","GUARDDUTY_POLICY","INSPECTOR_POLICY","NETWORK_SECURITY_DIRECTOR_POLICY","S3_POLICY","SECURITYHUB_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","GUARDDUTY_POLICY","INSPECTOR_POLICY","NETWORK_SECURITY_DIRECTOR_POLICY","S3_POLICY","SECURITYHUB_CSPM_POLICY","SECURITYHUB_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
             break
         }
 
@@ -66838,7 +66869,7 @@ $ORG_Completers = {
             ($_ -eq "New-ORGPolicy/Type")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","GUARDDUTY_POLICY","INSPECTOR_POLICY","NETWORK_SECURITY_DIRECTOR_POLICY","RESOURCE_CONTROL_POLICY","S3_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","GUARDDUTY_POLICY","INSPECTOR_POLICY","NETWORK_SECURITY_DIRECTOR_POLICY","RESOURCE_CONTROL_POLICY","S3_POLICY","SECURITYHUB_CSPM_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
             break
         }
 
@@ -81116,18 +81147,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Test-S3Bucket",
-               "Remove-S3Bucket",
-               "New-S3Bucket",
-               "Dismount-S3PSDrive",
+               "Get-S3PreSignedURL",
+               "Write-S3Object",
                "Mount-S3PSDrive",
                "Get-S3MultipartUpload",
+               "New-S3Bucket",
                "Copy-S3Object",
-               "Remove-S3MultipartUpload",
+               "Dismount-S3PSDrive",
                "Remove-S3Object",
                "Read-S3Object",
-               "Write-S3Object",
-               "Get-S3PreSignedURL")
+               "Remove-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Test-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -83059,6 +83090,27 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ClusterOperationSortBy
+        "Get-SMClusterOperationList/SortBy"
+        {
+            $v = "CreationTime"
+            break
+        }
+
+        # Amazon.SageMaker.ClusterOperationStatus
+        "Get-SMClusterOperationList/Status"
+        {
+            $v = "Done","InProgress","Superseded"
+            break
+        }
+
+        # Amazon.SageMaker.ClusterOperationType
+        "Get-SMClusterOperationList/Type"
+        {
+            $v = "DeepHealthCheck","Scaling"
+            break
+        }
+
         # Amazon.SageMaker.ClusterSlurmConfigStrategy
         {
             ($_ -eq "New-SMCluster/Orchestrator_Slurm_SlurmConfigStrategy") -Or
@@ -84310,6 +84362,7 @@ $SM_Completers = {
             ($_ -eq "Get-SMClusterEventList/SortOrder") -Or
             ($_ -eq "Get-SMClusterList/SortOrder") -Or
             ($_ -eq "Get-SMClusterNodeList/SortOrder") -Or
+            ($_ -eq "Get-SMClusterOperationList/SortOrder") -Or
             ($_ -eq "Get-SMClusterSchedulerConfigList/SortOrder") -Or
             ($_ -eq "Get-SMCompilationJobList/SortOrder") -Or
             ($_ -eq "Get-SMComputeQuotaList/SortOrder") -Or
@@ -84777,8 +84830,8 @@ $SM_map = @{
     "ServerlessJobConfig_JobType"=@("New-SMTrainingJob")
     "ServerlessJobConfig_Peft"=@("New-SMTrainingJob")
     "SkipModelValidation"=@("New-SMModelPackage")
-    "SortBy"=@("Get-SMActionList","Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAIWorkloadConfigList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMActionList","Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAIWorkloadConfigList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMPipelineVersionList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
+    "SortBy"=@("Get-SMActionList","Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAIWorkloadConfigList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterOperationList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
+    "SortOrder"=@("Get-SMActionList","Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAIWorkloadConfigList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterOperationList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMPipelineVersionList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
     "SpaceSettings_AppType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
@@ -84790,7 +84843,7 @@ $SM_map = @{
     "Specification_InstanceType"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
     "Specification_SchedulingConfig_AvailabilityZoneBalance_EnforcementMode"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
     "Specification_SchedulingConfig_PlacementStrategy"=@("New-SMInferenceComponent","Update-SMInferenceComponent")
-    "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","Get-SMMlflowAppList","New-SMAction","Update-SMAction")
+    "Status"=@("Get-SMClusterOperationList","Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","Get-SMMlflowAppList","New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
     "StatusEqual"=@("Get-SMAIBenchmarkJobList","Get-SMAIRecommendationJobList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingSessionList","Get-SMTransformJobList")
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
@@ -84818,7 +84871,7 @@ $SM_map = @{
     "TrustedIdentityPropagationSettings_Status"=@("New-SMDomain","Update-SMDomain")
     "TtlDuration_Unit"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "TuningObjective_Type"=@("New-SMHyperParameterTuningJob")
-    "Type"=@("Get-SMInferenceExperimentList","New-SMInferenceExperiment","New-SMPartnerApp")
+    "Type"=@("Get-SMClusterOperationList","Get-SMInferenceExperimentList","New-SMInferenceExperiment","New-SMPartnerApp")
     "UnifiedStudioSettings_StudioWebPortalAccess"=@("New-SMDomain","Update-SMDomain")
     "VendorGuidance"=@("New-SMImageVersion","Update-SMImageVersion")
     "WarmPoolStatusEqual"=@("Get-SMTrainingJobList")
@@ -85038,6 +85091,7 @@ $SM_SelectMap = @{
                "Get-SMClusterEvent",
                "Get-SMClusterExtensionDetail",
                "Get-SMClusterNode",
+               "Get-SMClusterOperationDetail",
                "Get-SMClusterSchedulerConfig",
                "Get-SMCodeRepository",
                "Get-SMCompilationJob",
@@ -85128,7 +85182,9 @@ $SM_SelectMap = @{
                "Get-SMCandidatesForAutoMLJobList",
                "Get-SMClusterEventList",
                "Get-SMClusterExtensionList",
+               "Get-SMClusterExtensionVersionList",
                "Get-SMClusterNodeList",
+               "Get-SMClusterOperationList",
                "Get-SMClusterList",
                "Get-SMClusterSchedulerConfigList",
                "Get-SMCodeRepositoryList",
@@ -86489,7 +86545,7 @@ $SECAG_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SECAG_SelectCompleters $SECAG_SelectMap
-# Argument completions for service AWS Security Hub
+# Argument completions for service AWS SecurityHub
 
 
 $SHUB_Completers = {
@@ -86533,7 +86589,7 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.ConfigurationPolicyAssociationStatus
         "Get-SHUBConfigurationPolicyAssociationList/Filters_AssociationStatus"
         {
-            $v = "FAILED","PENDING","SUCCESS"
+            $v = "DISABLED","FAILED","PENDING","SUCCESS"
             break
         }
 
@@ -86644,7 +86700,7 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.OrganizationConfigurationStatus
         "Update-SHUBOrganizationConfiguration/OrganizationConfiguration_Status"
         {
-            $v = "ENABLED","FAILED","PENDING"
+            $v = "DISABLED","ENABLED","FAILED","PENDING"
             break
         }
 
@@ -89673,7 +89729,7 @@ $SMSAP_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SMSAP_SelectCompleters $SMSAP_SelectMap
-# Argument completions for service AWS Systems Manager
+# Argument completions for service Amazon Simple Systems Manager (SSM)
 
 
 $SSM_Completers = {
@@ -91270,8 +91326,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -94462,7 +94518,7 @@ $VID_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $VID_SelectCompleters $VID_SelectMap
-# Argument completions for service VPC Lattice
+# Argument completions for service Amazon VPC Lattice
 
 
 $VPCL_Completers = {
@@ -94531,7 +94587,10 @@ $VPCL_Completers = {
         }
 
         # Amazon.VPCLattice.ResourceConfigDnsResolution
-        "New-VPCLResourceGateway/ResourceConfigDnsResolution"
+        {
+            ($_ -eq "New-VPCLResourceGateway/ResourceConfigDnsResolution") -Or
+            ($_ -eq "Update-VPCLResourceGateway/ResourceConfigDnsResolution")
+        }
         {
             $v = "IN_VPC","PUBLIC"
             break
@@ -94616,7 +94675,7 @@ $VPCL_map = @{
     "HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
     "IpAddressType"=@("New-VPCLResourceGateway")
     "Protocol"=@("New-VPCLListener","New-VPCLResourceConfiguration")
-    "ResourceConfigDnsResolution"=@("New-VPCLResourceGateway")
+    "ResourceConfigDnsResolution"=@("New-VPCLResourceGateway","Update-VPCLResourceGateway")
     "ServiceNetworkLogType"=@("New-VPCLAccessLogSubscription")
     "TargetGroupType"=@("Get-VPCLTargetGroupList")
     "Type"=@("New-VPCLResourceConfiguration","New-VPCLTargetGroup")

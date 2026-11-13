@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBAggregatorsV2List")]
     [OutputType("Amazon.SecurityHub.Model.AggregatorV2")]
-    [AWSCmdlet("Calls the AWS Security Hub ListAggregatorsV2 API operation.", Operation = new[] {"ListAggregatorsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListAggregatorsV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListAggregatorsV2 API operation.", Operation = new[] {"ListAggregatorsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListAggregatorsV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.AggregatorV2 or Amazon.SecurityHub.Model.ListAggregatorsV2Response",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.AggregatorV2 objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListAggregatorsV2Response) can be returned by specifying '-Select *'."
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListAggregatorsV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListAggregatorsV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListAggregatorsV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListAggregatorsV2");
             try
             {
                 return client.ListAggregatorsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

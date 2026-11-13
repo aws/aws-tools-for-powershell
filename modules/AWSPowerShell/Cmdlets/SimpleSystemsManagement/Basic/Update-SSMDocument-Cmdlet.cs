@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateDocument API operation.", Operation = new[] {"UpdateDocument"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) UpdateDocument API operation.", Operation = new[] {"UpdateDocument"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription or Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DocumentDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse) can be returned by specifying '-Select *'."
@@ -307,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateDocumentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateDocument");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "UpdateDocument");
             try
             {
                 return client.UpdateDocumentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

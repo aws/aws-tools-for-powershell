@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Update", "SHUBInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub UpdateInsight API operation.", Operation = new[] {"UpdateInsight"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateInsightResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub UpdateInsight API operation.", Operation = new[] {"UpdateInsight"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateInsightResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.UpdateInsightResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.UpdateInsightResponse) be returned by specifying '-Select *'."
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.UpdateInsightResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.UpdateInsightRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "UpdateInsight");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "UpdateInsight");
             try
             {
                 return client.UpdateInsightAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

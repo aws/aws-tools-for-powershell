@@ -1195,6 +1195,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterOperation" OutputProperty="*" Verb="Get" Noun="ClusterOperationDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeClusterSchedulerConfig" OutputProperty="*" Verb="Get" Noun="ClusterSchedulerConfig" PipelineParameter="ClusterSchedulerConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1557,7 +1561,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListClusterExtensionVersions" OutputProperty="ExtensionVersions" Verb="Get" Noun="ClusterExtensionVersionList" PipelineParameter="ExtensionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListClusterNodes" OutputProperty="ClusterNodeSummaries" Verb="Get" Noun="ClusterNodeList" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClusterOperations" OutputProperty="ClusterOperationSummaries" Verb="Get" Noun="ClusterOperationList" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

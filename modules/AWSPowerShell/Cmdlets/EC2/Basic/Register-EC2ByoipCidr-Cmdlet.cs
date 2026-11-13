@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2ByoipCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ByoipCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ProvisionByoipCidr API operation.", Operation = new[] {"ProvisionByoipCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.ProvisionByoipCidrResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ProvisionByoipCidr API operation.", Operation = new[] {"ProvisionByoipCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.ProvisionByoipCidrResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ByoipCidr or Amazon.EC2.Model.ProvisionByoipCidrResponse",
         "This cmdlet returns an Amazon.EC2.Model.ByoipCidr object.",
         "The service call response (type Amazon.EC2.Model.ProvisionByoipCidrResponse) can be returned by specifying '-Select *'."
@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ProvisionByoipCidrResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ProvisionByoipCidrRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ProvisionByoipCidr");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ProvisionByoipCidr");
             try
             {
                 return client.ProvisionByoipCidrAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

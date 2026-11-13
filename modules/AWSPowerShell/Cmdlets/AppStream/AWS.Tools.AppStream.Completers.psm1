@@ -173,7 +173,9 @@ $APS_Completers = {
 
         # Amazon.AppStream.ScreenImageFormat
         {
+            ($_ -eq "New-APSImageBuilder/AgentAccessConfig_ScreenImageFormat") -Or
             ($_ -eq "New-APSStack/AgentAccessConfig_ScreenImageFormat") -Or
+            ($_ -eq "Update-APSImageBuilder/AgentAccessConfig_ScreenImageFormat") -Or
             ($_ -eq "Update-APSStack/AgentAccessConfig_ScreenImageFormat")
         }
         {
@@ -183,7 +185,9 @@ $APS_Completers = {
 
         # Amazon.AppStream.ScreenResolution
         {
+            ($_ -eq "New-APSImageBuilder/AgentAccessConfig_ScreenResolution") -Or
             ($_ -eq "New-APSStack/AgentAccessConfig_ScreenResolution") -Or
+            ($_ -eq "Update-APSImageBuilder/AgentAccessConfig_ScreenResolution") -Or
             ($_ -eq "Update-APSStack/AgentAccessConfig_ScreenResolution")
         }
         {
@@ -230,7 +234,9 @@ $APS_Completers = {
 
         # Amazon.AppStream.UserControlMode
         {
+            ($_ -eq "New-APSImageBuilder/AgentAccessConfig_UserControlMode") -Or
             ($_ -eq "New-APSStack/AgentAccessConfig_UserControlMode") -Or
+            ($_ -eq "Update-APSImageBuilder/AgentAccessConfig_UserControlMode") -Or
             ($_ -eq "Update-APSStack/AgentAccessConfig_UserControlMode")
         }
         {
@@ -254,9 +260,9 @@ $APS_Completers = {
 }
 
 $APS_map = @{
-    "AgentAccessConfig_ScreenImageFormat"=@("New-APSStack","Update-APSStack")
-    "AgentAccessConfig_ScreenResolution"=@("New-APSStack","Update-APSStack")
-    "AgentAccessConfig_UserControlMode"=@("New-APSStack","Update-APSStack")
+    "AgentAccessConfig_ScreenImageFormat"=@("New-APSImageBuilder","New-APSStack","Update-APSImageBuilder","Update-APSStack")
+    "AgentAccessConfig_ScreenResolution"=@("New-APSImageBuilder","New-APSStack","Update-APSImageBuilder","Update-APSStack")
+    "AgentAccessConfig_UserControlMode"=@("New-APSImageBuilder","New-APSStack","Update-APSImageBuilder","Update-APSStack")
     "AgentSoftwareVersion"=@("New-APSImportedImage")
     "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
@@ -409,6 +415,7 @@ $APS_SelectMap = @{
                "Update-APSDirectoryConfig",
                "Update-APSEntitlement",
                "Update-APSFleet",
+               "Update-APSImageBuilder",
                "Update-APSImagePermission",
                "Update-APSStack",
                "Update-APSThemeForStack")

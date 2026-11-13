@@ -188,7 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// sets whether Amazon Inspector scans the test instance or the output AMI. For container
         /// output, Amazon Inspector scans the container image that Image Builder pushes to the
         /// Amazon ECR repository from your <c>ecrConfiguration</c> settings.</para><para>To use container image scans, you must activate Amazon Inspector for Amazon ECR scanning
-        /// in your account. The Image Builder <c>ListImageScanFindings</c> operation returns
+        /// in the account and Amazon Web Services Region where the build runs. Amazon Inspector
+        /// activation is Regional. The Image Builder <c>ListImageScanFindings</c> operation returns
         /// the findings of these scans.</para>
         /// </para>
         /// </summary>
@@ -203,8 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// is <c>true</c>. Specify a single value. If you omit <c>imageScanningTypes</c>, Image
         /// Builder uses <c>TEST_INSTANCE_CVE</c>. The scan types work as follows:</para><ul><li><para>With <c>TEST_INSTANCE_CVE</c>, Amazon Inspector scans the test instance during image
         /// tests. To use this scan, you must activate Amazon Inspector for Amazon EC2 scanning
-        /// in your account. The Image Builder <c>ListImageScanFindings</c> operation returns
-        /// the findings.</para></li><li><para>With <c>ON_DEMAND_AMI_CVE</c>, Amazon Inspector starts an on-demand scan of the output
+        /// in the account and Amazon Web Services Region where the build runs. The Image Builder
+        /// <c>ListImageScanFindings</c> operation returns the findings.</para></li><li><para>With <c>ON_DEMAND_AMI_CVE</c>, Amazon Inspector starts an on-demand scan of the output
         /// AMI during image tests. To use this scan, you must build from an image recipe, but
         /// you do not need to activate Amazon Inspector in your account. The Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageFindings.html">GetImageFindings</a>
         /// operation returns the findings.</para></li></ul><para />
@@ -416,7 +417,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The array of workflow configuration objects for builds that this pipeline starts.
-        /// You must also specify <c>executionRole</c> when you provide workflows.</para><para />
+        /// If you specify workflows, they replace the default workflows that Image Builder otherwise
+        /// runs for the pipeline's builds. For example, if your list doesn't include a test workflow,
+        /// the pipeline's builds don't run one. You must also specify <c>executionRole</c> when
+        /// you provide workflows.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

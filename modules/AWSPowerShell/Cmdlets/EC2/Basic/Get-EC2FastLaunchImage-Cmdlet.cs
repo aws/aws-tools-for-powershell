@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2FastLaunchImage")]
     [OutputType("Amazon.EC2.Model.DescribeFastLaunchImagesSuccessItem")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeFastLaunchImages API operation.", Operation = new[] {"DescribeFastLaunchImages"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeFastLaunchImagesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeFastLaunchImages API operation.", Operation = new[] {"DescribeFastLaunchImages"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeFastLaunchImagesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeFastLaunchImagesSuccessItem or Amazon.EC2.Model.DescribeFastLaunchImagesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.DescribeFastLaunchImagesSuccessItem objects.",
         "The service call response (type Amazon.EC2.Model.DescribeFastLaunchImagesResponse) can be returned by specifying '-Select *'."
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeFastLaunchImagesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeFastLaunchImagesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeFastLaunchImages");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeFastLaunchImages");
             try
             {
                 return client.DescribeFastLaunchImagesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

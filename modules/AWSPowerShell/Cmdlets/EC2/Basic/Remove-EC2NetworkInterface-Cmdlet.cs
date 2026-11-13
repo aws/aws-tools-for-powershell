@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2NetworkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteNetworkInterface API operation.", Operation = new[] {"DeleteNetworkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteNetworkInterfaceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteNetworkInterface API operation.", Operation = new[] {"DeleteNetworkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteNetworkInterfaceResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteNetworkInterfaceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteNetworkInterfaceResponse) be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteNetworkInterfaceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteNetworkInterfaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteNetworkInterface");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteNetworkInterface");
             try
             {
                 return client.DeleteNetworkInterfaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2Route", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateRoute API operation.", Operation = new[] {"CreateRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateRouteResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateRoute API operation.", Operation = new[] {"CreateRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateRouteResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.CreateRouteResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.CreateRouteResponse) can be returned by specifying '-Select *'."
@@ -436,7 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateRouteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateRoute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateRoute");
             try
             {
                 return client.CreateRouteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

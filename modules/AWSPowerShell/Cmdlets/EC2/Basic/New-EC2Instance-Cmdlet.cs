@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.Reservation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RunInstances API operation.", Operation = new[] {"RunInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.RunInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RunInstances API operation.", Operation = new[] {"RunInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.RunInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Reservation or Amazon.EC2.Model.RunInstancesResponse",
         "This cmdlet returns an Amazon.EC2.Model.Reservation object.",
         "The service call response (type Amazon.EC2.Model.RunInstancesResponse) can be returned by specifying '-Select *'."
@@ -1651,7 +1651,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RunInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RunInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RunInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RunInstances");
             try
             {
                 return client.RunInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

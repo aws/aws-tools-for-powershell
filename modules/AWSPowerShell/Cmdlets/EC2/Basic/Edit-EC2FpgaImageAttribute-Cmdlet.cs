@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2FpgaImageAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.FpgaImageAttribute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyFpgaImageAttribute API operation.", Operation = new[] {"ModifyFpgaImageAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyFpgaImageAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyFpgaImageAttribute API operation.", Operation = new[] {"ModifyFpgaImageAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyFpgaImageAttributeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.FpgaImageAttribute or Amazon.EC2.Model.ModifyFpgaImageAttributeResponse",
         "This cmdlet returns an Amazon.EC2.Model.FpgaImageAttribute object.",
         "The service call response (type Amazon.EC2.Model.ModifyFpgaImageAttributeResponse) can be returned by specifying '-Select *'."
@@ -391,7 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyFpgaImageAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyFpgaImageAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyFpgaImageAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyFpgaImageAttribute");
             try
             {
                 return client.ModifyFpgaImageAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

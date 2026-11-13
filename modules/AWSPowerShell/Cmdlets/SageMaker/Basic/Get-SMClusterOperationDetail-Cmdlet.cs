@@ -23,53 +23,70 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.NetworkFirewall;
-using Amazon.NetworkFirewall.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.NWFW
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns the data objects for the specified proxy rule group.
+    /// Retrieves detailed information about a specific operation for a given HyperPod cluster,
+    /// such as a scaling operation or a deep health check. Use the <c>OperationId</c> returned
+    /// by the <c>ListClusterOperations</c> operation to identify the operation to describe.
     /// </summary>
-    [Cmdlet("Get", "NWFWProxyRuleGroupDetail")]
-    [OutputType("Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupResponse")]
-    [AWSCmdlet("Calls the AWS Network Firewall DescribeProxyRuleGroup API operation.", Operation = new[] {"DescribeProxyRuleGroup"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupResponse))]
-    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupResponse object containing multiple properties."
+    [Cmdlet("Get", "SMClusterOperationDetail")]
+    [OutputType("Amazon.SageMaker.Model.DescribeClusterOperationResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeClusterOperation API operation.", Operation = new[] {"DescribeClusterOperation"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeClusterOperationResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeClusterOperationResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeClusterOperationResponse object containing multiple properties."
     )]
-    public partial class GetNWFWProxyRuleGroupDetailCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class GetSMClusterOperationDetailCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ProxyRuleGroupArn
+        #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a proxy rule group.</para><para>You must specify the ARN or the name, and you can specify both. </para>
+        /// <para>The name or Amazon Resource Name (ARN) of the HyperPod cluster associated with the
+        /// operation.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyRuleGroupArn { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter ProxyRuleGroupName
+        #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The descriptive name of the proxy rule group. You can't change the name of a proxy
-        /// rule group after you create it.</para><para>You must specify the ARN or the name, and you can specify both. </para>
+        /// <para>The unique identifier (UUID) of the operation to describe. This ID can be obtained
+        /// from the <c>ListClusterOperations</c> operation.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyRuleGroupName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OperationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupResponse).
-        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeClusterOperationResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeClusterOperationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,11 +109,23 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupResponse, GetNWFWProxyRuleGroupDetailCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeClusterOperationResponse, GetSMClusterOperationDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ProxyRuleGroupArn = this.ProxyRuleGroupArn;
-            context.ProxyRuleGroupName = this.ProxyRuleGroupName;
+            context.ClusterName = this.ClusterName;
+            #if MODULAR
+            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.OperationId = this.OperationId;
+            #if MODULAR
+            if (this.OperationId == null && ParameterWasBound(nameof(this.OperationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OperationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -111,15 +140,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupRequest();
+            var request = new Amazon.SageMaker.Model.DescribeClusterOperationRequest();
             
-            if (cmdletContext.ProxyRuleGroupArn != null)
+            if (cmdletContext.ClusterName != null)
             {
-                request.ProxyRuleGroupArn = cmdletContext.ProxyRuleGroupArn;
+                request.ClusterName = cmdletContext.ClusterName;
             }
-            if (cmdletContext.ProxyRuleGroupName != null)
+            if (cmdletContext.OperationId != null)
             {
-                request.ProxyRuleGroupName = cmdletContext.ProxyRuleGroupName;
+                request.OperationId = cmdletContext.OperationId;
             }
             
             CmdletOutput output;
@@ -154,12 +183,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupRequest request)
+        private Amazon.SageMaker.Model.DescribeClusterOperationResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeClusterOperationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "DescribeProxyRuleGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeClusterOperation");
             try
             {
-                return client.DescribeProxyRuleGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeClusterOperationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -176,9 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProxyRuleGroupArn { get; set; }
-            public System.String ProxyRuleGroupName { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.DescribeProxyRuleGroupResponse, GetNWFWProxyRuleGroupDetailCmdlet, object> Select { get; set; } =
+            public System.String ClusterName { get; set; }
+            public System.String OperationId { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DescribeClusterOperationResponse, GetSMClusterOperationDetailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

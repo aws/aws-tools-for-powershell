@@ -51,6 +51,27 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AliasName
+        /// <summary>
+        /// <para>
+        /// <para>The alias for the certificate revocation list (CRL).</para><para>You can use this parameter in the following ways:</para><ul><li><para>To set or change the alias, specify the new alias name. After the change, the previous
+        /// alias ARN no longer identifies the resource. You can then assign the previous alias
+        /// to another resource of the same type. A change can take a short time to take effect
+        /// for requests that use an alias ARN.</para></li><li><para>To remove the alias, specify an empty string.</para></li><li><para>To keep the current alias, omit this parameter.</para></li></ul><para>An alias name contains 1 to 256 characters. It must begin with a letter (A-Z or a-z).
+        /// It can contain only letters (A-Z and a-z), numbers (0-9), underscores (_), hyphens
+        /// (-), and forward slashes (/). A forward slash can appear only between two other characters,
+        /// so an alias name can't end with a forward slash or contain two in a row. Alias names
+        /// that begin with <c>aws/</c>, in any combination of uppercase and lowercase letters,
+        /// are reserved. Alias names are case sensitive.</para><para>The alias name must be unique among resources of the same type in your account and
+        /// Region. If another resource of the same type already has the alias, the request fails
+        /// with a <c>ValidationException</c>. An invalid or reserved alias name also causes a
+        /// <c>ValidationException</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AliasName { get; set; }
+        #endregion
+        
         #region Parameter CrlData
         /// <summary>
         /// <para>
@@ -66,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter CrlId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the certificate revocation list (CRL).</para>
+        /// <para>The certificate revocation list (CRL) to act on. You can specify one of the following:</para><ul><li><para>The CRL ID.</para></li><li><para>The CRL ARN.</para></li><li><para>The alias ARN of the CRL.</para></li></ul><para>An ARN must be for a CRL in your account and Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
                 context.Select = CreateSelectDelegate<Amazon.IAMRolesAnywhere.Model.UpdateCrlResponse, UpdateIAMRACrlCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AliasName = this.AliasName;
             context.CrlData = this.CrlData;
             context.CrlId = this.CrlId;
             #if MODULAR
@@ -165,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
                 // create request
                 var request = new Amazon.IAMRolesAnywhere.Model.UpdateCrlRequest();
                 
+                if (cmdletContext.AliasName != null)
+                {
+                    request.AliasName = cmdletContext.AliasName;
+                }
                 if (cmdletContext.CrlData != null)
                 {
                     _CrlDataStream = new System.IO.MemoryStream(cmdletContext.CrlData);
@@ -241,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AliasName { get; set; }
             public byte[] CrlData { get; set; }
             public System.String CrlId { get; set; }
             public System.String Name { get; set; }

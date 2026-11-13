@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2VpcBlockPublicAccessExclusion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpcBlockPublicAccessExclusion")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVpcBlockPublicAccessExclusion API operation.", Operation = new[] {"CreateVpcBlockPublicAccessExclusion"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpcBlockPublicAccessExclusionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateVpcBlockPublicAccessExclusion API operation.", Operation = new[] {"CreateVpcBlockPublicAccessExclusion"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpcBlockPublicAccessExclusionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcBlockPublicAccessExclusion or Amazon.EC2.Model.CreateVpcBlockPublicAccessExclusionResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpcBlockPublicAccessExclusion object.",
         "The service call response (type Amazon.EC2.Model.CreateVpcBlockPublicAccessExclusionResponse) can be returned by specifying '-Select *'."
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateVpcBlockPublicAccessExclusionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateVpcBlockPublicAccessExclusionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateVpcBlockPublicAccessExclusion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateVpcBlockPublicAccessExclusion");
             try
             {
                 return client.CreateVpcBlockPublicAccessExclusionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

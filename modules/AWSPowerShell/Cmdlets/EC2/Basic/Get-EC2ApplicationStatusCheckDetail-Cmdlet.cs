@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ApplicationStatusCheckDetail")]
     [OutputType("Amazon.EC2.Model.ApplicationStatusCheckResponseObject")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeApplicationStatusChecks API operation.", Operation = new[] {"DescribeApplicationStatusChecks"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeApplicationStatusChecksResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeApplicationStatusChecks API operation.", Operation = new[] {"DescribeApplicationStatusChecks"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeApplicationStatusChecksResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ApplicationStatusCheckResponseObject or Amazon.EC2.Model.DescribeApplicationStatusChecksResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ApplicationStatusCheckResponseObject objects.",
         "The service call response (type Amazon.EC2.Model.DescribeApplicationStatusChecksResponse) can be returned by specifying '-Select *'."
@@ -287,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeApplicationStatusChecksResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeApplicationStatusChecksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeApplicationStatusChecks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeApplicationStatusChecks");
             try
             {
                 return client.DescribeApplicationStatusChecksAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

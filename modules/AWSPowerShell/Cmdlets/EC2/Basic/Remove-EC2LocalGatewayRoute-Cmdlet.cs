@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2LocalGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.LocalGatewayRoute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteLocalGatewayRoute API operation.", Operation = new[] {"DeleteLocalGatewayRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLocalGatewayRouteResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteLocalGatewayRoute API operation.", Operation = new[] {"DeleteLocalGatewayRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLocalGatewayRouteResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRoute or Amazon.EC2.Model.DeleteLocalGatewayRouteResponse",
         "This cmdlet returns an Amazon.EC2.Model.LocalGatewayRoute object.",
         "The service call response (type Amazon.EC2.Model.DeleteLocalGatewayRouteResponse) can be returned by specifying '-Select *'."
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteLocalGatewayRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteLocalGatewayRouteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteLocalGatewayRoute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteLocalGatewayRoute");
             try
             {
                 return client.DeleteLocalGatewayRouteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

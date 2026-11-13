@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Set", "EC2VpnTunnel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReplaceVpnTunnel API operation.", Operation = new[] {"ReplaceVpnTunnel"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceVpnTunnelResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReplaceVpnTunnel API operation.", Operation = new[] {"ReplaceVpnTunnel"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceVpnTunnelResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ReplaceVpnTunnelResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ReplaceVpnTunnelResponse) can be returned by specifying '-Select *'."
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ReplaceVpnTunnelResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceVpnTunnelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ReplaceVpnTunnel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReplaceVpnTunnel");
             try
             {
                 return client.ReplaceVpnTunnelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

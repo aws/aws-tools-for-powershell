@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ConsoleOutput")]
     [OutputType("Amazon.EC2.Model.GetConsoleOutputResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetConsoleOutput API operation.", Operation = new[] {"GetConsoleOutput"}, SelectReturnType = typeof(Amazon.EC2.Model.GetConsoleOutputResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetConsoleOutput API operation.", Operation = new[] {"GetConsoleOutput"}, SelectReturnType = typeof(Amazon.EC2.Model.GetConsoleOutputResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetConsoleOutputResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetConsoleOutputResponse object containing multiple properties."
     )]
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetConsoleOutputResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetConsoleOutputRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetConsoleOutput");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetConsoleOutput");
             try
             {
                 return client.GetConsoleOutputAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

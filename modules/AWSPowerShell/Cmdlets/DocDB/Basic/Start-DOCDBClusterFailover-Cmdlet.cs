@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Start", "DOCDBClusterFailover", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBCluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) FailoverDBCluster API operation.", Operation = new[] {"FailoverDBCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.FailoverDBClusterResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility FailoverDBCluster API operation.", Operation = new[] {"FailoverDBCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.FailoverDBClusterResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBCluster or Amazon.DocDB.Model.FailoverDBClusterResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBCluster object.",
         "The service call response (type Amazon.DocDB.Model.FailoverDBClusterResponse) can be returned by specifying '-Select *'."
@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.FailoverDBClusterResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.FailoverDBClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "FailoverDBCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "FailoverDBCluster");
             try
             {
                 return client.FailoverDBClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2NetworkInsightsPath", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteNetworkInsightsPath API operation.", Operation = new[] {"DeleteNetworkInsightsPath"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteNetworkInsightsPathResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteNetworkInsightsPath API operation.", Operation = new[] {"DeleteNetworkInsightsPath"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteNetworkInsightsPathResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.DeleteNetworkInsightsPathResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.DeleteNetworkInsightsPathResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteNetworkInsightsPathResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteNetworkInsightsPathRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteNetworkInsightsPath");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteNetworkInsightsPath");
             try
             {
                 return client.DeleteNetworkInsightsPathAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2InstanceSqlHaStandbyDetection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.RegisteredInstance")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableInstanceSqlHaStandbyDetections API operation.", Operation = new[] {"DisableInstanceSqlHaStandbyDetections"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableInstanceSqlHaStandbyDetectionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableInstanceSqlHaStandbyDetections API operation.", Operation = new[] {"DisableInstanceSqlHaStandbyDetections"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableInstanceSqlHaStandbyDetectionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RegisteredInstance or Amazon.EC2.Model.DisableInstanceSqlHaStandbyDetectionsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.RegisteredInstance objects.",
         "The service call response (type Amazon.EC2.Model.DisableInstanceSqlHaStandbyDetectionsResponse) can be returned by specifying '-Select *'."
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableInstanceSqlHaStandbyDetectionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableInstanceSqlHaStandbyDetectionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableInstanceSqlHaStandbyDetections");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableInstanceSqlHaStandbyDetections");
             try
             {
                 return client.DisableInstanceSqlHaStandbyDetectionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

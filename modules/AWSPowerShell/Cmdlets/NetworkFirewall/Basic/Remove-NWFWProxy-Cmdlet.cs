@@ -30,7 +30,7 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Deletes the specified <a>Proxy</a>. 
+    /// Deletes the specified proxy. 
     /// 
     ///  
     /// <para>

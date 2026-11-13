@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2SubnetCidrReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SubnetCidrReservation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateSubnetCidrReservation API operation.", Operation = new[] {"CreateSubnetCidrReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSubnetCidrReservationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateSubnetCidrReservation API operation.", Operation = new[] {"CreateSubnetCidrReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSubnetCidrReservationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SubnetCidrReservation or Amazon.EC2.Model.CreateSubnetCidrReservationResponse",
         "This cmdlet returns an Amazon.EC2.Model.SubnetCidrReservation object.",
         "The service call response (type Amazon.EC2.Model.CreateSubnetCidrReservationResponse) can be returned by specifying '-Select *'."
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateSubnetCidrReservationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateSubnetCidrReservationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateSubnetCidrReservation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateSubnetCidrReservation");
             try
             {
                 return client.CreateSubnetCidrReservationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

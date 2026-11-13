@@ -31,7 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
     /// Retrieves a list that describes one or more specified image builders, if the image
-    /// builder names are provided. Otherwise, all image builders in the account are described.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// builder names are provided. Otherwise, all image builders in the account are described.
+    /// 
+    ///  
+    /// <para>
+    /// The description of each image builder includes its agent access configuration, if
+    /// agent access is enabled.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "APSImageBuilderList")]
     [OutputType("Amazon.AppStream.Model.ImageBuilder")]

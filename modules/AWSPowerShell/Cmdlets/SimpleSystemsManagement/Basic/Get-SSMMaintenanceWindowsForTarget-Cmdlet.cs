@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowsForTarget")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowIdentityForTarget")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeMaintenanceWindowsForTarget API operation.", Operation = new[] {"DescribeMaintenanceWindowsForTarget"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowsForTargetResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeMaintenanceWindowsForTarget API operation.", Operation = new[] {"DescribeMaintenanceWindowsForTarget"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowsForTargetResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowIdentityForTarget or Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowsForTargetResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.MaintenanceWindowIdentityForTarget objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowsForTargetResponse) can be returned by specifying '-Select *'."
@@ -385,7 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowsForTargetResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowsForTargetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeMaintenanceWindowsForTarget");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeMaintenanceWindowsForTarget");
             try
             {
                 return client.DescribeMaintenanceWindowsForTargetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

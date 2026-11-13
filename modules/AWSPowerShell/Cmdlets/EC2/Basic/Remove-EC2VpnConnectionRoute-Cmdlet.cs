@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2VpnConnectionRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpnConnectionRoute API operation.", Operation = new[] {"DeleteVpnConnectionRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpnConnectionRouteResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVpnConnectionRoute API operation.", Operation = new[] {"DeleteVpnConnectionRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpnConnectionRouteResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteVpnConnectionRouteResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeleteVpnConnectionRouteResponse) be returned by specifying '-Select *'."
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteVpnConnectionRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpnConnectionRouteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVpnConnectionRoute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVpnConnectionRoute");
             try
             {
                 return client.DeleteVpnConnectionRouteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

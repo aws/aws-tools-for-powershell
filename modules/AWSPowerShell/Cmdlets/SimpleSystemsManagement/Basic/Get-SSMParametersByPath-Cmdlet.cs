@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMParametersByPath")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Parameter")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetParametersByPath API operation.", Operation = new[] {"GetParametersByPath"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetParametersByPathResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetParametersByPath API operation.", Operation = new[] {"GetParametersByPath"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetParametersByPathResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Parameter or Amazon.SimpleSystemsManagement.Model.GetParametersByPathResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.Parameter objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetParametersByPathResponse) can be returned by specifying '-Select *'."
@@ -441,7 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetParametersByPathResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetParametersByPathRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetParametersByPath");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetParametersByPath");
             try
             {
                 return client.GetParametersByPathAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Deny", "SHUBInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.Result")]
-    [AWSCmdlet("Calls the AWS Security Hub DeclineInvitations API operation.", Operation = new[] {"DeclineInvitations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeclineInvitationsResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DeclineInvitations API operation.", Operation = new[] {"DeclineInvitations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeclineInvitationsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Result or Amazon.SecurityHub.Model.DeclineInvitationsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.Result objects.",
         "The service call response (type Amazon.SecurityHub.Model.DeclineInvitationsResponse) can be returned by specifying '-Select *'."
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DeclineInvitationsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DeclineInvitationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DeclineInvitations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DeclineInvitations");
             try
             {
                 return client.DeclineInvitationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

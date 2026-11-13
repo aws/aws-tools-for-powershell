@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
-    [AWSClientCmdlet("AWS Security Hub", "SHUB", "2018-10-26", "SecurityHub")]
+    [AWSClientCmdlet("AWS SecurityHub", "SHUB", "2018-10-26", "SecurityHub")]
     public abstract partial class AmazonSecurityHubClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSecurityHub Client { get; private set; }

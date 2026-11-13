@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2Address")]
     [OutputType("Amazon.EC2.Model.Address")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeAddresses API operation.", Operation = new[] {"DescribeAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAddressesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeAddresses API operation.", Operation = new[] {"DescribeAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAddressesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Address or Amazon.EC2.Model.DescribeAddressesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Address objects.",
         "The service call response (type Amazon.EC2.Model.DescribeAddressesResponse) can be returned by specifying '-Select *'."
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeAddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeAddressesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeAddresses");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeAddresses");
             try
             {
                 return client.DescribeAddressesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

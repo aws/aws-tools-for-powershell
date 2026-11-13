@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceCpuOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceCpuOptions API operation.", Operation = new[] {"ModifyInstanceCpuOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyInstanceCpuOptions API operation.", Operation = new[] {"ModifyInstanceCpuOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse",
         "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse object containing multiple properties."
     )]
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstanceCpuOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstanceCpuOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyInstanceCpuOptions");
             try
             {
                 return client.ModifyInstanceCpuOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

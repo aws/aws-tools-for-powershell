@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Add", "EC2SecurityGroupToClientVpnTargetNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ApplySecurityGroupsToClientVpnTargetNetwork API operation.", Operation = new[] {"ApplySecurityGroupsToClientVpnTargetNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.ApplySecurityGroupsToClientVpnTargetNetworkResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ApplySecurityGroupsToClientVpnTargetNetwork API operation.", Operation = new[] {"ApplySecurityGroupsToClientVpnTargetNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.ApplySecurityGroupsToClientVpnTargetNetworkResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.ApplySecurityGroupsToClientVpnTargetNetworkResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.EC2.Model.ApplySecurityGroupsToClientVpnTargetNetworkResponse) can be returned by specifying '-Select *'."
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ApplySecurityGroupsToClientVpnTargetNetworkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ApplySecurityGroupsToClientVpnTargetNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ApplySecurityGroupsToClientVpnTargetNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ApplySecurityGroupsToClientVpnTargetNetwork");
             try
             {
                 return client.ApplySecurityGroupsToClientVpnTargetNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

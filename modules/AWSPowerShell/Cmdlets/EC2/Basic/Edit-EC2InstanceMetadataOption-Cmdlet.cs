@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceMetadataOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyInstanceMetadataOptionsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceMetadataOptions API operation.", Operation = new[] {"ModifyInstanceMetadataOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceMetadataOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyInstanceMetadataOptions API operation.", Operation = new[] {"ModifyInstanceMetadataOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceMetadataOptionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyInstanceMetadataOptionsResponse",
         "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceMetadataOptionsResponse object containing multiple properties."
     )]
@@ -291,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyInstanceMetadataOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstanceMetadataOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstanceMetadataOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyInstanceMetadataOptions");
             try
             {
                 return client.ModifyInstanceMetadataOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2TransitGatewayVpcAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.TransitGatewayVpcAttachment")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTransitGatewayVpcAttachment API operation.", Operation = new[] {"DeleteTransitGatewayVpcAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayVpcAttachmentResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteTransitGatewayVpcAttachment API operation.", Operation = new[] {"DeleteTransitGatewayVpcAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayVpcAttachmentResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayVpcAttachment or Amazon.EC2.Model.DeleteTransitGatewayVpcAttachmentResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayVpcAttachment object.",
         "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayVpcAttachmentResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteTransitGatewayVpcAttachmentResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTransitGatewayVpcAttachmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteTransitGatewayVpcAttachment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteTransitGatewayVpcAttachment");
             try
             {
                 return client.DeleteTransitGatewayVpcAttachmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

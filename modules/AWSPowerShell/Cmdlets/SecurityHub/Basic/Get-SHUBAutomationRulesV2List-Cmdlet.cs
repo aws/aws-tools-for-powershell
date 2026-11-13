@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBAutomationRulesV2List")]
     [OutputType("Amazon.SecurityHub.Model.AutomationRulesMetadataV2")]
-    [AWSCmdlet("Calls the AWS Security Hub ListAutomationRulesV2 API operation.", Operation = new[] {"ListAutomationRulesV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListAutomationRulesV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListAutomationRulesV2 API operation.", Operation = new[] {"ListAutomationRulesV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListAutomationRulesV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.AutomationRulesMetadataV2 or Amazon.SecurityHub.Model.ListAutomationRulesV2Response",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.AutomationRulesMetadataV2 objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListAutomationRulesV2Response) can be returned by specifying '-Select *'."
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListAutomationRulesV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListAutomationRulesV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListAutomationRulesV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListAutomationRulesV2");
             try
             {
                 return client.ListAutomationRulesV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Start", "SSMAssociationsOnce", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager StartAssociationsOnce API operation.", Operation = new[] {"StartAssociationsOnce"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartAssociationsOnceResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) StartAssociationsOnce API operation.", Operation = new[] {"StartAssociationsOnce"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartAssociationsOnceResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.StartAssociationsOnceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.StartAssociationsOnceResponse) be returned by specifying '-Select *'."
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.StartAssociationsOnceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.StartAssociationsOnceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "StartAssociationsOnce");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "StartAssociationsOnce");
             try
             {
                 return client.StartAssociationsOnceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

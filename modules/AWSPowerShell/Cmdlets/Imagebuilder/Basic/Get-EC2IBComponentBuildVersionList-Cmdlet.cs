@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The component version ARN whose build versions you want to list. The ARN must specify
         /// an exact version, without a build number suffix. If you don't specify an ARN, Image
-        /// Builder returns build versions for the components that your account owns.</para>
+        /// Builder returns build versions for the components that your account owns.</para><para>If the ARN that you specify doesn't exist, Image Builder returns an empty list rather
+        /// than a <c>ResourceNotFoundException</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

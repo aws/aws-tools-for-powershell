@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamRouteOriginAuthorization")]
     [OutputType("Amazon.EC2.Model.IpamRouteOriginAuthorizationInfo")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamRouteOriginAuthorizations API operation.", Operation = new[] {"GetIpamRouteOriginAuthorizations"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamRouteOriginAuthorizationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamRouteOriginAuthorizations API operation.", Operation = new[] {"GetIpamRouteOriginAuthorizations"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamRouteOriginAuthorizationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamRouteOriginAuthorizationInfo or Amazon.EC2.Model.GetIpamRouteOriginAuthorizationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamRouteOriginAuthorizationInfo objects.",
         "The service call response (type Amazon.EC2.Model.GetIpamRouteOriginAuthorizationsResponse) can be returned by specifying '-Select *'."
@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamRouteOriginAuthorizationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamRouteOriginAuthorizationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamRouteOriginAuthorizations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamRouteOriginAuthorizations");
             try
             {
                 return client.GetIpamRouteOriginAuthorizationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

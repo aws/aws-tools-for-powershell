@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2IpamInternetRegistryAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.IpamInternetRegistryAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteIpamInternetRegistryAssociation API operation.", Operation = new[] {"DeleteIpamInternetRegistryAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamInternetRegistryAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteIpamInternetRegistryAssociation API operation.", Operation = new[] {"DeleteIpamInternetRegistryAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamInternetRegistryAssociationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamInternetRegistryAssociation or Amazon.EC2.Model.DeleteIpamInternetRegistryAssociationResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamInternetRegistryAssociation object.",
         "The service call response (type Amazon.EC2.Model.DeleteIpamInternetRegistryAssociationResponse) can be returned by specifying '-Select *'."
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteIpamInternetRegistryAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteIpamInternetRegistryAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteIpamInternetRegistryAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteIpamInternetRegistryAssociation");
             try
             {
                 return client.DeleteIpamInternetRegistryAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Get", "VPCLAccessLogSubscription")]
     [OutputType("Amazon.VPCLattice.Model.GetAccessLogSubscriptionResponse")]
-    [AWSCmdlet("Calls the VPC Lattice GetAccessLogSubscription API operation.", Operation = new[] {"GetAccessLogSubscription"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetAccessLogSubscriptionResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice GetAccessLogSubscription API operation.", Operation = new[] {"GetAccessLogSubscription"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetAccessLogSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.GetAccessLogSubscriptionResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.GetAccessLogSubscriptionResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.GetAccessLogSubscriptionResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.GetAccessLogSubscriptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "GetAccessLogSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "GetAccessLogSubscription");
             try
             {
                 return client.GetAccessLogSubscriptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VpcClassicLink")]
     [OutputType("Amazon.EC2.Model.VpcClassicLink")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVpcClassicLink API operation.", Operation = new[] {"DescribeVpcClassicLink"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcClassicLinkResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVpcClassicLink API operation.", Operation = new[] {"DescribeVpcClassicLink"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcClassicLinkResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcClassicLink or Amazon.EC2.Model.DescribeVpcClassicLinkResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.VpcClassicLink objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVpcClassicLinkResponse) can be returned by specifying '-Select *'."
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVpcClassicLinkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVpcClassicLinkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVpcClassicLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVpcClassicLink");
             try
             {
                 return client.DescribeVpcClassicLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

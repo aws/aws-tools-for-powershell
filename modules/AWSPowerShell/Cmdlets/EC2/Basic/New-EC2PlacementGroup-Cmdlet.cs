@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2PlacementGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreatePlacementGroupResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreatePlacementGroup API operation.", Operation = new[] {"CreatePlacementGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.CreatePlacementGroupResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreatePlacementGroup API operation.", Operation = new[] {"CreatePlacementGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.CreatePlacementGroupResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreatePlacementGroupResponse",
         "This cmdlet returns an Amazon.EC2.Model.CreatePlacementGroupResponse object containing multiple properties."
     )]
@@ -320,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreatePlacementGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreatePlacementGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreatePlacementGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreatePlacementGroup");
             try
             {
                 return client.CreatePlacementGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

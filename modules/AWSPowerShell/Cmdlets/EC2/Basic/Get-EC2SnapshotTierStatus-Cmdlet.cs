@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SnapshotTierStatus")]
     [OutputType("Amazon.EC2.Model.SnapshotTierStatus")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeSnapshotTierStatus API operation.", Operation = new[] {"DescribeSnapshotTierStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSnapshotTierStatusResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSnapshotTierStatus API operation.", Operation = new[] {"DescribeSnapshotTierStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSnapshotTierStatusResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SnapshotTierStatus or Amazon.EC2.Model.DescribeSnapshotTierStatusResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.SnapshotTierStatus objects.",
         "The service call response (type Amazon.EC2.Model.DescribeSnapshotTierStatusResponse) can be returned by specifying '-Select *'."
@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeSnapshotTierStatusResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSnapshotTierStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeSnapshotTierStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeSnapshotTierStatus");
             try
             {
                 return client.DescribeSnapshotTierStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

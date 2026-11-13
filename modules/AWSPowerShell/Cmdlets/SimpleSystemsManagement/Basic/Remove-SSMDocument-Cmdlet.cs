@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteDocument API operation.", Operation = new[] {"DeleteDocument"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeleteDocument API operation.", Operation = new[] {"DeleteDocument"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse) be returned by specifying '-Select *'."
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteDocumentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteDocument");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeleteDocument");
             try
             {
                 return client.DeleteDocumentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

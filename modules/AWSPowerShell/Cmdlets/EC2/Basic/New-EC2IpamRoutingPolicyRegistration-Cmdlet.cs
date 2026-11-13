@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2IpamRoutingPolicyRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamRoutingPolicyRegistrationDelta")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateIpamRoutingPolicyRegistration API operation.", Operation = new[] {"CreateIpamRoutingPolicyRegistration"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateIpamRoutingPolicyRegistrationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateIpamRoutingPolicyRegistration API operation.", Operation = new[] {"CreateIpamRoutingPolicyRegistration"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateIpamRoutingPolicyRegistrationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamRoutingPolicyRegistrationDelta or Amazon.EC2.Model.CreateIpamRoutingPolicyRegistrationResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamRoutingPolicyRegistrationDelta object.",
         "The service call response (type Amazon.EC2.Model.CreateIpamRoutingPolicyRegistrationResponse) can be returned by specifying '-Select *'."
@@ -336,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateIpamRoutingPolicyRegistrationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateIpamRoutingPolicyRegistrationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateIpamRoutingPolicyRegistration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateIpamRoutingPolicyRegistration");
             try
             {
                 return client.CreateIpamRoutingPolicyRegistrationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

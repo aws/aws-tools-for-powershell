@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Remove", "SHUBFindingAggregator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub DeleteFindingAggregator API operation.", Operation = new[] {"DeleteFindingAggregator"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteFindingAggregatorResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DeleteFindingAggregator API operation.", Operation = new[] {"DeleteFindingAggregator"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteFindingAggregatorResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DeleteFindingAggregatorResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.DeleteFindingAggregatorResponse) be returned by specifying '-Select *'."
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DeleteFindingAggregatorResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DeleteFindingAggregatorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DeleteFindingAggregator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DeleteFindingAggregator");
             try
             {
                 return client.DeleteFindingAggregatorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

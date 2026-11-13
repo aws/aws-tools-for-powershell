@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMResourcePolicy")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponseEntry")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetResourcePolicies API operation.", Operation = new[] {"GetResourcePolicies"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetResourcePolicies API operation.", Operation = new[] {"GetResourcePolicies"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponseEntry or Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponseEntry objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse) can be returned by specifying '-Select *'."
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetResourcePolicies");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetResourcePolicies");
             try
             {
                 return client.GetResourcePoliciesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

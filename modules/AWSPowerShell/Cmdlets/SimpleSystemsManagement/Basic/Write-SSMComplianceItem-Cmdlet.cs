@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Write", "SSMComplianceItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager PutComplianceItems API operation.", Operation = new[] {"PutComplianceItems"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutComplianceItemsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) PutComplianceItems API operation.", Operation = new[] {"PutComplianceItems"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutComplianceItemsResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.PutComplianceItemsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.PutComplianceItemsResponse) be returned by specifying '-Select *'."
@@ -442,7 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.PutComplianceItemsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.PutComplianceItemsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "PutComplianceItems");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "PutComplianceItems");
             try
             {
                 return client.PutComplianceItemsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

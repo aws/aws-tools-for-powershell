@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2PlacementGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeletePlacementGroup API operation.", Operation = new[] {"DeletePlacementGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.DeletePlacementGroupResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeletePlacementGroup API operation.", Operation = new[] {"DeletePlacementGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.DeletePlacementGroupResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeletePlacementGroupResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DeletePlacementGroupResponse) be returned by specifying '-Select *'."
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeletePlacementGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeletePlacementGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeletePlacementGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeletePlacementGroup");
             try
             {
                 return client.DeletePlacementGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

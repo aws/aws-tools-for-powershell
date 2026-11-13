@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2EgressOnlyInternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteEgressOnlyInternetGateway API operation.", Operation = new[] {"DeleteEgressOnlyInternetGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteEgressOnlyInternetGateway API operation.", Operation = new[] {"DeleteEgressOnlyInternetGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteEgressOnlyInternetGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteEgressOnlyInternetGateway");
             try
             {
                 return client.DeleteEgressOnlyInternetGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

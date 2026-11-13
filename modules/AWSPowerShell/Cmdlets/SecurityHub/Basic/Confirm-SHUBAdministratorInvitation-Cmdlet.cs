@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Confirm", "SHUBAdministratorInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub AcceptAdministratorInvitation API operation.", Operation = new[] {"AcceptAdministratorInvitation"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub AcceptAdministratorInvitation API operation.", Operation = new[] {"AcceptAdministratorInvitation"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse) be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.AcceptAdministratorInvitationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "AcceptAdministratorInvitation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "AcceptAdministratorInvitation");
             try
             {
                 return client.AcceptAdministratorInvitationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

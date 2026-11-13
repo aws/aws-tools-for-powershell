@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Unregister", "SSMTargetFromMaintenanceWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeregisterTargetFromMaintenanceWindow API operation.", Operation = new[] {"DeregisterTargetFromMaintenanceWindow"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeregisterTargetFromMaintenanceWindow API operation.", Operation = new[] {"DeregisterTargetFromMaintenanceWindow"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse object containing multiple properties."
     )]
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeregisterTargetFromMaintenanceWindow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeregisterTargetFromMaintenanceWindow");
             try
             {
                 return client.DeregisterTargetFromMaintenanceWindowAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

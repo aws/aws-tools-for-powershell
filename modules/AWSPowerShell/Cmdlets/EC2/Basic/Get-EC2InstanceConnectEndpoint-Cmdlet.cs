@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2InstanceConnectEndpoint")]
     [OutputType("Amazon.EC2.Model.Ec2InstanceConnectEndpoint")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstanceConnectEndpoints API operation.", Operation = new[] {"DescribeInstanceConnectEndpoints"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceConnectEndpointsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeInstanceConnectEndpoints API operation.", Operation = new[] {"DescribeInstanceConnectEndpoints"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceConnectEndpointsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Ec2InstanceConnectEndpoint or Amazon.EC2.Model.DescribeInstanceConnectEndpointsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Ec2InstanceConnectEndpoint objects.",
         "The service call response (type Amazon.EC2.Model.DescribeInstanceConnectEndpointsResponse) can be returned by specifying '-Select *'."
@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeInstanceConnectEndpointsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstanceConnectEndpointsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeInstanceConnectEndpoints");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeInstanceConnectEndpoints");
             try
             {
                 return client.DescribeInstanceConnectEndpointsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

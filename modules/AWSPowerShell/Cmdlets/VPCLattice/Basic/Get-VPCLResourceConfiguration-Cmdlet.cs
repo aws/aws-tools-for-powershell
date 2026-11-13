@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Get", "VPCLResourceConfiguration")]
     [OutputType("Amazon.VPCLattice.Model.GetResourceConfigurationResponse")]
-    [AWSCmdlet("Calls the VPC Lattice GetResourceConfiguration API operation.", Operation = new[] {"GetResourceConfiguration"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetResourceConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice GetResourceConfiguration API operation.", Operation = new[] {"GetResourceConfiguration"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetResourceConfigurationResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.GetResourceConfigurationResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.GetResourceConfigurationResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.GetResourceConfigurationResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.GetResourceConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "GetResourceConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "GetResourceConfiguration");
             try
             {
                 return client.GetResourceConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

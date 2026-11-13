@@ -23,53 +23,49 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.NetworkFirewall;
-using Amazon.NetworkFirewall.Model;
+using Amazon.LambdaCore;
+using Amazon.LambdaCore.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.NWFW
+namespace Amazon.PowerShell.Cmdlets.LMC
 {
     /// <summary>
-    /// Returns the data objects for the specified proxy configuration.
+    /// Retrieves the configuration and metadata of a runtime.
     /// </summary>
-    [Cmdlet("Get", "NWFWProxyConfigurationDetail")]
-    [OutputType("Amazon.NetworkFirewall.Model.DescribeProxyConfigurationResponse")]
-    [AWSCmdlet("Calls the AWS Network Firewall DescribeProxyConfiguration API operation.", Operation = new[] {"DescribeProxyConfiguration"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DescribeProxyConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.DescribeProxyConfigurationResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.DescribeProxyConfigurationResponse object containing multiple properties."
+    [Cmdlet("Get", "LMCRuntime")]
+    [OutputType("Amazon.LambdaCore.Model.GetRuntimeResponse")]
+    [AWSCmdlet("Calls the AWS Lambda Core GetRuntime API operation.", Operation = new[] {"GetRuntime"}, SelectReturnType = typeof(Amazon.LambdaCore.Model.GetRuntimeResponse))]
+    [AWSCmdletOutput("Amazon.LambdaCore.Model.GetRuntimeResponse",
+        "This cmdlet returns an Amazon.LambdaCore.Model.GetRuntimeResponse object containing multiple properties."
     )]
-    public partial class GetNWFWProxyConfigurationDetailCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class GetLMCRuntimeCmdlet : AmazonLambdaCoreClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ProxyConfigurationArn
+        #region Parameter RuntimeName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a proxy configuration.</para><para>You must specify the ARN or the name, and you can specify both. </para>
+        /// The name or ARN of the runtime to retrieve.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyConfigurationArn { get; set; }
-        #endregion
-        
-        #region Parameter ProxyConfigurationName
-        /// <summary>
-        /// <para>
-        /// <para>The descriptive name of the proxy configuration. You can't change the name of a proxy
-        /// configuration after you create it.</para><para>You must specify the ARN or the name, and you can specify both. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyConfigurationName { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RuntimeName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.DescribeProxyConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.DescribeProxyConfigurationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LambdaCore.Model.GetRuntimeResponse).
+        /// Specifying the name of a property of type Amazon.LambdaCore.Model.GetRuntimeResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,11 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.DescribeProxyConfigurationResponse, GetNWFWProxyConfigurationDetailCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LambdaCore.Model.GetRuntimeResponse, GetLMCRuntimeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ProxyConfigurationArn = this.ProxyConfigurationArn;
-            context.ProxyConfigurationName = this.ProxyConfigurationName;
+            context.RuntimeName = this.RuntimeName;
+            #if MODULAR
+            if (this.RuntimeName == null && ParameterWasBound(nameof(this.RuntimeName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RuntimeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -111,15 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkFirewall.Model.DescribeProxyConfigurationRequest();
+            var request = new Amazon.LambdaCore.Model.GetRuntimeRequest();
             
-            if (cmdletContext.ProxyConfigurationArn != null)
+            if (cmdletContext.RuntimeName != null)
             {
-                request.ProxyConfigurationArn = cmdletContext.ProxyConfigurationArn;
-            }
-            if (cmdletContext.ProxyConfigurationName != null)
-            {
-                request.ProxyConfigurationName = cmdletContext.ProxyConfigurationName;
+                request.RuntimeName = cmdletContext.RuntimeName;
             }
             
             CmdletOutput output;
@@ -154,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkFirewall.Model.DescribeProxyConfigurationResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.DescribeProxyConfigurationRequest request)
+        private Amazon.LambdaCore.Model.GetRuntimeResponse CallAWSServiceOperation(IAmazonLambdaCore client, Amazon.LambdaCore.Model.GetRuntimeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "DescribeProxyConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda Core", "GetRuntime");
             try
             {
-                return client.DescribeProxyConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetRuntimeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -176,9 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProxyConfigurationArn { get; set; }
-            public System.String ProxyConfigurationName { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.DescribeProxyConfigurationResponse, GetNWFWProxyConfigurationDetailCmdlet, object> Select { get; set; } =
+            public System.String RuntimeName { get; set; }
+            public System.Func<Amazon.LambdaCore.Model.GetRuntimeResponse, GetLMCRuntimeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Remove", "DOCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"}, SelectReturnType = typeof(Amazon.DocDB.Model.RemoveTagsFromResourceResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"}, SelectReturnType = typeof(Amazon.DocDB.Model.RemoveTagsFromResourceResponse))]
     [AWSCmdletOutput("None or Amazon.DocDB.Model.RemoveTagsFromResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.DocDB.Model.RemoveTagsFromResourceResponse) be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.RemoveTagsFromResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "RemoveTagsFromResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "RemoveTagsFromResource");
             try
             {
                 return client.RemoveTagsFromResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

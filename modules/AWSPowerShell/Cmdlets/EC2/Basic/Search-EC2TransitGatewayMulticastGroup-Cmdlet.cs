@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Search", "EC2TransitGatewayMulticastGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayMulticastGroup")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) SearchTransitGatewayMulticastGroups API operation.", Operation = new[] {"SearchTransitGatewayMulticastGroups"}, SelectReturnType = typeof(Amazon.EC2.Model.SearchTransitGatewayMulticastGroupsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud SearchTransitGatewayMulticastGroups API operation.", Operation = new[] {"SearchTransitGatewayMulticastGroups"}, SelectReturnType = typeof(Amazon.EC2.Model.SearchTransitGatewayMulticastGroupsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastGroup or Amazon.EC2.Model.SearchTransitGatewayMulticastGroupsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.TransitGatewayMulticastGroup objects.",
         "The service call response (type Amazon.EC2.Model.SearchTransitGatewayMulticastGroupsResponse) can be returned by specifying '-Select *'."
@@ -399,7 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.SearchTransitGatewayMulticastGroupsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.SearchTransitGatewayMulticastGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "SearchTransitGatewayMulticastGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "SearchTransitGatewayMulticastGroups");
             try
             {
                 return client.SearchTransitGatewayMulticastGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

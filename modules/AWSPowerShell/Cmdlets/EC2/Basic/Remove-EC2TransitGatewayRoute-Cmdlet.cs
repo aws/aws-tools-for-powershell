@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2TransitGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.TransitGatewayRoute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTransitGatewayRoute API operation.", Operation = new[] {"DeleteTransitGatewayRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayRouteResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteTransitGatewayRoute API operation.", Operation = new[] {"DeleteTransitGatewayRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayRouteResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayRoute or Amazon.EC2.Model.DeleteTransitGatewayRouteResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayRoute object.",
         "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayRouteResponse) can be returned by specifying '-Select *'."
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteTransitGatewayRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTransitGatewayRouteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteTransitGatewayRoute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteTransitGatewayRoute");
             try
             {
                 return client.DeleteTransitGatewayRouteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

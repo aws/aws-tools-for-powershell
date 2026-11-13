@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VerifiedAccessInstanceLoggingConfiguration")]
     [OutputType("Amazon.EC2.Model.VerifiedAccessInstanceLoggingConfiguration")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVerifiedAccessInstanceLoggingConfigurations API operation.", Operation = new[] {"DescribeVerifiedAccessInstanceLoggingConfigurations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVerifiedAccessInstanceLoggingConfigurationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVerifiedAccessInstanceLoggingConfigurations API operation.", Operation = new[] {"DescribeVerifiedAccessInstanceLoggingConfigurations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVerifiedAccessInstanceLoggingConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessInstanceLoggingConfiguration or Amazon.EC2.Model.DescribeVerifiedAccessInstanceLoggingConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.VerifiedAccessInstanceLoggingConfiguration objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVerifiedAccessInstanceLoggingConfigurationsResponse) can be returned by specifying '-Select *'."
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVerifiedAccessInstanceLoggingConfigurationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVerifiedAccessInstanceLoggingConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVerifiedAccessInstanceLoggingConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVerifiedAccessInstanceLoggingConfigurations");
             try
             {
                 return client.DescribeVerifiedAccessInstanceLoggingConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

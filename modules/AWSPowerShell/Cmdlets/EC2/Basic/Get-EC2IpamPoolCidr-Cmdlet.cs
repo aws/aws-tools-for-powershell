@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamPoolCidr")]
     [OutputType("Amazon.EC2.Model.IpamPoolCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamPoolCidrs API operation.", Operation = new[] {"GetIpamPoolCidrs"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamPoolCidrsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamPoolCidrs API operation.", Operation = new[] {"GetIpamPoolCidrs"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamPoolCidrsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamPoolCidr or Amazon.EC2.Model.GetIpamPoolCidrsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamPoolCidr objects.",
         "The service call response (type Amazon.EC2.Model.GetIpamPoolCidrsResponse) can be returned by specifying '-Select *'."
@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamPoolCidrsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamPoolCidrsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamPoolCidrs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamPoolCidrs");
             try
             {
                 return client.GetIpamPoolCidrsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

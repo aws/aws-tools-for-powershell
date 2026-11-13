@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2VpnConcentrator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpnConcentrator")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVpnConcentrator API operation.", Operation = new[] {"CreateVpnConcentrator"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpnConcentratorResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateVpnConcentrator API operation.", Operation = new[] {"CreateVpnConcentrator"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpnConcentratorResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpnConcentrator or Amazon.EC2.Model.CreateVpnConcentratorResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpnConcentrator object.",
         "The service call response (type Amazon.EC2.Model.CreateVpnConcentratorResponse) can be returned by specifying '-Select *'."
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateVpnConcentratorResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateVpnConcentratorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateVpnConcentrator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateVpnConcentrator");
             try
             {
                 return client.CreateVpnConcentratorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

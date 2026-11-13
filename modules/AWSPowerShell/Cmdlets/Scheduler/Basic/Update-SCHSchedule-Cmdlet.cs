@@ -149,6 +149,17 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         public System.String EventBridgeParameters_DetailType { get; set; }
         #endregion
         
+        #region Parameter Target_EventBridgePutEventsV2Parameters_DetailType
+        /// <summary>
+        /// <para>
+        /// <para>A free-form string, with a maximum of 128 characters, used to decide what fields to
+        /// expect in the event detail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Target_EventBridgePutEventsV2Parameters_DetailType { get; set; }
+        #endregion
+        
         #region Parameter EcsParameters_EnableECSManagedTag
         /// <summary>
         /// <para>
@@ -215,9 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <summary>
         /// <para>
         /// <para>The text, or well-formed JSON, passed to the target. If you are configuring a templated
-        /// Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed
-        /// JSON. For all other target types, a JSON is not required. If you do not specify anything
-        /// for this field, EventBridge Scheduler delivers a default notification to the target.</para>
+        /// Lambda, Amazon Web Services Step Functions, or Amazon EventBridge target, the input
+        /// must be a well-formed JSON. For all other target types, a JSON is not required. If
+        /// you do not specify anything for this field, EventBridge Scheduler delivers a default
+        /// notification to the target. The maximum size of the <c>Input</c> field is 256 KB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,8 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <para>Specifies the launch type on which your task is running. The launch type that you
         /// specify here must match one of the launch type (compatibilities) of the target task.
         /// The <c>FARGATE</c> value is supported only in the Regions where Fargate with Amazon
-        /// ECS is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html">AWS
-        /// Fargate on Amazon ECS</a> in the <i>Amazon ECS Developer Guide</i>.</para>
+        /// ECS is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html">Amazon
+        /// Web Services Fargate on Amazon ECS</a> in the <i>Amazon ECS Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -295,6 +307,22 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Target_SqsParameters_MessageGroupId")]
         public System.String SqsParameters_MessageGroupId { get; set; }
+        #endregion
+        
+        #region Parameter Target_EventBridgePutRawEventsParameters_Metadata
+        /// <summary>
+        /// <para>
+        /// <para>Optional metadata key-value pairs you define. Keys must be 1-128 characters and must
+        /// not contain "/".</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Target_EventBridgePutRawEventsParameters_Metadata { get; set; }
         #endregion
         
         #region Parameter FlexibleTimeWindow_Mode
@@ -518,6 +546,16 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Target_EventBridgeParameters_Source")]
         public System.String EventBridgeParameters_Source { get; set; }
+        #endregion
+        
+        #region Parameter Target_EventBridgePutEventsV2Parameters_Source
+        /// <summary>
+        /// <para>
+        /// <para>The source of the event. The source can't start with the <c>aws.</c> prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Target_EventBridgePutEventsV2Parameters_Source { get; set; }
         #endregion
         
         #region Parameter StartDate
@@ -744,6 +782,16 @@ namespace Amazon.PowerShell.Cmdlets.SCH
             context.EcsParameters_TaskDefinitionArn = this.EcsParameters_TaskDefinitionArn;
             context.EventBridgeParameters_DetailType = this.EventBridgeParameters_DetailType;
             context.EventBridgeParameters_Source = this.EventBridgeParameters_Source;
+            context.Target_EventBridgePutEventsV2Parameters_DetailType = this.Target_EventBridgePutEventsV2Parameters_DetailType;
+            context.Target_EventBridgePutEventsV2Parameters_Source = this.Target_EventBridgePutEventsV2Parameters_Source;
+            if (this.Target_EventBridgePutRawEventsParameters_Metadata != null)
+            {
+                context.Target_EventBridgePutRawEventsParameters_Metadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Target_EventBridgePutRawEventsParameters_Metadata.Keys)
+                {
+                    context.Target_EventBridgePutRawEventsParameters_Metadata.Add((String)hashKey, (System.String)(this.Target_EventBridgePutRawEventsParameters_Metadata[hashKey]));
+                }
+            }
             context.Target_Input = this.Target_Input;
             context.KinesisParameters_PartitionKey = this.KinesisParameters_PartitionKey;
             context.RetryPolicy_MaximumEventAgeInSecond = this.RetryPolicy_MaximumEventAgeInSecond;
@@ -908,6 +956,31 @@ namespace Amazon.PowerShell.Cmdlets.SCH
                 request.Target.DeadLetterConfig = requestTarget_target_DeadLetterConfig;
                 requestTargetIsNull = false;
             }
+            Amazon.Scheduler.Model.EventBridgePutRawEventsParameters requestTarget_target_EventBridgePutRawEventsParameters = null;
+            
+             // populate EventBridgePutRawEventsParameters
+            var requestTarget_target_EventBridgePutRawEventsParametersIsNull = true;
+            requestTarget_target_EventBridgePutRawEventsParameters = new Amazon.Scheduler.Model.EventBridgePutRawEventsParameters();
+            Dictionary<System.String, System.String> requestTarget_target_EventBridgePutRawEventsParameters_target_EventBridgePutRawEventsParameters_Metadata = null;
+            if (cmdletContext.Target_EventBridgePutRawEventsParameters_Metadata != null)
+            {
+                requestTarget_target_EventBridgePutRawEventsParameters_target_EventBridgePutRawEventsParameters_Metadata = cmdletContext.Target_EventBridgePutRawEventsParameters_Metadata;
+            }
+            if (requestTarget_target_EventBridgePutRawEventsParameters_target_EventBridgePutRawEventsParameters_Metadata != null)
+            {
+                requestTarget_target_EventBridgePutRawEventsParameters.Metadata = requestTarget_target_EventBridgePutRawEventsParameters_target_EventBridgePutRawEventsParameters_Metadata;
+                requestTarget_target_EventBridgePutRawEventsParametersIsNull = false;
+            }
+             // determine if requestTarget_target_EventBridgePutRawEventsParameters should be set to null
+            if (requestTarget_target_EventBridgePutRawEventsParametersIsNull)
+            {
+                requestTarget_target_EventBridgePutRawEventsParameters = null;
+            }
+            if (requestTarget_target_EventBridgePutRawEventsParameters != null)
+            {
+                request.Target.EventBridgePutRawEventsParameters = requestTarget_target_EventBridgePutRawEventsParameters;
+                requestTargetIsNull = false;
+            }
             Amazon.Scheduler.Model.KinesisParameters requestTarget_target_KinesisParameters = null;
             
              // populate KinesisParameters
@@ -1016,6 +1089,41 @@ namespace Amazon.PowerShell.Cmdlets.SCH
             if (requestTarget_target_EventBridgeParameters != null)
             {
                 request.Target.EventBridgeParameters = requestTarget_target_EventBridgeParameters;
+                requestTargetIsNull = false;
+            }
+            Amazon.Scheduler.Model.EventBridgePutEventsV2Parameters requestTarget_target_EventBridgePutEventsV2Parameters = null;
+            
+             // populate EventBridgePutEventsV2Parameters
+            var requestTarget_target_EventBridgePutEventsV2ParametersIsNull = true;
+            requestTarget_target_EventBridgePutEventsV2Parameters = new Amazon.Scheduler.Model.EventBridgePutEventsV2Parameters();
+            System.String requestTarget_target_EventBridgePutEventsV2Parameters_target_EventBridgePutEventsV2Parameters_DetailType = null;
+            if (cmdletContext.Target_EventBridgePutEventsV2Parameters_DetailType != null)
+            {
+                requestTarget_target_EventBridgePutEventsV2Parameters_target_EventBridgePutEventsV2Parameters_DetailType = cmdletContext.Target_EventBridgePutEventsV2Parameters_DetailType;
+            }
+            if (requestTarget_target_EventBridgePutEventsV2Parameters_target_EventBridgePutEventsV2Parameters_DetailType != null)
+            {
+                requestTarget_target_EventBridgePutEventsV2Parameters.DetailType = requestTarget_target_EventBridgePutEventsV2Parameters_target_EventBridgePutEventsV2Parameters_DetailType;
+                requestTarget_target_EventBridgePutEventsV2ParametersIsNull = false;
+            }
+            System.String requestTarget_target_EventBridgePutEventsV2Parameters_target_EventBridgePutEventsV2Parameters_Source = null;
+            if (cmdletContext.Target_EventBridgePutEventsV2Parameters_Source != null)
+            {
+                requestTarget_target_EventBridgePutEventsV2Parameters_target_EventBridgePutEventsV2Parameters_Source = cmdletContext.Target_EventBridgePutEventsV2Parameters_Source;
+            }
+            if (requestTarget_target_EventBridgePutEventsV2Parameters_target_EventBridgePutEventsV2Parameters_Source != null)
+            {
+                requestTarget_target_EventBridgePutEventsV2Parameters.Source = requestTarget_target_EventBridgePutEventsV2Parameters_target_EventBridgePutEventsV2Parameters_Source;
+                requestTarget_target_EventBridgePutEventsV2ParametersIsNull = false;
+            }
+             // determine if requestTarget_target_EventBridgePutEventsV2Parameters should be set to null
+            if (requestTarget_target_EventBridgePutEventsV2ParametersIsNull)
+            {
+                requestTarget_target_EventBridgePutEventsV2Parameters = null;
+            }
+            if (requestTarget_target_EventBridgePutEventsV2Parameters != null)
+            {
+                request.Target.EventBridgePutEventsV2Parameters = requestTarget_target_EventBridgePutEventsV2Parameters;
                 requestTargetIsNull = false;
             }
             Amazon.Scheduler.Model.RetryPolicy requestTarget_target_RetryPolicy = null;
@@ -1351,6 +1459,9 @@ namespace Amazon.PowerShell.Cmdlets.SCH
             public System.String EcsParameters_TaskDefinitionArn { get; set; }
             public System.String EventBridgeParameters_DetailType { get; set; }
             public System.String EventBridgeParameters_Source { get; set; }
+            public System.String Target_EventBridgePutEventsV2Parameters_DetailType { get; set; }
+            public System.String Target_EventBridgePutEventsV2Parameters_Source { get; set; }
+            public Dictionary<System.String, System.String> Target_EventBridgePutRawEventsParameters_Metadata { get; set; }
             public System.String Target_Input { get; set; }
             public System.String KinesisParameters_PartitionKey { get; set; }
             public System.Int32? RetryPolicy_MaximumEventAgeInSecond { get; set; }

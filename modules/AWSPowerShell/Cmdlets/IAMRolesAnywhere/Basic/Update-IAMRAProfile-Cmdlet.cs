@@ -61,6 +61,27 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         public System.Boolean? AcceptRoleSessionName { get; set; }
         #endregion
         
+        #region Parameter AliasName
+        /// <summary>
+        /// <para>
+        /// <para>The alias for the profile.</para><para>You can use this parameter in the following ways:</para><ul><li><para>To set or change the alias, specify the new alias name. After the change, the previous
+        /// alias ARN no longer identifies the resource. You can then assign the previous alias
+        /// to another resource of the same type. A change can take a short time to take effect
+        /// for requests that use an alias ARN.</para></li><li><para>To remove the alias, specify an empty string.</para></li><li><para>To keep the current alias, omit this parameter.</para></li></ul><para>An alias name contains 1 to 256 characters. It must begin with a letter (A-Z or a-z).
+        /// It can contain only letters (A-Z and a-z), numbers (0-9), underscores (_), hyphens
+        /// (-), and forward slashes (/). A forward slash can appear only between two other characters,
+        /// so an alias name can't end with a forward slash or contain two in a row. Alias names
+        /// that begin with <c>aws/</c>, in any combination of uppercase and lowercase letters,
+        /// are reserved. Alias names are case sensitive.</para><para>The alias name must be unique among resources of the same type in your account and
+        /// Region. If another resource of the same type already has the alias, the request fails
+        /// with a <c>ValidationException</c>. An invalid or reserved alias name also causes a
+        /// <c>ValidationException</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AliasName { get; set; }
+        #endregion
+        
         #region Parameter DurationSecond
         /// <summary>
         /// <para>
@@ -104,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the profile.</para>
+        /// <para>The profile to act on. You can specify one of the following:</para><ul><li><para>The profile ID.</para></li><li><para>The profile ARN.</para></li><li><para>The alias ARN of the profile.</para></li></ul><para>An ARN must be for a profile in your account and Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -192,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AcceptRoleSessionName = this.AcceptRoleSessionName;
+            context.AliasName = this.AliasName;
             context.DurationSecond = this.DurationSecond;
             if (this.ManagedPolicyArn != null)
             {
@@ -229,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             if (cmdletContext.AcceptRoleSessionName != null)
             {
                 request.AcceptRoleSessionName = cmdletContext.AcceptRoleSessionName.Value;
+            }
+            if (cmdletContext.AliasName != null)
+            {
+                request.AliasName = cmdletContext.AliasName;
             }
             if (cmdletContext.DurationSecond != null)
             {
@@ -310,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AcceptRoleSessionName { get; set; }
+            public System.String AliasName { get; set; }
             public System.Int32? DurationSecond { get; set; }
             public List<System.String> ManagedPolicyArn { get; set; }
             public System.String Name { get; set; }

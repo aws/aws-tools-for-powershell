@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2VgwRoutePropagation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableVgwRoutePropagation API operation.", Operation = new[] {"DisableVgwRoutePropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableVgwRoutePropagationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableVgwRoutePropagation API operation.", Operation = new[] {"DisableVgwRoutePropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableVgwRoutePropagationResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DisableVgwRoutePropagationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.DisableVgwRoutePropagationResponse) be returned by specifying '-Select *'."
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableVgwRoutePropagationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableVgwRoutePropagationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableVgwRoutePropagation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableVgwRoutePropagation");
             try
             {
                 return client.DisableVgwRoutePropagationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

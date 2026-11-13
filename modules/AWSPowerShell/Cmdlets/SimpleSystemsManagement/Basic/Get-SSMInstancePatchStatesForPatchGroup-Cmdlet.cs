@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMInstancePatchStatesForPatchGroup")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstancePatchState")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeInstancePatchStatesForPatchGroup API operation.", Operation = new[] {"DescribeInstancePatchStatesForPatchGroup"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeInstancePatchStatesForPatchGroupResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeInstancePatchStatesForPatchGroup API operation.", Operation = new[] {"DescribeInstancePatchStatesForPatchGroup"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeInstancePatchStatesForPatchGroupResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InstancePatchState or Amazon.SimpleSystemsManagement.Model.DescribeInstancePatchStatesForPatchGroupResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.InstancePatchState objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeInstancePatchStatesForPatchGroupResponse) can be returned by specifying '-Select *'."
@@ -371,7 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeInstancePatchStatesForPatchGroupResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeInstancePatchStatesForPatchGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeInstancePatchStatesForPatchGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeInstancePatchStatesForPatchGroup");
             try
             {
                 return client.DescribeInstancePatchStatesForPatchGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

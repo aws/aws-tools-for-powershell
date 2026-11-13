@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2DefaultSubnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.Subnet")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateDefaultSubnet API operation.", Operation = new[] {"CreateDefaultSubnet"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateDefaultSubnetResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateDefaultSubnet API operation.", Operation = new[] {"CreateDefaultSubnet"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateDefaultSubnetResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Subnet or Amazon.EC2.Model.CreateDefaultSubnetResponse",
         "This cmdlet returns an Amazon.EC2.Model.Subnet object.",
         "The service call response (type Amazon.EC2.Model.CreateDefaultSubnetResponse) can be returned by specifying '-Select *'."
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateDefaultSubnetResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateDefaultSubnetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateDefaultSubnet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateDefaultSubnet");
             try
             {
                 return client.CreateDefaultSubnetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

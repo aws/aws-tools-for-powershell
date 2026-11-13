@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Stop", "EC2InstanceMonitoring", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.InstanceMonitoring")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) UnmonitorInstances API operation.", Operation = new[] {"UnmonitorInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.UnmonitorInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud UnmonitorInstances API operation.", Operation = new[] {"UnmonitorInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.UnmonitorInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceMonitoring or Amazon.EC2.Model.UnmonitorInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceMonitoring objects.",
         "The service call response (type Amazon.EC2.Model.UnmonitorInstancesResponse) can be returned by specifying '-Select *'."
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.UnmonitorInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UnmonitorInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "UnmonitorInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "UnmonitorInstances");
             try
             {
                 return client.UnmonitorInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

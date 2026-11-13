@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VolumeAttribute")]
     [OutputType("Amazon.EC2.Model.DescribeVolumeAttributeResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVolumeAttribute API operation.", Operation = new[] {"DescribeVolumeAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVolumeAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVolumeAttribute API operation.", Operation = new[] {"DescribeVolumeAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVolumeAttributeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeVolumeAttributeResponse",
         "This cmdlet returns an Amazon.EC2.Model.DescribeVolumeAttributeResponse object containing multiple properties."
     )]
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVolumeAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVolumeAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVolumeAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVolumeAttribute");
             try
             {
                 return client.DescribeVolumeAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

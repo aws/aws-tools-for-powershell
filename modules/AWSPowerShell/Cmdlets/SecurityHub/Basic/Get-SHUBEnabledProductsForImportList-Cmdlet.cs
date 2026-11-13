@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBEnabledProductsForImportList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Hub ListEnabledProductsForImport API operation.", Operation = new[] {"ListEnabledProductsForImport"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListEnabledProductsForImportResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListEnabledProductsForImport API operation.", Operation = new[] {"ListEnabledProductsForImport"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListEnabledProductsForImportResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.ListEnabledProductsForImportResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListEnabledProductsForImportResponse) can be returned by specifying '-Select *'."
@@ -312,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListEnabledProductsForImportResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListEnabledProductsForImportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListEnabledProductsForImport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListEnabledProductsForImport");
             try
             {
                 return client.ListEnabledProductsForImportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

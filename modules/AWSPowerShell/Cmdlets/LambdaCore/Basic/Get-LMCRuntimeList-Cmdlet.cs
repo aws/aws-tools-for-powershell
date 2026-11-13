@@ -23,25 +23,23 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.NetworkFirewall;
-using Amazon.NetworkFirewall.Model;
+using Amazon.LambdaCore;
+using Amazon.LambdaCore.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.NWFW
+namespace Amazon.PowerShell.Cmdlets.LMC
 {
     /// <summary>
-    /// Retrieves the metadata for the proxy rule groups that you have defined. Depending
-    /// on your setting for max results and the number of proxy rule groups, a single call
-    /// might not return the full list.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a paginated list of runtimes in your account for the current Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "NWFWProxyRuleGroupList")]
-    [OutputType("Amazon.NetworkFirewall.Model.ProxyRuleGroupMetadata")]
-    [AWSCmdlet("Calls the AWS Network Firewall ListProxyRuleGroups API operation.", Operation = new[] {"ListProxyRuleGroups"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.ListProxyRuleGroupsResponse))]
-    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.ProxyRuleGroupMetadata or Amazon.NetworkFirewall.Model.ListProxyRuleGroupsResponse",
-        "This cmdlet returns a collection of Amazon.NetworkFirewall.Model.ProxyRuleGroupMetadata objects.",
-        "The service call response (type Amazon.NetworkFirewall.Model.ListProxyRuleGroupsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "LMCRuntimeList")]
+    [OutputType("Amazon.LambdaCore.Model.RuntimeInfo")]
+    [AWSCmdlet("Calls the AWS Lambda Core ListRuntimes API operation.", Operation = new[] {"ListRuntimes"}, SelectReturnType = typeof(Amazon.LambdaCore.Model.ListRuntimesResponse))]
+    [AWSCmdletOutput("Amazon.LambdaCore.Model.RuntimeInfo or Amazon.LambdaCore.Model.ListRuntimesResponse",
+        "This cmdlet returns a collection of Amazon.LambdaCore.Model.RuntimeInfo objects.",
+        "The service call response (type Amazon.LambdaCore.Model.ListRuntimesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetNWFWProxyRuleGroupListCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class GetLMCRuntimeListCmdlet : AmazonLambdaCoreClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -50,9 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of objects that you want Network Firewall to return for this request.
-        /// If more objects are available, in the response, Network Firewall provides a <c>NextToken</c>
-        /// value that you can use in a subsequent call to get the next batch of objects.</para>
+        /// The maximum number of runtimes to return per
+        /// page. Valid range: 1 to 100.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -68,11 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When you request a list of objects with a <c>MaxResults</c> setting, if the number
-        /// of objects that are still available for retrieval exceeds the maximum you requested,
-        /// Network Firewall returns a <c>NextToken</c> value in the response. To retrieve the
-        /// next batch of objects, use the token returned from the prior request in your next
-        /// request.</para>
+        /// The pagination token from a previous response.
+        /// Use it to retrieve the next page of results.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -85,13 +79,13 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProxyRuleGroups'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.ListProxyRuleGroupsResponse).
-        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.ListProxyRuleGroupsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LambdaCore.Model.ListRuntimesResponse).
+        /// Specifying the name of a property of type Amazon.LambdaCore.Model.ListRuntimesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProxyRuleGroups";
+        public string Select { get; set; } = "Items";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -120,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.ListProxyRuleGroupsResponse, GetNWFWProxyRuleGroupListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LambdaCore.Model.ListRuntimesResponse, GetLMCRuntimeListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
@@ -150,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.NetworkFirewall.Model.ListProxyRuleGroupsRequest();
+            var request = new Amazon.LambdaCore.Model.ListRuntimesRequest();
             
             if (cmdletContext.MaxResult != null)
             {
@@ -213,12 +207,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkFirewall.Model.ListProxyRuleGroupsResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.ListProxyRuleGroupsRequest request)
+        private Amazon.LambdaCore.Model.ListRuntimesResponse CallAWSServiceOperation(IAmazonLambdaCore client, Amazon.LambdaCore.Model.ListRuntimesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "ListProxyRuleGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda Core", "ListRuntimes");
             try
             {
-                return client.ListProxyRuleGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListRuntimesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -237,8 +231,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.ListProxyRuleGroupsResponse, GetNWFWProxyRuleGroupListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProxyRuleGroups;
+            public System.Func<Amazon.LambdaCore.Model.ListRuntimesResponse, GetLMCRuntimeListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Items;
         }
         
     }

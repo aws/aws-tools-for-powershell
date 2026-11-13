@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImagePipelineArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the image pipeline whose images you want to view.</para>
+        /// <para>The Amazon Resource Name (ARN) of the image pipeline whose images you want to view.</para><para>If the ARN that you specify doesn't exist, Image Builder returns an empty list rather
+        /// than a <c>ResourceNotFoundException</c> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

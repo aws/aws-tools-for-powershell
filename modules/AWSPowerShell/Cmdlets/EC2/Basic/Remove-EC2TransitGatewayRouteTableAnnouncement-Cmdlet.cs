@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2TransitGatewayRouteTableAnnouncement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.TransitGatewayRouteTableAnnouncement")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTransitGatewayRouteTableAnnouncement API operation.", Operation = new[] {"DeleteTransitGatewayRouteTableAnnouncement"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayRouteTableAnnouncementResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteTransitGatewayRouteTableAnnouncement API operation.", Operation = new[] {"DeleteTransitGatewayRouteTableAnnouncement"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayRouteTableAnnouncementResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayRouteTableAnnouncement or Amazon.EC2.Model.DeleteTransitGatewayRouteTableAnnouncementResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayRouteTableAnnouncement object.",
         "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayRouteTableAnnouncementResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteTransitGatewayRouteTableAnnouncementResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTransitGatewayRouteTableAnnouncementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteTransitGatewayRouteTableAnnouncement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteTransitGatewayRouteTableAnnouncement");
             try
             {
                 return client.DeleteTransitGatewayRouteTableAnnouncementAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -55,6 +55,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ClientType
+        /// <summary>
+        /// <para>
+        /// <para>Returns only app clients of this type. For dynamic client registration (<c>DCR</c>)
+        /// and other app clients, the following values are valid.</para><dl><dt>REGULAR</dt><dd><para>An app client not created through dynamic client registration.</para></dd><dt>DCR</dt><dd><para>An app client created through dynamic client registration.</para></dd></dl><para>If you omit <c>ClientType</c>, the response includes app clients of all types. When
+        /// you set this filter, a page of results can contain fewer app clients than <c>MaxResults</c>,
+        /// or none, while the response still includes a <c>NextToken</c>. Continue to request
+        /// pages until the response has no <c>NextToken</c>. The app clients in the response
+        /// don't include their type. To get the type of an app client, call <c>DescribeUserPoolClient</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.ClientTypeType")]
+        public Amazon.CognitoIdentityProvider.ClientTypeType ClientType { get; set; }
+        #endregion
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
@@ -147,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.ListUserPoolClientsResponse, GetCGIPUserPoolClientListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientType = this.ClientType;
             context.MaxResult = this.MaxResult;
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxResult)))
@@ -191,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request and set iteration invariants
             var request = new Amazon.CognitoIdentityProvider.Model.ListUserPoolClientsRequest();
             
+            if (cmdletContext.ClientType != null)
+            {
+                request.ClientType = cmdletContext.ClientType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -254,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             
             // create request and set iteration invariants
             var request = new Amazon.CognitoIdentityProvider.Model.ListUserPoolClientsRequest();
+            if (cmdletContext.ClientType != null)
+            {
+                request.ClientType = cmdletContext.ClientType;
+            }
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
@@ -375,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CognitoIdentityProvider.ClientTypeType ClientType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String UserPoolId { get; set; }

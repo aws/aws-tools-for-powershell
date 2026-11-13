@@ -5,7 +5,7 @@
     <C2jFilename>ec2</C2jFilename>
     <AssemblyName>EC2</AssemblyName>
     <ServiceNounPrefix>EC2</ServiceNounPrefix>
-    <ServiceName>Amazon Elastic Compute Cloud (EC2)</ServiceName>
+    <ServiceName>Amazon Elastic Compute Cloud</ServiceName>
     <ServiceId>EC2</ServiceId>
     <ServiceClientInterface>IAmazonEC2</ServiceClientInterface>
     <ServiceClient>AmazonEC2Client</ServiceClient>
@@ -177,6 +177,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateNatGatewayAddress" OutputProperty="*" Verb="Register" Noun="NatGatewayAddress" ShouldProcessTarget="NatGatewayId" PipelineParameter="NatGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateNetworkingFlexCostAllocationPolicy" OutputProperty="*" Verb="Register" Noun="NetworkingFlexCostAllocationPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -553,6 +557,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateNetworkAclEntry" Verb="New" Noun="NetworkAclEntry" ShouldProcessTarget="NetworkAclId" PipelineParameter="NetworkAclId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkingFlexCostAllocationPolicy" OutputProperty="*" Verb="New" Noun="NetworkingFlexCostAllocationPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -975,6 +983,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteNetworkAclEntry" Verb="Remove" Noun="NetworkAclEntry" ShouldProcessTarget="NetworkAclId" ShouldProcessMsgNoun="Network ACL Entry" PositionalParameters="RuleNumber;Egress" PipelineParameter="NetworkAclId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkingFlexCostAllocationPolicies" OutputProperty="*" Verb="Remove" Noun="NetworkingFlexCostAllocationPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1670,6 +1682,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkingFlexCostAllocationPolicies" OutputProperty="FlexCostAllocationPolicies" Verb="Get" Noun="NetworkingFlexCostAllocationPolicyDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkingFlexCostAllocationPolicyAssociations" OutputProperty="FcaPolicyAssociations" Verb="Get" Noun="NetworkingFlexCostAllocationPolicyAssociationDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeNetworkInsightsAccessScopeAnalyses" OutputProperty="NetworkInsightsAccessScopeAnalyses" Verb="Get" Noun="NetworkInsightsAccessScopeAnalysis" PipelineParameter="NetworkInsightsAccessScopeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2200,6 +2220,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateNetworkingFlexCostAllocationPolicy" OutputProperty="*" Verb="Unregister" Noun="NetworkingFlexCostAllocationPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateRouteServer" OutputProperty="RouteServerAssociation" Verb="Unregister" Noun="RouteServer" ShouldProcessTarget="RouteServerId" PipelineParameter="VpcId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2588,6 +2612,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkingFlexCostAllocationPolicyVersions" OutputProperty="FcaPolicyVersions" Verb="Get" Noun="NetworkingFlexCostAllocationPolicyVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetNetworkInsightsAccessScopeAnalysisFindings" OutputProperty="*" Verb="Get" Noun="NetworkInsightsAccessScopeAnalysisFinding" PipelineParameter="NetworkInsightsAccessScopeAnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2957,6 +2985,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyMetricCategory" OutputProperty="MetricCategory" Verb="Edit" Noun="MetricCategory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyNetworkingFlexCostAllocationPolicy" OutputProperty="*" Verb="Edit" Noun="NetworkingFlexCostAllocationPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

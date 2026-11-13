@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SpotFleetRequestHistory")]
     [OutputType("Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeSpotFleetRequestHistory API operation.", Operation = new[] {"DescribeSpotFleetRequestHistory"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSpotFleetRequestHistory API operation.", Operation = new[] {"DescribeSpotFleetRequestHistory"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse",
         "This cmdlet returns an Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse object containing multiple properties."
     )]
@@ -351,7 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSpotFleetRequestHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeSpotFleetRequestHistory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeSpotFleetRequestHistory");
             try
             {
                 return client.DescribeSpotFleetRequestHistoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2CapacityReservationBillingOwner", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateCapacityReservationBillingOwner API operation.", Operation = new[] {"AssociateCapacityReservationBillingOwner"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateCapacityReservationBillingOwnerResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateCapacityReservationBillingOwner API operation.", Operation = new[] {"AssociateCapacityReservationBillingOwner"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateCapacityReservationBillingOwnerResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.AssociateCapacityReservationBillingOwnerResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.AssociateCapacityReservationBillingOwnerResponse) can be returned by specifying '-Select *'."
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateCapacityReservationBillingOwnerResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateCapacityReservationBillingOwnerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateCapacityReservationBillingOwner");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateCapacityReservationBillingOwner");
             try
             {
                 return client.AssociateCapacityReservationBillingOwnerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

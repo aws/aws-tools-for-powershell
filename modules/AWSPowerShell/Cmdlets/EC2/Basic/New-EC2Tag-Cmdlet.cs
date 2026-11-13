@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTags API operation.", Operation = new[] {"CreateTags"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTagsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateTags API operation.", Operation = new[] {"CreateTags"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTagsResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.CreateTagsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.CreateTagsResponse) be returned by specifying '-Select *'."
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateTagsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateTags");
             try
             {
                 return client.CreateTagsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

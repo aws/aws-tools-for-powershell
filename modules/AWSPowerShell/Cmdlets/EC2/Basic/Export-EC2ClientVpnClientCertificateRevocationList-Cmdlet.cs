@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Export", "EC2ClientVpnClientCertificateRevocationList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ExportClientVpnClientCertificateRevocationListResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ExportClientVpnClientCertificateRevocationList API operation.", Operation = new[] {"ExportClientVpnClientCertificateRevocationList"}, SelectReturnType = typeof(Amazon.EC2.Model.ExportClientVpnClientCertificateRevocationListResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ExportClientVpnClientCertificateRevocationList API operation.", Operation = new[] {"ExportClientVpnClientCertificateRevocationList"}, SelectReturnType = typeof(Amazon.EC2.Model.ExportClientVpnClientCertificateRevocationListResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ExportClientVpnClientCertificateRevocationListResponse",
         "This cmdlet returns an Amazon.EC2.Model.ExportClientVpnClientCertificateRevocationListResponse object containing multiple properties."
     )]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ExportClientVpnClientCertificateRevocationListResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ExportClientVpnClientCertificateRevocationListRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ExportClientVpnClientCertificateRevocationList");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ExportClientVpnClientCertificateRevocationList");
             try
             {
                 return client.ExportClientVpnClientCertificateRevocationListAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

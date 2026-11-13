@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("New", "SHUBAutomationRuleV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateAutomationRuleV2Response")]
-    [AWSCmdlet("Calls the AWS Security Hub CreateAutomationRuleV2 API operation.", Operation = new[] {"CreateAutomationRuleV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateAutomationRuleV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub CreateAutomationRuleV2 API operation.", Operation = new[] {"CreateAutomationRuleV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateAutomationRuleV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.CreateAutomationRuleV2Response",
         "This cmdlet returns an Amazon.SecurityHub.Model.CreateAutomationRuleV2Response object containing multiple properties."
     )]
@@ -465,7 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.CreateAutomationRuleV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.CreateAutomationRuleV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "CreateAutomationRuleV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "CreateAutomationRuleV2");
             try
             {
                 return client.CreateAutomationRuleV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

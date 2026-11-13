@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2ReachabilityAnalyzerOrganizationSharing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableReachabilityAnalyzerOrganizationSharing API operation.", Operation = new[] {"EnableReachabilityAnalyzerOrganizationSharing"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableReachabilityAnalyzerOrganizationSharing API operation.", Operation = new[] {"EnableReachabilityAnalyzerOrganizationSharing"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse) can be returned by specifying '-Select *'."
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableReachabilityAnalyzerOrganizationSharing");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableReachabilityAnalyzerOrganizationSharing");
             try
             {
                 return client.EnableReachabilityAnalyzerOrganizationSharingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

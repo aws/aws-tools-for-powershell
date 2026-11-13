@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMParameterHistory")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ParameterHistory")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetParameterHistory API operation.", Operation = new[] {"GetParameterHistory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetParameterHistoryResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetParameterHistory API operation.", Operation = new[] {"GetParameterHistory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetParameterHistoryResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ParameterHistory or Amazon.SimpleSystemsManagement.Model.GetParameterHistoryResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.ParameterHistory objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetParameterHistoryResponse) can be returned by specifying '-Select *'."
@@ -385,7 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetParameterHistoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetParameterHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetParameterHistory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetParameterHistory");
             try
             {
                 return client.GetParameterHistoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

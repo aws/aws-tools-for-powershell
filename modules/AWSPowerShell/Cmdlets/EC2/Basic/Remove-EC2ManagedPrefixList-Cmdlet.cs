@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2ManagedPrefixList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.ManagedPrefixList")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteManagedPrefixList API operation.", Operation = new[] {"DeleteManagedPrefixList"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteManagedPrefixListResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteManagedPrefixList API operation.", Operation = new[] {"DeleteManagedPrefixList"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteManagedPrefixListResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ManagedPrefixList or Amazon.EC2.Model.DeleteManagedPrefixListResponse",
         "This cmdlet returns an Amazon.EC2.Model.ManagedPrefixList object.",
         "The service call response (type Amazon.EC2.Model.DeleteManagedPrefixListResponse) can be returned by specifying '-Select *'."
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteManagedPrefixListResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteManagedPrefixListRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteManagedPrefixList");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteManagedPrefixList");
             try
             {
                 return client.DeleteManagedPrefixListAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

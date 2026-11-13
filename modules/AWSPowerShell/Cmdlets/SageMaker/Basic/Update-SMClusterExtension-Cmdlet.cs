@@ -41,6 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// version. To use an earlier version, delete the extension and create it again with
     /// that version.
     /// </para></li></ul><para>
+    /// To retry the operation on nodes where it failed, fix the cause that <c>DescribeClusterExtension</c>
+    /// reports in <c>Health</c>, and then send an <c>UpdateClusterExtension</c> request that
+    /// doesn't change the version or the configuration.
+    /// </para><para>
     /// You can't update an extension while it is being deleted.
     /// </para>
     /// </summary>

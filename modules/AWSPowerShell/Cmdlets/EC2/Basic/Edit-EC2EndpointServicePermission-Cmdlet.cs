@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2EndpointServicePermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVpcEndpointServicePermissions API operation.", Operation = new[] {"ModifyVpcEndpointServicePermissions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcEndpointServicePermissionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVpcEndpointServicePermissions API operation.", Operation = new[] {"ModifyVpcEndpointServicePermissions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcEndpointServicePermissionsResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyVpcEndpointServicePermissionsResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyVpcEndpointServicePermissionsResponse) can be returned by specifying '-Select *'."
@@ -247,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVpcEndpointServicePermissionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcEndpointServicePermissionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVpcEndpointServicePermissions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVpcEndpointServicePermissions");
             try
             {
                 return client.ModifyVpcEndpointServicePermissionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

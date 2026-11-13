@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Remove", "DOCDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DocDB.Model.DBInstance")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DeleteDBInstance API operation.", Operation = new[] {"DeleteDBInstance"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBInstanceResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DeleteDBInstance API operation.", Operation = new[] {"DeleteDBInstance"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBInstanceResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBInstance or Amazon.DocDB.Model.DeleteDBInstanceResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBInstance object.",
         "The service call response (type Amazon.DocDB.Model.DeleteDBInstanceResponse) can be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DeleteDBInstanceResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DeleteDBInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DeleteDBInstance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DeleteDBInstance");
             try
             {
                 return client.DeleteDBInstanceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

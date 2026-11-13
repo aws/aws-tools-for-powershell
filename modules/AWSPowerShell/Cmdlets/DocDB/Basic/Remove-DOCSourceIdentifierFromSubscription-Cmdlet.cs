@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Remove", "DOCSourceIdentifierFromSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DocDB.Model.EventSubscription")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) RemoveSourceIdentifierFromSubscription API operation.", Operation = new[] {"RemoveSourceIdentifierFromSubscription"}, SelectReturnType = typeof(Amazon.DocDB.Model.RemoveSourceIdentifierFromSubscriptionResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility RemoveSourceIdentifierFromSubscription API operation.", Operation = new[] {"RemoveSourceIdentifierFromSubscription"}, SelectReturnType = typeof(Amazon.DocDB.Model.RemoveSourceIdentifierFromSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.EventSubscription or Amazon.DocDB.Model.RemoveSourceIdentifierFromSubscriptionResponse",
         "This cmdlet returns an Amazon.DocDB.Model.EventSubscription object.",
         "The service call response (type Amazon.DocDB.Model.RemoveSourceIdentifierFromSubscriptionResponse) can be returned by specifying '-Select *'."
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.RemoveSourceIdentifierFromSubscriptionResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.RemoveSourceIdentifierFromSubscriptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "RemoveSourceIdentifierFromSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "RemoveSourceIdentifierFromSubscription");
             try
             {
                 return client.RemoveSourceIdentifierFromSubscriptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

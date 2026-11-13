@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2IpamScope", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamScope")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateIpamScope API operation.", Operation = new[] {"CreateIpamScope"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateIpamScopeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateIpamScope API operation.", Operation = new[] {"CreateIpamScope"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateIpamScopeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamScope or Amazon.EC2.Model.CreateIpamScopeResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamScope object.",
         "The service call response (type Amazon.EC2.Model.CreateIpamScopeResponse) can be returned by specifying '-Select *'."
@@ -309,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateIpamScopeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateIpamScopeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateIpamScope");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateIpamScope");
             try
             {
                 return client.CreateIpamScopeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

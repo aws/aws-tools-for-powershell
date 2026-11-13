@@ -510,7 +510,9 @@ $CFN_SelectMap = @{
                "Write-CFNHandlerProgress",
                "Register-CFNPublisher",
                "Register-CFNType",
+               "Remove-CFNAlias",
                "Undo-CFNStack",
+               "Set-CFNAlias",
                "Set-CFNStackPolicy",
                "Set-CFNTypeConfiguration",
                "Set-CFNTypeDefaultVersion",
@@ -524,8 +526,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap

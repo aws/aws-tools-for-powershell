@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2SubnetAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifySubnetAttribute API operation.", Operation = new[] {"ModifySubnetAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySubnetAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifySubnetAttribute API operation.", Operation = new[] {"ModifySubnetAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySubnetAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ModifySubnetAttributeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ModifySubnetAttributeResponse) be returned by specifying '-Select *'."
@@ -358,7 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifySubnetAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifySubnetAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifySubnetAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifySubnetAttribute");
             try
             {
                 return client.ModifySubnetAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

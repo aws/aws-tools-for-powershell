@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2ApplicationStatusCheckSuppression", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableApplicationStatusCheckSuppression API operation.", Operation = new[] {"DisableApplicationStatusCheckSuppression"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableApplicationStatusCheckSuppression API operation.", Operation = new[] {"DisableApplicationStatusCheckSuppression"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse",
         "This cmdlet returns an Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse object containing multiple properties."
     )]
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableApplicationStatusCheckSuppression");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableApplicationStatusCheckSuppression");
             try
             {
                 return client.DisableApplicationStatusCheckSuppressionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

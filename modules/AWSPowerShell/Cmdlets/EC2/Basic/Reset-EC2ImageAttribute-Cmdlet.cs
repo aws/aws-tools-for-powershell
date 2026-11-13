@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Reset", "EC2ImageAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ResetImageAttribute API operation.", Operation = new[] {"ResetImageAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetImageAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ResetImageAttribute API operation.", Operation = new[] {"ResetImageAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetImageAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ResetImageAttributeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.ResetImageAttributeResponse) be returned by specifying '-Select *'."
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ResetImageAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetImageAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ResetImageAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ResetImageAttribute");
             try
             {
                 return client.ResetImageAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

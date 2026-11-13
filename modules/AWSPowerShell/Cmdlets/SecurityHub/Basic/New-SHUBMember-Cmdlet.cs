@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("New", "SHUBMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.Result")]
-    [AWSCmdlet("Calls the AWS Security Hub CreateMembers API operation.", Operation = new[] {"CreateMembers"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateMembersResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub CreateMembers API operation.", Operation = new[] {"CreateMembers"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateMembersResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Result or Amazon.SecurityHub.Model.CreateMembersResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.Result objects.",
         "The service call response (type Amazon.SecurityHub.Model.CreateMembersResponse) can be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.CreateMembersResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.CreateMembersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "CreateMembers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "CreateMembers");
             try
             {
                 return client.CreateMembersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

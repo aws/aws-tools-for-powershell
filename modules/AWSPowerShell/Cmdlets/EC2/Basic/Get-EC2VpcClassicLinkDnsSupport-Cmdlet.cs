@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VpcClassicLinkDnsSupport")]
     [OutputType("Amazon.EC2.Model.ClassicLinkDnsSupport")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVpcClassicLinkDnsSupport API operation.", Operation = new[] {"DescribeVpcClassicLinkDnsSupport"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcClassicLinkDnsSupportResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVpcClassicLinkDnsSupport API operation.", Operation = new[] {"DescribeVpcClassicLinkDnsSupport"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcClassicLinkDnsSupportResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ClassicLinkDnsSupport or Amazon.EC2.Model.DescribeVpcClassicLinkDnsSupportResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ClassicLinkDnsSupport objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVpcClassicLinkDnsSupportResponse) can be returned by specifying '-Select *'."
@@ -336,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVpcClassicLinkDnsSupportResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVpcClassicLinkDnsSupportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVpcClassicLinkDnsSupport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVpcClassicLinkDnsSupport");
             try
             {
                 return client.DescribeVpcClassicLinkDnsSupportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

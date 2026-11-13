@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VpnTunnelCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpnConnection")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVpnTunnelCertificate API operation.", Operation = new[] {"ModifyVpnTunnelCertificate"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpnTunnelCertificateResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVpnTunnelCertificate API operation.", Operation = new[] {"ModifyVpnTunnelCertificate"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpnTunnelCertificateResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpnConnection or Amazon.EC2.Model.ModifyVpnTunnelCertificateResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpnConnection object.",
         "The service call response (type Amazon.EC2.Model.ModifyVpnTunnelCertificateResponse) can be returned by specifying '-Select *'."
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVpnTunnelCertificateResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpnTunnelCertificateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVpnTunnelCertificate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVpnTunnelCertificate");
             try
             {
                 return client.ModifyVpnTunnelCertificateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2DhcpOption")]
     [OutputType("Amazon.EC2.Model.DhcpOptions")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeDhcpOptions API operation.", Operation = new[] {"DescribeDhcpOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeDhcpOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeDhcpOptions API operation.", Operation = new[] {"DescribeDhcpOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeDhcpOptionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DhcpOptions or Amazon.EC2.Model.DescribeDhcpOptionsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.DhcpOptions objects.",
         "The service call response (type Amazon.EC2.Model.DescribeDhcpOptionsResponse) can be returned by specifying '-Select *'."
@@ -390,7 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeDhcpOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeDhcpOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeDhcpOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeDhcpOptions");
             try
             {
                 return client.DescribeDhcpOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

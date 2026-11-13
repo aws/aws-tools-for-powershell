@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Remove", "SHUBInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Hub DeleteInsight API operation.", Operation = new[] {"DeleteInsight"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteInsightResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DeleteInsight API operation.", Operation = new[] {"DeleteInsight"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteInsightResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.DeleteInsightResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SecurityHub.Model.DeleteInsightResponse) can be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DeleteInsightResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DeleteInsightRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DeleteInsight");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DeleteInsight");
             try
             {
                 return client.DeleteInsightAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

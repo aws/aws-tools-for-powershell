@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Reset", "EC2FpgaImageAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ResetFpgaImageAttribute API operation.", Operation = new[] {"ResetFpgaImageAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetFpgaImageAttributeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ResetFpgaImageAttribute API operation.", Operation = new[] {"ResetFpgaImageAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetFpgaImageAttributeResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ResetFpgaImageAttributeResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ResetFpgaImageAttributeResponse) can be returned by specifying '-Select *'."
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ResetFpgaImageAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetFpgaImageAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ResetFpgaImageAttribute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ResetFpgaImageAttribute");
             try
             {
                 return client.ResetFpgaImageAttributeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

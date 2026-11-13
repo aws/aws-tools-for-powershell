@@ -5,7 +5,7 @@
     <C2jFilename>securityhub</C2jFilename>
     <AssemblyName>SecurityHub</AssemblyName>
     <ServiceNounPrefix>SHUB</ServiceNounPrefix>
-    <ServiceName>AWS Security Hub</ServiceName>
+    <ServiceName>AWS SecurityHub</ServiceName>
     <ServiceId>SecurityHub</ServiceId>
     <ServiceClientInterface>IAmazonSecurityHub</ServiceClientInterface>
     <ServiceClient>AmazonSecurityHubClient</ServiceClient>

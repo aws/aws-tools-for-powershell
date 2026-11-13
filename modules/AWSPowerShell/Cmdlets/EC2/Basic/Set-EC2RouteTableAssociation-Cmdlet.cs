@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Set", "EC2RouteTableAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReplaceRouteTableAssociation API operation.", Operation = new[] {"ReplaceRouteTableAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceRouteTableAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReplaceRouteTableAssociation API operation.", Operation = new[] {"ReplaceRouteTableAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceRouteTableAssociationResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.ReplaceRouteTableAssociationResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.ReplaceRouteTableAssociationResponse) can be returned by specifying '-Select *'."
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ReplaceRouteTableAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceRouteTableAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ReplaceRouteTableAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReplaceRouteTableAssociation");
             try
             {
                 return client.ReplaceRouteTableAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

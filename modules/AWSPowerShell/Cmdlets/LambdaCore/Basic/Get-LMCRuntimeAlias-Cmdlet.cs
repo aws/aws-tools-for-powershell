@@ -23,72 +23,66 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.NetworkFirewall;
-using Amazon.NetworkFirewall.Model;
+using Amazon.LambdaCore;
+using Amazon.LambdaCore.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.NWFW
+namespace Amazon.PowerShell.Cmdlets.LMC
 {
     /// <summary>
-    /// Returns the data objects for the specified proxy configuration for the specified proxy
-    /// rule group.
+    /// Retrieves the configuration, state, and metadata of a runtime alias.
     /// </summary>
-    [Cmdlet("Get", "NWFWProxyRuleDetail")]
-    [OutputType("Amazon.NetworkFirewall.Model.DescribeProxyRuleResponse")]
-    [AWSCmdlet("Calls the AWS Network Firewall DescribeProxyRule API operation.", Operation = new[] {"DescribeProxyRule"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DescribeProxyRuleResponse))]
-    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.DescribeProxyRuleResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.DescribeProxyRuleResponse object containing multiple properties."
+    [Cmdlet("Get", "LMCRuntimeAlias")]
+    [OutputType("Amazon.LambdaCore.Model.GetRuntimeAliasResponse")]
+    [AWSCmdlet("Calls the AWS Lambda Core GetRuntimeAlias API operation.", Operation = new[] {"GetRuntimeAlias"}, SelectReturnType = typeof(Amazon.LambdaCore.Model.GetRuntimeAliasResponse))]
+    [AWSCmdletOutput("Amazon.LambdaCore.Model.GetRuntimeAliasResponse",
+        "This cmdlet returns an Amazon.LambdaCore.Model.GetRuntimeAliasResponse object containing multiple properties."
     )]
-    public partial class GetNWFWProxyRuleDetailCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class GetLMCRuntimeAliasCmdlet : AmazonLambdaCoreClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ProxyRuleGroupArn
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a proxy rule group.</para><para>You must specify the ARN or the name, and you can specify both. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyRuleGroupArn { get; set; }
-        #endregion
-        
-        #region Parameter ProxyRuleGroupName
-        /// <summary>
-        /// <para>
-        /// <para>The descriptive name of the proxy rule group. You can't change the name of a proxy
-        /// rule group after you create it.</para><para>You must specify the ARN or the name, and you can specify both. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ProxyRuleGroupName { get; set; }
-        #endregion
-        
-        #region Parameter ProxyRuleName
-        /// <summary>
-        /// <para>
-        /// <para>The descriptive name of the proxy rule. You can't change the name of a proxy rule
-        /// after you create it.</para>
+        /// The name of the runtime alias to retrieve.
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProxyRuleName { get; set; }
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter RuntimeName
+        /// <summary>
+        /// <para>
+        /// The name or ARN of the runtime.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RuntimeName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.DescribeProxyRuleResponse).
-        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.DescribeProxyRuleResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LambdaCore.Model.GetRuntimeAliasResponse).
+        /// Specifying the name of a property of type Amazon.LambdaCore.Model.GetRuntimeAliasResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,16 +105,21 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.DescribeProxyRuleResponse, GetNWFWProxyRuleDetailCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LambdaCore.Model.GetRuntimeAliasResponse, GetLMCRuntimeAliasCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ProxyRuleGroupArn = this.ProxyRuleGroupArn;
-            context.ProxyRuleGroupName = this.ProxyRuleGroupName;
-            context.ProxyRuleName = this.ProxyRuleName;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.ProxyRuleName == null && ParameterWasBound(nameof(this.ProxyRuleName)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter ProxyRuleName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.RuntimeName = this.RuntimeName;
+            #if MODULAR
+            if (this.RuntimeName == null && ParameterWasBound(nameof(this.RuntimeName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RuntimeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -137,19 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkFirewall.Model.DescribeProxyRuleRequest();
+            var request = new Amazon.LambdaCore.Model.GetRuntimeAliasRequest();
             
-            if (cmdletContext.ProxyRuleGroupArn != null)
+            if (cmdletContext.Name != null)
             {
-                request.ProxyRuleGroupArn = cmdletContext.ProxyRuleGroupArn;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.ProxyRuleGroupName != null)
+            if (cmdletContext.RuntimeName != null)
             {
-                request.ProxyRuleGroupName = cmdletContext.ProxyRuleGroupName;
-            }
-            if (cmdletContext.ProxyRuleName != null)
-            {
-                request.ProxyRuleName = cmdletContext.ProxyRuleName;
+                request.RuntimeName = cmdletContext.RuntimeName;
             }
             
             CmdletOutput output;
@@ -184,12 +179,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkFirewall.Model.DescribeProxyRuleResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.DescribeProxyRuleRequest request)
+        private Amazon.LambdaCore.Model.GetRuntimeAliasResponse CallAWSServiceOperation(IAmazonLambdaCore client, Amazon.LambdaCore.Model.GetRuntimeAliasRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "DescribeProxyRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda Core", "GetRuntimeAlias");
             try
             {
-                return client.DescribeProxyRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetRuntimeAliasAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -206,10 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProxyRuleGroupArn { get; set; }
-            public System.String ProxyRuleGroupName { get; set; }
-            public System.String ProxyRuleName { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.DescribeProxyRuleResponse, GetNWFWProxyRuleDetailCmdlet, object> Select { get; set; } =
+            public System.String Name { get; set; }
+            public System.String RuntimeName { get; set; }
+            public System.Func<Amazon.LambdaCore.Model.GetRuntimeAliasResponse, GetLMCRuntimeAliasCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

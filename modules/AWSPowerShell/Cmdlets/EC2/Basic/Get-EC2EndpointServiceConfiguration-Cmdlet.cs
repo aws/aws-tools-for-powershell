@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2EndpointServiceConfiguration")]
     [OutputType("Amazon.EC2.Model.ServiceConfiguration")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVpcEndpointServiceConfigurations API operation.", Operation = new[] {"DescribeVpcEndpointServiceConfigurations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcEndpointServiceConfigurationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVpcEndpointServiceConfigurations API operation.", Operation = new[] {"DescribeVpcEndpointServiceConfigurations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcEndpointServiceConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ServiceConfiguration or Amazon.EC2.Model.DescribeVpcEndpointServiceConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ServiceConfiguration objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVpcEndpointServiceConfigurationsResponse) can be returned by specifying '-Select *'."
@@ -375,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeVpcEndpointServiceConfigurationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVpcEndpointServiceConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVpcEndpointServiceConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeVpcEndpointServiceConfigurations");
             try
             {
                 return client.DescribeVpcEndpointServiceConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

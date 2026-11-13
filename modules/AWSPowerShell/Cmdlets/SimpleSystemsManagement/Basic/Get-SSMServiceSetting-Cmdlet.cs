@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMServiceSetting")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ServiceSetting")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetServiceSetting API operation.", Operation = new[] {"GetServiceSetting"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetServiceSettingResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetServiceSetting API operation.", Operation = new[] {"GetServiceSetting"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetServiceSettingResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ServiceSetting or Amazon.SimpleSystemsManagement.Model.GetServiceSettingResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.ServiceSetting object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetServiceSettingResponse) can be returned by specifying '-Select *'."
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetServiceSettingResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetServiceSettingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetServiceSetting");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetServiceSetting");
             try
             {
                 return client.GetServiceSettingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Register", "SSMDefaultHostManagementConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager RegisterDefaultHostManagementConfiguration API operation.", Operation = new[] {"RegisterDefaultHostManagementConfiguration"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.RegisterDefaultHostManagementConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) RegisterDefaultHostManagementConfiguration API operation.", Operation = new[] {"RegisterDefaultHostManagementConfiguration"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.RegisterDefaultHostManagementConfigurationResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.RegisterDefaultHostManagementConfigurationResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.RegisterDefaultHostManagementConfigurationResponse) can be returned by specifying '-Select *'."
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.RegisterDefaultHostManagementConfigurationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.RegisterDefaultHostManagementConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "RegisterDefaultHostManagementConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "RegisterDefaultHostManagementConfiguration");
             try
             {
                 return client.RegisterDefaultHostManagementConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2CapacityManagerMonitoredTagKey")]
     [OutputType("Amazon.EC2.Model.CapacityManagerMonitoredTagKey")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetCapacityManagerMonitoredTagKeys API operation.", Operation = new[] {"GetCapacityManagerMonitoredTagKeys"}, SelectReturnType = typeof(Amazon.EC2.Model.GetCapacityManagerMonitoredTagKeysResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetCapacityManagerMonitoredTagKeys API operation.", Operation = new[] {"GetCapacityManagerMonitoredTagKeys"}, SelectReturnType = typeof(Amazon.EC2.Model.GetCapacityManagerMonitoredTagKeysResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CapacityManagerMonitoredTagKey or Amazon.EC2.Model.GetCapacityManagerMonitoredTagKeysResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.CapacityManagerMonitoredTagKey objects.",
         "The service call response (type Amazon.EC2.Model.GetCapacityManagerMonitoredTagKeysResponse) can be returned by specifying '-Select *'."
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetCapacityManagerMonitoredTagKeysResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetCapacityManagerMonitoredTagKeysRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetCapacityManagerMonitoredTagKeys");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetCapacityManagerMonitoredTagKeys");
             try
             {
                 return client.GetCapacityManagerMonitoredTagKeysAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

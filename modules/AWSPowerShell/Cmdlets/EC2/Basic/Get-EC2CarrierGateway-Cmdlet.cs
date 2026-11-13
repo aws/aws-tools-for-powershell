@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2CarrierGateway")]
     [OutputType("Amazon.EC2.Model.CarrierGateway")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeCarrierGateways API operation.", Operation = new[] {"DescribeCarrierGateways"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCarrierGatewaysResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeCarrierGateways API operation.", Operation = new[] {"DescribeCarrierGateways"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCarrierGatewaysResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CarrierGateway or Amazon.EC2.Model.DescribeCarrierGatewaysResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.CarrierGateway objects.",
         "The service call response (type Amazon.EC2.Model.DescribeCarrierGatewaysResponse) can be returned by specifying '-Select *'."
@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeCarrierGatewaysResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeCarrierGatewaysRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeCarrierGateways");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeCarrierGateways");
             try
             {
                 return client.DescribeCarrierGatewaysAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

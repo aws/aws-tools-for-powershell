@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2CoipPool")]
     [OutputType("Amazon.EC2.Model.CoipPool")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeCoipPools API operation.", Operation = new[] {"DescribeCoipPools"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCoipPoolsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeCoipPools API operation.", Operation = new[] {"DescribeCoipPools"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCoipPoolsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CoipPool or Amazon.EC2.Model.DescribeCoipPoolsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.CoipPool objects.",
         "The service call response (type Amazon.EC2.Model.DescribeCoipPoolsResponse) can be returned by specifying '-Select *'."
@@ -377,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DescribeCoipPoolsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeCoipPoolsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeCoipPools");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeCoipPools");
             try
             {
                 return client.DescribeCoipPoolsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMOpsItem")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.OpsItem")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetOpsItem API operation.", Operation = new[] {"GetOpsItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetOpsItemResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetOpsItem API operation.", Operation = new[] {"GetOpsItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetOpsItemResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.OpsItem or Amazon.SimpleSystemsManagement.Model.GetOpsItemResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.OpsItem object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetOpsItemResponse) can be returned by specifying '-Select *'."
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetOpsItemResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetOpsItemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetOpsItem");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetOpsItem");
             try
             {
                 return client.GetOpsItemAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

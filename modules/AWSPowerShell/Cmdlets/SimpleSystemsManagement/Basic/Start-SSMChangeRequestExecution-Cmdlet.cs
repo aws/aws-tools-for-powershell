@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Start", "SSMChangeRequestExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager StartChangeRequestExecution API operation.", Operation = new[] {"StartChangeRequestExecution"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) StartChangeRequestExecution API operation.", Operation = new[] {"StartChangeRequestExecution"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionResponse) can be returned by specifying '-Select *'."
@@ -405,7 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "StartChangeRequestExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "StartChangeRequestExecution");
             try
             {
                 return client.StartChangeRequestExecutionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

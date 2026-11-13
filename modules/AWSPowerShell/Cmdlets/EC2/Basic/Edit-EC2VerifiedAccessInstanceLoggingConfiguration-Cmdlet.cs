@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VerifiedAccessInstanceLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VerifiedAccessInstanceLoggingConfiguration")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVerifiedAccessInstanceLoggingConfiguration API operation.", Operation = new[] {"ModifyVerifiedAccessInstanceLoggingConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVerifiedAccessInstanceLoggingConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVerifiedAccessInstanceLoggingConfiguration API operation.", Operation = new[] {"ModifyVerifiedAccessInstanceLoggingConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVerifiedAccessInstanceLoggingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessInstanceLoggingConfiguration or Amazon.EC2.Model.ModifyVerifiedAccessInstanceLoggingConfigurationResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessInstanceLoggingConfiguration object.",
         "The service call response (type Amazon.EC2.Model.ModifyVerifiedAccessInstanceLoggingConfigurationResponse) can be returned by specifying '-Select *'."
@@ -477,7 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyVerifiedAccessInstanceLoggingConfigurationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVerifiedAccessInstanceLoggingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVerifiedAccessInstanceLoggingConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVerifiedAccessInstanceLoggingConfiguration");
             try
             {
                 return client.ModifyVerifiedAccessInstanceLoggingConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

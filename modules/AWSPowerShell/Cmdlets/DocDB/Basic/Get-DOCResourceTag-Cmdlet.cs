@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Get", "DOCResourceTag")]
     [OutputType("Amazon.DocDB.Model.Tag")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.DocDB.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.DocDB.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.Tag or Amazon.DocDB.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.DocDB.Model.Tag objects.",
         "The service call response (type Amazon.DocDB.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

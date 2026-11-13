@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2ApplicationStatusCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssociateApplicationStatusCheckResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateApplicationStatusCheck API operation.", Operation = new[] {"AssociateApplicationStatusCheck"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateApplicationStatusCheckResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateApplicationStatusCheck API operation.", Operation = new[] {"AssociateApplicationStatusCheck"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateApplicationStatusCheckResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssociateApplicationStatusCheckResponse",
         "This cmdlet returns an Amazon.EC2.Model.AssociateApplicationStatusCheckResponse object containing multiple properties."
     )]
@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AssociateApplicationStatusCheckResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateApplicationStatusCheckRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateApplicationStatusCheck");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateApplicationStatusCheck");
             try
             {
                 return client.AssociateApplicationStatusCheckAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

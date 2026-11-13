@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Add", "EC2VpnGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpcAttachment")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AttachVpnGateway API operation.", Operation = new[] {"AttachVpnGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.AttachVpnGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AttachVpnGateway API operation.", Operation = new[] {"AttachVpnGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.AttachVpnGatewayResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcAttachment or Amazon.EC2.Model.AttachVpnGatewayResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpcAttachment object.",
         "The service call response (type Amazon.EC2.Model.AttachVpnGatewayResponse) can be returned by specifying '-Select *'."
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AttachVpnGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AttachVpnGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AttachVpnGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AttachVpnGateway");
             try
             {
                 return client.AttachVpnGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

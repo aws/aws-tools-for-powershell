@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteParameter API operation.", Operation = new[] {"DeleteParameter"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeleteParameter API operation.", Operation = new[] {"DeleteParameter"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse) be returned by specifying '-Select *'."
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteParameterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteParameter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeleteParameter");
             try
             {
                 return client.DeleteParameterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

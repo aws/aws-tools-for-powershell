@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Disable", "EC2RouteServerPropagation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.RouteServerPropagation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableRouteServerPropagation API operation.", Operation = new[] {"DisableRouteServerPropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableRouteServerPropagationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableRouteServerPropagation API operation.", Operation = new[] {"DisableRouteServerPropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableRouteServerPropagationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RouteServerPropagation or Amazon.EC2.Model.DisableRouteServerPropagationResponse",
         "This cmdlet returns an Amazon.EC2.Model.RouteServerPropagation object.",
         "The service call response (type Amazon.EC2.Model.DisableRouteServerPropagationResponse) can be returned by specifying '-Select *'."
@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisableRouteServerPropagationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableRouteServerPropagationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableRouteServerPropagation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableRouteServerPropagation");
             try
             {
                 return client.DisableRouteServerPropagationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

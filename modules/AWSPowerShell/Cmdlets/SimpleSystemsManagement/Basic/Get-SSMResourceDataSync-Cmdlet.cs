@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMResourceDataSync")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ResourceDataSyncItem")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListResourceDataSync API operation.", Operation = new[] {"ListResourceDataSync"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) ListResourceDataSync API operation.", Operation = new[] {"ListResourceDataSync"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ResourceDataSyncItem or Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.ResourceDataSyncItem objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncResponse) can be returned by specifying '-Select *'."
@@ -344,7 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListResourceDataSync");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "ListResourceDataSync");
             try
             {
                 return client.ListResourceDataSyncAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

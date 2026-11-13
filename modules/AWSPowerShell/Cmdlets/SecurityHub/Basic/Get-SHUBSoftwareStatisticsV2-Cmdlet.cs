@@ -40,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// A package installed on three resources contributes three to the count.
     /// </para><para>
     /// You can use the <c>Scopes</c> parameter to define the data boundary for the query.
-    /// Currently, <c>Scopes</c> supports <c>AwsOrganizations</c>, which lets you aggregate
-    /// software from your entire organization or from specific organizational units. Only
-    /// the delegated administrator account can use <c>Scopes</c>.
+    /// Currently, <c>Scopes</c> supports <c>AwsOrganizations</c>. With <c>AwsOrganizations</c>,
+    /// you can aggregate software from your entire organization or from specific organizational
+    /// units. Only the delegated administrator account can use <c>Scopes</c>.
     /// </para><para>
     /// This operation doesn't paginate. Use <c>MaxStatisticResults</c> to control how many
     /// grouping values are returned.
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBSoftwareStatisticsV2")]
     [OutputType("Amazon.SecurityHub.Model.GroupByResult")]
-    [AWSCmdlet("Calls the AWS Security Hub GetSoftwareStatisticsV2 API operation.", Operation = new[] {"GetSoftwareStatisticsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetSoftwareStatisticsV2Response))]
+    [AWSCmdlet("Calls the AWS SecurityHub GetSoftwareStatisticsV2 API operation.", Operation = new[] {"GetSoftwareStatisticsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetSoftwareStatisticsV2Response))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.GroupByResult or Amazon.SecurityHub.Model.GetSoftwareStatisticsV2Response",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.GroupByResult objects.",
         "The service call response (type Amazon.SecurityHub.Model.GetSoftwareStatisticsV2Response) can be returned by specifying '-Select *'."
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.GetSoftwareStatisticsV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetSoftwareStatisticsV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetSoftwareStatisticsV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "GetSoftwareStatisticsV2");
             try
             {
                 return client.GetSoftwareStatisticsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

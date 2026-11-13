@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Stop", "EC2ClientVpnConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TerminateClientVpnConnectionsResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) TerminateClientVpnConnections API operation.", Operation = new[] {"TerminateClientVpnConnections"}, SelectReturnType = typeof(Amazon.EC2.Model.TerminateClientVpnConnectionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud TerminateClientVpnConnections API operation.", Operation = new[] {"TerminateClientVpnConnections"}, SelectReturnType = typeof(Amazon.EC2.Model.TerminateClientVpnConnectionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TerminateClientVpnConnectionsResponse",
         "This cmdlet returns an Amazon.EC2.Model.TerminateClientVpnConnectionsResponse object containing multiple properties."
     )]
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.TerminateClientVpnConnectionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.TerminateClientVpnConnectionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "TerminateClientVpnConnections");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "TerminateClientVpnConnections");
             try
             {
                 return client.TerminateClientVpnConnectionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

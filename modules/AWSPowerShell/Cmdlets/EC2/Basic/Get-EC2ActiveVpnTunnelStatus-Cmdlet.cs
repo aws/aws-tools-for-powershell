@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ActiveVpnTunnelStatus")]
     [OutputType("Amazon.EC2.Model.ActiveVpnTunnelStatus")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetActiveVpnTunnelStatus API operation.", Operation = new[] {"GetActiveVpnTunnelStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetActiveVpnTunnelStatus API operation.", Operation = new[] {"GetActiveVpnTunnelStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ActiveVpnTunnelStatus or Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse",
         "This cmdlet returns an Amazon.EC2.Model.ActiveVpnTunnelStatus object.",
         "The service call response (type Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse) can be returned by specifying '-Select *'."
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetActiveVpnTunnelStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetActiveVpnTunnelStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetActiveVpnTunnelStatus");
             try
             {
                 return client.GetActiveVpnTunnelStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

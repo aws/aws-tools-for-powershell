@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2Ipv6AddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.UnassignIpv6AddressesResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) UnassignIpv6Addresses API operation.", Operation = new[] {"UnassignIpv6Addresses"}, SelectReturnType = typeof(Amazon.EC2.Model.UnassignIpv6AddressesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud UnassignIpv6Addresses API operation.", Operation = new[] {"UnassignIpv6Addresses"}, SelectReturnType = typeof(Amazon.EC2.Model.UnassignIpv6AddressesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.UnassignIpv6AddressesResponse",
         "This cmdlet returns an Amazon.EC2.Model.UnassignIpv6AddressesResponse object containing multiple properties."
     )]
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.UnassignIpv6AddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UnassignIpv6AddressesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "UnassignIpv6Addresses");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "UnassignIpv6Addresses");
             try
             {
                 return client.UnassignIpv6AddressesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

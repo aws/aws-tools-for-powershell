@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2VolumeIO", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableVolumeIO API operation.", Operation = new[] {"EnableVolumeIO"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableVolumeIOResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableVolumeIO API operation.", Operation = new[] {"EnableVolumeIO"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableVolumeIOResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.EnableVolumeIOResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.EC2.Model.EnableVolumeIOResponse) be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.EnableVolumeIOResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableVolumeIORequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableVolumeIO");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableVolumeIO");
             try
             {
                 return client.EnableVolumeIOAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Restore", "EC2ManagedPrefixListVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ManagedPrefixList")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RestoreManagedPrefixListVersion API operation.", Operation = new[] {"RestoreManagedPrefixListVersion"}, SelectReturnType = typeof(Amazon.EC2.Model.RestoreManagedPrefixListVersionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RestoreManagedPrefixListVersion API operation.", Operation = new[] {"RestoreManagedPrefixListVersion"}, SelectReturnType = typeof(Amazon.EC2.Model.RestoreManagedPrefixListVersionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ManagedPrefixList or Amazon.EC2.Model.RestoreManagedPrefixListVersionResponse",
         "This cmdlet returns an Amazon.EC2.Model.ManagedPrefixList object.",
         "The service call response (type Amazon.EC2.Model.RestoreManagedPrefixListVersionResponse) can be returned by specifying '-Select *'."
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.RestoreManagedPrefixListVersionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RestoreManagedPrefixListVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RestoreManagedPrefixListVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RestoreManagedPrefixListVersion");
             try
             {
                 return client.RestoreManagedPrefixListVersionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

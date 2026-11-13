@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2SecurityGroupRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifySecurityGroupRules API operation.", Operation = new[] {"ModifySecurityGroupRules"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySecurityGroupRulesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifySecurityGroupRules API operation.", Operation = new[] {"ModifySecurityGroupRules"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySecurityGroupRulesResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifySecurityGroupRulesResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifySecurityGroupRulesResponse) can be returned by specifying '-Select *'."
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifySecurityGroupRulesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifySecurityGroupRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifySecurityGroupRules");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifySecurityGroupRules");
             try
             {
                 return client.ModifySecurityGroupRulesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

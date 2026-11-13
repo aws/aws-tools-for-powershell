@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMInventory")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InventoryResultEntity")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetInventory API operation.", Operation = new[] {"GetInventory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetInventoryResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) GetInventory API operation.", Operation = new[] {"GetInventory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetInventoryResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InventoryResultEntity or Amazon.SimpleSystemsManagement.Model.GetInventoryResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.InventoryResultEntity objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetInventoryResponse) can be returned by specifying '-Select *'."
@@ -399,7 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetInventoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetInventoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetInventory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "GetInventory");
             try
             {
                 return client.GetInventoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

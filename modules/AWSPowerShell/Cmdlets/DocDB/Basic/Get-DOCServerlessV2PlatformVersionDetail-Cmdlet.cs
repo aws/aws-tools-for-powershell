@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Get", "DOCServerlessV2PlatformVersionDetail")]
     [OutputType("Amazon.DocDB.Model.ServerlessV2PlatformVersionInfo")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DescribeServerlessV2PlatformVersions API operation.", Operation = new[] {"DescribeServerlessV2PlatformVersions"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeServerlessV2PlatformVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DescribeServerlessV2PlatformVersions API operation.", Operation = new[] {"DescribeServerlessV2PlatformVersions"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeServerlessV2PlatformVersionsResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.ServerlessV2PlatformVersionInfo or Amazon.DocDB.Model.DescribeServerlessV2PlatformVersionsResponse",
         "This cmdlet returns a collection of Amazon.DocDB.Model.ServerlessV2PlatformVersionInfo objects.",
         "The service call response (type Amazon.DocDB.Model.DescribeServerlessV2PlatformVersionsResponse) can be returned by specifying '-Select *'."
@@ -299,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DescribeServerlessV2PlatformVersionsResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DescribeServerlessV2PlatformVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DescribeServerlessV2PlatformVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DescribeServerlessV2PlatformVersions");
             try
             {
                 return client.DescribeServerlessV2PlatformVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

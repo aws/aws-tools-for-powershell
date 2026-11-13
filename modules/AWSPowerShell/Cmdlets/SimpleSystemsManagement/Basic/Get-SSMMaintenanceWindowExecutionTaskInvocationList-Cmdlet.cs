@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowExecutionTaskInvocationList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowExecutionTaskInvocationIdentity")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeMaintenanceWindowExecutionTaskInvocations API operation.", Operation = new[] {"DescribeMaintenanceWindowExecutionTaskInvocations"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTaskInvocationsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeMaintenanceWindowExecutionTaskInvocations API operation.", Operation = new[] {"DescribeMaintenanceWindowExecutionTaskInvocations"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTaskInvocationsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowExecutionTaskInvocationIdentity or Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTaskInvocationsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.MaintenanceWindowExecutionTaskInvocationIdentity objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTaskInvocationsResponse) can be returned by specifying '-Select *'."
@@ -406,7 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTaskInvocationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTaskInvocationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeMaintenanceWindowExecutionTaskInvocations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeMaintenanceWindowExecutionTaskInvocations");
             try
             {
                 return client.DescribeMaintenanceWindowExecutionTaskInvocationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

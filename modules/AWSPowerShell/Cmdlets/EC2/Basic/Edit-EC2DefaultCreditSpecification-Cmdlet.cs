@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2DefaultCreditSpecification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.InstanceFamilyCreditSpecification")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyDefaultCreditSpecification API operation.", Operation = new[] {"ModifyDefaultCreditSpecification"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyDefaultCreditSpecificationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyDefaultCreditSpecification API operation.", Operation = new[] {"ModifyDefaultCreditSpecification"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyDefaultCreditSpecificationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceFamilyCreditSpecification or Amazon.EC2.Model.ModifyDefaultCreditSpecificationResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceFamilyCreditSpecification object.",
         "The service call response (type Amazon.EC2.Model.ModifyDefaultCreditSpecificationResponse) can be returned by specifying '-Select *'."
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyDefaultCreditSpecificationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyDefaultCreditSpecificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyDefaultCreditSpecification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyDefaultCreditSpecification");
             try
             {
                 return client.ModifyDefaultCreditSpecificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("New", "VPCLService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.CreateServiceResponse")]
-    [AWSCmdlet("Calls the VPC Lattice CreateService API operation.", Operation = new[] {"CreateService"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.CreateServiceResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice CreateService API operation.", Operation = new[] {"CreateService"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.CreateServiceResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.CreateServiceResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.CreateServiceResponse object containing multiple properties."
     )]
@@ -290,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.CreateServiceResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.CreateServiceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "CreateService");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "CreateService");
             try
             {
                 return client.CreateServiceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

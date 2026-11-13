@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("New", "DOCDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBSubnetGroup")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) CreateDBSubnetGroup API operation.", Operation = new[] {"CreateDBSubnetGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.CreateDBSubnetGroupResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility CreateDBSubnetGroup API operation.", Operation = new[] {"CreateDBSubnetGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.CreateDBSubnetGroupResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBSubnetGroup or Amazon.DocDB.Model.CreateDBSubnetGroupResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBSubnetGroup object.",
         "The service call response (type Amazon.DocDB.Model.CreateDBSubnetGroupResponse) can be returned by specifying '-Select *'."
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.CreateDBSubnetGroupResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.CreateDBSubnetGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "CreateDBSubnetGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "CreateDBSubnetGroup");
             try
             {
                 return client.CreateDBSubnetGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Remove", "SHUBMasterAccountAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub DisassociateFromMasterAccount API operation.", Operation = new[] {"DisassociateFromMasterAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisassociateFromMasterAccountResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub DisassociateFromMasterAccount API operation.", Operation = new[] {"DisassociateFromMasterAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisassociateFromMasterAccountResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DisassociateFromMasterAccountResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SecurityHub.Model.DisassociateFromMasterAccountResponse) be returned by specifying '-Select *'."
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.DisassociateFromMasterAccountResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DisassociateFromMasterAccountRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DisassociateFromMasterAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "DisassociateFromMasterAccount");
             try
             {
                 return client.DisassociateFromMasterAccountAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

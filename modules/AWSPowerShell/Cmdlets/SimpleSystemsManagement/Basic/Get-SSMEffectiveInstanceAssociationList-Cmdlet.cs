@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMEffectiveInstanceAssociationList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstanceAssociation")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeEffectiveInstanceAssociations API operation.", Operation = new[] {"DescribeEffectiveInstanceAssociations"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeEffectiveInstanceAssociations API operation.", Operation = new[] {"DescribeEffectiveInstanceAssociations"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InstanceAssociation or Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.InstanceAssociation objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsResponse) can be returned by specifying '-Select *'."
@@ -343,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeEffectiveInstanceAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeEffectiveInstanceAssociations");
             try
             {
                 return client.DescribeEffectiveInstanceAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

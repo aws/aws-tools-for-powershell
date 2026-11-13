@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Set", "EC2NetworkAclAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReplaceNetworkAclAssociation API operation.", Operation = new[] {"ReplaceNetworkAclAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceNetworkAclAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReplaceNetworkAclAssociation API operation.", Operation = new[] {"ReplaceNetworkAclAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceNetworkAclAssociationResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.ReplaceNetworkAclAssociationResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.EC2.Model.ReplaceNetworkAclAssociationResponse) can be returned by specifying '-Select *'."
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ReplaceNetworkAclAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceNetworkAclAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ReplaceNetworkAclAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReplaceNetworkAclAssociation");
             try
             {
                 return client.ReplaceNetworkAclAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Get", "VPCLResourceTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the VPC Lattice ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.VPCLattice.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.VPCLattice.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

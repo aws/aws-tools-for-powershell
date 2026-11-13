@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2TransitGatewayAttachmentNatConfiguration")]
     [OutputType("Amazon.EC2.Model.GetTransitGatewayAttachmentNatConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetTransitGatewayAttachmentNatConfiguration API operation.", Operation = new[] {"GetTransitGatewayAttachmentNatConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.GetTransitGatewayAttachmentNatConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetTransitGatewayAttachmentNatConfiguration API operation.", Operation = new[] {"GetTransitGatewayAttachmentNatConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.GetTransitGatewayAttachmentNatConfigurationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetTransitGatewayAttachmentNatConfigurationResponse",
         "This cmdlet returns an Amazon.EC2.Model.GetTransitGatewayAttachmentNatConfigurationResponse object containing multiple properties."
     )]
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetTransitGatewayAttachmentNatConfigurationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetTransitGatewayAttachmentNatConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetTransitGatewayAttachmentNatConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetTransitGatewayAttachmentNatConfiguration");
             try
             {
                 return client.GetTransitGatewayAttachmentNatConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

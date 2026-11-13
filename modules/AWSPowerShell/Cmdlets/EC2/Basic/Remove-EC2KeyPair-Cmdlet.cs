@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2KeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.DeleteKeyPairResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteKeyPair API operation.", Operation = new[] {"DeleteKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteKeyPairResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteKeyPair API operation.", Operation = new[] {"DeleteKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteKeyPairResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DeleteKeyPairResponse",
         "This cmdlet returns an Amazon.EC2.Model.DeleteKeyPairResponse object containing multiple properties."
     )]
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DeleteKeyPairResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteKeyPairRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteKeyPair");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteKeyPair");
             try
             {
                 return client.DeleteKeyPairAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

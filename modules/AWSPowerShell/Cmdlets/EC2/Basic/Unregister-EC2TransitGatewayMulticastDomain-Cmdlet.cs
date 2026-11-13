@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2TransitGatewayMulticastDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayMulticastDomainAssociations")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateTransitGatewayMulticastDomain API operation.", Operation = new[] {"DisassociateTransitGatewayMulticastDomain"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateTransitGatewayMulticastDomainResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateTransitGatewayMulticastDomain API operation.", Operation = new[] {"DisassociateTransitGatewayMulticastDomain"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateTransitGatewayMulticastDomainResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastDomainAssociations or Amazon.EC2.Model.DisassociateTransitGatewayMulticastDomainResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastDomainAssociations object.",
         "The service call response (type Amazon.EC2.Model.DisassociateTransitGatewayMulticastDomainResponse) can be returned by specifying '-Select *'."
@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisassociateTransitGatewayMulticastDomainResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateTransitGatewayMulticastDomainRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisassociateTransitGatewayMulticastDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateTransitGatewayMulticastDomain");
             try
             {
                 return client.DisassociateTransitGatewayMulticastDomainAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

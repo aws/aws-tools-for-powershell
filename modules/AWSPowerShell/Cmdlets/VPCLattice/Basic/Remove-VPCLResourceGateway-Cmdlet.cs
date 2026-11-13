@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Remove", "VPCLResourceGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.VPCLattice.Model.DeleteResourceGatewayResponse")]
-    [AWSCmdlet("Calls the VPC Lattice DeleteResourceGateway API operation.", Operation = new[] {"DeleteResourceGateway"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteResourceGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice DeleteResourceGateway API operation.", Operation = new[] {"DeleteResourceGateway"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteResourceGatewayResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.DeleteResourceGatewayResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.DeleteResourceGatewayResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.DeleteResourceGatewayResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteResourceGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteResourceGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "DeleteResourceGateway");
             try
             {
                 return client.DeleteResourceGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

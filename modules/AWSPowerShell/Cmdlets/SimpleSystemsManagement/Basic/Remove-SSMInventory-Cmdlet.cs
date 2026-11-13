@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMInventory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteInventory API operation.", Operation = new[] {"DeleteInventory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeleteInventory API operation.", Operation = new[] {"DeleteInventory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse object containing multiple properties."
     )]
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteInventoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteInventory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeleteInventory");
             try
             {
                 return client.DeleteInventoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

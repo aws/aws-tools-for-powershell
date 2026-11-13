@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// </summary>
     [Cmdlet("Get", "DOCDBEngineVersion")]
     [OutputType("Amazon.DocDB.Model.DBEngineVersion")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DescribeDBEngineVersions API operation.", Operation = new[] {"DescribeDBEngineVersions"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeDBEngineVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon DocumentDB with MongoDB compatibility DescribeDBEngineVersions API operation.", Operation = new[] {"DescribeDBEngineVersions"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeDBEngineVersionsResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBEngineVersion or Amazon.DocDB.Model.DescribeDBEngineVersionsResponse",
         "This cmdlet returns a collection of Amazon.DocDB.Model.DBEngineVersion objects.",
         "The service call response (type Amazon.DocDB.Model.DescribeDBEngineVersionsResponse) can be returned by specifying '-Select *'."
@@ -444,7 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         private Amazon.DocDB.Model.DescribeDBEngineVersionsResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.DescribeDBEngineVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "DescribeDBEngineVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB with MongoDB compatibility", "DescribeDBEngineVersions");
             try
             {
                 return client.DescribeDBEngineVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

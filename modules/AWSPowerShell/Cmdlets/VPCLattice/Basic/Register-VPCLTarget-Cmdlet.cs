@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Register", "VPCLTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.RegisterTargetsResponse")]
-    [AWSCmdlet("Calls the VPC Lattice RegisterTargets API operation.", Operation = new[] {"RegisterTargets"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.RegisterTargetsResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice RegisterTargets API operation.", Operation = new[] {"RegisterTargets"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.RegisterTargetsResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.RegisterTargetsResponse",
         "This cmdlet returns an Amazon.VPCLattice.Model.RegisterTargetsResponse object containing multiple properties."
     )]
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.RegisterTargetsResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.RegisterTargetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "RegisterTargets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "RegisterTargets");
             try
             {
                 return client.RegisterTargetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

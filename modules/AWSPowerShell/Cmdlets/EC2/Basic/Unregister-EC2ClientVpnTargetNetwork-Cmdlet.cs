@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2ClientVpnTargetNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DisassociateClientVpnTargetNetworkResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateClientVpnTargetNetwork API operation.", Operation = new[] {"DisassociateClientVpnTargetNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateClientVpnTargetNetworkResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateClientVpnTargetNetwork API operation.", Operation = new[] {"DisassociateClientVpnTargetNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateClientVpnTargetNetworkResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DisassociateClientVpnTargetNetworkResponse",
         "This cmdlet returns an Amazon.EC2.Model.DisassociateClientVpnTargetNetworkResponse object containing multiple properties."
     )]
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisassociateClientVpnTargetNetworkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateClientVpnTargetNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisassociateClientVpnTargetNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateClientVpnTargetNetwork");
             try
             {
                 return client.DisassociateClientVpnTargetNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

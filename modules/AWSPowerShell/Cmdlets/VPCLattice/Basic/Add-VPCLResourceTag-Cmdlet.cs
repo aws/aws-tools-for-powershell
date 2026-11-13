@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     /// </summary>
     [Cmdlet("Add", "VPCLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the VPC Lattice TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the Amazon VPC Lattice TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.VPCLattice.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         private Amazon.VPCLattice.Model.TagResourceResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon VPC Lattice", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

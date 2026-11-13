@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2LocalGatewayVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.LocalGatewayVirtualInterface")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateLocalGatewayVirtualInterface API operation.", Operation = new[] {"CreateLocalGatewayVirtualInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateLocalGatewayVirtualInterfaceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateLocalGatewayVirtualInterface API operation.", Operation = new[] {"CreateLocalGatewayVirtualInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateLocalGatewayVirtualInterfaceResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayVirtualInterface or Amazon.EC2.Model.CreateLocalGatewayVirtualInterfaceResponse",
         "This cmdlet returns an Amazon.EC2.Model.LocalGatewayVirtualInterface object.",
         "The service call response (type Amazon.EC2.Model.CreateLocalGatewayVirtualInterfaceResponse) can be returned by specifying '-Select *'."
@@ -355,7 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateLocalGatewayVirtualInterfaceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateLocalGatewayVirtualInterfaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateLocalGatewayVirtualInterface");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateLocalGatewayVirtualInterface");
             try
             {
                 return client.CreateLocalGatewayVirtualInterfaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IpamRoutingPolicyRegistration")]
     [OutputType("Amazon.EC2.Model.IpamRoutingPolicyRegistration")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamRoutingPolicyRegistrations API operation.", Operation = new[] {"GetIpamRoutingPolicyRegistrations"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamRoutingPolicyRegistrationsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetIpamRoutingPolicyRegistrations API operation.", Operation = new[] {"GetIpamRoutingPolicyRegistrations"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamRoutingPolicyRegistrationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamRoutingPolicyRegistration or Amazon.EC2.Model.GetIpamRoutingPolicyRegistrationsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.IpamRoutingPolicyRegistration objects.",
         "The service call response (type Amazon.EC2.Model.GetIpamRoutingPolicyRegistrationsResponse) can be returned by specifying '-Select *'."
@@ -258,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.GetIpamRoutingPolicyRegistrationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamRoutingPolicyRegistrationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamRoutingPolicyRegistrations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetIpamRoutingPolicyRegistrations");
             try
             {
                 return client.GetIpamRoutingPolicyRegistrationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -100,6 +100,18 @@ $LMC_Completers = {
             break
         }
 
+        # Amazon.LambdaCore.RuntimeReleaseState
+        {
+            ($_ -eq "New-LMCRuntime/ReleaseLifecycle_ReleaseState") -Or
+            ($_ -eq "New-LMCRuntimeAlias/ReleaseLifecycle_ReleaseState") -Or
+            ($_ -eq "Update-LMCRuntime/ReleaseLifecycle_ReleaseState") -Or
+            ($_ -eq "Update-LMCRuntimeAlias/ReleaseLifecycle_ReleaseState")
+        }
+        {
+            $v = "DEPRECATED","GA","PREVIEW"
+            break
+        }
+
 
     }
 
@@ -110,6 +122,7 @@ $LMC_Completers = {
 
 $LMC_map = @{
     "Configuration_VpcEgressConfiguration_NetworkProtocol"=@("New-LMCNetworkConnector","Update-LMCNetworkConnector")
+    "ReleaseLifecycle_ReleaseState"=@("New-LMCRuntime","New-LMCRuntimeAlias","Update-LMCRuntime","Update-LMCRuntimeAlias")
     "State"=@("Get-LMCNetworkConnectorList","Get-LMCNetworkConnectorVersionList")
 }
 
@@ -164,11 +177,27 @@ $LMC_SelectCompleters = {
 
 $LMC_SelectMap = @{
     "Select"=@("New-LMCNetworkConnector",
+               "New-LMCRuntime",
+               "New-LMCRuntimeAlias",
+               "New-LMCRuntimeVersion",
                "Remove-LMCNetworkConnector",
+               "Remove-LMCRuntime",
+               "Remove-LMCRuntimeAlias",
+               "Remove-LMCRuntimeVersion",
                "Get-LMCNetworkConnector",
+               "Get-LMCRuntime",
+               "Get-LMCRuntimeAlias",
+               "Get-LMCRuntimeVersion",
                "Get-LMCNetworkConnectorList",
                "Get-LMCNetworkConnectorVersionList",
-               "Update-LMCNetworkConnector")
+               "Get-LMCRuntimeAliasList",
+               "Get-LMCRuntimeList",
+               "Get-LMCRuntimeVersionList",
+               "Restore-LMCRuntime",
+               "Update-LMCNetworkConnector",
+               "Update-LMCRuntime",
+               "Update-LMCRuntimeAlias",
+               "Update-LMCRuntimeVersion")
 }
 
 _awsArgumentCompleterRegistration $LMC_SelectCompleters $LMC_SelectMap

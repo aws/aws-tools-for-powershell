@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Edit", "SHUBUpdateAutomationRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub BatchUpdateAutomationRules API operation.", Operation = new[] {"BatchUpdateAutomationRules"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub BatchUpdateAutomationRules API operation.", Operation = new[] {"BatchUpdateAutomationRules"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse object containing multiple properties."
     )]
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.BatchUpdateAutomationRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "BatchUpdateAutomationRules");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "BatchUpdateAutomationRules");
             try
             {
                 return client.BatchUpdateAutomationRulesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

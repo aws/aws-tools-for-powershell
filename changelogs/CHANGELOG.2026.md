@@ -1,4 +1,82 @@
-﻿### 5.0.335 (2026-11-12 20:44Z)
+﻿### 5.0.336 (2026-11-13 20:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.2.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Added cmdlet Update-APSImageBuilder leveraging the UpdateImageBuilder service API.
+    * Modified cmdlet New-APSImageBuilder: added parameters AgentAccessConfig_S3BucketArn, AgentAccessConfig_ScreenImageFormat, AgentAccessConfig_ScreenResolution, AgentAccessConfig_ScreenshotsUploadEnabled, AgentAccessConfig_Setting and AgentAccessConfig_UserControlMode.
+    * Modified cmdlet New-APSStack: added parameters AgentAccessConfig_KmsKeyArn and AgentAccessConfig_ReplaySessionEnabled.
+    * Modified cmdlet Update-APSStack: added parameters AgentAccessConfig_KmsKeyArn and AgentAccessConfig_ReplaySessionEnabled.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet Get-CGIPUserPoolClientList: added parameter ClientType.
+    * Modified cmdlet New-CGIPUserPool: added parameters DcrConfiguration_AllowedScope, DcrConfiguration_AuthenticatedGrantType, DcrConfiguration_EnableStatus, DcrConfiguration_OpenDcrEnabled and DcrConfiguration_OpenDcrGrantType.
+    * Modified cmdlet Update-CGIPUserPool: added parameters DcrConfiguration_AllowedScope, DcrConfiguration_AuthenticatedGrantType, DcrConfiguration_EnableStatus, DcrConfiguration_OpenDcrEnabled and DcrConfiguration_OpenDcrGrantType.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2NetworkingFlexCostAllocationPolicy leveraging the ModifyNetworkingFlexCostAllocationPolicy service API.
+    * Added cmdlet Get-EC2NetworkingFlexCostAllocationPolicyAssociationDetail leveraging the DescribeNetworkingFlexCostAllocationPolicyAssociations service API.
+    * Added cmdlet Get-EC2NetworkingFlexCostAllocationPolicyDetail leveraging the DescribeNetworkingFlexCostAllocationPolicies service API.
+    * Added cmdlet Get-EC2NetworkingFlexCostAllocationPolicyVersion leveraging the GetNetworkingFlexCostAllocationPolicyVersions service API.
+    * Added cmdlet New-EC2NetworkingFlexCostAllocationPolicy leveraging the CreateNetworkingFlexCostAllocationPolicy service API.
+    * Added cmdlet Register-EC2NetworkingFlexCostAllocationPolicy leveraging the AssociateNetworkingFlexCostAllocationPolicy service API.
+    * Added cmdlet Remove-EC2NetworkingFlexCostAllocationPolicy leveraging the DeleteNetworkingFlexCostAllocationPolicies service API.
+    * Added cmdlet Unregister-EC2NetworkingFlexCostAllocationPolicy leveraging the DisassociateNetworkingFlexCostAllocationPolicy service API.
+  * Amazon EventBridge Scheduler
+    * Modified cmdlet New-SCHSchedule: added parameters Target_EventBridgePutEventsV2Parameters_DetailType, Target_EventBridgePutEventsV2Parameters_Source and Target_EventBridgePutRawEventsParameters_Metadata.
+    * Modified cmdlet Update-SCHSchedule: added parameters Target_EventBridgePutEventsV2Parameters_DetailType, Target_EventBridgePutEventsV2Parameters_Source and Target_EventBridgePutRawEventsParameters_Metadata.
+  * Amazon Q Connect
+    * Modified cmdlet Invoke-QCMessageTemplate: added parameters Attributes_CaseAttribute, Attributes_CustomerProfileAttributes_CalculatedAttribute and Attributes_CustomerProfileAttributes_Recommendation.
+    * Modified cmdlet New-QCMessageTemplate: added parameters DefaultAttributes_CaseAttribute, DefaultAttributes_CustomerProfileAttributes_CalculatedAttribute and DefaultAttributes_CustomerProfileAttributes_Recommendation.
+    * Modified cmdlet Update-QCMessageTemplate: added parameters DefaultAttributes_CaseAttribute, DefaultAttributes_CustomerProfileAttributes_CalculatedAttribute and DefaultAttributes_CustomerProfileAttributes_Recommendation.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMClusterExtensionVersionList leveraging the ListClusterExtensionVersions service API.
+    * Added cmdlet Get-SMClusterOperationDetail leveraging the DescribeClusterOperation service API.
+    * Added cmdlet Get-SMClusterOperationList leveraging the ListClusterOperations service API.
+    * Modified cmdlet Get-SMClusterEventList: added parameter OperationId.
+  * Amazon Simple Systems Manager (SSM)
+    * Modified cmdlet New-SSMCloudConnector: added parameters Configuration_GcpConfiguration_OrganizationId, Configuration_GcpConfiguration_ServiceAccountEmail, Configuration_GcpConfiguration_Targets_Project and Configuration_GcpConfiguration_WorkloadIdentityPoolProvider.
+    * Modified cmdlet Update-SSMCloudConnector: added parameters Configuration_GcpConfiguration_OrganizationId, Configuration_GcpConfiguration_ServiceAccountEmail, Configuration_GcpConfiguration_Targets_Project and Configuration_GcpConfiguration_WorkloadIdentityPoolProvider.
+  * Amazon VPC Lattice
+    * Modified cmdlet Update-VPCLResourceGateway: added parameter ResourceConfigDnsResolution.
+  * AWS CloudFormation
+    * Added cmdlet Remove-CFNAlias leveraging the RemoveAlias service API.
+    * Added cmdlet Set-CFNAlias leveraging the SetAlias service API.
+  * AWS DevOps Agent Service
+    * Modified cmdlet Add-DOPSService: added parameters Configuration_Msteams_Bidirectional_Enabled and Configuration_Msteams_Bidirectional_RoleArn.
+    * Modified cmdlet Update-DOPSAssociation: added parameters Configuration_Msteams_Bidirectional_Enabled and Configuration_Msteams_Bidirectional_RoleArn.
+  * AWS Lambda
+    * Modified cmdlet Publish-LMFunction: added parameters RuntimeConfig_RuntimeAlias and RuntimeConfig_RuntimeArn.
+    * Modified cmdlet Update-LMFunctionConfiguration: added parameters RuntimeConfig_RuntimeAlias and RuntimeConfig_RuntimeArn.
+  * AWS Lambda Core
+    * Added cmdlet Get-LMCRuntime leveraging the GetRuntime service API.
+    * Added cmdlet Get-LMCRuntimeAlias leveraging the GetRuntimeAlias service API.
+    * Added cmdlet Get-LMCRuntimeAliasList leveraging the ListRuntimeAliases service API.
+    * Added cmdlet Get-LMCRuntimeList leveraging the ListRuntimes service API.
+    * Added cmdlet Get-LMCRuntimeVersion leveraging the GetRuntimeVersion service API.
+    * Added cmdlet Get-LMCRuntimeVersionList leveraging the ListRuntimeVersions service API.
+    * Added cmdlet New-LMCRuntime leveraging the CreateRuntime service API.
+    * Added cmdlet New-LMCRuntimeAlias leveraging the CreateRuntimeAlias service API.
+    * Added cmdlet New-LMCRuntimeVersion leveraging the CreateRuntimeVersion service API.
+    * Added cmdlet Remove-LMCRuntime leveraging the DeleteRuntime service API.
+    * Added cmdlet Remove-LMCRuntimeAlias leveraging the DeleteRuntimeAlias service API.
+    * Added cmdlet Remove-LMCRuntimeVersion leveraging the DeleteRuntimeVersion service API.
+    * Added cmdlet Restore-LMCRuntime leveraging the RestoreRuntime service API.
+    * Added cmdlet Update-LMCRuntime leveraging the UpdateRuntime service API.
+    * Added cmdlet Update-LMCRuntimeAlias leveraging the UpdateRuntimeAlias service API.
+    * Added cmdlet Update-LMCRuntimeVersion leveraging the UpdateRuntimeVersion service API.
+  * NWFW
+    * [Breaking Change] Removed cmdlets Dismount-NWFWRuleGroupsFromProxyConfiguration, Get-NWFWProxyConfigurationDetail, Get-NWFWProxyConfigurationList, Get-NWFWProxyList, Get-NWFWProxyRuleDetail, Get-NWFWProxyRuleGroupDetail, Get-NWFWProxyRuleGroupList, Mount-NWFWRuleGroupsToProxyConfiguration, New-NWFWProxy, New-NWFWProxyConfiguration, New-NWFWProxyRule, New-NWFWProxyRuleGroup, Remove-NWFWProxyConfiguration, Remove-NWFWProxyRule, Remove-NWFWProxyRuleGroup, Update-NWFWProxy, Update-NWFWProxyConfiguration, Update-NWFWProxyRule, Update-NWFWProxyRuleGroupPriority and Update-NWFWProxyRulePriority.
+    * [Breaking Change] Modified cmdlet New-NWFWFirewall: removed parameters NatGatewayMapping and NoSourcePreservation; added parameters NatGatewayCreateMapping, ProxySettings_CertificateArn, ProxySettings_DomainName and TransparentFilteringNatScope.
+    * Modified cmdlet Register-NWFWSubnet: added parameter NatGatewayCreateMapping.
+    * Modified cmdlet Remove-NWFWFirewall: added parameter DeleteAssociatedNatGateway.
+    * Modified cmdlet Update-NWFWProxySetting: added parameters ProxySettings_CertificateArn and ProxySettings_DomainName.
+  * IAM Roles Anywhere
+    * Modified cmdlet Import-IAMRACrl: added parameter AliasName.
+    * Modified cmdlet New-IAMRAProfile: added parameter AliasName.
+    * Modified cmdlet New-IAMRATrustAnchor: added parameter AliasName.
+    * Modified cmdlet Update-IAMRACrl: added parameter AliasName.
+    * Modified cmdlet Update-IAMRAProfile: added parameter AliasName.
+    * Modified cmdlet Update-IAMRATrustAnchor: added parameter AliasName.
+  * Service display names (ServiceName, as shown by Get-AWSService and in cmdlet help) now follow each service's model and may change when a service is renamed. Services whose display name differs from their model switch to the model's name the next time they are updated. Scripts that look up services by display name (`Get-AWSService -Service "<name>"`, `Get-AWSCmdletName -Service "<name>"`) may stop matching; use the noun prefix (for example `-Service CONN`) for stable lookups.
+
+### 5.0.335 (2026-11-12 20:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.1.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for AWS Import/Export
   * Amazon CloudWatch

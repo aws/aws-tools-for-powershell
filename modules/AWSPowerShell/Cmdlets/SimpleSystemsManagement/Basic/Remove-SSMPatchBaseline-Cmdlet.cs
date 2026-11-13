@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMPatchBaseline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeletePatchBaseline API operation.", Operation = new[] {"DeletePatchBaseline"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DeletePatchBaseline API operation.", Operation = new[] {"DeletePatchBaseline"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineResponse) can be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeletePatchBaseline");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DeletePatchBaseline");
             try
             {
                 return client.DeletePatchBaselineAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

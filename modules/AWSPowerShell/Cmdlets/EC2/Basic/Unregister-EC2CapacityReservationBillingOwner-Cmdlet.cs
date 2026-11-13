@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2CapacityReservationBillingOwner", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateCapacityReservationBillingOwner API operation.", Operation = new[] {"DisassociateCapacityReservationBillingOwner"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateCapacityReservationBillingOwnerResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateCapacityReservationBillingOwner API operation.", Operation = new[] {"DisassociateCapacityReservationBillingOwner"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateCapacityReservationBillingOwnerResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DisassociateCapacityReservationBillingOwnerResponse",
         "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.DisassociateCapacityReservationBillingOwnerResponse) can be returned by specifying '-Select *'."
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisassociateCapacityReservationBillingOwnerResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateCapacityReservationBillingOwnerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisassociateCapacityReservationBillingOwner");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateCapacityReservationBillingOwner");
             try
             {
                 return client.DisassociateCapacityReservationBillingOwnerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

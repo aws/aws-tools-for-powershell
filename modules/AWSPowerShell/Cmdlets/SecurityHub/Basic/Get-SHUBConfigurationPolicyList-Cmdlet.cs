@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// </summary>
     [Cmdlet("Get", "SHUBConfigurationPolicyList")]
     [OutputType("Amazon.SecurityHub.Model.ConfigurationPolicySummary")]
-    [AWSCmdlet("Calls the AWS Security Hub ListConfigurationPolicies API operation.", Operation = new[] {"ListConfigurationPolicies"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListConfigurationPoliciesResponse))]
+    [AWSCmdlet("Calls the AWS SecurityHub ListConfigurationPolicies API operation.", Operation = new[] {"ListConfigurationPolicies"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListConfigurationPoliciesResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.ConfigurationPolicySummary or Amazon.SecurityHub.Model.ListConfigurationPoliciesResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.ConfigurationPolicySummary objects.",
         "The service call response (type Amazon.SecurityHub.Model.ListConfigurationPoliciesResponse) can be returned by specifying '-Select *'."
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         private Amazon.SecurityHub.Model.ListConfigurationPoliciesResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListConfigurationPoliciesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListConfigurationPolicies");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SecurityHub", "ListConfigurationPolicies");
             try
             {
                 return client.ListConfigurationPoliciesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

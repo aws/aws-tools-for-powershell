@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowExecutionTaskList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowExecutionTaskIdentity")]
-    [AWSCmdlet("Calls the AWS Systems Manager DescribeMaintenanceWindowExecutionTasks API operation.", Operation = new[] {"DescribeMaintenanceWindowExecutionTasks"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTasksResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) DescribeMaintenanceWindowExecutionTasks API operation.", Operation = new[] {"DescribeMaintenanceWindowExecutionTasks"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTasksResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowExecutionTaskIdentity or Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTasksResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.MaintenanceWindowExecutionTaskIdentity objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTasksResponse) can be returned by specifying '-Select *'."
@@ -373,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTasksResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTasksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeMaintenanceWindowExecutionTasks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "DescribeMaintenanceWindowExecutionTasks");
             try
             {
                 return client.DescribeMaintenanceWindowExecutionTasksAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

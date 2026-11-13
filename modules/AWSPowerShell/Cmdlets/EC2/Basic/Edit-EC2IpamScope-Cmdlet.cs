@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2IpamScope", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamScope")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIpamScope API operation.", Operation = new[] {"ModifyIpamScope"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamScopeResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyIpamScope API operation.", Operation = new[] {"ModifyIpamScope"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamScopeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamScope or Amazon.EC2.Model.ModifyIpamScopeResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamScope object.",
         "The service call response (type Amazon.EC2.Model.ModifyIpamScopeResponse) can be returned by specifying '-Select *'."
@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.ModifyIpamScopeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIpamScopeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyIpamScope");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyIpamScope");
             try
             {
                 return client.ModifyIpamScopeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

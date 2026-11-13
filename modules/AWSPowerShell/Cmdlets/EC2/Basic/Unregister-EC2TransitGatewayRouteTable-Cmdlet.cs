@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2TransitGatewayRouteTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateTransitGatewayRouteTable API operation.", Operation = new[] {"DisassociateTransitGatewayRouteTable"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateTransitGatewayRouteTableResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateTransitGatewayRouteTable API operation.", Operation = new[] {"DisassociateTransitGatewayRouteTable"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateTransitGatewayRouteTableResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayAssociation or Amazon.EC2.Model.DisassociateTransitGatewayRouteTableResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayAssociation object.",
         "The service call response (type Amazon.EC2.Model.DisassociateTransitGatewayRouteTableResponse) can be returned by specifying '-Select *'."
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.DisassociateTransitGatewayRouteTableResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateTransitGatewayRouteTableRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisassociateTransitGatewayRouteTable");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateTransitGatewayRouteTable");
             try
             {
                 return client.DisassociateTransitGatewayRouteTableAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

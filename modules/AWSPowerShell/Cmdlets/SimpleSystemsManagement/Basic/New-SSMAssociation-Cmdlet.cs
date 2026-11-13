@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("New", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
-    [AWSCmdlet("Calls the AWS Systems Manager CreateAssociation API operation.", Operation = new[] {"CreateAssociation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Systems Manager (SSM) CreateAssociation API operation.", Operation = new[] {"CreateAssociation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription or Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.AssociationDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse) can be returned by specifying '-Select *'."
@@ -795,7 +795,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "CreateAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Manager (SSM)", "CreateAssociation");
             try
             {
                 return client.CreateAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

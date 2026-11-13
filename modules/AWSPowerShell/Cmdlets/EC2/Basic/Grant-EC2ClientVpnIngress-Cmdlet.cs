@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Grant", "EC2ClientVpnIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AuthorizeClientVpnIngress API operation.", Operation = new[] {"AuthorizeClientVpnIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.AuthorizeClientVpnIngressResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AuthorizeClientVpnIngress API operation.", Operation = new[] {"AuthorizeClientVpnIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.AuthorizeClientVpnIngressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus or Amazon.EC2.Model.AuthorizeClientVpnIngressResponse",
         "This cmdlet returns an Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus object.",
         "The service call response (type Amazon.EC2.Model.AuthorizeClientVpnIngressResponse) can be returned by specifying '-Select *'."
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.AuthorizeClientVpnIngressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AuthorizeClientVpnIngressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AuthorizeClientVpnIngress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AuthorizeClientVpnIngress");
             try
             {
                 return client.AuthorizeClientVpnIngressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

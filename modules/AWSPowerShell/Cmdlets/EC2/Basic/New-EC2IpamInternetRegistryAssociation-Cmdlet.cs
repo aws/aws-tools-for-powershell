@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2IpamInternetRegistryAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamInternetRegistryAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateIpamInternetRegistryAssociation API operation.", Operation = new[] {"CreateIpamInternetRegistryAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateIpamInternetRegistryAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateIpamInternetRegistryAssociation API operation.", Operation = new[] {"CreateIpamInternetRegistryAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateIpamInternetRegistryAssociationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamInternetRegistryAssociation or Amazon.EC2.Model.CreateIpamInternetRegistryAssociationResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamInternetRegistryAssociation object.",
         "The service call response (type Amazon.EC2.Model.CreateIpamInternetRegistryAssociationResponse) can be returned by specifying '-Select *'."
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Rir
         /// <summary>
         /// <para>
-        /// <para>The Regional Internet Registry to associate with. Possible values:</para><ul><li><para><c>ripe</c> - RIPE NCC (Europe, the Middle East, and Central Asia).</para></li><li><para><c>apnic</c> - APNIC (Asia Pacific).</para></li><li><para><c>arin</c> - ARIN (North America).</para></li><li><para><c>lacnic</c> - LACNIC (Latin America and the Caribbean).</para></li></ul>
+        /// <para>The internet registry to associate with. Possible values:</para><ul><li><para><c>ripe</c> - RIPE NCC (Europe, the Middle East, and Central Asia).</para></li><li><para><c>apnic</c> - APNIC (Asia Pacific).</para></li><li><para><c>arin</c> - ARIN (North America).</para></li><li><para><c>lacnic</c> - LACNIC (Latin America and the Caribbean).</para></li><li><para><c>nicbr</c> - NIC.br (Brazil).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private Amazon.EC2.Model.CreateIpamInternetRegistryAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateIpamInternetRegistryAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateIpamInternetRegistryAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateIpamInternetRegistryAssociation");
             try
             {
                 return client.CreateIpamInternetRegistryAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
