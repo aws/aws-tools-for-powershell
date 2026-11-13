@@ -24,7 +24,18 @@ namespace AWSPowerShellGenerator.Utils
             "extensions/EC2DecryptPassword/"
         };
 
+        // Windows PowerShell applies no binding redirects, so for each platform the modules ship the System.Memory and System.Buffers
+        // versions that System.Text.Json in the SDK artifacts references. Newer references resolve to them through AWSModuleAssemblyInitializer,
+        // and a copy of the same version in the GAC or already loaded in the session is the same assembly.
+        private static readonly Dictionary<string, (string PackageId, string Version, string LibFolder)[]> SystemTextJsonDependencies =
+            new Dictionary<string, (string PackageId, string Version, string LibFolder)[]>
+        {
+            { "net472", new[] { ("System.Memory", "4.5.5", "net461"), ("System.Buffers", "4.5.1", "net461") } },
+            { "netstandard2.0", new[] { ("System.Memory", "4.5.5", "netstandard2.0") } }
+        };
+
         private static HashSet<string> DownloadedSdkPlatforms = new HashSet<string>();
+        private static HashSet<string> UpdatedSystemTextJsonDependencyPlatforms = new HashSet<string>();
 
         internal static IEnumerable<string> GetDependencies(string sdkAssembliesFolder, string packageName)
         {
@@ -108,6 +119,45 @@ namespace AWSPowerShellGenerator.Utils
                         var (version, isPreview, previewLabel)  = SdkVersionsUtils.GetSDKVersion(sdkAssembliesFolder);
                         DownloadSDKAssembliesAsync(platformPath, platformName, version, isPreview, previewLabel).Wait();
                     }
+                }
+
+                if (UpdatedSystemTextJsonDependencyPlatforms.Add(platformPath))
+                {
+                    ReplaceSystemTextJsonDependenciesAsync(platformPath, platformName).Wait();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Replaces System.Memory and System.Buffers in the platform folder with the versions System.Text.Json references.
+        /// Runs whether the SDK assemblies were downloaded here or staged by buildtools/Build.ps1.
+        /// </summary>
+        private static async Task ReplaceSystemTextJsonDependenciesAsync(string platformPath, string platformName)
+        {
+            if (!SystemTextJsonDependencies.TryGetValue(platformName, out var packages))
+            {
+                return;
+            }
+
+            foreach (var (packageId, version, libFolder) in packages)
+            {
+                var packageUri = $"https://api.nuget.org/v3-flatcontainer/{packageId.ToLowerInvariant()}/{version}/{packageId.ToLowerInvariant()}.{version}.nupkg";
+                var entryName = $"lib/{libFolder}/{packageId}.dll";
+                Console.WriteLine($"Replacing {packageId}.dll in {platformPath} with {entryName} from {packageUri}");
+
+                try
+                {
+                    using (var client = new HttpClient())
+                    using (var packageStream = new MemoryStream(await client.GetByteArrayAsync(packageUri)))
+                    using (var archive = new ZipArchive(packageStream, ZipArchiveMode.Read))
+                    {
+                        var entry = archive.GetEntry(entryName) ?? throw new InvalidOperationException($"{entryName} not found in {packageUri}");
+                        entry.ExtractToFile(Path.Combine(platformPath, $"{packageId}.dll"), true);
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Error while downloading {packageUri}", e);
                 }
             }
         }
