@@ -946,7 +946,7 @@ $SM_Completers = {
             ($_ -eq "Stop-SMJob/JobCategory")
         }
         {
-            $v = "AgentRFT","AgentRFTEvaluation"
+            $v = "AgentRFT","AgentRFTEvaluation","DataQualityEvaluation","DataTransformation","SyntheticDataGeneration"
             break
         }
 
@@ -2328,6 +2328,7 @@ $SM_SelectMap = @{
                "New-SMInferenceComponent",
                "New-SMInferenceExperiment",
                "New-SMInferenceRecommendationsJob",
+               "New-SMInferenceRouter",
                "New-SMJob",
                "New-SMLabelingJob",
                "New-SMMlflowApp",
@@ -2387,6 +2388,7 @@ $SM_SelectMap = @{
                "Remove-SMEdgeDeploymentStage",
                "Remove-SMEndpoint",
                "Remove-SMEndpointConfig",
+               "Remove-SMEndpointPolicy",
                "Remove-SMExperiment",
                "Remove-SMFeatureGroup",
                "Remove-SMFlowDefinition",
@@ -2399,6 +2401,7 @@ $SM_SelectMap = @{
                "Remove-SMImageVersion",
                "Remove-SMInferenceComponent",
                "Remove-SMInferenceExperiment",
+               "Remove-SMInferenceRouter",
                "Remove-SMJob",
                "Remove-SMMlflowApp",
                "Remove-SMMlflowTrackingServer",
@@ -2470,6 +2473,7 @@ $SM_SelectMap = @{
                "Get-SMInferenceComponent",
                "Get-SMInferenceExperiment",
                "Get-SMInferenceRecommendationsJob",
+               "Get-SMInferenceRouterDetail",
                "Get-SMJobDetail",
                "Get-SMJobSchemaVersionDetail",
                "Get-SMLabelingJob",
@@ -2514,6 +2518,7 @@ $SM_SelectMap = @{
                "Enable-SMSagemakerServicecatalogPortfolio",
                "Set-SMTrainingPlanExtension",
                "Get-SMDeviceFleetReport",
+               "Get-SMEndpointPolicy",
                "Get-SMLineageGroupPolicy",
                "Get-SMModelPackageGroupPolicy",
                "Get-SMSagemakerServicecatalogPortfolioStatus",
@@ -2565,6 +2570,7 @@ $SM_SelectMap = @{
                "Get-SMInferenceExperimentList",
                "Get-SMInferenceRecommendationsJobList",
                "Get-SMInferenceRecommendationsJobStepList",
+               "Get-SMInferenceRouterList",
                "Get-SMJobList",
                "Get-SMJobSchemaVersionList",
                "Get-SMLabelingJobList",
@@ -2614,6 +2620,7 @@ $SM_SelectMap = @{
                "Get-SMUserProfileList",
                "Get-SMWorkforceList",
                "Get-SMWorkteamList",
+               "Write-SMEndpointPolicy",
                "Write-SMModelPackageGroupPolicy",
                "Find-SMLineage",
                "Register-SMDevice",
@@ -2677,6 +2684,7 @@ $SM_SelectMap = @{
                "Update-SMInferenceComponent",
                "Update-SMInferenceComponentRuntimeConfig",
                "Update-SMInferenceExperiment",
+               "Update-SMInferenceRouter",
                "Update-SMMlflowApp",
                "Update-SMMlflowTrackingServer",
                "Update-SMModelCard",

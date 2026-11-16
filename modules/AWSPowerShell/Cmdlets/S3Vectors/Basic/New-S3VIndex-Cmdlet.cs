@@ -137,10 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         /// <summary>
         /// <para>
         /// <para>Non-filterable metadata keys allow you to enrich vectors with additional context during
-        /// storage and retrieval. Unlike default metadata keys, these keys can’t be used as query
-        /// filters. Non-filterable metadata keys can be retrieved but can’t be searched, queried,
-        /// or filtered. You can access non-filterable metadata keys of your vectors after finding
-        /// the vectors. For more information about non-filterable metadata keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-vectors.html">Vectors</a>
+        /// storage and retrieval. You can't use these keys in metadata filters. You can still
+        /// make a non-filterable key full-text searchable by configuring it separately in <c>textSearchConfigurations</c>.
+        /// You can retrieve non-filterable metadata keys after finding the vectors. For more
+        /// information about non-filterable metadata keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-vectors.html">Vectors</a>
         /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-limitations.html">Limitations
         /// and restrictions</a> in the <i>Amazon S3 User Guide</i>. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
@@ -187,6 +187,22 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter MetadataConfiguration_TextSearchConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Full-text search configurations for searchable metadata keys.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataConfiguration_TextSearchConfigurations")]
+        public Amazon.S3Vectors.Model.TextSearchConfiguration[] MetadataConfiguration_TextSearchConfiguration { get; set; }
         #endregion
         
         #region Parameter VectorBucketArn
@@ -289,6 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             {
                 context.MetadataConfiguration_NonFilterableMetadataKey = new List<System.String>(this.MetadataConfiguration_NonFilterableMetadataKey);
             }
+            if (this.MetadataConfiguration_TextSearchConfiguration != null)
+            {
+                context.MetadataConfiguration_TextSearchConfiguration = new List<Amazon.S3Vectors.Model.TextSearchConfiguration>(this.MetadataConfiguration_TextSearchConfiguration);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -374,6 +394,16 @@ namespace Amazon.PowerShell.Cmdlets.S3V
                 request.MetadataConfiguration.NonFilterableMetadataKeys = requestMetadataConfiguration_metadataConfiguration_NonFilterableMetadataKey;
                 requestMetadataConfigurationIsNull = false;
             }
+            List<Amazon.S3Vectors.Model.TextSearchConfiguration> requestMetadataConfiguration_metadataConfiguration_TextSearchConfiguration = null;
+            if (cmdletContext.MetadataConfiguration_TextSearchConfiguration != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_TextSearchConfiguration = cmdletContext.MetadataConfiguration_TextSearchConfiguration;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_TextSearchConfiguration != null)
+            {
+                request.MetadataConfiguration.TextSearchConfigurations = requestMetadataConfiguration_metadataConfiguration_TextSearchConfiguration;
+                requestMetadataConfigurationIsNull = false;
+            }
              // determine if request.MetadataConfiguration should be set to null
             if (requestMetadataConfigurationIsNull)
             {
@@ -453,6 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             public Amazon.S3Vectors.SseType EncryptionConfiguration_SseType { get; set; }
             public System.String IndexName { get; set; }
             public List<System.String> MetadataConfiguration_NonFilterableMetadataKey { get; set; }
+            public List<Amazon.S3Vectors.Model.TextSearchConfiguration> MetadataConfiguration_TextSearchConfiguration { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String VectorBucketArn { get; set; }
             public System.String VectorBucketName { get; set; }

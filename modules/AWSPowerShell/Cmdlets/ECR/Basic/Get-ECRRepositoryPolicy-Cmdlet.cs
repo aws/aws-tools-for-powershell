@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRRepositoryPolicy")]
     [OutputType("Amazon.ECR.Model.GetRepositoryPolicyResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry GetRepositoryPolicy API operation.", Operation = new[] {"GetRepositoryPolicy"}, SelectReturnType = typeof(Amazon.ECR.Model.GetRepositoryPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry GetRepositoryPolicy API operation.", Operation = new[] {"GetRepositoryPolicy"}, SelectReturnType = typeof(Amazon.ECR.Model.GetRepositoryPolicyResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.GetRepositoryPolicyResponse",
         "This cmdlet returns an Amazon.ECR.Model.GetRepositoryPolicyResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.GetRepositoryPolicyResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetRepositoryPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "GetRepositoryPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "GetRepositoryPolicy");
             try
             {
                 return client.GetRepositoryPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

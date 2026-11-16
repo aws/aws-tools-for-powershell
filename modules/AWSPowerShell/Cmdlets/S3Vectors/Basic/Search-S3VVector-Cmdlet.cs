@@ -30,13 +30,19 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Performs an approximate nearest neighbor search query in a vector index using a query
-    /// vector. By default, it returns the keys of approximate nearest neighbors. You can
-    /// optionally include the computed distance (between the query vector and each vector
-    /// in the response) and metadata of each vector in the response.
+    /// Returns matching vector keys from a vector index ranked by vector similarity, full-text
+    /// relevance, or both. Specify <c>queryVector</c> to perform a vector search, specify
+    /// <c>queryTexts</c> to perform a full-text search, or specify both to perform a hybrid
+    /// search. Full-text search ranks results using BM25. Hybrid search combines the vector
+    /// and full-text rankings using Reciprocal Rank Fusion (RRF).
     /// 
     ///  
     /// <para>
+    /// Amazon S3 Vectors ranks results by distance for a vector-only search, by BM25 score
+    /// for a full-text-only search, and by RRF score for a hybrid search. You can optionally
+    /// include computed distances, relevance scores, and vector metadata in the response.
+    /// Full-text and hybrid searches require a vector index in <c>ENHANCED</c> mode.
+    /// </para><para>
     /// To specify the vector index, you can either use both the vector bucket name and the
     /// vector index name, or use the vector index Amazon Resource Name (ARN). 
     /// </para><dl><dt>Permissions</dt><dd><para>
@@ -45,13 +51,14 @@ namespace Amazon.PowerShell.Cmdlets.S3V
     /// </para><ul><li><para>
     /// With only <c>s3vectors:QueryVectors</c> permission, you can retrieve vector keys of
     /// approximate nearest neighbors and computed distances between these vectors. This permission
-    /// is sufficient only when you don't set any metadata filters and don't request metadata
-    /// (by keeping the <c>returnMetadata</c> parameter set to <c>false</c> or not specified).
+    /// is sufficient only when you don't set <c>queryTexts</c>, don't set any metadata filters,
+    /// and don't request metadata (by keeping the <c>returnMetadata</c> parameter set to
+    /// <c>false</c> or not specified).
     /// </para></li><li><para>
-    /// If you specify a metadata filter or set <c>returnMetadata</c> to true, you must have
-    /// both <c>s3vectors:QueryVectors</c> and <c>s3vectors:GetVectors</c> permissions. The
-    /// request fails with a <c>403 Forbidden error</c> if you request metadata filtering
-    /// or metadata without the <c>s3vectors:GetVectors</c> permission.
+    /// To use <c>queryTexts</c>, a metadata filter, or <c>returnMetadata</c> set to <c>true</c>
+    /// with this operation, you must have both the <c>s3vectors:QueryVectors</c> and <c>s3vectors:GetVectors</c>
+    /// permissions. If you use any of these options without the <c>s3vectors:GetVectors</c>
+    /// permission, Amazon S3 Vectors returns an <c>AccessDeniedException</c>.
     /// </para></li></ul></dd></dl><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "S3VVector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -129,6 +136,24 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         public Amazon.S3Vectors.IndexMode QueryMode { get; set; }
         #endregion
         
+        #region Parameter QueryText
+        /// <summary>
+        /// <para>
+        /// <para>Full-text queries for searchable metadata keys. Omit <c>queryVector</c> to run a full-text-only
+        /// search, or provide both fields to run a hybrid search. Each entry must target a distinct
+        /// searchable metadata key.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QueryTexts")]
+        public Amazon.S3Vectors.Model.QueryText[] QueryText { get; set; }
+        #endregion
+        
         #region Parameter ReturnDistance
         /// <summary>
         /// <para>
@@ -148,6 +173,20 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ReturnMetadata { get; set; }
+        #endregion
+        
+        #region Parameter ReturnScore
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to include relevance scores in the response. Full-text-only results
+        /// can include BM25 scores. Hybrid results can also include a Reciprocal Rank Fusion
+        /// (RRF) score and vector distance. This setting doesn't add scores to vector-only requests.
+        /// The default value is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReturnScores")]
+        public System.Boolean? ReturnScore { get; set; }
         #endregion
         
         #region Parameter TopK
@@ -252,12 +291,17 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             context.IndexName = this.IndexName;
             context.NextToken = this.NextToken;
             context.QueryMode = this.QueryMode;
+            if (this.QueryText != null)
+            {
+                context.QueryText = new List<Amazon.S3Vectors.Model.QueryText>(this.QueryText);
+            }
             if (this.QueryVector_Float32 != null)
             {
                 context.QueryVector_Float32 = new List<System.Single>(this.QueryVector_Float32);
             }
             context.ReturnDistance = this.ReturnDistance;
             context.ReturnMetadata = this.ReturnMetadata;
+            context.ReturnScore = this.ReturnScore;
             context.TopK = this.TopK;
             #if MODULAR
             if (this.TopK == null && ParameterWasBound(nameof(this.TopK)))
@@ -300,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             {
                 request.QueryMode = cmdletContext.QueryMode;
             }
+            if (cmdletContext.QueryText != null)
+            {
+                request.QueryTexts = cmdletContext.QueryText;
+            }
             
              // populate QueryVector
             var requestQueryVectorIsNull = true;
@@ -326,6 +374,10 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             if (cmdletContext.ReturnMetadata != null)
             {
                 request.ReturnMetadata = cmdletContext.ReturnMetadata.Value;
+            }
+            if (cmdletContext.ReturnScore != null)
+            {
+                request.ReturnScores = cmdletContext.ReturnScore.Value;
             }
             if (cmdletContext.TopK != null)
             {
@@ -419,9 +471,11 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             public System.String IndexName { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.S3Vectors.IndexMode QueryMode { get; set; }
+            public List<Amazon.S3Vectors.Model.QueryText> QueryText { get; set; }
             public List<System.Single> QueryVector_Float32 { get; set; }
             public System.Boolean? ReturnDistance { get; set; }
             public System.Boolean? ReturnMetadata { get; set; }
+            public System.Boolean? ReturnScore { get; set; }
             public System.Int32? TopK { get; set; }
             public System.String VectorBucketName { get; set; }
             public System.Func<Amazon.S3Vectors.Model.QueryVectorsResponse, SearchS3VVectorCmdlet, object> Select { get; set; } =

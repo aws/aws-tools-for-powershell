@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Write", "ECRImageScanningConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.PutImageScanningConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutImageScanningConfiguration API operation.", Operation = new[] {"PutImageScanningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.PutImageScanningConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry PutImageScanningConfiguration API operation.", Operation = new[] {"PutImageScanningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.PutImageScanningConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.PutImageScanningConfigurationResponse",
         "This cmdlet returns an Amazon.ECR.Model.PutImageScanningConfigurationResponse object containing multiple properties."
     )]
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.PutImageScanningConfigurationResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.PutImageScanningConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "PutImageScanningConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "PutImageScanningConfiguration");
             try
             {
                 return client.PutImageScanningConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

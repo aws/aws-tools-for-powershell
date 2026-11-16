@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Get", "HLTHHealthServiceStatusForOrganization")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Health DescribeHealthServiceStatusForOrganization API operation.", Operation = new[] {"DescribeHealthServiceStatusForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeHealthServiceStatusForOrganizationResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications DescribeHealthServiceStatusForOrganization API operation.", Operation = new[] {"DescribeHealthServiceStatusForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeHealthServiceStatusForOrganizationResponse))]
     [AWSCmdletOutput("System.String or Amazon.AWSHealth.Model.DescribeHealthServiceStatusForOrganizationResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.AWSHealth.Model.DescribeHealthServiceStatusForOrganizationResponse) can be returned by specifying '-Select *'."
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.DescribeHealthServiceStatusForOrganizationResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeHealthServiceStatusForOrganizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeHealthServiceStatusForOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "DescribeHealthServiceStatusForOrganization");
             try
             {
                 return client.DescribeHealthServiceStatusForOrganizationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

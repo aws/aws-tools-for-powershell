@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Write", "ECRAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.PutAccountSettingResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutAccountSetting API operation.", Operation = new[] {"PutAccountSetting"}, SelectReturnType = typeof(Amazon.ECR.Model.PutAccountSettingResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry PutAccountSetting API operation.", Operation = new[] {"PutAccountSetting"}, SelectReturnType = typeof(Amazon.ECR.Model.PutAccountSettingResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.PutAccountSettingResponse",
         "This cmdlet returns an Amazon.ECR.Model.PutAccountSettingResponse object containing multiple properties."
     )]
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.PutAccountSettingResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.PutAccountSettingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "PutAccountSetting");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "PutAccountSetting");
             try
             {
                 return client.PutAccountSettingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

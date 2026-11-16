@@ -28,7 +28,7 @@ using Amazon.AWSHealth.Model;
 
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
-    [AWSClientCmdlet("AWS Health", "HLTH", "2016-08-04", "AWSHealth")]
+    [AWSClientCmdlet("AWS Health APIs and Notifications", "HLTH", "2016-08-04", "AWSHealth")]
     public abstract partial class AmazonAWSHealthClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAWSHealth Client { get; private set; }

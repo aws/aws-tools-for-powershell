@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Update", "ECRImageStorageClass", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.UpdateImageStorageClassResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry UpdateImageStorageClass API operation.", Operation = new[] {"UpdateImageStorageClass"}, SelectReturnType = typeof(Amazon.ECR.Model.UpdateImageStorageClassResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry UpdateImageStorageClass API operation.", Operation = new[] {"UpdateImageStorageClass"}, SelectReturnType = typeof(Amazon.ECR.Model.UpdateImageStorageClassResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.UpdateImageStorageClassResponse",
         "This cmdlet returns an Amazon.ECR.Model.UpdateImageStorageClassResponse object containing multiple properties."
     )]
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.UpdateImageStorageClassResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.UpdateImageStorageClassRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "UpdateImageStorageClass");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "UpdateImageStorageClass");
             try
             {
                 return client.UpdateImageStorageClassAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

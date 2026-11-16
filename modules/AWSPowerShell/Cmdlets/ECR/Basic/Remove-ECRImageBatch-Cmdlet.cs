@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Remove", "ECRImageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECR.Model.BatchDeleteImageResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry BatchDeleteImage API operation.", Operation = new[] {"BatchDeleteImage"}, SelectReturnType = typeof(Amazon.ECR.Model.BatchDeleteImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry BatchDeleteImage API operation.", Operation = new[] {"BatchDeleteImage"}, SelectReturnType = typeof(Amazon.ECR.Model.BatchDeleteImageResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.BatchDeleteImageResponse",
         "This cmdlet returns an Amazon.ECR.Model.BatchDeleteImageResponse object containing multiple properties."
     )]
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.BatchDeleteImageResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchDeleteImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "BatchDeleteImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "BatchDeleteImage");
             try
             {
                 return client.BatchDeleteImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

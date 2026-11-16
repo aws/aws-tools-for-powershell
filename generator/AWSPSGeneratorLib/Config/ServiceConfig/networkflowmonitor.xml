@@ -24,11 +24,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePerformanceMonitor" OutputProperty="*" Verb="New" Noun="PerformanceMonitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateScope" OutputProperty="*" Verb="New" Noun="Scope" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMonitor" Verb="Remove" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePerformanceMonitor" Verb="Remove" Noun="PerformanceMonitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -40,7 +48,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMonitorScopeSuggestions" OutputProperty="*" Verb="Get" Noun="MonitorScopeSuggestion" PipelineParameter="MonitorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPerformanceMonitor" OutputProperty="*" Verb="Get" Noun="PerformanceMonitor" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetQueryResultsMonitorTopContributors" OutputProperty="*" Verb="Get" Noun="QueryResultsMonitorTopContributor" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueryResultsPerformanceMonitor" OutputProperty="*" Verb="Get" Noun="QueryResultsPerformanceMonitor" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -53,6 +73,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetQueryStatusMonitorTopContributors" OutputProperty="Status" Verb="Get" Noun="QueryStatusMonitorTopContributor" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueryStatusPerformanceMonitor" OutputProperty="Status" Verb="Get" Noun="QueryStatusPerformanceMonitor" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,6 +96,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPerformanceMonitors" OutputProperty="Monitors" Verb="Get" Noun="PerformanceMonitorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListScopes" OutputProperty="Scopes" Verb="Get" Noun="ScopeList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -84,6 +112,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartQueryPerformanceMonitor" OutputProperty="QueryId" Verb="Start" Noun="QueryPerformanceMonitor" ShouldProcessTarget="MonitorName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartQueryWorkloadInsightsTopContributors" OutputProperty="QueryId" Verb="Start" Noun="QueryWorkloadInsightsTopContributor" ShouldProcessTarget="ScopeId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -93,6 +125,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopQueryMonitorTopContributors" Verb="Stop" Noun="QueryMonitorTopContributor" ShouldProcessTarget="MonitorName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopQueryPerformanceMonitor" Verb="Stop" Noun="QueryPerformanceMonitor" ShouldProcessTarget="QueryId,MonitorName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -113,6 +149,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMonitor" OutputProperty="*" Verb="Update" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePerformanceMonitor" OutputProperty="*" Verb="Update" Noun="PerformanceMonitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

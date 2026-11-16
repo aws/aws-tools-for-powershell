@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRPullThroughCacheRule")]
     [OutputType("Amazon.ECR.Model.PullThroughCacheRule")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry DescribePullThroughCacheRules API operation.", Operation = new[] {"DescribePullThroughCacheRules"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribePullThroughCacheRulesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry DescribePullThroughCacheRules API operation.", Operation = new[] {"DescribePullThroughCacheRules"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribePullThroughCacheRulesResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.PullThroughCacheRule or Amazon.ECR.Model.DescribePullThroughCacheRulesResponse",
         "This cmdlet returns a collection of Amazon.ECR.Model.PullThroughCacheRule objects.",
         "The service call response (type Amazon.ECR.Model.DescribePullThroughCacheRulesResponse) can be returned by specifying '-Select *'."
@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.DescribePullThroughCacheRulesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DescribePullThroughCacheRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DescribePullThroughCacheRules");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "DescribePullThroughCacheRules");
             try
             {
                 return client.DescribePullThroughCacheRulesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

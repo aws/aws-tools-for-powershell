@@ -301,7 +301,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol
         /// to securely transmit the password.</para></li><li><para><c>ALLOW_CUSTOM_AUTH</c>: Enable Lambda trigger based authentication.</para></li><li><para><c>ALLOW_USER_PASSWORD_AUTH</c>: Enable user password-based authentication. In this
         /// flow, Amazon Cognito receives the password in the request instead of using the SRP
-        /// protocol to verify passwords.</para></li><li><para><c>ALLOW_USER_SRP_AUTH</c>: Enable SRP-based authentication.</para></li><li><para><c>ALLOW_REFRESH_TOKEN_AUTH</c>: Enable authflow to refresh tokens.</para></li></ul><para>In some environments, you will see the values <c>ADMIN_NO_SRP_AUTH</c>, <c>CUSTOM_AUTH_FLOW_ONLY</c>,
+        /// protocol to verify passwords.</para></li><li><para><c>ALLOW_USER_SRP_AUTH</c>: Enable SRP-based authentication.</para></li><li><para><c>ALLOW_REFRESH_TOKEN_AUTH</c>: Enable authflow to refresh tokens.</para></li><li><para><c>ALLOW_TOKEN_EXCHANGE_IMPERSONATION</c> – Use this flow to request <c>GetDerivedToken</c>
+        /// token exchanges without an <c>ActorToken</c>. The issued token represents the subject
+        /// user directly.</para></li><li><para><c>ALLOW_TOKEN_EXCHANGE_DELEGATION</c> – Use this flow to request <c>GetDerivedToken</c>
+        /// token exchanges that include an <c>ActorToken</c>. The issued token carries an <c>act</c>
+        /// claim that identifies the intermediary acting on the behalf of the subject.</para></li></ul><para>In some environments, you will see the values <c>ADMIN_NO_SRP_AUTH</c>, <c>CUSTOM_AUTH_FLOW_ONLY</c>,
         /// or <c>USER_PASSWORD_AUTH</c>. You can't assign these legacy <c>ExplicitAuthFlows</c>
         /// values to user pool clients at the same time as values that begin with <c>ALLOW_</c>,
         /// like <c>ALLOW_USER_SRP_AUTH</c>.</para><para />

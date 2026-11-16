@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRLayerAvailabilityBatch")]
     [OutputType("Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry BatchCheckLayerAvailability API operation.", Operation = new[] {"BatchCheckLayerAvailability"}, SelectReturnType = typeof(Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry BatchCheckLayerAvailability API operation.", Operation = new[] {"BatchCheckLayerAvailability"}, SelectReturnType = typeof(Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse",
         "This cmdlet returns an Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse object containing multiple properties."
     )]
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchCheckLayerAvailabilityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "BatchCheckLayerAvailability");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "BatchCheckLayerAvailability");
             try
             {
                 return client.BatchCheckLayerAvailabilityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

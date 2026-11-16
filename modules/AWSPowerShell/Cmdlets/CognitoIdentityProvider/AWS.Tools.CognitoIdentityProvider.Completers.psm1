@@ -252,6 +252,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.IssuedTokenTypeIdentifierType
+        "Get-CGIPDerivedToken/RequestedTokenType"
+        {
+            $v = "ACCESS_TOKEN","ID_TOKEN"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.IssuerType
         {
             ($_ -eq "New-CGIPUserPool/IssuerConfiguration_Type") -Or
@@ -371,6 +378,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.TokenTypeIdentifierType
+        {
+            ($_ -eq "Get-CGIPDerivedToken/ActorTokenType") -Or
+            ($_ -eq "Get-CGIPDerivedToken/SubjectTokenType")
+        }
+        {
+            $v = "ACCESS_TOKEN","ID_TOKEN","SAML2"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.UpdateReplicaStatusType
         "Update-CGIPUserPoolReplica/Status"
         {
@@ -430,6 +447,7 @@ $CGIP_Completers = {
 
 $CGIP_map = @{
     "Actions_EventAction"=@("Set-CGIPRiskConfiguration")
+    "ActorTokenType"=@("Get-CGIPDerivedToken")
     "AdvancedSecurityAdditionalFlows_CustomAuthMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "AuthFlow"=@("Start-CGIPAuth","Start-CGIPAuthAdmin")
     "ChallengeName"=@("Send-CGIPAuthChallengeResponse","Send-CGIPAuthChallengeResponseAdmin")
@@ -457,8 +475,10 @@ $CGIP_map = @{
     "PreventUserExistenceError"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
     "RefreshTokenRotation_Feature"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
+    "RequestedTokenType"=@("Get-CGIPDerivedToken")
     "RevokeAssociatedSession"=@("Revoke-CGIPToken","Revoke-CGIPUserSession","Revoke-CGIPUserSessionAdmin")
     "Status"=@("Update-CGIPUserPoolReplica")
+    "SubjectTokenType"=@("Get-CGIPDerivedToken")
     "TermsSource"=@("New-CGIPTerm","Update-CGIPTerm")
     "TokenValidityUnits_AccessToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_IdToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
@@ -597,6 +617,7 @@ $CGIP_SelectMap = @{
                "Reset-CGIPForgottenPassword",
                "Get-CGIPClientToken",
                "Get-CGIPCSVHeader",
+               "Get-CGIPDerivedToken",
                "Get-CGIPDevice",
                "Get-CGIPGroup",
                "Get-CGIPIdentityProviderByIdentifier",

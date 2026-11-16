@@ -45,6 +45,28 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AttributesToGet
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the table properties returned by the <c>ListTableMetadata</c> call. This
+        /// parameter doesn't accept an empty list, and the request must include <c>NAME</c>.
+        /// The valid combinations of values are <c>NAME</c>, which returns the name of each table,
+        /// and <c>NAME</c> and <c>TABLE_TYPE</c>, which return the name and table type of each
+        /// table. The remaining properties are omitted. If you omit this parameter, all table
+        /// properties are returned.</para><para>Requesting only the properties you need can reduce response time for databases that
+        /// contain many tables.</para><para>This parameter applies only to the Glue Data Catalog. For other data catalog types,
+        /// it is ignored.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AttributesToGet { get; set; }
+        #endregion
+        
         #region Parameter CatalogName
         /// <summary>
         /// <para>
@@ -168,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 context.Select = CreateSelectDelegate<Amazon.Athena.Model.ListTableMetadataResponse, GetATHTableMetadataListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AttributesToGet != null)
+            {
+                context.AttributesToGet = new List<System.String>(this.AttributesToGet);
+            }
             context.CatalogName = this.CatalogName;
             #if MODULAR
             if (this.CatalogName == null && ParameterWasBound(nameof(this.CatalogName)))
@@ -204,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             // create request and set iteration invariants
             var request = new Amazon.Athena.Model.ListTableMetadataRequest();
             
+            if (cmdletContext.AttributesToGet != null)
+            {
+                request.AttributesToGet = cmdletContext.AttributesToGet;
+            }
             if (cmdletContext.CatalogName != null)
             {
                 request.CatalogName = cmdletContext.CatalogName;
@@ -303,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AttributesToGet { get; set; }
             public System.String CatalogName { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String Expression { get; set; }

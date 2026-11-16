@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Register", "ECRPullTimeUpdateExclusion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.RegisterPullTimeUpdateExclusionResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry RegisterPullTimeUpdateExclusion API operation.", Operation = new[] {"RegisterPullTimeUpdateExclusion"}, SelectReturnType = typeof(Amazon.ECR.Model.RegisterPullTimeUpdateExclusionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry RegisterPullTimeUpdateExclusion API operation.", Operation = new[] {"RegisterPullTimeUpdateExclusion"}, SelectReturnType = typeof(Amazon.ECR.Model.RegisterPullTimeUpdateExclusionResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.RegisterPullTimeUpdateExclusionResponse",
         "This cmdlet returns an Amazon.ECR.Model.RegisterPullTimeUpdateExclusionResponse object containing multiple properties."
     )]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.RegisterPullTimeUpdateExclusionResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.RegisterPullTimeUpdateExclusionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "RegisterPullTimeUpdateExclusion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "RegisterPullTimeUpdateExclusion");
             try
             {
                 return client.RegisterPullTimeUpdateExclusionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -5,7 +5,7 @@
     <C2jFilename>health</C2jFilename>
     <AssemblyName>AWSHealth</AssemblyName>
     <ServiceNounPrefix>HLTH</ServiceNounPrefix>
-    <ServiceName>AWS Health</ServiceName>
+    <ServiceName>AWS Health APIs and Notifications</ServiceName>
     <ServiceId>Health</ServiceId>
     <ServiceClientInterface>IAmazonAWSHealth</ServiceClientInterface>
     <ServiceClient>AmazonAWSHealthClient</ServiceClient>
@@ -20,6 +20,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="ConfigureTags" OutputProperty="ConfiguredTagKeys" Verb="Update" Noun="Tag" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfigureTagsForOrganization" OutputProperty="ConfiguredTagKeys" Verb="Update" Noun="TagsForOrganization" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAffectedAccountsForOrganization" OutputProperty="AffectedAccounts" Verb="Get" Noun="AffectedAccountsForOrganization" PipelineParameter="EventArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -79,11 +87,51 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTagKeys" OutputProperty="Keys" Verb="Get" Noun="TagKeyDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTagKeysForOrganization" OutputProperty="Keys" Verb="Get" Noun="TagKeysForOrganizationDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="TagDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTagsForOrganization" OutputProperty="Tags" Verb="Get" Noun="TagsForOrganizationDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTagsOnboardingStatus" OutputProperty="Status" Verb="Get" Noun="TagsOnboardingStatusDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTagsOnboardingStatusForOrganization" OutputProperty="Status" Verb="Get" Noun="TagsOnboardingStatusForOrganizationDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableHealthServiceAccessForOrganization" Verb="Disable" Noun="HealthServiceAccessForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableTags" Verb="Disable" Noun="Tag" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableTagsForOrganization" Verb="Disable" Noun="TagsForOrganization" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableHealthServiceAccessForOrganization" Verb="Enable" Noun="HealthServiceAccessForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableTags" Verb="Enable" Noun="Tag" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableTagsForOrganization" Verb="Enable" Noun="TagsForOrganization" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

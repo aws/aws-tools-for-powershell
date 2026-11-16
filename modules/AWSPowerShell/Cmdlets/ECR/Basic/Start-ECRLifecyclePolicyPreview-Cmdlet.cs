@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Start", "ECRLifecyclePolicyPreview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry StartLifecyclePolicyPreview API operation.", Operation = new[] {"StartLifecyclePolicyPreview"}, SelectReturnType = typeof(Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry StartLifecyclePolicyPreview API operation.", Operation = new[] {"StartLifecyclePolicyPreview"}, SelectReturnType = typeof(Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse",
         "This cmdlet returns an Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse object containing multiple properties."
     )]
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.StartLifecyclePolicyPreviewRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "StartLifecyclePolicyPreview");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "StartLifecyclePolicyPreview");
             try
             {
                 return client.StartLifecyclePolicyPreviewAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

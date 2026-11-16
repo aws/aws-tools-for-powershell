@@ -522,6 +522,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateInferenceRouter" OutputProperty="InferenceRouterArn" Verb="New" Noun="InferenceRouter" ShouldProcessTarget="InferenceRouterName" PipelineParameter="InferenceRouterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" OutputProperty="JobArn" Verb="New" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -971,6 +975,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpointPolicy" Verb="Remove" Noun="EndpointPolicy" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteExperiment" OutputProperty="ExperimentArn" Verb="Remove" Noun="Experiment" ShouldProcessTarget="ExperimentName" PipelineParameter="ExperimentName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1016,6 +1024,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="Remove" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInferenceRouter" Verb="Remove" Noun="InferenceRouter" ShouldProcessTarget="InferenceRouterName" PipelineParameter="InferenceRouterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1303,6 +1315,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInferenceRouter" OutputProperty="*" Verb="Get" Noun="InferenceRouterDetail" PipelineParameter="InferenceRouterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeJob" OutputProperty="*" Verb="Get" Noun="JobDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1476,6 +1492,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDeviceFleetReport" OutputProperty="*" Verb="Get" Noun="DeviceFleetReport" PipelineParameter="DeviceFleetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEndpointPolicy" OutputProperty="*" Verb="Get" Noun="EndpointPolicy" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1685,6 +1705,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInferenceRouters" OutputProperty="InferenceRouters" Verb="Get" Noun="InferenceRouterList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaries" Verb="Get" Noun="JobList" PipelineParameter="JobCategory" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1878,6 +1902,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListWorkteams" OutputProperty="Workteams" Verb="Get" Noun="WorkteamList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEndpointPolicy" OutputProperty="EndpointArn" Verb="Write" Noun="EndpointPolicy" ShouldProcessTarget="EndpointName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2251,6 +2279,10 @@
                 <Param Name="DataStorageConfig_ContentType_CsvContentTypes" NewName="ContentType_CsvContentType" />
                 <Param Name="DataStorageConfig_ContentType_JsonContentTypes" NewName="ContentType_JsonContentType" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInferenceRouter" OutputProperty="InferenceRouterArn" Verb="Update" Noun="InferenceRouter" ShouldProcessTarget="InferenceRouterName" PipelineParameter="InferenceRouterName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMlflowApp" OutputProperty="Arn" Verb="Update" Noun="MlflowApp" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">

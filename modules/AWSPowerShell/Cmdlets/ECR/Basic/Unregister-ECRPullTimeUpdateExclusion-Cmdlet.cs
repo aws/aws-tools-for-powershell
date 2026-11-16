@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Unregister", "ECRPullTimeUpdateExclusion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry DeregisterPullTimeUpdateExclusion API operation.", Operation = new[] {"DeregisterPullTimeUpdateExclusion"}, SelectReturnType = typeof(Amazon.ECR.Model.DeregisterPullTimeUpdateExclusionResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry DeregisterPullTimeUpdateExclusion API operation.", Operation = new[] {"DeregisterPullTimeUpdateExclusion"}, SelectReturnType = typeof(Amazon.ECR.Model.DeregisterPullTimeUpdateExclusionResponse))]
     [AWSCmdletOutput("System.String or Amazon.ECR.Model.DeregisterPullTimeUpdateExclusionResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.ECR.Model.DeregisterPullTimeUpdateExclusionResponse) can be returned by specifying '-Select *'."
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.DeregisterPullTimeUpdateExclusionResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DeregisterPullTimeUpdateExclusionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DeregisterPullTimeUpdateExclusion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "DeregisterPullTimeUpdateExclusion");
             try
             {
                 return client.DeregisterPullTimeUpdateExclusionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

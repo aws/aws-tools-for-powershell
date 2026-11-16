@@ -156,6 +156,23 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String Content_Industry { get; set; }
         #endregion
         
+        #region Parameter Content_OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Organizations organizational unit (OU) IDs associated with this application
+        /// context. Valid only for organizational profiles; rejected for standard profiles.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_OrganizationalUnitIds")]
+        public System.String[] Content_OrganizationalUnitId { get; set; }
+        #endregion
+        
         #region Parameter ProfileArn
         /// <summary>
         /// <para>
@@ -308,6 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             }
             context.Content_Criticality = this.Content_Criticality;
             context.Content_Industry = this.Content_Industry;
+            if (this.Content_OrganizationalUnitId != null)
+            {
+                context.Content_OrganizationalUnitId = new List<System.String>(this.Content_OrganizationalUnitId);
+            }
             if (this.Content_Region != null)
             {
                 context.Content_Region = new List<System.String>(this.Content_Region);
@@ -439,6 +460,16 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                 request.Content.Industry = requestContent_content_Industry;
                 requestContentIsNull = false;
             }
+            List<System.String> requestContent_content_OrganizationalUnitId = null;
+            if (cmdletContext.Content_OrganizationalUnitId != null)
+            {
+                requestContent_content_OrganizationalUnitId = cmdletContext.Content_OrganizationalUnitId;
+            }
+            if (requestContent_content_OrganizationalUnitId != null)
+            {
+                request.Content.OrganizationalUnitIds = requestContent_content_OrganizationalUnitId;
+                requestContentIsNull = false;
+            }
             List<System.String> requestContent_content_Region = null;
             if (cmdletContext.Content_Region != null)
             {
@@ -550,6 +581,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             public List<System.String> Content_AwsService { get; set; }
             public Amazon.WellArchitected.Criticality Content_Criticality { get; set; }
             public System.String Content_Industry { get; set; }
+            public List<System.String> Content_OrganizationalUnitId { get; set; }
             public List<System.String> Content_Region { get; set; }
             public List<Amazon.WellArchitected.Model.ContextResourceTag> Content_ResourceTag { get; set; }
             public List<System.String> Content_ResourceType { get; set; }

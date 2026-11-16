@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRDownloadUrlForLayer")]
     [OutputType("Amazon.ECR.Model.GetDownloadUrlForLayerResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry GetDownloadUrlForLayer API operation.", Operation = new[] {"GetDownloadUrlForLayer"}, SelectReturnType = typeof(Amazon.ECR.Model.GetDownloadUrlForLayerResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry GetDownloadUrlForLayer API operation.", Operation = new[] {"GetDownloadUrlForLayer"}, SelectReturnType = typeof(Amazon.ECR.Model.GetDownloadUrlForLayerResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.GetDownloadUrlForLayerResponse",
         "This cmdlet returns an Amazon.ECR.Model.GetDownloadUrlForLayerResponse object containing multiple properties."
     )]
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.GetDownloadUrlForLayerResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetDownloadUrlForLayerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "GetDownloadUrlForLayer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "GetDownloadUrlForLayer");
             try
             {
                 return client.GetDownloadUrlForLayerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

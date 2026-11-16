@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Write", "ECRImageTagMutability", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.PutImageTagMutabilityResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutImageTagMutability API operation.", Operation = new[] {"PutImageTagMutability"}, SelectReturnType = typeof(Amazon.ECR.Model.PutImageTagMutabilityResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry PutImageTagMutability API operation.", Operation = new[] {"PutImageTagMutability"}, SelectReturnType = typeof(Amazon.ECR.Model.PutImageTagMutabilityResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.PutImageTagMutabilityResponse",
         "This cmdlet returns an Amazon.ECR.Model.PutImageTagMutabilityResponse object containing multiple properties."
     )]
@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.PutImageTagMutabilityResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.PutImageTagMutabilityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "PutImageTagMutability");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "PutImageTagMutability");
             try
             {
                 return client.PutImageTagMutabilityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

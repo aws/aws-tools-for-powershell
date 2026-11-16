@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRImageReplicationStatus")]
     [OutputType("Amazon.ECR.Model.DescribeImageReplicationStatusResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry DescribeImageReplicationStatus API operation.", Operation = new[] {"DescribeImageReplicationStatus"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeImageReplicationStatusResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry DescribeImageReplicationStatus API operation.", Operation = new[] {"DescribeImageReplicationStatus"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeImageReplicationStatusResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.DescribeImageReplicationStatusResponse",
         "This cmdlet returns an Amazon.ECR.Model.DescribeImageReplicationStatusResponse object containing multiple properties."
     )]
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.DescribeImageReplicationStatusResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DescribeImageReplicationStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DescribeImageReplicationStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "DescribeImageReplicationStatus");
             try
             {
                 return client.DescribeImageReplicationStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

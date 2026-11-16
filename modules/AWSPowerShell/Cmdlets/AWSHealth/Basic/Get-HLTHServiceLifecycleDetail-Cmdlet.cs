@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Get", "HLTHServiceLifecycleDetail")]
     [OutputType("Amazon.AWSHealth.Model.ServiceLifecycle")]
-    [AWSCmdlet("Calls the AWS Health DescribeServiceLifecycle API operation.", Operation = new[] {"DescribeServiceLifecycle"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeServiceLifecycleResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications DescribeServiceLifecycle API operation.", Operation = new[] {"DescribeServiceLifecycle"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeServiceLifecycleResponse))]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.ServiceLifecycle or Amazon.AWSHealth.Model.DescribeServiceLifecycleResponse",
         "This cmdlet returns a collection of Amazon.AWSHealth.Model.ServiceLifecycle objects.",
         "The service call response (type Amazon.AWSHealth.Model.DescribeServiceLifecycleResponse) can be returned by specifying '-Select *'."
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in one batch, between 1 and 20, inclusive.</para>
+        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.DescribeServiceLifecycleResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeServiceLifecycleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeServiceLifecycle");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "DescribeServiceLifecycle");
             try
             {
                 return client.DescribeServiceLifecycleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

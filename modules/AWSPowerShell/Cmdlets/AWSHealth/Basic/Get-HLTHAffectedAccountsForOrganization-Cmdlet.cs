@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Get", "HLTHAffectedAccountsForOrganization")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Health DescribeAffectedAccountsForOrganization API operation.", Operation = new[] {"DescribeAffectedAccountsForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeAffectedAccountsForOrganizationResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications DescribeAffectedAccountsForOrganization API operation.", Operation = new[] {"DescribeAffectedAccountsForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeAffectedAccountsForOrganizationResponse))]
     [AWSCmdletOutput("System.String or Amazon.AWSHealth.Model.DescribeAffectedAccountsForOrganizationResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.AWSHealth.Model.DescribeAffectedAccountsForOrganizationResponse) can be returned by specifying '-Select *'."
@@ -73,6 +73,35 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EventArn { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EventArn
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the event. The event ARN has the <c>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i></c> format.</para><para>For example, an event ARN might look like the following:</para><para><c>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filter_EventArn { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of tag keys to lists of tag values. A tag matches when its key is in the map
+        /// and its value is one of the values listed for that key. Matching is case sensitive,
+        /// and the filter matches when at least one key in the map matches.</para><para>An account is returned when its own tags, or the tags of one of its affected resources,
+        /// match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Tags")]
+        public System.Collections.Hashtable Filter_Tag { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -156,6 +185,27 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 WriteWarning("You are passing $null as a value for parameter EventArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Filter_EventArn = this.Filter_EventArn;
+            if (this.Filter_Tag != null)
+            {
+                context.Filter_Tag = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Filter_Tag.Keys)
+                {
+                    object hashValue = this.Filter_Tag[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.Filter_Tag.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.Filter_Tag.Add((String)hashKey, valueSet);
+                }
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -189,6 +239,35 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (cmdletContext.EventArn != null)
             {
                 request.EventArn = cmdletContext.EventArn;
+            }
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.AWSHealth.Model.AffectedAccountFilter();
+            System.String requestFilter_filter_EventArn = null;
+            if (cmdletContext.Filter_EventArn != null)
+            {
+                requestFilter_filter_EventArn = cmdletContext.Filter_EventArn;
+            }
+            if (requestFilter_filter_EventArn != null)
+            {
+                request.Filter.EventArn = requestFilter_filter_EventArn;
+                requestFilterIsNull = false;
+            }
+            Dictionary<System.String, List<System.String>> requestFilter_filter_Tag = null;
+            if (cmdletContext.Filter_Tag != null)
+            {
+                requestFilter_filter_Tag = cmdletContext.Filter_Tag;
+            }
+            if (requestFilter_filter_Tag != null)
+            {
+                request.Filter.Tags = requestFilter_filter_Tag;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -252,6 +331,35 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (cmdletContext.EventArn != null)
             {
                 request.EventArn = cmdletContext.EventArn;
+            }
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.AWSHealth.Model.AffectedAccountFilter();
+            System.String requestFilter_filter_EventArn = null;
+            if (cmdletContext.Filter_EventArn != null)
+            {
+                requestFilter_filter_EventArn = cmdletContext.Filter_EventArn;
+            }
+            if (requestFilter_filter_EventArn != null)
+            {
+                request.Filter.EventArn = requestFilter_filter_EventArn;
+                requestFilterIsNull = false;
+            }
+            Dictionary<System.String, List<System.String>> requestFilter_filter_Tag = null;
+            if (cmdletContext.Filter_Tag != null)
+            {
+                requestFilter_filter_Tag = cmdletContext.Filter_Tag;
+            }
+            if (requestFilter_filter_Tag != null)
+            {
+                request.Filter.Tags = requestFilter_filter_Tag;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
             }
             
             // Initialize loop variants and commence piping
@@ -346,7 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.DescribeAffectedAccountsForOrganizationResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeAffectedAccountsForOrganizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeAffectedAccountsForOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "DescribeAffectedAccountsForOrganization");
             try
             {
                 return client.DescribeAffectedAccountsForOrganizationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -367,6 +475,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EventArn { get; set; }
+            public System.String Filter_EventArn { get; set; }
+            public Dictionary<System.String, List<System.String>> Filter_Tag { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.AWSHealth.Model.DescribeAffectedAccountsForOrganizationResponse, GetHLTHAffectedAccountsForOrganizationCmdlet, object> Select { get; set; } =

@@ -123,7 +123,8 @@ $IAMTB_SelectCompleters = {
 }
 
 $IAMTB_SelectMap = @{
-    "Select"=@("Get-IAMTBRequestAuthorizationDetail")
+    "Select"=@("Get-IAMTBRequestAuthorizationDetail",
+               "Get-IAMTBRequestAuthorizationPolicy")
 }
 
 _awsArgumentCompleterRegistration $IAMTB_SelectCompleters $IAMTB_SelectMap

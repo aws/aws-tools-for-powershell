@@ -87,7 +87,7 @@ $NFM_Completers = {
             ($_ -eq "Start-NFMQueryWorkloadInsightsTopContributorsData/DestinationCategory")
         }
         {
-            $v = "AMAZON_DYNAMODB","AMAZON_S3","INTER_AZ","INTER_REGION","INTER_VPC","INTRA_AZ","UNCLASSIFIED"
+            $v = "AMAZON_DYNAMODB","AMAZON_S3","AWS_SERVICE","INTERNET","INTER_AZ","INTER_REGION","INTER_VPC","INTRA_AZ","LOCAL_ZONE","TRANSIT_GATEWAY","UNCLASSIFIED"
             break
         }
 
@@ -99,9 +99,26 @@ $NFM_Completers = {
         }
 
         # Amazon.NetworkFlowMonitor.MonitorStatus
-        "Get-NFMMonitorList/MonitorStatus"
+        {
+            ($_ -eq "Get-NFMMonitorList/MonitorStatus") -Or
+            ($_ -eq "Get-NFMPerformanceMonitorList/MonitorStatus")
+        }
         {
             $v = "ACTIVE","DELETING","ERROR","INACTIVE","PENDING"
+            break
+        }
+
+        # Amazon.NetworkFlowMonitor.PerformanceMonitorQueryType
+        "Start-NFMQueryPerformanceMonitor/QueryType"
+        {
+            $v = "TOP_PATHS"
+            break
+        }
+
+        # Amazon.NetworkFlowMonitor.PerformanceMonitorType
+        "Get-NFMPerformanceMonitorList/MonitorType"
+        {
+            $v = "VPC"
             break
         }
 
@@ -126,7 +143,9 @@ $NFM_Completers = {
 $NFM_map = @{
     "DestinationCategory"=@("Start-NFMQueryMonitorTopContributor","Start-NFMQueryWorkloadInsightsTopContributor","Start-NFMQueryWorkloadInsightsTopContributorsData")
     "MetricName"=@("Start-NFMQueryMonitorTopContributor","Start-NFMQueryWorkloadInsightsTopContributor","Start-NFMQueryWorkloadInsightsTopContributorsData")
-    "MonitorStatus"=@("Get-NFMMonitorList")
+    "MonitorStatus"=@("Get-NFMMonitorList","Get-NFMPerformanceMonitorList")
+    "MonitorType"=@("Get-NFMPerformanceMonitorList")
+    "QueryType"=@("Start-NFMQueryPerformanceMonitor")
 }
 
 _awsArgumentCompleterRegistration $NFM_Completers $NFM_map
@@ -180,29 +199,39 @@ $NFM_SelectCompleters = {
 
 $NFM_SelectMap = @{
     "Select"=@("New-NFMMonitor",
+               "New-NFMPerformanceMonitor",
                "New-NFMScope",
                "Remove-NFMMonitor",
+               "Remove-NFMPerformanceMonitor",
                "Remove-NFMScope",
                "Get-NFMMonitor",
+               "Get-NFMMonitorScopeSuggestion",
+               "Get-NFMPerformanceMonitor",
                "Get-NFMQueryResultsMonitorTopContributor",
+               "Get-NFMQueryResultsPerformanceMonitor",
                "Get-NFMQueryResultsWorkloadInsightsTopContributor",
                "Get-NFMQueryResultsWorkloadInsightsTopContributorsData",
                "Get-NFMQueryStatusMonitorTopContributor",
+               "Get-NFMQueryStatusPerformanceMonitor",
                "Get-NFMQueryStatusWorkloadInsightsTopContributor",
                "Get-NFMQueryStatusWorkloadInsightsTopContributorsData",
                "Get-NFMScope",
                "Get-NFMMonitorList",
+               "Get-NFMPerformanceMonitorList",
                "Get-NFMScopeList",
                "Get-NFMResourceTag",
                "Start-NFMQueryMonitorTopContributor",
+               "Start-NFMQueryPerformanceMonitor",
                "Start-NFMQueryWorkloadInsightsTopContributor",
                "Start-NFMQueryWorkloadInsightsTopContributorsData",
                "Stop-NFMQueryMonitorTopContributor",
+               "Stop-NFMQueryPerformanceMonitor",
                "Stop-NFMQueryWorkloadInsightsTopContributor",
                "Stop-NFMQueryWorkloadInsightsTopContributorsData",
                "Add-NFMResourceTag",
                "Remove-NFMResourceTag",
                "Update-NFMMonitor",
+               "Update-NFMPerformanceMonitor",
                "Update-NFMScope")
 }
 

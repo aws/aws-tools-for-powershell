@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Get", "HLTHEntityAggregatesForOrganization")]
     [OutputType("Amazon.AWSHealth.Model.OrganizationEntityAggregate")]
-    [AWSCmdlet("Calls the AWS Health DescribeEntityAggregatesForOrganization API operation.", Operation = new[] {"DescribeEntityAggregatesForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications DescribeEntityAggregatesForOrganization API operation.", Operation = new[] {"DescribeEntityAggregatesForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationResponse))]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.OrganizationEntityAggregate or Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationResponse",
         "This cmdlet returns a collection of Amazon.AWSHealth.Model.OrganizationEntityAggregate objects.",
         "The service call response (type Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationResponse) can be returned by specifying '-Select *'."
@@ -87,6 +87,24 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         public System.String[] EventArn { get; set; }
         #endregion
         
+        #region Parameter Filter_Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of tag keys to lists of tag values. A tag matches when its key is in the map
+        /// and its value is one of the values listed for that key. Matching is case sensitive,
+        /// and the filter matches when at least one key in the map matches.</para><para>Only entities whose tags match are included in the aggregates.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Tags")]
+        public System.Collections.Hashtable Filter_Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'OrganizationEntityAggregates'.
@@ -131,6 +149,26 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 WriteWarning("You are passing $null as a value for parameter EventArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Filter_Tag != null)
+            {
+                context.Filter_Tag = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Filter_Tag.Keys)
+                {
+                    object hashValue = this.Filter_Tag[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.Filter_Tag.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.Filter_Tag.Add((String)hashKey, valueSet);
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,6 +192,25 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (cmdletContext.EventArn != null)
             {
                 request.EventArns = cmdletContext.EventArn;
+            }
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.AWSHealth.Model.OrganizationEntityAggregateFilter();
+            Dictionary<System.String, List<System.String>> requestFilter_filter_Tag = null;
+            if (cmdletContext.Filter_Tag != null)
+            {
+                requestFilter_filter_Tag = cmdletContext.Filter_Tag;
+            }
+            if (requestFilter_filter_Tag != null)
+            {
+                request.Filter.Tags = requestFilter_filter_Tag;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
             }
             
             CmdletOutput output;
@@ -190,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeEntityAggregatesForOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "DescribeEntityAggregatesForOrganization");
             try
             {
                 return client.DescribeEntityAggregatesForOrganizationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -212,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         {
             public List<System.String> AwsAccountId { get; set; }
             public List<System.String> EventArn { get; set; }
+            public Dictionary<System.String, List<System.String>> Filter_Tag { get; set; }
             public System.Func<Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationResponse, GetHLTHEntityAggregatesForOrganizationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OrganizationEntityAggregates;
         }

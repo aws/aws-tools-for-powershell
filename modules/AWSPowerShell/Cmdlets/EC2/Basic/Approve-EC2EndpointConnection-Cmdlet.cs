@@ -74,10 +74,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String ServiceId { get; set; }
         #endregion
         
+        #region Parameter TransitGatewayAttachmentId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the transit gateway attachments to accept. This parameter is supported
+        /// only for Gateway Load Balancer endpoint services.</para><para>You must specify either <c>VpcEndpointIds</c> or <c>TransitGatewayAttachmentIds</c>,
+        /// but not both.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TransitGatewayAttachmentIds")]
+        public System.String[] TransitGatewayAttachmentId { get; set; }
+        #endregion
+        
         #region Parameter VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the interface VPC endpoints.</para><para />
+        /// <para>The IDs of the interface VPC endpoints.</para><para>You must specify either <c>VpcEndpointIds</c> or <c>TransitGatewayAttachmentIds</c>,
+        /// but not both.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -151,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter ServiceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TransitGatewayAttachmentId != null)
+            {
+                context.TransitGatewayAttachmentId = new List<System.String>(this.TransitGatewayAttachmentId);
+            }
             if (this.VpcEndpointId != null)
             {
                 context.VpcEndpointId = new List<System.String>(this.VpcEndpointId);
@@ -184,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ServiceId != null)
             {
                 request.ServiceId = cmdletContext.ServiceId;
+            }
+            if (cmdletContext.TransitGatewayAttachmentId != null)
+            {
+                request.TransitGatewayAttachmentIds = cmdletContext.TransitGatewayAttachmentId;
             }
             if (cmdletContext.VpcEndpointId != null)
             {
@@ -246,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? DryRun { get; set; }
             public System.String ServiceId { get; set; }
+            public List<System.String> TransitGatewayAttachmentId { get; set; }
             public List<System.String> VpcEndpointId { get; set; }
             public System.Func<Amazon.EC2.Model.AcceptVpcEndpointConnectionsResponse, ApproveEC2EndpointConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Unsuccessful;

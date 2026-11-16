@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Get", "HLTHAffectedEntitiesForOrganization")]
     [OutputType("Amazon.AWSHealth.Model.DescribeAffectedEntitiesForOrganizationResponse")]
-    [AWSCmdlet("Calls the AWS Health DescribeAffectedEntitiesForOrganization API operation.", Operation = new[] {"DescribeAffectedEntitiesForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeAffectedEntitiesForOrganizationResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications DescribeAffectedEntitiesForOrganization API operation.", Operation = new[] {"DescribeAffectedEntitiesForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeAffectedEntitiesForOrganizationResponse))]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.DescribeAffectedEntitiesForOrganizationResponse",
         "This cmdlet returns an Amazon.AWSHealth.Model.DescribeAffectedEntitiesForOrganizationResponse object containing multiple properties."
     )]
@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.DescribeAffectedEntitiesForOrganizationResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeAffectedEntitiesForOrganizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeAffectedEntitiesForOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "DescribeAffectedEntitiesForOrganization");
             try
             {
                 return client.DescribeAffectedEntitiesForOrganizationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

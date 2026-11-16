@@ -309,6 +309,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.WorkspaceOSUserMode
+        "Register-WKSWorkspaceDirectory/WorkspaceOsUserMode"
+        {
+            $v = "DOMAIN_JOIN","ENTRA_JOIN","LOCAL_USER","SELF_MANAGED"
+            break
+        }
+
         # Amazon.WorkSpaces.WorkspaceType
         "Register-WKSWorkspaceDirectory/WorkspaceType"
         {
@@ -362,6 +369,7 @@ $WKS_map = @{
     "WorkspaceAccessProperties_DeviceTypeWindow"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeZeroClient"=@("Edit-WKSWorkspaceAccessProperty")
+    "WorkspaceOsUserMode"=@("Register-WKSWorkspaceDirectory")
     "WorkspaceProperties_ComputeTypeName"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceProperties_OperatingSystemName"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceProperties_RunningMode"=@("Edit-WKSWorkspaceProperty")

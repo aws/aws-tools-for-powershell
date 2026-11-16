@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRRepositoryCreationTemplate")]
     [OutputType("Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry DescribeRepositoryCreationTemplates API operation.", Operation = new[] {"DescribeRepositoryCreationTemplates"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry DescribeRepositoryCreationTemplates API operation.", Operation = new[] {"DescribeRepositoryCreationTemplates"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse",
         "This cmdlet returns an Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse object containing multiple properties."
     )]
@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DescribeRepositoryCreationTemplatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DescribeRepositoryCreationTemplates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "DescribeRepositoryCreationTemplates");
             try
             {
                 return client.DescribeRepositoryCreationTemplatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

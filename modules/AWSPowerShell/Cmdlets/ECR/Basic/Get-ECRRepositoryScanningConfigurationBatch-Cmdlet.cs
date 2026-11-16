@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRRepositoryScanningConfigurationBatch")]
     [OutputType("Amazon.ECR.Model.BatchGetRepositoryScanningConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry BatchGetRepositoryScanningConfiguration API operation.", Operation = new[] {"BatchGetRepositoryScanningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.BatchGetRepositoryScanningConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry BatchGetRepositoryScanningConfiguration API operation.", Operation = new[] {"BatchGetRepositoryScanningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.BatchGetRepositoryScanningConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.BatchGetRepositoryScanningConfigurationResponse",
         "This cmdlet returns an Amazon.ECR.Model.BatchGetRepositoryScanningConfigurationResponse object containing multiple properties."
     )]
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.BatchGetRepositoryScanningConfigurationResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchGetRepositoryScanningConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "BatchGetRepositoryScanningConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "BatchGetRepositoryScanningConfiguration");
             try
             {
                 return client.BatchGetRepositoryScanningConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

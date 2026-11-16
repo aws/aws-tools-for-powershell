@@ -30,8 +30,15 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
+    /// <important><para>
+    /// Application-level recommendations are a new recommendation format currently in beta.
+    /// We are actively seeking customer feedback to improve their quality and relevance.
+    /// As with any AI-generated content, please thoroughly review each recommendation before
+    /// taking any action based on it.
+    /// </para></important><para>
     /// Retrieves detailed information about a specific optimization recommendation, including
     /// its impact analysis, content, and implementation guidance.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "WATAgentRecommendation")]
     [OutputType("Amazon.WellArchitected.Model.GetAgentRecommendationResponse")]

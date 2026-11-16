@@ -64,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AcceleratorConfig_AcceleratorMemorySize
+        /// <summary>
+        /// <para>
+        /// <para>The minimum amount of memory (in GB) of each accelerator device exposed to the execution
+        /// environment. Lambda might allocate more, depending on the accelerator instance types
+        /// available.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AcceleratorConfig_AcceleratorMemorySize { get; set; }
+        #endregion
+        
         #region Parameter LoggingConfig_ApplicationLogLevel
         /// <summary>
         /// <para>
@@ -663,6 +675,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Select = CreateSelectDelegate<Amazon.Lambda.Model.UpdateFunctionConfigurationResponse, UpdateLMFunctionConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AcceleratorConfig_AcceleratorMemorySize = this.AcceleratorConfig_AcceleratorMemorySize;
             context.LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn = this.LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn;
             context.LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu = this.LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu;
             context.LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency = this.LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency;
@@ -779,6 +792,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             // create request
             var request = new Amazon.Lambda.Model.UpdateFunctionConfigurationRequest();
             
+            
+             // populate AcceleratorConfig
+            var requestAcceleratorConfigIsNull = true;
+            request.AcceleratorConfig = new Amazon.Lambda.Model.AcceleratorConfig();
+            System.Int32? requestAcceleratorConfig_acceleratorConfig_AcceleratorMemorySize = null;
+            if (cmdletContext.AcceleratorConfig_AcceleratorMemorySize != null)
+            {
+                requestAcceleratorConfig_acceleratorConfig_AcceleratorMemorySize = cmdletContext.AcceleratorConfig_AcceleratorMemorySize.Value;
+            }
+            if (requestAcceleratorConfig_acceleratorConfig_AcceleratorMemorySize != null)
+            {
+                request.AcceleratorConfig.AcceleratorMemorySize = requestAcceleratorConfig_acceleratorConfig_AcceleratorMemorySize.Value;
+                requestAcceleratorConfigIsNull = false;
+            }
+             // determine if request.AcceleratorConfig should be set to null
+            if (requestAcceleratorConfigIsNull)
+            {
+                request.AcceleratorConfig = null;
+            }
             
              // populate CapacityProviderConfig
             var requestCapacityProviderConfigIsNull = true;
@@ -1280,6 +1312,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? AcceleratorConfig_AcceleratorMemorySize { get; set; }
             public System.String LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn { get; set; }
             public System.Double? LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu { get; set; }
             public System.Int32? LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency { get; set; }

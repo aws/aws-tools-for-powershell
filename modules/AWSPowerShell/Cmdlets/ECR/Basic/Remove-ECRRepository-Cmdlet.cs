@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Remove", "ECRRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECR.Model.Repository")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry DeleteRepository API operation.", Operation = new[] {"DeleteRepository"}, SelectReturnType = typeof(Amazon.ECR.Model.DeleteRepositoryResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry DeleteRepository API operation.", Operation = new[] {"DeleteRepository"}, SelectReturnType = typeof(Amazon.ECR.Model.DeleteRepositoryResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.Repository or Amazon.ECR.Model.DeleteRepositoryResponse",
         "This cmdlet returns an Amazon.ECR.Model.Repository object.",
         "The service call response (type Amazon.ECR.Model.DeleteRepositoryResponse) can be returned by specifying '-Select *'."
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.DeleteRepositoryResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DeleteRepositoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DeleteRepository");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "DeleteRepository");
             try
             {
                 return client.DeleteRepositoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

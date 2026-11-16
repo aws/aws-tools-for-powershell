@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>principal</c> - The ARN of the principal.</para></li><li><para><c>principal-type</c> - The principal type (<c>All</c> | <c>Service</c> | <c>OrganizationUnit</c>
+        /// <para>The filters.</para><ul><li><para><c>permission-type</c> - The permission type (<c>vpc-endpoint</c> | <c>transit-gateway-attachment</c>).</para></li><li><para><c>principal</c> - The ARN of the principal.</para></li><li><para><c>principal-type</c> - The principal type (<c>All</c> | <c>Service</c> | <c>OrganizationUnit</c>
         /// | <c>Account</c> | <c>User</c> | <c>Role</c>).</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This

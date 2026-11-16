@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Remove", "ECRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ECR.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ECR.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ECR.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ECR.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

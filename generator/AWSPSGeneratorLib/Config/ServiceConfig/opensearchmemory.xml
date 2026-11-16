@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>opensearchmemory</C2jFilename>
+    <AssemblyName>OpenSearchMemory</AssemblyName>
+    <ServiceNounPrefix>OSM</ServiceNounPrefix>
+    <ServiceName>Amazon OpenSearch Memory</ServiceName>
+    <ServiceId>OpenSearchMemory</ServiceId>
+    <ServiceClientInterface>IAmazonOpenSearchMemory</ServiceClientInterface>
+    <ServiceClient>AmazonOpenSearchMemoryClient</ServiceClient>
+    <ServiceModuleGuid>08b29628-9a7d-4b76-88b7-a227058af1f2</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetEvent" OutputProperty="*" Verb="Get" Noun="EventBatch" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEvent" OutputProperty="Event" Verb="New" Noun="Event" ShouldProcessTarget="ActorId,SpaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMemory" OutputProperty="Memory" Verb="New" Noun="Memory" ShouldProcessTarget="ActorId,SpaceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSpace" OutputProperty="*" Verb="New" Noun="Space" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEvent" OutputProperty="EventId" Verb="Remove" Noun="Event" ShouldProcessTarget="EventId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMemory" OutputProperty="MemoryId" Verb="Remove" Noun="Memory" ShouldProcessTarget="MemoryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSpace" OutputProperty="*" Verb="Remove" Noun="Space" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEvent" OutputProperty="Event" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMemory" OutputProperty="Memory" Verb="Get" Noun="Memory" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSpace" OutputProperty="*" Verb="Get" Noun="Space" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEvents" OutputProperty="Events" Verb="Get" Noun="EventList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMemories" OutputProperty="Memories" Verb="Get" Noun="MemoryList" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSpaces" OutputProperty="Spaces" Verb="Get" Noun="SpaceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchEvents" OutputProperty="Events" Verb="Search" Noun="Event" ShouldProcessTarget="ActorId,SpaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchMemories" OutputProperty="Memories" Verb="Search" Noun="Memory" ShouldProcessTarget="ActorId,SpaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMemory" OutputProperty="Memory" Verb="Update" Noun="Memory" ShouldProcessTarget="MemoryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSpace" OutputProperty="*" Verb="Update" Noun="Space" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMTB
     /// an authorization ID in the access denied error message. Pass that ID to this operation
     /// to retrieve the details.
     /// </para><para>
+    /// To retrieve the content for a policy in the <c>policies</c> list, call <c>GetRequestAuthorizationPolicy</c>.
+    /// </para><para>
     /// Authorization details are available for at least 24 hours after the denial.
     /// </para><para>
     /// To use this operation, you must have the <c>iam:GetRequestAuthorizationDetails</c>

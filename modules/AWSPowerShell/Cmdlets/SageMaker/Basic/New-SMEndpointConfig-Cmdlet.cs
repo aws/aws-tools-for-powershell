@@ -474,6 +474,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? ClientConfig_MaxConcurrentInvocationsPerInstance { get; set; }
         #endregion
         
+        #region Parameter CrossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The percentage of the endpoint's capacity that requests from inference routers in
+        /// other Amazon Web Services Regions can use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? CrossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter CrossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance
+        /// <summary>
+        /// <para>
+        /// <para>The number of invocations per second that you expect one <c>InService</c> instance
+        /// to serve. One value applies to every production variant, whatever its instance type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? CrossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance { get; set; }
+        #endregion
+        
         #region Parameter InferenceConfig_MaxPayloadInMB
         /// <summary>
         /// <para>
@@ -828,6 +850,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.NotificationConfig_SuccessTopic = this.NotificationConfig_SuccessTopic;
             context.OutputConfig_S3FailurePath = this.OutputConfig_S3FailurePath;
             context.OutputConfig_S3OutputPath = this.OutputConfig_S3OutputPath;
+            context.CrossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint = this.CrossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint;
+            context.CrossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance = this.CrossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance;
             if (this.CaptureContentTypeHeader_CsvContentType != null)
             {
                 context.CaptureContentTypeHeader_CsvContentType = new List<System.String>(this.CaptureContentTypeHeader_CsvContentType);
@@ -1051,6 +1075,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAsyncInferenceConfigIsNull)
             {
                 request.AsyncInferenceConfig = null;
+            }
+            
+             // populate CrossRegionTrafficConfig
+            var requestCrossRegionTrafficConfigIsNull = true;
+            request.CrossRegionTrafficConfig = new Amazon.SageMaker.Model.CrossRegionTrafficConfig();
+            System.Int32? requestCrossRegionTrafficConfig_crossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint = null;
+            if (cmdletContext.CrossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint != null)
+            {
+                requestCrossRegionTrafficConfig_crossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint = cmdletContext.CrossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint.Value;
+            }
+            if (requestCrossRegionTrafficConfig_crossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint != null)
+            {
+                request.CrossRegionTrafficConfig.MaxCrossRegionPercentPerEndpoint = requestCrossRegionTrafficConfig_crossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint.Value;
+                requestCrossRegionTrafficConfigIsNull = false;
+            }
+            System.Int32? requestCrossRegionTrafficConfig_crossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance = null;
+            if (cmdletContext.CrossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance != null)
+            {
+                requestCrossRegionTrafficConfig_crossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance = cmdletContext.CrossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance.Value;
+            }
+            if (requestCrossRegionTrafficConfig_crossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance != null)
+            {
+                request.CrossRegionTrafficConfig.MaxInvocationsPerSecondPerInstance = requestCrossRegionTrafficConfig_crossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance.Value;
+                requestCrossRegionTrafficConfigIsNull = false;
+            }
+             // determine if request.CrossRegionTrafficConfig should be set to null
+            if (requestCrossRegionTrafficConfigIsNull)
+            {
+                request.CrossRegionTrafficConfig = null;
             }
             
              // populate DataCaptureConfig
@@ -1588,6 +1641,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String NotificationConfig_SuccessTopic { get; set; }
             public System.String OutputConfig_S3FailurePath { get; set; }
             public System.String OutputConfig_S3OutputPath { get; set; }
+            public System.Int32? CrossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint { get; set; }
+            public System.Int32? CrossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance { get; set; }
             public List<System.String> CaptureContentTypeHeader_CsvContentType { get; set; }
             public List<System.String> CaptureContentTypeHeader_JsonContentType { get; set; }
             public List<Amazon.SageMaker.Model.CaptureOption> DataCaptureConfig_CaptureOption { get; set; }

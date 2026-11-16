@@ -80,6 +80,13 @@ $CNH_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ConnectHealth.DatasetType
+        "Get-CNHDatasetList/Type"
+        {
+            $v = "MEDICAL_CODING"
+            break
+        }
+
         # Amazon.ConnectHealth.DomainStatus
         "Get-CNHDomainList/Status"
         {
@@ -87,10 +94,31 @@ $CNH_Completers = {
             break
         }
 
+        # Amazon.ConnectHealth.EncounterType
+        "Start-CNHMedicalCodingJob/EncounterContext_EncounterType"
+        {
+            $v = "IN_PERSON","TELEHEALTH"
+            break
+        }
+
+        # Amazon.ConnectHealth.FeedbackArtifactType
+        "Submit-CNHFeedback/ArtifactType"
+        {
+            $v = "CLINICAL_DOC","MEDICAL_CODES"
+            break
+        }
+
         # Amazon.ConnectHealth.InsightsType
         "Start-CNHPatientInsightsJob/InsightsContext_InsightsType"
         {
             $v = "PRE_VISIT"
+            break
+        }
+
+        # Amazon.ConnectHealth.PatientStatus
+        "Start-CNHMedicalCodingJob/PatientContext_Status"
+        {
+            $v = "ESTABLISHED","NEW"
             break
         }
 
@@ -105,6 +133,13 @@ $CNH_Completers = {
         "Start-CNHPatientInsightsJob/UserContext_Role"
         {
             $v = "CLINICIAN"
+            break
+        }
+
+        # Amazon.ConnectHealth.Sex
+        "Start-CNHMedicalCodingJob/PatientContext_Sex"
+        {
+            $v = "FEMALE","MALE","NON_BINARY","UNKNOWN"
             break
         }
 
@@ -124,9 +159,14 @@ $CNH_Completers = {
 }
 
 $CNH_map = @{
+    "ArtifactType"=@("Submit-CNHFeedback")
+    "EncounterContext_EncounterType"=@("Start-CNHMedicalCodingJob")
     "InsightsContext_InsightsType"=@("Start-CNHPatientInsightsJob")
     "PatientContext_Pronoun"=@("Start-CNHPatientInsightsJob")
+    "PatientContext_Sex"=@("Start-CNHMedicalCodingJob")
+    "PatientContext_Status"=@("Start-CNHMedicalCodingJob")
     "Status"=@("Get-CNHDomainList")
+    "Type"=@("Get-CNHDatasetList")
     "UserContext_Role"=@("Start-CNHPatientInsightsJob")
     "UserContext_Specialty"=@("Start-CNHPatientInsightsJob")
 }
@@ -182,18 +222,25 @@ $CNH_SelectCompleters = {
 
 $CNH_SelectMap = @{
     "Select"=@("Enable-CNHSubscription",
+               "New-CNHDataset",
                "New-CNHDomain",
                "New-CNHSubscription",
                "Disable-CNHSubscription",
+               "Remove-CNHDataset",
                "Remove-CNHDomain",
+               "Get-CNHDataset",
                "Get-CNHDomain",
+               "Get-CNHMedicalCodingJob",
                "Get-CNHMedicalScribeListeningSession",
                "Get-CNHPatientInsightsJob",
                "Get-CNHSubscription",
+               "Get-CNHDatasetList",
                "Get-CNHDomainList",
                "Get-CNHSubscriptionList",
                "Get-CNHResourceTag",
+               "Start-CNHMedicalCodingJob",
                "Start-CNHPatientInsightsJob",
+               "Submit-CNHFeedback",
                "Add-CNHResourceTag",
                "Remove-CNHResourceTag")
 }

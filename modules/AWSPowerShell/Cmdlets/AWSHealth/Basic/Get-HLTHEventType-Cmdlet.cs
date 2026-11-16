@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Get", "HLTHEventType")]
     [OutputType("Amazon.AWSHealth.Model.EventType")]
-    [AWSCmdlet("Calls the AWS Health DescribeEventTypes API operation.", Operation = new[] {"DescribeEventTypes"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEventTypesResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications DescribeEventTypes API operation.", Operation = new[] {"DescribeEventTypes"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEventTypesResponse))]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.EventType or Amazon.AWSHealth.Model.DescribeEventTypesResponse",
         "This cmdlet returns a collection of Amazon.AWSHealth.Model.EventType objects.",
         "The service call response (type Amazon.AWSHealth.Model.DescribeEventTypesResponse) can be returned by specifying '-Select *'."
@@ -557,7 +557,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.DescribeEventTypesResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeEventTypesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeEventTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "DescribeEventTypes");
             try
             {
                 return client.DescribeEventTypesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

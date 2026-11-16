@@ -32,10 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <summary>
     /// Gets the names of the key policies that are attached to a KMS key. This operation
     /// is designed to get policy names that you can use in a <a>GetKeyPolicy</a> operation.
-    /// However, the only valid policy name is <c>default</c>. 
+    /// The valid policy names are <c>default</c> and <c>AWS_RAM</c>.
     /// 
     ///  
-    /// <para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
+    /// <para>
+    /// For information about the <c>AWS_RAM</c> key policy, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-sharing-ram.html">Sharing
+    /// KMS keys with RAM</a> in the <i>Key Management Service Developer Guide</i>.
+    /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
     /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListKeyPolicies</a>
     /// (key policy)
@@ -80,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Use this parameter to specify the maximum number of items to return. When this value
         /// is present, KMS does not return more than the specified number of items, but it might
         /// return fewer.</para><para>This value is optional. If you include a value, it must be between 1 and 1000, inclusive.
-        /// If you do not include a value, it defaults to 100.</para><para>Only one policy can be attached to a key.</para>
+        /// If you do not include a value, it defaults to 100.</para><para>A KMS key can have at most two key policies, <c>default</c> and <c>AWS_RAM</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

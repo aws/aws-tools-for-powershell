@@ -1,4 +1,135 @@
-﻿### 5.0.336 (2026-11-13 20:11Z)
+﻿### 5.0.337 (2026-11-16 20:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.3.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Athena
+    * Modified cmdlet Get-ATHDatabasisList: added parameter AttributesToGet.
+    * Modified cmdlet Get-ATHTableMetadataList: added parameter AttributesToGet.
+  * Amazon Aurora DSQL
+    * Modified cmdlet New-DSQLCluster: added parameter MetricGroup.
+    * Modified cmdlet Update-DSQLCluster: added parameter MetricGroup.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPDerivedToken leveraging the GetDerivedToken service API.
+  * Amazon Connect Scheduling. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CNSCH and can be listed using the command 'Get-AWSCmdletName -Service CNSCH'.
+  * Amazon Connect Service
+    * Added cmdlet Remove-CONNAllEntitySession leveraging the DeleteAllEntitySessions service API.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2TransitGatewayNetworkFunctionAttachment leveraging the ModifyTransitGatewayNetworkFunctionAttachment service API.
+    * Added cmdlet Get-EC2TransitGatewayNetworkFunctionAttachmentDetail leveraging the DescribeTransitGatewayNetworkFunctionAttachments service API.
+    * Added cmdlet New-EC2TransitGatewayNetworkFunctionAttachment leveraging the CreateTransitGatewayNetworkFunctionAttachment service API.
+    * Added cmdlet Register-EC2KmsKeyId leveraging the AssociateKmsKeyId service API.
+    * Added cmdlet Remove-EC2TransitGatewayNetworkFunctionAttachment leveraging the DeleteTransitGatewayNetworkFunctionAttachment service API.
+    * Added cmdlet Unregister-EC2KmsKeyId leveraging the DisassociateKmsKeyId service API.
+    * Modified cmdlet Approve-EC2EndpointConnection: added parameter TransitGatewayAttachmentId.
+    * Modified cmdlet Deny-EC2EndpointConnection: added parameter TransitGatewayAttachmentId.
+    * Modified cmdlet Edit-EC2EndpointServicePermission: added parameter PermissionType.
+  * Amazon OpenSearch Memory. Added cmdlets to support the service. Cmdlets for the service have the noun prefix OSM and can be listed using the command 'Get-AWSCmdletName -Service OSM'.
+  * Amazon S3 Vectors
+    * Added cmdlet Update-S3VMetadataConfiguration leveraging the UpdateMetadataConfiguration service API.
+    * Modified cmdlet New-S3VIndex: added parameter MetadataConfiguration_TextSearchConfiguration.
+    * Modified cmdlet Search-S3VVector: added parameters QueryText and ReturnScore.
+  * Amazon SageMaker Inference Router Runtime. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SMIRR and can be listed using the command 'Get-AWSCmdletName -Service SMIRR'.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMEndpointPolicy leveraging the GetEndpointPolicy service API.
+    * Added cmdlet Get-SMInferenceRouterDetail leveraging the DescribeInferenceRouter service API.
+    * Added cmdlet Get-SMInferenceRouterList leveraging the ListInferenceRouters service API.
+    * Added cmdlet New-SMInferenceRouter leveraging the CreateInferenceRouter service API.
+    * Added cmdlet Remove-SMEndpointPolicy leveraging the DeleteEndpointPolicy service API.
+    * Added cmdlet Remove-SMInferenceRouter leveraging the DeleteInferenceRouter service API.
+    * Added cmdlet Update-SMInferenceRouter leveraging the UpdateInferenceRouter service API.
+    * Added cmdlet Write-SMEndpointPolicy leveraging the PutEndpointPolicy service API.
+    * Modified cmdlet New-SMEndpointConfig: added parameters CrossRegionTrafficConfig_MaxCrossRegionPercentPerEndpoint and CrossRegionTrafficConfig_MaxInvocationsPerSecondPerInstance.
+  * Amazon WorkSpaces
+    * Modified cmdlet Register-WKSWorkspaceDirectory: added parameter WorkspaceOsUserMode.
+  * AWS Health APIs and Notifications
+    * Added cmdlet Disable-HLTHTag leveraging the DisableTags service API.
+    * Added cmdlet Disable-HLTHTagsForOrganization leveraging the DisableTagsForOrganization service API.
+    * Added cmdlet Enable-HLTHTag leveraging the EnableTags service API.
+    * Added cmdlet Enable-HLTHTagsForOrganization leveraging the EnableTagsForOrganization service API.
+    * Added cmdlet Get-HLTHTagDetail leveraging the DescribeTags service API.
+    * Added cmdlet Get-HLTHTagKeyDetail leveraging the DescribeTagKeys service API.
+    * Added cmdlet Get-HLTHTagKeysForOrganizationDetail leveraging the DescribeTagKeysForOrganization service API.
+    * Added cmdlet Get-HLTHTagsForOrganizationDetail leveraging the DescribeTagsForOrganization service API.
+    * Added cmdlet Get-HLTHTagsOnboardingStatusDetail leveraging the DescribeTagsOnboardingStatus service API.
+    * Added cmdlet Get-HLTHTagsOnboardingStatusForOrganizationDetail leveraging the DescribeTagsOnboardingStatusForOrganization service API.
+    * Added cmdlet Update-HLTHTag leveraging the ConfigureTags service API.
+    * Added cmdlet Update-HLTHTagsForOrganization leveraging the ConfigureTagsForOrganization service API.
+    * Modified cmdlet Get-HLTHAffectedAccountsForOrganization: added parameters Filter_EventArn and Filter_Tag.
+    * [Breaking Change] Modified cmdlet Get-HLTHAffectedEntity: the type of parameter Filter_Tag changed from System.Collections.Hashtable[] to System.Collections.Hashtable.
+    * Modified cmdlet Get-HLTHEntityAggregate: added parameter Filter_Tag.
+    * Modified cmdlet Get-HLTHEntityAggregatesForOrganization: added parameter Filter_Tag.
+    * [Breaking Change] Modified cmdlet Get-HLTHEvent: the type of parameter Filter_Tag changed from System.Collections.Hashtable[] to System.Collections.Hashtable.
+    * [Breaking Change] Modified cmdlet Get-HLTHEventAggregate: the type of parameter Filter_Tag changed from System.Collections.Hashtable[] to System.Collections.Hashtable.
+    * Modified cmdlet Get-HLTHEventsForOrganization: added parameter Filter_Tag.
+  * AWS Key Management Service
+    * Modified cmdlet Get-KMSKeyList: added parameter ResourceOwner.
+  * AWS Lambda
+    * Modified cmdlet Publish-LMFunction: added parameter AcceleratorConfig_AcceleratorMemorySize.
+    * Modified cmdlet Update-LMFunctionConfiguration: added parameter AcceleratorConfig_AcceleratorMemorySize.
+  * AWS Lambda Core
+    * Modified cmdlet New-LMCNetworkConnector: added parameter Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type.
+    * Modified cmdlet Update-LMCNetworkConnector: added parameter Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type.
+  * AWS Network Firewall
+    * Added cmdlet Get-NWFWContextStoreList leveraging the ListContextStores service API.
+    * Added cmdlet Get-NWFWResourcesInContextStoreList leveraging the ListResourcesInContextStore service API.
+    * Modified cmdlet New-NWFWRuleGroup: added parameters FirewallRuleGroup_RuleVariables_ContextSet, IpsRuleGroup_RuleVariables_ContextSet and RuleGroup_RuleVariables_ContextSet.
+    * Modified cmdlet Update-NWFWRuleGroup: added parameters FirewallRuleGroup_RuleVariables_ContextSet, IpsRuleGroup_RuleVariables_ContextSet and RuleGroup_RuleVariables_ContextSet.
+  * AWS Network Manager
+    * Added cmdlet Add-NMGRContextStore leveraging the AssociateContextStore service API.
+    * Added cmdlet Get-NMGRContextChangeList leveraging the ListContextChanges service API.
+    * Added cmdlet Get-NMGRContextList leveraging the ListContexts service API.
+    * Added cmdlet Get-NMGRContextStore leveraging the GetContextStore service API.
+    * Added cmdlet Get-NMGRContextStoreAssociation leveraging the GetContextStoreAssociation service API.
+    * Added cmdlet Get-NMGRContextStoreAssociationList leveraging the ListContextStoreAssociations service API.
+    * Added cmdlet Get-NMGRContextStoreList leveraging the ListContextStores service API.
+    * Added cmdlet Get-NMGRContextVersion leveraging the GetContextVersion service API.
+    * Added cmdlet New-NMGRContextStore leveraging the CreateContextStore service API.
+    * Added cmdlet Remove-NMGRContextStore leveraging the DeleteContextStore service API.
+    * Added cmdlet Unregister-NMGRContextStore leveraging the DisassociateContextStore service API.
+    * Added cmdlet Update-NMGRContextStore leveraging the UpdateContextStore service API.
+  * AWS Well-Architected Tool
+    * Added cmdlet Get-WATAgentOrganizationalReport leveraging the GetAgentOrganizationalReport service API.
+    * Added cmdlet Get-WATAgentOrganizationalReportData leveraging the GetAgentOrganizationalReportData service API.
+    * Added cmdlet Get-WATAgentOrganizationalReportList leveraging the ListAgentOrganizationalReports service API.
+    * Added cmdlet Get-WATAgentPreference leveraging the GetAgentPreferences service API.
+    * Added cmdlet Get-WATAgentProfilePolicy leveraging the GetAgentProfilePolicy service API.
+    * Added cmdlet Get-WATAgentRecommendationPolicy leveraging the GetAgentRecommendationPolicy service API.
+    * Added cmdlet New-WATAgentBasicProfile leveraging the CreateAgentBasicProfile service API.
+    * Added cmdlet New-WATAgentOrganizationalProfile leveraging the CreateAgentOrganizationalProfile service API.
+    * Added cmdlet New-WATAgentOrganizationalReport leveraging the CreateAgentOrganizationalReport service API.
+    * Added cmdlet Remove-WATAgentOrganizationalReport leveraging the DeleteAgentOrganizationalReport service API.
+    * Added cmdlet Remove-WATAgentProfilePolicy leveraging the DeleteAgentProfilePolicy service API.
+    * Added cmdlet Remove-WATAgentRecommendationPolicy leveraging the DeleteAgentRecommendationPolicy service API.
+    * Added cmdlet Send-WATAgentOrganizationalReportDataToS3 leveraging the SendAgentOrganizationalReportDataToS3 service API.
+    * Added cmdlet Update-WATAgentOrganizationalProfile leveraging the UpdateAgentOrganizationalProfile service API.
+    * Added cmdlet Write-WATAgentPreference leveraging the PutAgentPreferences service API.
+    * Added cmdlet Write-WATAgentProfilePolicy leveraging the PutAgentProfilePolicy service API.
+    * Added cmdlet Write-WATAgentRecommendationPolicy leveraging the PutAgentRecommendationPolicy service API.
+    * Modified cmdlet New-WATAgentContext: added parameter Content_OrganizationalUnitId.
+    * Modified cmdlet Update-WATAgentContext: added parameter Content_OrganizationalUnitId.
+  * Connect Health
+    * Added cmdlet Get-CNHDataset leveraging the GetDataset service API.
+    * Added cmdlet Get-CNHDatasetList leveraging the ListDatasets service API.
+    * Added cmdlet Get-CNHMedicalCodingJob leveraging the GetMedicalCodingJob service API.
+    * Added cmdlet New-CNHDataset leveraging the CreateDataset service API.
+    * Added cmdlet Remove-CNHDataset leveraging the DeleteDataset service API.
+    * Added cmdlet Start-CNHMedicalCodingJob leveraging the StartMedicalCodingJob service API.
+    * Added cmdlet Submit-CNHFeedback leveraging the SubmitFeedback service API.
+  * EMR Serverless
+    * Modified cmdlet Start-EMRServerlessJobRun: added parameter FlexExecution_Enabled.
+  * IAM Toolbox (Preview)
+    * Added cmdlet Get-IAMTBRequestAuthorizationPolicy leveraging the GetRequestAuthorizationPolicy service API.
+  * Network Flow Monitor
+    * Added cmdlet Get-NFMMonitorScopeSuggestion leveraging the GetMonitorScopeSuggestions service API.
+    * Added cmdlet Get-NFMPerformanceMonitor leveraging the GetPerformanceMonitor service API.
+    * Added cmdlet Get-NFMPerformanceMonitorList leveraging the ListPerformanceMonitors service API.
+    * Added cmdlet Get-NFMQueryResultsPerformanceMonitor leveraging the GetQueryResultsPerformanceMonitor service API.
+    * Added cmdlet Get-NFMQueryStatusPerformanceMonitor leveraging the GetQueryStatusPerformanceMonitor service API.
+    * Added cmdlet New-NFMPerformanceMonitor leveraging the CreatePerformanceMonitor service API.
+    * Added cmdlet Remove-NFMPerformanceMonitor leveraging the DeletePerformanceMonitor service API.
+    * Added cmdlet Start-NFMQueryPerformanceMonitor leveraging the StartQueryPerformanceMonitor service API.
+    * Added cmdlet Stop-NFMQueryPerformanceMonitor leveraging the StopQueryPerformanceMonitor service API.
+    * Added cmdlet Update-NFMPerformanceMonitor leveraging the UpdatePerformanceMonitor service API.
+
+### 5.0.336 (2026-11-13 20:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.2.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Added cmdlet Update-APSImageBuilder leveraging the UpdateImageBuilder service API.

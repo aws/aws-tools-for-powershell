@@ -176,6 +176,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateKmsKeyId" OutputProperty="Return" Verb="Register" Noun="KmsKeyId" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateNatGatewayAddress" OutputProperty="*" Verb="Register" Noun="NatGatewayAddress" ShouldProcessTarget="NatGatewayId" PipelineParameter="NatGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -718,6 +722,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayNetworkFunctionAttachment" OutputProperty="TransitGatewayNetworkFunctionAttachment" Verb="New" Noun="TransitGatewayNetworkFunctionAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="New" Noun="TransitGatewayPeeringAttachment" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1123,6 +1131,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransitGatewayMulticastDomain" OutputProperty="TransitGatewayMulticastDomain" Verb="Remove" Noun="TransitGatewayMulticastDomain" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayNetworkFunctionAttachment" OutputProperty="TransitGatewayNetworkFunctionAttachment" Verb="Remove" Noun="TransitGatewayNetworkFunctionAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1916,6 +1928,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayNetworkFunctionAttachments" OutputProperty="TransitGatewayNetworkFunctionAttachments" Verb="Get" Noun="TransitGatewayNetworkFunctionAttachmentDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTransitGatewayPeeringAttachments" OutputProperty="TransitGatewayPeeringAttachments" Verb="Get" Noun="TransitGatewayPeeringAttachment" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -2213,6 +2229,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateIpamResourceDiscovery" OutputProperty="IpamResourceDiscoveryAssociation" Verb="Unregister" Noun="IpamResourceDiscovery" ShouldProcessTarget="IpamResourceDiscoveryAssociationId" PipelineParameter="IpamResourceDiscoveryAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateKmsKeyId" OutputProperty="Return" Verb="Unregister" Noun="KmsKeyId" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -3058,6 +3078,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyTransitGatewayMeteringPolicy" OutputProperty="TransitGatewayMeteringPolicy" Verb="Edit" Noun="TransitGatewayMeteringPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTransitGatewayNetworkFunctionAttachment" OutputProperty="TransitGatewayNetworkFunctionAttachment" Verb="Edit" Noun="TransitGatewayNetworkFunctionAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

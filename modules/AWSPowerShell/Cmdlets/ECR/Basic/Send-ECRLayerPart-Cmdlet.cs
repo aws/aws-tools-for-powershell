@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Send", "ECRLayerPart", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName="FromBytes")]
     [OutputType("Amazon.ECR.Model.UploadLayerPartResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry UploadLayerPart API operation.", Operation = new[] {"UploadLayerPart"}, SelectReturnType = typeof(Amazon.ECR.Model.UploadLayerPartResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry UploadLayerPart API operation.", Operation = new[] {"UploadLayerPart"}, SelectReturnType = typeof(Amazon.ECR.Model.UploadLayerPartResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.UploadLayerPartResponse",
         "This cmdlet returns an Amazon.ECR.Model.UploadLayerPartResponse object containing multiple properties."
     )]
@@ -317,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.UploadLayerPartResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.UploadLayerPartRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "UploadLayerPart");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "UploadLayerPart");
             try
             {
                 return client.UploadLayerPartAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

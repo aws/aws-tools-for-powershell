@@ -103,6 +103,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMetadataConfiguration" OutputProperty="IndexArn" Verb="Update" Noun="MetadataConfiguration" ShouldProcessTarget="IndexName,VectorBucketName,IndexArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

@@ -41,10 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </para><note><para>
     /// To call this operation, you must meet the following requirements:
     /// </para><ul><li><para>
-    /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon
+    /// You must have a Amazon Web Services Business Support+, Amazon Web Services Enterprise
+    /// Support, or Amazon Web Services Unified Operations plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a> to use the Health API. If you call the Health API from an
-    /// Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or Enterprise
-    /// Support plan, you receive a <c>SubscriptionRequiredException</c> error.
+    /// Amazon Web Services account that doesn't have a Amazon Web Services Business Support+,
+    /// Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations
+    /// plan, you receive a <c>SubscriptionRequiredException</c> error.
     /// </para></li><li><para>
     /// You must have permission to call this operation from the organization's management
     /// account. For example IAM policies, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html">Health
@@ -57,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Enable", "HLTHHealthServiceAccessForOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Health EnableHealthServiceAccessForOrganization API operation.", Operation = new[] {"EnableHealthServiceAccessForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.EnableHealthServiceAccessForOrganizationResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications EnableHealthServiceAccessForOrganization API operation.", Operation = new[] {"EnableHealthServiceAccessForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.EnableHealthServiceAccessForOrganizationResponse))]
     [AWSCmdletOutput("None or Amazon.AWSHealth.Model.EnableHealthServiceAccessForOrganizationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AWSHealth.Model.EnableHealthServiceAccessForOrganizationResponse) be returned by specifying '-Select *'."
@@ -164,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.EnableHealthServiceAccessForOrganizationResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.EnableHealthServiceAccessForOrganizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "EnableHealthServiceAccessForOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "EnableHealthServiceAccessForOrganization");
             try
             {
                 return client.EnableHealthServiceAccessForOrganizationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

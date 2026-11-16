@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Write", "ECRSigningConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.SigningConfiguration")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutSigningConfiguration API operation.", Operation = new[] {"PutSigningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.PutSigningConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry PutSigningConfiguration API operation.", Operation = new[] {"PutSigningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.PutSigningConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.SigningConfiguration or Amazon.ECR.Model.PutSigningConfigurationResponse",
         "This cmdlet returns an Amazon.ECR.Model.SigningConfiguration object.",
         "The service call response (type Amazon.ECR.Model.PutSigningConfigurationResponse) can be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.PutSigningConfigurationResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.PutSigningConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "PutSigningConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "PutSigningConfiguration");
             try
             {
                 return client.PutSigningConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

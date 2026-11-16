@@ -202,7 +202,8 @@ $S3V_SelectMap = @{
                "Search-S3VVector",
                "Add-S3VResourceTag",
                "Remove-S3VResourceTag",
-               "Update-S3VIndexMode")
+               "Update-S3VIndexMode",
+               "Update-S3VMetadataConfiguration")
 }
 
 _awsArgumentCompleterRegistration $S3V_SelectCompleters $S3V_SelectMap

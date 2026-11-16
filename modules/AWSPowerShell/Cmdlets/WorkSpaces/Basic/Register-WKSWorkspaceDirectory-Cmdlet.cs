@@ -205,6 +205,18 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.String WorkspaceDirectoryName { get; set; }
         #endregion
         
+        #region Parameter WorkspaceOsUserMode
+        /// <summary>
+        /// <para>
+        /// <para>Indicates how users are set up on the WorkSpace operating system. To use local users
+        /// with an AWS IAM Identity Center directory, specify <c>LOCAL_USER</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.WorkspaceOSUserMode")]
+        public Amazon.WorkSpaces.WorkspaceOSUserMode WorkspaceOsUserMode { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceType
         /// <summary>
         /// <para>
@@ -281,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.UserIdentityType = this.UserIdentityType;
             context.WorkspaceDirectoryDescription = this.WorkspaceDirectoryDescription;
             context.WorkspaceDirectoryName = this.WorkspaceDirectoryName;
+            context.WorkspaceOsUserMode = this.WorkspaceOsUserMode;
             context.WorkspaceType = this.WorkspaceType;
             
             // allow further manipulation of loaded context prior to processing
@@ -392,6 +405,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 request.WorkspaceDirectoryName = cmdletContext.WorkspaceDirectoryName;
             }
+            if (cmdletContext.WorkspaceOsUserMode != null)
+            {
+                request.WorkspaceOsUserMode = cmdletContext.WorkspaceOsUserMode;
+            }
             if (cmdletContext.WorkspaceType != null)
             {
                 request.WorkspaceType = cmdletContext.WorkspaceType;
@@ -464,6 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public Amazon.WorkSpaces.UserIdentityType UserIdentityType { get; set; }
             public System.String WorkspaceDirectoryDescription { get; set; }
             public System.String WorkspaceDirectoryName { get; set; }
+            public Amazon.WorkSpaces.WorkspaceOSUserMode WorkspaceOsUserMode { get; set; }
             public Amazon.WorkSpaces.WorkspaceType WorkspaceType { get; set; }
             public System.Func<Amazon.WorkSpaces.Model.RegisterWorkspaceDirectoryResponse, RegisterWKSWorkspaceDirectoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

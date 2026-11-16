@@ -31,7 +31,23 @@ namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
     /// Updates an existing optimization profile's configuration, including its pillars, execution
-    /// role, and aggregation settings.
+    /// role, and aggregation settings. Include only the fields you want to change. Any field
+    /// you omit from the request keeps its current value, so you do not need to retrieve
+    /// the profile first and resend the fields you are not changing.
+    /// 
+    ///  
+    /// <para>
+    /// To clear an optional text field, supply an empty string for it; the field is then
+    /// unset, and a subsequent read omits it rather than returning an empty string. Omitting
+    /// the field from the request leaves the stored value in place. <c>description</c> and
+    /// <c>businessOverview</c> can be cleared this way. <c>displayName</c> cannot be cleared
+    /// because a display name is required, though you can change it. <c>pillars</c> cannot
+    /// be cleared because a profile must target at least one pillar.
+    /// </para><para><c>aggregationConfiguration</c> behaves differently because it is a list of per-account
+    /// configurations rather than a text field. Supplying an empty list removes every account
+    /// entry, but the field itself remains set: a subsequent read returns an empty list rather
+    /// than omitting the field. Omitting it from the request keeps the stored entries.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "WATAgentProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WellArchitected.Model.UpdateAgentProfileResponse")]
@@ -48,7 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter AggregationConfiguration
         /// <summary>
         /// <para>
-        /// <para>The updated aggregation configuration.</para><para />
+        /// <para>The updated aggregation configuration, as a list of per-account entries. Omit this
+        /// field to keep the current entries, or supply an empty list to remove them all. The
+        /// field remains set either way — an emptied configuration is read back as an empty list,
+        /// not as an absent field.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -63,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter BusinessOverview
         /// <summary>
         /// <para>
-        /// <para>The updated business overview for the profile.</para>
+        /// <para>The updated business overview for the profile. Omit this field to keep the current
+        /// business overview, or supply an empty string to clear it; a cleared business overview
+        /// is read back as absent rather than as an empty string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated description of the profile.</para>
+        /// <para>The updated description of the profile. Omit this field to keep the current description,
+        /// or supply an empty string to clear it; a cleared description is read back as absent
+        /// rather than as an empty string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The updated display name of the profile.</para>
+        /// <para>The updated display name of the profile. Omit this field to keep the current display
+        /// name. A display name is required, so it cannot be cleared.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The updated ARN of the IAM execution role.</para>
+        /// <para>The updated ARN of the IAM execution role. Omit this field to keep the current execution
+        /// role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter Pillar
         /// <summary>
         /// <para>
-        /// <para>The updated Well-Architected Tool Framework pillars for the profile.</para><para />
+        /// <para>The updated Amazon Web Services Well-Architected Framework pillars for the profile.
+        /// Omit this field to keep the current pillars. A profile must target at least one pillar,
+        /// so an empty list is rejected.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

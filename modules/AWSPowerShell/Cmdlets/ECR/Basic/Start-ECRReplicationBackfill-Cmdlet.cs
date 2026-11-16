@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Start", "ECRReplicationBackfill", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.StartReplicationBackfillResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry StartReplicationBackfill API operation.", Operation = new[] {"StartReplicationBackfill"}, SelectReturnType = typeof(Amazon.ECR.Model.StartReplicationBackfillResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry StartReplicationBackfill API operation.", Operation = new[] {"StartReplicationBackfill"}, SelectReturnType = typeof(Amazon.ECR.Model.StartReplicationBackfillResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.StartReplicationBackfillResponse",
         "This cmdlet returns an Amazon.ECR.Model.StartReplicationBackfillResponse object containing multiple properties."
     )]
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.StartReplicationBackfillResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.StartReplicationBackfillRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "StartReplicationBackfill");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "StartReplicationBackfill");
             try
             {
                 return client.StartReplicationBackfillAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

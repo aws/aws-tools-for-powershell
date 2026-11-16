@@ -108,6 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CGIPAdminUserAuthFactor', 
         'Get-CGIPClientToken', 
         'Get-CGIPCSVHeader', 
+        'Get-CGIPDerivedToken', 
         'Get-CGIPDevice', 
         'Get-CGIPDeviceAdmin', 
         'Get-CGIPDeviceList', 

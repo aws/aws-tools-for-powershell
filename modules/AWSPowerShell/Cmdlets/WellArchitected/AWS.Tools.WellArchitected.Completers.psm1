@@ -180,6 +180,23 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.OrganizationalReportFormat
+        {
+            ($_ -eq "Get-WATAgentOrganizationalReportData/Format") -Or
+            ($_ -eq "Send-WATAgentOrganizationalReportDataToS3/Format")
+        }
+        {
+            $v = "CSV","JSON","PARQUET"
+            break
+        }
+
+        # Amazon.WellArchitected.OrganizationalReportState
+        "Get-WATAgentOrganizationalReportList/State"
+        {
+            $v = "AGGREGATING","COMPLETED","COMPRESSING","DELETING","DISCOVERING","FAILED","SNAPSHOTTING"
+            break
+        }
+
         # Amazon.WellArchitected.OrganizationSharingStatus
         "Update-WATGlobalSetting/OrganizationSharingStatus"
         {
@@ -349,7 +366,7 @@ $WAT_map = @{
     "DiscoveryIntegrationStatus"=@("Update-WATGlobalSetting")
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
     "FeedbackCategory"=@("Write-WATAgentRecommendationFeedback")
-    "Format"=@("Get-WATConsolidatedReport")
+    "Format"=@("Get-WATAgentOrganizationalReportData","Get-WATConsolidatedReport","Send-WATAgentOrganizationalReportDataToS3")
     "ImprovementStatus"=@("Update-WATWorkload")
     "IntegratingService"=@("Update-WATIntegration")
     "JiraConfiguration_IntegrationStatus"=@("Update-WATGlobalSetting")
@@ -367,7 +384,7 @@ $WAT_map = @{
     "RemediationType"=@("Get-WATAgentRecommendation")
     "ShareInvitationAction"=@("Update-WATShareInvitation")
     "ShareResourceType"=@("Get-WATShareInvitationList")
-    "State"=@("Get-WATAgentRecommendationList")
+    "State"=@("Get-WATAgentOrganizationalReportList","Get-WATAgentRecommendationList")
     "Status"=@("Get-WATLensShareList","Get-WATProfileShareList","Get-WATTemplateShareList","Get-WATWorkloadShareList","Update-WATAgentRecommendationStatus")
     "Type"=@("Get-WATAgentRecommendationItemList","Write-WATAgentRecommendationFeedback")
 }
@@ -424,8 +441,11 @@ $WAT_SelectCompleters = {
 $WAT_SelectMap = @{
     "Select"=@("Register-WATLens",
                "Register-WATProfile",
+               "New-WATAgentBasicProfile",
                "New-WATAgentContext",
                "New-WATAgentGoal",
+               "New-WATAgentOrganizationalProfile",
+               "New-WATAgentOrganizationalReport",
                "New-WATAgentProfile",
                "New-WATLensShare",
                "New-WATLensVersion",
@@ -438,7 +458,10 @@ $WAT_SelectMap = @{
                "New-WATWorkloadShare",
                "Remove-WATAgentContext",
                "Remove-WATAgentGoal",
+               "Remove-WATAgentOrganizationalReport",
                "Remove-WATAgentProfile",
+               "Remove-WATAgentProfilePolicy",
+               "Remove-WATAgentRecommendationPolicy",
                "Remove-WATLens",
                "Remove-WATLensShare",
                "Remove-WATProfile",
@@ -452,9 +475,14 @@ $WAT_SelectMap = @{
                "Export-WATLens",
                "Get-WATAgentContext",
                "Get-WATAgentGoal",
+               "Get-WATAgentOrganizationalReport",
+               "Get-WATAgentOrganizationalReportData",
+               "Get-WATAgentPreference",
                "Get-WATAgentProfile",
+               "Get-WATAgentProfilePolicy",
                "Get-WATAgentRecommendation",
                "Get-WATAgentRecommendationGeneration",
+               "Get-WATAgentRecommendationPolicy",
                "Get-WATAnswer",
                "Get-WATConsolidatedReport",
                "Get-WATGlobalSetting",
@@ -472,6 +500,7 @@ $WAT_SelectMap = @{
                "Import-WATLens",
                "Get-WATAgentContextList",
                "Get-WATAgentGoalList",
+               "Get-WATAgentOrganizationalReportList",
                "Get-WATAgentProfileList",
                "Get-WATAgentRecommendationGenerationList",
                "Get-WATAgentRecommendationItemList",
@@ -495,12 +524,17 @@ $WAT_SelectMap = @{
                "Get-WATTemplateShareList",
                "Get-WATWorkloadList",
                "Get-WATWorkloadShareList",
+               "Write-WATAgentPreference",
+               "Write-WATAgentProfilePolicy",
                "Write-WATAgentRecommendationFeedback",
+               "Write-WATAgentRecommendationPolicy",
+               "Send-WATAgentOrganizationalReportDataToS3",
                "Start-WATAgentRecommendationGeneration",
                "Add-WATResourceTag",
                "Remove-WATResourceTag",
                "Update-WATAgentContext",
                "Update-WATAgentGoal",
+               "Update-WATAgentOrganizationalProfile",
                "Update-WATAgentProfile",
                "Update-WATAgentRecommendationStatus",
                "Update-WATAnswer",

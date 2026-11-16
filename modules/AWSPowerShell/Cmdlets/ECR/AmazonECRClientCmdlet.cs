@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
-    [AWSClientCmdlet("Amazon EC2 Container Registry", "ECR", "2015-09-21", "ECR")]
+    [AWSClientCmdlet("Amazon Elastic Container Registry", "ECR", "2015-09-21", "ECR")]
     public abstract partial class AmazonECRClientCmdlet : ServiceCmdlet
     {
         protected IAmazonECR Client { get; private set; }

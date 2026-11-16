@@ -1,0 +1,3 @@
+﻿# SageMakerInferenceRouterRuntime
+
+Export-ModuleMember -Alias *

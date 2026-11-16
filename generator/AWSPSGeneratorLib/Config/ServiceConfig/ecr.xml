@@ -5,7 +5,7 @@
     <C2jFilename>ecr</C2jFilename>
     <AssemblyName>ECR</AssemblyName>
     <ServiceNounPrefix>ECR</ServiceNounPrefix>
-    <ServiceName>Amazon EC2 Container Registry</ServiceName>
+    <ServiceName>Amazon Elastic Container Registry</ServiceName>
     <ServiceId>ECR</ServiceId>
     <ServiceClientInterface>IAmazonECR</ServiceClientInterface>
     <ServiceClient>AmazonECRClient</ServiceClient>

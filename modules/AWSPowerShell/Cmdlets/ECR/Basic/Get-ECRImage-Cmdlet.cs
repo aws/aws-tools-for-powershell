@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRImage")]
     [OutputType("Amazon.ECR.Model.ImageIdentifier")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry ListImages API operation.", Operation = new[] {"ListImages"}, SelectReturnType = typeof(Amazon.ECR.Model.ListImagesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry ListImages API operation.", Operation = new[] {"ListImages"}, SelectReturnType = typeof(Amazon.ECR.Model.ListImagesResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.ImageIdentifier or Amazon.ECR.Model.ListImagesResponse",
         "This cmdlet returns a collection of Amazon.ECR.Model.ImageIdentifier objects.",
         "The service call response (type Amazon.ECR.Model.ListImagesResponse) can be returned by specifying '-Select *'."
@@ -453,7 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.ListImagesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.ListImagesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "ListImages");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "ListImages");
             try
             {
                 return client.ListImagesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

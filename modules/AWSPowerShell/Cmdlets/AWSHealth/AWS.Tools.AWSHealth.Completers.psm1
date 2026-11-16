@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Health
+# Argument completions for service AWS Health APIs and Notifications
 
 
 $HLTH_Completers = {
@@ -149,7 +149,9 @@ $HLTH_SelectCompleters = {
 }
 
 $HLTH_SelectMap = @{
-    "Select"=@("Get-HLTHAffectedAccountsForOrganization",
+    "Select"=@("Update-HLTHTag",
+               "Update-HLTHTagsForOrganization",
+               "Get-HLTHAffectedAccountsForOrganization",
                "Get-HLTHAffectedEntity",
                "Get-HLTHAffectedEntitiesForOrganization",
                "Get-HLTHEntityAggregate",
@@ -162,8 +164,18 @@ $HLTH_SelectMap = @{
                "Get-HLTHEventType",
                "Get-HLTHHealthServiceStatusForOrganization",
                "Get-HLTHServiceLifecycleDetail",
+               "Get-HLTHTagKeyDetail",
+               "Get-HLTHTagKeysForOrganizationDetail",
+               "Get-HLTHTagDetail",
+               "Get-HLTHTagsForOrganizationDetail",
+               "Get-HLTHTagsOnboardingStatusDetail",
+               "Get-HLTHTagsOnboardingStatusForOrganizationDetail",
                "Disable-HLTHHealthServiceAccessForOrganization",
-               "Enable-HLTHHealthServiceAccessForOrganization")
+               "Disable-HLTHTag",
+               "Disable-HLTHTagsForOrganization",
+               "Enable-HLTHHealthServiceAccessForOrganization",
+               "Enable-HLTHTag",
+               "Enable-HLTHTagsForOrganization")
 }
 
 _awsArgumentCompleterRegistration $HLTH_SelectCompleters $HLTH_SelectMap

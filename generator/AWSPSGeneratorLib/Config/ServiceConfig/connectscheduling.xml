@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>connectscheduling</C2jFilename>
+    <AssemblyName>ConnectScheduling</AssemblyName>
+    <ServiceNounPrefix>CNSCH</ServiceNounPrefix>
+    <ServiceName>Amazon Connect Scheduling</ServiceName>
+    <ServiceId>ConnectScheduling</ServiceId>
+    <ServiceClientInterface>IAmazonConnectScheduling</ServiceClientInterface>
+    <ServiceClient>AmazonConnectSchedulingClient</ServiceClient>
+    <ServiceModuleGuid>ba3a2334-463a-4739-8093-334a13be9a92</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ApproveTimeOff" Verb="Approve" Noun="TimeOff" ShouldProcessTarget="TimeOffId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelTimeOff" Verb="Stop" Noun="TimeOff" ShouldProcessTarget="TimeOffId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTimeOff" OutputProperty="TimeOffId" Verb="New" Noun="TimeOff" ShouldProcessTarget="InstanceId,ShiftActivityId,UserId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTimeOff" OutputProperty="*" Verb="Get" Noun="TimeOff" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTimeOffBalance" Verb="Write" Noun="TimeOffBalance" ShouldProcessTarget="InstanceId,ShiftActivityId,UserId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectTimeOff" Verb="Deny" Noun="TimeOff" ShouldProcessTarget="TimeOffId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

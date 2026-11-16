@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Complete", "ECRLayerUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.CompleteLayerUploadResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry CompleteLayerUpload API operation.", Operation = new[] {"CompleteLayerUpload"}, SelectReturnType = typeof(Amazon.ECR.Model.CompleteLayerUploadResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry CompleteLayerUpload API operation.", Operation = new[] {"CompleteLayerUpload"}, SelectReturnType = typeof(Amazon.ECR.Model.CompleteLayerUploadResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.CompleteLayerUploadResponse",
         "This cmdlet returns an Amazon.ECR.Model.CompleteLayerUploadResponse object containing multiple properties."
     )]
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.CompleteLayerUploadResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.CompleteLayerUploadRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "CompleteLayerUpload");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "CompleteLayerUpload");
             try
             {
                 return client.CompleteLayerUploadAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

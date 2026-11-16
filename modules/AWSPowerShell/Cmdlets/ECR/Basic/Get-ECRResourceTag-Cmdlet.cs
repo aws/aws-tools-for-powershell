@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRResourceTag")]
     [OutputType("Amazon.ECR.Model.Tag")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ECR.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ECR.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.Tag or Amazon.ECR.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.ECR.Model.Tag objects.",
         "The service call response (type Amazon.ECR.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

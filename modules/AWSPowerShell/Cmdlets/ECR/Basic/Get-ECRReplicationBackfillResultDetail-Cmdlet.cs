@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRReplicationBackfillResultDetail")]
     [OutputType("Amazon.ECR.Model.DescribeReplicationBackfillResultsResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry DescribeReplicationBackfillResults API operation.", Operation = new[] {"DescribeReplicationBackfillResults"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeReplicationBackfillResultsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry DescribeReplicationBackfillResults API operation.", Operation = new[] {"DescribeReplicationBackfillResults"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeReplicationBackfillResultsResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.DescribeReplicationBackfillResultsResponse",
         "This cmdlet returns an Amazon.ECR.Model.DescribeReplicationBackfillResultsResponse object containing multiple properties."
     )]
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.DescribeReplicationBackfillResultsResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DescribeReplicationBackfillResultsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DescribeReplicationBackfillResults");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "DescribeReplicationBackfillResults");
             try
             {
                 return client.DescribeReplicationBackfillResultsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

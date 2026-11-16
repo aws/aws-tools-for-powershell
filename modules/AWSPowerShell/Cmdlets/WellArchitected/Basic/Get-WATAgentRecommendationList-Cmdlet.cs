@@ -30,8 +30,15 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
+    /// <important><para>
+    /// Application-level recommendations are a new recommendation format currently in beta.
+    /// We are actively seeking customer feedback to improve their quality and relevance.
+    /// As with any AI-generated content, please thoroughly review each recommendation before
+    /// taking any action based on it.
+    /// </para></important><para>
     /// Lists active optimization recommendations for a specified profile with optional filtering
-    /// by state.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// by state.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WATAgentRecommendationList")]
     [OutputType("Amazon.WellArchitected.Model.AgentRecommendationSummary")]

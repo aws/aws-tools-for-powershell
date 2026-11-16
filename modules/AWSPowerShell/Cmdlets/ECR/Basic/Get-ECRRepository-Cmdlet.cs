@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRRepository")]
     [OutputType("Amazon.ECR.Model.Repository")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry DescribeRepositories API operation.", Operation = new[] {"DescribeRepositories"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeRepositoriesResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry DescribeRepositories API operation.", Operation = new[] {"DescribeRepositories"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeRepositoriesResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.Repository or Amazon.ECR.Model.DescribeRepositoriesResponse",
         "This cmdlet returns a collection of Amazon.ECR.Model.Repository objects.",
         "The service call response (type Amazon.ECR.Model.DescribeRepositoriesResponse) can be returned by specifying '-Select *'."
@@ -359,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.DescribeRepositoriesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DescribeRepositoriesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DescribeRepositories");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "DescribeRepositories");
             try
             {
                 return client.DescribeRepositoriesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

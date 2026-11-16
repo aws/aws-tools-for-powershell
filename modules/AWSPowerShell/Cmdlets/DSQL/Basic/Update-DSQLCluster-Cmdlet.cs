@@ -143,6 +143,25 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         public System.String KmsEncryptionKey { get; set; }
         #endregion
         
+        #region Parameter MetricGroup
+        /// <summary>
+        /// <para>
+        /// <para>The complete set of metric groups to enable for advanced monitoring on the cluster.
+        /// This list replaces the current set, so any metric group that you don't include is
+        /// disabled. To disable all metric groups, specify an empty list (<c>[]</c>). If you
+        /// omit this parameter, the current setting doesn't change.</para><para>To view the metric groups enabled on a cluster, use <i>GetCluster</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricGroups")]
+        public Amazon.DSQL.Model.MetricGroupRequest[] MetricGroup { get; set; }
+        #endregion
+        
         #region Parameter MultiRegionProperties_WitnessRegion
         /// <summary>
         /// <para>
@@ -225,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             }
             #endif
             context.KmsEncryptionKey = this.KmsEncryptionKey;
+            if (this.MetricGroup != null)
+            {
+                context.MetricGroup = new List<Amazon.DSQL.Model.MetricGroupRequest>(this.MetricGroup);
+            }
             if (this.MultiRegionProperties_Cluster != null)
             {
                 context.MultiRegionProperties_Cluster = new List<System.String>(this.MultiRegionProperties_Cluster);
@@ -261,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             if (cmdletContext.KmsEncryptionKey != null)
             {
                 request.KmsEncryptionKey = cmdletContext.KmsEncryptionKey;
+            }
+            if (cmdletContext.MetricGroup != null)
+            {
+                request.MetricGroups = cmdletContext.MetricGroup;
             }
             
              // populate MultiRegionProperties
@@ -350,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             public System.Boolean? DeletionProtectionEnabled { get; set; }
             public System.String Identifier { get; set; }
             public System.String KmsEncryptionKey { get; set; }
+            public List<Amazon.DSQL.Model.MetricGroupRequest> MetricGroup { get; set; }
             public List<System.String> MultiRegionProperties_Cluster { get; set; }
             public System.String MultiRegionProperties_WitnessRegion { get; set; }
             public System.Func<Amazon.DSQL.Model.UpdateClusterResponse, UpdateDSQLClusterCmdlet, object> Select { get; set; } =

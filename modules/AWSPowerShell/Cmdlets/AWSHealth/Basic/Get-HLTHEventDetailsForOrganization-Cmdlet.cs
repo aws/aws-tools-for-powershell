@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Get", "HLTHEventDetailsForOrganization")]
     [OutputType("Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse")]
-    [AWSCmdlet("Calls the AWS Health DescribeEventDetailsForOrganization API operation.", Operation = new[] {"DescribeEventDetailsForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications DescribeEventDetailsForOrganization API operation.", Operation = new[] {"DescribeEventDetailsForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse))]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse",
         "This cmdlet returns an Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse object containing multiple properties."
     )]
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeEventDetailsForOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "DescribeEventDetailsForOrganization");
             try
             {
                 return client.DescribeEventDetailsForOrganizationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Get", "HLTHEventAggregate")]
     [OutputType("Amazon.AWSHealth.Model.EventAggregate")]
-    [AWSCmdlet("Calls the AWS Health DescribeEventAggregates API operation.", Operation = new[] {"DescribeEventAggregates"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEventAggregatesResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications DescribeEventAggregates API operation.", Operation = new[] {"DescribeEventAggregates"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEventAggregatesResponse))]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.EventAggregate or Amazon.AWSHealth.Model.DescribeEventAggregatesResponse",
         "This cmdlet returns a collection of Amazon.AWSHealth.Model.EventAggregate objects.",
         "The service call response (type Amazon.AWSHealth.Model.DescribeEventAggregatesResponse) can be returned by specifying '-Select *'."
@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Tag
         /// <summary>
         /// <para>
-        /// <para>A map of entity tags attached to the affected entity.</para><note><para>Currently, the <c>tags</c> property isn't supported.</para></note><para />
+        /// <para>A map of resource tag key-value pairs to filter affected entities.</para><note><para>Currently, the <c>tags</c> property isn't supported.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filter_Tags")]
-        public System.Collections.Hashtable[] Filter_Tag { get; set; }
+        public System.Collections.Hashtable Filter_Tag { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -456,15 +456,22 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             }
             if (this.Filter_Tag != null)
             {
-                context.Filter_Tag = new List<Dictionary<System.String, System.String>>();
-                foreach (var hashTable in this.Filter_Tag)
+                context.Filter_Tag = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Filter_Tag.Keys)
                 {
-                    var d = new Dictionary<System.String, System.String>();
-                    foreach (var hashKey in hashTable.Keys)
+                    object hashValue = this.Filter_Tag[hashKey];
+                    if (hashValue == null)
                     {
-                        d.Add((String)hashKey, (String)(hashTable[hashKey]));
+                        context.Filter_Tag.Add((String)hashKey, null);
+                        continue;
                     }
-                    context.Filter_Tag.Add(d);
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.Filter_Tag.Add((String)hashKey, valueSet);
                 }
             }
             context.MaxResult = this.MaxResult;
@@ -645,7 +652,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 request.Filter.StartTimes = requestFilter_filter_StartTime;
                 requestFilterIsNull = false;
             }
-            List<Dictionary<System.String, System.String>> requestFilter_filter_Tag = null;
+            Dictionary<System.String, List<System.String>> requestFilter_filter_Tag = null;
             if (cmdletContext.Filter_Tag != null)
             {
                 requestFilter_filter_Tag = cmdletContext.Filter_Tag;
@@ -867,7 +874,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 request.Filter.StartTimes = requestFilter_filter_StartTime;
                 requestFilterIsNull = false;
             }
-            List<Dictionary<System.String, System.String>> requestFilter_filter_Tag = null;
+            Dictionary<System.String, List<System.String>> requestFilter_filter_Tag = null;
             if (cmdletContext.Filter_Tag != null)
             {
                 requestFilter_filter_Tag = cmdletContext.Filter_Tag;
@@ -975,7 +982,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.DescribeEventAggregatesResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeEventAggregatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeEventAggregates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "DescribeEventAggregates");
             try
             {
                 return client.DescribeEventAggregatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -1010,7 +1017,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             public List<System.String> Filter_Region { get; set; }
             public List<System.String> Filter_Service { get; set; }
             public List<Amazon.AWSHealth.Model.DateTimeRange> Filter_StartTime { get; set; }
-            public List<Dictionary<System.String, System.String>> Filter_Tag { get; set; }
+            public Dictionary<System.String, List<System.String>> Filter_Tag { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.AWSHealth.Model.DescribeEventAggregatesResponse, GetHLTHEventAggregateCmdlet, object> Select { get; set; } =

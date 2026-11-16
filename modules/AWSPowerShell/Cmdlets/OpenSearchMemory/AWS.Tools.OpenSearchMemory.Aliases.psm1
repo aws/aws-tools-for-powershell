@@ -1,0 +1,3 @@
+﻿# OpenSearchMemory
+
+Export-ModuleMember -Alias *

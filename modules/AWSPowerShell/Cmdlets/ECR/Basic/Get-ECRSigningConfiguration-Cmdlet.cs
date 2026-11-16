@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRSigningConfiguration")]
     [OutputType("Amazon.ECR.Model.GetSigningConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry GetSigningConfiguration API operation.", Operation = new[] {"GetSigningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.GetSigningConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry GetSigningConfiguration API operation.", Operation = new[] {"GetSigningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.GetSigningConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.GetSigningConfigurationResponse",
         "This cmdlet returns an Amazon.ECR.Model.GetSigningConfigurationResponse object containing multiple properties."
     )]
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.GetSigningConfigurationResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetSigningConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "GetSigningConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "GetSigningConfiguration");
             try
             {
                 return client.GetSigningConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

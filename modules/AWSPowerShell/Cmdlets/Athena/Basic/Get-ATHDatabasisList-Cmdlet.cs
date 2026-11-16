@@ -45,6 +45,26 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AttributesToGet
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the database properties returned by the <c>ListDatabases</c> call. The only
+        /// valid value is <c>NAME</c>, which returns only the name of each database and omits
+        /// the remaining properties. If you omit this parameter or specify an empty list, all
+        /// database properties are returned.</para><para>Requesting only names can reduce response time for catalogs that contain many databases,
+        /// especially resource links to databases shared from other accounts.</para><para>This parameter applies only to the Glue Data Catalog. For other data catalog types,
+        /// it is ignored.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AttributesToGet { get; set; }
+        #endregion
+        
         #region Parameter CatalogName
         /// <summary>
         /// <para>
@@ -140,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 context.Select = CreateSelectDelegate<Amazon.Athena.Model.ListDatabasesResponse, GetATHDatabasisListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AttributesToGet != null)
+            {
+                context.AttributesToGet = new List<System.String>(this.AttributesToGet);
+            }
             context.CatalogName = this.CatalogName;
             #if MODULAR
             if (this.CatalogName == null && ParameterWasBound(nameof(this.CatalogName)))
@@ -168,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             // create request and set iteration invariants
             var request = new Amazon.Athena.Model.ListDatabasesRequest();
             
+            if (cmdletContext.AttributesToGet != null)
+            {
+                request.AttributesToGet = cmdletContext.AttributesToGet;
+            }
             if (cmdletContext.CatalogName != null)
             {
                 request.CatalogName = cmdletContext.CatalogName;
@@ -259,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AttributesToGet { get; set; }
             public System.String CatalogName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

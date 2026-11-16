@@ -99,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.Boolean? ManagedPersistenceMonitoringConfiguration_Enabled { get; set; }
         #endregion
         
+        #region Parameter FlexExecution_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables Amazon EMR Serverless Flex capacity for the job run and defaults to false.
+        /// If set to true, the job run uses Flex capacity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? FlexExecution_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ConfigurationOverrides_DiskEncryptionConfiguration_EncryptionContext
         /// <summary>
         /// <para>
@@ -536,6 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             }
             #endif
             context.ExecutionTimeoutMinute = this.ExecutionTimeoutMinute;
+            context.FlexExecution_Enabled = this.FlexExecution_Enabled;
             context.Hive_InitQueryFile = this.Hive_InitQueryFile;
             context.Hive_Parameter = this.Hive_Parameter;
             context.Hive_Query = this.Hive_Query;
@@ -848,6 +860,25 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 request.ExecutionTimeoutMinutes = cmdletContext.ExecutionTimeoutMinute.Value;
             }
             
+             // populate FlexExecution
+            var requestFlexExecutionIsNull = true;
+            request.FlexExecution = new Amazon.EMRServerless.Model.FlexExecution();
+            System.Boolean? requestFlexExecution_flexExecution_Enabled = null;
+            if (cmdletContext.FlexExecution_Enabled != null)
+            {
+                requestFlexExecution_flexExecution_Enabled = cmdletContext.FlexExecution_Enabled.Value;
+            }
+            if (requestFlexExecution_flexExecution_Enabled != null)
+            {
+                request.FlexExecution.Enabled = requestFlexExecution_flexExecution_Enabled.Value;
+                requestFlexExecutionIsNull = false;
+            }
+             // determine if request.FlexExecution should be set to null
+            if (requestFlexExecutionIsNull)
+            {
+                request.FlexExecution = null;
+            }
+            
              // populate JobDriver
             var requestJobDriverIsNull = true;
             request.JobDriver = new Amazon.EMRServerless.Model.JobDriver();
@@ -1061,6 +1092,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public List<System.String> ExecutionIamPolicy_PolicyArn { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.Int64? ExecutionTimeoutMinute { get; set; }
+            public System.Boolean? FlexExecution_Enabled { get; set; }
             public System.String Hive_InitQueryFile { get; set; }
             public System.String Hive_Parameter { get; set; }
             public System.String Hive_Query { get; set; }

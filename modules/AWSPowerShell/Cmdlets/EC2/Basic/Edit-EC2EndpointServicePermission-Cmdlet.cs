@@ -39,6 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If you grant permissions to all principals, the service is public. Any users who know
     /// the name of a public service can send a request to attach an endpoint. If the service
     /// does not require manual approval, attachments are automatically approved.
+    /// </para><para>
+    /// By default, principals that you grant permissions to can create VPC endpoints that
+    /// connect to your endpoint service. For Gateway Load Balancer endpoint services, you
+    /// can instead grant permissions so that principals can create transit gateway attachments
+    /// that connect to your endpoint service. To do so, specify <c>transit-gateway-attachment</c>
+    /// for <c>PermissionType</c>. The two permission types are independent. A principal can
+    /// have either or both.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2EndpointServicePermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -82,6 +89,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DryRun { get; set; }
+        #endregion
+        
+        #region Parameter PermissionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of permission to add or remove. The permission type applies to all principals
+        /// in <c>AddAllowedPrincipals</c> and <c>RemoveAllowedPrincipals</c>.</para><ul><li><para><c>vpc-endpoint</c> - Principals can create VPC endpoints that connect to the endpoint
+        /// service.</para></li><li><para><c>transit-gateway-attachment</c> - Principals can create transit gateway attachments
+        /// that connect to the endpoint service. This permission type is supported only for Gateway
+        /// Load Balancer endpoint services. You can grant it only to Amazon Web Services accounts
+        /// (<c>arn:aws:iam::account-id:root</c>). You can't grant it to users, IAM roles, organizations,
+        /// organizational units, or all principals (*).</para></li></ul><para>Default: <c>vpc-endpoint</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.PermissionType")]
+        public Amazon.EC2.PermissionType PermissionType { get; set; }
         #endregion
         
         #region Parameter RemoveAllowedPrincipal
@@ -169,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.AddAllowedPrincipal = new List<System.String>(this.AddAllowedPrincipal);
             }
             context.DryRun = this.DryRun;
+            context.PermissionType = this.PermissionType;
             if (this.RemoveAllowedPrincipal != null)
             {
                 context.RemoveAllowedPrincipal = new List<System.String>(this.RemoveAllowedPrincipal);
@@ -203,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
+            }
+            if (cmdletContext.PermissionType != null)
+            {
+                request.PermissionType = cmdletContext.PermissionType;
             }
             if (cmdletContext.RemoveAllowedPrincipal != null)
             {
@@ -269,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public List<System.String> AddAllowedPrincipal { get; set; }
             public System.Boolean? DryRun { get; set; }
+            public Amazon.EC2.PermissionType PermissionType { get; set; }
             public List<System.String> RemoveAllowedPrincipal { get; set; }
             public System.String ServiceId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVpcEndpointServicePermissionsResponse, EditEC2EndpointServicePermissionCmdlet, object> Select { get; set; } =

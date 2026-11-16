@@ -90,18 +90,25 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-CNHResourceTag', 
         'Disable-CNHSubscription', 
         'Enable-CNHSubscription', 
+        'Get-CNHDataset', 
+        'Get-CNHDatasetList', 
         'Get-CNHDomain', 
         'Get-CNHDomainList', 
+        'Get-CNHMedicalCodingJob', 
         'Get-CNHMedicalScribeListeningSession', 
         'Get-CNHPatientInsightsJob', 
         'Get-CNHResourceTag', 
         'Get-CNHSubscription', 
         'Get-CNHSubscriptionList', 
+        'New-CNHDataset', 
         'New-CNHDomain', 
         'New-CNHSubscription', 
+        'Remove-CNHDataset', 
         'Remove-CNHDomain', 
         'Remove-CNHResourceTag', 
-        'Start-CNHPatientInsightsJob')
+        'Start-CNHMedicalCodingJob', 
+        'Start-CNHPatientInsightsJob', 
+        'Submit-CNHFeedback')
 
     # Variables to export from this module
     VariablesToExport = '*'

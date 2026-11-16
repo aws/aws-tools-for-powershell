@@ -28,6 +28,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateContextStore" OutputProperty="ContextStoreAssociation" Verb="Add" Noun="ContextStore" ShouldProcessTarget="ContextStoreId" PipelineParameter="ContextStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateCustomerGateway" OutputProperty="CustomerGatewayAssociation" Verb="Register" Noun="CustomerGateway" ShouldProcessTarget="CustomerGatewayArn" PipelineParameter="CustomerGatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -49,6 +53,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConnectPeer" OutputProperty="ConnectPeer" Verb="New" Noun="ConnectPeer" ShouldProcessTarget="ConnectAttachmentId" PipelineParameter="ConnectAttachmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateContextStore" OutputProperty="ContextStore" Verb="New" Noun="ContextStore" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -108,6 +116,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContextStore" OutputProperty="ContextStore" Verb="Remove" Noun="ContextStore" ShouldProcessTarget="ContextStoreId" PipelineParameter="ContextStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCoreNetwork" OutputProperty="CoreNetwork" Verb="Remove" Noun="CoreNetwork" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -156,6 +168,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateContextStore" OutputProperty="ContextStoreAssociation" Verb="Unregister" Noun="ContextStore" ShouldProcessTarget="ContextStoreId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateCustomerGateway" OutputProperty="CustomerGatewayAssociation" Verb="Unregister" Noun="CustomerGateway" ShouldProcessTarget="CustomerGatewayArn" PipelineParameter="CustomerGatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -185,6 +201,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetConnectPeerAssociations" OutputProperty="ConnectPeerAssociations" Verb="Get" Noun="ConnectPeerAssociation" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContextStore" OutputProperty="ContextStore" Verb="Get" Noun="ContextStore" PipelineParameter="ContextStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContextStoreAssociation" OutputProperty="ContextStoreAssociation" Verb="Get" Noun="ContextStoreAssociation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContextVersion" OutputProperty="VersionId" Verb="Get" Noun="ContextVersion" PipelineParameter="ContextStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -303,6 +331,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListContextChanges" OutputProperty="*" Verb="Get" Noun="ContextChangeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContexts" OutputProperty="*" Verb="Get" Noun="ContextList" PipelineParameter="ContextStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContextStoreAssociations" OutputProperty="ContextStoreAssociations" Verb="Get" Noun="ContextStoreAssociationList" PipelineParameter="ContextStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContextStores" OutputProperty="ContextStores" Verb="Get" Noun="ContextStoreList" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCoreNetworkPolicyVersions" OutputProperty="CoreNetworkPolicyVersions" Verb="Get" Noun="CoreNetworkPolicyVersionList" PipelineParameter="CoreNetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -380,6 +424,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnection" OutputProperty="Connection" Verb="Update" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContextStore" OutputProperty="ContextStore" Verb="Update" Noun="ContextStore" ShouldProcessTarget="ContextStoreId" PipelineParameter="ContextStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

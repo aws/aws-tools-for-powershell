@@ -1,0 +1,3 @@
+﻿# ConnectScheduling
+
+Export-ModuleMember -Alias *

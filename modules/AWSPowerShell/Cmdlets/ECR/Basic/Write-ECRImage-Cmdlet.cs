@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Write", "ECRImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.Image")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutImage API operation.", Operation = new[] {"PutImage"}, SelectReturnType = typeof(Amazon.ECR.Model.PutImageResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry PutImage API operation.", Operation = new[] {"PutImage"}, SelectReturnType = typeof(Amazon.ECR.Model.PutImageResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.Image or Amazon.ECR.Model.PutImageResponse",
         "This cmdlet returns an Amazon.ECR.Model.Image object.",
         "The service call response (type Amazon.ECR.Model.PutImageResponse) can be returned by specifying '-Select *'."
@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.PutImageResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.PutImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "PutImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "PutImage");
             try
             {
                 return client.PutImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

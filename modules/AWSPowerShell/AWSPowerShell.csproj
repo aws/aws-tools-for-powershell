@@ -419,6 +419,9 @@
     <Reference Include="AWSSDK.ConnectParticipant">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectParticipant.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ConnectScheduling">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectScheduling.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ConnectWisdomService">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ConnectWisdomService.dll</HintPath>
     </Reference>
@@ -956,6 +959,9 @@
     <Reference Include="AWSSDK.Omics">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Omics.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.OpenSearchMemory">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OpenSearchMemory.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpenSearchServerless">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OpenSearchServerless.dll</HintPath>
     </Reference>
@@ -1150,6 +1156,9 @@
     </Reference>
     <Reference Include="AWSSDK.SageMakerGeospatial">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerGeospatial.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SageMakerInferenceRouterRuntime">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerInferenceRouterRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SagemakerJobRuntime">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SagemakerJobRuntime.dll</HintPath>
@@ -1724,6 +1733,9 @@
     <Reference Include="AWSSDK.ConnectParticipant">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectParticipant.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ConnectScheduling">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectScheduling.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ConnectWisdomService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectWisdomService.dll</HintPath>
     </Reference>
@@ -2261,6 +2273,9 @@
     <Reference Include="AWSSDK.Omics">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Omics.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.OpenSearchMemory">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OpenSearchMemory.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpenSearchServerless">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OpenSearchServerless.dll</HintPath>
     </Reference>
@@ -2455,6 +2470,9 @@
     </Reference>
     <Reference Include="AWSSDK.SageMakerGeospatial">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerGeospatial.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SageMakerInferenceRouterRuntime">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerInferenceRouterRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SagemakerJobRuntime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SagemakerJobRuntime.dll</HintPath>

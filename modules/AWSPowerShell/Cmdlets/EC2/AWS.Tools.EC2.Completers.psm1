@@ -1127,6 +1127,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.PermissionType
+        "Edit-EC2EndpointServicePermission/PermissionType"
+        {
+            $v = "transit-gateway-attachment","vpc-endpoint"
+            break
+        }
+
         # Amazon.EC2.PlacementStrategy
         "New-EC2PlacementGroup/Strategy"
         {
@@ -1815,6 +1822,7 @@ $EC2_map = @{
     "OutputFormat"=@("New-EC2CapacityManagerDataExport")
     "PayerResponsibility"=@("Edit-EC2VpcEndpointPayerResponsibility","Edit-EC2VpcEndpointServicePayerResponsibility")
     "Permission"=@("New-EC2NetworkInterfacePermission")
+    "PermissionType"=@("Edit-EC2EndpointServicePermission")
     "PersistRoute"=@("Edit-EC2RouteServer","New-EC2RouteServer")
     "Placement_Tenancy"=@("New-EC2Instance","Request-EC2SpotInstance")
     "PrivateDnsHostnameType"=@("Edit-EC2PrivateDnsNameOption")
@@ -1967,6 +1975,7 @@ $EC2_SelectMap = @{
                "Register-EC2InstanceEventWindow",
                "Register-EC2IpamByoasn",
                "Register-EC2IpamResourceDiscovery",
+               "Register-EC2KmsKeyId",
                "Register-EC2NatGatewayAddress",
                "Register-EC2NetworkingFlexCostAllocationPolicy",
                "Register-EC2RouteServer",
@@ -2093,6 +2102,7 @@ $EC2_SelectMap = @{
                "New-EC2TransitGatewayMeteringPolicy",
                "New-EC2TransitGatewayMeteringPolicyEntry",
                "New-EC2TransitGatewayMulticastDomain",
+               "New-EC2TransitGatewayNetworkFunctionAttachment",
                "New-EC2TransitGatewayPeeringAttachment",
                "New-EC2TransitGatewayPolicyTable",
                "New-EC2TransitGatewayPolicyTableEntry",
@@ -2193,6 +2203,7 @@ $EC2_SelectMap = @{
                "Remove-EC2TransitGatewayMeteringPolicy",
                "Remove-EC2TransitGatewayMeteringPolicyEntry",
                "Remove-EC2TransitGatewayMulticastDomain",
+               "Remove-EC2TransitGatewayNetworkFunctionAttachment",
                "Remove-EC2TransitGatewayPeeringAttachment",
                "Remove-EC2TransitGatewayPolicyTable",
                "Remove-EC2TransitGatewayPolicyTableEntry",
@@ -2386,6 +2397,7 @@ $EC2_SelectMap = @{
                "Get-EC2TransitGatewayConnect",
                "Get-EC2TransitGatewayMeteringPolicy",
                "Get-EC2TransitGatewayMulticastDomain",
+               "Get-EC2TransitGatewayNetworkFunctionAttachmentDetail",
                "Get-EC2TransitGatewayPeeringAttachment",
                "Get-EC2TransitGatewayPolicyTable",
                "Get-EC2TransitGatewayRouteTableAnnouncement",
@@ -2458,6 +2470,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2InstanceEventWindow",
                "Unregister-EC2IpamByoasn",
                "Unregister-EC2IpamResourceDiscovery",
+               "Unregister-EC2KmsKeyId",
                "Unregister-EC2NatGatewayAddress",
                "Unregister-EC2NetworkingFlexCostAllocationPolicy",
                "Unregister-EC2RouteServer",
@@ -2648,6 +2661,7 @@ $EC2_SelectMap = @{
                "Edit-EC2TransitGateway",
                "Edit-EC2TransitGatewayAttachmentNatConfiguration",
                "Edit-EC2TransitGatewayMeteringPolicy",
+               "Edit-EC2TransitGatewayNetworkFunctionAttachment",
                "Edit-EC2TransitGatewayPolicyTableEntry",
                "Edit-EC2TransitGatewayPrefixListReference",
                "Edit-EC2TransitGatewayVpcAttachment",

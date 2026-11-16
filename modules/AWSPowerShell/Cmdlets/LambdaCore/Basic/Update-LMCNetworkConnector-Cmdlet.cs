@@ -152,6 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.LMC
         public System.String[] Configuration_VpcEgressConfiguration_SubnetId { get; set; }
         #endregion
         
+        #region Parameter Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// The Elastic IP type for the connector's network interfaces.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LambdaCore.ElasticIpType")]
+        public Amazon.LambdaCore.ElasticIpType Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -213,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.LMC
             {
                 context.Configuration_VpcEgressConfiguration_AssociatedComputeResourceType = new List<System.String>(this.Configuration_VpcEgressConfiguration_AssociatedComputeResourceType);
             }
+            context.Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type = this.Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type;
             context.Configuration_VpcEgressConfiguration_NetworkProtocol = this.Configuration_VpcEgressConfiguration_NetworkProtocol;
             if (this.Configuration_VpcEgressConfiguration_SecurityGroupId != null)
             {
@@ -299,6 +311,31 @@ namespace Amazon.PowerShell.Cmdlets.LMC
                 requestConfiguration_configuration_VpcEgressConfiguration.SubnetIds = requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_SubnetId;
                 requestConfiguration_configuration_VpcEgressConfigurationIsNull = false;
             }
+            Amazon.LambdaCore.Model.ElasticIpConfiguration requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration = null;
+            
+             // populate ElasticIpConfiguration
+            var requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfigurationIsNull = true;
+            requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration = new Amazon.LambdaCore.Model.ElasticIpConfiguration();
+            Amazon.LambdaCore.ElasticIpType requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type = null;
+            if (cmdletContext.Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type != null)
+            {
+                requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type = cmdletContext.Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type;
+            }
+            if (requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type != null)
+            {
+                requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration.Type = requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type;
+                requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration should be set to null
+            if (requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfigurationIsNull)
+            {
+                requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration = null;
+            }
+            if (requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration != null)
+            {
+                requestConfiguration_configuration_VpcEgressConfiguration.ElasticIpConfiguration = requestConfiguration_configuration_VpcEgressConfiguration_configuration_VpcEgressConfiguration_ElasticIpConfiguration;
+                requestConfiguration_configuration_VpcEgressConfigurationIsNull = false;
+            }
              // determine if requestConfiguration_configuration_VpcEgressConfiguration should be set to null
             if (requestConfiguration_configuration_VpcEgressConfigurationIsNull)
             {
@@ -379,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.LMC
         {
             public System.String ClientToken { get; set; }
             public List<System.String> Configuration_VpcEgressConfiguration_AssociatedComputeResourceType { get; set; }
+            public Amazon.LambdaCore.ElasticIpType Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type { get; set; }
             public Amazon.LambdaCore.NetworkProtocol Configuration_VpcEgressConfiguration_NetworkProtocol { get; set; }
             public List<System.String> Configuration_VpcEgressConfiguration_SecurityGroupId { get; set; }
             public List<System.String> Configuration_VpcEgressConfiguration_SubnetId { get; set; }

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Test", "ECRPullThroughCacheRule")]
     [OutputType("Amazon.ECR.Model.ValidatePullThroughCacheRuleResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry ValidatePullThroughCacheRule API operation.", Operation = new[] {"ValidatePullThroughCacheRule"}, SelectReturnType = typeof(Amazon.ECR.Model.ValidatePullThroughCacheRuleResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry ValidatePullThroughCacheRule API operation.", Operation = new[] {"ValidatePullThroughCacheRule"}, SelectReturnType = typeof(Amazon.ECR.Model.ValidatePullThroughCacheRuleResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.ValidatePullThroughCacheRuleResponse",
         "This cmdlet returns an Amazon.ECR.Model.ValidatePullThroughCacheRuleResponse object containing multiple properties."
     )]
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.ValidatePullThroughCacheRuleResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.ValidatePullThroughCacheRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "ValidatePullThroughCacheRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "ValidatePullThroughCacheRule");
             try
             {
                 return client.ValidatePullThroughCacheRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

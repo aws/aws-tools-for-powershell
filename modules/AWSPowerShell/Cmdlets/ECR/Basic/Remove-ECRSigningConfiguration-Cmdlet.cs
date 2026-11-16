@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Remove", "ECRSigningConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECR.Model.DeleteSigningConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry DeleteSigningConfiguration API operation.", Operation = new[] {"DeleteSigningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.DeleteSigningConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry DeleteSigningConfiguration API operation.", Operation = new[] {"DeleteSigningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.DeleteSigningConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.DeleteSigningConfigurationResponse",
         "This cmdlet returns an Amazon.ECR.Model.DeleteSigningConfigurationResponse object containing multiple properties."
     )]
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.DeleteSigningConfigurationResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DeleteSigningConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DeleteSigningConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "DeleteSigningConfiguration");
             try
             {
                 return client.DeleteSigningConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

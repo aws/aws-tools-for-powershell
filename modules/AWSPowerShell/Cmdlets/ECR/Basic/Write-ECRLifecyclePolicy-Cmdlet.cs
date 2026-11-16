@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Write", "ECRLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.PutLifecyclePolicyResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutLifecyclePolicy API operation.", Operation = new[] {"PutLifecyclePolicy"}, SelectReturnType = typeof(Amazon.ECR.Model.PutLifecyclePolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry PutLifecyclePolicy API operation.", Operation = new[] {"PutLifecyclePolicy"}, SelectReturnType = typeof(Amazon.ECR.Model.PutLifecyclePolicyResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.PutLifecyclePolicyResponse",
         "This cmdlet returns an Amazon.ECR.Model.PutLifecyclePolicyResponse object containing multiple properties."
     )]
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.PutLifecyclePolicyResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.PutLifecyclePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "PutLifecyclePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "PutLifecyclePolicy");
             try
             {
                 return client.PutLifecyclePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

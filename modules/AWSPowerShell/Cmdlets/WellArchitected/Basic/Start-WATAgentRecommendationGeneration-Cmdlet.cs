@@ -30,10 +30,25 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// Initiates a new recommendation generation process for the specified optimization profile.
-    /// This asynchronous operation analyzes your Amazon Web Services resources and generates
-    /// optimization recommendations based on the configured pillars and scope. Use GetAgentRecommendationGeneration
-    /// to check status.
+    /// Starts a recommendation generation process for the specified agent profile. This asynchronous
+    /// operation returns immediately. Use <c>GetAgentRecommendationGeneration</c> to check
+    /// the status of the generation.
+    /// 
+    ///  
+    /// <para>
+    /// Currently, only the <c>ARCHITECTURE</c> recommendation type is supported. <c>RESOURCE</c>
+    /// and <c>APPLICATION</c> recommendations are generated only by the scheduled generation
+    /// cycle and cannot be started with this operation.
+    /// </para><para>
+    /// For the <c>ARCHITECTURE</c> type, the generation analyzes the infrastructure as code
+    /// (IaC) template that you specify in <c>additionalContext</c>, and returns updated templates
+    /// with best practice fixes applied. You must specify <c>scope</c> and <c>additionalContext</c>.
+    /// You can optionally specify <c>name</c>.
+    /// </para><para>
+    /// Architecture review generations are subject to a daily quota for each profile. For
+    /// more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/agent-quotas.html">Quotas
+    /// and limits</a> in the Amazon Web Services Well-Architected User Guide.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "WATAgentRecommendationGeneration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WellArchitected.Model.StartAgentRecommendationGenerationResponse")]
@@ -50,8 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter AdditionalContext
         /// <summary>
         /// <para>
-        /// <para>Optional additional context to guide the recommendation generation, such as specific
-        /// business requirements or constraints.</para>
+        /// <para>The location of the infrastructure as code (IaC) template to review, and the lenses
+        /// to review it against. Required for the <c>ARCHITECTURE</c> type. Must be absent for
+        /// other types. Specify a JSON object with the following members:</para><ul><li><para><c>s3Uri</c>: The Amazon S3 URI of the IaC template, .zip archive, or folder to review.</para></li><li><para><c>s3VersionId</c>: The version ID of the Amazon S3 object. If you omit this member,
+        /// the current version is used.</para></li><li><para><c>lensArns</c>: The ARNs of the lenses to review against. Only <c>arn:aws:wellarchitected::aws:lens/wellarchitected</c>
+        /// is supported.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter Scope_GoalId
         /// <summary>
         /// <para>
-        /// <para>Specific goal IDs to focus on during recommendation generation.</para><para />
+        /// <para>Specific goal IDs to focus on during recommendation generation. Use <c>ListAgentGoals</c>
+        /// to retrieve goal IDs.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -77,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter Scope_Item
         /// <summary>
         /// <para>
-        /// <para>Optional per-pillar item filtering configuration.</para><para />
+        /// <para>An optional per-pillar filter. When you specify items, only the listed items are processed
+        /// for each pillar. When you omit items, all items are processed.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -93,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>An optional name for this generation process to help identify it in lists and logs.</para>
+        /// <para>An optional name for this generation that identifies the architecture review in the
+        /// console and in <c>ListAgentRecommendationGenerations</c> results. Applies to <c>ARCHITECTURE</c>
+        /// type only. Must be absent for other types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter Scope_Pillar
         /// <summary>
         /// <para>
-        /// <para>The Well-Architected Tool Framework pillars to include in the generation scope.</para><para />
+        /// <para>The Amazon Web Services Well-Architected Framework pillars to include in the generation
+        /// scope.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -111,14 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Scope_Pillars")]
         public System.String[] Scope_Pillar { get; set; }
         #endregion
@@ -143,7 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The types of recommendations to generate.</para><para />
+        /// <para>The types of recommendations to generate. You can specify up to two types in a single
+        /// request. Currently, only <c>ARCHITECTURE</c> is supported for this operation.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -230,12 +247,6 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             {
                 context.Scope_Pillar = new List<System.String>(this.Scope_Pillar);
             }
-            #if MODULAR
-            if (this.Scope_Pillar == null && ParameterWasBound(nameof(this.Scope_Pillar)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Scope_Pillar which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Type != null)
             {
                 context.Type = new List<System.String>(this.Type);

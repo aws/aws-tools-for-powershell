@@ -80,6 +80,16 @@ $LMC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.LambdaCore.ElasticIpType
+        {
+            ($_ -eq "New-LMCNetworkConnector/Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type") -Or
+            ($_ -eq "Update-LMCNetworkConnector/Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type")
+        }
+        {
+            $v = "None","ServiceManaged"
+            break
+        }
+
         # Amazon.LambdaCore.NetworkConnectorState
         {
             ($_ -eq "Get-LMCNetworkConnectorList/State") -Or
@@ -121,6 +131,7 @@ $LMC_Completers = {
 }
 
 $LMC_map = @{
+    "Configuration_VpcEgressConfiguration_ElasticIpConfiguration_Type"=@("New-LMCNetworkConnector","Update-LMCNetworkConnector")
     "Configuration_VpcEgressConfiguration_NetworkProtocol"=@("New-LMCNetworkConnector","Update-LMCNetworkConnector")
     "ReleaseLifecycle_ReleaseState"=@("New-LMCRuntime","New-LMCRuntimeAlias","Update-LMCRuntime","Update-LMCRuntimeAlias")
     "State"=@("Get-LMCNetworkConnectorList","Get-LMCNetworkConnectorVersionList")

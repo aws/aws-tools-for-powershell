@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Start", "ECRImageScan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.StartImageScanResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry StartImageScan API operation.", Operation = new[] {"StartImageScan"}, SelectReturnType = typeof(Amazon.ECR.Model.StartImageScanResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry StartImageScan API operation.", Operation = new[] {"StartImageScan"}, SelectReturnType = typeof(Amazon.ECR.Model.StartImageScanResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.StartImageScanResponse",
         "This cmdlet returns an Amazon.ECR.Model.StartImageScanResponse object containing multiple properties."
     )]
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.StartImageScanResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.StartImageScanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "StartImageScan");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "StartImageScan");
             try
             {
                 return client.StartImageScanAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

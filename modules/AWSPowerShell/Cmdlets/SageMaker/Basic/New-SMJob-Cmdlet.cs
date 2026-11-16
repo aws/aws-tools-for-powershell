@@ -37,11 +37,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// Use the <c>AgentRFT</c> category to fine-tune a model using multi-turn reinforcement
-    /// learning with reward signals. Use the <c>AgentRFTEvaluation</c> category to evaluate
-    /// a fine-tuned or base model by running multi-turn rollouts against a held-out prompt
-    /// dataset and computing metrics such as pass@k and mean reward.
-    /// </para><para>
+    /// Specify one of the following job categories, which determines the type of workload
+    /// that the job runs:
+    /// </para><dl><dt>AgentRFT</dt><dd><para>
+    /// Fine-tune a model using multi-turn reinforcement learning with reward signals.
+    /// </para></dd><dt>AgentRFTEvaluation</dt><dd><para>
+    /// Evaluate a fine-tuned or base model by running multi-turn rollouts against a held-out
+    /// prompt dataset. This category computes metrics such as pass@k and mean reward.
+    /// </para></dd><dt>DataQualityEvaluation</dt><dd><para>
+    /// Evaluate the quality of a generated or bring-your-own dataset using quality metrics
+    /// or your own specification.
+    /// </para></dd><dt>DataTransformation</dt><dd><para>
+    /// Transform datasets into the format you need, for example for model customization.
+    /// </para></dd><dt>SyntheticDataGeneration</dt><dd><para>
+    /// Generate synthetic training and testing datasets from your context data and specifications.
+    /// </para></dd></dl><para>
     /// Before creating a job, call <c>ListJobSchemaVersions</c> and <c>DescribeJobSchemaVersion</c>
     /// to retrieve the configuration schema for your job category. The <c>JobConfigDocument</c>
     /// must conform to the schema specified by <c>JobConfigSchemaVersion</c>.

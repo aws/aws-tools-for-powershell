@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRPullTimeUpdateExclusionList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry ListPullTimeUpdateExclusions API operation.", Operation = new[] {"ListPullTimeUpdateExclusions"}, SelectReturnType = typeof(Amazon.ECR.Model.ListPullTimeUpdateExclusionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry ListPullTimeUpdateExclusions API operation.", Operation = new[] {"ListPullTimeUpdateExclusions"}, SelectReturnType = typeof(Amazon.ECR.Model.ListPullTimeUpdateExclusionsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ECR.Model.ListPullTimeUpdateExclusionsResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.ECR.Model.ListPullTimeUpdateExclusionsResponse) can be returned by specifying '-Select *'."
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.ListPullTimeUpdateExclusionsResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.ListPullTimeUpdateExclusionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "ListPullTimeUpdateExclusions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "ListPullTimeUpdateExclusions");
             try
             {
                 return client.ListPullTimeUpdateExclusionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

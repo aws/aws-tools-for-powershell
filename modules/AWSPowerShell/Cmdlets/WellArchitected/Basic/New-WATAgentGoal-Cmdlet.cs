@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter Pillar
         /// <summary>
         /// <para>
-        /// <para>The Well-Architected Tool Framework pillars to associate with this goal.</para><para />
+        /// <para>The Amazon Web Services Well-Architected Framework pillars to associate with this
+        /// goal.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

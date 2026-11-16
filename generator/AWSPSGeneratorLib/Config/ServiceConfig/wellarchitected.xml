@@ -27,11 +27,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgentBasicProfile" OutputProperty="*" Verb="New" Noun="AgentBasicProfile" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAgentContext" OutputProperty="Context" Verb="New" Noun="AgentContext" ShouldProcessTarget="ProfileArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAgentGoal" OutputProperty="Goal" Verb="New" Noun="AgentGoal" ShouldProcessTarget="ProfileArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgentOrganizationalProfile" OutputProperty="*" Verb="New" Noun="AgentOrganizationalProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgentOrganizationalReport" OutputProperty="*" Verb="New" Noun="AgentOrganizationalReport" ShouldProcessTarget="Label" PipelineParameter="Label" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -85,7 +97,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentOrganizationalReport" Verb="Remove" Noun="AgentOrganizationalReport" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAgentProfile" Verb="Remove" Noun="AgentProfile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentProfilePolicy" Verb="Remove" Noun="AgentProfilePolicy" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentRecommendationPolicy" Verb="Remove" Noun="AgentRecommendationPolicy" ShouldProcessTarget="RecommendationArn" PipelineParameter="RecommendationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -141,7 +165,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentOrganizationalReport" OutputProperty="*" Verb="Get" Noun="AgentOrganizationalReport" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentOrganizationalReportData" OutputProperty="*" Verb="Get" Noun="AgentOrganizationalReportData" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentPreferences" OutputProperty="Preferences" Verb="Get" Noun="AgentPreference" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAgentProfile" OutputProperty="*" Verb="Get" Noun="AgentProfile" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentProfilePolicy" OutputProperty="*" Verb="Get" Noun="AgentProfilePolicy" PipelineParameter="ProfileArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -150,6 +190,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAgentRecommendationGeneration" OutputProperty="*" Verb="Get" Noun="AgentRecommendationGeneration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentRecommendationPolicy" OutputProperty="*" Verb="Get" Noun="AgentRecommendationPolicy" PipelineParameter="RecommendationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -218,6 +262,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAgentGoals" OutputProperty="Items" Verb="Get" Noun="AgentGoalList" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentOrganizationalReports" OutputProperty="Items" Verb="Get" Noun="AgentOrganizationalReportList" PipelineParameter="State" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -313,7 +361,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutAgentPreferences" Verb="Write" Noun="AgentPreference" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAgentProfilePolicy" Verb="Write" Noun="AgentProfilePolicy" ShouldProcessTarget="ProfileArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutAgentRecommendationFeedback" Verb="Write" Noun="AgentRecommendationFeedback" ShouldProcessTarget="RecommendationArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAgentRecommendationPolicy" Verb="Write" Noun="AgentRecommendationPolicy" ShouldProcessTarget="RecommendationArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendAgentOrganizationalReportDataToS3" OutputProperty="DeliveredTo" Verb="Send" Noun="AgentOrganizationalReportDataToS3" ShouldProcessTarget="ReportId,BucketArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -334,6 +398,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgentGoal" OutputProperty="Goal" Verb="Update" Noun="AgentGoal" ShouldProcessTarget="Id,ProfileArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentOrganizationalProfile" OutputProperty="*" Verb="Update" Noun="AgentOrganizationalProfile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Remove", "ECRPullThroughCacheRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECR.Model.DeletePullThroughCacheRuleResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry DeletePullThroughCacheRule API operation.", Operation = new[] {"DeletePullThroughCacheRule"}, SelectReturnType = typeof(Amazon.ECR.Model.DeletePullThroughCacheRuleResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry DeletePullThroughCacheRule API operation.", Operation = new[] {"DeletePullThroughCacheRule"}, SelectReturnType = typeof(Amazon.ECR.Model.DeletePullThroughCacheRuleResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.DeletePullThroughCacheRuleResponse",
         "This cmdlet returns an Amazon.ECR.Model.DeletePullThroughCacheRuleResponse object containing multiple properties."
     )]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.DeletePullThroughCacheRuleResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DeletePullThroughCacheRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DeletePullThroughCacheRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "DeletePullThroughCacheRule");
             try
             {
                 return client.DeletePullThroughCacheRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

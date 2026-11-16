@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRAuthorizationToken")]
     [OutputType("Amazon.ECR.Model.AuthorizationData")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry GetAuthorizationToken API operation.", Operation = new[] {"GetAuthorizationToken"}, SelectReturnType = typeof(Amazon.ECR.Model.GetAuthorizationTokenResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry GetAuthorizationToken API operation.", Operation = new[] {"GetAuthorizationToken"}, SelectReturnType = typeof(Amazon.ECR.Model.GetAuthorizationTokenResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.AuthorizationData or Amazon.ECR.Model.GetAuthorizationTokenResponse",
         "This cmdlet returns a collection of Amazon.ECR.Model.AuthorizationData objects.",
         "The service call response (type Amazon.ECR.Model.GetAuthorizationTokenResponse) can be returned by specifying '-Select *'."
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.GetAuthorizationTokenResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetAuthorizationTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "GetAuthorizationToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "GetAuthorizationToken");
             try
             {
                 return client.GetAuthorizationTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

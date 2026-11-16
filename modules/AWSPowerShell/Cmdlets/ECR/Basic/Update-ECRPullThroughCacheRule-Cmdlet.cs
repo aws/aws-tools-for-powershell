@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Update", "ECRPullThroughCacheRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.UpdatePullThroughCacheRuleResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry UpdatePullThroughCacheRule API operation.", Operation = new[] {"UpdatePullThroughCacheRule"}, SelectReturnType = typeof(Amazon.ECR.Model.UpdatePullThroughCacheRuleResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry UpdatePullThroughCacheRule API operation.", Operation = new[] {"UpdatePullThroughCacheRule"}, SelectReturnType = typeof(Amazon.ECR.Model.UpdatePullThroughCacheRuleResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.UpdatePullThroughCacheRuleResponse",
         "This cmdlet returns an Amazon.ECR.Model.UpdatePullThroughCacheRuleResponse object containing multiple properties."
     )]
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.UpdatePullThroughCacheRuleResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.UpdatePullThroughCacheRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "UpdatePullThroughCacheRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "UpdatePullThroughCacheRule");
             try
             {
                 return client.UpdatePullThroughCacheRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

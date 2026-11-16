@@ -387,6 +387,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAllEntitySessions" Verb="Remove" Noun="AllEntitySession" ShouldProcessTarget="EntityId,InstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAttachedFile" Verb="Remove" Noun="AttachedFile" ShouldProcessTarget="FileId" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

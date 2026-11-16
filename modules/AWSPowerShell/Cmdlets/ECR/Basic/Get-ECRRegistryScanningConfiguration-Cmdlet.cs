@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRRegistryScanningConfiguration")]
     [OutputType("Amazon.ECR.Model.GetRegistryScanningConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry GetRegistryScanningConfiguration API operation.", Operation = new[] {"GetRegistryScanningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.GetRegistryScanningConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry GetRegistryScanningConfiguration API operation.", Operation = new[] {"GetRegistryScanningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.GetRegistryScanningConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.GetRegistryScanningConfigurationResponse",
         "This cmdlet returns an Amazon.ECR.Model.GetRegistryScanningConfigurationResponse object containing multiple properties."
     )]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.GetRegistryScanningConfigurationResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetRegistryScanningConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "GetRegistryScanningConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "GetRegistryScanningConfiguration");
             try
             {
                 return client.GetRegistryScanningConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

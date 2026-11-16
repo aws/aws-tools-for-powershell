@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Add", "ECRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ECR.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ECR.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ECR.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ECR.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.TagResourceResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

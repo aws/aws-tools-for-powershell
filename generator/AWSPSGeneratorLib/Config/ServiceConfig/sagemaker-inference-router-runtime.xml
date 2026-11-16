@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sagemaker-inference-router-runtime</C2jFilename>
+    <AssemblyName>SageMakerInferenceRouterRuntime</AssemblyName>
+    <ServiceNounPrefix>SMIRR</ServiceNounPrefix>
+    <ServiceName>Amazon SageMaker Inference Router Runtime</ServiceName>
+    <ServiceId>SageMaker Inference Router Runtime</ServiceId>
+    <ServiceClientInterface>IAmazonSageMakerInferenceRouterRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonSageMakerInferenceRouterRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>47687ef5-29b3-4812-81f3-504c638d8fb2</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="InvokeInferenceRouter" OutputProperty="*" Verb="Invoke" Noun="InferenceRouter" ShouldProcessTarget="InferenceRouterName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InvokeInferenceRouterAsync" OutputProperty="*" Verb="Invoke" Noun="InferenceRouterAsync" ShouldProcessTarget="InferenceRouterName,RoutingTargetName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

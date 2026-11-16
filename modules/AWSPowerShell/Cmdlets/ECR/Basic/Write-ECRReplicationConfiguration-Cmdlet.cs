@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Write", "ECRReplicationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.ReplicationConfiguration")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutReplicationConfiguration API operation.", Operation = new[] {"PutReplicationConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.PutReplicationConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry PutReplicationConfiguration API operation.", Operation = new[] {"PutReplicationConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.PutReplicationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.ReplicationConfiguration or Amazon.ECR.Model.PutReplicationConfigurationResponse",
         "This cmdlet returns an Amazon.ECR.Model.ReplicationConfiguration object.",
         "The service call response (type Amazon.ECR.Model.PutReplicationConfigurationResponse) can be returned by specifying '-Select *'."
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.PutReplicationConfigurationResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.PutReplicationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "PutReplicationConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "PutReplicationConfiguration");
             try
             {
                 return client.PutReplicationConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

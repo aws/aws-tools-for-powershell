@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRAccountSetting")]
     [OutputType("Amazon.ECR.Model.GetAccountSettingResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry GetAccountSetting API operation.", Operation = new[] {"GetAccountSetting"}, SelectReturnType = typeof(Amazon.ECR.Model.GetAccountSettingResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry GetAccountSetting API operation.", Operation = new[] {"GetAccountSetting"}, SelectReturnType = typeof(Amazon.ECR.Model.GetAccountSettingResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.GetAccountSettingResponse",
         "This cmdlet returns an Amazon.ECR.Model.GetAccountSettingResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.GetAccountSettingResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetAccountSettingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "GetAccountSetting");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "GetAccountSetting");
             try
             {
                 return client.GetAccountSettingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

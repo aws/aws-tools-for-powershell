@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Disable", "HLTHHealthServiceAccessForOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Health DisableHealthServiceAccessForOrganization API operation.", Operation = new[] {"DisableHealthServiceAccessForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DisableHealthServiceAccessForOrganizationResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications DisableHealthServiceAccessForOrganization API operation.", Operation = new[] {"DisableHealthServiceAccessForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DisableHealthServiceAccessForOrganizationResponse))]
     [AWSCmdletOutput("None or Amazon.AWSHealth.Model.DisableHealthServiceAccessForOrganizationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.AWSHealth.Model.DisableHealthServiceAccessForOrganizationResponse) be returned by specifying '-Select *'."
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.DisableHealthServiceAccessForOrganizationResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DisableHealthServiceAccessForOrganizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DisableHealthServiceAccessForOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "DisableHealthServiceAccessForOrganization");
             try
             {
                 return client.DisableHealthServiceAccessForOrganizationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

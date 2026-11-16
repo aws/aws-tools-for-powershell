@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Write", "ECRRegistryPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.PutRegistryPolicyResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutRegistryPolicy API operation.", Operation = new[] {"PutRegistryPolicy"}, SelectReturnType = typeof(Amazon.ECR.Model.PutRegistryPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry PutRegistryPolicy API operation.", Operation = new[] {"PutRegistryPolicy"}, SelectReturnType = typeof(Amazon.ECR.Model.PutRegistryPolicyResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.PutRegistryPolicyResponse",
         "This cmdlet returns an Amazon.ECR.Model.PutRegistryPolicyResponse object containing multiple properties."
     )]
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.PutRegistryPolicyResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.PutRegistryPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "PutRegistryPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "PutRegistryPolicy");
             try
             {
                 return client.PutRegistryPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

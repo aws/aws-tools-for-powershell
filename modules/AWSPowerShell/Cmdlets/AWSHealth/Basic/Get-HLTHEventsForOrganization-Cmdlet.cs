@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Get", "HLTHEventsForOrganization")]
     [OutputType("Amazon.AWSHealth.Model.OrganizationEvent")]
-    [AWSCmdlet("Calls the AWS Health DescribeEventsForOrganization API operation.", Operation = new[] {"DescribeEventsForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEventsForOrganizationResponse))]
+    [AWSCmdlet("Calls the AWS Health APIs and Notifications DescribeEventsForOrganization API operation.", Operation = new[] {"DescribeEventsForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEventsForOrganizationResponse))]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.OrganizationEvent or Amazon.AWSHealth.Model.DescribeEventsForOrganizationResponse",
         "This cmdlet returns a collection of Amazon.AWSHealth.Model.OrganizationEvent objects.",
         "The service call response (type Amazon.AWSHealth.Model.DescribeEventsForOrganizationResponse) can be returned by specifying '-Select *'."
@@ -276,6 +276,25 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         public System.String[] Filter_Service { get; set; }
         #endregion
         
+        #region Parameter Filter_Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of tag keys to lists of tag values. A tag matches when its key is in the map
+        /// and its value is one of the values listed for that key. Matching is case sensitive,
+        /// and the filter matches when at least one key in the map matches.</para><para>An event is returned when one of its affected accounts, or one of the entities of
+        /// those accounts, has tags that match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Tags")]
+        public System.Collections.Hashtable Filter_Tag { get; set; }
+        #endregion
+        
         #region Parameter EndTime_To
         /// <summary>
         /// <para>
@@ -429,6 +448,26 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             }
             context.StartTime_From = this.StartTime_From;
             context.StartTime_To = this.StartTime_To;
+            if (this.Filter_Tag != null)
+            {
+                context.Filter_Tag = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Filter_Tag.Keys)
+                {
+                    object hashValue = this.Filter_Tag[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.Filter_Tag.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.Filter_Tag.Add((String)hashKey, valueSet);
+                }
+            }
             context.Locale = this.Locale;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -562,6 +601,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (requestFilter_filter_Service != null)
             {
                 request.Filter.Services = requestFilter_filter_Service;
+                requestFilterIsNull = false;
+            }
+            Dictionary<System.String, List<System.String>> requestFilter_filter_Tag = null;
+            if (cmdletContext.Filter_Tag != null)
+            {
+                requestFilter_filter_Tag = cmdletContext.Filter_Tag;
+            }
+            if (requestFilter_filter_Tag != null)
+            {
+                request.Filter.Tags = requestFilter_filter_Tag;
                 requestFilterIsNull = false;
             }
             Amazon.AWSHealth.Model.DateTimeRange requestFilter_filter_EndTime = null;
@@ -841,6 +890,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 request.Filter.Services = requestFilter_filter_Service;
                 requestFilterIsNull = false;
             }
+            Dictionary<System.String, List<System.String>> requestFilter_filter_Tag = null;
+            if (cmdletContext.Filter_Tag != null)
+            {
+                requestFilter_filter_Tag = cmdletContext.Filter_Tag;
+            }
+            if (requestFilter_filter_Tag != null)
+            {
+                request.Filter.Tags = requestFilter_filter_Tag;
+                requestFilterIsNull = false;
+            }
             Amazon.AWSHealth.Model.DateTimeRange requestFilter_filter_EndTime = null;
             
              // populate EndTime
@@ -1048,7 +1107,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         private Amazon.AWSHealth.Model.DescribeEventsForOrganizationResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeEventsForOrganizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeEventsForOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health APIs and Notifications", "DescribeEventsForOrganization");
             try
             {
                 return client.DescribeEventsForOrganizationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -1084,6 +1143,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             public List<System.String> Filter_Service { get; set; }
             public System.DateTime? StartTime_From { get; set; }
             public System.DateTime? StartTime_To { get; set; }
+            public Dictionary<System.String, List<System.String>> Filter_Tag { get; set; }
             public System.String Locale { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }

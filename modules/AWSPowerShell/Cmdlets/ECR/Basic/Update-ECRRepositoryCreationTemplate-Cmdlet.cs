@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Update", "ECRRepositoryCreationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry UpdateRepositoryCreationTemplate API operation.", Operation = new[] {"UpdateRepositoryCreationTemplate"}, SelectReturnType = typeof(Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse))]
+    [AWSCmdlet("Calls the Amazon Elastic Container Registry UpdateRepositoryCreationTemplate API operation.", Operation = new[] {"UpdateRepositoryCreationTemplate"}, SelectReturnType = typeof(Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse",
         "This cmdlet returns an Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse object containing multiple properties."
     )]
@@ -399,7 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.UpdateRepositoryCreationTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "UpdateRepositoryCreationTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry", "UpdateRepositoryCreationTemplate");
             try
             {
                 return client.UpdateRepositoryCreationTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

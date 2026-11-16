@@ -187,6 +187,13 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.ResourceType
+        "Get-NWFWResourcesInContextStoreList/Filters_ResourceType"
+        {
+            $v = "SecurityGroup","Subnet","TGWAttachment","VPC"
+            break
+        }
+
         # Amazon.NetworkFirewall.Route53ResolvedIPValidationAction
         {
             ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_Route53ResolvedIPValidation_Action") -Or
@@ -281,6 +288,7 @@ $NWFW_Completers = {
 $NWFW_map = @{
     "AnalysisType"=@("Start-NWFWAnalysisReport")
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWFirewallPolicyV2","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWFirewallPolicyV2","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
+    "Filters_ResourceType"=@("Get-NWFWResourcesInContextStoreList")
     "FirewallPolicy_Route53ResolvedIPValidation_Action"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "FirewallPolicy_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "FirewallPolicyV2_FirewallDefaultAction"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
@@ -393,11 +401,13 @@ $NWFW_SelectMap = @{
                "Get-NWFWAnalysisReportResult",
                "Get-NWFWAnalysisReportList",
                "Get-NWFWContainerAssociationList",
+               "Get-NWFWContextStoreList",
                "Get-NWFWFirewallPolicyList",
                "Get-NWFWFirewallPoliciesV2List",
                "Get-NWFWFirewallList",
                "Get-NWFWFlowOperationResultList",
                "Get-NWFWFlowOperationList",
+               "Get-NWFWResourcesInContextStoreList",
                "Get-NWFWRuleGroupList",
                "Get-NWFWResourceTag",
                "Get-NWFWTLSInspectionConfigurationList",

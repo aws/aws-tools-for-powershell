@@ -751,6 +751,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.SessionEntityType
+        "Remove-CONNAllEntitySession/EntityType"
+        {
+            $v = "USER"
+            break
+        }
+
         # Amazon.Connect.SortableFieldName
         "Search-CONNContact/Sort_FieldName"
         {
@@ -1014,7 +1021,7 @@ $CONN_map = @{
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "DeviceType"=@("New-CONNPushNotificationRegistration")
     "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact","Update-CONNOutboundEmailContactMessage")
-    "EntityType"=@("Add-CONNSecurityProfile","Get-CONNEntitySecurityProfileList","Unregister-CONNSecurityProfile")
+    "EntityType"=@("Add-CONNSecurityProfile","Get-CONNEntitySecurityProfileList","Remove-CONNAllEntitySession","Unregister-CONNSecurityProfile")
     "EntryPoint_Type"=@("New-CONNTestCase","Update-CONNTestCase")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
@@ -1226,6 +1233,7 @@ $CONN_SelectMap = @{
                "New-CONNWorkspace",
                "New-CONNWorkspacePage",
                "Disable-CONNEvaluationForm",
+               "Remove-CONNAllEntitySession",
                "Remove-CONNAttachedFile",
                "Remove-CONNContactData",
                "Remove-CONNContactEvaluation",

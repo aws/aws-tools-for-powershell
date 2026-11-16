@@ -30,7 +30,8 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Attaches a key policy to the specified KMS key. 
+    /// Attaches a key policy to the specified KMS key. You can use this operation to set
+    /// only the <c>default</c> key policy.
     /// 
     ///  
     /// <para>
@@ -40,10 +41,23 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// JSON Policy Reference</a> in the <i><i>Identity and Access Management User Guide</i></i>. For examples of adding a key policy in multiple programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_PutKeyPolicy_section.html">Use
     /// PutKeyPolicy with an Amazon Web Services SDK or CLI</a> in the <i>Key Management Service
     /// Developer Guide</i>.
+    /// </para><para>
+    /// A KMS key can also have an <c>AWS_RAM</c> key policy, which Resource Access Manager
+    /// (RAM) manages for KMS keys that you share through RAM. You can't use <c>PutKeyPolicy</c>
+    /// to create, change, or delete the <c>AWS_RAM</c> key policy. If you set <c>PolicyName</c>
+    /// to <c>AWS_RAM</c>, the request fails with a <c>ValidationException</c> and the message
+    /// <c>The AWS_RAM policy can only be managed by the RAM service.</c> To view the <c>AWS_RAM</c>
+    /// key policy, use <a>GetKeyPolicy</a>. For information about sharing KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-sharing-ram.html">Sharing
+    /// KMS keys with RAM</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
     /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:PutKeyPolicy</a>
     /// (key policy)
+    /// </para><para>
+    /// You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-policy-name">kms:PolicyName</a>
+    /// condition key to control access to this operation based on the value of the <c>PolicyName</c>
+    /// parameter in the request. If the request doesn't include <c>PolicyName</c>, the value
+    /// of <c>kms:PolicyName</c> is <c>default</c>.
     /// </para><para><b>Related operations</b>: <a>GetKeyPolicy</a></para><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
     /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS
     /// eventual consistency</a>.
@@ -69,7 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// Do not set this value to true indiscriminately.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default
         /// key policy</a> in the <i>Key Management Service Developer Guide</i>.</para></important><para>Use this parameter only when you intend to prevent the principal that is making the
         /// request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
-        /// request on the KMS key.</para>
+        /// request on the KMS key.</para><para>The key policy lockout safety check and the <c>BypassPolicyLockoutSafetyCheck</c>
+        /// parameter apply only to the <c>default</c> key policy. The check evaluates only the
+        /// new <c>default</c> key policy, with <c>kms:PolicyName</c> set to <c>default</c>. It
+        /// doesn't consider permissions in the <c>AWS_RAM</c> key policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The name of the key policy. If no policy name is specified, the default value is <c>default</c>.
-        /// The only valid value is <c>default</c>.</para>
+        /// Valid values are <c>default</c> and <c>AWS_RAM</c>, but you can set only the <c>default</c>
+        /// key policy. RAM manages the <c>AWS_RAM</c> key policy for KMS keys that you share
+        /// through RAM. If you specify <c>AWS_RAM</c>, the request fails with a <c>ValidationException</c>,
+        /// or with an <c>AccessDeniedException</c> if you don't have permission to call <c>PutKeyPolicy</c>
+        /// with that policy name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
