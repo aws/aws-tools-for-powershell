@@ -754,6 +754,7 @@ Scenario-4  Create            Create       The new create is added to the pendin
                             case "filename":
                             case "replaceable":
                             case "seealso":
+                            case "text":
                                 break;
 
                             default:
@@ -822,6 +823,7 @@ Scenario-4  Create            Create       The new create is added to the pendin
                             case "filename":
                             case "replaceable":
                             case "seealso":
+                            case "text":
                                 break;
 
                             default:
