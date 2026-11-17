@@ -243,7 +243,9 @@ $WKS_Completers = {
         {
             ($_ -eq "Edit-WKSClientProperty/ClientProperties_ReconnectEnabled") -Or
             ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_ChangeComputeType") -Or
+            ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_EnableEndUserAdvisor") -Or
             ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_IncreaseVolumeSize") -Or
+            ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_NestedVirtualization") -Or
             ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_RebuildWorkspace") -Or
             ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_RestartWorkspace") -Or
             ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_SwitchRunningMode")
@@ -353,7 +355,9 @@ $WKS_map = @{
     "RunningMode"=@("New-WKSWorkspacesPool","Update-WKSWorkspacesPool")
     "SamlProperties_Status"=@("Edit-WKSSamlProperty")
     "SelfservicePermissions_ChangeComputeType"=@("Edit-WKSSelfservicePermission")
+    "SelfservicePermissions_EnableEndUserAdvisor"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_IncreaseVolumeSize"=@("Edit-WKSSelfservicePermission")
+    "SelfservicePermissions_NestedVirtualization"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_RebuildWorkspace"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_RestartWorkspace"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_SwitchRunningMode"=@("Edit-WKSSelfservicePermission")

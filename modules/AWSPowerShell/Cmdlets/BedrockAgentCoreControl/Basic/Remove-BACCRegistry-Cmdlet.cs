@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCRegistry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.RegistryStatus")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteRegistry API operation.", Operation = new[] {"DeleteRegistry"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteRegistryResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteRegistry API operation.", Operation = new[] {"DeleteRegistry"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteRegistryResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.RegistryStatus or Amazon.BedrockAgentCoreControl.Model.DeleteRegistryResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.RegistryStatus object.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.DeleteRegistryResponse) can be returned by specifying '-Select *'."
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteRegistryResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteRegistryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteRegistry");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteRegistry");
             try
             {
                 return client.DeleteRegistryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

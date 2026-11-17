@@ -195,6 +195,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public Amazon.Mgn.LaunchDisposition LaunchDisposition { get; set; }
         #endregion
         
+        #region Parameter MapAutoTaggingKey
+        /// <summary>
+        /// <para>
+        /// <para>Launch configuration template map auto tagging key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MapAutoTaggingKey { get; set; }
+        #endregion
+        
         #region Parameter MapAutoTaggingMpeID
         /// <summary>
         /// <para>
@@ -410,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             #endif
             context.LaunchDisposition = this.LaunchDisposition;
             context.Licensing_OsByol = this.Licensing_OsByol;
+            context.MapAutoTaggingKey = this.MapAutoTaggingKey;
             context.MapAutoTaggingMpeID = this.MapAutoTaggingMpeID;
             context.ParametersEncryptionKey = this.ParametersEncryptionKey;
             context.PostLaunchActions_CloudWatchLogGroupName = this.PostLaunchActions_CloudWatchLogGroupName;
@@ -552,6 +563,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (requestLicensingIsNull)
             {
                 request.Licensing = null;
+            }
+            if (cmdletContext.MapAutoTaggingKey != null)
+            {
+                request.MapAutoTaggingKey = cmdletContext.MapAutoTaggingKey;
             }
             if (cmdletContext.MapAutoTaggingMpeID != null)
             {
@@ -756,6 +771,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.String LaunchConfigurationTemplateID { get; set; }
             public Amazon.Mgn.LaunchDisposition LaunchDisposition { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }
+            public System.String MapAutoTaggingKey { get; set; }
             public System.String MapAutoTaggingMpeID { get; set; }
             public System.String ParametersEncryptionKey { get; set; }
             public System.String PostLaunchActions_CloudWatchLogGroupName { get; set; }

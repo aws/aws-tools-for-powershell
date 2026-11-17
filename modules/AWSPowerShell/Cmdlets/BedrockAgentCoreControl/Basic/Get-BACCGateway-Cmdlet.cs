@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCGateway")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetGatewayResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetGateway API operation.", Operation = new[] {"GetGateway"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetGatewayResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetGateway API operation.", Operation = new[] {"GetGateway"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetGatewayResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetGatewayResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetGatewayResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetGatewayResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetGateway");
             try
             {
                 return client.GetGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

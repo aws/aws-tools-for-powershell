@@ -36,6 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// 
     ///  
     /// <para>
+    /// The Kinesis resource can be a data stream, a queue, or an enhanced fan-out consumer.
+    /// </para><para>
     /// For more information about tagging Kinesis resources, see <a href="https://docs.aws.amazon.com/streams/latest/dev/tagging.html">Tag
     /// your Amazon Kinesis Data Streams resources</a>.
     /// </para>

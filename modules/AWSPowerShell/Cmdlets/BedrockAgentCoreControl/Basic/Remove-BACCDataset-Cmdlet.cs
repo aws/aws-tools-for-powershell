@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteDatasetResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteDataset API operation.", Operation = new[] {"DeleteDataset"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteDatasetResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteDataset API operation.", Operation = new[] {"DeleteDataset"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteDatasetResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteDatasetResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteDatasetResponse object containing multiple properties."
     )]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteDatasetResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteDatasetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteDataset");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteDataset");
             try
             {
                 return client.DeleteDatasetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

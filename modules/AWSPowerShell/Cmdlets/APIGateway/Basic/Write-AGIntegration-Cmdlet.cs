@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter IntegrationTarget
         /// <summary>
         /// <para>
-        /// <para> The ALB or NLB listener to send the request to. </para>
+        /// <para> The ALB or NLB ARN to send the request to. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

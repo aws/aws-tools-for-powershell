@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("New", "S3CAccessGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.CreateAccessGrantResponse")]
-    [AWSCmdlet("Calls the Amazon S3 Control CreateAccessGrant API operation.", Operation = new[] {"CreateAccessGrant"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateAccessGrantResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control CreateAccessGrant API operation.", Operation = new[] {"CreateAccessGrant"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateAccessGrantResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.CreateAccessGrantResponse",
         "This cmdlet returns an Amazon.S3Control.Model.CreateAccessGrantResponse object containing multiple properties."
     )]
@@ -406,7 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.CreateAccessGrantResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.CreateAccessGrantRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "CreateAccessGrant");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "CreateAccessGrant");
             try
             {
                 return client.CreateAccessGrantAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

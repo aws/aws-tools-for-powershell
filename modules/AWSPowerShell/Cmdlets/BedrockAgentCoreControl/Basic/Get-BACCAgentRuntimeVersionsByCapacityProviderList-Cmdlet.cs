@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCAgentRuntimeVersionsByCapacityProviderList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.AgentRuntimeVersionSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListAgentRuntimeVersionsByCapacityProvider API operation.", Operation = new[] {"ListAgentRuntimeVersionsByCapacityProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsByCapacityProviderResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListAgentRuntimeVersionsByCapacityProvider API operation.", Operation = new[] {"ListAgentRuntimeVersionsByCapacityProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsByCapacityProviderResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.AgentRuntimeVersionSummary or Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsByCapacityProviderResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.AgentRuntimeVersionSummary objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsByCapacityProviderResponse) can be returned by specifying '-Select *'."
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsByCapacityProviderResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsByCapacityProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListAgentRuntimeVersionsByCapacityProvider");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListAgentRuntimeVersionsByCapacityProvider");
             try
             {
                 return client.ListAgentRuntimeVersionsByCapacityProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

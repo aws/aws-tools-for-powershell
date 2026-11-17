@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3BucketInventoryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteBucketInventoryConfiguration API operation.", Operation = new[] {"DeleteBucketInventoryConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketInventoryConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteBucketInventoryConfiguration API operation.", Operation = new[] {"DeleteBucketInventoryConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketInventoryConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteBucketInventoryConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.DeleteBucketInventoryConfigurationResponse) be returned by specifying '-Select *'."
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.DeleteBucketInventoryConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketInventoryConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteBucketInventoryConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteBucketInventoryConfiguration");
             try
             {
                 return client.DeleteBucketInventoryConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

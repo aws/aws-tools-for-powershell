@@ -47,6 +47,25 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter EventBridge_IncludedData_CaseData_AutoIncludeField
+        /// <summary>
+        /// <para>
+        /// <para>Automatically include a category of fields in case event data, combined as a union
+        /// with any fields specified in <c>fields</c>. Valid values are <c>All</c> (include all
+        /// fields on the case), <c>System</c> (include all system fields), and <c>Custom</c>
+        /// (include all custom fields). When this attribute is set, new fields added to the domain
+        /// are picked up automatically without another call to PutCaseEventConfiguration. For
+        /// the full behavior matrix and IAM requirements, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-event-streams.html">Case
+        /// event streams in Connect Customer Cases</a> in the <i>Connect Customer Administrator
+        /// Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EventBridge_IncludedData_CaseData_AutoIncludeFields")]
+        [AWSConstantClassSource("Amazon.ConnectCases.AutoIncludeFields")]
+        public Amazon.ConnectCases.AutoIncludeFields EventBridge_IncludedData_CaseData_AutoIncludeField { get; set; }
+        #endregion
+        
         #region Parameter DomainId
         /// <summary>
         /// <para>
@@ -83,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter CaseData_Field
         /// <summary>
         /// <para>
-        /// <para>List of field identifiers.</para><para />
+        /// <para>List of field identifiers to include in case event data.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -166,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter EventBridge_Enabled which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EventBridge_IncludedData_CaseData_AutoIncludeField = this.EventBridge_IncludedData_CaseData_AutoIncludeField;
             if (this.CaseData_Field != null)
             {
                 context.CaseData_Field = new List<Amazon.ConnectCases.Model.FieldIdentifier>(this.CaseData_Field);
@@ -210,31 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
              // populate IncludedData
             var requestEventBridge_eventBridge_IncludedDataIsNull = true;
             requestEventBridge_eventBridge_IncludedData = new Amazon.ConnectCases.Model.EventIncludedData();
-            Amazon.ConnectCases.Model.CaseEventIncludedData requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData = null;
-            
-             // populate CaseData
-            var requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseDataIsNull = true;
-            requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData = new Amazon.ConnectCases.Model.CaseEventIncludedData();
-            List<Amazon.ConnectCases.Model.FieldIdentifier> requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_caseData_Field = null;
-            if (cmdletContext.CaseData_Field != null)
-            {
-                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_caseData_Field = cmdletContext.CaseData_Field;
-            }
-            if (requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_caseData_Field != null)
-            {
-                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData.Fields = requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_caseData_Field;
-                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseDataIsNull = false;
-            }
-             // determine if requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData should be set to null
-            if (requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseDataIsNull)
-            {
-                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData = null;
-            }
-            if (requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData != null)
-            {
-                requestEventBridge_eventBridge_IncludedData.CaseData = requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData;
-                requestEventBridge_eventBridge_IncludedDataIsNull = false;
-            }
             Amazon.ConnectCases.Model.RelatedItemEventIncludedData requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_RelatedItemData = null;
             
              // populate RelatedItemData
@@ -258,6 +253,41 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_RelatedItemData != null)
             {
                 requestEventBridge_eventBridge_IncludedData.RelatedItemData = requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_RelatedItemData;
+                requestEventBridge_eventBridge_IncludedDataIsNull = false;
+            }
+            Amazon.ConnectCases.Model.CaseEventIncludedData requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData = null;
+            
+             // populate CaseData
+            var requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseDataIsNull = true;
+            requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData = new Amazon.ConnectCases.Model.CaseEventIncludedData();
+            Amazon.ConnectCases.AutoIncludeFields requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_eventBridge_IncludedData_CaseData_AutoIncludeField = null;
+            if (cmdletContext.EventBridge_IncludedData_CaseData_AutoIncludeField != null)
+            {
+                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_eventBridge_IncludedData_CaseData_AutoIncludeField = cmdletContext.EventBridge_IncludedData_CaseData_AutoIncludeField;
+            }
+            if (requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_eventBridge_IncludedData_CaseData_AutoIncludeField != null)
+            {
+                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData.AutoIncludeFields = requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_eventBridge_IncludedData_CaseData_AutoIncludeField;
+                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseDataIsNull = false;
+            }
+            List<Amazon.ConnectCases.Model.FieldIdentifier> requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_caseData_Field = null;
+            if (cmdletContext.CaseData_Field != null)
+            {
+                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_caseData_Field = cmdletContext.CaseData_Field;
+            }
+            if (requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_caseData_Field != null)
+            {
+                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData.Fields = requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData_caseData_Field;
+                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseDataIsNull = false;
+            }
+             // determine if requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData should be set to null
+            if (requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseDataIsNull)
+            {
+                requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData = null;
+            }
+            if (requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData != null)
+            {
+                requestEventBridge_eventBridge_IncludedData.CaseData = requestEventBridge_eventBridge_IncludedData_eventBridge_IncludedData_CaseData;
                 requestEventBridge_eventBridge_IncludedDataIsNull = false;
             }
              // determine if requestEventBridge_eventBridge_IncludedData should be set to null
@@ -332,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             public System.String DomainId { get; set; }
             public System.Boolean? EventBridge_Enabled { get; set; }
+            public Amazon.ConnectCases.AutoIncludeFields EventBridge_IncludedData_CaseData_AutoIncludeField { get; set; }
             public List<Amazon.ConnectCases.Model.FieldIdentifier> CaseData_Field { get; set; }
             public System.Boolean? RelatedItemData_IncludeContent { get; set; }
             public System.Func<Amazon.ConnectCases.Model.PutCaseEventConfigurationResponse, WriteCCASCaseEventConfigurationCmdlet, object> Select { get; set; } =

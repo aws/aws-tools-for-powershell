@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Remove", "BACMemoryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer DeleteMemoryRecord API operation.", Operation = new[] {"DeleteMemoryRecord"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore DeleteMemoryRecord API operation.", Operation = new[] {"DeleteMemoryRecord"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse))]
     [AWSCmdletOutput("System.String or Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse) can be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.DeleteMemoryRecordRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "DeleteMemoryRecord");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "DeleteMemoryRecord");
             try
             {
                 return client.DeleteMemoryRecordAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

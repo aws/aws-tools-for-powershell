@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCMemory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteMemoryResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteMemory API operation.", Operation = new[] {"DeleteMemory"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteMemoryResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteMemory API operation.", Operation = new[] {"DeleteMemory"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteMemoryResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteMemoryResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteMemoryResponse object containing multiple properties."
     )]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteMemoryResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteMemoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteMemory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteMemory");
             try
             {
                 return client.DeleteMemoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

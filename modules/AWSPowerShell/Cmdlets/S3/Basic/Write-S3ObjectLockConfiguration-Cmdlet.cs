@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3ObjectLockConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutObjectLockConfiguration API operation.", Operation = new[] {"PutObjectLockConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectLockConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutObjectLockConfiguration API operation.", Operation = new[] {"PutObjectLockConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectLockConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.RequestCharged or Amazon.S3.Model.PutObjectLockConfigurationResponse",
         "This cmdlet returns an Amazon.S3.RequestCharged object.",
         "The service call response (type Amazon.S3.Model.PutObjectLockConfigurationResponse) can be returned by specifying '-Select *'."
@@ -469,7 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutObjectLockConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectLockConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutObjectLockConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutObjectLockConfiguration");
             try
             {
                 return client.PutObjectLockConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

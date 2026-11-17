@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCWorkloadIdentityList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.WorkloadIdentityType")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListWorkloadIdentities API operation.", Operation = new[] {"ListWorkloadIdentities"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListWorkloadIdentitiesResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListWorkloadIdentities API operation.", Operation = new[] {"ListWorkloadIdentities"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListWorkloadIdentitiesResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.WorkloadIdentityType or Amazon.BedrockAgentCoreControl.Model.ListWorkloadIdentitiesResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.WorkloadIdentityType objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListWorkloadIdentitiesResponse) can be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListWorkloadIdentitiesResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListWorkloadIdentitiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListWorkloadIdentities");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListWorkloadIdentities");
             try
             {
                 return client.ListWorkloadIdentitiesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

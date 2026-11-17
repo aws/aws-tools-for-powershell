@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3BucketOwnershipControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketOwnershipControls API operation.", Operation = new[] {"PutBucketOwnershipControls"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketOwnershipControlsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutBucketOwnershipControls API operation.", Operation = new[] {"PutBucketOwnershipControls"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketOwnershipControlsResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutBucketOwnershipControlsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutBucketOwnershipControlsResponse) be returned by specifying '-Select *'."
@@ -290,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutBucketOwnershipControlsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketOwnershipControlsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutBucketOwnershipControls");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketOwnershipControls");
             try
             {
                 return client.PutBucketOwnershipControlsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

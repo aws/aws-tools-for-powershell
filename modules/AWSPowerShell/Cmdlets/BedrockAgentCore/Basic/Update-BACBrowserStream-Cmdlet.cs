@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Update", "BACBrowserStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.UpdateBrowserStreamResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer UpdateBrowserStream API operation.", Operation = new[] {"UpdateBrowserStream"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.UpdateBrowserStreamResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore UpdateBrowserStream API operation.", Operation = new[] {"UpdateBrowserStream"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.UpdateBrowserStreamResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.UpdateBrowserStreamResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.UpdateBrowserStreamResponse object containing multiple properties."
     )]
@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.UpdateBrowserStreamResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.UpdateBrowserStreamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "UpdateBrowserStream");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "UpdateBrowserStream");
             try
             {
                 return client.UpdateBrowserStreamAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketPolicyStatus")]
     [OutputType("Amazon.S3.Model.PolicyStatus")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketPolicyStatus API operation.", Operation = new[] {"GetBucketPolicyStatus"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketPolicyStatusResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketPolicyStatus API operation.", Operation = new[] {"GetBucketPolicyStatus"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketPolicyStatusResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.PolicyStatus or Amazon.S3.Model.GetBucketPolicyStatusResponse",
         "This cmdlet returns an Amazon.S3.Model.PolicyStatus object.",
         "The service call response (type Amazon.S3.Model.GetBucketPolicyStatusResponse) can be returned by specifying '-Select *'."
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketPolicyStatusResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketPolicyStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketPolicyStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketPolicyStatus");
             try
             {
                 return client.GetBucketPolicyStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

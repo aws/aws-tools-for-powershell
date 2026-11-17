@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCConsentPortal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteConsentPortal API operation.", Operation = new[] {"DeleteConsentPortal"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteConsentPortal API operation.", Operation = new[] {"DeleteConsentPortal"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse) be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteConsentPortal");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteConsentPortal");
             try
             {
                 return client.DeleteConsentPortalAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

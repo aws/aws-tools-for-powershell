@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCResourceTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

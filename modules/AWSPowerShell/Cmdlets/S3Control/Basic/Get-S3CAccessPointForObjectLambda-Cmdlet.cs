@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CAccessPointForObjectLambda")]
     [OutputType("Amazon.S3Control.Model.GetAccessPointForObjectLambdaResponse")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetAccessPointForObjectLambda API operation.", Operation = new[] {"GetAccessPointForObjectLambda"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointForObjectLambdaResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetAccessPointForObjectLambda API operation.", Operation = new[] {"GetAccessPointForObjectLambda"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointForObjectLambdaResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.GetAccessPointForObjectLambdaResponse",
         "This cmdlet returns an Amazon.S3Control.Model.GetAccessPointForObjectLambdaResponse object containing multiple properties."
     )]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetAccessPointForObjectLambdaResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetAccessPointForObjectLambdaRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetAccessPointForObjectLambda");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetAccessPointForObjectLambda");
             try
             {
                 return client.GetAccessPointForObjectLambdaAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

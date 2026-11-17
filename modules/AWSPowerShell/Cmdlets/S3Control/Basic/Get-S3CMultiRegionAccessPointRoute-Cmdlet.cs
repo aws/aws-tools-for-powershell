@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CMultiRegionAccessPointRoute")]
     [OutputType("Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetMultiRegionAccessPointRoutes API operation.", Operation = new[] {"GetMultiRegionAccessPointRoutes"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetMultiRegionAccessPointRoutes API operation.", Operation = new[] {"GetMultiRegionAccessPointRoutes"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse",
         "This cmdlet returns an Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse object containing multiple properties."
     )]
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetMultiRegionAccessPointRoutes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetMultiRegionAccessPointRoutes");
             try
             {
                 return client.GetMultiRegionAccessPointRoutesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

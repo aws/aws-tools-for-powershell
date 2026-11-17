@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Update", "BACCPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdatePolicyResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UpdatePolicy API operation.", Operation = new[] {"UpdatePolicy"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdatePolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control UpdatePolicy API operation.", Operation = new[] {"UpdatePolicy"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdatePolicyResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.UpdatePolicyResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.UpdatePolicyResponse object containing multiple properties."
     )]
@@ -428,7 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.UpdatePolicyResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UpdatePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UpdatePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "UpdatePolicy");
             try
             {
                 return client.UpdatePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

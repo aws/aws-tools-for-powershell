@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCHarness", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.Harness")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteHarness API operation.", Operation = new[] {"DeleteHarness"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteHarnessResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteHarness API operation.", Operation = new[] {"DeleteHarness"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteHarnessResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.Harness or Amazon.BedrockAgentCoreControl.Model.DeleteHarnessResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.Harness object.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.DeleteHarnessResponse) can be returned by specifying '-Select *'."
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteHarnessResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteHarnessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteHarness");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteHarness");
             try
             {
                 return client.DeleteHarnessAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

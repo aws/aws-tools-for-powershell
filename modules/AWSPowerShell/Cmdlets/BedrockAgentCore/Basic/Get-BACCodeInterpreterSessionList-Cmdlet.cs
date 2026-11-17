@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACCodeInterpreterSessionList")]
     [OutputType("Amazon.BedrockAgentCore.Model.CodeInterpreterSessionSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer ListCodeInterpreterSessions API operation.", Operation = new[] {"ListCodeInterpreterSessions"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListCodeInterpreterSessionsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore ListCodeInterpreterSessions API operation.", Operation = new[] {"ListCodeInterpreterSessions"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListCodeInterpreterSessionsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.CodeInterpreterSessionSummary or Amazon.BedrockAgentCore.Model.ListCodeInterpreterSessionsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCore.Model.CodeInterpreterSessionSummary objects.",
         "The service call response (type Amazon.BedrockAgentCore.Model.ListCodeInterpreterSessionsResponse) can be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.ListCodeInterpreterSessionsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.ListCodeInterpreterSessionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "ListCodeInterpreterSessions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "ListCodeInterpreterSessions");
             try
             {
                 return client.ListCodeInterpreterSessionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

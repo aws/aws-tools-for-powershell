@@ -58,6 +58,20 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_ChangeComputeType { get; set; }
         #endregion
         
+        #region Parameter SelfservicePermissions_EnableEndUserAdvisor
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether users can use End User Advisor in the WorkSpaces client for Windows
+        /// to see their session health and get recommended actions for common issues. The default
+        /// value is <c>ENABLED</c>. For more information, see Proactive troubleshooting for your
+        /// WorkSpaces users.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.ReconnectEnum")]
+        public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_EnableEndUserAdvisor { get; set; }
+        #endregion
+        
         #region Parameter SelfservicePermissions_IncreaseVolumeSize
         /// <summary>
         /// <para>
@@ -67,6 +81,19 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.WorkSpaces.ReconnectEnum")]
         public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_IncreaseVolumeSize { get; set; }
+        #endregion
+        
+        #region Parameter SelfservicePermissions_NestedVirtualization
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether users can enable or disable nested virtualization on their WorkSpace.
+        /// The default value is <c>DISABLED</c>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/nested-virtualization.html">Nested
+        /// virtualization for Amazon WorkSpaces</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.ReconnectEnum")]
+        public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_NestedVirtualization { get; set; }
         #endregion
         
         #region Parameter SelfservicePermissions_RebuildWorkspace
@@ -173,7 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             }
             #endif
             context.SelfservicePermissions_ChangeComputeType = this.SelfservicePermissions_ChangeComputeType;
+            context.SelfservicePermissions_EnableEndUserAdvisor = this.SelfservicePermissions_EnableEndUserAdvisor;
             context.SelfservicePermissions_IncreaseVolumeSize = this.SelfservicePermissions_IncreaseVolumeSize;
+            context.SelfservicePermissions_NestedVirtualization = this.SelfservicePermissions_NestedVirtualization;
             context.SelfservicePermissions_RebuildWorkspace = this.SelfservicePermissions_RebuildWorkspace;
             context.SelfservicePermissions_RestartWorkspace = this.SelfservicePermissions_RestartWorkspace;
             context.SelfservicePermissions_SwitchRunningMode = this.SelfservicePermissions_SwitchRunningMode;
@@ -211,6 +240,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 request.SelfservicePermissions.ChangeComputeType = requestSelfservicePermissions_selfservicePermissions_ChangeComputeType;
                 requestSelfservicePermissionsIsNull = false;
             }
+            Amazon.WorkSpaces.ReconnectEnum requestSelfservicePermissions_selfservicePermissions_EnableEndUserAdvisor = null;
+            if (cmdletContext.SelfservicePermissions_EnableEndUserAdvisor != null)
+            {
+                requestSelfservicePermissions_selfservicePermissions_EnableEndUserAdvisor = cmdletContext.SelfservicePermissions_EnableEndUserAdvisor;
+            }
+            if (requestSelfservicePermissions_selfservicePermissions_EnableEndUserAdvisor != null)
+            {
+                request.SelfservicePermissions.EnableEndUserAdvisor = requestSelfservicePermissions_selfservicePermissions_EnableEndUserAdvisor;
+                requestSelfservicePermissionsIsNull = false;
+            }
             Amazon.WorkSpaces.ReconnectEnum requestSelfservicePermissions_selfservicePermissions_IncreaseVolumeSize = null;
             if (cmdletContext.SelfservicePermissions_IncreaseVolumeSize != null)
             {
@@ -219,6 +258,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestSelfservicePermissions_selfservicePermissions_IncreaseVolumeSize != null)
             {
                 request.SelfservicePermissions.IncreaseVolumeSize = requestSelfservicePermissions_selfservicePermissions_IncreaseVolumeSize;
+                requestSelfservicePermissionsIsNull = false;
+            }
+            Amazon.WorkSpaces.ReconnectEnum requestSelfservicePermissions_selfservicePermissions_NestedVirtualization = null;
+            if (cmdletContext.SelfservicePermissions_NestedVirtualization != null)
+            {
+                requestSelfservicePermissions_selfservicePermissions_NestedVirtualization = cmdletContext.SelfservicePermissions_NestedVirtualization;
+            }
+            if (requestSelfservicePermissions_selfservicePermissions_NestedVirtualization != null)
+            {
+                request.SelfservicePermissions.NestedVirtualization = requestSelfservicePermissions_selfservicePermissions_NestedVirtualization;
                 requestSelfservicePermissionsIsNull = false;
             }
             Amazon.WorkSpaces.ReconnectEnum requestSelfservicePermissions_selfservicePermissions_RebuildWorkspace = null;
@@ -313,7 +362,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             public System.String ResourceId { get; set; }
             public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_ChangeComputeType { get; set; }
+            public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_EnableEndUserAdvisor { get; set; }
             public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_IncreaseVolumeSize { get; set; }
+            public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_NestedVirtualization { get; set; }
             public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_RebuildWorkspace { get; set; }
             public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_RestartWorkspace { get; set; }
             public Amazon.WorkSpaces.ReconnectEnum SelfservicePermissions_SwitchRunningMode { get; set; }

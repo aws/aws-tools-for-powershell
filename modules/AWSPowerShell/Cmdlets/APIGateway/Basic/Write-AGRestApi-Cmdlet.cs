@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>Custom header parameters as part of the request. For example, to exclude DocumentationParts
         /// from an imported API, set <c>ignore=documentation</c> as a <c>parameters</c> value,
-        /// as in the AWS CLI command of <c>aws apigateway import-rest-api --parameters ignore=documentation
+        /// as in the CLI command of <c>aws apigateway import-rest-api --parameters ignore=documentation
         /// --body 'file:///path/to/imported-api-body.json'</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This

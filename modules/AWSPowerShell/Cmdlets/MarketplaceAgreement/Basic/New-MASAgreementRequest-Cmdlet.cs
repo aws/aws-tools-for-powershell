@@ -58,6 +58,46 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         public System.String AgreementProposalIdentifier { get; set; }
         #endregion
         
+        #region Parameter AcceptorContact_CompanyName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the company that the acceptor contact represents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AcceptorContact_CompanyName { get; set; }
+        #endregion
+        
+        #region Parameter AcceptorContact_CountryCode
+        /// <summary>
+        /// <para>
+        /// <para>The ISO-3166 two-letter country code for the acceptor contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AcceptorContact_CountryCode { get; set; }
+        #endregion
+        
+        #region Parameter AcceptorContact_EmailAddress
+        /// <summary>
+        /// <para>
+        /// <para>The email address of the acceptor contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AcceptorContact_EmailAddress { get; set; }
+        #endregion
+        
+        #region Parameter AcceptorContact_FirstName
+        /// <summary>
+        /// <para>
+        /// <para>The first name of the acceptor contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AcceptorContact_FirstName { get; set; }
+        #endregion
+        
         #region Parameter Intent
         /// <summary>
         /// <para>
@@ -76,6 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.MarketplaceAgreement.Intent")]
         public Amazon.MarketplaceAgreement.Intent Intent { get; set; }
+        #endregion
+        
+        #region Parameter AcceptorContact_LastName
+        /// <summary>
+        /// <para>
+        /// <para>The last name of the acceptor contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AcceptorContact_LastName { get; set; }
         #endregion
         
         #region Parameter RequestedTerm
@@ -182,6 +232,11 @@ namespace Amazon.PowerShell.Cmdlets.MAS
                 context.Select = CreateSelectDelegate<Amazon.MarketplaceAgreement.Model.CreateAgreementRequestResponse, NewMASAgreementRequestCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AcceptorContact_CompanyName = this.AcceptorContact_CompanyName;
+            context.AcceptorContact_CountryCode = this.AcceptorContact_CountryCode;
+            context.AcceptorContact_EmailAddress = this.AcceptorContact_EmailAddress;
+            context.AcceptorContact_FirstName = this.AcceptorContact_FirstName;
+            context.AcceptorContact_LastName = this.AcceptorContact_LastName;
             context.AgreementProposalIdentifier = this.AgreementProposalIdentifier;
             context.ClientToken = this.ClientToken;
             context.Intent = this.Intent;
@@ -219,6 +274,65 @@ namespace Amazon.PowerShell.Cmdlets.MAS
             // create request
             var request = new Amazon.MarketplaceAgreement.Model.CreateAgreementRequestRequest();
             
+            
+             // populate AcceptorContact
+            var requestAcceptorContactIsNull = true;
+            request.AcceptorContact = new Amazon.MarketplaceAgreement.Model.AcceptorContact();
+            System.String requestAcceptorContact_acceptorContact_CompanyName = null;
+            if (cmdletContext.AcceptorContact_CompanyName != null)
+            {
+                requestAcceptorContact_acceptorContact_CompanyName = cmdletContext.AcceptorContact_CompanyName;
+            }
+            if (requestAcceptorContact_acceptorContact_CompanyName != null)
+            {
+                request.AcceptorContact.CompanyName = requestAcceptorContact_acceptorContact_CompanyName;
+                requestAcceptorContactIsNull = false;
+            }
+            System.String requestAcceptorContact_acceptorContact_CountryCode = null;
+            if (cmdletContext.AcceptorContact_CountryCode != null)
+            {
+                requestAcceptorContact_acceptorContact_CountryCode = cmdletContext.AcceptorContact_CountryCode;
+            }
+            if (requestAcceptorContact_acceptorContact_CountryCode != null)
+            {
+                request.AcceptorContact.CountryCode = requestAcceptorContact_acceptorContact_CountryCode;
+                requestAcceptorContactIsNull = false;
+            }
+            System.String requestAcceptorContact_acceptorContact_EmailAddress = null;
+            if (cmdletContext.AcceptorContact_EmailAddress != null)
+            {
+                requestAcceptorContact_acceptorContact_EmailAddress = cmdletContext.AcceptorContact_EmailAddress;
+            }
+            if (requestAcceptorContact_acceptorContact_EmailAddress != null)
+            {
+                request.AcceptorContact.EmailAddress = requestAcceptorContact_acceptorContact_EmailAddress;
+                requestAcceptorContactIsNull = false;
+            }
+            System.String requestAcceptorContact_acceptorContact_FirstName = null;
+            if (cmdletContext.AcceptorContact_FirstName != null)
+            {
+                requestAcceptorContact_acceptorContact_FirstName = cmdletContext.AcceptorContact_FirstName;
+            }
+            if (requestAcceptorContact_acceptorContact_FirstName != null)
+            {
+                request.AcceptorContact.FirstName = requestAcceptorContact_acceptorContact_FirstName;
+                requestAcceptorContactIsNull = false;
+            }
+            System.String requestAcceptorContact_acceptorContact_LastName = null;
+            if (cmdletContext.AcceptorContact_LastName != null)
+            {
+                requestAcceptorContact_acceptorContact_LastName = cmdletContext.AcceptorContact_LastName;
+            }
+            if (requestAcceptorContact_acceptorContact_LastName != null)
+            {
+                request.AcceptorContact.LastName = requestAcceptorContact_acceptorContact_LastName;
+                requestAcceptorContactIsNull = false;
+            }
+             // determine if request.AcceptorContact should be set to null
+            if (requestAcceptorContactIsNull)
+            {
+                request.AcceptorContact = null;
+            }
             if (cmdletContext.AgreementProposalIdentifier != null)
             {
                 request.AgreementProposalIdentifier = cmdletContext.AgreementProposalIdentifier;
@@ -313,6 +427,11 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AcceptorContact_CompanyName { get; set; }
+            public System.String AcceptorContact_CountryCode { get; set; }
+            public System.String AcceptorContact_EmailAddress { get; set; }
+            public System.String AcceptorContact_FirstName { get; set; }
+            public System.String AcceptorContact_LastName { get; set; }
             public System.String AgreementProposalIdentifier { get; set; }
             public System.String ClientToken { get; set; }
             public Amazon.MarketplaceAgreement.Intent Intent { get; set; }

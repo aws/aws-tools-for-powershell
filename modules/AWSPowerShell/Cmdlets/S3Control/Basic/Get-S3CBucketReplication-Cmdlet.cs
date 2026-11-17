@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CBucketReplication")]
     [OutputType("Amazon.S3Control.Model.ReplicationConfiguration")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetBucketReplication API operation.", Operation = new[] {"GetBucketReplication"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetBucketReplicationResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetBucketReplication API operation.", Operation = new[] {"GetBucketReplication"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetBucketReplicationResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.ReplicationConfiguration or Amazon.S3Control.Model.GetBucketReplicationResponse",
         "This cmdlet returns an Amazon.S3Control.Model.ReplicationConfiguration object.",
         "The service call response (type Amazon.S3Control.Model.GetBucketReplicationResponse) can be returned by specifying '-Select *'."
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetBucketReplicationResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetBucketReplicationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetBucketReplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetBucketReplication");
             try
             {
                 return client.GetBucketReplicationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

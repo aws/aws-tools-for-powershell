@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3Bucket")]
     [OutputType("Amazon.S3.Model.S3Bucket")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) ListBuckets API operation.", Operation = new[] {"ListBuckets"}, SelectReturnType = typeof(Amazon.S3.Model.ListBucketsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service ListBuckets API operation.", Operation = new[] {"ListBuckets"}, SelectReturnType = typeof(Amazon.S3.Model.ListBucketsResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.S3Bucket or Amazon.S3.Model.ListBucketsResponse",
         "This cmdlet returns a collection of Amazon.S3.Model.S3Bucket objects.",
         "The service call response (type Amazon.S3.Model.ListBucketsResponse) can be returned by specifying '-Select *'."
@@ -276,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.ListBucketsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListBucketsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "ListBuckets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "ListBuckets");
             try
             {
                 return client.ListBucketsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

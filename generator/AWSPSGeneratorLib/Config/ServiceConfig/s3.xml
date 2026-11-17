@@ -5,7 +5,7 @@
     <C2jFilename>s3</C2jFilename>
     <AssemblyName>S3</AssemblyName>
     <ServiceNounPrefix>S3</ServiceNounPrefix>
-    <ServiceName>Amazon Simple Storage Service (S3)</ServiceName>
+    <ServiceName>Amazon Simple Storage Service</ServiceName>
     <ServiceId>S3</ServiceId>
     <ServiceClientInterface>IAmazonS3</ServiceClientInterface>
     <ServiceClient>AmazonS3Client</ServiceClient>

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("New", "BACCWorkloadIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateWorkloadIdentityResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateWorkloadIdentity API operation.", Operation = new[] {"CreateWorkloadIdentity"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateWorkloadIdentityResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control CreateWorkloadIdentity API operation.", Operation = new[] {"CreateWorkloadIdentity"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateWorkloadIdentityResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateWorkloadIdentityResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateWorkloadIdentityResponse object containing multiple properties."
     )]
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.CreateWorkloadIdentityResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateWorkloadIdentityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateWorkloadIdentity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "CreateWorkloadIdentity");
             try
             {
                 return client.CreateWorkloadIdentityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

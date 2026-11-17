@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CAccessPoint")]
     [OutputType("Amazon.S3Control.Model.GetAccessPointResponse")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetAccessPoint API operation.", Operation = new[] {"GetAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetAccessPoint API operation.", Operation = new[] {"GetAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.GetAccessPointResponse",
         "This cmdlet returns an Amazon.S3Control.Model.GetAccessPointResponse object containing multiple properties."
     )]
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetAccessPointResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetAccessPointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetAccessPoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetAccessPoint");
             try
             {
                 return client.GetAccessPointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

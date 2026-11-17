@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("New", "S3CMultiRegionAccessPoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon S3 Control CreateMultiRegionAccessPoint API operation.", Operation = new[] {"CreateMultiRegionAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateMultiRegionAccessPointResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control CreateMultiRegionAccessPoint API operation.", Operation = new[] {"CreateMultiRegionAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateMultiRegionAccessPointResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3Control.Model.CreateMultiRegionAccessPointResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.S3Control.Model.CreateMultiRegionAccessPointResponse) can be returned by specifying '-Select *'."
@@ -404,7 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.CreateMultiRegionAccessPointResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.CreateMultiRegionAccessPointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "CreateMultiRegionAccessPoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "CreateMultiRegionAccessPoint");
             try
             {
                 return client.CreateMultiRegionAccessPointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

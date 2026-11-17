@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCTokenVault")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetTokenVaultResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetTokenVault API operation.", Operation = new[] {"GetTokenVault"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetTokenVaultResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetTokenVault API operation.", Operation = new[] {"GetTokenVault"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetTokenVaultResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetTokenVaultResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetTokenVaultResponse object containing multiple properties."
     )]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetTokenVaultResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetTokenVaultRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetTokenVault");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetTokenVault");
             try
             {
                 return client.GetTokenVaultAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

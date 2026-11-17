@@ -112,6 +112,22 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         public System.String ObservabilityRegion { get; set; }
         #endregion
         
+        #region Parameter PublicIpStatus
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the public IP connectivity to configure for the Route 53 Global Resolver.
+        /// Public IP addresses let DNS clients send queries to the resolver over the internet.
+        /// Valid values are the following:</para><ul><li><para><c>ENABLED_RESERVED</c> - Public IP connectivity is enabled, and the global anycast
+        /// public IP addresses are reserved for the Route 53 Global Resolver.</para></li><li><para><c>DISABLED_RESERVED</c> - Public IP connectivity is disabled, and the global anycast
+        /// public IP addresses remain reserved for the Route 53 Global Resolver.</para></li><li><para><c>DISABLED_RELEASED</c> - Public IP connectivity is disabled, and the global anycast
+        /// public IP addresses are released.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53GlobalResolver.PublicIpStatus")]
+        public Amazon.Route53GlobalResolver.PublicIpStatus PublicIpStatus { get; set; }
+        #endregion
+        
         #region Parameter Regions
         /// <summary>
         /// <para>
@@ -186,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             context.ObservabilityRegion = this.ObservabilityRegion;
+            context.PublicIpStatus = this.PublicIpStatus;
             if (this.Regions != null)
             {
                 context.Regions = new List<System.String>(this.Regions);
@@ -225,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             if (cmdletContext.ObservabilityRegion != null)
             {
                 request.ObservabilityRegion = cmdletContext.ObservabilityRegion;
+            }
+            if (cmdletContext.PublicIpStatus != null)
+            {
+                request.PublicIpStatus = cmdletContext.PublicIpStatus;
             }
             if (cmdletContext.Regions != null)
             {
@@ -290,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             public Amazon.Route53GlobalResolver.GlobalResolverIpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public System.String ObservabilityRegion { get; set; }
+            public Amazon.Route53GlobalResolver.PublicIpStatus PublicIpStatus { get; set; }
             public List<System.String> Regions { get; set; }
             public System.Func<Amazon.Route53GlobalResolver.Model.UpdateGlobalResolverResponse, UpdateR53GRGlobalResolverCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

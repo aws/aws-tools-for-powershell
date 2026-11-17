@@ -77,6 +77,27 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.String[] Filters_ConstructType { get; set; }
         #endregion
         
+        #region Parameter IncludeConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Whether to return construct-type-specific behavioral configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter IncludeEnrichedProperty
+        /// <summary>
+        /// <para>
+        /// <para>Whether to return construct properties using their native value types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeEnrichedProperties")]
+        public System.Boolean? IncludeEnrichedProperty { get; set; }
+        #endregion
+        
         #region Parameter NetworkMigrationDefinitionID
         /// <summary>
         /// <para>
@@ -206,6 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 context.Filters_ConstructType = new List<System.String>(this.Filters_ConstructType);
             }
+            context.IncludeConfiguration = this.IncludeConfiguration;
+            context.IncludeEnrichedProperty = this.IncludeEnrichedProperty;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -284,6 +307,14 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (requestFiltersIsNull)
             {
                 request.Filters = null;
+            }
+            if (cmdletContext.IncludeConfiguration != null)
+            {
+                request.IncludeConfiguration = cmdletContext.IncludeConfiguration.Value;
+            }
+            if (cmdletContext.IncludeEnrichedProperty != null)
+            {
+                request.IncludeEnrichedProperties = cmdletContext.IncludeEnrichedProperty.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -382,6 +413,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         {
             public List<System.String> Filters_ConstructIDs { get; set; }
             public List<System.String> Filters_ConstructType { get; set; }
+            public System.Boolean? IncludeConfiguration { get; set; }
+            public System.Boolean? IncludeEnrichedProperty { get; set; }
             public int? MaxResult { get; set; }
             public System.String NetworkMigrationDefinitionID { get; set; }
             public System.String NetworkMigrationExecutionID { get; set; }

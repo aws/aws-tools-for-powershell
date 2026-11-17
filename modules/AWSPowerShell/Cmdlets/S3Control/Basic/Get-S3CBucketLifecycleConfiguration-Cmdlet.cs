@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CBucketLifecycleConfiguration")]
     [OutputType("Amazon.S3Control.Model.LifecycleRule")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetBucketLifecycleConfiguration API operation.", Operation = new[] {"GetBucketLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetBucketLifecycleConfigurationResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetBucketLifecycleConfiguration API operation.", Operation = new[] {"GetBucketLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetBucketLifecycleConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.LifecycleRule or Amazon.S3Control.Model.GetBucketLifecycleConfigurationResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.LifecycleRule objects.",
         "The service call response (type Amazon.S3Control.Model.GetBucketLifecycleConfigurationResponse) can be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetBucketLifecycleConfigurationResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetBucketLifecycleConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetBucketLifecycleConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetBucketLifecycleConfiguration");
             try
             {
                 return client.GetBucketLifecycleConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

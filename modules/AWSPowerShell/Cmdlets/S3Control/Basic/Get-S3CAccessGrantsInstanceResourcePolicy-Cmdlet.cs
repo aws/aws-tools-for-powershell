@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CAccessGrantsInstanceResourcePolicy")]
     [OutputType("Amazon.S3Control.Model.GetAccessGrantsInstanceResourcePolicyResponse")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetAccessGrantsInstanceResourcePolicy API operation.", Operation = new[] {"GetAccessGrantsInstanceResourcePolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessGrantsInstanceResourcePolicyResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetAccessGrantsInstanceResourcePolicy API operation.", Operation = new[] {"GetAccessGrantsInstanceResourcePolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessGrantsInstanceResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.GetAccessGrantsInstanceResourcePolicyResponse",
         "This cmdlet returns an Amazon.S3Control.Model.GetAccessGrantsInstanceResourcePolicyResponse object containing multiple properties."
     )]
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetAccessGrantsInstanceResourcePolicyResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetAccessGrantsInstanceResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetAccessGrantsInstanceResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetAccessGrantsInstanceResourcePolicy");
             try
             {
                 return client.GetAccessGrantsInstanceResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

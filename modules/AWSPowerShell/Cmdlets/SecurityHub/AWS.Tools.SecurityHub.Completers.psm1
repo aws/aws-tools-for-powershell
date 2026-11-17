@@ -123,7 +123,7 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.ConnectorProviderName
         "Get-SHUBConnectorsV2List/ProviderName"
         {
-            $v = "AZURE","JIRA_CLOUD","SERVICENOW"
+            $v = "AZURE","GCP","JIRA_CLOUD","SERVICENOW"
             break
         }
 
@@ -154,7 +154,7 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.CspmConnectorProviderName
         "Get-SHUBConnectorList/ProviderName"
         {
-            $v = "AZURE"
+            $v = "AZURE","GCP"
             break
         }
 
@@ -207,6 +207,18 @@ $SHUB_Completers = {
         "Start-SHUBExportJobV2/OutputConfiguration_Findings_Format"
         {
             $v = "CSV","OCSF_JSON"
+            break
+        }
+
+        # Amazon.SecurityHub.GcpScopeType
+        {
+            ($_ -eq "New-SHUBConnector/Provider_GCP_ScopeConfiguration_ScopeType") -Or
+            ($_ -eq "New-SHUBConnectorV2/Provider_GCP_ScopeConfiguration_ScopeType") -Or
+            ($_ -eq "Update-SHUBConnector/Provider_GCP_ScopeConfiguration_ScopeType") -Or
+            ($_ -eq "Update-SHUBConnectorV2/Provider_GCP_ScopeConfiguration_ScopeType")
+        }
+        {
+            $v = "ORGANIZATION","PROJECT"
             break
         }
 
@@ -346,6 +358,7 @@ $SHUB_map = @{
     "OutputConfiguration_Findings_Filters_CompositeOperator"=@("Start-SHUBExportJobV2")
     "OutputConfiguration_Findings_Format"=@("Start-SHUBExportJobV2")
     "Provider_Azure_ScopeConfiguration_ScopeType"=@("New-SHUBConnector","New-SHUBConnectorV2","Update-SHUBConnector","Update-SHUBConnectorV2")
+    "Provider_GCP_ScopeConfiguration_ScopeType"=@("New-SHUBConnector","New-SHUBConnectorV2","Update-SHUBConnector","Update-SHUBConnectorV2")
     "ProviderName"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "RecordState"=@("Update-SHUBFinding")
     "RuleStatus"=@("New-SHUBAutomationRule","New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")

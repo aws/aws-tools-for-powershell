@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CJobTagging")]
     [OutputType("Amazon.S3Control.Model.S3Tag")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetJobTagging API operation.", Operation = new[] {"GetJobTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetJobTaggingResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetJobTagging API operation.", Operation = new[] {"GetJobTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetJobTaggingResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.S3Tag or Amazon.S3Control.Model.GetJobTaggingResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.S3Tag objects.",
         "The service call response (type Amazon.S3Control.Model.GetJobTaggingResponse) can be returned by specifying '-Select *'."
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetJobTaggingResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetJobTaggingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetJobTagging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetJobTagging");
             try
             {
                 return client.GetJobTaggingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

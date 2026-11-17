@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Remove", "S3CStorageLensConfigurationTagging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control DeleteStorageLensConfigurationTagging API operation.", Operation = new[] {"DeleteStorageLensConfigurationTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteStorageLensConfigurationTaggingResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control DeleteStorageLensConfigurationTagging API operation.", Operation = new[] {"DeleteStorageLensConfigurationTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteStorageLensConfigurationTaggingResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteStorageLensConfigurationTaggingResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.DeleteStorageLensConfigurationTaggingResponse) be returned by specifying '-Select *'."
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.DeleteStorageLensConfigurationTaggingResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeleteStorageLensConfigurationTaggingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeleteStorageLensConfigurationTagging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "DeleteStorageLensConfigurationTagging");
             try
             {
                 return client.DeleteStorageLensConfigurationTaggingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

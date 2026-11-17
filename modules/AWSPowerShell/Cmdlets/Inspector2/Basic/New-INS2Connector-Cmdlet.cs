@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public System.Boolean? ProviderDetail_Azure_AutoInstallVMScanner { get; set; }
         #endregion
         
+        #region Parameter ProviderDetail_Gcp_AutoInstallVMScanner
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to automatically install the VM scanner on connected GCP resources.
+        /// Defaults to <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ProviderDetail_Gcp_AutoInstallVMScanner { get; set; }
+        #endregion
+        
         #region Parameter ProviderDetail_Azure_AwsConfigConnectorArn
         /// <summary>
         /// <para>
@@ -65,6 +76,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ProviderDetail_Azure_AwsConfigConnectorArn { get; set; }
+        #endregion
+        
+        #region Parameter ProviderDetail_Gcp_AwsConfigConnectorArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon Web Services Config connector to associate with this connector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProviderDetail_Gcp_AwsConfigConnectorArn { get; set; }
         #endregion
         
         #region Parameter ProviderDetail_Azure_AzureRegion
@@ -91,6 +112,23 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ProviderDetail_Gcp_GcpRegion
+        /// <summary>
+        /// <para>
+        /// <para>The GCP locations to scan, such as regions, zones, multi-regions, or dual-regions.
+        /// Specify <c>ALL</c> to scan all locations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProviderDetail_Gcp_GcpRegions")]
+        public System.String[] ProviderDetail_Gcp_GcpRegion { get; set; }
         #endregion
         
         #region Parameter Name
@@ -130,9 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter ProviderDetail_Azure_ScopeConfiguration_ContainerImageScanning_ScopeType
         /// <summary>
         /// <para>
-        /// <para>The type of scope. Valid values are <c>TENANT</c>, which scans all resources in the
-        /// Azure tenant, and <c>SUBSCRIPTION</c>, which scans only the resources in the specified
-        /// Azure subscriptions.</para>
+        /// <para>The type of scope: <c>TENANT</c>, which scans all resources in the Azure tenant, or
+        /// <c>SUBSCRIPTION</c>, which scans only the resources in the specified Azure subscriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,9 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeType
         /// <summary>
         /// <para>
-        /// <para>The type of scope. Valid values are <c>TENANT</c>, which scans all resources in the
-        /// Azure tenant, and <c>SUBSCRIPTION</c>, which scans only the resources in the specified
-        /// Azure subscriptions.</para>
+        /// <para>The type of scope: <c>TENANT</c>, which scans all resources in the Azure tenant, or
+        /// <c>SUBSCRIPTION</c>, which scans only the resources in the specified Azure subscriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,14 +192,49 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType
         /// <summary>
         /// <para>
-        /// <para>The type of scope. Valid values are <c>TENANT</c>, which scans all resources in the
-        /// Azure tenant, and <c>SUBSCRIPTION</c>, which scans only the resources in the specified
-        /// Azure subscriptions.</para>
+        /// <para>The type of scope: <c>TENANT</c>, which scans all resources in the Azure tenant, or
+        /// <c>SUBSCRIPTION</c>, which scans only the resources in the specified Azure subscriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Inspector2.ScopeType")]
         public Amazon.Inspector2.ScopeType ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType { get; set; }
+        #endregion
+        
+        #region Parameter ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType
+        /// <summary>
+        /// <para>
+        /// <para>The type of scope: <c>ORGANIZATION</c>, which scans all projects in the GCP organization,
+        /// or <c>PROJECT</c>, which scans only the specified GCP projects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.ScopeType")]
+        public Amazon.Inspector2.ScopeType ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType { get; set; }
+        #endregion
+        
+        #region Parameter ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType
+        /// <summary>
+        /// <para>
+        /// <para>The type of scope: <c>ORGANIZATION</c>, which scans all projects in the GCP organization,
+        /// or <c>PROJECT</c>, which scans only the specified GCP projects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.ScopeType")]
+        public Amazon.Inspector2.ScopeType ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType { get; set; }
+        #endregion
+        
+        #region Parameter ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType
+        /// <summary>
+        /// <para>
+        /// <para>The type of scope: <c>ORGANIZATION</c>, which scans all projects in the GCP organization,
+        /// or <c>PROJECT</c>, which scans only the specified GCP projects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.ScopeType")]
+        public Amazon.Inspector2.ScopeType ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType { get; set; }
         #endregion
         
         #region Parameter ProviderDetail_Azure_ScopeConfiguration_ContainerImageScanning_ScopeValue
@@ -215,6 +286,60 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeValues")]
         public System.String[] ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeValue { get; set; }
+        #endregion
+        
+        #region Parameter ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue
+        /// <summary>
+        /// <para>
+        /// <para>The GCP project IDs to scan. Required when <c>scopeType</c> is <c>PROJECT</c>. Don't
+        /// specify scope values when <c>scopeType</c> is <c>ORGANIZATION</c>. Amazon Inspector
+        /// scans the organization of the Amazon Web Services Config connector.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValues")]
+        public System.String[] ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue { get; set; }
+        #endregion
+        
+        #region Parameter ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue
+        /// <summary>
+        /// <para>
+        /// <para>The GCP project IDs to scan. Required when <c>scopeType</c> is <c>PROJECT</c>. Don't
+        /// specify scope values when <c>scopeType</c> is <c>ORGANIZATION</c>. Amazon Inspector
+        /// scans the organization of the Amazon Web Services Config connector.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValues")]
+        public System.String[] ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue { get; set; }
+        #endregion
+        
+        #region Parameter ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue
+        /// <summary>
+        /// <para>
+        /// <para>The GCP project IDs to scan. Required when <c>scopeType</c> is <c>PROJECT</c>. Don't
+        /// specify scope values when <c>scopeType</c> is <c>ORGANIZATION</c>. Amazon Inspector
+        /// scans the organization of the Amazon Web Services Config connector.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValues")]
+        public System.String[] ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -327,6 +452,27 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (this.ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeValue != null)
             {
                 context.ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeValue = new List<System.String>(this.ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeValue);
+            }
+            context.ProviderDetail_Gcp_AutoInstallVMScanner = this.ProviderDetail_Gcp_AutoInstallVMScanner;
+            context.ProviderDetail_Gcp_AwsConfigConnectorArn = this.ProviderDetail_Gcp_AwsConfigConnectorArn;
+            if (this.ProviderDetail_Gcp_GcpRegion != null)
+            {
+                context.ProviderDetail_Gcp_GcpRegion = new List<System.String>(this.ProviderDetail_Gcp_GcpRegion);
+            }
+            context.ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType = this.ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType;
+            if (this.ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue != null)
+            {
+                context.ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue = new List<System.String>(this.ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue);
+            }
+            context.ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType = this.ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType;
+            if (this.ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue != null)
+            {
+                context.ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue = new List<System.String>(this.ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue);
+            }
+            context.ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType = this.ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType;
+            if (this.ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue != null)
+            {
+                context.ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue = new List<System.String>(this.ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue);
             }
             if (this.Tag != null)
             {
@@ -537,6 +683,171 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.ProviderDetail.Azure = requestProviderDetail_providerDetail_Azure;
                 requestProviderDetailIsNull = false;
             }
+            Amazon.Inspector2.Model.GcpProviderDetailCreate requestProviderDetail_providerDetail_Gcp = null;
+            
+             // populate Gcp
+            var requestProviderDetail_providerDetail_GcpIsNull = true;
+            requestProviderDetail_providerDetail_Gcp = new Amazon.Inspector2.Model.GcpProviderDetailCreate();
+            System.Boolean? requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_AutoInstallVMScanner = null;
+            if (cmdletContext.ProviderDetail_Gcp_AutoInstallVMScanner != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_AutoInstallVMScanner = cmdletContext.ProviderDetail_Gcp_AutoInstallVMScanner.Value;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_AutoInstallVMScanner != null)
+            {
+                requestProviderDetail_providerDetail_Gcp.AutoInstallVMScanner = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_AutoInstallVMScanner.Value;
+                requestProviderDetail_providerDetail_GcpIsNull = false;
+            }
+            System.String requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_AwsConfigConnectorArn = null;
+            if (cmdletContext.ProviderDetail_Gcp_AwsConfigConnectorArn != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_AwsConfigConnectorArn = cmdletContext.ProviderDetail_Gcp_AwsConfigConnectorArn;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_AwsConfigConnectorArn != null)
+            {
+                requestProviderDetail_providerDetail_Gcp.AwsConfigConnectorArn = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_AwsConfigConnectorArn;
+                requestProviderDetail_providerDetail_GcpIsNull = false;
+            }
+            List<System.String> requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_GcpRegion = null;
+            if (cmdletContext.ProviderDetail_Gcp_GcpRegion != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_GcpRegion = cmdletContext.ProviderDetail_Gcp_GcpRegion;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_GcpRegion != null)
+            {
+                requestProviderDetail_providerDetail_Gcp.GcpRegions = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_GcpRegion;
+                requestProviderDetail_providerDetail_GcpIsNull = false;
+            }
+            Amazon.Inspector2.Model.GcpScopeConfigurationInput requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration = null;
+            
+             // populate ScopeConfiguration
+            var requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfigurationIsNull = true;
+            requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration = new Amazon.Inspector2.Model.GcpScopeConfigurationInput();
+            Amazon.Inspector2.Model.GcpCapabilityScopeInput requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning = null;
+            
+             // populate ContainerImageScanning
+            var requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanningIsNull = true;
+            requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning = new Amazon.Inspector2.Model.GcpCapabilityScopeInput();
+            Amazon.Inspector2.ScopeType requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType = null;
+            if (cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType = cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning.ScopeType = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType;
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanningIsNull = false;
+            }
+            List<System.String> requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue = null;
+            if (cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue = cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning.ScopeValues = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue;
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanningIsNull = false;
+            }
+             // determine if requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning should be set to null
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanningIsNull)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning = null;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration.ContainerImageScanning = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ContainerImageScanning;
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfigurationIsNull = false;
+            }
+            Amazon.Inspector2.Model.GcpCapabilityScopeInput requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning = null;
+            
+             // populate ServerlessScanning
+            var requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanningIsNull = true;
+            requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning = new Amazon.Inspector2.Model.GcpCapabilityScopeInput();
+            Amazon.Inspector2.ScopeType requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType = null;
+            if (cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType = cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning.ScopeType = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType;
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanningIsNull = false;
+            }
+            List<System.String> requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue = null;
+            if (cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue = cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning.ScopeValues = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue;
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanningIsNull = false;
+            }
+             // determine if requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning should be set to null
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanningIsNull)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning = null;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration.ServerlessScanning = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_ServerlessScanning;
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfigurationIsNull = false;
+            }
+            Amazon.Inspector2.Model.GcpCapabilityScopeInput requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning = null;
+            
+             // populate VmScanning
+            var requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanningIsNull = true;
+            requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning = new Amazon.Inspector2.Model.GcpCapabilityScopeInput();
+            Amazon.Inspector2.ScopeType requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning_providerDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType = null;
+            if (cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning_providerDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType = cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning_providerDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning.ScopeType = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning_providerDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType;
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanningIsNull = false;
+            }
+            List<System.String> requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning_providerDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue = null;
+            if (cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning_providerDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue = cmdletContext.ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning_providerDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning.ScopeValues = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning_providerDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue;
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanningIsNull = false;
+            }
+             // determine if requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning should be set to null
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanningIsNull)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning = null;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning != null)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration.VmScanning = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration_providerDetail_Gcp_ScopeConfiguration_VmScanning;
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfigurationIsNull = false;
+            }
+             // determine if requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration should be set to null
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfigurationIsNull)
+            {
+                requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration = null;
+            }
+            if (requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration != null)
+            {
+                requestProviderDetail_providerDetail_Gcp.ScopeConfiguration = requestProviderDetail_providerDetail_Gcp_providerDetail_Gcp_ScopeConfiguration;
+                requestProviderDetail_providerDetail_GcpIsNull = false;
+            }
+             // determine if requestProviderDetail_providerDetail_Gcp should be set to null
+            if (requestProviderDetail_providerDetail_GcpIsNull)
+            {
+                requestProviderDetail_providerDetail_Gcp = null;
+            }
+            if (requestProviderDetail_providerDetail_Gcp != null)
+            {
+                request.ProviderDetail.Gcp = requestProviderDetail_providerDetail_Gcp;
+                requestProviderDetailIsNull = false;
+            }
              // determine if request.ProviderDetail should be set to null
             if (requestProviderDetailIsNull)
             {
@@ -614,6 +925,15 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<System.String> ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeValue { get; set; }
             public Amazon.Inspector2.ScopeType ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType { get; set; }
             public List<System.String> ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeValue { get; set; }
+            public System.Boolean? ProviderDetail_Gcp_AutoInstallVMScanner { get; set; }
+            public System.String ProviderDetail_Gcp_AwsConfigConnectorArn { get; set; }
+            public List<System.String> ProviderDetail_Gcp_GcpRegion { get; set; }
+            public Amazon.Inspector2.ScopeType ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType { get; set; }
+            public List<System.String> ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue { get; set; }
+            public Amazon.Inspector2.ScopeType ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType { get; set; }
+            public List<System.String> ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue { get; set; }
+            public Amazon.Inspector2.ScopeType ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType { get; set; }
+            public List<System.String> ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Inspector2.Model.CreateConnectorResponse, NewINS2ConnectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConnectorArn;

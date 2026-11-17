@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Remove", "S3CBucketPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control DeleteBucketPolicy API operation.", Operation = new[] {"DeleteBucketPolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteBucketPolicyResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control DeleteBucketPolicy API operation.", Operation = new[] {"DeleteBucketPolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteBucketPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteBucketPolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.DeleteBucketPolicyResponse) be returned by specifying '-Select *'."
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.DeleteBucketPolicyResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeleteBucketPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeleteBucketPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "DeleteBucketPolicy");
             try
             {
                 return client.DeleteBucketPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Update", "S3ObjectEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) UpdateObjectEncryption API operation.", Operation = new[] {"UpdateObjectEncryption"}, SelectReturnType = typeof(Amazon.S3.Model.UpdateObjectEncryptionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service UpdateObjectEncryption API operation.", Operation = new[] {"UpdateObjectEncryption"}, SelectReturnType = typeof(Amazon.S3.Model.UpdateObjectEncryptionResponse))]
     [AWSCmdletOutput("Amazon.S3.RequestCharged or Amazon.S3.Model.UpdateObjectEncryptionResponse",
         "This cmdlet returns an Amazon.S3.RequestCharged object.",
         "The service call response (type Amazon.S3.Model.UpdateObjectEncryptionResponse) can be returned by specifying '-Select *'."
@@ -471,7 +471,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.UpdateObjectEncryptionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.UpdateObjectEncryptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "UpdateObjectEncryption");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "UpdateObjectEncryption");
             try
             {
                 return client.UpdateObjectEncryptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

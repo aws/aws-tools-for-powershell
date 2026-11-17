@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Invoke", "BACCPaymentConnectorCredentialRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.RotatePaymentConnectorCredentialsResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer RotatePaymentConnectorCredentials API operation.", Operation = new[] {"RotatePaymentConnectorCredentials"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.RotatePaymentConnectorCredentialsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control RotatePaymentConnectorCredentials API operation.", Operation = new[] {"RotatePaymentConnectorCredentials"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.RotatePaymentConnectorCredentialsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.RotatePaymentConnectorCredentialsResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.RotatePaymentConnectorCredentialsResponse object containing multiple properties."
     )]
@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.RotatePaymentConnectorCredentialsResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.RotatePaymentConnectorCredentialsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "RotatePaymentConnectorCredentials");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "RotatePaymentConnectorCredentials");
             try
             {
                 return client.RotatePaymentConnectorCredentialsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

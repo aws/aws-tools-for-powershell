@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
         /// To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name
-        /// (ARN). To use resource-based permissions on the Lambda function, specify null.</para>
+        /// (ARN). To use resource-based permissions on the Lambda function, specify null. This
+        /// property is not supported for <c>JWT</c> authorizers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching
         /// is disabled. If it is greater than 0, API Gateway will cache authorizer responses.
         /// If this field is not set, the default value is 300. The maximum value is 3600, or
-        /// 1 hour.</para>
+        /// 1 hour. This property is not supported for <c>JWT</c> authorizers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// where <c>{region}</c> is the same as the region hosting the Lambda function, <c>path</c>
         /// indicates that the remaining substring in the URI should be treated as the path to
         /// the resource, including the initial <c>/</c>. For Lambda functions, this is usually
-        /// of the form <c>/2015-03-31/functions/[FunctionARN]/invocations</c>.</para>
+        /// of the form <c>/2015-03-31/functions/[FunctionARN]/invocations</c>. This property
+        /// is not supported for <c>JWT</c> authorizers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,6 +99,24 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AuthType { get; set; }
+        #endregion
+        
+        #region Parameter JwtConfiguration_DefaultAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The signing algorithms that the authorizer accepts, applied to every issuer. Valid
+        /// values are <c>RS256</c>, <c>RS384</c>, <c>RS512</c>, <c>ES256</c>, <c>ES384</c>, and
+        /// <c>ES512</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JwtConfiguration_DefaultAlgorithms")]
+        public System.String[] JwtConfiguration_DefaultAlgorithm { get; set; }
         #endregion
         
         #region Parameter IdentitySource
@@ -117,7 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// function, otherwise, it returns a 401 Unauthorized response without calling the Lambda
         /// function. The valid value is a string of comma-separated mapping expressions of the
         /// specified request parameters. When the authorization caching is not enabled, this
-        /// property is optional.</para>
+        /// property is optional. For a <c>JWT</c> authorizer, this is required and must be a
+        /// single request-header mapping expression, <c>method.request.header.&lt;name&gt;</c>,
+        /// for example, <c>method.request.header.Authorization</c>. Query string parameters are
+        /// not supported, and there is no default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,11 +156,27 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// the specified regular expression. It will invoke the authorizer's Lambda function
         /// when there is a match. Otherwise, it will return a 401 Unauthorized response without
         /// calling the Lambda function. The validation expression does not apply to the <c>REQUEST</c>
-        /// authorizer.</para>
+        /// or <c>JWT</c> authorizer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IdentityValidationExpression { get; set; }
+        #endregion
+        
+        #region Parameter JwtConfiguration_Issuer
+        /// <summary>
+        /// <para>
+        /// <para>The issuers that the authorizer trusts. Issuer URLs must be unique.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JwtConfiguration_Issuers")]
+        public Amazon.APIGateway.Model.JwtIssuerInput[] JwtConfiguration_Issuer { get; set; }
         #endregion
         
         #region Parameter Name
@@ -162,7 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>A list of the Amazon Cognito user pool ARNs for the <c>COGNITO_USER_POOLS</c> authorizer.
         /// Each element is of this format: <c>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</c>.
-        /// For a <c>TOKEN</c> or <c>REQUEST</c> authorizer, this is not defined. </para><para />
+        /// For a <c>TOKEN</c> or <c>REQUEST</c> authorizer, this is not defined. This property
+        /// is not supported for <c>JWT</c> authorizers. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -196,8 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>The authorizer type. Valid values are <c>TOKEN</c> for a Lambda function using a single
         /// authorization token submitted in a custom header, <c>REQUEST</c> for a Lambda function
-        /// using incoming request parameters, and <c>COGNITO_USER_POOLS</c> for using an Amazon
-        /// Cognito user pool.</para>
+        /// using incoming request parameters, <c>COGNITO_USER_POOLS</c> for using an Amazon Cognito
+        /// user pool, and <c>JWT</c> for using a native JWT authorizer with the trusted issuers,
+        /// audiences, and signing algorithms that you declare.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -263,6 +304,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.AuthorizerUri = this.AuthorizerUri;
             context.IdentitySource = this.IdentitySource;
             context.IdentityValidationExpression = this.IdentityValidationExpression;
+            if (this.JwtConfiguration_DefaultAlgorithm != null)
+            {
+                context.JwtConfiguration_DefaultAlgorithm = new List<System.String>(this.JwtConfiguration_DefaultAlgorithm);
+            }
+            if (this.JwtConfiguration_Issuer != null)
+            {
+                context.JwtConfiguration_Issuer = new List<Amazon.APIGateway.Model.JwtIssuerInput>(this.JwtConfiguration_Issuer);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -327,6 +376,35 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.IdentityValidationExpression != null)
             {
                 request.IdentityValidationExpression = cmdletContext.IdentityValidationExpression;
+            }
+            
+             // populate JwtConfiguration
+            var requestJwtConfigurationIsNull = true;
+            request.JwtConfiguration = new Amazon.APIGateway.Model.JwtConfigurationInput();
+            List<System.String> requestJwtConfiguration_jwtConfiguration_DefaultAlgorithm = null;
+            if (cmdletContext.JwtConfiguration_DefaultAlgorithm != null)
+            {
+                requestJwtConfiguration_jwtConfiguration_DefaultAlgorithm = cmdletContext.JwtConfiguration_DefaultAlgorithm;
+            }
+            if (requestJwtConfiguration_jwtConfiguration_DefaultAlgorithm != null)
+            {
+                request.JwtConfiguration.DefaultAlgorithms = requestJwtConfiguration_jwtConfiguration_DefaultAlgorithm;
+                requestJwtConfigurationIsNull = false;
+            }
+            List<Amazon.APIGateway.Model.JwtIssuerInput> requestJwtConfiguration_jwtConfiguration_Issuer = null;
+            if (cmdletContext.JwtConfiguration_Issuer != null)
+            {
+                requestJwtConfiguration_jwtConfiguration_Issuer = cmdletContext.JwtConfiguration_Issuer;
+            }
+            if (requestJwtConfiguration_jwtConfiguration_Issuer != null)
+            {
+                request.JwtConfiguration.Issuers = requestJwtConfiguration_jwtConfiguration_Issuer;
+                requestJwtConfigurationIsNull = false;
+            }
+             // determine if request.JwtConfiguration should be set to null
+            if (requestJwtConfigurationIsNull)
+            {
+                request.JwtConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -405,6 +483,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String AuthorizerUri { get; set; }
             public System.String IdentitySource { get; set; }
             public System.String IdentityValidationExpression { get; set; }
+            public List<System.String> JwtConfiguration_DefaultAlgorithm { get; set; }
+            public List<Amazon.APIGateway.Model.JwtIssuerInput> JwtConfiguration_Issuer { get; set; }
             public System.String Name { get; set; }
             public List<System.String> ProviderARNs { get; set; }
             public System.String RestApiId { get; set; }

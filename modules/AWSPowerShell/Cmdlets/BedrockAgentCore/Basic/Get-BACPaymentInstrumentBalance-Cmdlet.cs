@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACPaymentInstrumentBalance")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetPaymentInstrumentBalanceResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetPaymentInstrumentBalance API operation.", Operation = new[] {"GetPaymentInstrumentBalance"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetPaymentInstrumentBalanceResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore GetPaymentInstrumentBalance API operation.", Operation = new[] {"GetPaymentInstrumentBalance"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetPaymentInstrumentBalanceResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.GetPaymentInstrumentBalanceResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.GetPaymentInstrumentBalanceResponse object containing multiple properties."
     )]
@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.GetPaymentInstrumentBalanceResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetPaymentInstrumentBalanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetPaymentInstrumentBalance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "GetPaymentInstrumentBalance");
             try
             {
                 return client.GetPaymentInstrumentBalanceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

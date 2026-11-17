@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCConsentPortalList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.ConsentPortalSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListConsentPortals API operation.", Operation = new[] {"ListConsentPortals"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListConsentPortalsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListConsentPortals API operation.", Operation = new[] {"ListConsentPortals"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListConsentPortalsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.ConsentPortalSummary or Amazon.BedrockAgentCoreControl.Model.ListConsentPortalsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.ConsentPortalSummary objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListConsentPortalsResponse) can be returned by specifying '-Select *'."
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListConsentPortalsResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListConsentPortalsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListConsentPortals");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListConsentPortals");
             try
             {
                 return client.ListConsentPortalsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

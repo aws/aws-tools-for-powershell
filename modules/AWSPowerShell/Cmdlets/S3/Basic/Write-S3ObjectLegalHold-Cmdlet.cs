@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3ObjectLegalHold", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutObjectLegalHold API operation.", Operation = new[] {"PutObjectLegalHold"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectLegalHoldResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutObjectLegalHold API operation.", Operation = new[] {"PutObjectLegalHold"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectLegalHoldResponse))]
     [AWSCmdletOutput("Amazon.S3.RequestCharged or Amazon.S3.Model.PutObjectLegalHoldResponse",
         "This cmdlet returns an Amazon.S3.RequestCharged object.",
         "The service call response (type Amazon.S3.Model.PutObjectLegalHoldResponse) can be returned by specifying '-Select *'."
@@ -336,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutObjectLegalHoldResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectLegalHoldRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutObjectLegalHold");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutObjectLegalHold");
             try
             {
                 return client.PutObjectLegalHoldAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3BucketIntelligentTieringConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteBucketIntelligentTieringConfiguration API operation.", Operation = new[] {"DeleteBucketIntelligentTieringConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketIntelligentTieringConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteBucketIntelligentTieringConfiguration API operation.", Operation = new[] {"DeleteBucketIntelligentTieringConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketIntelligentTieringConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteBucketIntelligentTieringConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.DeleteBucketIntelligentTieringConfigurationResponse) be returned by specifying '-Select *'."
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.DeleteBucketIntelligentTieringConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketIntelligentTieringConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteBucketIntelligentTieringConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteBucketIntelligentTieringConfiguration");
             try
             {
                 return client.DeleteBucketIntelligentTieringConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

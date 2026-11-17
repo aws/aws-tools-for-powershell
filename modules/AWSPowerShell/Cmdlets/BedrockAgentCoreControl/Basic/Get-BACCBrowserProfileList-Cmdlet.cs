@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCBrowserProfileList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.BrowserProfileSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListBrowserProfiles API operation.", Operation = new[] {"ListBrowserProfiles"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListBrowserProfiles API operation.", Operation = new[] {"ListBrowserProfiles"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.BrowserProfileSummary or Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.BrowserProfileSummary objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse) can be returned by specifying '-Select *'."
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListBrowserProfilesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListBrowserProfiles");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListBrowserProfiles");
             try
             {
                 return client.ListBrowserProfilesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

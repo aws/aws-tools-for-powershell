@@ -159,6 +159,20 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter OutpostSnapshotLocation
+        /// <summary>
+        /// <para>
+        /// <para>Updates the location of replication snapshots when the staging area subnet is on an
+        /// AWS Outpost. Set to <c>OUTPOST</c> to keep replication snapshots on the Outpost, or
+        /// <c>REGION</c> to store them in the AWS Region. Required when the staging area subnet
+        /// is on an Outpost, and not allowed otherwise.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.OutpostSnapshotLocation")]
+        public Amazon.Mgn.OutpostSnapshotLocation OutpostSnapshotLocation { get; set; }
+        #endregion
+        
         #region Parameter ReplicatedDisk
         /// <summary>
         /// <para>
@@ -350,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             context.EbsEncryptionKeyArn = this.EbsEncryptionKeyArn;
             context.InternetProtocol = this.InternetProtocol;
             context.Name = this.Name;
+            context.OutpostSnapshotLocation = this.OutpostSnapshotLocation;
             if (this.ReplicatedDisk != null)
             {
                 context.ReplicatedDisk = new List<Amazon.Mgn.Model.ReplicationConfigurationReplicatedDisk>(this.ReplicatedDisk);
@@ -436,6 +451,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.OutpostSnapshotLocation != null)
+            {
+                request.OutpostSnapshotLocation = cmdletContext.OutpostSnapshotLocation;
             }
             if (cmdletContext.ReplicatedDisk != null)
             {
@@ -592,6 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.String EbsEncryptionKeyArn { get; set; }
             public Amazon.Mgn.InternetProtocol InternetProtocol { get; set; }
             public System.String Name { get; set; }
+            public Amazon.Mgn.OutpostSnapshotLocation OutpostSnapshotLocation { get; set; }
             public List<Amazon.Mgn.Model.ReplicationConfigurationReplicatedDisk> ReplicatedDisk { get; set; }
             public System.String ReplicationServerInstanceType { get; set; }
             public List<System.String> ReplicationServersSecurityGroupsIDs { get; set; }

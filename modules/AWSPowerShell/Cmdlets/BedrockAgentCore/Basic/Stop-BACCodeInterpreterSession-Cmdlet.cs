@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Stop", "BACCodeInterpreterSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.StopCodeInterpreterSessionResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer StopCodeInterpreterSession API operation.", Operation = new[] {"StopCodeInterpreterSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StopCodeInterpreterSessionResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore StopCodeInterpreterSession API operation.", Operation = new[] {"StopCodeInterpreterSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StopCodeInterpreterSessionResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.StopCodeInterpreterSessionResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.StopCodeInterpreterSessionResponse object containing multiple properties."
     )]
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.StopCodeInterpreterSessionResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.StopCodeInterpreterSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "StopCodeInterpreterSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "StopCodeInterpreterSession");
             try
             {
                 return client.StopCodeInterpreterSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

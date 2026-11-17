@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Remove", "S3CAccessPointPolicyForObjectLambda", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control DeleteAccessPointPolicyForObjectLambda API operation.", Operation = new[] {"DeleteAccessPointPolicyForObjectLambda"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessPointPolicyForObjectLambdaResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control DeleteAccessPointPolicyForObjectLambda API operation.", Operation = new[] {"DeleteAccessPointPolicyForObjectLambda"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessPointPolicyForObjectLambdaResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteAccessPointPolicyForObjectLambdaResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.DeleteAccessPointPolicyForObjectLambdaResponse) be returned by specifying '-Select *'."
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.DeleteAccessPointPolicyForObjectLambdaResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeleteAccessPointPolicyForObjectLambdaRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeleteAccessPointPolicyForObjectLambda");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "DeleteAccessPointPolicyForObjectLambda");
             try
             {
                 return client.DeleteAccessPointPolicyForObjectLambdaAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

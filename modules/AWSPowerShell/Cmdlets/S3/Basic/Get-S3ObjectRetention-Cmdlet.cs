@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3ObjectRetention")]
     [OutputType("Amazon.S3.Model.ObjectLockRetention")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetObjectRetention API operation.", Operation = new[] {"GetObjectRetention"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectRetentionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetObjectRetention API operation.", Operation = new[] {"GetObjectRetention"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectRetentionResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ObjectLockRetention or Amazon.S3.Model.GetObjectRetentionResponse",
         "This cmdlet returns an Amazon.S3.Model.ObjectLockRetention object.",
         "The service call response (type Amazon.S3.Model.GetObjectRetentionResponse) can be returned by specifying '-Select *'."
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetObjectRetentionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetObjectRetentionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetObjectRetention");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetObjectRetention");
             try
             {
                 return client.GetObjectRetentionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

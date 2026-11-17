@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Remove", "S3CAccessPointPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control DeleteAccessPointPolicy API operation.", Operation = new[] {"DeleteAccessPointPolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessPointPolicyResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control DeleteAccessPointPolicy API operation.", Operation = new[] {"DeleteAccessPointPolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessPointPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteAccessPointPolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.DeleteAccessPointPolicyResponse) be returned by specifying '-Select *'."
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.DeleteAccessPointPolicyResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeleteAccessPointPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeleteAccessPointPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "DeleteAccessPointPolicy");
             try
             {
                 return client.DeleteAccessPointPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

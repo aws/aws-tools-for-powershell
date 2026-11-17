@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3ObjectLegalHold")]
     [OutputType("Amazon.S3.Model.ObjectLockLegalHold")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetObjectLegalHold API operation.", Operation = new[] {"GetObjectLegalHold"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectLegalHoldResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetObjectLegalHold API operation.", Operation = new[] {"GetObjectLegalHold"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectLegalHoldResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ObjectLockLegalHold or Amazon.S3.Model.GetObjectLegalHoldResponse",
         "This cmdlet returns an Amazon.S3.Model.ObjectLockLegalHold object.",
         "The service call response (type Amazon.S3.Model.GetObjectLegalHoldResponse) can be returned by specifying '-Select *'."
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetObjectLegalHoldResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetObjectLegalHoldRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetObjectLegalHold");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetObjectLegalHold");
             try
             {
                 return client.GetObjectLegalHoldAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

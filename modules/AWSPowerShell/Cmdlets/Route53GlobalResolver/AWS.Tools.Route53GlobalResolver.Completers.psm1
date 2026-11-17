@@ -186,7 +186,17 @@ $R53GR_Completers = {
             ($_ -eq "Update-R53GRAccessSource/IpAddressType")
         }
         {
-            $v = "IPV4","IPV6"
+            $v = "IPV4","IPV6","NONE"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.PublicIpStatus
+        {
+            ($_ -eq "New-R53GRGlobalResolver/PublicIpStatus") -Or
+            ($_ -eq "Update-R53GRGlobalResolver/PublicIpStatus")
+        }
+        {
+            $v = "DISABLED_RELEASED","DISABLED_RESERVED","ENABLED_RESERVED"
             break
         }
 
@@ -209,6 +219,7 @@ $R53GR_map = @{
     "FirewallRulesFailOpen"=@("New-R53GRDNSView","Update-R53GRDNSView")
     "IpAddressType"=@("New-R53GRAccessSource","New-R53GRGlobalResolver","Update-R53GRAccessSource","Update-R53GRGlobalResolver")
     "Protocol"=@("New-R53GRAccessSource","Update-R53GRAccessSource")
+    "PublicIpStatus"=@("New-R53GRGlobalResolver","Update-R53GRGlobalResolver")
 }
 
 _awsArgumentCompleterRegistration $R53GR_Completers $R53GR_map
@@ -267,12 +278,14 @@ $R53GR_SelectMap = @{
                "Update-R53GRFirewallRuleBatch",
                "New-R53GRAccessSource",
                "New-R53GRAccessToken",
+               "New-R53GRCoreNetworkEndpoint",
                "New-R53GRDNSView",
                "New-R53GRFirewallDomainList",
                "New-R53GRFirewallRule",
                "New-R53GRGlobalResolver",
                "Remove-R53GRAccessSource",
                "Remove-R53GRAccessToken",
+               "Remove-R53GRCoreNetworkEndpoint",
                "Remove-R53GRDNSView",
                "Remove-R53GRFirewallDomainList",
                "Remove-R53GRFirewallRule",
@@ -282,6 +295,7 @@ $R53GR_SelectMap = @{
                "Enable-R53GRDNSView",
                "Get-R53GRAccessSource",
                "Get-R53GRAccessToken",
+               "Get-R53GRCoreNetworkEndpoint",
                "Get-R53GRDNSView",
                "Get-R53GRFirewallDomainList",
                "Get-R53GRFirewallRule",
@@ -291,6 +305,7 @@ $R53GR_SelectMap = @{
                "Import-R53GRFirewallDomainList",
                "Get-R53GRAccessSourceList",
                "Get-R53GRAccessTokenList",
+               "Get-R53GRCoreNetworkEndpointList",
                "Get-R53GRDNSViewList",
                "Get-R53GRFirewallDomainListList",
                "Get-R53GRFirewallDomain",
@@ -304,6 +319,7 @@ $R53GR_SelectMap = @{
                "Remove-R53GRResourceTag",
                "Update-R53GRAccessSource",
                "Update-R53GRAccessToken",
+               "Update-R53GRCoreNetworkEndpoint",
                "Update-R53GRDNSView",
                "Edit-R53GRFirewallDomain",
                "Update-R53GRFirewallRule",

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Write", "S3CAccessPointScope", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control PutAccessPointScope API operation.", Operation = new[] {"PutAccessPointScope"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutAccessPointScopeResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control PutAccessPointScope API operation.", Operation = new[] {"PutAccessPointScope"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutAccessPointScopeResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.PutAccessPointScopeResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.PutAccessPointScopeResponse) be returned by specifying '-Select *'."
@@ -281,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.PutAccessPointScopeResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.PutAccessPointScopeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "PutAccessPointScope");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "PutAccessPointScope");
             try
             {
                 return client.PutAccessPointScopeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

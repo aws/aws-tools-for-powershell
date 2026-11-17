@@ -104,7 +104,7 @@ $AG_Completers = {
         # Amazon.APIGateway.AuthorizerType
         "New-AGAuthorizer/Type"
         {
-            $v = "COGNITO_USER_POOLS","REQUEST","TOKEN"
+            $v = "COGNITO_USER_POOLS","JWT","REQUEST","TOKEN"
             break
         }
 

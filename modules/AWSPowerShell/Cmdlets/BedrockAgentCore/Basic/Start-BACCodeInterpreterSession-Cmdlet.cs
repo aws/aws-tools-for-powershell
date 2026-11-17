@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Start", "BACCodeInterpreterSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer StartCodeInterpreterSession API operation.", Operation = new[] {"StartCodeInterpreterSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore StartCodeInterpreterSession API operation.", Operation = new[] {"StartCodeInterpreterSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionResponse object containing multiple properties."
     )]
@@ -316,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "StartCodeInterpreterSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "StartCodeInterpreterSession");
             try
             {
                 return client.StartCodeInterpreterSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

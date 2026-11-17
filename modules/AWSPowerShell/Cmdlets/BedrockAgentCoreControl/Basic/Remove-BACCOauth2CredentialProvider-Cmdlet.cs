@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCOauth2CredentialProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteOauth2CredentialProvider API operation.", Operation = new[] {"DeleteOauth2CredentialProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteOauth2CredentialProviderResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteOauth2CredentialProvider API operation.", Operation = new[] {"DeleteOauth2CredentialProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteOauth2CredentialProviderResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.DeleteOauth2CredentialProviderResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BedrockAgentCoreControl.Model.DeleteOauth2CredentialProviderResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteOauth2CredentialProviderResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteOauth2CredentialProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteOauth2CredentialProvider");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteOauth2CredentialProvider");
             try
             {
                 return client.DeleteOauth2CredentialProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

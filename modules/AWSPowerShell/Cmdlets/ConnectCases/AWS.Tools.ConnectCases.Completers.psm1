@@ -80,6 +80,13 @@ $CCAS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ConnectCases.AutoIncludeFields
+        "Write-CCASCaseEventConfiguration/EventBridge_IncludedData_CaseData_AutoIncludeField"
+        {
+            $v = "All","Custom","System"
+            break
+        }
+
         # Amazon.ConnectCases.CommentBodyTextType
         {
             ($_ -eq "New-CCASRelatedItem/Comment_ContentType") -Or
@@ -137,6 +144,7 @@ $CCAS_map = @{
     "Comment_ContentType"=@("New-CCASRelatedItem")
     "Content_Comment_ContentType"=@("New-CCASRelatedItemBatch","Update-CCASRelatedItem")
     "Content_Sla_SlaInputConfiguration_Type"=@("New-CCASRelatedItemBatch")
+    "EventBridge_IncludedData_CaseData_AutoIncludeField"=@("Write-CCASCaseEventConfiguration")
     "SlaInputConfiguration_Type"=@("New-CCASRelatedItem")
     "Status"=@("New-CCASTemplate","Update-CCASTemplate")
     "Type"=@("New-CCASField","New-CCASRelatedItem")

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Remove", "BACABTest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCore.Model.DeleteABTestResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer DeleteABTest API operation.", Operation = new[] {"DeleteABTest"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.DeleteABTestResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore DeleteABTest API operation.", Operation = new[] {"DeleteABTest"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.DeleteABTestResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.DeleteABTestResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.DeleteABTestResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.DeleteABTestResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.DeleteABTestRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "DeleteABTest");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "DeleteABTest");
             try
             {
                 return client.DeleteABTestAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

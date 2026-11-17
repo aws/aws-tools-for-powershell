@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACResourceApiKey")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetResourceApiKey API operation.", Operation = new[] {"GetResourceApiKey"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetResourceApiKeyResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore GetResourceApiKey API operation.", Operation = new[] {"GetResourceApiKey"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetResourceApiKeyResponse))]
     [AWSCmdletOutput("System.String or Amazon.BedrockAgentCore.Model.GetResourceApiKeyResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.BedrockAgentCore.Model.GetResourceApiKeyResponse) can be returned by specifying '-Select *'."
@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.GetResourceApiKeyResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetResourceApiKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetResourceApiKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "GetResourceApiKey");
             try
             {
                 return client.GetResourceApiKeyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

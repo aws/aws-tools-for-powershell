@@ -227,6 +227,17 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public System.String Rule_Source_SourceMetricsConfiguration_MetricsSelectionCriterion { get; set; }
         #endregion
         
+        #region Parameter Rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion
+        /// <summary>
+        /// <para>
+        /// <para>The filter expression that selects which source profiles to centralize.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriteria")]
+        public System.String Rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion { get; set; }
+        #endregion
+        
         #region Parameter BackupConfiguration_Region
         /// <summary>
         /// <para>
@@ -248,6 +259,17 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region { get; set; }
+        #endregion
+        
+        #region Parameter Rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region
+        /// <summary>
+        /// <para>
+        /// <para>The backup Region for profiles, within the primary destination account, to which the
+        /// service centralizes profiles data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region { get; set; }
         #endregion
         
         #region Parameter Destination_Region
@@ -422,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             context.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn = this.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn;
             context.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy = this.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy;
             context.Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region = this.Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region;
+            context.Rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region = this.Rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region;
             context.Destination_Region = this.Destination_Region;
             #if MODULAR
             if (this.Destination_Region == null && ParameterWasBound(nameof(this.Destination_Region)))
@@ -445,6 +468,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             context.SourceLogsConfiguration_EncryptedLogGroupStrategy = this.SourceLogsConfiguration_EncryptedLogGroupStrategy;
             context.SourceLogsConfiguration_LogGroupSelectionCriterion = this.SourceLogsConfiguration_LogGroupSelectionCriterion;
             context.Rule_Source_SourceMetricsConfiguration_MetricsSelectionCriterion = this.Rule_Source_SourceMetricsConfiguration_MetricsSelectionCriterion;
+            context.Rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion = this.Rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion;
             context.RuleName = this.RuleName;
             #if MODULAR
             if (this.RuleName == null && ParameterWasBound(nameof(this.RuleName)))
@@ -543,6 +567,46 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             if (requestRule_rule_Destination_rule_Destination_DestinationMetricsConfiguration != null)
             {
                 requestRule_rule_Destination.DestinationMetricsConfiguration = requestRule_rule_Destination_rule_Destination_DestinationMetricsConfiguration;
+                requestRule_rule_DestinationIsNull = false;
+            }
+            Amazon.ObservabilityAdmin.Model.DestinationProfilesConfiguration requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration = null;
+            
+             // populate DestinationProfilesConfiguration
+            var requestRule_rule_Destination_rule_Destination_DestinationProfilesConfigurationIsNull = true;
+            requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration = new Amazon.ObservabilityAdmin.Model.DestinationProfilesConfiguration();
+            Amazon.ObservabilityAdmin.Model.ProfilesBackupConfiguration requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration = null;
+            
+             // populate BackupConfiguration
+            var requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfigurationIsNull = true;
+            requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration = new Amazon.ObservabilityAdmin.Model.ProfilesBackupConfiguration();
+            System.String requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region = null;
+            if (cmdletContext.Rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region = cmdletContext.Rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region;
+            }
+            if (requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration.Region = requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region;
+                requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfigurationIsNull = false;
+            }
+             // determine if requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration should be set to null
+            if (requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfigurationIsNull)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration = null;
+            }
+            if (requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration.BackupConfiguration = requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration_rule_Destination_DestinationProfilesConfiguration_BackupConfiguration;
+                requestRule_rule_Destination_rule_Destination_DestinationProfilesConfigurationIsNull = false;
+            }
+             // determine if requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration should be set to null
+            if (requestRule_rule_Destination_rule_Destination_DestinationProfilesConfigurationIsNull)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration = null;
+            }
+            if (requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration != null)
+            {
+                requestRule_rule_Destination.DestinationProfilesConfiguration = requestRule_rule_Destination_rule_Destination_DestinationProfilesConfiguration;
                 requestRule_rule_DestinationIsNull = false;
             }
             Amazon.ObservabilityAdmin.Model.DestinationLogsConfiguration requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration = null;
@@ -790,6 +854,31 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
                 requestRule_rule_Source.SourceMetricsConfiguration = requestRule_rule_Source_rule_Source_SourceMetricsConfiguration;
                 requestRule_rule_SourceIsNull = false;
             }
+            Amazon.ObservabilityAdmin.Model.SourceProfilesConfiguration requestRule_rule_Source_rule_Source_SourceProfilesConfiguration = null;
+            
+             // populate SourceProfilesConfiguration
+            var requestRule_rule_Source_rule_Source_SourceProfilesConfigurationIsNull = true;
+            requestRule_rule_Source_rule_Source_SourceProfilesConfiguration = new Amazon.ObservabilityAdmin.Model.SourceProfilesConfiguration();
+            System.String requestRule_rule_Source_rule_Source_SourceProfilesConfiguration_rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion = null;
+            if (cmdletContext.Rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion != null)
+            {
+                requestRule_rule_Source_rule_Source_SourceProfilesConfiguration_rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion = cmdletContext.Rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion;
+            }
+            if (requestRule_rule_Source_rule_Source_SourceProfilesConfiguration_rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion != null)
+            {
+                requestRule_rule_Source_rule_Source_SourceProfilesConfiguration.ProfilesSelectionCriteria = requestRule_rule_Source_rule_Source_SourceProfilesConfiguration_rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion;
+                requestRule_rule_Source_rule_Source_SourceProfilesConfigurationIsNull = false;
+            }
+             // determine if requestRule_rule_Source_rule_Source_SourceProfilesConfiguration should be set to null
+            if (requestRule_rule_Source_rule_Source_SourceProfilesConfigurationIsNull)
+            {
+                requestRule_rule_Source_rule_Source_SourceProfilesConfiguration = null;
+            }
+            if (requestRule_rule_Source_rule_Source_SourceProfilesConfiguration != null)
+            {
+                requestRule_rule_Source.SourceProfilesConfiguration = requestRule_rule_Source_rule_Source_SourceProfilesConfiguration;
+                requestRule_rule_SourceIsNull = false;
+            }
             Amazon.ObservabilityAdmin.Model.SourceLogsConfiguration requestRule_rule_Source_rule_Source_SourceLogsConfiguration = null;
             
              // populate SourceLogsConfiguration
@@ -925,6 +1014,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public System.String Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn { get; set; }
             public Amazon.ObservabilityAdmin.TagConflictResolutionStrategy Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy { get; set; }
             public System.String Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region { get; set; }
+            public System.String Rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region { get; set; }
             public System.String Destination_Region { get; set; }
             public List<System.String> Source_Region { get; set; }
             public System.String Source_Scope { get; set; }
@@ -933,6 +1023,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public Amazon.ObservabilityAdmin.EncryptedLogGroupStrategy SourceLogsConfiguration_EncryptedLogGroupStrategy { get; set; }
             public System.String SourceLogsConfiguration_LogGroupSelectionCriterion { get; set; }
             public System.String Rule_Source_SourceMetricsConfiguration_MetricsSelectionCriterion { get; set; }
+            public System.String Rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion { get; set; }
             public System.String RuleName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.ObservabilityAdmin.Model.CreateCentralizationRuleForOrganizationResponse, NewCWOADMNCentralizationRuleForOrganizationCmdlet, object> Select { get; set; } =

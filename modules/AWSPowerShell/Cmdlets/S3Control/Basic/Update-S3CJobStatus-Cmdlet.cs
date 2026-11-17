@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Update", "S3CJobStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.UpdateJobStatusResponse")]
-    [AWSCmdlet("Calls the Amazon S3 Control UpdateJobStatus API operation.", Operation = new[] {"UpdateJobStatus"}, SelectReturnType = typeof(Amazon.S3Control.Model.UpdateJobStatusResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control UpdateJobStatus API operation.", Operation = new[] {"UpdateJobStatus"}, SelectReturnType = typeof(Amazon.S3Control.Model.UpdateJobStatusResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.UpdateJobStatusResponse",
         "This cmdlet returns an Amazon.S3Control.Model.UpdateJobStatusResponse object containing multiple properties."
     )]
@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.UpdateJobStatusResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.UpdateJobStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "UpdateJobStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "UpdateJobStatus");
             try
             {
                 return client.UpdateJobStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

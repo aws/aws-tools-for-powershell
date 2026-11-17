@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCAgentRuntime")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetAgentRuntime API operation.", Operation = new[] {"GetAgentRuntime"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetAgentRuntime API operation.", Operation = new[] {"GetAgentRuntime"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse object containing multiple properties."
     )]
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetAgentRuntime");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetAgentRuntime");
             try
             {
                 return client.GetAgentRuntimeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

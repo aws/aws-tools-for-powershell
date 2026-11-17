@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Disconnect", "S3CAccessGrantsIdentityCenter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control DissociateAccessGrantsIdentityCenter API operation.", Operation = new[] {"DissociateAccessGrantsIdentityCenter"}, SelectReturnType = typeof(Amazon.S3Control.Model.DissociateAccessGrantsIdentityCenterResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control DissociateAccessGrantsIdentityCenter API operation.", Operation = new[] {"DissociateAccessGrantsIdentityCenter"}, SelectReturnType = typeof(Amazon.S3Control.Model.DissociateAccessGrantsIdentityCenterResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DissociateAccessGrantsIdentityCenterResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.DissociateAccessGrantsIdentityCenterResponse) be returned by specifying '-Select *'."
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.DissociateAccessGrantsIdentityCenterResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DissociateAccessGrantsIdentityCenterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DissociateAccessGrantsIdentityCenter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "DissociateAccessGrantsIdentityCenter");
             try
             {
                 return client.DissociateAccessGrantsIdentityCenterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

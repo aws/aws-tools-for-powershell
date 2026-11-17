@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACEventList")]
     [OutputType("Amazon.BedrockAgentCore.Model.Event")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer ListEvents API operation.", Operation = new[] {"ListEvents"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListEventsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore ListEvents API operation.", Operation = new[] {"ListEvents"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListEventsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.Event or Amazon.BedrockAgentCore.Model.ListEventsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCore.Model.Event objects.",
         "The service call response (type Amazon.BedrockAgentCore.Model.ListEventsResponse) can be returned by specifying '-Select *'."
@@ -413,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.ListEventsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.ListEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "ListEvents");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "ListEvents");
             try
             {
                 return client.ListEventsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

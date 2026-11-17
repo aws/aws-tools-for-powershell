@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("New", "BACEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.Event")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer CreateEvent API operation.", Operation = new[] {"CreateEvent"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.CreateEventResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore CreateEvent API operation.", Operation = new[] {"CreateEvent"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.CreateEventResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.Event or Amazon.BedrockAgentCore.Model.CreateEventResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.Event object.",
         "The service call response (type Amazon.BedrockAgentCore.Model.CreateEventResponse) can be returned by specifying '-Select *'."
@@ -445,7 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.CreateEventResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.CreateEventRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "CreateEvent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "CreateEvent");
             try
             {
                 return client.CreateEventAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

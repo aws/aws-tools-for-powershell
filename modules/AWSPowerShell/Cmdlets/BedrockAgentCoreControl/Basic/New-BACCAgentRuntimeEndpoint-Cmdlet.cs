@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("New", "BACCAgentRuntimeEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateAgentRuntimeEndpointResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateAgentRuntimeEndpoint API operation.", Operation = new[] {"CreateAgentRuntimeEndpoint"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateAgentRuntimeEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control CreateAgentRuntimeEndpoint API operation.", Operation = new[] {"CreateAgentRuntimeEndpoint"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateAgentRuntimeEndpointResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateAgentRuntimeEndpointResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateAgentRuntimeEndpointResponse object containing multiple properties."
     )]
@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.CreateAgentRuntimeEndpointResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateAgentRuntimeEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateAgentRuntimeEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "CreateAgentRuntimeEndpoint");
             try
             {
                 return client.CreateAgentRuntimeEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

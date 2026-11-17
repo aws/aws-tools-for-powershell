@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACResourceOauth2Token")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetResourceOauth2Token API operation.", Operation = new[] {"GetResourceOauth2Token"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore GetResourceOauth2Token API operation.", Operation = new[] {"GetResourceOauth2Token"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse object containing multiple properties."
     )]
@@ -392,7 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetResourceOauth2Token");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "GetResourceOauth2Token");
             try
             {
                 return client.GetResourceOauth2TokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

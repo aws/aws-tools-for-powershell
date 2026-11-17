@@ -60,15 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         /// Resolver.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Cidr { get; set; }
+        #endregion
+        
+        #region Parameter CoreNetworkEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the core network endpoint to associate with this access source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CoreNetworkEndpointId { get; set; }
         #endregion
         
         #region Parameter DnsViewId
@@ -91,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type for this access source. Valid values are IPv4 and IPv6 (if the
-        /// Route 53 Global Resolver supports dual-stack).</para>
+        /// <para>The IP address type for this access source. Valid values are IPV4, IPV6, and NONE.
+        /// If you provide a CIDR range, this defaults to IPV4; otherwise it defaults to NONE.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,6 +129,16 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Route53GlobalResolver.DnsProtocol")]
         public Amazon.Route53GlobalResolver.DnsProtocol Protocol { get; set; }
+        #endregion
+        
+        #region Parameter Segment
+        /// <summary>
+        /// <para>
+        /// <para>The name of the segment to associate with this access source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Segment { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -201,13 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Cidr = this.Cidr;
-            #if MODULAR
-            if (this.Cidr == null && ParameterWasBound(nameof(this.Cidr)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClientToken = this.ClientToken;
+            context.CoreNetworkEndpointId = this.CoreNetworkEndpointId;
             context.DnsViewId = this.DnsViewId;
             #if MODULAR
             if (this.DnsViewId == null && ParameterWasBound(nameof(this.DnsViewId)))
@@ -224,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
                 WriteWarning("You are passing $null as a value for parameter Protocol which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Segment = this.Segment;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -256,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.CoreNetworkEndpointId != null)
+            {
+                request.CoreNetworkEndpointId = cmdletContext.CoreNetworkEndpointId;
+            }
             if (cmdletContext.DnsViewId != null)
             {
                 request.DnsViewId = cmdletContext.DnsViewId;
@@ -271,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             if (cmdletContext.Protocol != null)
             {
                 request.Protocol = cmdletContext.Protocol;
+            }
+            if (cmdletContext.Segment != null)
+            {
+                request.Segment = cmdletContext.Segment;
             }
             if (cmdletContext.Tag != null)
             {
@@ -333,10 +350,12 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         {
             public System.String Cidr { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String CoreNetworkEndpointId { get; set; }
             public System.String DnsViewId { get; set; }
             public Amazon.Route53GlobalResolver.IpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public Amazon.Route53GlobalResolver.DnsProtocol Protocol { get; set; }
+            public System.String Segment { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Route53GlobalResolver.Model.CreateAccessSourceResponse, NewR53GRAccessSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

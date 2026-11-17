@@ -30,7 +30,12 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Updates an existing Authorizer resource.
+    /// Updates an existing Authorizer resource. For a <c>JWT</c> authorizer, the only JWT
+    /// patch operation is <c>replace</c> on the path <c>/jwtConfiguration</c>. Its value
+    /// is the complete configuration as a JSON string in the <c>JwtConfigurationInput</c>
+    /// shape. This replaces the entire configuration; nothing from the previous configuration
+    /// is retained. A <c>replace</c> operation on the path <c>/type</c> is supported in both
+    /// directions.
     /// </summary>
     [Cmdlet("Update", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.UpdateAuthorizerResponse")]

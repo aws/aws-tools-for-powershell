@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Complete", "BACResourceTokenAuth", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer CompleteResourceTokenAuth API operation.", Operation = new[] {"CompleteResourceTokenAuth"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.CompleteResourceTokenAuthResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore CompleteResourceTokenAuth API operation.", Operation = new[] {"CompleteResourceTokenAuth"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.CompleteResourceTokenAuthResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgentCore.Model.CompleteResourceTokenAuthResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BedrockAgentCore.Model.CompleteResourceTokenAuthResponse) be returned by specifying '-Select *'."
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.CompleteResourceTokenAuthResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.CompleteResourceTokenAuthRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "CompleteResourceTokenAuth");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "CompleteResourceTokenAuth");
             try
             {
                 return client.CompleteResourceTokenAuthAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

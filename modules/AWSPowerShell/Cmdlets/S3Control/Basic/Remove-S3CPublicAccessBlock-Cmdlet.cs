@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Remove", "S3CPublicAccessBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control DeletePublicAccessBlock API operation.", Operation = new[] {"DeletePublicAccessBlock"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeletePublicAccessBlockResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control DeletePublicAccessBlock API operation.", Operation = new[] {"DeletePublicAccessBlock"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeletePublicAccessBlockResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeletePublicAccessBlockResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.DeletePublicAccessBlockResponse) be returned by specifying '-Select *'."
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.DeletePublicAccessBlockResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeletePublicAccessBlockRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeletePublicAccessBlock");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "DeletePublicAccessBlock");
             try
             {
                 return client.DeletePublicAccessBlockAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

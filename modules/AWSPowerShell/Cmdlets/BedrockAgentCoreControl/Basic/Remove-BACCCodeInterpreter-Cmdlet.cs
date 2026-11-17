@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCCodeInterpreter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteCodeInterpreterResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteCodeInterpreter API operation.", Operation = new[] {"DeleteCodeInterpreter"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteCodeInterpreterResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteCodeInterpreter API operation.", Operation = new[] {"DeleteCodeInterpreter"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteCodeInterpreterResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteCodeInterpreterResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteCodeInterpreterResponse object containing multiple properties."
     )]
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteCodeInterpreterResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteCodeInterpreterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteCodeInterpreter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteCodeInterpreter");
             try
             {
                 return client.DeleteCodeInterpreterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

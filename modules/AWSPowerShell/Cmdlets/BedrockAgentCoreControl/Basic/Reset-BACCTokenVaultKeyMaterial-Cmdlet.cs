@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Reset", "BACCTokenVaultKeyMaterial", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.ResetTokenVaultKeyMaterialResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ResetTokenVaultKeyMaterial API operation.", Operation = new[] {"ResetTokenVaultKeyMaterial"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ResetTokenVaultKeyMaterialResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ResetTokenVaultKeyMaterial API operation.", Operation = new[] {"ResetTokenVaultKeyMaterial"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ResetTokenVaultKeyMaterialResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.ResetTokenVaultKeyMaterialResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.ResetTokenVaultKeyMaterialResponse object containing multiple properties."
     )]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ResetTokenVaultKeyMaterialResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ResetTokenVaultKeyMaterialRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ResetTokenVaultKeyMaterial");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ResetTokenVaultKeyMaterial");
             try
             {
                 return client.ResetTokenVaultKeyMaterialAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("New", "BACCOnlineEvaluationConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateOnlineEvaluationConfigResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateOnlineEvaluationConfig API operation.", Operation = new[] {"CreateOnlineEvaluationConfig"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateOnlineEvaluationConfigResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control CreateOnlineEvaluationConfig API operation.", Operation = new[] {"CreateOnlineEvaluationConfig"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateOnlineEvaluationConfigResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateOnlineEvaluationConfigResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateOnlineEvaluationConfigResponse object containing multiple properties."
     )]
@@ -729,7 +729,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.CreateOnlineEvaluationConfigResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateOnlineEvaluationConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateOnlineEvaluationConfig");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "CreateOnlineEvaluationConfig");
             try
             {
                 return client.CreateOnlineEvaluationConfigAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

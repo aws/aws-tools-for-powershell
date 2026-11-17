@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketVersioning")]
     [OutputType("Amazon.S3.Model.S3BucketVersioningConfig")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketVersioning API operation.", Operation = new[] {"GetBucketVersioning"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketVersioningResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketVersioning API operation.", Operation = new[] {"GetBucketVersioning"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketVersioningResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.S3BucketVersioningConfig or Amazon.S3.Model.GetBucketVersioningResponse",
         "This cmdlet returns an Amazon.S3.Model.S3BucketVersioningConfig object.",
         "The service call response (type Amazon.S3.Model.GetBucketVersioningResponse) can be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketVersioningResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketVersioningRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketVersioning");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketVersioning");
             try
             {
                 return client.GetBucketVersioningAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

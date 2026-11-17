@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3BucketMetricsConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketMetricsConfiguration API operation.", Operation = new[] {"PutBucketMetricsConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketMetricsConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutBucketMetricsConfiguration API operation.", Operation = new[] {"PutBucketMetricsConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketMetricsConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutBucketMetricsConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutBucketMetricsConfigurationResponse) be returned by specifying '-Select *'."
@@ -351,7 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutBucketMetricsConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketMetricsConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutBucketMetricsConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketMetricsConfiguration");
             try
             {
                 return client.PutBucketMetricsConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

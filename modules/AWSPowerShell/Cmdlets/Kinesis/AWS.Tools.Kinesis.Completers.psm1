@@ -159,6 +159,16 @@ $KIN_Completers = {
             break
         }
 
+        # Amazon.Kinesis.TargetType
+        {
+            ($_ -eq "New-KINQueue/QueueAttributes_DeadLetterConfiguration_TargetType") -Or
+            ($_ -eq "Update-KINQueue/QueueAttributes_DeadLetterConfiguration_TargetType")
+        }
+        {
+            $v = "BUILT_IN","NONE"
+            break
+        }
+
 
     }
 
@@ -171,6 +181,7 @@ $KIN_map = @{
     "EncryptionConfiguration_EncryptionType"=@("New-KINChannel")
     "EncryptionType"=@("Start-KINStreamEncryption","Stop-KINStreamEncryption")
     "MinimumThroughputBillingCommitment_Status"=@("Update-KINAccountSetting")
+    "QueueAttributes_DeadLetterConfiguration_TargetType"=@("New-KINQueue","Update-KINQueue")
     "RecordDistributionStrategy"=@("New-KINStream","Update-KINStreamRecordDistributionStrategy")
     "S3DestinationConfiguration_StorageConfiguration_CompressionType"=@("New-KINChannel")
     "S3DestinationConfiguration_StorageConfiguration_StorageClass"=@("New-KINChannel")
@@ -230,17 +241,22 @@ $KIN_SelectCompleters = {
 }
 
 $KIN_SelectMap = @{
-    "Select"=@("Add-KINTagsToStream",
+    "Select"=@("Confirm-KINDeadLetterQueueRecord",
+               "Confirm-KINQueueRecord",
+               "Add-KINTagsToStream",
                "New-KINChannel",
+               "New-KINQueue",
                "New-KINStream",
                "Request-KINStreamRetentionPeriodDecrease",
                "Remove-KINChannel",
+               "Remove-KINQueue",
                "Remove-KINResourcePolicy",
                "Remove-KINStream",
                "Unregister-KINStreamConsumer",
                "Get-KINAccountSetting",
                "Get-KINChannelDetail",
                "Get-KINLimit",
+               "Get-KINQueueDetail",
                "Get-KINStream",
                "Get-KINStreamConsumer",
                "Get-KINStreamSummary",
@@ -251,6 +267,7 @@ $KIN_SelectMap = @{
                "Get-KINShardIterator",
                "Request-KINStreamRetentionPeriodIncrease",
                "Get-KINChannelList",
+               "Get-KINQueueList",
                "Get-KINShardList",
                "Get-KINStreamConsumerList",
                "Get-KINStreamList",
@@ -260,8 +277,11 @@ $KIN_SelectMap = @{
                "Write-KINRecord",
                "Write-KINMultipleRecord",
                "Write-KINResourcePolicy",
+               "Receive-KINDeadLetterQueueRecord",
+               "Receive-KINQueueRecord",
                "Register-KINStreamConsumer",
                "Remove-KINTagsFromStream",
+               "Restore-KINDeadLetterQueueRecord",
                "Split-KINShard",
                "Start-KINStreamEncryption",
                "Stop-KINStreamEncryption",
@@ -269,7 +289,10 @@ $KIN_SelectMap = @{
                "Remove-KINResourceTag",
                "Update-KINAccountSetting",
                "Update-KINChannel",
+               "Update-KINDeadLetterQueueRecordsVisibility",
                "Update-KINMaxRecordSize",
+               "Update-KINQueue",
+               "Update-KINQueueRecordsVisibility",
                "Update-KINShardCount",
                "Update-KINStreamMode",
                "Update-KINStreamRecordDistributionStrategy",

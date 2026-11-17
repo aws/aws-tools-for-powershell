@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketIntelligentTieringConfiguration")]
     [OutputType("Amazon.S3.Model.IntelligentTieringConfiguration")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketIntelligentTieringConfiguration API operation.", Operation = new[] {"GetBucketIntelligentTieringConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketIntelligentTieringConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketIntelligentTieringConfiguration API operation.", Operation = new[] {"GetBucketIntelligentTieringConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketIntelligentTieringConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.IntelligentTieringConfiguration or Amazon.S3.Model.GetBucketIntelligentTieringConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.IntelligentTieringConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetBucketIntelligentTieringConfigurationResponse) can be returned by specifying '-Select *'."
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketIntelligentTieringConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketIntelligentTieringConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketIntelligentTieringConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketIntelligentTieringConfiguration");
             try
             {
                 return client.GetBucketIntelligentTieringConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

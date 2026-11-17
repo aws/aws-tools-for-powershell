@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCBrowserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteBrowserProfile API operation.", Operation = new[] {"DeleteBrowserProfile"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteBrowserProfile API operation.", Operation = new[] {"DeleteBrowserProfile"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse object containing multiple properties."
     )]
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteBrowserProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteBrowserProfile");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteBrowserProfile");
             try
             {
                 return client.DeleteBrowserProfileAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

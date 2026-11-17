@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CAccessGrantsInstanceList")]
     [OutputType("Amazon.S3Control.Model.ListAccessGrantsInstanceEntry")]
-    [AWSCmdlet("Calls the Amazon S3 Control ListAccessGrantsInstances API operation.", Operation = new[] {"ListAccessGrantsInstances"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListAccessGrantsInstancesResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control ListAccessGrantsInstances API operation.", Operation = new[] {"ListAccessGrantsInstances"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListAccessGrantsInstancesResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.ListAccessGrantsInstanceEntry or Amazon.S3Control.Model.ListAccessGrantsInstancesResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.ListAccessGrantsInstanceEntry objects.",
         "The service call response (type Amazon.S3Control.Model.ListAccessGrantsInstancesResponse) can be returned by specifying '-Select *'."
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.ListAccessGrantsInstancesResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.ListAccessGrantsInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "ListAccessGrantsInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "ListAccessGrantsInstances");
             try
             {
                 return client.ListAccessGrantsInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -108,6 +108,26 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.DefinitionType
+        {
+            ($_ -eq "New-MGNNetworkMigrationDefinition/DefinitionType") -Or
+            ($_ -eq "Update-MGNNetworkMigrationDefinition/DefinitionType")
+        }
+        {
+            $v = "MIGRATION","NEW_NETWORK"
+            break
+        }
+
+        # Amazon.Mgn.DeleteOnTermination
+        {
+            ($_ -eq "Update-MGNLaunchConfigurationDefault/LargeVolumeConfiguration_DeleteOnTermination") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationDefault/SmallVolumeConfiguration_DeleteOnTermination")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Mgn.InternetProtocol
         {
             ($_ -eq "New-MGNReplicationConfigurationTemplate/InternetProtocol") -Or
@@ -134,6 +154,17 @@ $MGN_Completers = {
         }
         {
             $v = "STARTED","STOPPED"
+            break
+        }
+
+        # Amazon.Mgn.OutpostSnapshotLocation
+        {
+            ($_ -eq "New-MGNReplicationConfigurationTemplate/OutpostSnapshotLocation") -Or
+            ($_ -eq "Update-MGNReplicationConfiguration/OutpostSnapshotLocation") -Or
+            ($_ -eq "Update-MGNReplicationConfigurationTemplate/OutpostSnapshotLocation")
+        }
+        {
+            $v = "OUTPOST","REGION"
             break
         }
 
@@ -241,8 +272,10 @@ $MGN_Completers = {
         {
             ($_ -eq "New-MGNLaunchConfigurationTemplate/LargeVolumeConf_VolumeType") -Or
             ($_ -eq "Update-MGNLaunchConfigurationTemplate/LargeVolumeConf_VolumeType") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationDefault/LargeVolumeConfiguration_VolumeType") -Or
             ($_ -eq "New-MGNLaunchConfigurationTemplate/SmallVolumeConf_VolumeType") -Or
-            ($_ -eq "Update-MGNLaunchConfigurationTemplate/SmallVolumeConf_VolumeType")
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/SmallVolumeConf_VolumeType") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationDefault/SmallVolumeConfiguration_VolumeType")
         }
         {
             $v = "gp2","gp3","io1","io2","sc1","st1","standard"
@@ -272,16 +305,22 @@ $MGN_map = @{
     "Category"=@("Write-MGNSourceServerAction","Write-MGNTemplateAction")
     "DataPlaneRouting"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
+    "DefinitionType"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "InternetProtocol"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "IpAssignmentStrategy"=@("Start-MGNImportFileEnrichment")
     "LargeVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "LargeVolumeConfiguration_DeleteOnTermination"=@("Update-MGNLaunchConfigurationDefault")
+    "LargeVolumeConfiguration_VolumeType"=@("Update-MGNLaunchConfigurationDefault")
     "LaunchDisposition"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "LifeCycle_State"=@("Set-MGNServerLifeCycleState")
+    "OutpostSnapshotLocation"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "PostLaunchActions_Deployment"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "ReplicationType"=@("Update-MGNSourceServerReplicationType")
     "SecurityGroupMappingStrategy"=@("Start-MGNNetworkMigrationMapping")
     "SmallVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "SmallVolumeConfiguration_DeleteOnTermination"=@("Update-MGNLaunchConfigurationDefault")
+    "SmallVolumeConfiguration_VolumeType"=@("Update-MGNLaunchConfigurationDefault")
     "StorageConfiguration_StorageType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "TargetDeployment"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
     "TargetInstanceTypeRightSizingMethod"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
@@ -348,6 +387,7 @@ $MGN_SelectMap = @{
                "New-MGNConnector",
                "New-MGNLaunchConfigurationTemplate",
                "New-MGNNetworkMigrationDefinition",
+               "New-MGNRemoteSourceAction",
                "New-MGNReplicationConfigurationTemplate",
                "New-MGNWave",
                "Remove-MGNApplication",
@@ -355,6 +395,7 @@ $MGN_SelectMap = @{
                "Remove-MGNJob",
                "Remove-MGNLaunchConfigurationTemplate",
                "Remove-MGNNetworkMigrationDefinition",
+               "Remove-MGNRemoteSourceAction",
                "Remove-MGNReplicationConfigurationTemplate",
                "Remove-MGNSourceServer",
                "Remove-MGNVcenterClient",
@@ -370,6 +411,7 @@ $MGN_SelectMap = @{
                "Disconnect-MGNFromService",
                "Complete-MGNCutover",
                "Get-MGNLaunchConfiguration",
+               "Get-MGNLaunchConfigurationDefault",
                "Get-MGNNetworkMigrationDefinition",
                "Get-MGNNetworkMigrationMapperSegmentConstruct",
                "Get-MGNReplicationConfiguration",
@@ -390,10 +432,15 @@ $MGN_SelectMap = @{
                "Get-MGNNetworkMigrationDeployedStackList",
                "Get-MGNNetworkMigrationDeploymentList",
                "Get-MGNNetworkMigrationExecutionList",
+               "Get-MGNNetworkMigrationInsightList",
                "Get-MGNNetworkMigrationMapperSegmentConstructList",
                "Get-MGNNetworkMigrationMapperSegmentList",
                "Get-MGNNetworkMigrationMappingList",
                "Get-MGNNetworkMigrationMappingUpdateList",
+               "Get-MGNRemoteSourceActionInvocationResultList",
+               "Get-MGNRemoteSourceActionInvocationList",
+               "Get-MGNRemoteSourceActionJobList",
+               "Get-MGNRemoteSourceActionList",
                "Get-MGNSourceServerActionList",
                "Get-MGNResourceTag",
                "Get-MGNTemplateActionList",
@@ -415,6 +462,7 @@ $MGN_SelectMap = @{
                "Start-MGNNetworkMigrationDeployment",
                "Start-MGNNetworkMigrationMapping",
                "Start-MGNNetworkMigrationMappingUpdate",
+               "Start-MGNRemoteSourceActionJob",
                "Start-MGNReplication",
                "Start-MGNTest",
                "Stop-MGNReplication",
@@ -426,9 +474,11 @@ $MGN_SelectMap = @{
                "Update-MGNApplication",
                "Update-MGNConnector",
                "Update-MGNLaunchConfiguration",
+               "Update-MGNLaunchConfigurationDefault",
                "Update-MGNLaunchConfigurationTemplate",
                "Update-MGNNetworkMigrationDefinition",
                "Update-MGNNetworkMigrationMapperSegment",
+               "Update-MGNRemoteSourceAction",
                "Update-MGNReplicationConfiguration",
                "Update-MGNReplicationConfigurationTemplate",
                "Update-MGNSourceServer",

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3CORSConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteCORSConfiguration API operation.", Operation = new[] {"DeleteCORSConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteCORSConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteCORSConfiguration API operation.", Operation = new[] {"DeleteCORSConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteCORSConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteCORSConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.DeleteCORSConfigurationResponse) be returned by specifying '-Select *'."
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.DeleteCORSConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteCORSConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteCORSConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteCORSConfiguration");
             try
             {
                 return client.DeleteCORSConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

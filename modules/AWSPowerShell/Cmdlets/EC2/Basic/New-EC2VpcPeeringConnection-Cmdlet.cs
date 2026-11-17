@@ -44,6 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// connection. The VPC peering connection request expires after 7 days, after which it
     /// cannot be accepted or rejected.
     /// </para><para>
+    /// Multipath resilience replicates the traffic of an inter-Region VPC peering connection
+    /// across multiple network paths.
+    /// </para><para>
     /// If you create a VPC peering connection request between VPCs with overlapping CIDR
     /// blocks, the VPC peering connection has a status of <c>failed</c>.
     /// </para>
@@ -61,6 +64,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter RequesterPeeringConnectionOptions_AllowMultipathResilience
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you allow multipath resilience for the requester VPC. Multipath
+        /// resilience is supported only for inter-Region VPC peering connections between supported
+        /// Regions. It takes effect only when both the requester and the accepter allow it. Accepting
+        /// the VPC peering connection request also allows multipath resilience for the accepter
+        /// VPC. If you don't specify this parameter, the default is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RequesterPeeringConnectionOptions_AllowMultipathResilience { get; set; }
+        #endregion
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>
@@ -71,6 +88,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DryRun { get; set; }
+        #endregion
+        
+        #region Parameter RequesterPeeringConnectionOptions_MultipathResilienceMode
+        /// <summary>
+        /// <para>
+        /// <para>The multipath resilience mode. You can specify this parameter only if <c>AllowMultipathResilience</c>
+        /// is <c>true</c>.</para><para>The following value is valid:</para><ul><li><para><c>always-on</c> – Replicates traffic across multiple network paths while multipath
+        /// resilience is in effect.</para></li></ul><para>If <c>AllowMultipathResilience</c> is <c>true</c> and you don't specify a mode, the
+        /// default is <c>always-on</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.MultipathResilienceMode")]
+        public Amazon.EC2.MultipathResilienceMode RequesterPeeringConnectionOptions_MultipathResilienceMode { get; set; }
         #endregion
         
         #region Parameter PeerOwnerId
@@ -188,6 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.PeerOwnerId = this.PeerOwnerId;
             context.PeerRegion = this.PeerRegion;
             context.PeerVpcId = this.PeerVpcId;
+            context.RequesterPeeringConnectionOptions_AllowMultipathResilience = this.RequesterPeeringConnectionOptions_AllowMultipathResilience;
+            context.RequesterPeeringConnectionOptions_MultipathResilienceMode = this.RequesterPeeringConnectionOptions_MultipathResilienceMode;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -230,6 +263,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PeerVpcId != null)
             {
                 request.PeerVpcId = cmdletContext.PeerVpcId;
+            }
+            
+             // populate RequesterPeeringConnectionOptions
+            var requestRequesterPeeringConnectionOptionsIsNull = true;
+            request.RequesterPeeringConnectionOptions = new Amazon.EC2.Model.CreatePeeringConnectionOptionsRequest();
+            System.Boolean? requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowMultipathResilience = null;
+            if (cmdletContext.RequesterPeeringConnectionOptions_AllowMultipathResilience != null)
+            {
+                requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowMultipathResilience = cmdletContext.RequesterPeeringConnectionOptions_AllowMultipathResilience.Value;
+            }
+            if (requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowMultipathResilience != null)
+            {
+                request.RequesterPeeringConnectionOptions.AllowMultipathResilience = requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowMultipathResilience.Value;
+                requestRequesterPeeringConnectionOptionsIsNull = false;
+            }
+            Amazon.EC2.MultipathResilienceMode requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_MultipathResilienceMode = null;
+            if (cmdletContext.RequesterPeeringConnectionOptions_MultipathResilienceMode != null)
+            {
+                requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_MultipathResilienceMode = cmdletContext.RequesterPeeringConnectionOptions_MultipathResilienceMode;
+            }
+            if (requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_MultipathResilienceMode != null)
+            {
+                request.RequesterPeeringConnectionOptions.MultipathResilienceMode = requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_MultipathResilienceMode;
+                requestRequesterPeeringConnectionOptionsIsNull = false;
+            }
+             // determine if request.RequesterPeeringConnectionOptions should be set to null
+            if (requestRequesterPeeringConnectionOptionsIsNull)
+            {
+                request.RequesterPeeringConnectionOptions = null;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -298,6 +360,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String PeerOwnerId { get; set; }
             public System.String PeerRegion { get; set; }
             public System.String PeerVpcId { get; set; }
+            public System.Boolean? RequesterPeeringConnectionOptions_AllowMultipathResilience { get; set; }
+            public Amazon.EC2.MultipathResilienceMode RequesterPeeringConnectionOptions_MultipathResilienceMode { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpcPeeringConnectionResponse, NewEC2VpcPeeringConnectionCmdlet, object> Select { get; set; } =

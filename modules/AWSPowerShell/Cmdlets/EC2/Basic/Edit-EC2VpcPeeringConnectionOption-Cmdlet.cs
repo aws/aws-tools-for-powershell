@@ -45,6 +45,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// modify the accepter VPC peering options. To verify which VPCs are the accepter and
     /// the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a>
     /// command.
+    /// </para><para>
+    /// Multipath resilience replicates the traffic of an inter-Region VPC peering connection
+    /// across multiple network paths. You can allow multipath resilience for your side of
+    /// the connection if both of its Regions are supported. It takes effect only when both
+    /// the requester and the accepter allow it. Additional charges apply when multipath resilience
+    /// is in effect. For more information, see <a href="http://aws.amazon.com/vpc/pricing/">Amazon
+    /// VPC pricing</a>. To check whether multipath resilience is in effect, use <a>DescribeVpcPeeringConnections</a>
+    /// and check <c>multipathResilienceStatus</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2VpcPeeringConnectionOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -121,6 +129,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink { get; set; }
         #endregion
         
+        #region Parameter AccepterPeeringConnectionOptions_AllowMultipathResilience
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you allow multipath resilience for this side of the VPC peering
+        /// connection. Multipath resilience is supported only for inter-Region VPC peering connections
+        /// between supported Regions. It takes effect only when both the requester and the accepter
+        /// allow it. If you don't specify this parameter, the current setting doesn't change.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AccepterPeeringConnectionOptions_AllowMultipathResilience { get; set; }
+        #endregion
+        
+        #region Parameter RequesterPeeringConnectionOptions_AllowMultipathResilience
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you allow multipath resilience for this side of the VPC peering
+        /// connection. Multipath resilience is supported only for inter-Region VPC peering connections
+        /// between supported Regions. It takes effect only when both the requester and the accepter
+        /// allow it. If you don't specify this parameter, the current setting doesn't change.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RequesterPeeringConnectionOptions_AllowMultipathResilience { get; set; }
+        #endregion
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>
@@ -131,6 +165,34 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DryRun { get; set; }
+        #endregion
+        
+        #region Parameter AccepterPeeringConnectionOptions_MultipathResilienceMode
+        /// <summary>
+        /// <para>
+        /// <para>The multipath resilience mode. You can specify this parameter only if <c>AllowMultipathResilience</c>
+        /// is <c>true</c>.</para><para>The following value is valid:</para><ul><li><para><c>always-on</c> – Replicates traffic across multiple network paths while multipath
+        /// resilience is in effect.</para></li></ul><para>If <c>AllowMultipathResilience</c> is <c>true</c> and you don't specify a mode, the
+        /// default is <c>always-on</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.MultipathResilienceMode")]
+        public Amazon.EC2.MultipathResilienceMode AccepterPeeringConnectionOptions_MultipathResilienceMode { get; set; }
+        #endregion
+        
+        #region Parameter RequesterPeeringConnectionOptions_MultipathResilienceMode
+        /// <summary>
+        /// <para>
+        /// <para>The multipath resilience mode. You can specify this parameter only if <c>AllowMultipathResilience</c>
+        /// is <c>true</c>.</para><para>The following value is valid:</para><ul><li><para><c>always-on</c> – Replicates traffic across multiple network paths while multipath
+        /// resilience is in effect.</para></li></ul><para>If <c>AllowMultipathResilience</c> is <c>true</c> and you don't specify a mode, the
+        /// default is <c>always-on</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.MultipathResilienceMode")]
+        public Amazon.EC2.MultipathResilienceMode RequesterPeeringConnectionOptions_MultipathResilienceMode { get; set; }
         #endregion
         
         #region Parameter VpcPeeringConnectionId
@@ -199,10 +261,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = this.AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc;
             context.AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc = this.AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc;
             context.AccepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink = this.AccepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink;
+            context.AccepterPeeringConnectionOptions_AllowMultipathResilience = this.AccepterPeeringConnectionOptions_AllowMultipathResilience;
+            context.AccepterPeeringConnectionOptions_MultipathResilienceMode = this.AccepterPeeringConnectionOptions_MultipathResilienceMode;
             context.DryRun = this.DryRun;
             context.RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = this.RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc;
             context.RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc = this.RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc;
             context.RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink = this.RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink;
+            context.RequesterPeeringConnectionOptions_AllowMultipathResilience = this.RequesterPeeringConnectionOptions_AllowMultipathResilience;
+            context.RequesterPeeringConnectionOptions_MultipathResilienceMode = this.RequesterPeeringConnectionOptions_MultipathResilienceMode;
             context.VpcPeeringConnectionId = this.VpcPeeringConnectionId;
             #if MODULAR
             if (this.VpcPeeringConnectionId == null && ParameterWasBound(nameof(this.VpcPeeringConnectionId)))
@@ -260,6 +326,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.AccepterPeeringConnectionOptions.AllowEgressFromLocalVpcToRemoteClassicLink = requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink.Value;
                 requestAccepterPeeringConnectionOptionsIsNull = false;
             }
+            System.Boolean? requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_AllowMultipathResilience = null;
+            if (cmdletContext.AccepterPeeringConnectionOptions_AllowMultipathResilience != null)
+            {
+                requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_AllowMultipathResilience = cmdletContext.AccepterPeeringConnectionOptions_AllowMultipathResilience.Value;
+            }
+            if (requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_AllowMultipathResilience != null)
+            {
+                request.AccepterPeeringConnectionOptions.AllowMultipathResilience = requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_AllowMultipathResilience.Value;
+                requestAccepterPeeringConnectionOptionsIsNull = false;
+            }
+            Amazon.EC2.MultipathResilienceMode requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_MultipathResilienceMode = null;
+            if (cmdletContext.AccepterPeeringConnectionOptions_MultipathResilienceMode != null)
+            {
+                requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_MultipathResilienceMode = cmdletContext.AccepterPeeringConnectionOptions_MultipathResilienceMode;
+            }
+            if (requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_MultipathResilienceMode != null)
+            {
+                request.AccepterPeeringConnectionOptions.MultipathResilienceMode = requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_MultipathResilienceMode;
+                requestAccepterPeeringConnectionOptionsIsNull = false;
+            }
              // determine if request.AccepterPeeringConnectionOptions should be set to null
             if (requestAccepterPeeringConnectionOptionsIsNull)
             {
@@ -301,6 +387,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink != null)
             {
                 request.RequesterPeeringConnectionOptions.AllowEgressFromLocalVpcToRemoteClassicLink = requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink.Value;
+                requestRequesterPeeringConnectionOptionsIsNull = false;
+            }
+            System.Boolean? requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowMultipathResilience = null;
+            if (cmdletContext.RequesterPeeringConnectionOptions_AllowMultipathResilience != null)
+            {
+                requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowMultipathResilience = cmdletContext.RequesterPeeringConnectionOptions_AllowMultipathResilience.Value;
+            }
+            if (requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowMultipathResilience != null)
+            {
+                request.RequesterPeeringConnectionOptions.AllowMultipathResilience = requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowMultipathResilience.Value;
+                requestRequesterPeeringConnectionOptionsIsNull = false;
+            }
+            Amazon.EC2.MultipathResilienceMode requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_MultipathResilienceMode = null;
+            if (cmdletContext.RequesterPeeringConnectionOptions_MultipathResilienceMode != null)
+            {
+                requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_MultipathResilienceMode = cmdletContext.RequesterPeeringConnectionOptions_MultipathResilienceMode;
+            }
+            if (requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_MultipathResilienceMode != null)
+            {
+                request.RequesterPeeringConnectionOptions.MultipathResilienceMode = requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_MultipathResilienceMode;
                 requestRequesterPeeringConnectionOptionsIsNull = false;
             }
              // determine if request.RequesterPeeringConnectionOptions should be set to null
@@ -370,10 +476,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc { get; set; }
             public System.Boolean? AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc { get; set; }
             public System.Boolean? AccepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink { get; set; }
+            public System.Boolean? AccepterPeeringConnectionOptions_AllowMultipathResilience { get; set; }
+            public Amazon.EC2.MultipathResilienceMode AccepterPeeringConnectionOptions_MultipathResilienceMode { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.Boolean? RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc { get; set; }
             public System.Boolean? RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc { get; set; }
             public System.Boolean? RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink { get; set; }
+            public System.Boolean? RequesterPeeringConnectionOptions_AllowMultipathResilience { get; set; }
+            public Amazon.EC2.MultipathResilienceMode RequesterPeeringConnectionOptions_MultipathResilienceMode { get; set; }
             public System.String VpcPeeringConnectionId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsResponse, EditEC2VpcPeeringConnectionOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

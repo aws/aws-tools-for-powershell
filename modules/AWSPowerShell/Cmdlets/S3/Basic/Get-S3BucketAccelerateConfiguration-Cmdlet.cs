@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketAccelerateConfiguration")]
     [OutputType("Amazon.S3.BucketAccelerateStatus")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketAccelerateConfiguration API operation.", Operation = new[] {"GetBucketAccelerateConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketAccelerateConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketAccelerateConfiguration API operation.", Operation = new[] {"GetBucketAccelerateConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketAccelerateConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.BucketAccelerateStatus or Amazon.S3.Model.GetBucketAccelerateConfigurationResponse",
         "This cmdlet returns an Amazon.S3.BucketAccelerateStatus object.",
         "The service call response (type Amazon.S3.Model.GetBucketAccelerateConfigurationResponse) can be returned by specifying '-Select *'."
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketAccelerateConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketAccelerateConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketAccelerateConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketAccelerateConfiguration");
             try
             {
                 return client.GetBucketAccelerateConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

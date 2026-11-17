@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Invoke", "BACBrowser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.InvokeBrowserResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer InvokeBrowser API operation.", Operation = new[] {"InvokeBrowser"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.InvokeBrowserResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore InvokeBrowser API operation.", Operation = new[] {"InvokeBrowser"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.InvokeBrowserResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.InvokeBrowserResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.InvokeBrowserResponse object containing multiple properties."
     )]
@@ -773,7 +773,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.InvokeBrowserResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.InvokeBrowserRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "InvokeBrowser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "InvokeBrowser");
             try
             {
                 return client.InvokeBrowserAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

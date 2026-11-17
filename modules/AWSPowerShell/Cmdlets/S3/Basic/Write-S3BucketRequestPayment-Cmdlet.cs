@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3BucketRequestPayment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketRequestPayment API operation.", Operation = new[] {"PutBucketRequestPayment"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketRequestPaymentResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutBucketRequestPayment API operation.", Operation = new[] {"PutBucketRequestPayment"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketRequestPaymentResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutBucketRequestPaymentResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutBucketRequestPaymentResponse) be returned by specifying '-Select *'."
@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutBucketRequestPaymentResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketRequestPaymentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutBucketRequestPayment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketRequestPayment");
             try
             {
                 return client.PutBucketRequestPaymentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

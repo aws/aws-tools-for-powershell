@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3BucketInventoryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketInventoryConfiguration API operation.", Operation = new[] {"PutBucketInventoryConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketInventoryConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutBucketInventoryConfiguration API operation.", Operation = new[] {"PutBucketInventoryConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketInventoryConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutBucketInventoryConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutBucketInventoryConfigurationResponse) be returned by specifying '-Select *'."
@@ -751,7 +751,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutBucketInventoryConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketInventoryConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutBucketInventoryConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketInventoryConfiguration");
             try
             {
                 return client.PutBucketInventoryConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

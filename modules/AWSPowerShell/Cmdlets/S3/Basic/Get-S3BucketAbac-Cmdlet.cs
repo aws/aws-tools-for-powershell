@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketAbac")]
     [OutputType("Amazon.S3.Model.AbacStatus")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketAbac API operation.", Operation = new[] {"GetBucketAbac"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketAbacResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketAbac API operation.", Operation = new[] {"GetBucketAbac"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketAbacResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.AbacStatus or Amazon.S3.Model.GetBucketAbacResponse",
         "This cmdlet returns an Amazon.S3.Model.AbacStatus object.",
         "The service call response (type Amazon.S3.Model.GetBucketAbacResponse) can be returned by specifying '-Select *'."
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketAbacResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketAbacRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketAbac");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketAbac");
             try
             {
                 return client.GetBucketAbacAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

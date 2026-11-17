@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCWorkloadIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteWorkloadIdentity API operation.", Operation = new[] {"DeleteWorkloadIdentity"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteWorkloadIdentityResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteWorkloadIdentity API operation.", Operation = new[] {"DeleteWorkloadIdentity"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteWorkloadIdentityResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.DeleteWorkloadIdentityResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BedrockAgentCoreControl.Model.DeleteWorkloadIdentityResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteWorkloadIdentityResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteWorkloadIdentityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteWorkloadIdentity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteWorkloadIdentity");
             try
             {
                 return client.DeleteWorkloadIdentityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

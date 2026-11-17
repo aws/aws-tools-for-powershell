@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("New", "S3CAccessPoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon S3 Control CreateAccessPoint API operation.", Operation = new[] {"CreateAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateAccessPointResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control CreateAccessPoint API operation.", Operation = new[] {"CreateAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateAccessPointResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3Control.Model.CreateAccessPointResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.S3Control.Model.CreateAccessPointResponse) can be returned by specifying '-Select *'."
@@ -520,7 +520,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.CreateAccessPointResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.CreateAccessPointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "CreateAccessPoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "CreateAccessPoint");
             try
             {
                 return client.CreateAccessPointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

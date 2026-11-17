@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Update", "S3BucketMetadataJournalTableConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) UpdateBucketMetadataJournalTableConfiguration API operation.", Operation = new[] {"UpdateBucketMetadataJournalTableConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.UpdateBucketMetadataJournalTableConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service UpdateBucketMetadataJournalTableConfiguration API operation.", Operation = new[] {"UpdateBucketMetadataJournalTableConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.UpdateBucketMetadataJournalTableConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.UpdateBucketMetadataJournalTableConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.UpdateBucketMetadataJournalTableConfigurationResponse) be returned by specifying '-Select *'."
@@ -317,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.UpdateBucketMetadataJournalTableConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.UpdateBucketMetadataJournalTableConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "UpdateBucketMetadataJournalTableConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "UpdateBucketMetadataJournalTableConfiguration");
             try
             {
                 return client.UpdateBucketMetadataJournalTableConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

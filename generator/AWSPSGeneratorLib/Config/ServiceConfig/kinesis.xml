@@ -26,11 +26,23 @@
         <Property>HasMoreShards</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="AcknowledgeDeadLetterQueueRecords" OutputProperty="*" Verb="Confirm" Noun="DeadLetterQueueRecord" ShouldProcessTarget="QueueARN" PipelineParameter="QueueARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcknowledgeQueueRecords" OutputProperty="*" Verb="Confirm" Noun="QueueRecord" ShouldProcessTarget="QueueARN" PipelineParameter="QueueARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AddTagsToStream" Verb="Add" Noun="TagsToStream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateChannel" OutputProperty="ChannelDescription" Verb="New" Noun="Channel" ShouldProcessTarget="ChannelName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQueue" OutputProperty="QueueDescription" Verb="New" Noun="Queue" ShouldProcessTarget="QueueName" PipelineParameter="QueueName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQueue" Verb="Remove" Noun="Queue" ShouldProcessTarget="QueueARN" PipelineParameter="QueueARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeLimits" OutputProperty="*" Verb="Get" Noun="Limit" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQueue" OutputProperty="QueueDescription" Verb="Get" Noun="QueueDetail" PipelineParameter="QueueARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -110,6 +130,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListQueues" OutputProperty="QueueSummaries" Verb="Get" Noun="QueueList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListShards" OutputProperty="Shards" Verb="Get" Noun="ShardList" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -149,11 +173,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ReceiveDeadLetterQueueRecords" OutputProperty="QueueRecords" Verb="Receive" Noun="DeadLetterQueueRecord" ShouldProcessTarget="QueueARN" PipelineParameter="QueueARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReceiveQueueRecords" OutputProperty="QueueRecords" Verb="Receive" Noun="QueueRecord" ShouldProcessTarget="QueueARN" PipelineParameter="QueueARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegisterStreamConsumer" OutputProperty="Consumer" Verb="Register" Noun="StreamConsumer" ShouldProcessTarget="ConsumerName" PipelineParameter="ConsumerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveTagsFromStream" Verb="Remove" Noun="TagsFromStream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreDeadLetterQueueRecords" OutputProperty="*" Verb="Restore" Noun="DeadLetterQueueRecord" ShouldProcessTarget="QueueARN" PipelineParameter="QueueARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -185,7 +221,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDeadLetterQueueRecordsVisibility" OutputProperty="*" Verb="Update" Noun="DeadLetterQueueRecordsVisibility" ShouldProcessTarget="QueueARN" PipelineParameter="QueueARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateMaxRecordSize" Verb="Update" Noun="MaxRecordSize" ShouldProcessTarget="MaxRecordSizeInKiB" PipelineParameter="MaxRecordSizeInKiB" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueue" OutputProperty="QueueDescription" Verb="Update" Noun="Queue" ShouldProcessTarget="QueueARN" PipelineParameter="QueueARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueueRecordsVisibility" OutputProperty="*" Verb="Update" Noun="QueueRecordsVisibility" ShouldProcessTarget="QueueARN" PipelineParameter="QueueARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

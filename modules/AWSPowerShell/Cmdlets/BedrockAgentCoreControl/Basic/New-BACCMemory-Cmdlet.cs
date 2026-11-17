@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("New", "BACCMemory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.Memory")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateMemory API operation.", Operation = new[] {"CreateMemory"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateMemoryResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control CreateMemory API operation.", Operation = new[] {"CreateMemory"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateMemoryResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.Memory or Amazon.BedrockAgentCoreControl.Model.CreateMemoryResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.Memory object.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.CreateMemoryResponse) can be returned by specifying '-Select *'."
@@ -402,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.CreateMemoryResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateMemoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateMemory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "CreateMemory");
             try
             {
                 return client.CreateMemoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACPaymentSessionList")]
     [OutputType("Amazon.BedrockAgentCore.Model.PaymentSessionSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer ListPaymentSessions API operation.", Operation = new[] {"ListPaymentSessions"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListPaymentSessionsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore ListPaymentSessions API operation.", Operation = new[] {"ListPaymentSessions"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListPaymentSessionsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.PaymentSessionSummary or Amazon.BedrockAgentCore.Model.ListPaymentSessionsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCore.Model.PaymentSessionSummary objects.",
         "The service call response (type Amazon.BedrockAgentCore.Model.ListPaymentSessionsResponse) can be returned by specifying '-Select *'."
@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.ListPaymentSessionsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.ListPaymentSessionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "ListPaymentSessions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "ListPaymentSessions");
             try
             {
                 return client.ListPaymentSessionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

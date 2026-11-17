@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Update", "S3CStorageLensGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control UpdateStorageLensGroup API operation.", Operation = new[] {"UpdateStorageLensGroup"}, SelectReturnType = typeof(Amazon.S3Control.Model.UpdateStorageLensGroupResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control UpdateStorageLensGroup API operation.", Operation = new[] {"UpdateStorageLensGroup"}, SelectReturnType = typeof(Amazon.S3Control.Model.UpdateStorageLensGroupResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.UpdateStorageLensGroupResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.UpdateStorageLensGroupResponse) be returned by specifying '-Select *'."
@@ -939,7 +939,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.UpdateStorageLensGroupResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.UpdateStorageLensGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "UpdateStorageLensGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "UpdateStorageLensGroup");
             try
             {
                 return client.UpdateStorageLensGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

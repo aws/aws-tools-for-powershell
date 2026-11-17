@@ -67,7 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         #region Parameter SourceView
         /// <summary>
         /// <para>
-        /// <para> A list of ARNs of the source billing views to associate. </para><para />
+        /// <para>A list of ARNs of the source billing views to associate. Source views can be of the
+        /// following types:</para><ul><li><para><c>PRIMARY</c> - The billing view that contains all cost management data associated
+        /// with an account.</para></li><li><para><c>CUSTOM</c> - A billing view that a customer creates from one or more source views.</para></li><li><para><c>BILLING_GROUP</c> - The billing view for an Billing Conductor billing group.</para></li><li><para><c>BILLING_TRANSFER</c> - The billing view for the billing data that a bill transfer
+        /// account is financially responsible for.</para></li><li><para><c>BILLING_TRANSFER_SHOWBACK</c> - The billing view for billing data configured for
+        /// showback or chargeback purposes.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

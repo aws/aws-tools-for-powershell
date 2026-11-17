@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CBucketVersioning")]
     [OutputType("Amazon.S3Control.Model.GetBucketVersioningResponse")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetBucketVersioning API operation.", Operation = new[] {"GetBucketVersioning"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetBucketVersioningResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetBucketVersioning API operation.", Operation = new[] {"GetBucketVersioning"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetBucketVersioningResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.GetBucketVersioningResponse",
         "This cmdlet returns an Amazon.S3Control.Model.GetBucketVersioningResponse object containing multiple properties."
     )]
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetBucketVersioningResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetBucketVersioningRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetBucketVersioning");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetBucketVersioning");
             try
             {
                 return client.GetBucketVersioningAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

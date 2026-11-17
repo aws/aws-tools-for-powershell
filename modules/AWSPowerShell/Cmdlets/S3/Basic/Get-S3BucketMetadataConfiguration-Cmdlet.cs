@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketMetadataConfiguration")]
     [OutputType("Amazon.S3.Model.GetBucketMetadataConfigurationResult")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketMetadataConfiguration API operation.", Operation = new[] {"GetBucketMetadataConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketMetadataConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketMetadataConfiguration API operation.", Operation = new[] {"GetBucketMetadataConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketMetadataConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.GetBucketMetadataConfigurationResult or Amazon.S3.Model.GetBucketMetadataConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.GetBucketMetadataConfigurationResult object.",
         "The service call response (type Amazon.S3.Model.GetBucketMetadataConfigurationResponse) can be returned by specifying '-Select *'."
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketMetadataConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketMetadataConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketMetadataConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketMetadataConfiguration");
             try
             {
                 return client.GetBucketMetadataConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

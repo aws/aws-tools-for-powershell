@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Save", "BACBrowserSessionProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer SaveBrowserSessionProfile API operation.", Operation = new[] {"SaveBrowserSessionProfile"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore SaveBrowserSessionProfile API operation.", Operation = new[] {"SaveBrowserSessionProfile"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse object containing multiple properties."
     )]
@@ -300,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.SaveBrowserSessionProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "SaveBrowserSessionProfile");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "SaveBrowserSessionProfile");
             try
             {
                 return client.SaveBrowserSessionProfileAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

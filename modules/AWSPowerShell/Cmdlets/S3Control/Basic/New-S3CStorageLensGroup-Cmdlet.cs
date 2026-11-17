@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("New", "S3CStorageLensGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control CreateStorageLensGroup API operation.", Operation = new[] {"CreateStorageLensGroup"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateStorageLensGroupResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control CreateStorageLensGroup API operation.", Operation = new[] {"CreateStorageLensGroup"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateStorageLensGroupResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.CreateStorageLensGroupResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.CreateStorageLensGroupResponse) be returned by specifying '-Select *'."
@@ -944,7 +944,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.CreateStorageLensGroupResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.CreateStorageLensGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "CreateStorageLensGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "CreateStorageLensGroup");
             try
             {
                 return client.CreateStorageLensGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

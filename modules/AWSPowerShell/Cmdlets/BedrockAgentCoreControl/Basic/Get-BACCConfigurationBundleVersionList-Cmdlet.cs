@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCConfigurationBundleVersionList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.ConfigurationBundleVersionSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListConfigurationBundleVersions API operation.", Operation = new[] {"ListConfigurationBundleVersions"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListConfigurationBundleVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListConfigurationBundleVersions API operation.", Operation = new[] {"ListConfigurationBundleVersions"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListConfigurationBundleVersionsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.ConfigurationBundleVersionSummary or Amazon.BedrockAgentCoreControl.Model.ListConfigurationBundleVersionsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.ConfigurationBundleVersionSummary objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListConfigurationBundleVersionsResponse) can be returned by specifying '-Select *'."
@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListConfigurationBundleVersionsResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListConfigurationBundleVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListConfigurationBundleVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListConfigurationBundleVersions");
             try
             {
                 return client.ListConfigurationBundleVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

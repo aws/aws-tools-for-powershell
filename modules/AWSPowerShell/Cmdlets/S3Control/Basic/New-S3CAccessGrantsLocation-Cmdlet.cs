@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("New", "S3CAccessGrantsLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.CreateAccessGrantsLocationResponse")]
-    [AWSCmdlet("Calls the Amazon S3 Control CreateAccessGrantsLocation API operation.", Operation = new[] {"CreateAccessGrantsLocation"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateAccessGrantsLocationResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control CreateAccessGrantsLocation API operation.", Operation = new[] {"CreateAccessGrantsLocation"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateAccessGrantsLocationResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.CreateAccessGrantsLocationResponse",
         "This cmdlet returns an Amazon.S3Control.Model.CreateAccessGrantsLocationResponse object containing multiple properties."
     )]
@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.CreateAccessGrantsLocationResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.CreateAccessGrantsLocationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "CreateAccessGrantsLocation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "CreateAccessGrantsLocation");
             try
             {
                 return client.CreateAccessGrantsLocationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

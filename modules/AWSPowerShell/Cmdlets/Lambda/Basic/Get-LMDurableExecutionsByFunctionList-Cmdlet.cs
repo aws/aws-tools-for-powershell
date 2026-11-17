@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT,
-        /// STOPPED.</para><para />
+        /// <para>Filters the executions by status. Specify one of the following values:</para><ul><li><para><c>RUNNING</c> – The execution is running or waiting for pending operations to complete.</para></li><li><para><c>PAUSING</c> – The execution is waiting for an in-progress invocation to reach
+        /// its next checkpoint before it pauses.</para></li><li><para><c>PAUSED</c> – The execution is paused, and Lambda doesn't invoke your function.</para></li><li><para><c>SUCCEEDED</c> – The execution completed successfully.</para></li><li><para><c>FAILED</c> – The execution completed with an error.</para></li><li><para><c>TIMED_OUT</c> – The execution exceeded its execution timeout.</para></li><li><para><c>STOPPED</c> – A <c>StopDurableExecution</c> request stopped the execution.</para></li><li><para><c>DELETING</c> – A <c>DeleteDurableExecution</c> request is deleting the execution
+        /// and its data.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

@@ -62,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String AgentSpaceId { get; set; }
         #endregion
         
+        #region Parameter ArchiveStatus
+        /// <summary>
+        /// <para>
+        /// <para>The archive status to filter by. Use this parameter to list only archived chat executions
+        /// or only active ones.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.ChatArchiveStatus")]
+        public Amazon.DevOpsAgent.ChatArchiveStatus ArchiveStatus { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -133,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ArchiveStatus = this.ArchiveStatus;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.UserId = this.UserId;
@@ -155,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (cmdletContext.AgentSpaceId != null)
             {
                 request.AgentSpaceId = cmdletContext.AgentSpaceId;
+            }
+            if (cmdletContext.ArchiveStatus != null)
+            {
+                request.ArchiveStatus = cmdletContext.ArchiveStatus;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -224,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentSpaceId { get; set; }
+            public Amazon.DevOpsAgent.ChatArchiveStatus ArchiveStatus { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             [System.ObsoleteAttribute]

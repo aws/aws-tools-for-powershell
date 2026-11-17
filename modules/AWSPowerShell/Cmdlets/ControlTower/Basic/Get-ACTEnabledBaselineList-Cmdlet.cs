@@ -108,6 +108,22 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         public System.String[] Filter_ParentIdentifier { get; set; }
         #endregion
         
+        #region Parameter Filter_SourceDriftStatus
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>EnabledBaselineDriftStatus</c> items for enabled baselines.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_SourceDriftStatuses")]
+        public System.String[] Filter_SourceDriftStatus { get; set; }
+        #endregion
+        
         #region Parameter Filter_Status
         /// <summary>
         /// <para>
@@ -223,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             {
                 context.Filter_ParentIdentifier = new List<System.String>(this.Filter_ParentIdentifier);
             }
+            if (this.Filter_SourceDriftStatus != null)
+            {
+                context.Filter_SourceDriftStatus = new List<System.String>(this.Filter_SourceDriftStatus);
+            }
             if (this.Filter_Status != null)
             {
                 context.Filter_Status = new List<System.String>(this.Filter_Status);
@@ -293,6 +313,16 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             if (requestFilter_filter_ParentIdentifier != null)
             {
                 request.Filter.ParentIdentifiers = requestFilter_filter_ParentIdentifier;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_SourceDriftStatus = null;
+            if (cmdletContext.Filter_SourceDriftStatus != null)
+            {
+                requestFilter_filter_SourceDriftStatus = cmdletContext.Filter_SourceDriftStatus;
+            }
+            if (requestFilter_filter_SourceDriftStatus != null)
+            {
+                request.Filter.SourceDriftStatuses = requestFilter_filter_SourceDriftStatus;
                 requestFilterIsNull = false;
             }
             List<System.String> requestFilter_filter_Status = null;
@@ -411,6 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             public List<System.String> Filter_BaselineIdentifier { get; set; }
             public List<System.String> Filter_InheritanceDriftStatus { get; set; }
             public List<System.String> Filter_ParentIdentifier { get; set; }
+            public List<System.String> Filter_SourceDriftStatus { get; set; }
             public List<System.String> Filter_Status { get; set; }
             public List<System.String> Filter_TargetIdentifier { get; set; }
             public System.Boolean? IncludeChild { get; set; }

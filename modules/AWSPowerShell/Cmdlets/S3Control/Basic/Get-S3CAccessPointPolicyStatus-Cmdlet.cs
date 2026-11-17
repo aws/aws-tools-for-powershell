@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CAccessPointPolicyStatus")]
     [OutputType("Amazon.S3Control.Model.PolicyStatus")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetAccessPointPolicyStatus API operation.", Operation = new[] {"GetAccessPointPolicyStatus"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointPolicyStatusResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetAccessPointPolicyStatus API operation.", Operation = new[] {"GetAccessPointPolicyStatus"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointPolicyStatusResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.PolicyStatus or Amazon.S3Control.Model.GetAccessPointPolicyStatusResponse",
         "This cmdlet returns an Amazon.S3Control.Model.PolicyStatus object.",
         "The service call response (type Amazon.S3Control.Model.GetAccessPointPolicyStatusResponse) can be returned by specifying '-Select *'."
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetAccessPointPolicyStatusResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetAccessPointPolicyStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetAccessPointPolicyStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetAccessPointPolicyStatus");
             try
             {
                 return client.GetAccessPointPolicyStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

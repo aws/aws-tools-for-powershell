@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Write", "S3CStorageLensConfigurationTagging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control PutStorageLensConfigurationTagging API operation.", Operation = new[] {"PutStorageLensConfigurationTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutStorageLensConfigurationTaggingResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control PutStorageLensConfigurationTagging API operation.", Operation = new[] {"PutStorageLensConfigurationTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutStorageLensConfigurationTaggingResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.PutStorageLensConfigurationTaggingResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.PutStorageLensConfigurationTaggingResponse) be returned by specifying '-Select *'."
@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.PutStorageLensConfigurationTaggingResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.PutStorageLensConfigurationTaggingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "PutStorageLensConfigurationTagging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "PutStorageLensConfigurationTagging");
             try
             {
                 return client.PutStorageLensConfigurationTaggingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

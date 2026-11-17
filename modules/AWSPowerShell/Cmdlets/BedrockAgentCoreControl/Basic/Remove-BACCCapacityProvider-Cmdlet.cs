@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCCapacityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteCapacityProviderResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteCapacityProvider API operation.", Operation = new[] {"DeleteCapacityProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteCapacityProviderResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteCapacityProvider API operation.", Operation = new[] {"DeleteCapacityProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteCapacityProviderResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteCapacityProviderResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteCapacityProviderResponse object containing multiple properties."
     )]
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteCapacityProviderResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteCapacityProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteCapacityProvider");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteCapacityProvider");
             try
             {
                 return client.DeleteCapacityProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

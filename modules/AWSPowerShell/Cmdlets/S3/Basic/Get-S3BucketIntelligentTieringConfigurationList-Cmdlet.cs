@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketIntelligentTieringConfigurationList")]
     [OutputType("Amazon.S3.Model.ListBucketIntelligentTieringConfigurationsResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) ListBucketIntelligentTieringConfigurations API operation.", Operation = new[] {"ListBucketIntelligentTieringConfigurations"}, SelectReturnType = typeof(Amazon.S3.Model.ListBucketIntelligentTieringConfigurationsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service ListBucketIntelligentTieringConfigurations API operation.", Operation = new[] {"ListBucketIntelligentTieringConfigurations"}, SelectReturnType = typeof(Amazon.S3.Model.ListBucketIntelligentTieringConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ListBucketIntelligentTieringConfigurationsResponse",
         "This cmdlet returns an Amazon.S3.Model.ListBucketIntelligentTieringConfigurationsResponse object containing multiple properties."
     )]
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.ListBucketIntelligentTieringConfigurationsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListBucketIntelligentTieringConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "ListBucketIntelligentTieringConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "ListBucketIntelligentTieringConfigurations");
             try
             {
                 return client.ListBucketIntelligentTieringConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

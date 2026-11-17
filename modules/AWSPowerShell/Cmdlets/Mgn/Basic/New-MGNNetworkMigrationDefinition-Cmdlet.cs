@@ -63,6 +63,19 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public Amazon.Mgn.Model.CidrMapping[] CidrMapping { get; set; }
         #endregion
         
+        #region Parameter DefinitionType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of the definition. <c>MIGRATION</c> migrates an existing network.
+        /// <c>NEW_NETWORK</c> designs a new network. If you omit this value, the definition type
+        /// is <c>MIGRATION</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.DefinitionType")]
+        public Amazon.Mgn.DefinitionType DefinitionType { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -305,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.CidrMapping = new List<Amazon.Mgn.Model.CidrMapping>(this.CidrMapping);
             }
             context.ClientToken = this.ClientToken;
+            context.DefinitionType = this.DefinitionType;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -382,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DefinitionType != null)
+            {
+                request.DefinitionType = cmdletContext.DefinitionType;
             }
             if (cmdletContext.Description != null)
             {
@@ -546,6 +564,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         {
             public List<Amazon.Mgn.Model.CidrMapping> CidrMapping { get; set; }
             public System.String ClientToken { get; set; }
+            public Amazon.Mgn.DefinitionType DefinitionType { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> ScopeTag { get; set; }

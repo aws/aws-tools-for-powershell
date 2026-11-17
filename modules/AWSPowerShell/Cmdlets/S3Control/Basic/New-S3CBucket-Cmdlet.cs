@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("New", "S3CBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.CreateBucketResponse")]
-    [AWSCmdlet("Calls the Amazon S3 Control CreateBucket API operation.", Operation = new[] {"CreateBucket"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateBucketResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control CreateBucket API operation.", Operation = new[] {"CreateBucket"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateBucketResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.CreateBucketResponse",
         "This cmdlet returns an Amazon.S3Control.Model.CreateBucketResponse object containing multiple properties."
     )]
@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.CreateBucketResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.CreateBucketRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "CreateBucket");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "CreateBucket");
             try
             {
                 return client.CreateBucketAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

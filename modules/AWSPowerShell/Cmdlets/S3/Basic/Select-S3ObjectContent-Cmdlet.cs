@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Select", "S3ObjectContent")]
     [OutputType("Amazon.S3.Model.ISelectObjectContentEventStream")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) SelectObjectContent API operation.", Operation = new[] {"SelectObjectContent"}, SelectReturnType = typeof(Amazon.S3.Model.SelectObjectContentResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service SelectObjectContent API operation.", Operation = new[] {"SelectObjectContent"}, SelectReturnType = typeof(Amazon.S3.Model.SelectObjectContentResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ISelectObjectContentEventStream or Amazon.S3.Model.SelectObjectContentResponse",
         "This cmdlet returns an Amazon.S3.Model.ISelectObjectContentEventStream object.",
         "The service call response (type Amazon.S3.Model.SelectObjectContentResponse) can be returned by specifying '-Select *'."
@@ -416,7 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.SelectObjectContentResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.SelectObjectContentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "SelectObjectContent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "SelectObjectContent");
             try
             {
                 return client.SelectObjectContentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

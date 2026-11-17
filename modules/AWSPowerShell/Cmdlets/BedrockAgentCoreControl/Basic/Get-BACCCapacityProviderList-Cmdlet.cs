@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCCapacityProviderList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CapacityProviderSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListCapacityProviders API operation.", Operation = new[] {"ListCapacityProviders"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListCapacityProvidersResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListCapacityProviders API operation.", Operation = new[] {"ListCapacityProviders"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListCapacityProvidersResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CapacityProviderSummary or Amazon.BedrockAgentCoreControl.Model.ListCapacityProvidersResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.CapacityProviderSummary objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListCapacityProvidersResponse) can be returned by specifying '-Select *'."
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListCapacityProvidersResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListCapacityProvidersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListCapacityProviders");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListCapacityProviders");
             try
             {
                 return client.ListCapacityProvidersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

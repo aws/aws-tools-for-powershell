@@ -28,7 +28,7 @@ using Amazon.S3Control.Model;
 
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
-    [AWSClientCmdlet("Amazon S3 Control", "S3C", "2018-08-20", "S3Control")]
+    [AWSClientCmdlet("AWS S3 Control", "S3C", "2018-08-20", "S3Control")]
     public abstract partial class AmazonS3ControlClientCmdlet : ServiceCmdlet
     {
         protected IAmazonS3Control Client { get; private set; }

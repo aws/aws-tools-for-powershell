@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3ObjectAnnotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.S3.Model.DeleteObjectAnnotationResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteObjectAnnotation API operation.", Operation = new[] {"DeleteObjectAnnotation"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteObjectAnnotationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteObjectAnnotation API operation.", Operation = new[] {"DeleteObjectAnnotation"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteObjectAnnotationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.DeleteObjectAnnotationResponse",
         "This cmdlet returns an Amazon.S3.Model.DeleteObjectAnnotationResponse object containing multiple properties."
     )]
@@ -311,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.DeleteObjectAnnotationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectAnnotationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteObjectAnnotation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteObjectAnnotation");
             try
             {
                 return client.DeleteObjectAnnotationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

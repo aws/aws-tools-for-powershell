@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Invoke", "BACHarness", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.InvokeHarnessStreamOutput")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer InvokeHarness API operation.", Operation = new[] {"InvokeHarness"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.InvokeHarnessResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore InvokeHarness API operation.", Operation = new[] {"InvokeHarness"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.InvokeHarnessResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.InvokeHarnessStreamOutput or Amazon.BedrockAgentCore.Model.InvokeHarnessResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.InvokeHarnessStreamOutput object.",
         "The service call response (type Amazon.BedrockAgentCore.Model.InvokeHarnessResponse) can be returned by specifying '-Select *'."
@@ -1160,7 +1160,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.InvokeHarnessResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.InvokeHarnessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "InvokeHarness");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "InvokeHarness");
             try
             {
                 return client.InvokeHarnessAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

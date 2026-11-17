@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCoreNetworkEndpoint" OutputProperty="*" Verb="New" Noun="CoreNetworkEndpoint" ShouldProcessTarget="GlobalResolverId,CoreNetworkArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDNSView" OutputProperty="*" Verb="New" Noun="DNSView" ShouldProcessTarget="GlobalResolverId,Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -66,6 +70,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccessToken" OutputProperty="*" Verb="Remove" Noun="AccessToken" ShouldProcessTarget="AccessTokenId" PipelineParameter="AccessTokenId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCoreNetworkEndpoint" OutputProperty="*" Verb="Remove" Noun="CoreNetworkEndpoint" ShouldProcessTarget="CoreNetworkEndpointId" PipelineParameter="CoreNetworkEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -105,6 +113,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCoreNetworkEndpoint" OutputProperty="*" Verb="Get" Noun="CoreNetworkEndpoint" PipelineParameter="CoreNetworkEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDNSView" OutputProperty="*" Verb="Get" Noun="DNSView" PipelineParameter="DnsViewId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -138,6 +150,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAccessTokens" OutputProperty="AccessTokens" Verb="Get" Noun="AccessTokenList" PipelineParameter="DnsViewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCoreNetworkEndpoints" OutputProperty="CoreNetworkEndpoints" Verb="Get" Noun="CoreNetworkEndpointList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -190,6 +206,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAccessToken" OutputProperty="*" Verb="Update" Noun="AccessToken" ShouldProcessTarget="AccessTokenId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCoreNetworkEndpoint" OutputProperty="*" Verb="Update" Noun="CoreNetworkEndpoint" ShouldProcessTarget="CoreNetworkEndpointId" PipelineParameter="CoreNetworkEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

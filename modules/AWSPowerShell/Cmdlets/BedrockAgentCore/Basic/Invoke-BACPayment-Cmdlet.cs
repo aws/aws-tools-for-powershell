@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Invoke", "BACPayment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.ProcessPaymentResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer ProcessPayment API operation.", Operation = new[] {"ProcessPayment"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ProcessPaymentResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore ProcessPayment API operation.", Operation = new[] {"ProcessPayment"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ProcessPaymentResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.ProcessPaymentResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.ProcessPaymentResponse object containing multiple properties."
     )]
@@ -487,7 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.ProcessPaymentResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.ProcessPaymentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "ProcessPayment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "ProcessPayment");
             try
             {
                 return client.ProcessPaymentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

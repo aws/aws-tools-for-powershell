@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3ACL")]
     [OutputType("Amazon.S3.Model.S3AccessControlList")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetACL API operation.", Operation = new[] {"GetACL"}, SelectReturnType = typeof(Amazon.S3.Model.GetACLResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetACL API operation.", Operation = new[] {"GetACL"}, SelectReturnType = typeof(Amazon.S3.Model.GetACLResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.S3AccessControlList or Amazon.S3.Model.GetACLResponse",
         "This cmdlet returns an Amazon.S3.Model.S3AccessControlList object.",
         "The service call response (type Amazon.S3.Model.GetACLResponse) can be returned by specifying '-Select *'."
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetACLResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetACLRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetACL");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetACL");
             try
             {
                 return client.GetACLAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

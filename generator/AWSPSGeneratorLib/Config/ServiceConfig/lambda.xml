@@ -94,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDurableExecution" OutputProperty="DeletionRequestTimestamp" Verb="Remove" Noun="DurableExecution" ShouldProcessTarget="DurableExecutionArn" PipelineParameter="DurableExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEventSourceMapping" OutputProperty="*" Verb="Remove" Noun="EventSourceMapping" ShouldProcessTarget="UUID" PipelineParameter="UUID" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -294,6 +298,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PauseDurableExecution" Verb="Suspend" Noun="DurableExecution" ShouldProcessTarget="DurableExecutionArn" PipelineParameter="DurableExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PublishLayerVersion" OutputProperty="*" Verb="Publish" Noun="LayerVersion" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -342,6 +350,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeDurableExecution" Verb="Resume" Noun="DurableExecution" ShouldProcessTarget="DurableExecutionArn" PipelineParameter="DurableExecutionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

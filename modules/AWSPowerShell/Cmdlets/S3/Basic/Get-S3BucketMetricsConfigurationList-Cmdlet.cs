@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketMetricsConfigurationList")]
     [OutputType("Amazon.S3.Model.ListBucketMetricsConfigurationsResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) ListBucketMetricsConfigurations API operation.", Operation = new[] {"ListBucketMetricsConfigurations"}, SelectReturnType = typeof(Amazon.S3.Model.ListBucketMetricsConfigurationsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service ListBucketMetricsConfigurations API operation.", Operation = new[] {"ListBucketMetricsConfigurations"}, SelectReturnType = typeof(Amazon.S3.Model.ListBucketMetricsConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ListBucketMetricsConfigurationsResponse",
         "This cmdlet returns an Amazon.S3.Model.ListBucketMetricsConfigurationsResponse object containing multiple properties."
     )]
@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.ListBucketMetricsConfigurationsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListBucketMetricsConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "ListBucketMetricsConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "ListBucketMetricsConfigurations");
             try
             {
                 return client.ListBucketMetricsConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

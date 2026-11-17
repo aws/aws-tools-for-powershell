@@ -79,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         #region Parameter EndDate
         /// <summary>
         /// <para>
-        /// <para>Inclusive end date as Unix epoch seconds.</para>
+        /// <para>The exclusive end date of the range, in Unix epoch seconds. To get one billing month,
+        /// set <c>startDate</c> to the first day of that month. Then set <c>endDate</c> to the
+        /// first day of the next month. Use 00:00 UTC for both.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,8 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         #region Parameter StartDate
         /// <summary>
         /// <para>
-        /// <para>Inclusive start date as Unix epoch seconds. Must be on or before <c>endDate</c>. The
-        /// range from <c>startDate</c> to <c>endDate</c> cannot exceed 24 billing months.</para>
+        /// <para>The inclusive start date of the range, in Unix epoch seconds. This value must be earlier
+        /// than <c>endDate</c>. You get credit allocations for bills whose billing period starts
+        /// on or after <c>startDate</c> and before <c>endDate</c>. If <c>startDate</c> is in
+        /// the middle of a billing period, that period isn't included. The range can't exceed
+        /// 24 calendar months.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

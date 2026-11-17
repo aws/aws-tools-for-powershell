@@ -80,6 +80,27 @@ $MAS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MarketplaceAgreement.AgreementApprovalPartyType
+        "Get-MASAgreementApprovalList/PartyType"
+        {
+            $v = "AWS_ORGANIZATION_ADMIN","REQUESTER"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.AgreementApprovalStatus
+        "Get-MASAgreementApprovalList/Status"
+        {
+            $v = "APPROVED","CANCELLED","EXPIRED","PENDING_APPROVAL","REJECTED"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.AgreementApprovalType
+        "Get-MASAgreementApprovalList/ApprovalType"
+        {
+            $v = "BUYER_AGREEMENT_APPROVAL"
+            break
+        }
+
         # Amazon.MarketplaceAgreement.AgreementCancellationRequestReasonCode
         "Send-MASAgreementCancellationRequest/ReasonCode"
         {
@@ -91,6 +112,13 @@ $MAS_Completers = {
         "Get-MASAgreementCancellationRequestList/Status"
         {
             $v = "APPROVED","CANCELLED","PENDING_APPROVAL","REJECTED","VALIDATION_FAILED"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.AgreementRequestStatus
+        "Get-MASAgreementRequestList/Status"
+        {
+            $v = "ACCEPTED","APPROVED","CANCELLED","DRAFT","PENDING_APPROVAL","REJECTED"
             break
         }
 
@@ -152,12 +180,14 @@ $MAS_Completers = {
 }
 
 $MAS_map = @{
+    "ApprovalType"=@("Get-MASAgreementApprovalList")
     "GroupBy"=@("Get-MASAgreementInvoiceLineItemList")
     "Intent"=@("New-MASAgreementRequest")
     "InvoiceType"=@("Get-MASAgreementInvoiceLineItemList")
+    "PartyType"=@("Get-MASAgreementApprovalList")
     "ReasonCode"=@("Send-MASAgreementCancellationRequest")
     "Sort_SortOrder"=@("Search-MASAgreement")
-    "Status"=@("Get-MASAgreementCancellationRequestList","Get-MASAgreementPaymentRequestList","Get-MASBillingAdjustmentRequestList")
+    "Status"=@("Get-MASAgreementApprovalList","Get-MASAgreementCancellationRequestList","Get-MASAgreementPaymentRequestList","Get-MASAgreementRequestList","Get-MASBillingAdjustmentRequestList")
     "TaxConfiguration_TaxEstimation"=@("New-MASAgreementRequest")
 }
 
@@ -211,30 +241,41 @@ $MAS_SelectCompleters = {
 }
 
 $MAS_SelectMap = @{
-    "Select"=@("Approve-MASAgreementCancellationRequest",
+    "Select"=@("Approve-MASAgreementApproval",
+               "Approve-MASAgreementCancellationRequest",
                "Approve-MASAgreementPaymentRequest",
                "Approve-MASAgreementRequest",
                "New-MASBillingAdjustmentRequestBatch",
                "Stop-MASAgreement",
                "Stop-MASAgreementCancellationRequest",
                "Stop-MASAgreementPaymentRequest",
+               "Stop-MASAgreementRequest",
                "New-MASAgreementRequest",
                "Get-MASAgreement",
+               "Get-MASAgreementApproval",
                "Get-MASAgreementCancellationRequest",
+               "Get-MASAgreementContact",
                "Get-MASAgreementEntitlement",
                "Get-MASAgreementPaymentRequest",
+               "Get-MASAgreementRequest",
+               "Get-MASAgreementRequestApprovalPlan",
+               "Get-MASAgreementRequestTerm",
                "Get-MASAgreementTerm",
                "Get-MASBillingAdjustmentRequest",
+               "Get-MASAgreementApprovalList",
                "Get-MASAgreementCancellationRequestList",
                "Get-MASAgreementChargeList",
                "Get-MASAgreementInvoiceLineItemList",
                "Get-MASAgreementPaymentRequestList",
+               "Get-MASAgreementRequestList",
                "Get-MASBillingAdjustmentRequestList",
+               "Deny-MASAgreementApproval",
                "Deny-MASAgreementCancellationRequest",
                "Deny-MASAgreementPaymentRequest",
                "Search-MASAgreement",
                "Send-MASAgreementCancellationRequest",
                "Send-MASAgreementPaymentRequest",
+               "Start-MASAgreementApproval",
                "Update-MASPurchaseOrder")
 }
 

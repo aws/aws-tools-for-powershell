@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3ObjectTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutObjectTagging API operation.", Operation = new[] {"PutObjectTagging"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectTaggingResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutObjectTagging API operation.", Operation = new[] {"PutObjectTagging"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectTaggingResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3.Model.PutObjectTaggingResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.S3.Model.PutObjectTaggingResponse) can be returned by specifying '-Select *'."
@@ -387,7 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutObjectTaggingResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectTaggingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutObjectTagging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutObjectTagging");
             try
             {
                 return client.PutObjectTaggingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

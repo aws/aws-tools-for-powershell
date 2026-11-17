@@ -28,7 +28,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
-    [AWSClientCmdlet("Amazon Bedrock Agent Core Control Plane Fronting Layer", "BACC", "2023-06-05", "BedrockAgentCoreControl")]
+    [AWSClientCmdlet("Amazon Bedrock AgentCore Control", "BACC", "2023-06-05", "BedrockAgentCoreControl")]
     public abstract partial class AmazonBedrockAgentCoreControlClientCmdlet : ServiceCmdlet
     {
         protected IAmazonBedrockAgentCoreControl Client { get; private set; }

@@ -1,4 +1,154 @@
-﻿### 5.0.337 (2026-11-16 20:39Z)
+﻿### 5.0.338 (2026-11-17 20:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.4.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon API Gateway
+    * Modified cmdlet New-AGAuthorizer: added parameters JwtConfiguration_DefaultAlgorithm and JwtConfiguration_Issuer.
+  * Amazon Bedrock AgentCore
+    * Added cmdlet Get-BACAgentInsight leveraging the GetAgentInsight service API.
+    * Added cmdlet Get-BACAgentInsightList leveraging the ListAgentInsights service API.
+    * Added cmdlet Get-BACDatasetGeneration leveraging the GetDatasetGeneration service API.
+    * Added cmdlet Get-BACDatasetGenerationList leveraging the ListDatasetGenerations service API.
+    * Added cmdlet Remove-BACDatasetGeneration leveraging the DeleteDatasetGeneration service API.
+    * Added cmdlet Start-BACDatasetGeneration leveraging the StartDatasetGeneration service API.
+    * Added cmdlet Update-BACAgentInsight leveraging the UpdateAgentInsight service API.
+    * Modified cmdlet Start-BACBatchEvaluation: added parameters DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn, DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate, DatasetExecutionConfig_Dataset_DatasetId and DatasetExecutionConfig_Dataset_DatasetVersion.
+  * Amazon Bedrock AgentCore Control
+    * Added cmdlet Get-BACCAgentInsightStore leveraging the GetAgentInsightStore service API.
+    * Added cmdlet Get-BACCAgentInsightStoreList leveraging the ListAgentInsightStores service API.
+    * Added cmdlet Update-BACCAgentInsightStore leveraging the UpdateAgentInsightStore service API.
+    * Modified cmdlet Get-BACCDatasetExampleList: added parameters Filter_ExampleField and Filter_GenerationId.
+    * Modified cmdlet Get-BACCDatasetList: added parameter Filter_ExampleCountByField.
+    * Modified cmdlet Get-BACCDatasetVersionList: added parameter Filter_ExampleCountByField.
+  * Amazon Connect Cases
+    * Modified cmdlet Write-CCASCaseEventConfiguration: added parameter EventBridge_IncludedData_CaseData_AutoIncludeField.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2TransitGatewayPeeringAttachment leveraging the ModifyTransitGatewayPeeringAttachment service API.
+    * Modified cmdlet Edit-EC2VpcPeeringConnectionOption: added parameters AccepterPeeringConnectionOptions_AllowMultipathResilience, AccepterPeeringConnectionOptions_MultipathResilienceMode, RequesterPeeringConnectionOptions_AllowMultipathResilience and RequesterPeeringConnectionOptions_MultipathResilienceMode.
+    * Modified cmdlet Edit-EC2VpnTunnelOption: added parameters TunnelOptions_Phase1AdditionalKeyExchange and TunnelOptions_Phase2AdditionalKeyExchange.
+    * Modified cmdlet Get-EC2CapacityBlockOffering: added parameter InstanceTypePreference.
+    * Modified cmdlet New-EC2TransitGatewayPeeringAttachment: added parameters Options_AllowMultipathResilience and Options_MultipathResilienceMode.
+    * Modified cmdlet New-EC2VpcPeeringConnection: added parameters RequesterPeeringConnectionOptions_AllowMultipathResilience and RequesterPeeringConnectionOptions_MultipathResilienceMode.
+  * Amazon ElastiCache
+    * Modified cmdlet New-ECServerlessCache: added parameter Integration.
+  * Amazon Kinesis
+    * Added cmdlet Confirm-KINDeadLetterQueueRecord leveraging the AcknowledgeDeadLetterQueueRecords service API.
+    * Added cmdlet Confirm-KINQueueRecord leveraging the AcknowledgeQueueRecords service API.
+    * Added cmdlet Get-KINQueueDetail leveraging the DescribeQueue service API.
+    * Added cmdlet Get-KINQueueList leveraging the ListQueues service API.
+    * Added cmdlet New-KINQueue leveraging the CreateQueue service API.
+    * Added cmdlet Receive-KINDeadLetterQueueRecord leveraging the ReceiveDeadLetterQueueRecords service API.
+    * Added cmdlet Receive-KINQueueRecord leveraging the ReceiveQueueRecords service API.
+    * Added cmdlet Remove-KINQueue leveraging the DeleteQueue service API.
+    * Added cmdlet Restore-KINDeadLetterQueueRecord leveraging the RestoreDeadLetterQueueRecords service API.
+    * Added cmdlet Update-KINDeadLetterQueueRecordsVisibility leveraging the UpdateDeadLetterQueueRecordsVisibility service API.
+    * Added cmdlet Update-KINQueue leveraging the UpdateQueue service API.
+    * Added cmdlet Update-KINQueueRecordsVisibility leveraging the UpdateQueueRecordsVisibility service API.
+  * Amazon Route 53 Global Resolver
+    * Added cmdlet Get-R53GRCoreNetworkEndpoint leveraging the GetCoreNetworkEndpoint service API.
+    * Added cmdlet Get-R53GRCoreNetworkEndpointList leveraging the ListCoreNetworkEndpoints service API.
+    * Added cmdlet New-R53GRCoreNetworkEndpoint leveraging the CreateCoreNetworkEndpoint service API.
+    * Added cmdlet Remove-R53GRCoreNetworkEndpoint leveraging the DeleteCoreNetworkEndpoint service API.
+    * Added cmdlet Update-R53GRCoreNetworkEndpoint leveraging the UpdateCoreNetworkEndpoint service API.
+    * Modified cmdlet New-R53GRAccessSource: added parameters CoreNetworkEndpointId and Segment.
+    * Modified cmdlet New-R53GRGlobalResolver: added parameter PublicIpStatus.
+    * Modified cmdlet Update-R53GRAccessSource: added parameter DnsViewId.
+    * Modified cmdlet Update-R53GRGlobalResolver: added parameter PublicIpStatus.
+  * Amazon WorkSpaces
+    * Modified cmdlet Edit-WKSSelfservicePermission: added parameters SelfservicePermissions_EnableEndUserAdvisor and SelfservicePermissions_NestedVirtualization.
+  * Application Migration Service
+    * Added cmdlet Get-MGNLaunchConfigurationDefault leveraging the GetLaunchConfigurationDefaults service API.
+    * Added cmdlet Get-MGNNetworkMigrationInsightList leveraging the ListNetworkMigrationInsights service API.
+    * Added cmdlet Get-MGNRemoteSourceActionInvocationList leveraging the ListRemoteSourceActionInvocations service API.
+    * Added cmdlet Get-MGNRemoteSourceActionInvocationResultList leveraging the ListRemoteSourceActionInvocationResults service API.
+    * Added cmdlet Get-MGNRemoteSourceActionJobList leveraging the ListRemoteSourceActionJobs service API.
+    * Added cmdlet Get-MGNRemoteSourceActionList leveraging the ListRemoteSourceActions service API.
+    * Added cmdlet New-MGNRemoteSourceAction leveraging the CreateRemoteSourceAction service API.
+    * Added cmdlet Remove-MGNRemoteSourceAction leveraging the DeleteRemoteSourceAction service API.
+    * Added cmdlet Start-MGNRemoteSourceActionJob leveraging the StartRemoteSourceActionJob service API.
+    * Added cmdlet Update-MGNLaunchConfigurationDefault leveraging the UpdateLaunchConfigurationDefaults service API.
+    * Added cmdlet Update-MGNRemoteSourceAction leveraging the UpdateRemoteSourceAction service API.
+    * Modified cmdlet Get-MGNNetworkMigrationMapperSegmentConstructList: added parameters IncludeConfiguration and IncludeEnrichedProperty.
+    * Modified cmdlet New-MGNLaunchConfigurationTemplate: added parameter MapAutoTaggingKey.
+    * Modified cmdlet New-MGNNetworkMigrationDefinition: added parameter DefinitionType.
+    * Modified cmdlet New-MGNReplicationConfigurationTemplate: added parameter OutpostSnapshotLocation.
+    * Modified cmdlet Update-MGNLaunchConfiguration: added parameter MapAutoTaggingKey.
+    * Modified cmdlet Update-MGNLaunchConfigurationTemplate: added parameter MapAutoTaggingKey.
+    * Modified cmdlet Update-MGNNetworkMigrationDefinition: added parameter DefinitionType.
+    * Modified cmdlet Update-MGNReplicationConfiguration: added parameter OutpostSnapshotLocation.
+    * Modified cmdlet Update-MGNReplicationConfigurationTemplate: added parameter OutpostSnapshotLocation.
+  * AWS Billing
+    * Added cmdlet Invoke-AWSBCreditTransfer leveraging the TransferCredit service API.
+    * Added cmdlet Split-AWSBCredit leveraging the SplitCredit service API.
+  * AWS Config
+    * Modified cmdlet Get-CFGConformancePack: added parameter Filters_Type.
+    * Modified cmdlet Get-CFGConformancePackStatus: added parameter Filters_Type.
+    * Modified cmdlet Write-CFGConformancePack: added parameters Scope_TagKey, Scope_TagValue and Source_SourceIdentifier.
+  * AWS Control Tower
+    * Modified cmdlet Get-ACTEnabledBaselineList: added parameter Filter_SourceDriftStatus.
+  * AWS DevOps Agent Service
+    * Added cmdlet Get-DOPSChat leveraging the GetChat service API.
+    * Added cmdlet Update-DOPSChat leveraging the UpdateChat service API.
+    * Modified cmdlet Get-DOPSChatList: added parameter ArchiveStatus.
+  * AWS Elemental Inference
+    * Added cmdlet Get-EMIFunction leveraging the GetFunction service API.
+    * Added cmdlet Get-EMIFunctionList leveraging the ListFunctions service API.
+    * Added cmdlet Get-EMIQuestionSet leveraging the GetQuestionSet service API.
+    * Added cmdlet Get-EMIQuestionSetList leveraging the ListQuestionSets service API.
+    * Added cmdlet Get-EMIQuestionSetVersionList leveraging the ListQuestionSetVersions service API.
+    * Added cmdlet New-EMIFunction leveraging the CreateFunction service API.
+    * Added cmdlet New-EMIQuestionSet leveraging the CreateQuestionSet service API.
+    * Added cmdlet New-EMIQuestionSetVersion leveraging the CreateQuestionSetVersion service API.
+    * Added cmdlet Remove-EMIFunction leveraging the DeleteFunction service API.
+    * Added cmdlet Remove-EMIQuestionSet leveraging the DeleteQuestionSet service API.
+    * Added cmdlet Remove-EMIQuestionSetVersion leveraging the DeleteQuestionSetVersion service API.
+    * Added cmdlet Update-EMIFunction leveraging the UpdateFunction service API.
+    * Added cmdlet Update-EMIQuestionSet leveraging the UpdateQuestionSet service API.
+  * AWS Lambda
+    * Added cmdlet Remove-LMDurableExecution leveraging the DeleteDurableExecution service API.
+    * Added cmdlet Resume-LMDurableExecution leveraging the ResumeDurableExecution service API.
+    * Added cmdlet Suspend-LMDurableExecution leveraging the PauseDurableExecution service API.
+  * AWS Marketplace Agreement Service
+    * Added cmdlet Approve-MASAgreementApproval leveraging the AcceptAgreementApproval service API.
+    * Added cmdlet Deny-MASAgreementApproval leveraging the RejectAgreementApproval service API.
+    * Added cmdlet Get-MASAgreementApproval leveraging the GetAgreementApproval service API.
+    * Added cmdlet Get-MASAgreementApprovalList leveraging the ListAgreementApprovals service API.
+    * Added cmdlet Get-MASAgreementContact leveraging the GetAgreementContacts service API.
+    * Added cmdlet Get-MASAgreementRequest leveraging the GetAgreementRequest service API.
+    * Added cmdlet Get-MASAgreementRequestApprovalPlan leveraging the GetAgreementRequestApprovalPlans service API.
+    * Added cmdlet Get-MASAgreementRequestList leveraging the ListAgreementRequests service API.
+    * Added cmdlet Get-MASAgreementRequestTerm leveraging the GetAgreementRequestTerms service API.
+    * Added cmdlet Start-MASAgreementApproval leveraging the StartAgreementApprovals service API.
+    * Added cmdlet Stop-MASAgreementRequest leveraging the CancelAgreementRequest service API.
+    * Modified cmdlet New-MASAgreementRequest: added parameters AcceptorContact_CompanyName, AcceptorContact_CountryCode, AcceptorContact_EmailAddress, AcceptorContact_FirstName and AcceptorContact_LastName.
+  * AWS S3 Control
+    * Modified cmdlet Write-S3CStorageLensConfiguration: added parameters StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled, StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth, StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth and StorageLensConfiguration_IntAccessTiers_IsEnabled.
+  * AWS SecurityHub
+    * Modified cmdlet New-SHUBConnector: added parameters Provider_GCP_AWSConfigConnectorArn, Provider_GCP_GCPRegion, Provider_GCP_ScopeConfiguration_ScopeType and Provider_GCP_ScopeConfiguration_ScopeValue.
+    * Modified cmdlet New-SHUBConnectorV2: added parameters Provider_GCP_AWSConfigConnectorArn, Provider_GCP_GCPRegion, Provider_GCP_ScopeConfiguration_ScopeType and Provider_GCP_ScopeConfiguration_ScopeValue.
+    * Modified cmdlet Update-SHUBConnector: added parameters Provider_GCP_GCPRegion, Provider_GCP_ScopeConfiguration_ScopeType and Provider_GCP_ScopeConfiguration_ScopeValue.
+    * Modified cmdlet Update-SHUBConnectorV2: added parameters Provider_GCP_GCPRegion, Provider_GCP_ScopeConfiguration_ScopeType and Provider_GCP_ScopeConfiguration_ScopeValue.
+  * CloudWatch Observability Admin Service
+    * Added cmdlet Get-CWOADMNConnector leveraging the GetConnector service API.
+    * Added cmdlet Get-CWOADMNConnectorList leveraging the ListConnectors service API.
+    * Added cmdlet Get-CWOADMNConnectorTelemetryManifest leveraging the GetConnectorTelemetryManifest service API.
+    * Added cmdlet Get-CWOADMNConnectorTelemetrySetup leveraging the GetConnectorTelemetrySetup service API.
+    * Added cmdlet Get-CWOADMNResourcesByConnectorList leveraging the ListResourcesByConnector service API.
+    * Added cmdlet Get-CWOADMNThirdPartyTelemetryEnrichment leveraging the GetThirdPartyTelemetryEnrichment service API.
+    * Added cmdlet Get-CWOADMNThirdPartyTelemetryEnrichmentList leveraging the ListThirdPartyTelemetryEnrichments service API.
+    * Added cmdlet New-CWOADMNConnector leveraging the CreateConnector service API.
+    * Added cmdlet Remove-CWOADMNConnector leveraging the DeleteConnector service API.
+    * Added cmdlet Start-CWOADMNTelemetryPipelineRefresh leveraging the StartTelemetryPipelineRefresh service API.
+    * Added cmdlet Start-CWOADMNThirdPartyTelemetryEnrichment leveraging the StartThirdPartyTelemetryEnrichment service API.
+    * Added cmdlet Stop-CWOADMNThirdPartyTelemetryEnrichment leveraging the StopThirdPartyTelemetryEnrichment service API.
+    * Added cmdlet Write-CWOADMNConnectorTelemetryManifest leveraging the PutConnectorTelemetryManifest service API.
+    * Modified cmdlet New-CWOADMNCentralizationRuleForOrganization: added parameters Rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region and Rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion.
+    * Modified cmdlet Update-CWOADMNCentralizationRuleForOrganization: added parameters Rule_Destination_DestinationProfilesConfiguration_BackupConfiguration_Region and Rule_Source_SourceProfilesConfiguration_ProfilesSelectionCriterion.
+  * CloudWatch RUM
+    * Modified cmdlet Write-CWRUMRumEvent: added parameter SessionMetadata.
+  * Inspector2
+    * Modified cmdlet New-INS2Connector: added parameters ProviderDetail_Gcp_AutoInstallVMScanner, ProviderDetail_Gcp_AwsConfigConnectorArn, ProviderDetail_Gcp_GcpRegion, ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType, ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue, ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType, ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue, ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType and ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue.
+    * Modified cmdlet Update-INS2Connector: added parameters ProviderDetail_Gcp_AutoInstallVMScanner, ProviderDetail_Gcp_GcpRegion, ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType, ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeValue, ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType, ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeValue, ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType and ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeValue.
+
+### 5.0.337 (2026-11-16 20:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.3.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Modified cmdlet Get-ATHDatabasisList: added parameter AttributesToGet.

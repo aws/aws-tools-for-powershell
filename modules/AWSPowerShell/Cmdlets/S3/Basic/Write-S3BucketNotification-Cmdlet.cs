@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3BucketNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketNotification API operation.", Operation = new[] {"PutBucketNotification"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketNotificationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutBucketNotification API operation.", Operation = new[] {"PutBucketNotification"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketNotificationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutBucketNotificationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutBucketNotificationResponse) be returned by specifying '-Select *'."
@@ -356,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutBucketNotificationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketNotificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutBucketNotification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketNotification");
             try
             {
                 return client.PutBucketNotificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

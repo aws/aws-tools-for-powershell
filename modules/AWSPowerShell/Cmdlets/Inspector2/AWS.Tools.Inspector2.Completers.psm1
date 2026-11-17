@@ -105,7 +105,7 @@ $INS2_Completers = {
             ($_ -eq "Get-INS2FindingAggregationList/TitleAggregation_ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
+            $v = "artifactregistry.googleapis.com/DockerImage","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION","cloudfunctions.googleapis.com/Function","CODE_REPOSITORY","compute.googleapis.com/Instance","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
             break
         }
 
@@ -222,7 +222,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.ConnectorCloudProvider
         "New-INS2Connector/Provider"
         {
-            $v = "AZURE"
+            $v = "AZURE","GCP"
             break
         }
 
@@ -426,7 +426,7 @@ $INS2_Completers = {
             ($_ -eq "Update-INS2EncryptionKey/ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","MACHINE_IMAGE","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
+            $v = "artifactregistry.googleapis.com/DockerImage","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","cloudfunctions.googleapis.com/Function","CODE_REPOSITORY","compute.googleapis.com/Instance","MACHINE_IMAGE","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
             break
         }
 
@@ -455,10 +455,16 @@ $INS2_Completers = {
             ($_ -eq "New-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeType") -Or
             ($_ -eq "Update-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeType") -Or
             ($_ -eq "New-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType") -Or
-            ($_ -eq "Update-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType")
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType") -Or
+            ($_ -eq "New-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType") -Or
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType") -Or
+            ($_ -eq "New-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType") -Or
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType") -Or
+            ($_ -eq "New-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType") -Or
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType")
         }
         {
-            $v = "SUBSCRIPTION","TENANT"
+            $v = "ORGANIZATION","PROJECT","SUBSCRIPTION","TENANT"
             break
         }
 
@@ -586,6 +592,9 @@ $INS2_map = @{
     "ProviderDetail_Azure_ScopeConfiguration_ContainerImageScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
     "ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
     "ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
+    "ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
+    "ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
+    "ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
     "ReportFormat"=@("Get-INS2CisScanReport","New-INS2FindingsReport","New-INS2SbomExport")
     "RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")

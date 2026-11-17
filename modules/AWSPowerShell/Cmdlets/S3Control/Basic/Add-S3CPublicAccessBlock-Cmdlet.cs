@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Add", "S3CPublicAccessBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control PutPublicAccessBlock API operation.", Operation = new[] {"PutPublicAccessBlock"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutPublicAccessBlockResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control PutPublicAccessBlock API operation.", Operation = new[] {"PutPublicAccessBlock"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutPublicAccessBlockResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.PutPublicAccessBlockResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.PutPublicAccessBlockResponse) be returned by specifying '-Select *'."
@@ -290,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.PutPublicAccessBlockResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.PutPublicAccessBlockRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "PutPublicAccessBlock");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "PutPublicAccessBlock");
             try
             {
                 return client.PutPublicAccessBlockAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

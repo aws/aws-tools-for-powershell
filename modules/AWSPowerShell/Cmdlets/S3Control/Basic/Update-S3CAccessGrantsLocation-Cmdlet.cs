@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Update", "S3CAccessGrantsLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse")]
-    [AWSCmdlet("Calls the Amazon S3 Control UpdateAccessGrantsLocation API operation.", Operation = new[] {"UpdateAccessGrantsLocation"}, SelectReturnType = typeof(Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control UpdateAccessGrantsLocation API operation.", Operation = new[] {"UpdateAccessGrantsLocation"}, SelectReturnType = typeof(Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse",
         "This cmdlet returns an Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse object containing multiple properties."
     )]
@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.UpdateAccessGrantsLocationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "UpdateAccessGrantsLocation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "UpdateAccessGrantsLocation");
             try
             {
                 return client.UpdateAccessGrantsLocationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

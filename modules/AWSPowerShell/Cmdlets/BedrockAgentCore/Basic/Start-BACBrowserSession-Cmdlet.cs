@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Start", "BACBrowserSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.StartBrowserSessionResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer StartBrowserSession API operation.", Operation = new[] {"StartBrowserSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StartBrowserSessionResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore StartBrowserSession API operation.", Operation = new[] {"StartBrowserSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StartBrowserSessionResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.StartBrowserSessionResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.StartBrowserSessionResponse object containing multiple properties."
     )]
@@ -536,7 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.StartBrowserSessionResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.StartBrowserSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "StartBrowserSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "StartBrowserSession");
             try
             {
                 return client.StartBrowserSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

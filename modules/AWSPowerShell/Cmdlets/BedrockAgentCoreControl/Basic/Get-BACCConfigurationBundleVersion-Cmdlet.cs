@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCConfigurationBundleVersion")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetConfigurationBundleVersionResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetConfigurationBundleVersion API operation.", Operation = new[] {"GetConfigurationBundleVersion"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetConfigurationBundleVersionResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetConfigurationBundleVersion API operation.", Operation = new[] {"GetConfigurationBundleVersion"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetConfigurationBundleVersionResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetConfigurationBundleVersionResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetConfigurationBundleVersionResponse object containing multiple properties."
     )]
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetConfigurationBundleVersionResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetConfigurationBundleVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetConfigurationBundleVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetConfigurationBundleVersion");
             try
             {
                 return client.GetConfigurationBundleVersionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

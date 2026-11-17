@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Add", "BACCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BedrockAgentCoreControl.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.TagResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

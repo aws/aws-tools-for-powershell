@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CPublicAccessBlock")]
     [OutputType("Amazon.S3Control.Model.PublicAccessBlockConfiguration")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetPublicAccessBlock API operation.", Operation = new[] {"GetPublicAccessBlock"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetPublicAccessBlockResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetPublicAccessBlock API operation.", Operation = new[] {"GetPublicAccessBlock"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetPublicAccessBlockResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.PublicAccessBlockConfiguration or Amazon.S3Control.Model.GetPublicAccessBlockResponse",
         "This cmdlet returns an Amazon.S3Control.Model.PublicAccessBlockConfiguration object.",
         "The service call response (type Amazon.S3Control.Model.GetPublicAccessBlockResponse) can be returned by specifying '-Select *'."
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetPublicAccessBlockResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetPublicAccessBlockRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetPublicAccessBlock");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetPublicAccessBlock");
             try
             {
                 return client.GetPublicAccessBlockAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

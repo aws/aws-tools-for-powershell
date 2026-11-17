@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCAgentRuntime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.AgentRuntimeStatus")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteAgentRuntime API operation.", Operation = new[] {"DeleteAgentRuntime"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteAgentRuntime API operation.", Operation = new[] {"DeleteAgentRuntime"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.AgentRuntimeStatus or Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.AgentRuntimeStatus object.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse) can be returned by specifying '-Select *'."
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteAgentRuntime");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteAgentRuntime");
             try
             {
                 return client.DeleteAgentRuntimeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

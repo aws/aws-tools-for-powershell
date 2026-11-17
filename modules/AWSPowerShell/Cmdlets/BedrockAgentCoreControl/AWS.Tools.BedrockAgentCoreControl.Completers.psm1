@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Bedrock Agent Core Control Plane Fronting Layer
+# Argument completions for service Amazon Bedrock AgentCore Control
 
 
 $BACC_Completers = {
@@ -87,6 +87,20 @@ $BACC_Completers = {
         }
         {
             $v = "AWS_IAM_ID_TOKEN_JWT","M2M","NONE"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.AgentInsightStoreEnablementStatus
+        "Update-BACCAgentInsightStore/EnablementStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.AgentInsightStoreEncryptionMode
+        "Update-BACCAgentInsightStore/EncryptionConfiguration_Mode"
+        {
+            $v = "AWS_OWNED_KMS_KEY","CUSTOMER_MANAGED_KMS"
             break
         }
 
@@ -579,6 +593,8 @@ $BACC_map = @{
     "ComputeConfiguration_Ec2Configuration_RootVolume_VolumeType"=@("New-BACCCapacityProvider")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","New-BACCPaymentCredentialProvider","Update-BACCOauth2CredentialProvider","Update-BACCPaymentCredentialProvider")
     "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
+    "EnablementStatus"=@("Update-BACCAgentInsightStore")
+    "EncryptionConfiguration_Mode"=@("Update-BACCAgentInsightStore")
     "EnforcementMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode"=@("New-BACCHarness","Update-BACCHarness")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
@@ -740,6 +756,7 @@ $BACC_SelectMap = @{
                "Remove-BACCRegistryRecord",
                "Remove-BACCResourcePolicy",
                "Remove-BACCWorkloadIdentity",
+               "Get-BACCAgentInsightStore",
                "Get-BACCAgentRuntime",
                "Get-BACCAgentRuntimeEndpoint",
                "Get-BACCApiKeyCredentialProvider",
@@ -775,6 +792,7 @@ $BACC_SelectMap = @{
                "Get-BACCResourcePolicy",
                "Get-BACCTokenVault",
                "Get-BACCWorkloadIdentity",
+               "Get-BACCAgentInsightStoreList",
                "Get-BACCAgentRuntimeEndpointList",
                "Get-BACCAgentRuntimeList",
                "Get-BACCAgentRuntimeVersionList",
@@ -824,6 +842,7 @@ $BACC_SelectMap = @{
                "Sync-BACCGatewayTarget",
                "Add-BACCResourceTag",
                "Remove-BACCResourceTag",
+               "Update-BACCAgentInsightStore",
                "Update-BACCAgentRuntime",
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",

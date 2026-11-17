@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Write", "S3CStorageLensConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control PutStorageLensConfiguration API operation.", Operation = new[] {"PutStorageLensConfiguration"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutStorageLensConfigurationResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control PutStorageLensConfiguration API operation.", Operation = new[] {"PutStorageLensConfiguration"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutStorageLensConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.PutStorageLensConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.PutStorageLensConfigurationResponse) be returned by specifying '-Select *'."
@@ -385,6 +385,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.Boolean? StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled { get; set; }
         #endregion
         
+        #region Parameter StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether prefix-level cost data publishing to Amazon Web Services CUR is
+        /// enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchMetrics_IsEnabled
         /// <summary>
         /// <para>
@@ -422,6 +433,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled")]
         public System.Boolean? ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter StorageLensConfiguration_IntAccessTiers_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether S3 Storage Lens Intelligent-Tiering access tier
+        /// metrics are enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StorageLensConfiguration_IntAccessTiers_IsEnabled { get; set; }
         #endregion
         
         #region Parameter StorageLensConfiguration_IsEnabled
@@ -497,6 +519,30 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_MaxDepth")]
         public System.Int32? SelectionCriteria_MaxDepth { get; set; }
+        #endregion
+        
+        #region Parameter StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth
+        /// <summary>
+        /// <para>
+        /// <para>The maximum prefix depth (inclusive) for which cost data is published to Amazon Web
+        /// Services CUR. You must provide both <c>MinDepth</c> and <c>MaxDepth</c> together,
+        /// or neither. If neither is provided, <c>MaxDepth</c> defaults to <c>3</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth { get; set; }
+        #endregion
+        
+        #region Parameter StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth
+        /// <summary>
+        /// <para>
+        /// <para>The minimum prefix depth (inclusive) for which cost data is published to Amazon Web
+        /// Services CUR. You must provide both <c>MinDepth</c> and <c>MaxDepth</c> together,
+        /// or neither. If neither is provided, <c>MinDepth</c> defaults to <c>1</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth { get; set; }
         #endregion
         
         #region Parameter SelectionCriteria_MinStorageBytesPercentage
@@ -757,6 +803,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 context.SelectionCriteria_Include = new List<System.String>(this.SelectionCriteria_Include);
             }
             context.AwsOrg_Arn = this.AwsOrg_Arn;
+            context.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled = this.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled;
+            context.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth = this.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth;
+            context.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth = this.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth;
             context.CloudWatchMetrics_IsEnabled = this.CloudWatchMetrics_IsEnabled;
             context.DataExport_S3BucketDestination_AccountId = this.DataExport_S3BucketDestination_AccountId;
             context.DataExport_S3BucketDestination_Arn = this.DataExport_S3BucketDestination_Arn;
@@ -801,6 +850,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             {
                 context.Include_Region = new List<System.String>(this.Include_Region);
             }
+            context.StorageLensConfiguration_IntAccessTiers_IsEnabled = this.StorageLensConfiguration_IntAccessTiers_IsEnabled;
             context.StorageLensConfiguration_IsEnabled = this.StorageLensConfiguration_IsEnabled;
             #if MODULAR
             if (this.StorageLensConfiguration_IsEnabled == null && ParameterWasBound(nameof(this.StorageLensConfiguration_IsEnabled)))
@@ -905,6 +955,106 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AwsOrg != null)
             {
                 request.StorageLensConfiguration.AwsOrg = requestStorageLensConfiguration_storageLensConfiguration_AwsOrg;
+                requestStorageLensConfigurationIsNull = false;
+            }
+            Amazon.S3Control.Model.StorageLensCostAndUsageReportsPublish requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish = null;
+            
+             // populate CostAndUsageReportsPublish
+            var requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublishIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish = new Amazon.S3Control.Model.StorageLensCostAndUsageReportsPublish();
+            Amazon.S3Control.Model.StorageLensCostAndUsageReportsPrefixLevel requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel = null;
+            
+             // populate PrefixLevel
+            var requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevelIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel = new Amazon.S3Control.Model.StorageLensCostAndUsageReportsPrefixLevel();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled = cmdletContext.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.StorageLensCostAndUsageReportsSelectionCriteria requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria = null;
+            
+             // populate SelectionCriteria
+            var requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteriaIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria = new Amazon.S3Control.Model.StorageLensCostAndUsageReportsSelectionCriteria();
+            System.Int32? requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth = null;
+            if (cmdletContext.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth = cmdletContext.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria.MaxDepth = requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteriaIsNull = false;
+            }
+            System.Int32? requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth = null;
+            if (cmdletContext.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth = cmdletContext.StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria.MinDepth = requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteriaIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteriaIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel.SelectionCriteria = requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria;
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevelIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevelIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish.PrefixLevel = requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish_storageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel;
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublishIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublishIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish != null)
+            {
+                request.StorageLensConfiguration.CostAndUsageReportsPublish = requestStorageLensConfiguration_storageLensConfiguration_CostAndUsageReportsPublish;
+                requestStorageLensConfigurationIsNull = false;
+            }
+            Amazon.S3Control.Model.IntAccessTiers requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers = null;
+            
+             // populate IntAccessTiers
+            var requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiersIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers = new Amazon.S3Control.Model.IntAccessTiers();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers_storageLensConfiguration_IntAccessTiers_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_IntAccessTiers_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers_storageLensConfiguration_IntAccessTiers_IsEnabled = cmdletContext.StorageLensConfiguration_IntAccessTiers_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers_storageLensConfiguration_IntAccessTiers_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers_storageLensConfiguration_IntAccessTiers_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiersIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiersIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers != null)
+            {
+                request.StorageLensConfiguration.IntAccessTiers = requestStorageLensConfiguration_storageLensConfiguration_IntAccessTiers;
                 requestStorageLensConfigurationIsNull = false;
             }
             Amazon.S3Control.Model.Exclude requestStorageLensConfiguration_storageLensConfiguration_Exclude = null;
@@ -1871,7 +2021,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.PutStorageLensConfigurationResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.PutStorageLensConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "PutStorageLensConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "PutStorageLensConfiguration");
             try
             {
                 return client.PutStorageLensConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -1910,6 +2060,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public List<System.String> SelectionCriteria_Exclude { get; set; }
             public List<System.String> SelectionCriteria_Include { get; set; }
             public System.String AwsOrg_Arn { get; set; }
+            public System.Boolean? StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_IsEnabled { get; set; }
+            public System.Int32? StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MaxDepth { get; set; }
+            public System.Int32? StorageLensConfiguration_CostAndUsageReportsPublish_PrefixLevel_SelectionCriteria_MinDepth { get; set; }
             public System.Boolean? CloudWatchMetrics_IsEnabled { get; set; }
             public System.String DataExport_S3BucketDestination_AccountId { get; set; }
             public System.String DataExport_S3BucketDestination_Arn { get; set; }
@@ -1936,6 +2089,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.String StorageLensConfiguration_Id { get; set; }
             public List<System.String> Include_Bucket { get; set; }
             public List<System.String> Include_Region { get; set; }
+            public System.Boolean? StorageLensConfiguration_IntAccessTiers_IsEnabled { get; set; }
             public System.Boolean? StorageLensConfiguration_IsEnabled { get; set; }
             public System.String StorageLensConfiguration_PrefixDelimiter { get; set; }
             public System.String StorageLensConfiguration_StorageLensArn { get; set; }

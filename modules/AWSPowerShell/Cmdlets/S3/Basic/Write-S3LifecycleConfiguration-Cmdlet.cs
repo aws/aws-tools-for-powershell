@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3LifecycleConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.TransitionDefaultMinimumObjectSize")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutLifecycleConfiguration API operation.", Operation = new[] {"PutLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutLifecycleConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutLifecycleConfiguration API operation.", Operation = new[] {"PutLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutLifecycleConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.TransitionDefaultMinimumObjectSize or Amazon.S3.Model.PutLifecycleConfigurationResponse",
         "This cmdlet returns an Amazon.S3.TransitionDefaultMinimumObjectSize object.",
         "The service call response (type Amazon.S3.Model.PutLifecycleConfigurationResponse) can be returned by specifying '-Select *'."
@@ -351,7 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutLifecycleConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutLifecycleConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutLifecycleConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutLifecycleConfiguration");
             try
             {
                 return client.PutLifecycleConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

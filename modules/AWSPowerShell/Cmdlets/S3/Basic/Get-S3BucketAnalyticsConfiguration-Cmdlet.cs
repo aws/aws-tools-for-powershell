@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketAnalyticsConfiguration")]
     [OutputType("Amazon.S3.Model.AnalyticsConfiguration")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketAnalyticsConfiguration API operation.", Operation = new[] {"GetBucketAnalyticsConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketAnalyticsConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketAnalyticsConfiguration API operation.", Operation = new[] {"GetBucketAnalyticsConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketAnalyticsConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.AnalyticsConfiguration or Amazon.S3.Model.GetBucketAnalyticsConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.AnalyticsConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetBucketAnalyticsConfigurationResponse) can be returned by specifying '-Select *'."
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketAnalyticsConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketAnalyticsConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketAnalyticsConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketAnalyticsConfiguration");
             try
             {
                 return client.GetBucketAnalyticsConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

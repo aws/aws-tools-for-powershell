@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Update", "BACCPaymentManager", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UpdatePaymentManager API operation.", Operation = new[] {"UpdatePaymentManager"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control UpdatePaymentManager API operation.", Operation = new[] {"UpdatePaymentManager"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse object containing multiple properties."
     )]
@@ -826,7 +826,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UpdatePaymentManager");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "UpdatePaymentManager");
             try
             {
                 return client.UpdatePaymentManagerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

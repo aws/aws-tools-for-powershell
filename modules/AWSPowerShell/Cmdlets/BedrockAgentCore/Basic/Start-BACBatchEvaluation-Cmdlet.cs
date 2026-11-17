@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Start", "BACBatchEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.StartBatchEvaluationResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer StartBatchEvaluation API operation.", Operation = new[] {"StartBatchEvaluation"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StartBatchEvaluationResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore StartBatchEvaluation API operation.", Operation = new[] {"StartBatchEvaluation"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StartBatchEvaluationResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.StartBatchEvaluationResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.StartBatchEvaluationResponse object containing multiple properties."
     )]
@@ -45,6 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the agent runtime endpoint to invoke. Specify an
+        /// endpoint in the same account and Region as the batch evaluation. The service requires
+        /// the endpoint and its agent runtime version to be ready. The agent runtime must use
+        /// the HTTP protocol and IAM inbound authorization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn { get; set; }
+        #endregion
         
         #region Parameter BatchEvaluationName
         /// <summary>
@@ -61,6 +74,27 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BatchEvaluationName { get; set; }
+        #endregion
+        
+        #region Parameter DatasetExecutionConfig_Dataset_DatasetId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DatasetExecutionConfig_Dataset_DatasetId { get; set; }
+        #endregion
+        
+        #region Parameter DatasetExecutionConfig_Dataset_DatasetVersion
+        /// <summary>
+        /// <para>
+        /// <para>The number of a published version of the dataset. You can't run the <c>DRAFT</c> version.
+        /// If you don't specify a version, the batch evaluation uses the latest published version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DatasetExecutionConfig_Dataset_DatasetVersion { get; set; }
         #endregion
         
         #region Parameter Description
@@ -221,6 +255,20 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn { get; set; }
+        #endregion
+        
+        #region Parameter DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate
+        /// <summary>
+        /// <para>
+        /// <para>A JSON object template for the request payload sent to the agent for each turn. The
+        /// template must contain the placeholder <c>{{turn.input}}</c> exactly once, as the complete
+        /// value of a JSON string and not as a field name. The service replaces the placeholder
+        /// with the input of the turn. If the input isn't a string, the service inserts it as
+        /// a JSON value. If you don't specify a template, the service uses <c>{"prompt": "{{turn.input}}"}</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate { get; set; }
         #endregion
         
         #region Parameter OutputConfig_CloudWatchConfig_ResultDestination
@@ -431,6 +479,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             context.DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn = this.DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn;
             context.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime = this.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime;
             context.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime = this.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime;
+            context.DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn = this.DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn;
+            context.DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate = this.DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate;
+            context.DatasetExecutionConfig_Dataset_DatasetId = this.DatasetExecutionConfig_Dataset_DatasetId;
+            context.DatasetExecutionConfig_Dataset_DatasetVersion = this.DatasetExecutionConfig_Dataset_DatasetVersion;
             context.Description = this.Description;
             if (this.EvaluationMetadata_SessionMetadata != null)
             {
@@ -665,6 +717,100 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.DataSourceConfig = null;
             }
+            
+             // populate DatasetExecutionConfig
+            var requestDatasetExecutionConfigIsNull = true;
+            request.DatasetExecutionConfig = new Amazon.BedrockAgentCore.Model.DatasetExecutionConfig();
+            Amazon.BedrockAgentCore.Model.AgentInvocationConfig requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation = null;
+            
+             // populate AgentInvocation
+            var requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocationIsNull = true;
+            requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation = new Amazon.BedrockAgentCore.Model.AgentInvocationConfig();
+            Amazon.BedrockAgentCore.Model.AgentCoreRuntimeInvocation requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime = null;
+            
+             // populate AgentCoreRuntime
+            var requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntimeIsNull = true;
+            requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime = new Amazon.BedrockAgentCore.Model.AgentCoreRuntimeInvocation();
+            System.String requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn = null;
+            if (cmdletContext.DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn != null)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn = cmdletContext.DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn;
+            }
+            if (requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn != null)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime.AgentRuntimeEndpointArn = requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn;
+                requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntimeIsNull = false;
+            }
+            System.String requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate = null;
+            if (cmdletContext.DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate != null)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate = cmdletContext.DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate;
+            }
+            if (requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate != null)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime.RequestTemplate = requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate;
+                requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntimeIsNull = false;
+            }
+             // determine if requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime should be set to null
+            if (requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntimeIsNull)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime = null;
+            }
+            if (requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime != null)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation.AgentCoreRuntime = requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation_datasetExecutionConfig_AgentInvocation_AgentCoreRuntime;
+                requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocationIsNull = false;
+            }
+             // determine if requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation should be set to null
+            if (requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocationIsNull)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation = null;
+            }
+            if (requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation != null)
+            {
+                request.DatasetExecutionConfig.AgentInvocation = requestDatasetExecutionConfig_datasetExecutionConfig_AgentInvocation;
+                requestDatasetExecutionConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCore.Model.DatasetSource requestDatasetExecutionConfig_datasetExecutionConfig_Dataset = null;
+            
+             // populate Dataset
+            var requestDatasetExecutionConfig_datasetExecutionConfig_DatasetIsNull = true;
+            requestDatasetExecutionConfig_datasetExecutionConfig_Dataset = new Amazon.BedrockAgentCore.Model.DatasetSource();
+            System.String requestDatasetExecutionConfig_datasetExecutionConfig_Dataset_datasetExecutionConfig_Dataset_DatasetId = null;
+            if (cmdletContext.DatasetExecutionConfig_Dataset_DatasetId != null)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_Dataset_datasetExecutionConfig_Dataset_DatasetId = cmdletContext.DatasetExecutionConfig_Dataset_DatasetId;
+            }
+            if (requestDatasetExecutionConfig_datasetExecutionConfig_Dataset_datasetExecutionConfig_Dataset_DatasetId != null)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_Dataset.DatasetId = requestDatasetExecutionConfig_datasetExecutionConfig_Dataset_datasetExecutionConfig_Dataset_DatasetId;
+                requestDatasetExecutionConfig_datasetExecutionConfig_DatasetIsNull = false;
+            }
+            System.String requestDatasetExecutionConfig_datasetExecutionConfig_Dataset_datasetExecutionConfig_Dataset_DatasetVersion = null;
+            if (cmdletContext.DatasetExecutionConfig_Dataset_DatasetVersion != null)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_Dataset_datasetExecutionConfig_Dataset_DatasetVersion = cmdletContext.DatasetExecutionConfig_Dataset_DatasetVersion;
+            }
+            if (requestDatasetExecutionConfig_datasetExecutionConfig_Dataset_datasetExecutionConfig_Dataset_DatasetVersion != null)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_Dataset.DatasetVersion = requestDatasetExecutionConfig_datasetExecutionConfig_Dataset_datasetExecutionConfig_Dataset_DatasetVersion;
+                requestDatasetExecutionConfig_datasetExecutionConfig_DatasetIsNull = false;
+            }
+             // determine if requestDatasetExecutionConfig_datasetExecutionConfig_Dataset should be set to null
+            if (requestDatasetExecutionConfig_datasetExecutionConfig_DatasetIsNull)
+            {
+                requestDatasetExecutionConfig_datasetExecutionConfig_Dataset = null;
+            }
+            if (requestDatasetExecutionConfig_datasetExecutionConfig_Dataset != null)
+            {
+                request.DatasetExecutionConfig.Dataset = requestDatasetExecutionConfig_datasetExecutionConfig_Dataset;
+                requestDatasetExecutionConfigIsNull = false;
+            }
+             // determine if request.DatasetExecutionConfig should be set to null
+            if (requestDatasetExecutionConfigIsNull)
+            {
+                request.DatasetExecutionConfig = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -803,7 +949,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.StartBatchEvaluationResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.StartBatchEvaluationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "StartBatchEvaluation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "StartBatchEvaluation");
             try
             {
                 return client.StartBatchEvaluationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -835,6 +981,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn { get; set; }
             public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime { get; set; }
             public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime { get; set; }
+            public System.String DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_AgentRuntimeEndpointArn { get; set; }
+            public System.String DatasetExecutionConfig_AgentInvocation_AgentCoreRuntime_RequestTemplate { get; set; }
+            public System.String DatasetExecutionConfig_Dataset_DatasetId { get; set; }
+            public System.String DatasetExecutionConfig_Dataset_DatasetVersion { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.BedrockAgentCore.Model.SessionMetadataShape> EvaluationMetadata_SessionMetadata { get; set; }
             public List<Amazon.BedrockAgentCore.Model.Evaluator> Evaluator { get; set; }

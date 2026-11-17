@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Remove", "S3CAccessGrantsInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control DeleteAccessGrantsInstance API operation.", Operation = new[] {"DeleteAccessGrantsInstance"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessGrantsInstanceResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control DeleteAccessGrantsInstance API operation.", Operation = new[] {"DeleteAccessGrantsInstance"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessGrantsInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteAccessGrantsInstanceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.DeleteAccessGrantsInstanceResponse) be returned by specifying '-Select *'."
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.DeleteAccessGrantsInstanceResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeleteAccessGrantsInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeleteAccessGrantsInstance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "DeleteAccessGrantsInstance");
             try
             {
                 return client.DeleteAccessGrantsInstanceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

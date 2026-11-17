@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <important><para>
-    ///  We recommend that you delete your S3 Metadata configurations by using the V2 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataTableConfiguration.html">DeleteBucketMetadataTableConfiguration</a>
+    ///  We recommend that you delete your S3 Metadata configurations by using the V2 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataConfiguration.html">DeleteBucketMetadataConfiguration</a>
     /// API operation. We no longer recommend using the V1 <c>DeleteBucketMetadataTableConfiguration</c>
     /// API operation. 
     /// </para><para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3BucketMetadataTableConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteBucketMetadataTableConfiguration API operation.", Operation = new[] {"DeleteBucketMetadataTableConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketMetadataTableConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteBucketMetadataTableConfiguration API operation.", Operation = new[] {"DeleteBucketMetadataTableConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketMetadataTableConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteBucketMetadataTableConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.DeleteBucketMetadataTableConfigurationResponse) be returned by specifying '-Select *'."
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.DeleteBucketMetadataTableConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketMetadataTableConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteBucketMetadataTableConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteBucketMetadataTableConfiguration");
             try
             {
                 return client.DeleteBucketMetadataTableConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

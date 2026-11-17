@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3HeadBucket")]
     [OutputType("Amazon.S3.Model.HeadBucketResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) HeadBucket API operation.", Operation = new[] {"HeadBucket"}, SelectReturnType = typeof(Amazon.S3.Model.HeadBucketResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service HeadBucket API operation.", Operation = new[] {"HeadBucket"}, SelectReturnType = typeof(Amazon.S3.Model.HeadBucketResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.HeadBucketResponse",
         "This cmdlet returns an Amazon.S3.Model.HeadBucketResponse object containing multiple properties."
     )]
@@ -247,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.HeadBucketResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.HeadBucketRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "HeadBucket");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "HeadBucket");
             try
             {
                 return client.HeadBucketAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

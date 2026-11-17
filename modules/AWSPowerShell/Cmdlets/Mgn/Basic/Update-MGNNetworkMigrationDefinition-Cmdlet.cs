@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public Amazon.Mgn.Model.CidrMapping[] CidrMapping { get; set; }
         #endregion
         
+        #region Parameter DefinitionType
+        /// <summary>
+        /// <para>
+        /// <para>The updated type of the network migration definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.DefinitionType")]
+        public Amazon.Mgn.DefinitionType DefinitionType { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -266,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 context.CidrMapping = new List<Amazon.Mgn.Model.CidrMapping>(this.CidrMapping);
             }
+            context.DefinitionType = this.DefinitionType;
             context.Description = this.Description;
             context.Name = this.Name;
             context.NetworkMigrationDefinitionID = this.NetworkMigrationDefinitionID;
@@ -314,6 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.CidrMapping != null)
             {
                 request.CidrMappings = cmdletContext.CidrMapping;
+            }
+            if (cmdletContext.DefinitionType != null)
+            {
+                request.DefinitionType = cmdletContext.DefinitionType;
             }
             if (cmdletContext.Description != null)
             {
@@ -477,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.Mgn.Model.CidrMapping> CidrMapping { get; set; }
+            public Amazon.Mgn.DefinitionType DefinitionType { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String NetworkMigrationDefinitionID { get; set; }

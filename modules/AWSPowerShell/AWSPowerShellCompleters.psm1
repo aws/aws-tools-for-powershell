@@ -1847,7 +1847,7 @@ $AG_Completers = {
         # Amazon.APIGateway.AuthorizerType
         "New-AGAuthorizer/Type"
         {
-            $v = "COGNITO_USER_POOLS","REQUEST","TOKEN"
+            $v = "COGNITO_USER_POOLS","JWT","REQUEST","TOKEN"
             break
         }
 
@@ -9220,7 +9220,7 @@ $AAB_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $AAB_SelectCompleters $AAB_SelectMap
-# Argument completions for service Amazon Bedrock Agent Core Control Plane Fronting Layer
+# Argument completions for service Amazon Bedrock AgentCore Control
 
 
 $BACC_Completers = {
@@ -9235,6 +9235,20 @@ $BACC_Completers = {
         }
         {
             $v = "AWS_IAM_ID_TOKEN_JWT","M2M","NONE"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.AgentInsightStoreEnablementStatus
+        "Update-BACCAgentInsightStore/EnablementStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.AgentInsightStoreEncryptionMode
+        "Update-BACCAgentInsightStore/EncryptionConfiguration_Mode"
+        {
+            $v = "AWS_OWNED_KMS_KEY","CUSTOMER_MANAGED_KMS"
             break
         }
 
@@ -9727,6 +9741,8 @@ $BACC_map = @{
     "ComputeConfiguration_Ec2Configuration_RootVolume_VolumeType"=@("New-BACCCapacityProvider")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","New-BACCPaymentCredentialProvider","Update-BACCOauth2CredentialProvider","Update-BACCPaymentCredentialProvider")
     "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
+    "EnablementStatus"=@("Update-BACCAgentInsightStore")
+    "EncryptionConfiguration_Mode"=@("Update-BACCAgentInsightStore")
     "EnforcementMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode"=@("New-BACCHarness","Update-BACCHarness")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
@@ -9888,6 +9904,7 @@ $BACC_SelectMap = @{
                "Remove-BACCRegistryRecord",
                "Remove-BACCResourcePolicy",
                "Remove-BACCWorkloadIdentity",
+               "Get-BACCAgentInsightStore",
                "Get-BACCAgentRuntime",
                "Get-BACCAgentRuntimeEndpoint",
                "Get-BACCApiKeyCredentialProvider",
@@ -9923,6 +9940,7 @@ $BACC_SelectMap = @{
                "Get-BACCResourcePolicy",
                "Get-BACCTokenVault",
                "Get-BACCWorkloadIdentity",
+               "Get-BACCAgentInsightStoreList",
                "Get-BACCAgentRuntimeEndpointList",
                "Get-BACCAgentRuntimeList",
                "Get-BACCAgentRuntimeVersionList",
@@ -9972,6 +9990,7 @@ $BACC_SelectMap = @{
                "Sync-BACCGatewayTarget",
                "Add-BACCResourceTag",
                "Remove-BACCResourceTag",
+               "Update-BACCAgentInsightStore",
                "Update-BACCAgentRuntime",
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",
@@ -10002,7 +10021,7 @@ $BACC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $BACC_SelectCompleters $BACC_SelectMap
-# Argument completions for service Amazon Bedrock AgentCore Data Plane Fronting Layer
+# Argument completions for service Amazon Bedrock AgentCore
 
 
 $BAC_Completers = {
@@ -10014,6 +10033,16 @@ $BAC_Completers = {
         "Update-BACABTest/ExecutionStatus"
         {
             $v = "NOT_STARTED","PAUSED","RUNNING","STOPPED"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.AgentInsightArchiveStatus
+        {
+            ($_ -eq "Get-BACAgentInsightList/ArchiveStatus") -Or
+            ($_ -eq "Update-BACAgentInsight/ArchiveStatus")
+        }
+        {
+            $v = "ACTIVE","ARCHIVED"
             break
         }
 
@@ -10184,6 +10213,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.ScenarioType
+        "Start-BACDatasetGeneration/ScenarioType"
+        {
+            $v = "DYNAMIC","FIXED"
+            break
+        }
+
         # Amazon.BedrockAgentCore.ScreenshotFormat
         "Invoke-BACBrowser/Action_Screenshot_Format"
         {
@@ -10210,6 +10246,7 @@ $BAC_map = @{
     "Action_MouseClick_Button"=@("Invoke-BACBrowser")
     "Action_MouseDrag_Button"=@("Invoke-BACBrowser")
     "Action_Screenshot_Format"=@("Invoke-BACBrowser")
+    "ArchiveStatus"=@("Get-BACAgentInsightList","Update-BACAgentInsight")
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
@@ -10229,6 +10266,7 @@ $BAC_map = @{
     "PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestMethod"=@("Get-BACResourcePaymentToken")
     "PaymentType"=@("Invoke-BACPayment")
     "RecordExpirySpecification_Action"=@("New-BACBatchMemoryRecord","Update-BACBatchMemoryRecord")
+    "ScenarioType"=@("Start-BACDatasetGeneration")
     "Status"=@("Get-BACBrowserSessionList","Get-BACCodeInterpreterSessionList")
     "StatusFilter"=@("Get-BACRecommendationList")
     "Token"=@("Get-BACPaymentInstrumentBalance")
@@ -10296,6 +10334,7 @@ $BAC_SelectMap = @{
                "Remove-BACABTest",
                "Remove-BACBatchEvaluation",
                "Remove-BACCapacityProviderSession",
+               "Remove-BACDatasetGeneration",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
                "Remove-BACPaymentInstrument",
@@ -10304,9 +10343,11 @@ $BAC_SelectMap = @{
                "Invoke-BACEvaluate",
                "Get-BACABTest",
                "Get-BACAgentCard",
+               "Get-BACAgentInsight",
                "Get-BACBatchEvaluation",
                "Get-BACBrowserSession",
                "Get-BACCodeInterpreterSession",
+               "Get-BACDatasetGeneration",
                "Get-BACEvent",
                "Get-BACMemoryRecord",
                "Get-BACPaymentInstrument",
@@ -10328,9 +10369,11 @@ $BAC_SelectMap = @{
                "Invoke-BACWebSearch",
                "Get-BACABTestList",
                "Get-BACActorList",
+               "Get-BACAgentInsightList",
                "Get-BACBatchEvaluationList",
                "Get-BACBrowserSessionList",
                "Get-BACCodeInterpreterSessionList",
+               "Get-BACDatasetGenerationList",
                "Get-BACEventList",
                "Get-BACMemoryExtractionJobList",
                "Get-BACMemoryRecordList",
@@ -10345,6 +10388,7 @@ $BAC_SelectMap = @{
                "Start-BACBatchEvaluation",
                "Start-BACBrowserSession",
                "Start-BACCodeInterpreterSession",
+               "Start-BACDatasetGeneration",
                "Start-BACMemoryExtractionJob",
                "Start-BACRecommendation",
                "Stop-BACBatchEvaluation",
@@ -10352,6 +10396,7 @@ $BAC_SelectMap = @{
                "Stop-BACCodeInterpreterSession",
                "Stop-BACRuntimeSession",
                "Update-BACABTest",
+               "Update-BACAgentInsight",
                "Update-BACBrowserStream")
 }
 
@@ -11447,7 +11492,7 @@ $AWSB_Completers = {
         # Amazon.Billing.BillingFeature
         "Update-AWSBBillingPreference/Feature"
         {
-            $v = "BILLING_ALERTS","CREDIT_LEVEL_SHARING","CREDIT_PREFERENCE_OPTIONS","CREDIT_SHARING","CREDIT_SHARING_HISTORY","RI_SHARING","RI_SHARING_HISTORY"
+            $v = "BENEFIT_LEVEL_SHARING","BILLING_ALERTS","CREDIT_LEVEL_SHARING","CREDIT_PREFERENCE_OPTIONS","CREDIT_SHARING","CREDIT_SHARING_HISTORY","RI_SHARING","RI_SHARING_HISTORY"
             break
         }
 
@@ -11552,7 +11597,9 @@ $AWSB_SelectMap = @{
                "Get-AWSBSourceViewsForBillingViewList",
                "Get-AWSBResourceTag",
                "Invoke-AWSBCreditRedemption",
+               "Split-AWSBCredit",
                "Add-AWSBResourceTag",
+               "Invoke-AWSBCreditTransfer",
                "Remove-AWSBResourceTag",
                "Update-AWSBBillingPreference",
                "Update-AWSBBillingView")
@@ -15526,8 +15573,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16220,8 +16267,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16681,9 +16728,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
+    "Select"=@("Write-CSDDocument",
                "Get-CSDSuggestion",
-               "Write-CSDDocument")
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -23678,6 +23725,13 @@ $CCAS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ConnectCases.AutoIncludeFields
+        "Write-CCASCaseEventConfiguration/EventBridge_IncludedData_CaseData_AutoIncludeField"
+        {
+            $v = "All","Custom","System"
+            break
+        }
+
         # Amazon.ConnectCases.CommentBodyTextType
         {
             ($_ -eq "New-CCASRelatedItem/Comment_ContentType") -Or
@@ -23735,6 +23789,7 @@ $CCAS_map = @{
     "Comment_ContentType"=@("New-CCASRelatedItem")
     "Content_Comment_ContentType"=@("New-CCASRelatedItemBatch","Update-CCASRelatedItem")
     "Content_Sla_SlaInputConfiguration_Type"=@("New-CCASRelatedItemBatch")
+    "EventBridge_IncludedData_CaseData_AutoIncludeField"=@("Write-CCASCaseEventConfiguration")
     "SlaInputConfiguration_Type"=@("New-CCASRelatedItem")
     "Status"=@("New-CCASTemplate","Update-CCASTemplate")
     "Type"=@("New-CCASField","New-CCASRelatedItem")
@@ -27971,6 +28026,16 @@ $DOPS_Completers = {
             break
         }
 
+        # Amazon.DevOpsAgent.ChatArchiveStatus
+        {
+            ($_ -eq "Get-DOPSChatList/ArchiveStatus") -Or
+            ($_ -eq "Update-DOPSChat/ArchiveStatus")
+        }
+        {
+            $v = "ACTIVE","ARCHIVED"
+            break
+        }
+
         # Amazon.DevOpsAgent.DayOfWeek
         "New-DOPSTrigger/Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek"
         {
@@ -28143,7 +28208,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.TaskType
         "New-DOPSBacklogTask/TaskType"
         {
-            $v = "EVALUATION","INVESTIGATION","RELEASE_READINESS_REVIEW","RELEASE_TESTING"
+            $v = "CODE_CHANGE_RISK_ANALYSIS","EVALUATION","INVESTIGATION","RELEASE_READINESS_REVIEW","RELEASE_TESTING"
             break
         }
 
@@ -28176,6 +28241,7 @@ $DOPS_Completers = {
 
 $DOPS_map = @{
     "Action"=@("Update-DOPSApprovalAction")
+    "ArchiveStatus"=@("Get-DOPSChatList","Update-DOPSChat")
     "AuthFlow"=@("Disable-DOPSOperatorApp","Enable-DOPSOperatorApp")
     "Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek"=@("New-DOPSTrigger")
     "Configuration_Aws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
@@ -28278,6 +28344,7 @@ $DOPS_SelectMap = @{
                "Get-DOPSAssetFile",
                "Get-DOPSAssociation",
                "Get-DOPSBacklogTask",
+               "Get-DOPSChat",
                "Get-DOPSOperatorApp",
                "Get-DOPSRecommendation",
                "Get-DOPSService",
@@ -28310,6 +28377,7 @@ $DOPS_SelectMap = @{
                "Update-DOPSAssetFile",
                "Update-DOPSAssociation",
                "Update-DOPSBacklogTask",
+               "Update-DOPSChat",
                "Update-DOPSGoal",
                "Update-DOPSOperatorAppIdpConfig",
                "Update-DOPSPrivateConnectionCertificate",
@@ -31155,11 +31223,11 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
-               "New-DDBTable",
                "ConvertTo-DDBItem",
-               "New-DDBTableSchema",
                "ConvertFrom-DDBItem",
+               "New-DDBTable",
+               "New-DDBTableSchema",
+               "Add-DDBKeySchema",
                "Add-DDBIndexSchema")
 }
 
@@ -32357,6 +32425,17 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.MultipathResilienceMode
+        {
+            ($_ -eq "Edit-EC2VpcPeeringConnectionOption/AccepterPeeringConnectionOptions_MultipathResilienceMode") -Or
+            ($_ -eq "Edit-EC2VpcPeeringConnectionOption/RequesterPeeringConnectionOptions_MultipathResilienceMode") -Or
+            ($_ -eq "New-EC2VpcPeeringConnection/RequesterPeeringConnectionOptions_MultipathResilienceMode")
+        }
+        {
+            $v = "always-on"
+            break
+        }
+
         # Amazon.EC2.NestedVirtualizationSpecification
         "Edit-EC2InstanceCpuOption/NestedVirtualization"
         {
@@ -32799,6 +32878,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.TransitGatewayPeeringAttachmentMultipathResilienceMode
+        {
+            ($_ -eq "Edit-EC2TransitGatewayPeeringAttachment/Options_MultipathResilienceMode") -Or
+            ($_ -eq "New-EC2TransitGatewayPeeringAttachment/Options_MultipathResilienceMode")
+        }
+        {
+            $v = "always-on"
+            break
+        }
+
         # Amazon.EC2.TransportProtocol
         "New-EC2ClientVpnEndpoint/TransportProtocol"
         {
@@ -33005,6 +33094,7 @@ $EC2_Completers = {
 }
 
 $EC2_map = @{
+    "AccepterPeeringConnectionOptions_MultipathResilienceMode"=@("Edit-EC2VpcPeeringConnectionOption")
     "AddressFamily"=@("New-EC2IpamPool","New-EC2IpamPrefixListResolver")
     "Affinity"=@("Edit-EC2InstancePlacement")
     "Aggregation"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck")
@@ -33140,6 +33230,7 @@ $EC2_map = @{
     "Options_Igmpv2Support"=@("New-EC2TransitGatewayMulticastDomain")
     "Options_Ipv6Support"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
     "Options_MulticastSupport"=@("New-EC2TransitGateway")
+    "Options_MultipathResilienceMode"=@("Edit-EC2TransitGatewayPeeringAttachment","New-EC2TransitGatewayPeeringAttachment")
     "Options_Protocol"=@("New-EC2TransitGatewayConnect")
     "Options_SecurityGroupReferencingSupport"=@("Edit-EC2TransitGateway","Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
     "Options_StaticSourcesSupport"=@("New-EC2TransitGatewayMulticastDomain")
@@ -33160,6 +33251,7 @@ $EC2_map = @{
     "PublicIpSource"=@("New-EC2IpamPool")
     "RdsOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
     "RebootMigration"=@("Edit-EC2InstanceMaintenanceOption")
+    "RequesterPeeringConnectionOptions_MultipathResilienceMode"=@("Edit-EC2VpcPeeringConnectionOption","New-EC2VpcPeeringConnection")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
     "ReservedCapacityOptions_AllocationStrategy"=@("New-EC2Fleet")
     "ResourceType"=@("Edit-EC2IpamPolicyAllocationRule","Get-EC2IpamPolicyAllocationRule","Get-EC2IpamResourceCidr","New-EC2FlowLog")
@@ -33989,6 +34081,7 @@ $EC2_SelectMap = @{
                "Edit-EC2TransitGatewayAttachmentNatConfiguration",
                "Edit-EC2TransitGatewayMeteringPolicy",
                "Edit-EC2TransitGatewayNetworkFunctionAttachment",
+               "Edit-EC2TransitGatewayPeeringAttachment",
                "Edit-EC2TransitGatewayPolicyTableEntry",
                "Edit-EC2TransitGatewayPrefixListReference",
                "Edit-EC2TransitGatewayVpcAttachment",
@@ -36756,6 +36849,16 @@ $EMI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElementalInference.BedrockApi
+        {
+            ($_ -eq "New-EMIFunction/Target_Bedrock_Api") -Or
+            ($_ -eq "Update-EMIFunction/Target_Bedrock_Api")
+        }
+        {
+            $v = "INVOKE_MODEL"
+            break
+        }
+
         # Amazon.ElementalInference.DataSourceSport
         "Search-EMIFixture/Sport"
         {
@@ -36773,6 +36876,16 @@ $EMI_Completers = {
             break
         }
 
+        # Amazon.ElementalInference.EventBridgeDeliveryMode
+        {
+            ($_ -eq "New-EMIFunction/EventBridgeDelivery") -Or
+            ($_ -eq "Update-EMIFunction/EventBridgeDelivery")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -36782,8 +36895,10 @@ $EMI_Completers = {
 }
 
 $EMI_map = @{
+    "EventBridgeDelivery"=@("New-EMIFunction","Update-EMIFunction")
     "Language"=@("New-EMIDictionary","Update-EMIDictionary")
     "Sport"=@("Search-EMIFixture")
+    "Target_Bedrock_Api"=@("New-EMIFunction","Update-EMIFunction")
 }
 
 _awsArgumentCompleterRegistration $EMI_Completers $EMI_map
@@ -36839,10 +36954,16 @@ $EMI_SelectMap = @{
     "Select"=@("Add-EMIFeed",
                "New-EMIDictionary",
                "New-EMIFeed",
+               "New-EMIFunction",
+               "New-EMIQuestionSet",
+               "New-EMIQuestionSetVersion",
                "New-EMIScheduleAction",
                "Remove-EMIDictionary",
                "Remove-EMIFeed",
                "Remove-EMIFeedPolicy",
+               "Remove-EMIFunction",
+               "Remove-EMIQuestionSet",
+               "Remove-EMIQuestionSetVersion",
                "Remove-EMIScheduleAction",
                "Unregister-EMIFeed",
                "Export-EMIDictionaryEntry",
@@ -36850,8 +36971,13 @@ $EMI_SelectMap = @{
                "Get-EMIFeed",
                "Get-EMIFeedPolicy",
                "Get-EMIFixture",
+               "Get-EMIFunction",
+               "Get-EMIQuestionSet",
                "Get-EMIDictionaryList",
                "Get-EMIFeedList",
+               "Get-EMIFunctionList",
+               "Get-EMIQuestionSetList",
+               "Get-EMIQuestionSetVersionList",
                "Get-EMIScheduleActionList",
                "Get-EMIResourceTag",
                "Write-EMIFeedPolicy",
@@ -36859,7 +36985,9 @@ $EMI_SelectMap = @{
                "Add-EMIResourceTag",
                "Remove-EMIResourceTag",
                "Update-EMIDictionary",
-               "Update-EMIFeed")
+               "Update-EMIFeed",
+               "Update-EMIFunction",
+               "Update-EMIQuestionSet")
 }
 
 _awsArgumentCompleterRegistration $EMI_SelectCompleters $EMI_SelectMap
@@ -41800,8 +41928,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -45578,7 +45706,7 @@ $INS2_Completers = {
             ($_ -eq "Get-INS2FindingAggregationList/TitleAggregation_ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
+            $v = "artifactregistry.googleapis.com/DockerImage","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION","cloudfunctions.googleapis.com/Function","CODE_REPOSITORY","compute.googleapis.com/Instance","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
             break
         }
 
@@ -45695,7 +45823,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.ConnectorCloudProvider
         "New-INS2Connector/Provider"
         {
-            $v = "AZURE"
+            $v = "AZURE","GCP"
             break
         }
 
@@ -45899,7 +46027,7 @@ $INS2_Completers = {
             ($_ -eq "Update-INS2EncryptionKey/ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","MACHINE_IMAGE","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
+            $v = "artifactregistry.googleapis.com/DockerImage","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","cloudfunctions.googleapis.com/Function","CODE_REPOSITORY","compute.googleapis.com/Instance","MACHINE_IMAGE","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
             break
         }
 
@@ -45928,10 +46056,16 @@ $INS2_Completers = {
             ($_ -eq "New-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeType") -Or
             ($_ -eq "Update-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeType") -Or
             ($_ -eq "New-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType") -Or
-            ($_ -eq "Update-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType")
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType") -Or
+            ($_ -eq "New-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType") -Or
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType") -Or
+            ($_ -eq "New-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType") -Or
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType") -Or
+            ($_ -eq "New-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType") -Or
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType")
         }
         {
-            $v = "SUBSCRIPTION","TENANT"
+            $v = "ORGANIZATION","PROJECT","SUBSCRIPTION","TENANT"
             break
         }
 
@@ -46059,6 +46193,9 @@ $INS2_map = @{
     "ProviderDetail_Azure_ScopeConfiguration_ContainerImageScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
     "ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
     "ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
+    "ProviderDetail_Gcp_ScopeConfiguration_ContainerImageScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
+    "ProviderDetail_Gcp_ScopeConfiguration_ServerlessScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
+    "ProviderDetail_Gcp_ScopeConfiguration_VmScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
     "ReportFormat"=@("Get-INS2CisScanReport","New-INS2FindingsReport","New-INS2SbomExport")
     "RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
@@ -51510,6 +51647,16 @@ $KIN_Completers = {
             break
         }
 
+        # Amazon.Kinesis.TargetType
+        {
+            ($_ -eq "New-KINQueue/QueueAttributes_DeadLetterConfiguration_TargetType") -Or
+            ($_ -eq "Update-KINQueue/QueueAttributes_DeadLetterConfiguration_TargetType")
+        }
+        {
+            $v = "BUILT_IN","NONE"
+            break
+        }
+
 
     }
 
@@ -51522,6 +51669,7 @@ $KIN_map = @{
     "EncryptionConfiguration_EncryptionType"=@("New-KINChannel")
     "EncryptionType"=@("Start-KINStreamEncryption","Stop-KINStreamEncryption")
     "MinimumThroughputBillingCommitment_Status"=@("Update-KINAccountSetting")
+    "QueueAttributes_DeadLetterConfiguration_TargetType"=@("New-KINQueue","Update-KINQueue")
     "RecordDistributionStrategy"=@("New-KINStream","Update-KINStreamRecordDistributionStrategy")
     "S3DestinationConfiguration_StorageConfiguration_CompressionType"=@("New-KINChannel")
     "S3DestinationConfiguration_StorageConfiguration_StorageClass"=@("New-KINChannel")
@@ -51581,17 +51729,22 @@ $KIN_SelectCompleters = {
 }
 
 $KIN_SelectMap = @{
-    "Select"=@("Add-KINTagsToStream",
+    "Select"=@("Confirm-KINDeadLetterQueueRecord",
+               "Confirm-KINQueueRecord",
+               "Add-KINTagsToStream",
                "New-KINChannel",
+               "New-KINQueue",
                "New-KINStream",
                "Request-KINStreamRetentionPeriodDecrease",
                "Remove-KINChannel",
+               "Remove-KINQueue",
                "Remove-KINResourcePolicy",
                "Remove-KINStream",
                "Unregister-KINStreamConsumer",
                "Get-KINAccountSetting",
                "Get-KINChannelDetail",
                "Get-KINLimit",
+               "Get-KINQueueDetail",
                "Get-KINStream",
                "Get-KINStreamConsumer",
                "Get-KINStreamSummary",
@@ -51602,6 +51755,7 @@ $KIN_SelectMap = @{
                "Get-KINShardIterator",
                "Request-KINStreamRetentionPeriodIncrease",
                "Get-KINChannelList",
+               "Get-KINQueueList",
                "Get-KINShardList",
                "Get-KINStreamConsumerList",
                "Get-KINStreamList",
@@ -51611,8 +51765,11 @@ $KIN_SelectMap = @{
                "Write-KINRecord",
                "Write-KINMultipleRecord",
                "Write-KINResourcePolicy",
+               "Receive-KINDeadLetterQueueRecord",
+               "Receive-KINQueueRecord",
                "Register-KINStreamConsumer",
                "Remove-KINTagsFromStream",
+               "Restore-KINDeadLetterQueueRecord",
                "Split-KINShard",
                "Start-KINStreamEncryption",
                "Stop-KINStreamEncryption",
@@ -51620,7 +51777,10 @@ $KIN_SelectMap = @{
                "Remove-KINResourceTag",
                "Update-KINAccountSetting",
                "Update-KINChannel",
+               "Update-KINDeadLetterQueueRecordsVisibility",
                "Update-KINMaxRecordSize",
+               "Update-KINQueue",
+               "Update-KINQueueRecordsVisibility",
                "Update-KINShardCount",
                "Update-KINStreamMode",
                "Update-KINStreamRecordDistributionStrategy",
@@ -53559,6 +53719,7 @@ $LM_SelectMap = @{
                "Remove-LMAlias",
                "Remove-LMCapacityProvider",
                "Remove-LMCodeSigningConfig",
+               "Remove-LMDurableExecution",
                "Remove-LMEventSourceMapping",
                "Remove-LMFunction",
                "Remove-LMFunctionCodeSigningConfig",
@@ -53608,6 +53769,7 @@ $LM_SelectMap = @{
                "Get-LMProvisionedConcurrencyConfigList",
                "Get-LMResourceTag",
                "Get-LMVersionsByFunction",
+               "Suspend-LMDurableExecution",
                "Publish-LMLayerVersion",
                "Publish-LMVersion",
                "Write-LMFunctionCodeSigningConfig",
@@ -53620,6 +53782,7 @@ $LM_SelectMap = @{
                "Write-LMRuntimeManagementConfig",
                "Remove-LMLayerVersionPermission",
                "Remove-LMPermission",
+               "Resume-LMDurableExecution",
                "Send-LMDurableExecutionCallbackFailure",
                "Send-LMDurableExecutionCallbackHeartbeat",
                "Send-LMDurableExecutionCallbackSuccess",
@@ -56986,6 +57149,27 @@ $MAS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MarketplaceAgreement.AgreementApprovalPartyType
+        "Get-MASAgreementApprovalList/PartyType"
+        {
+            $v = "AWS_ORGANIZATION_ADMIN","REQUESTER"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.AgreementApprovalStatus
+        "Get-MASAgreementApprovalList/Status"
+        {
+            $v = "APPROVED","CANCELLED","EXPIRED","PENDING_APPROVAL","REJECTED"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.AgreementApprovalType
+        "Get-MASAgreementApprovalList/ApprovalType"
+        {
+            $v = "BUYER_AGREEMENT_APPROVAL"
+            break
+        }
+
         # Amazon.MarketplaceAgreement.AgreementCancellationRequestReasonCode
         "Send-MASAgreementCancellationRequest/ReasonCode"
         {
@@ -56997,6 +57181,13 @@ $MAS_Completers = {
         "Get-MASAgreementCancellationRequestList/Status"
         {
             $v = "APPROVED","CANCELLED","PENDING_APPROVAL","REJECTED","VALIDATION_FAILED"
+            break
+        }
+
+        # Amazon.MarketplaceAgreement.AgreementRequestStatus
+        "Get-MASAgreementRequestList/Status"
+        {
+            $v = "ACCEPTED","APPROVED","CANCELLED","DRAFT","PENDING_APPROVAL","REJECTED"
             break
         }
 
@@ -57058,12 +57249,14 @@ $MAS_Completers = {
 }
 
 $MAS_map = @{
+    "ApprovalType"=@("Get-MASAgreementApprovalList")
     "GroupBy"=@("Get-MASAgreementInvoiceLineItemList")
     "Intent"=@("New-MASAgreementRequest")
     "InvoiceType"=@("Get-MASAgreementInvoiceLineItemList")
+    "PartyType"=@("Get-MASAgreementApprovalList")
     "ReasonCode"=@("Send-MASAgreementCancellationRequest")
     "Sort_SortOrder"=@("Search-MASAgreement")
-    "Status"=@("Get-MASAgreementCancellationRequestList","Get-MASAgreementPaymentRequestList","Get-MASBillingAdjustmentRequestList")
+    "Status"=@("Get-MASAgreementApprovalList","Get-MASAgreementCancellationRequestList","Get-MASAgreementPaymentRequestList","Get-MASAgreementRequestList","Get-MASBillingAdjustmentRequestList")
     "TaxConfiguration_TaxEstimation"=@("New-MASAgreementRequest")
 }
 
@@ -57117,30 +57310,41 @@ $MAS_SelectCompleters = {
 }
 
 $MAS_SelectMap = @{
-    "Select"=@("Approve-MASAgreementCancellationRequest",
+    "Select"=@("Approve-MASAgreementApproval",
+               "Approve-MASAgreementCancellationRequest",
                "Approve-MASAgreementPaymentRequest",
                "Approve-MASAgreementRequest",
                "New-MASBillingAdjustmentRequestBatch",
                "Stop-MASAgreement",
                "Stop-MASAgreementCancellationRequest",
                "Stop-MASAgreementPaymentRequest",
+               "Stop-MASAgreementRequest",
                "New-MASAgreementRequest",
                "Get-MASAgreement",
+               "Get-MASAgreementApproval",
                "Get-MASAgreementCancellationRequest",
+               "Get-MASAgreementContact",
                "Get-MASAgreementEntitlement",
                "Get-MASAgreementPaymentRequest",
+               "Get-MASAgreementRequest",
+               "Get-MASAgreementRequestApprovalPlan",
+               "Get-MASAgreementRequestTerm",
                "Get-MASAgreementTerm",
                "Get-MASBillingAdjustmentRequest",
+               "Get-MASAgreementApprovalList",
                "Get-MASAgreementCancellationRequestList",
                "Get-MASAgreementChargeList",
                "Get-MASAgreementInvoiceLineItemList",
                "Get-MASAgreementPaymentRequestList",
+               "Get-MASAgreementRequestList",
                "Get-MASBillingAdjustmentRequestList",
+               "Deny-MASAgreementApproval",
                "Deny-MASAgreementCancellationRequest",
                "Deny-MASAgreementPaymentRequest",
                "Search-MASAgreement",
                "Send-MASAgreementCancellationRequest",
                "Send-MASAgreementPaymentRequest",
+               "Start-MASAgreementApproval",
                "Update-MASPurchaseOrder")
 }
 
@@ -60423,6 +60627,26 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.DefinitionType
+        {
+            ($_ -eq "New-MGNNetworkMigrationDefinition/DefinitionType") -Or
+            ($_ -eq "Update-MGNNetworkMigrationDefinition/DefinitionType")
+        }
+        {
+            $v = "MIGRATION","NEW_NETWORK"
+            break
+        }
+
+        # Amazon.Mgn.DeleteOnTermination
+        {
+            ($_ -eq "Update-MGNLaunchConfigurationDefault/LargeVolumeConfiguration_DeleteOnTermination") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationDefault/SmallVolumeConfiguration_DeleteOnTermination")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Mgn.InternetProtocol
         {
             ($_ -eq "New-MGNReplicationConfigurationTemplate/InternetProtocol") -Or
@@ -60449,6 +60673,17 @@ $MGN_Completers = {
         }
         {
             $v = "STARTED","STOPPED"
+            break
+        }
+
+        # Amazon.Mgn.OutpostSnapshotLocation
+        {
+            ($_ -eq "New-MGNReplicationConfigurationTemplate/OutpostSnapshotLocation") -Or
+            ($_ -eq "Update-MGNReplicationConfiguration/OutpostSnapshotLocation") -Or
+            ($_ -eq "Update-MGNReplicationConfigurationTemplate/OutpostSnapshotLocation")
+        }
+        {
+            $v = "OUTPOST","REGION"
             break
         }
 
@@ -60556,8 +60791,10 @@ $MGN_Completers = {
         {
             ($_ -eq "New-MGNLaunchConfigurationTemplate/LargeVolumeConf_VolumeType") -Or
             ($_ -eq "Update-MGNLaunchConfigurationTemplate/LargeVolumeConf_VolumeType") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationDefault/LargeVolumeConfiguration_VolumeType") -Or
             ($_ -eq "New-MGNLaunchConfigurationTemplate/SmallVolumeConf_VolumeType") -Or
-            ($_ -eq "Update-MGNLaunchConfigurationTemplate/SmallVolumeConf_VolumeType")
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/SmallVolumeConf_VolumeType") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationDefault/SmallVolumeConfiguration_VolumeType")
         }
         {
             $v = "gp2","gp3","io1","io2","sc1","st1","standard"
@@ -60587,16 +60824,22 @@ $MGN_map = @{
     "Category"=@("Write-MGNSourceServerAction","Write-MGNTemplateAction")
     "DataPlaneRouting"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
+    "DefinitionType"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "InternetProtocol"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "IpAssignmentStrategy"=@("Start-MGNImportFileEnrichment")
     "LargeVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "LargeVolumeConfiguration_DeleteOnTermination"=@("Update-MGNLaunchConfigurationDefault")
+    "LargeVolumeConfiguration_VolumeType"=@("Update-MGNLaunchConfigurationDefault")
     "LaunchDisposition"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "LifeCycle_State"=@("Set-MGNServerLifeCycleState")
+    "OutpostSnapshotLocation"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "PostLaunchActions_Deployment"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "ReplicationType"=@("Update-MGNSourceServerReplicationType")
     "SecurityGroupMappingStrategy"=@("Start-MGNNetworkMigrationMapping")
     "SmallVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "SmallVolumeConfiguration_DeleteOnTermination"=@("Update-MGNLaunchConfigurationDefault")
+    "SmallVolumeConfiguration_VolumeType"=@("Update-MGNLaunchConfigurationDefault")
     "StorageConfiguration_StorageType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "TargetDeployment"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
     "TargetInstanceTypeRightSizingMethod"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
@@ -60663,6 +60906,7 @@ $MGN_SelectMap = @{
                "New-MGNConnector",
                "New-MGNLaunchConfigurationTemplate",
                "New-MGNNetworkMigrationDefinition",
+               "New-MGNRemoteSourceAction",
                "New-MGNReplicationConfigurationTemplate",
                "New-MGNWave",
                "Remove-MGNApplication",
@@ -60670,6 +60914,7 @@ $MGN_SelectMap = @{
                "Remove-MGNJob",
                "Remove-MGNLaunchConfigurationTemplate",
                "Remove-MGNNetworkMigrationDefinition",
+               "Remove-MGNRemoteSourceAction",
                "Remove-MGNReplicationConfigurationTemplate",
                "Remove-MGNSourceServer",
                "Remove-MGNVcenterClient",
@@ -60685,6 +60930,7 @@ $MGN_SelectMap = @{
                "Disconnect-MGNFromService",
                "Complete-MGNCutover",
                "Get-MGNLaunchConfiguration",
+               "Get-MGNLaunchConfigurationDefault",
                "Get-MGNNetworkMigrationDefinition",
                "Get-MGNNetworkMigrationMapperSegmentConstruct",
                "Get-MGNReplicationConfiguration",
@@ -60705,10 +60951,15 @@ $MGN_SelectMap = @{
                "Get-MGNNetworkMigrationDeployedStackList",
                "Get-MGNNetworkMigrationDeploymentList",
                "Get-MGNNetworkMigrationExecutionList",
+               "Get-MGNNetworkMigrationInsightList",
                "Get-MGNNetworkMigrationMapperSegmentConstructList",
                "Get-MGNNetworkMigrationMapperSegmentList",
                "Get-MGNNetworkMigrationMappingList",
                "Get-MGNNetworkMigrationMappingUpdateList",
+               "Get-MGNRemoteSourceActionInvocationResultList",
+               "Get-MGNRemoteSourceActionInvocationList",
+               "Get-MGNRemoteSourceActionJobList",
+               "Get-MGNRemoteSourceActionList",
                "Get-MGNSourceServerActionList",
                "Get-MGNResourceTag",
                "Get-MGNTemplateActionList",
@@ -60730,6 +60981,7 @@ $MGN_SelectMap = @{
                "Start-MGNNetworkMigrationDeployment",
                "Start-MGNNetworkMigrationMapping",
                "Start-MGNNetworkMigrationMappingUpdate",
+               "Start-MGNRemoteSourceActionJob",
                "Start-MGNReplication",
                "Start-MGNTest",
                "Stop-MGNReplication",
@@ -60741,9 +60993,11 @@ $MGN_SelectMap = @{
                "Update-MGNApplication",
                "Update-MGNConnector",
                "Update-MGNLaunchConfiguration",
+               "Update-MGNLaunchConfigurationDefault",
                "Update-MGNLaunchConfigurationTemplate",
                "Update-MGNNetworkMigrationDefinition",
                "Update-MGNNetworkMigrationMapperSegment",
+               "Update-MGNRemoteSourceAction",
                "Update-MGNReplicationConfiguration",
                "Update-MGNReplicationConfigurationTemplate",
                "Update-MGNSourceServer",
@@ -65143,6 +65397,13 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.SetupFormat
+        "Get-CWOADMNConnectorTelemetrySetup/Format"
+        {
+            $v = "BICEP"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.SignalType
         "Test-CWOADMNTelemetryPipeline/SignalType"
         {
@@ -65179,6 +65440,20 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.ThirdPartyTelemetryEnrichmentStatus
+        "Get-CWOADMNThirdPartyTelemetryEnrichmentList/Status"
+        {
+            $v = "Impaired","Initializing","Running","Stopped"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.ThirdPartyTelemetrySource
+        "Get-CWOADMNThirdPartyTelemetryEnrichmentList/TelemetrySource"
+        {
+            $v = "Azure"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.WAFLogType
         {
             ($_ -eq "New-CWOADMNTelemetryRule/WAFLoggingParameters_LogType") -Or
@@ -65203,6 +65478,7 @@ $CWOADMN_map = @{
     "DestinationConfiguration_DestinationType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "ELBLoadBalancerLoggingParameters_OutputFormat"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Encryption_SseAlgorithm"=@("New-CWOADMNS3TableIntegration")
+    "Format"=@("Get-CWOADMNConnectorTelemetrySetup")
     "LoggingFilter_DefaultBehavior"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
@@ -65214,6 +65490,8 @@ $CWOADMN_map = @{
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "SignalType"=@("Test-CWOADMNTelemetryPipeline")
     "SourceLogsConfiguration_EncryptedLogGroupStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "Status"=@("Get-CWOADMNThirdPartyTelemetryEnrichmentList")
+    "TelemetrySource"=@("Get-CWOADMNThirdPartyTelemetryEnrichmentList")
     "WAFLoggingParameters_LogType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
 }
 
@@ -65268,18 +65546,23 @@ $CWOADMN_SelectCompleters = {
 
 $CWOADMN_SelectMap = @{
     "Select"=@("New-CWOADMNCentralizationRuleForOrganization",
+               "New-CWOADMNConnector",
                "New-CWOADMNDatasetIntegration",
                "New-CWOADMNS3TableIntegration",
                "New-CWOADMNTelemetryPipeline",
                "New-CWOADMNTelemetryRule",
                "New-CWOADMNTelemetryRuleForOrganization",
                "Remove-CWOADMNCentralizationRuleForOrganization",
+               "Remove-CWOADMNConnector",
                "Remove-CWOADMNDatasetIntegration",
                "Remove-CWOADMNS3TableIntegration",
                "Remove-CWOADMNTelemetryPipeline",
                "Remove-CWOADMNTelemetryRule",
                "Remove-CWOADMNTelemetryRuleForOrganization",
                "Get-CWOADMNCentralizationRuleForOrganization",
+               "Get-CWOADMNConnector",
+               "Get-CWOADMNConnectorTelemetryManifest",
+               "Get-CWOADMNConnectorTelemetrySetup",
                "Get-CWOADMNDatasetIntegration",
                "Get-CWOADMNS3TableIntegration",
                "Get-CWOADMNTelemetryEnrichmentStatus",
@@ -65288,8 +65571,11 @@ $CWOADMN_SelectMap = @{
                "Get-CWOADMNTelemetryPipeline",
                "Get-CWOADMNTelemetryRule",
                "Get-CWOADMNTelemetryRuleForOrganization",
+               "Get-CWOADMNThirdPartyTelemetryEnrichment",
                "Get-CWOADMNCentralizationRulesForOrganizationList",
+               "Get-CWOADMNConnectorList",
                "Get-CWOADMNDatasetIntegrationList",
+               "Get-CWOADMNResourcesByConnectorList",
                "Get-CWOADMNResourceTelemetryList",
                "Get-CWOADMNResourceTelemetryForOrganizationList",
                "Get-CWOADMNS3TableIntegrationList",
@@ -65297,12 +65583,17 @@ $CWOADMN_SelectMap = @{
                "Get-CWOADMNTelemetryPipelineList",
                "Get-CWOADMNTelemetryRuleList",
                "Get-CWOADMNTelemetryRulesForOrganizationList",
+               "Get-CWOADMNThirdPartyTelemetryEnrichmentList",
+               "Write-CWOADMNConnectorTelemetryManifest",
                "Start-CWOADMNTelemetryEnrichment",
                "Start-CWOADMNTelemetryEvaluation",
                "Start-CWOADMNTelemetryEvaluationForOrganization",
+               "Start-CWOADMNTelemetryPipelineRefresh",
+               "Start-CWOADMNThirdPartyTelemetryEnrichment",
                "Stop-CWOADMNTelemetryEnrichment",
                "Stop-CWOADMNTelemetryEvaluation",
                "Stop-CWOADMNTelemetryEvaluationForOrganization",
+               "Stop-CWOADMNThirdPartyTelemetryEnrichment",
                "Add-CWOADMNResourceTag",
                "Test-CWOADMNTelemetryPipeline",
                "Remove-CWOADMNResourceTag",
@@ -80215,7 +80506,17 @@ $R53GR_Completers = {
             ($_ -eq "Update-R53GRAccessSource/IpAddressType")
         }
         {
-            $v = "IPV4","IPV6"
+            $v = "IPV4","IPV6","NONE"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.PublicIpStatus
+        {
+            ($_ -eq "New-R53GRGlobalResolver/PublicIpStatus") -Or
+            ($_ -eq "Update-R53GRGlobalResolver/PublicIpStatus")
+        }
+        {
+            $v = "DISABLED_RELEASED","DISABLED_RESERVED","ENABLED_RESERVED"
             break
         }
 
@@ -80238,6 +80539,7 @@ $R53GR_map = @{
     "FirewallRulesFailOpen"=@("New-R53GRDNSView","Update-R53GRDNSView")
     "IpAddressType"=@("New-R53GRAccessSource","New-R53GRGlobalResolver","Update-R53GRAccessSource","Update-R53GRGlobalResolver")
     "Protocol"=@("New-R53GRAccessSource","Update-R53GRAccessSource")
+    "PublicIpStatus"=@("New-R53GRGlobalResolver","Update-R53GRGlobalResolver")
 }
 
 _awsArgumentCompleterRegistration $R53GR_Completers $R53GR_map
@@ -80296,12 +80598,14 @@ $R53GR_SelectMap = @{
                "Update-R53GRFirewallRuleBatch",
                "New-R53GRAccessSource",
                "New-R53GRAccessToken",
+               "New-R53GRCoreNetworkEndpoint",
                "New-R53GRDNSView",
                "New-R53GRFirewallDomainList",
                "New-R53GRFirewallRule",
                "New-R53GRGlobalResolver",
                "Remove-R53GRAccessSource",
                "Remove-R53GRAccessToken",
+               "Remove-R53GRCoreNetworkEndpoint",
                "Remove-R53GRDNSView",
                "Remove-R53GRFirewallDomainList",
                "Remove-R53GRFirewallRule",
@@ -80311,6 +80615,7 @@ $R53GR_SelectMap = @{
                "Enable-R53GRDNSView",
                "Get-R53GRAccessSource",
                "Get-R53GRAccessToken",
+               "Get-R53GRCoreNetworkEndpoint",
                "Get-R53GRDNSView",
                "Get-R53GRFirewallDomainList",
                "Get-R53GRFirewallRule",
@@ -80320,6 +80625,7 @@ $R53GR_SelectMap = @{
                "Import-R53GRFirewallDomainList",
                "Get-R53GRAccessSourceList",
                "Get-R53GRAccessTokenList",
+               "Get-R53GRCoreNetworkEndpointList",
                "Get-R53GRDNSViewList",
                "Get-R53GRFirewallDomainListList",
                "Get-R53GRFirewallDomain",
@@ -80333,6 +80639,7 @@ $R53GR_SelectMap = @{
                "Remove-R53GRResourceTag",
                "Update-R53GRAccessSource",
                "Update-R53GRAccessToken",
+               "Update-R53GRCoreNetworkEndpoint",
                "Update-R53GRDNSView",
                "Edit-R53GRFirewallDomain",
                "Update-R53GRFirewallRule",
@@ -80969,7 +81276,7 @@ $SMR_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SMR_SelectCompleters $SMR_SelectMap
-# Argument completions for service Amazon Simple Storage Service (S3)
+# Argument completions for service Amazon Simple Storage Service
 
 
 $S3_Completers = {
@@ -81544,22 +81851,22 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Mount-S3PSDrive",
-               "New-S3Bucket",
-               "Get-S3MultipartUpload",
                "Write-S3Object",
-               "Dismount-S3PSDrive",
                "Copy-S3Object",
-               "Remove-S3MultipartUpload",
-               "Remove-S3Bucket",
-               "Read-S3Object",
-               "Get-S3PreSignedURL",
                "Test-S3Bucket",
-               "Remove-S3Object")
+               "Dismount-S3PSDrive",
+               "Remove-S3MultipartUpload",
+               "Read-S3Object",
+               "Remove-S3Object",
+               "Get-S3MultipartUpload",
+               "New-S3Bucket",
+               "Get-S3PreSignedURL",
+               "Mount-S3PSDrive",
+               "Remove-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
-# Argument completions for service Amazon S3 Control
+# Argument completions for service AWS S3 Control
 
 
 $S3C_Completers = {
@@ -87058,7 +87365,7 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.ConnectorProviderName
         "Get-SHUBConnectorsV2List/ProviderName"
         {
-            $v = "AZURE","JIRA_CLOUD","SERVICENOW"
+            $v = "AZURE","GCP","JIRA_CLOUD","SERVICENOW"
             break
         }
 
@@ -87089,7 +87396,7 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.CspmConnectorProviderName
         "Get-SHUBConnectorList/ProviderName"
         {
-            $v = "AZURE"
+            $v = "AZURE","GCP"
             break
         }
 
@@ -87142,6 +87449,18 @@ $SHUB_Completers = {
         "Start-SHUBExportJobV2/OutputConfiguration_Findings_Format"
         {
             $v = "CSV","OCSF_JSON"
+            break
+        }
+
+        # Amazon.SecurityHub.GcpScopeType
+        {
+            ($_ -eq "New-SHUBConnector/Provider_GCP_ScopeConfiguration_ScopeType") -Or
+            ($_ -eq "New-SHUBConnectorV2/Provider_GCP_ScopeConfiguration_ScopeType") -Or
+            ($_ -eq "Update-SHUBConnector/Provider_GCP_ScopeConfiguration_ScopeType") -Or
+            ($_ -eq "Update-SHUBConnectorV2/Provider_GCP_ScopeConfiguration_ScopeType")
+        }
+        {
+            $v = "ORGANIZATION","PROJECT"
             break
         }
 
@@ -87281,6 +87600,7 @@ $SHUB_map = @{
     "OutputConfiguration_Findings_Filters_CompositeOperator"=@("Start-SHUBExportJobV2")
     "OutputConfiguration_Findings_Format"=@("Start-SHUBExportJobV2")
     "Provider_Azure_ScopeConfiguration_ScopeType"=@("New-SHUBConnector","New-SHUBConnectorV2","Update-SHUBConnector","Update-SHUBConnectorV2")
+    "Provider_GCP_ScopeConfiguration_ScopeType"=@("New-SHUBConnector","New-SHUBConnectorV2","Update-SHUBConnector","Update-SHUBConnectorV2")
     "ProviderName"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "RecordState"=@("Update-SHUBFinding")
     "RuleStatus"=@("New-SHUBAutomationRule","New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
@@ -91788,8 +92108,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -98172,7 +98492,9 @@ $WKS_Completers = {
         {
             ($_ -eq "Edit-WKSClientProperty/ClientProperties_ReconnectEnabled") -Or
             ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_ChangeComputeType") -Or
+            ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_EnableEndUserAdvisor") -Or
             ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_IncreaseVolumeSize") -Or
+            ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_NestedVirtualization") -Or
             ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_RebuildWorkspace") -Or
             ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_RestartWorkspace") -Or
             ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_SwitchRunningMode")
@@ -98282,7 +98604,9 @@ $WKS_map = @{
     "RunningMode"=@("New-WKSWorkspacesPool","Update-WKSWorkspacesPool")
     "SamlProperties_Status"=@("Edit-WKSSamlProperty")
     "SelfservicePermissions_ChangeComputeType"=@("Edit-WKSSelfservicePermission")
+    "SelfservicePermissions_EnableEndUserAdvisor"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_IncreaseVolumeSize"=@("Edit-WKSSelfservicePermission")
+    "SelfservicePermissions_NestedVirtualization"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_RebuildWorkspace"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_RestartWorkspace"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_SwitchRunningMode"=@("Edit-WKSSelfservicePermission")

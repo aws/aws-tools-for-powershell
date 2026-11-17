@@ -32,11 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// <summary>
     /// Returns paginated examples from the dataset. The server embeds the resolved version
     /// in the pagination token. Once pagination begins, all subsequent pages are pinned to
-    /// that version regardless of concurrent mutations.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// that version regardless of concurrent mutations. A request with a pagination token
+    /// can omit <c>datasetVersion</c>. If it sets a version that differs from the token's
+    /// version, the request fails with a <c>ValidationException</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BACCDatasetExampleList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.ListDatasetExamplesResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListDatasetExamples API operation.", Operation = new[] {"ListDatasetExamples"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListDatasetExamplesResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListDatasetExamples API operation.", Operation = new[] {"ListDatasetExamples"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListDatasetExamplesResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.ListDatasetExamplesResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.ListDatasetExamplesResponse object containing multiple properties."
     )]
@@ -66,13 +68,47 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter DatasetVersion
         /// <summary>
         /// <para>
-        /// <para> Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent. Only
-        /// used on the first request; for subsequent pages, the version is extracted from the
-        /// pagination token. </para>
+        /// <para> Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent on
+        /// the first request. With a pagination token, the version comes from the token: you
+        /// can omit this member, and a value that differs from the token's version is rejected
+        /// with a <c>ValidationException</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DatasetVersion { get; set; }
+        #endregion
+        
+        #region Parameter Filter_ExampleField
+        /// <summary>
+        /// <para>
+        /// <para> Returns only examples that meet at least one of these conditions. Examples last written
+        /// before example field filtering was available never match. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_ExampleFields")]
+        public Amazon.BedrockAgentCoreControl.Model.ExampleFieldCondition[] Filter_ExampleField { get; set; }
+        #endregion
+        
+        #region Parameter Filter_GenerationId
+        /// <summary>
+        /// <para>
+        /// <para> Returns only examples created by this dataset generation. Specify one ID. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_GenerationIds")]
+        public System.String[] Filter_GenerationId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -153,6 +189,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             #endif
             context.DatasetVersion = this.DatasetVersion;
+            if (this.Filter_ExampleField != null)
+            {
+                context.Filter_ExampleField = new List<Amazon.BedrockAgentCoreControl.Model.ExampleFieldCondition>(this.Filter_ExampleField);
+            }
+            if (this.Filter_GenerationId != null)
+            {
+                context.Filter_GenerationId = new List<System.String>(this.Filter_GenerationId);
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -189,6 +233,35 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.DatasetVersion != null)
             {
                 request.DatasetVersion = cmdletContext.DatasetVersion;
+            }
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.BedrockAgentCoreControl.Model.ListDatasetExamplesFilter();
+            List<Amazon.BedrockAgentCoreControl.Model.ExampleFieldCondition> requestFilter_filter_ExampleField = null;
+            if (cmdletContext.Filter_ExampleField != null)
+            {
+                requestFilter_filter_ExampleField = cmdletContext.Filter_ExampleField;
+            }
+            if (requestFilter_filter_ExampleField != null)
+            {
+                request.Filter.ExampleFields = requestFilter_filter_ExampleField;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_GenerationId = null;
+            if (cmdletContext.Filter_GenerationId != null)
+            {
+                requestFilter_filter_GenerationId = cmdletContext.Filter_GenerationId;
+            }
+            if (requestFilter_filter_GenerationId != null)
+            {
+                request.Filter.GenerationIds = requestFilter_filter_GenerationId;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -253,7 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListDatasetExamplesResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListDatasetExamplesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListDatasetExamples");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListDatasetExamples");
             try
             {
                 return client.ListDatasetExamplesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -275,6 +348,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             public System.String DatasetId { get; set; }
             public System.String DatasetVersion { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.ExampleFieldCondition> Filter_ExampleField { get; set; }
+            public List<System.String> Filter_GenerationId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.ListDatasetExamplesResponse, GetBACCDatasetExampleListCmdlet, object> Select { get; set; } =

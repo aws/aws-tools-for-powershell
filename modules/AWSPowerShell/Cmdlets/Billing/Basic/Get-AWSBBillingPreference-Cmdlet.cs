@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
     /// <summary>
     /// Retrieves billing preferences for the specified feature. Each feature controls a distinct
     /// billing capability: which accounts can share Reserved Instances or credits, whether
-    /// billing alerts are enabled, the historical record of sharing changes, and per-credit
-    /// options.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// billing alerts are enabled, the historical record of sharing changes, per-credit options,
+    /// and which accounts an individual Reserved Instance or Savings Plan is shared with.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AWSBBillingPreference")]
     [OutputType("Amazon.Billing.Model.BillingPreferenceSummary")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         /// <para>
         /// <para>The feature to retrieve. Specify exactly one value. Valid values: <c>BILLING_ALERTS</c>,
         /// <c>RI_SHARING</c>, <c>RI_SHARING_HISTORY</c>, <c>CREDIT_SHARING</c>, <c>CREDIT_SHARING_HISTORY</c>,
-        /// <c>CREDIT_LEVEL_SHARING</c>, <c>CREDIT_PREFERENCE_OPTIONS</c>.</para><para />
+        /// <c>CREDIT_LEVEL_SHARING</c>, <c>CREDIT_PREFERENCE_OPTIONS</c>, <c>BENEFIT_LEVEL_SHARING</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         /// <para>
         /// <para>Filters to narrow results. Specify exactly one filter when supplied. The supported
         /// filter name is <c>PREFERENCE_KEY</c>, which accepts 1 to 10 values to match preference
-        /// keys.</para><para />
+        /// keys.</para><para>For <c>BENEFIT_LEVEL_SHARING</c>, this filter is required. Specify exactly one value
+        /// that identifies the Reserved Instance (RI) or Savings Plan (SP), in the form <c>benefit/{ri|sp}/{benefitId}</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

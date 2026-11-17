@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3LifecycleConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteLifecycleConfiguration API operation.", Operation = new[] {"DeleteLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteLifecycleConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteLifecycleConfiguration API operation.", Operation = new[] {"DeleteLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteLifecycleConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteLifecycleConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.DeleteLifecycleConfigurationResponse) be returned by specifying '-Select *'."
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.DeleteLifecycleConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteLifecycleConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteLifecycleConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteLifecycleConfiguration");
             try
             {
                 return client.DeleteLifecycleConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

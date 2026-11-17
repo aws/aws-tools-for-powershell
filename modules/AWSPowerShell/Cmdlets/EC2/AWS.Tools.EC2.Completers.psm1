@@ -1030,6 +1030,17 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.MultipathResilienceMode
+        {
+            ($_ -eq "Edit-EC2VpcPeeringConnectionOption/AccepterPeeringConnectionOptions_MultipathResilienceMode") -Or
+            ($_ -eq "Edit-EC2VpcPeeringConnectionOption/RequesterPeeringConnectionOptions_MultipathResilienceMode") -Or
+            ($_ -eq "New-EC2VpcPeeringConnection/RequesterPeeringConnectionOptions_MultipathResilienceMode")
+        }
+        {
+            $v = "always-on"
+            break
+        }
+
         # Amazon.EC2.NestedVirtualizationSpecification
         "Edit-EC2InstanceCpuOption/NestedVirtualization"
         {
@@ -1472,6 +1483,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.TransitGatewayPeeringAttachmentMultipathResilienceMode
+        {
+            ($_ -eq "Edit-EC2TransitGatewayPeeringAttachment/Options_MultipathResilienceMode") -Or
+            ($_ -eq "New-EC2TransitGatewayPeeringAttachment/Options_MultipathResilienceMode")
+        }
+        {
+            $v = "always-on"
+            break
+        }
+
         # Amazon.EC2.TransportProtocol
         "New-EC2ClientVpnEndpoint/TransportProtocol"
         {
@@ -1678,6 +1699,7 @@ $EC2_Completers = {
 }
 
 $EC2_map = @{
+    "AccepterPeeringConnectionOptions_MultipathResilienceMode"=@("Edit-EC2VpcPeeringConnectionOption")
     "AddressFamily"=@("New-EC2IpamPool","New-EC2IpamPrefixListResolver")
     "Affinity"=@("Edit-EC2InstancePlacement")
     "Aggregation"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck")
@@ -1813,6 +1835,7 @@ $EC2_map = @{
     "Options_Igmpv2Support"=@("New-EC2TransitGatewayMulticastDomain")
     "Options_Ipv6Support"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
     "Options_MulticastSupport"=@("New-EC2TransitGateway")
+    "Options_MultipathResilienceMode"=@("Edit-EC2TransitGatewayPeeringAttachment","New-EC2TransitGatewayPeeringAttachment")
     "Options_Protocol"=@("New-EC2TransitGatewayConnect")
     "Options_SecurityGroupReferencingSupport"=@("Edit-EC2TransitGateway","Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
     "Options_StaticSourcesSupport"=@("New-EC2TransitGatewayMulticastDomain")
@@ -1833,6 +1856,7 @@ $EC2_map = @{
     "PublicIpSource"=@("New-EC2IpamPool")
     "RdsOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
     "RebootMigration"=@("Edit-EC2InstanceMaintenanceOption")
+    "RequesterPeeringConnectionOptions_MultipathResilienceMode"=@("Edit-EC2VpcPeeringConnectionOption","New-EC2VpcPeeringConnection")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
     "ReservedCapacityOptions_AllocationStrategy"=@("New-EC2Fleet")
     "ResourceType"=@("Edit-EC2IpamPolicyAllocationRule","Get-EC2IpamPolicyAllocationRule","Get-EC2IpamResourceCidr","New-EC2FlowLog")
@@ -2662,6 +2686,7 @@ $EC2_SelectMap = @{
                "Edit-EC2TransitGatewayAttachmentNatConfiguration",
                "Edit-EC2TransitGatewayMeteringPolicy",
                "Edit-EC2TransitGatewayNetworkFunctionAttachment",
+               "Edit-EC2TransitGatewayPeeringAttachment",
                "Edit-EC2TransitGatewayPolicyTableEntry",
                "Edit-EC2TransitGatewayPrefixListReference",
                "Edit-EC2TransitGatewayVpcAttachment",

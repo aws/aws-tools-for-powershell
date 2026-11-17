@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3BucketMetadataConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteBucketMetadataConfiguration API operation.", Operation = new[] {"DeleteBucketMetadataConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketMetadataConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteBucketMetadataConfiguration API operation.", Operation = new[] {"DeleteBucketMetadataConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketMetadataConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteBucketMetadataConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.DeleteBucketMetadataConfigurationResponse) be returned by specifying '-Select *'."
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.DeleteBucketMetadataConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketMetadataConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteBucketMetadataConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteBucketMetadataConfiguration");
             try
             {
                 return client.DeleteBucketMetadataConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

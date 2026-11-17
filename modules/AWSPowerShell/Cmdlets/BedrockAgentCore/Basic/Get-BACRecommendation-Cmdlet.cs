@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACRecommendation")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetRecommendationResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetRecommendation API operation.", Operation = new[] {"GetRecommendation"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetRecommendationResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore GetRecommendation API operation.", Operation = new[] {"GetRecommendation"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetRecommendationResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.GetRecommendationResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.GetRecommendationResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.GetRecommendationResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetRecommendationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetRecommendation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "GetRecommendation");
             try
             {
                 return client.GetRecommendationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

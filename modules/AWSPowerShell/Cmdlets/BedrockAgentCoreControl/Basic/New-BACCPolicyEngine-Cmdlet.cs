@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("New", "BACCPolicyEngine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CreatePolicyEngineResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreatePolicyEngine API operation.", Operation = new[] {"CreatePolicyEngine"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreatePolicyEngineResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control CreatePolicyEngine API operation.", Operation = new[] {"CreatePolicyEngine"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreatePolicyEngineResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreatePolicyEngineResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreatePolicyEngineResponse object containing multiple properties."
     )]
@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.CreatePolicyEngineResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreatePolicyEngineRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreatePolicyEngine");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "CreatePolicyEngine");
             try
             {
                 return client.CreatePolicyEngineAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

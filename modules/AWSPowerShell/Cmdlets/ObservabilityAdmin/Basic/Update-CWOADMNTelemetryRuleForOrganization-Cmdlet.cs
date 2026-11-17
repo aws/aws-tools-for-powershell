@@ -364,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         #region Parameter Rule_TelemetryType
         /// <summary>
         /// <para>
-        /// <para> The type of telemetry to collect (Logs, Metrics, or Traces). </para>
+        /// <para> The type of telemetry to collect (Logs, Metrics, Traces, or Insights). </para>
         /// </para>
         /// </summary>
         #if !MODULAR

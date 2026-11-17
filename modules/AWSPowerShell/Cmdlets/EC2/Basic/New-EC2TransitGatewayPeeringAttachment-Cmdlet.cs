@@ -53,6 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Options_AllowMultipathResilience
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you allow multipath resilience for the requester side of the transit
+        /// gateway peering attachment. Multipath resilience is supported only for inter-Region
+        /// transit gateway peering attachments between supported Regions. It takes effect only
+        /// when both the requester and the accepter allow it. If you don't specify this parameter,
+        /// the default is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Options_AllowMultipathResilience { get; set; }
+        #endregion
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>
@@ -74,6 +88,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.DynamicRoutingValue")]
         public Amazon.EC2.DynamicRoutingValue Options_DynamicRouting { get; set; }
+        #endregion
+        
+        #region Parameter Options_MultipathResilienceMode
+        /// <summary>
+        /// <para>
+        /// <para>The multipath resilience mode. You can specify this parameter only if <c>AllowMultipathResilience</c>
+        /// is <c>true</c>.</para><para>The following value is valid:</para><ul><li><para><c>always-on</c> – Replicates traffic across multiple network paths while multipath
+        /// resilience is in effect.</para></li></ul><para>If <c>AllowMultipathResilience</c> is <c>true</c> and you don't specify a mode, the
+        /// default is <c>always-on</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.TransitGatewayPeeringAttachmentMultipathResilienceMode")]
+        public Amazon.EC2.TransitGatewayPeeringAttachmentMultipathResilienceMode Options_MultipathResilienceMode { get; set; }
         #endregion
         
         #region Parameter PeerAccountId
@@ -207,7 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DryRun = this.DryRun;
+            context.Options_AllowMultipathResilience = this.Options_AllowMultipathResilience;
             context.Options_DynamicRouting = this.Options_DynamicRouting;
+            context.Options_MultipathResilienceMode = this.Options_MultipathResilienceMode;
             context.PeerAccountId = this.PeerAccountId;
             #if MODULAR
             if (this.PeerAccountId == null && ParameterWasBound(nameof(this.PeerAccountId)))
@@ -264,6 +294,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate Options
             var requestOptionsIsNull = true;
             request.Options = new Amazon.EC2.Model.CreateTransitGatewayPeeringAttachmentRequestOptions();
+            System.Boolean? requestOptions_options_AllowMultipathResilience = null;
+            if (cmdletContext.Options_AllowMultipathResilience != null)
+            {
+                requestOptions_options_AllowMultipathResilience = cmdletContext.Options_AllowMultipathResilience.Value;
+            }
+            if (requestOptions_options_AllowMultipathResilience != null)
+            {
+                request.Options.AllowMultipathResilience = requestOptions_options_AllowMultipathResilience.Value;
+                requestOptionsIsNull = false;
+            }
             Amazon.EC2.DynamicRoutingValue requestOptions_options_DynamicRouting = null;
             if (cmdletContext.Options_DynamicRouting != null)
             {
@@ -272,6 +312,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptions_options_DynamicRouting != null)
             {
                 request.Options.DynamicRouting = requestOptions_options_DynamicRouting;
+                requestOptionsIsNull = false;
+            }
+            Amazon.EC2.TransitGatewayPeeringAttachmentMultipathResilienceMode requestOptions_options_MultipathResilienceMode = null;
+            if (cmdletContext.Options_MultipathResilienceMode != null)
+            {
+                requestOptions_options_MultipathResilienceMode = cmdletContext.Options_MultipathResilienceMode;
+            }
+            if (requestOptions_options_MultipathResilienceMode != null)
+            {
+                request.Options.MultipathResilienceMode = requestOptions_options_MultipathResilienceMode;
                 requestOptionsIsNull = false;
             }
              // determine if request.Options should be set to null
@@ -355,7 +405,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? DryRun { get; set; }
+            public System.Boolean? Options_AllowMultipathResilience { get; set; }
             public Amazon.EC2.DynamicRoutingValue Options_DynamicRouting { get; set; }
+            public Amazon.EC2.TransitGatewayPeeringAttachmentMultipathResilienceMode Options_MultipathResilienceMode { get; set; }
             public System.String PeerAccountId { get; set; }
             public System.String PeerRegion { get; set; }
             public System.String PeerTransitGatewayId { get; set; }

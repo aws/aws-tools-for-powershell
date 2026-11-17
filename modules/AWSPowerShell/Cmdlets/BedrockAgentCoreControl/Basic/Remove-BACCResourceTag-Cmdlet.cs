@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

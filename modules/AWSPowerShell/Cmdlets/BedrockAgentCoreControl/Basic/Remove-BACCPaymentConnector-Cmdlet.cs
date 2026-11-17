@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCPaymentConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeletePaymentConnectorResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeletePaymentConnector API operation.", Operation = new[] {"DeletePaymentConnector"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeletePaymentConnectorResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeletePaymentConnector API operation.", Operation = new[] {"DeletePaymentConnector"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeletePaymentConnectorResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeletePaymentConnectorResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeletePaymentConnectorResponse object containing multiple properties."
     )]
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeletePaymentConnectorResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeletePaymentConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeletePaymentConnector");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeletePaymentConnector");
             try
             {
                 return client.DeletePaymentConnectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

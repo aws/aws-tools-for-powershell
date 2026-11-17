@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCDatasetVersionList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DatasetVersionSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListDatasetVersions API operation.", Operation = new[] {"ListDatasetVersions"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListDatasetVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListDatasetVersions API operation.", Operation = new[] {"ListDatasetVersions"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListDatasetVersionsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DatasetVersionSummary or Amazon.BedrockAgentCoreControl.Model.ListDatasetVersionsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.DatasetVersionSummary objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListDatasetVersionsResponse) can be returned by specifying '-Select *'."
@@ -61,6 +61,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DatasetId { get; set; }
+        #endregion
+        
+        #region Parameter Filter_ExampleCountByField
+        /// <summary>
+        /// <para>
+        /// <para> Returns only versions whose example counts meet at least one of these conditions.
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.BedrockAgentCoreControl.Model.ExampleCountByFieldCondition[] Filter_ExampleCountByField { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -140,6 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter DatasetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Filter_ExampleCountByField != null)
+            {
+                context.Filter_ExampleCountByField = new List<Amazon.BedrockAgentCoreControl.Model.ExampleCountByFieldCondition>(this.Filter_ExampleCountByField);
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -172,6 +192,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.DatasetId != null)
             {
                 request.DatasetId = cmdletContext.DatasetId;
+            }
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.BedrockAgentCoreControl.Model.ListDatasetVersionsFilter();
+            List<Amazon.BedrockAgentCoreControl.Model.ExampleCountByFieldCondition> requestFilter_filter_ExampleCountByField = null;
+            if (cmdletContext.Filter_ExampleCountByField != null)
+            {
+                requestFilter_filter_ExampleCountByField = cmdletContext.Filter_ExampleCountByField;
+            }
+            if (requestFilter_filter_ExampleCountByField != null)
+            {
+                request.Filter.ExampleCountByField = requestFilter_filter_ExampleCountByField;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -236,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListDatasetVersionsResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListDatasetVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListDatasetVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListDatasetVersions");
             try
             {
                 return client.ListDatasetVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -257,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DatasetId { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.ExampleCountByFieldCondition> Filter_ExampleCountByField { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.ListDatasetVersionsResponse, GetBACCDatasetVersionListCmdlet, object> Select { get; set; } =

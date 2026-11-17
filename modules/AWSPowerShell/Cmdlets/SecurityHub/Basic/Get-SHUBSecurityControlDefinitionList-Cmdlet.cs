@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>A list of cloud providers to filter the security control definitions by. For example,
-        /// specify <c>Azure</c> to return only controls that evaluate Azure resources.</para><para />
+        /// specify <c>Azure</c> to return only controls that evaluate Azure resources, or <c>GCP</c>
+        /// to return only controls that evaluate GCP resources.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

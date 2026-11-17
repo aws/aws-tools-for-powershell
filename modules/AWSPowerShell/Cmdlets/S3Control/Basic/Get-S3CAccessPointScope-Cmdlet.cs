@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CAccessPointScope")]
     [OutputType("Amazon.S3Control.Model.Scope")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetAccessPointScope API operation.", Operation = new[] {"GetAccessPointScope"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointScopeResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetAccessPointScope API operation.", Operation = new[] {"GetAccessPointScope"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointScopeResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.Scope or Amazon.S3Control.Model.GetAccessPointScopeResponse",
         "This cmdlet returns an Amazon.S3Control.Model.Scope object.",
         "The service call response (type Amazon.S3Control.Model.GetAccessPointScopeResponse) can be returned by specifying '-Select *'."
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetAccessPointScopeResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetAccessPointScopeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetAccessPointScope");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetAccessPointScope");
             try
             {
                 return client.GetAccessPointScopeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

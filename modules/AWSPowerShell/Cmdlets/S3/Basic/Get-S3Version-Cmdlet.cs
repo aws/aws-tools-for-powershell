@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3Version")]
     [OutputType("Amazon.S3.Model.ListVersionsResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) ListVersions API operation.", Operation = new[] {"ListVersions"}, SelectReturnType = typeof(Amazon.S3.Model.ListVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service ListVersions API operation.", Operation = new[] {"ListVersions"}, SelectReturnType = typeof(Amazon.S3.Model.ListVersionsResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ListVersionsResponse",
         "This cmdlet returns an Amazon.S3.Model.ListVersionsResponse object containing multiple properties."
     )]
@@ -388,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.ListVersionsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "ListVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "ListVersions");
             try
             {
                 return client.ListVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

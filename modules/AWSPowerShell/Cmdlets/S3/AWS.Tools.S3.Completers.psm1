@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Simple Storage Service (S3)
+# Argument completions for service Amazon Simple Storage Service
 
 
 $S3_Completers = {
@@ -647,18 +647,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Mount-S3PSDrive",
-               "New-S3Bucket",
-               "Get-S3MultipartUpload",
                "Write-S3Object",
-               "Dismount-S3PSDrive",
                "Copy-S3Object",
-               "Remove-S3MultipartUpload",
-               "Remove-S3Bucket",
-               "Read-S3Object",
-               "Get-S3PreSignedURL",
                "Test-S3Bucket",
-               "Remove-S3Object")
+               "Dismount-S3PSDrive",
+               "Remove-S3MultipartUpload",
+               "Read-S3Object",
+               "Remove-S3Object",
+               "Get-S3MultipartUpload",
+               "New-S3Bucket",
+               "Get-S3PreSignedURL",
+               "Mount-S3PSDrive",
+               "Remove-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

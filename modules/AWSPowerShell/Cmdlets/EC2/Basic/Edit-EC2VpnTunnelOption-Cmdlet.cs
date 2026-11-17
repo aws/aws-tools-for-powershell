@@ -179,12 +179,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CloudWatchLogOptions_LogOutputFormat { get; set; }
         #endregion
         
+        #region Parameter TunnelOptions_Phase1AdditionalKeyExchange
+        /// <summary>
+        /// <para>
+        /// <para>One or more additional key exchange rounds that are permitted for the VPN tunnel for
+        /// phase 1 IKE negotiations. Additional key exchanges occur after the initial Diffie-Hellman
+        /// exchange. Each round must have a unique round number.</para><para>Additional key exchanges are supported only with IKEv2. You can't specify a <c>required</c>
+        /// round if <c>IKEVersions</c> contains only <c>ikev1</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TunnelOptions_Phase1AdditionalKeyExchanges")]
+        public Amazon.EC2.Model.VpnAdditionalKeyExchangeRequest[] TunnelOptions_Phase1AdditionalKeyExchange { get; set; }
+        #endregion
+        
         #region Parameter TunnelOptions_Phase1DHGroupNumber
         /// <summary>
         /// <para>
         /// <para>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
         /// phase 1 IKE negotiations.</para><para>Valid values: <c>2</c> | <c>14</c> | <c>15</c> | <c>16</c> | <c>17</c> | <c>18</c>
-        /// | <c>19</c> | <c>20</c> | <c>21</c> | <c>22</c> | <c>23</c> | <c>24</c></para><para />
+        /// | <c>19</c> | <c>20</c> | <c>21</c> | <c>22</c> | <c>23</c> | <c>24</c> | <c>35</c></para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -242,12 +261,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? TunnelOptions_Phase1LifetimeSecond { get; set; }
         #endregion
         
+        #region Parameter TunnelOptions_Phase2AdditionalKeyExchange
+        /// <summary>
+        /// <para>
+        /// <para>One or more additional key exchange rounds that are permitted for the VPN tunnel for
+        /// phase 2 IKE negotiations. Additional key exchanges occur after the initial Diffie-Hellman
+        /// exchange. Each round must have a unique round number.</para><para>Additional key exchanges are supported only with IKEv2. You can't specify a <c>required</c>
+        /// round if <c>IKEVersions</c> contains only <c>ikev1</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TunnelOptions_Phase2AdditionalKeyExchanges")]
+        public Amazon.EC2.Model.VpnAdditionalKeyExchangeRequest[] TunnelOptions_Phase2AdditionalKeyExchange { get; set; }
+        #endregion
+        
         #region Parameter TunnelOptions_Phase2DHGroupNumber
         /// <summary>
         /// <para>
         /// <para>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
         /// phase 2 IKE negotiations.</para><para>Valid values: <c>2</c> | <c>5</c> | <c>14</c> | <c>15</c> | <c>16</c> | <c>17</c>
-        /// | <c>18</c> | <c>19</c> | <c>20</c> | <c>21</c> | <c>22</c> | <c>23</c> | <c>24</c></para><para />
+        /// | <c>18</c> | <c>19</c> | <c>20</c> | <c>21</c> | <c>22</c> | <c>23</c> | <c>24</c>
+        /// | <c>35</c> | <c>36</c> | <c>37</c></para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -506,6 +545,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CloudWatchLogOptions_LogEnabled = this.CloudWatchLogOptions_LogEnabled;
             context.CloudWatchLogOptions_LogGroupArn = this.CloudWatchLogOptions_LogGroupArn;
             context.CloudWatchLogOptions_LogOutputFormat = this.CloudWatchLogOptions_LogOutputFormat;
+            if (this.TunnelOptions_Phase1AdditionalKeyExchange != null)
+            {
+                context.TunnelOptions_Phase1AdditionalKeyExchange = new List<Amazon.EC2.Model.VpnAdditionalKeyExchangeRequest>(this.TunnelOptions_Phase1AdditionalKeyExchange);
+            }
             if (this.TunnelOptions_Phase1DHGroupNumber != null)
             {
                 context.TunnelOptions_Phase1DHGroupNumber = new List<Amazon.EC2.Model.Phase1DHGroupNumbersRequestListValue>(this.TunnelOptions_Phase1DHGroupNumber);
@@ -519,6 +562,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.TunnelOptions_Phase1IntegrityAlgorithm = new List<Amazon.EC2.Model.Phase1IntegrityAlgorithmsRequestListValue>(this.TunnelOptions_Phase1IntegrityAlgorithm);
             }
             context.TunnelOptions_Phase1LifetimeSecond = this.TunnelOptions_Phase1LifetimeSecond;
+            if (this.TunnelOptions_Phase2AdditionalKeyExchange != null)
+            {
+                context.TunnelOptions_Phase2AdditionalKeyExchange = new List<Amazon.EC2.Model.VpnAdditionalKeyExchangeRequest>(this.TunnelOptions_Phase2AdditionalKeyExchange);
+            }
             if (this.TunnelOptions_Phase2DHGroupNumber != null)
             {
                 context.TunnelOptions_Phase2DHGroupNumber = new List<Amazon.EC2.Model.Phase2DHGroupNumbersRequestListValue>(this.TunnelOptions_Phase2DHGroupNumber);
@@ -625,6 +672,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.TunnelOptions.IKEVersions = requestTunnelOptions_tunnelOptions_IKEVersion;
                 requestTunnelOptionsIsNull = false;
             }
+            List<Amazon.EC2.Model.VpnAdditionalKeyExchangeRequest> requestTunnelOptions_tunnelOptions_Phase1AdditionalKeyExchange = null;
+            if (cmdletContext.TunnelOptions_Phase1AdditionalKeyExchange != null)
+            {
+                requestTunnelOptions_tunnelOptions_Phase1AdditionalKeyExchange = cmdletContext.TunnelOptions_Phase1AdditionalKeyExchange;
+            }
+            if (requestTunnelOptions_tunnelOptions_Phase1AdditionalKeyExchange != null)
+            {
+                request.TunnelOptions.Phase1AdditionalKeyExchanges = requestTunnelOptions_tunnelOptions_Phase1AdditionalKeyExchange;
+                requestTunnelOptionsIsNull = false;
+            }
             List<Amazon.EC2.Model.Phase1DHGroupNumbersRequestListValue> requestTunnelOptions_tunnelOptions_Phase1DHGroupNumber = null;
             if (cmdletContext.TunnelOptions_Phase1DHGroupNumber != null)
             {
@@ -663,6 +720,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_Phase1LifetimeSecond != null)
             {
                 request.TunnelOptions.Phase1LifetimeSeconds = requestTunnelOptions_tunnelOptions_Phase1LifetimeSecond.Value;
+                requestTunnelOptionsIsNull = false;
+            }
+            List<Amazon.EC2.Model.VpnAdditionalKeyExchangeRequest> requestTunnelOptions_tunnelOptions_Phase2AdditionalKeyExchange = null;
+            if (cmdletContext.TunnelOptions_Phase2AdditionalKeyExchange != null)
+            {
+                requestTunnelOptions_tunnelOptions_Phase2AdditionalKeyExchange = cmdletContext.TunnelOptions_Phase2AdditionalKeyExchange;
+            }
+            if (requestTunnelOptions_tunnelOptions_Phase2AdditionalKeyExchange != null)
+            {
+                request.TunnelOptions.Phase2AdditionalKeyExchanges = requestTunnelOptions_tunnelOptions_Phase2AdditionalKeyExchange;
                 requestTunnelOptionsIsNull = false;
             }
             List<Amazon.EC2.Model.Phase2DHGroupNumbersRequestListValue> requestTunnelOptions_tunnelOptions_Phase2DHGroupNumber = null;
@@ -946,10 +1013,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? CloudWatchLogOptions_LogEnabled { get; set; }
             public System.String CloudWatchLogOptions_LogGroupArn { get; set; }
             public System.String CloudWatchLogOptions_LogOutputFormat { get; set; }
+            public List<Amazon.EC2.Model.VpnAdditionalKeyExchangeRequest> TunnelOptions_Phase1AdditionalKeyExchange { get; set; }
             public List<Amazon.EC2.Model.Phase1DHGroupNumbersRequestListValue> TunnelOptions_Phase1DHGroupNumber { get; set; }
             public List<Amazon.EC2.Model.Phase1EncryptionAlgorithmsRequestListValue> TunnelOptions_Phase1EncryptionAlgorithm { get; set; }
             public List<Amazon.EC2.Model.Phase1IntegrityAlgorithmsRequestListValue> TunnelOptions_Phase1IntegrityAlgorithm { get; set; }
             public System.Int32? TunnelOptions_Phase1LifetimeSecond { get; set; }
+            public List<Amazon.EC2.Model.VpnAdditionalKeyExchangeRequest> TunnelOptions_Phase2AdditionalKeyExchange { get; set; }
             public List<Amazon.EC2.Model.Phase2DHGroupNumbersRequestListValue> TunnelOptions_Phase2DHGroupNumber { get; set; }
             public List<Amazon.EC2.Model.Phase2EncryptionAlgorithmsRequestListValue> TunnelOptions_Phase2EncryptionAlgorithm { get; set; }
             public List<Amazon.EC2.Model.Phase2IntegrityAlgorithmsRequestListValue> TunnelOptions_Phase2IntegrityAlgorithm { get; set; }

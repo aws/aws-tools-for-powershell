@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("New", "BACCDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateDatasetResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateDataset API operation.", Operation = new[] {"CreateDataset"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateDatasetResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control CreateDataset API operation.", Operation = new[] {"CreateDataset"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateDatasetResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateDatasetResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateDatasetResponse object containing multiple properties."
     )]
@@ -117,13 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.DatasetSchemaType")]
         public Amazon.BedrockAgentCoreControl.DatasetSchemaType SchemaType { get; set; }
         #endregion
@@ -215,12 +209,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.Description = this.Description;
             context.KmsKeyArn = this.KmsKeyArn;
             context.SchemaType = this.SchemaType;
-            #if MODULAR
-            if (this.SchemaType == null && ParameterWasBound(nameof(this.SchemaType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SchemaType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Source_InlineExamples_Example != null)
             {
                 context.Source_InlineExamples_Example = new List<Amazon.Runtime.Documents.Document>(this.Source_InlineExamples_Example);
@@ -368,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.CreateDatasetResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateDatasetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateDataset");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "CreateDataset");
             try
             {
                 return client.CreateDatasetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCGatewayRateLimitList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GatewayRateLimitDetail")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListGatewayRateLimits API operation.", Operation = new[] {"ListGatewayRateLimits"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListGatewayRateLimitsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListGatewayRateLimits API operation.", Operation = new[] {"ListGatewayRateLimits"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListGatewayRateLimitsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GatewayRateLimitDetail or Amazon.BedrockAgentCoreControl.Model.ListGatewayRateLimitsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.GatewayRateLimitDetail objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListGatewayRateLimitsResponse) can be returned by specifying '-Select *'."
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListGatewayRateLimitsResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListGatewayRateLimitsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListGatewayRateLimits");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListGatewayRateLimits");
             try
             {
                 return client.ListGatewayRateLimitsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

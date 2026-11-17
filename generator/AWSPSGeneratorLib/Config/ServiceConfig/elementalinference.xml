@@ -31,6 +31,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFunction" OutputProperty="*" Verb="New" Noun="Function" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQuestionSet" OutputProperty="*" Verb="New" Noun="QuestionSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQuestionSetVersion" OutputProperty="*" Verb="New" Noun="QuestionSetVersion" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateScheduleAction" OutputProperty="*" Verb="New" Noun="ScheduleAction" ShouldProcessTarget="Id,ActionName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +56,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFeedPolicy" Verb="Remove" Noun="FeedPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFunction" OutputProperty="*" Verb="Remove" Noun="Function" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQuestionSet" OutputProperty="*" Verb="Remove" Noun="QuestionSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQuestionSetVersion" Verb="Remove" Noun="QuestionSetVersion" ShouldProcessTarget="QuestionSetVersion" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,11 +99,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFunction" OutputProperty="*" Verb="Get" Noun="Function" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQuestionSet" OutputProperty="*" Verb="Get" Noun="QuestionSet" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDictionaries" OutputProperty="Dictionaries" Verb="Get" Noun="DictionaryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFeeds" OutputProperty="Feeds" Verb="Get" Noun="FeedList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQuestionSets" OutputProperty="QuestionSets" Verb="Get" Noun="QuestionSetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQuestionSetVersions" OutputProperty="Versions" Verb="Get" Noun="QuestionSetVersionList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -112,6 +156,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFeed" OutputProperty="*" Verb="Update" Noun="Feed" ShouldProcessTarget="Id,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFunction" OutputProperty="*" Verb="Update" Noun="Function" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQuestionSet" OutputProperty="*" Verb="Update" Noun="QuestionSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

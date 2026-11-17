@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("New", "BACCConfigurationBundle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateConfigurationBundleResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateConfigurationBundle API operation.", Operation = new[] {"CreateConfigurationBundle"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateConfigurationBundleResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control CreateConfigurationBundle API operation.", Operation = new[] {"CreateConfigurationBundle"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateConfigurationBundleResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateConfigurationBundleResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateConfigurationBundleResponse object containing multiple properties."
     )]
@@ -373,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.CreateConfigurationBundleResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateConfigurationBundleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateConfigurationBundle");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "CreateConfigurationBundle");
             try
             {
                 return client.CreateConfigurationBundleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

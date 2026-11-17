@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCPaymentConnector")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetPaymentConnectorResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetPaymentConnector API operation.", Operation = new[] {"GetPaymentConnector"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetPaymentConnectorResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetPaymentConnector API operation.", Operation = new[] {"GetPaymentConnector"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetPaymentConnectorResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetPaymentConnectorResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetPaymentConnectorResponse object containing multiple properties."
     )]
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetPaymentConnectorResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetPaymentConnectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetPaymentConnector");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetPaymentConnector");
             try
             {
                 return client.GetPaymentConnectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

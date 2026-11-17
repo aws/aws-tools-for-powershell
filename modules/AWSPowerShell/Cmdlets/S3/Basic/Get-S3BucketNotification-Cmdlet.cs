@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketNotification")]
     [OutputType("Amazon.S3.Model.GetBucketNotificationResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketNotification API operation.", Operation = new[] {"GetBucketNotification"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketNotificationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketNotification API operation.", Operation = new[] {"GetBucketNotification"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketNotificationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.GetBucketNotificationResponse",
         "This cmdlet returns an Amazon.S3.Model.GetBucketNotificationResponse object containing multiple properties."
     )]
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketNotificationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketNotificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketNotification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketNotification");
             try
             {
                 return client.GetBucketNotificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

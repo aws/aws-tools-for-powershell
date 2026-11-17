@@ -336,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter AggregationRequest_ContainerImageAggregation_CloudProvider
         /// <summary>
         /// <para>
-        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li></ul><para />
+        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li><li><para><c>GCP</c> – Findings from Google Cloud Platform (GCP) resources.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter AggregationRequest_ImageLayerAggregation_CloudProvider
         /// <summary>
         /// <para>
-        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li></ul><para />
+        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li><li><para><c>GCP</c> – Findings from Google Cloud Platform (GCP) resources.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -368,7 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter AggregationRequest_ServerlessFunctionAggregation_CloudProvider
         /// <summary>
         /// <para>
-        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li></ul><para />
+        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li><li><para><c>GCP</c> – Findings from Google Cloud Platform (GCP) resources.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -384,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter AggregationRequest_VmInstanceAggregation_CloudProvider
         /// <summary>
         /// <para>
-        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li></ul><para />
+        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li><li><para><c>GCP</c> – Findings from Google Cloud Platform (GCP) resources.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -401,7 +401,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The cloud regions to aggregate findings for. The value format depends on the cloud
-        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li></ul><para />
+        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li><li><para>A Google Cloud Platform (GCP) location, such as the region <c>us-central1</c> or the
+        /// zone <c>us-central1-a</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -418,7 +419,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The cloud regions to aggregate findings for. The value format depends on the cloud
-        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li></ul><para />
+        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li><li><para>A Google Cloud Platform (GCP) location, such as the region <c>us-central1</c> or the
+        /// zone <c>us-central1-a</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -435,7 +437,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The cloud regions to aggregate findings for. The value format depends on the cloud
-        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li></ul><para />
+        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li><li><para>A Google Cloud Platform (GCP) location, such as the region <c>us-central1</c> or the
+        /// zone <c>us-central1-a</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -452,7 +455,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The cloud regions to aggregate findings for. The value format depends on the cloud
-        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li></ul><para />
+        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li><li><para>A Google Cloud Platform (GCP) location, such as the region <c>us-central1</c> or the
+        /// zone <c>us-central1-a</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -1080,7 +1084,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter AccountAggregation_ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resource.</para>
+        /// <para>The type of resource. For Google Cloud Platform (GCP) resources, the resource type
+        /// is <c>compute.googleapis.com/Instance</c>, <c>cloudfunctions.googleapis.com/Function</c>,
+        /// or <c>artifactregistry.googleapis.com/DockerImage</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1092,7 +1098,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FindingTypeAggregation_ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type to aggregate.</para>
+        /// <para>The resource type to aggregate. For Google Cloud Platform (GCP) resources, the resource
+        /// type is <c>compute.googleapis.com/Instance</c>, <c>cloudfunctions.googleapis.com/Function</c>,
+        /// or <c>artifactregistry.googleapis.com/DockerImage</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1104,7 +1112,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter TitleAggregation_ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type to aggregate on.</para>
+        /// <para>The resource type to aggregate on. For Google Cloud Platform (GCP) resources, the
+        /// resource type is <c>compute.googleapis.com/Instance</c>, <c>cloudfunctions.googleapis.com/Function</c>,
+        /// or <c>artifactregistry.googleapis.com/DockerImage</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

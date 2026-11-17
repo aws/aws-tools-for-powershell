@@ -5,7 +5,7 @@
     <C2jFilename>bedrock-agentcore-control</C2jFilename>
     <AssemblyName>BedrockAgentCoreControl</AssemblyName>
     <ServiceNounPrefix>BACC</ServiceNounPrefix>
-    <ServiceName>Amazon Bedrock Agent Core Control Plane Fronting Layer</ServiceName>
+    <ServiceName>Amazon Bedrock AgentCore Control</ServiceName>
     <ServiceId>Bedrock AgentCore Control</ServiceId>
     <ServiceClientInterface>IAmazonBedrockAgentCoreControl</ServiceClientInterface>
     <ServiceClient>AmazonBedrockAgentCoreControlClient</ServiceClient>
@@ -357,6 +357,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentInsightStore" OutputProperty="*" Verb="Get" Noun="AgentInsightStore" PipelineParameter="AgentInsightStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAgentRuntime" OutputProperty="*" Verb="Get" Noun="AgentRuntime" PipelineParameter="AgentRuntimeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -494,6 +498,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetWorkloadIdentity" OutputProperty="*" Verb="Get" Noun="WorkloadIdentity" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentInsightStores" OutputProperty="AgentInsightStores" Verb="Get" Noun="AgentInsightStoreList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -690,6 +698,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentInsightStore" OutputProperty="*" Verb="Update" Noun="AgentInsightStore" ShouldProcessTarget="AgentInsightStoreId" PipelineParameter="AgentInsightStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

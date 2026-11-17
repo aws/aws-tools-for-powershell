@@ -209,6 +209,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-EC2TransitGatewayAttachmentNatConfiguration', 
         'Edit-EC2TransitGatewayMeteringPolicy', 
         'Edit-EC2TransitGatewayNetworkFunctionAttachment', 
+        'Edit-EC2TransitGatewayPeeringAttachment', 
         'Edit-EC2TransitGatewayPolicyTableEntry', 
         'Edit-EC2TransitGatewayPrefixListReference', 
         'Edit-EC2TransitGatewayVpcAttachment', 

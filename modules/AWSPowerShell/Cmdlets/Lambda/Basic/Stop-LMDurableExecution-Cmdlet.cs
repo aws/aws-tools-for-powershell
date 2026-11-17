@@ -30,7 +30,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Stops a running <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable
+    /// Stops a running or paused <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable
     /// execution</a>. The execution transitions to STOPPED status and cannot be resumed.
     /// Any in-progress operations are terminated.
     /// </summary>

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Start", "BACCPolicyGeneration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.StartPolicyGenerationResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer StartPolicyGeneration API operation.", Operation = new[] {"StartPolicyGeneration"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.StartPolicyGenerationResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control StartPolicyGeneration API operation.", Operation = new[] {"StartPolicyGeneration"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.StartPolicyGenerationResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.StartPolicyGenerationResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.StartPolicyGenerationResponse object containing multiple properties."
     )]
@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.StartPolicyGenerationResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.StartPolicyGenerationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "StartPolicyGeneration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "StartPolicyGeneration");
             try
             {
                 return client.StartPolicyGenerationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

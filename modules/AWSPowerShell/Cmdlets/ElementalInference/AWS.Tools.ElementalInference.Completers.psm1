@@ -80,6 +80,16 @@ $EMI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElementalInference.BedrockApi
+        {
+            ($_ -eq "New-EMIFunction/Target_Bedrock_Api") -Or
+            ($_ -eq "Update-EMIFunction/Target_Bedrock_Api")
+        }
+        {
+            $v = "INVOKE_MODEL"
+            break
+        }
+
         # Amazon.ElementalInference.DataSourceSport
         "Search-EMIFixture/Sport"
         {
@@ -97,6 +107,16 @@ $EMI_Completers = {
             break
         }
 
+        # Amazon.ElementalInference.EventBridgeDeliveryMode
+        {
+            ($_ -eq "New-EMIFunction/EventBridgeDelivery") -Or
+            ($_ -eq "Update-EMIFunction/EventBridgeDelivery")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -106,8 +126,10 @@ $EMI_Completers = {
 }
 
 $EMI_map = @{
+    "EventBridgeDelivery"=@("New-EMIFunction","Update-EMIFunction")
     "Language"=@("New-EMIDictionary","Update-EMIDictionary")
     "Sport"=@("Search-EMIFixture")
+    "Target_Bedrock_Api"=@("New-EMIFunction","Update-EMIFunction")
 }
 
 _awsArgumentCompleterRegistration $EMI_Completers $EMI_map
@@ -163,10 +185,16 @@ $EMI_SelectMap = @{
     "Select"=@("Add-EMIFeed",
                "New-EMIDictionary",
                "New-EMIFeed",
+               "New-EMIFunction",
+               "New-EMIQuestionSet",
+               "New-EMIQuestionSetVersion",
                "New-EMIScheduleAction",
                "Remove-EMIDictionary",
                "Remove-EMIFeed",
                "Remove-EMIFeedPolicy",
+               "Remove-EMIFunction",
+               "Remove-EMIQuestionSet",
+               "Remove-EMIQuestionSetVersion",
                "Remove-EMIScheduleAction",
                "Unregister-EMIFeed",
                "Export-EMIDictionaryEntry",
@@ -174,8 +202,13 @@ $EMI_SelectMap = @{
                "Get-EMIFeed",
                "Get-EMIFeedPolicy",
                "Get-EMIFixture",
+               "Get-EMIFunction",
+               "Get-EMIQuestionSet",
                "Get-EMIDictionaryList",
                "Get-EMIFeedList",
+               "Get-EMIFunctionList",
+               "Get-EMIQuestionSetList",
+               "Get-EMIQuestionSetVersionList",
                "Get-EMIScheduleActionList",
                "Get-EMIResourceTag",
                "Write-EMIFeedPolicy",
@@ -183,7 +216,9 @@ $EMI_SelectMap = @{
                "Add-EMIResourceTag",
                "Remove-EMIResourceTag",
                "Update-EMIDictionary",
-               "Update-EMIFeed")
+               "Update-EMIFeed",
+               "Update-EMIFunction",
+               "Update-EMIQuestionSet")
 }
 
 _awsArgumentCompleterRegistration $EMI_SelectCompleters $EMI_SelectMap

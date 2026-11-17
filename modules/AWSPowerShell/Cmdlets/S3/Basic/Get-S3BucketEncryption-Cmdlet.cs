@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketEncryption")]
     [OutputType("Amazon.S3.Model.ServerSideEncryptionConfiguration")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketEncryption API operation.", Operation = new[] {"GetBucketEncryption"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketEncryptionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketEncryption API operation.", Operation = new[] {"GetBucketEncryption"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketEncryptionResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ServerSideEncryptionConfiguration or Amazon.S3.Model.GetBucketEncryptionResponse",
         "This cmdlet returns an Amazon.S3.Model.ServerSideEncryptionConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetBucketEncryptionResponse) can be returned by specifying '-Select *'."
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketEncryptionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketEncryptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketEncryption");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketEncryption");
             try
             {
                 return client.GetBucketEncryptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACABTest")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetABTestResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetABTest API operation.", Operation = new[] {"GetABTest"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetABTestResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore GetABTest API operation.", Operation = new[] {"GetABTest"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetABTestResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.GetABTestResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.GetABTestResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.GetABTestResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetABTestRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetABTest");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "GetABTest");
             try
             {
                 return client.GetABTestAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

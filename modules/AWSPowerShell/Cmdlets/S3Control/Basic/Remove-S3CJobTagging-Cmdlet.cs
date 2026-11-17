@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Remove", "S3CJobTagging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control DeleteJobTagging API operation.", Operation = new[] {"DeleteJobTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteJobTaggingResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control DeleteJobTagging API operation.", Operation = new[] {"DeleteJobTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteJobTaggingResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteJobTaggingResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.DeleteJobTaggingResponse) be returned by specifying '-Select *'."
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.DeleteJobTaggingResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeleteJobTaggingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeleteJobTagging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "DeleteJobTagging");
             try
             {
                 return client.DeleteJobTaggingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Remove", "BACBatchMemoryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer BatchDeleteMemoryRecords API operation.", Operation = new[] {"BatchDeleteMemoryRecords"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore BatchDeleteMemoryRecords API operation.", Operation = new[] {"BatchDeleteMemoryRecords"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse object containing multiple properties."
     )]
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "BatchDeleteMemoryRecords");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "BatchDeleteMemoryRecords");
             try
             {
                 return client.BatchDeleteMemoryRecordsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

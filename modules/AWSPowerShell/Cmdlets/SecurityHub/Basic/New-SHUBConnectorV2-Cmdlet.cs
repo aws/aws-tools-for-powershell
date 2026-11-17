@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public System.String Provider_Azure_AWSConfigConnectorArn { get; set; }
         #endregion
         
+        #region Parameter Provider_GCP_AWSConfigConnectorArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the multi-cloud configuration connector used to establish the connection
+        /// to GCP.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Provider_GCP_AWSConfigConnectorArn { get; set; }
+        #endregion
+        
         #region Parameter Provider_Azure_AzureRegion
         /// <summary>
         /// <para>
@@ -79,6 +90,22 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Provider_GCP_GCPRegion
+        /// <summary>
+        /// <para>
+        /// <para>The list of GCP regions to monitor.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Provider_GCP_GCPRegions")]
+        public System.String[] Provider_GCP_GCPRegion { get; set; }
         #endregion
         
         #region Parameter ServiceNow_InstanceName
@@ -141,6 +168,17 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public Amazon.SecurityHub.ScopeType Provider_Azure_ScopeConfiguration_ScopeType { get; set; }
         #endregion
         
+        #region Parameter Provider_GCP_ScopeConfiguration_ScopeType
+        /// <summary>
+        /// <para>
+        /// <para>The type of scope. Valid values are <c>ORGANIZATION</c> and <c>PROJECT</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.GcpScopeType")]
+        public Amazon.SecurityHub.GcpScopeType Provider_GCP_ScopeConfiguration_ScopeType { get; set; }
+        #endregion
+        
         #region Parameter Provider_Azure_ScopeConfiguration_ScopeValue
         /// <summary>
         /// <para>
@@ -155,6 +193,23 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Provider_Azure_ScopeConfiguration_ScopeValues")]
         public System.String[] Provider_Azure_ScopeConfiguration_ScopeValue { get; set; }
+        #endregion
+        
+        #region Parameter Provider_GCP_ScopeConfiguration_ScopeValue
+        /// <summary>
+        /// <para>
+        /// <para>The list of scope values. Use an organization ID when the scope type is <c>ORGANIZATION</c>,
+        /// or project IDs when the scope type is <c>PROJECT</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Provider_GCP_ScopeConfiguration_ScopeValues")]
+        public System.String[] Provider_GCP_ScopeConfiguration_ScopeValue { get; set; }
         #endregion
         
         #region Parameter ServiceNow_SecretArn
@@ -260,6 +315,16 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (this.Provider_Azure_ScopeConfiguration_ScopeValue != null)
             {
                 context.Provider_Azure_ScopeConfiguration_ScopeValue = new List<System.String>(this.Provider_Azure_ScopeConfiguration_ScopeValue);
+            }
+            context.Provider_GCP_AWSConfigConnectorArn = this.Provider_GCP_AWSConfigConnectorArn;
+            if (this.Provider_GCP_GCPRegion != null)
+            {
+                context.Provider_GCP_GCPRegion = new List<System.String>(this.Provider_GCP_GCPRegion);
+            }
+            context.Provider_GCP_ScopeConfiguration_ScopeType = this.Provider_GCP_ScopeConfiguration_ScopeType;
+            if (this.Provider_GCP_ScopeConfiguration_ScopeValue != null)
+            {
+                context.Provider_GCP_ScopeConfiguration_ScopeValue = new List<System.String>(this.Provider_GCP_ScopeConfiguration_ScopeValue);
             }
             context.JiraCloud_ProjectKey = this.JiraCloud_ProjectKey;
             context.ServiceNow_InstanceName = this.ServiceNow_InstanceName;
@@ -438,6 +503,76 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 request.Provider.Azure = requestProvider_provider_Azure;
                 requestProviderIsNull = false;
             }
+            Amazon.SecurityHub.Model.GcpProviderConfiguration requestProvider_provider_GCP = null;
+            
+             // populate GCP
+            var requestProvider_provider_GCPIsNull = true;
+            requestProvider_provider_GCP = new Amazon.SecurityHub.Model.GcpProviderConfiguration();
+            System.String requestProvider_provider_GCP_provider_GCP_AWSConfigConnectorArn = null;
+            if (cmdletContext.Provider_GCP_AWSConfigConnectorArn != null)
+            {
+                requestProvider_provider_GCP_provider_GCP_AWSConfigConnectorArn = cmdletContext.Provider_GCP_AWSConfigConnectorArn;
+            }
+            if (requestProvider_provider_GCP_provider_GCP_AWSConfigConnectorArn != null)
+            {
+                requestProvider_provider_GCP.AWSConfigConnectorArn = requestProvider_provider_GCP_provider_GCP_AWSConfigConnectorArn;
+                requestProvider_provider_GCPIsNull = false;
+            }
+            List<System.String> requestProvider_provider_GCP_provider_GCP_GCPRegion = null;
+            if (cmdletContext.Provider_GCP_GCPRegion != null)
+            {
+                requestProvider_provider_GCP_provider_GCP_GCPRegion = cmdletContext.Provider_GCP_GCPRegion;
+            }
+            if (requestProvider_provider_GCP_provider_GCP_GCPRegion != null)
+            {
+                requestProvider_provider_GCP.GCPRegions = requestProvider_provider_GCP_provider_GCP_GCPRegion;
+                requestProvider_provider_GCPIsNull = false;
+            }
+            Amazon.SecurityHub.Model.GcpScopeConfiguration requestProvider_provider_GCP_provider_GCP_ScopeConfiguration = null;
+            
+             // populate ScopeConfiguration
+            var requestProvider_provider_GCP_provider_GCP_ScopeConfigurationIsNull = true;
+            requestProvider_provider_GCP_provider_GCP_ScopeConfiguration = new Amazon.SecurityHub.Model.GcpScopeConfiguration();
+            Amazon.SecurityHub.GcpScopeType requestProvider_provider_GCP_provider_GCP_ScopeConfiguration_provider_GCP_ScopeConfiguration_ScopeType = null;
+            if (cmdletContext.Provider_GCP_ScopeConfiguration_ScopeType != null)
+            {
+                requestProvider_provider_GCP_provider_GCP_ScopeConfiguration_provider_GCP_ScopeConfiguration_ScopeType = cmdletContext.Provider_GCP_ScopeConfiguration_ScopeType;
+            }
+            if (requestProvider_provider_GCP_provider_GCP_ScopeConfiguration_provider_GCP_ScopeConfiguration_ScopeType != null)
+            {
+                requestProvider_provider_GCP_provider_GCP_ScopeConfiguration.ScopeType = requestProvider_provider_GCP_provider_GCP_ScopeConfiguration_provider_GCP_ScopeConfiguration_ScopeType;
+                requestProvider_provider_GCP_provider_GCP_ScopeConfigurationIsNull = false;
+            }
+            List<System.String> requestProvider_provider_GCP_provider_GCP_ScopeConfiguration_provider_GCP_ScopeConfiguration_ScopeValue = null;
+            if (cmdletContext.Provider_GCP_ScopeConfiguration_ScopeValue != null)
+            {
+                requestProvider_provider_GCP_provider_GCP_ScopeConfiguration_provider_GCP_ScopeConfiguration_ScopeValue = cmdletContext.Provider_GCP_ScopeConfiguration_ScopeValue;
+            }
+            if (requestProvider_provider_GCP_provider_GCP_ScopeConfiguration_provider_GCP_ScopeConfiguration_ScopeValue != null)
+            {
+                requestProvider_provider_GCP_provider_GCP_ScopeConfiguration.ScopeValues = requestProvider_provider_GCP_provider_GCP_ScopeConfiguration_provider_GCP_ScopeConfiguration_ScopeValue;
+                requestProvider_provider_GCP_provider_GCP_ScopeConfigurationIsNull = false;
+            }
+             // determine if requestProvider_provider_GCP_provider_GCP_ScopeConfiguration should be set to null
+            if (requestProvider_provider_GCP_provider_GCP_ScopeConfigurationIsNull)
+            {
+                requestProvider_provider_GCP_provider_GCP_ScopeConfiguration = null;
+            }
+            if (requestProvider_provider_GCP_provider_GCP_ScopeConfiguration != null)
+            {
+                requestProvider_provider_GCP.ScopeConfiguration = requestProvider_provider_GCP_provider_GCP_ScopeConfiguration;
+                requestProvider_provider_GCPIsNull = false;
+            }
+             // determine if requestProvider_provider_GCP should be set to null
+            if (requestProvider_provider_GCPIsNull)
+            {
+                requestProvider_provider_GCP = null;
+            }
+            if (requestProvider_provider_GCP != null)
+            {
+                request.Provider.GCP = requestProvider_provider_GCP;
+                requestProviderIsNull = false;
+            }
              // determine if request.Provider should be set to null
             if (requestProviderIsNull)
             {
@@ -510,6 +645,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             public List<System.String> Provider_Azure_AzureRegion { get; set; }
             public Amazon.SecurityHub.ScopeType Provider_Azure_ScopeConfiguration_ScopeType { get; set; }
             public List<System.String> Provider_Azure_ScopeConfiguration_ScopeValue { get; set; }
+            public System.String Provider_GCP_AWSConfigConnectorArn { get; set; }
+            public List<System.String> Provider_GCP_GCPRegion { get; set; }
+            public Amazon.SecurityHub.GcpScopeType Provider_GCP_ScopeConfiguration_ScopeType { get; set; }
+            public List<System.String> Provider_GCP_ScopeConfiguration_ScopeValue { get; set; }
             public System.String JiraCloud_ProjectKey { get; set; }
             public System.String ServiceNow_InstanceName { get; set; }
             public System.String ServiceNow_SecretArn { get; set; }

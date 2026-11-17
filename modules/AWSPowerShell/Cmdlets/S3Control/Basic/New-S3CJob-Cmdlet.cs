@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("New", "S3CJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon S3 Control CreateJob API operation.", Operation = new[] {"CreateJob"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateJobResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control CreateJob API operation.", Operation = new[] {"CreateJob"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3Control.Model.CreateJobResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.S3Control.Model.CreateJobResponse) can be returned by specifying '-Select *'."
@@ -2904,7 +2904,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.CreateJobResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.CreateJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "CreateJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "CreateJob");
             try
             {
                 return client.CreateJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

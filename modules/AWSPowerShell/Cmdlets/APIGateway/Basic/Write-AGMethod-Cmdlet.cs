@@ -63,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// in the incoming request. The method invocation is authorized if any method scopes
         /// matches a claimed scope in the access token. Otherwise, the invocation is not authorized.
         /// When the method scope is configured, the client must provide an access token instead
-        /// of an identity token for authorization purposes.</para><para />
+        /// of an identity token for authorization purposes. The scopes are also used with a <c>JWT</c>
+        /// authorizer. When scopes are configured, the <c>scope</c> (or <c>scp</c>) claim of
+        /// the token must contain at least one of the configured scopes.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -80,8 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The method's authorization type. Valid values are <c>NONE</c> for open access, <c>AWS_IAM</c>
-        /// for using AWS IAM permissions, <c>CUSTOM</c> for using a custom authorizer, or <c>COGNITO_USER_POOLS</c>
-        /// for using a Cognito user pool.</para>
+        /// for using Amazon Web Services IAM permissions, <c>CUSTOM</c> for using a custom authorizer,
+        /// <c>COGNITO_USER_POOLS</c> for using a Cognito user pool, or <c>JWT</c> for using a
+        /// JWT authorizer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Update", "BACCDatasetExample", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdateDatasetExamplesResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UpdateDatasetExamples API operation.", Operation = new[] {"UpdateDatasetExamples"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdateDatasetExamplesResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control UpdateDatasetExamples API operation.", Operation = new[] {"UpdateDatasetExamples"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdateDatasetExamplesResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.UpdateDatasetExamplesResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.UpdateDatasetExamplesResponse object containing multiple properties."
     )]
@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.UpdateDatasetExamplesResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UpdateDatasetExamplesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UpdateDatasetExamples");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "UpdateDatasetExamples");
             try
             {
                 return client.UpdateDatasetExamplesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

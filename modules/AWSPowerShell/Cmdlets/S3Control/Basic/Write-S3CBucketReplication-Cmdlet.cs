@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Write", "S3CBucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control PutBucketReplication API operation.", Operation = new[] {"PutBucketReplication"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutBucketReplicationResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control PutBucketReplication API operation.", Operation = new[] {"PutBucketReplication"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutBucketReplicationResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.PutBucketReplicationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.PutBucketReplicationResponse) be returned by specifying '-Select *'."
@@ -362,7 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.PutBucketReplicationResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.PutBucketReplicationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "PutBucketReplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "PutBucketReplication");
             try
             {
                 return client.PutBucketReplicationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

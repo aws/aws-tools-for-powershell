@@ -77,8 +77,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Description: The lifecycle configuration does not exist.
     /// </para></li><li><para>
     /// HTTP Status Code: 404 Not Found
-    /// </para></li><li><para>
-    /// SOAP Fault Code Prefix: Client
     /// </para></li></ul></li></ul><para>
     /// The following operations are related to <c>GetBucketLifecycleConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html">GetBucketLifecycle</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a></para></li></ul><important><para>
@@ -89,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3LifecycleConfiguration")]
     [OutputType("Amazon.S3.Model.LifecycleConfiguration")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetLifecycleConfiguration API operation.", Operation = new[] {"GetLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetLifecycleConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetLifecycleConfiguration API operation.", Operation = new[] {"GetLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetLifecycleConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.LifecycleConfiguration or Amazon.S3.Model.GetLifecycleConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.LifecycleConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetLifecycleConfigurationResponse) can be returned by specifying '-Select *'."
@@ -227,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetLifecycleConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetLifecycleConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetLifecycleConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetLifecycleConfiguration");
             try
             {
                 return client.GetLifecycleConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

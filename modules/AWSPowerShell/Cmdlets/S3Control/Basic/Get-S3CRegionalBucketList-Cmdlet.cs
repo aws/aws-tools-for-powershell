@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CRegionalBucketList")]
     [OutputType("Amazon.S3Control.Model.RegionalBucket")]
-    [AWSCmdlet("Calls the Amazon S3 Control ListRegionalBuckets API operation.", Operation = new[] {"ListRegionalBuckets"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListRegionalBucketsResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control ListRegionalBuckets API operation.", Operation = new[] {"ListRegionalBuckets"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListRegionalBucketsResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.RegionalBucket or Amazon.S3Control.Model.ListRegionalBucketsResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.RegionalBucket objects.",
         "The service call response (type Amazon.S3Control.Model.ListRegionalBucketsResponse) can be returned by specifying '-Select *'."
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.ListRegionalBucketsResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.ListRegionalBucketsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "ListRegionalBuckets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "ListRegionalBuckets");
             try
             {
                 return client.ListRegionalBucketsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

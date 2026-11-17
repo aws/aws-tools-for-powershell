@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Remove", "S3CResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.S3Control.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.S3Control.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

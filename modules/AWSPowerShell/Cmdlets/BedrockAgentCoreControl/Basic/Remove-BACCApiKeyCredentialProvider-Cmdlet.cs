@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCApiKeyCredentialProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteApiKeyCredentialProvider API operation.", Operation = new[] {"DeleteApiKeyCredentialProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteApiKeyCredentialProviderResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteApiKeyCredentialProvider API operation.", Operation = new[] {"DeleteApiKeyCredentialProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteApiKeyCredentialProviderResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.DeleteApiKeyCredentialProviderResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BedrockAgentCoreControl.Model.DeleteApiKeyCredentialProviderResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteApiKeyCredentialProviderResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteApiKeyCredentialProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteApiKeyCredentialProvider");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteApiKeyCredentialProvider");
             try
             {
                 return client.DeleteApiKeyCredentialProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

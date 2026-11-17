@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Invoke", "BACMemoryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.MemoryRecordSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer RetrieveMemoryRecords API operation.", Operation = new[] {"RetrieveMemoryRecords"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.RetrieveMemoryRecordsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore RetrieveMemoryRecords API operation.", Operation = new[] {"RetrieveMemoryRecords"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.RetrieveMemoryRecordsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.MemoryRecordSummary or Amazon.BedrockAgentCore.Model.RetrieveMemoryRecordsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCore.Model.MemoryRecordSummary objects.",
         "The service call response (type Amazon.BedrockAgentCore.Model.RetrieveMemoryRecordsResponse) can be returned by specifying '-Select *'."
@@ -410,7 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.RetrieveMemoryRecordsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.RetrieveMemoryRecordsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "RetrieveMemoryRecords");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "RetrieveMemoryRecords");
             try
             {
                 return client.RetrieveMemoryRecordsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

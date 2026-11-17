@@ -5,7 +5,7 @@
     <C2jFilename>bedrock-agentcore</C2jFilename>
     <AssemblyName>BedrockAgentCore</AssemblyName>
     <ServiceNounPrefix>BAC</ServiceNounPrefix>
-    <ServiceName>Amazon Bedrock AgentCore Data Plane Fronting Layer</ServiceName>
+    <ServiceName>Amazon Bedrock AgentCore</ServiceName>
     <ServiceId>Bedrock AgentCore</ServiceId>
     <ServiceClientInterface>IAmazonBedrockAgentCore</ServiceClientInterface>
     <ServiceClient>AmazonBedrockAgentCoreClient</ServiceClient>
@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDatasetGeneration" OutputProperty="*" Verb="Remove" Noun="DatasetGeneration" ShouldProcessTarget="DatasetId,GenerationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEvent" OutputProperty="EventId" Verb="Remove" Noun="Event" ShouldProcessTarget="EventId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -95,6 +99,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentInsight" OutputProperty="*" Verb="Get" Noun="AgentInsight" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetBatchEvaluation" OutputProperty="*" Verb="Get" Noun="BatchEvaluation" PipelineParameter="BatchEvaluationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -104,6 +112,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCodeInterpreterSession" OutputProperty="*" Verb="Get" Noun="CodeInterpreterSession" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDatasetGeneration" OutputProperty="*" Verb="Get" Noun="DatasetGeneration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -194,6 +206,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentInsights" OutputProperty="AgentInsights" Verb="Get" Noun="AgentInsightList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBatchEvaluations" OutputProperty="BatchEvaluations" Verb="Get" Noun="BatchEvaluationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -203,6 +219,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCodeInterpreterSessions" OutputProperty="Items" Verb="Get" Noun="CodeInterpreterSessionList" PipelineParameter="CodeInterpreterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasetGenerations" OutputProperty="DatasetGenerations" Verb="Get" Noun="DatasetGenerationList" PipelineParameter="DatasetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -265,6 +285,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartDatasetGeneration" OutputProperty="*" Verb="Start" Noun="DatasetGeneration" ShouldProcessTarget="DatasetId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMemoryExtractionJob" OutputProperty="JobId" Verb="Start" Noun="MemoryExtractionJob" ShouldProcessTarget="MemoryId" PipelineParameter="MemoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -290,6 +314,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateABTest" OutputProperty="*" Verb="Update" Noun="ABTest" ShouldProcessTarget="AbTestId" PipelineParameter="AbTestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentInsight" OutputProperty="*" Verb="Update" Noun="AgentInsight" ShouldProcessTarget="AgentInsightId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

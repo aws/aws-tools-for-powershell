@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCOauth2CredentialProvider")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetOauth2CredentialProviderResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetOauth2CredentialProvider API operation.", Operation = new[] {"GetOauth2CredentialProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetOauth2CredentialProviderResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetOauth2CredentialProvider API operation.", Operation = new[] {"GetOauth2CredentialProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetOauth2CredentialProviderResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetOauth2CredentialProviderResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetOauth2CredentialProviderResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetOauth2CredentialProviderResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetOauth2CredentialProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetOauth2CredentialProvider");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetOauth2CredentialProvider");
             try
             {
                 return client.GetOauth2CredentialProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

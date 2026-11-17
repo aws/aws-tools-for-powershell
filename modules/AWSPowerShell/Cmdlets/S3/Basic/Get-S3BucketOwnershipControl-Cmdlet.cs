@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketOwnershipControl")]
     [OutputType("Amazon.S3.Model.OwnershipControls")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketOwnershipControls API operation.", Operation = new[] {"GetBucketOwnershipControls"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketOwnershipControlsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketOwnershipControls API operation.", Operation = new[] {"GetBucketOwnershipControls"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketOwnershipControlsResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.OwnershipControls or Amazon.S3.Model.GetBucketOwnershipControlsResponse",
         "This cmdlet returns an Amazon.S3.Model.OwnershipControls object.",
         "The service call response (type Amazon.S3.Model.GetBucketOwnershipControlsResponse) can be returned by specifying '-Select *'."
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketOwnershipControlsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketOwnershipControlsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketOwnershipControls");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketOwnershipControls");
             try
             {
                 return client.GetBucketOwnershipControlsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

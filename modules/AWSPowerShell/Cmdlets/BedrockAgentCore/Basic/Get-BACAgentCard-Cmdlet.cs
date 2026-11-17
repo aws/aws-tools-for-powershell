@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACAgentCard")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetAgentCardResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetAgentCard API operation.", Operation = new[] {"GetAgentCard"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetAgentCardResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore GetAgentCard API operation.", Operation = new[] {"GetAgentCard"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetAgentCardResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.GetAgentCardResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.GetAgentCardResponse object containing multiple properties."
     )]
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.GetAgentCardResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetAgentCardRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetAgentCard");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "GetAgentCard");
             try
             {
                 return client.GetAgentCardAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

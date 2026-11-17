@@ -30,12 +30,13 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Delete a policy for the specified data stream or consumer. Request patterns can be
-    /// one of the following:
+    /// Delete a policy for the specified data stream, consumer, or queue. Request patterns
+    /// can be one of the following:
     /// 
     ///  <ul><li><para>
     /// Data stream pattern: <c>arn:aws.*:kinesis:.*:\d{12}:.*stream/\S+</c></para></li><li><para>
-    /// Consumer pattern: <c>^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+</c></para></li></ul>
+    /// Consumer pattern: <c>^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+</c></para></li><li><para>
+    /// Queue pattern: <c>arn:aws.*:kinesis:.*:\d{12}:queue/\S+</c></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "KINResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the data stream or consumer.</para>
+        /// <para>The Amazon Resource Name (ARN) of a data stream, a queue, or an enhanced fan-out consumer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

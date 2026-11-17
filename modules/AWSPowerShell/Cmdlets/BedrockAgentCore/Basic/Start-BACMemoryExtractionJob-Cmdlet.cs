@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Start", "BACMemoryExtractionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer StartMemoryExtractionJob API operation.", Operation = new[] {"StartMemoryExtractionJob"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StartMemoryExtractionJobResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore StartMemoryExtractionJob API operation.", Operation = new[] {"StartMemoryExtractionJob"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StartMemoryExtractionJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.BedrockAgentCore.Model.StartMemoryExtractionJobResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.BedrockAgentCore.Model.StartMemoryExtractionJobResponse) can be returned by specifying '-Select *'."
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.StartMemoryExtractionJobResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.StartMemoryExtractionJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "StartMemoryExtractionJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "StartMemoryExtractionJob");
             try
             {
                 return client.StartMemoryExtractionJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

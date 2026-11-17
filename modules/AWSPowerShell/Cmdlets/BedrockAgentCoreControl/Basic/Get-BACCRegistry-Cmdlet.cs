@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCRegistry")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetRegistryResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetRegistry API operation.", Operation = new[] {"GetRegistry"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetRegistryResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetRegistry API operation.", Operation = new[] {"GetRegistry"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetRegistryResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetRegistryResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetRegistryResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetRegistryResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetRegistryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetRegistry");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetRegistry");
             try
             {
                 return client.GetRegistryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

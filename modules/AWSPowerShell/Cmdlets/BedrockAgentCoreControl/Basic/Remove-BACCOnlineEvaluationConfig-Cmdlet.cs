@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCOnlineEvaluationConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteOnlineEvaluationConfigResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteOnlineEvaluationConfig API operation.", Operation = new[] {"DeleteOnlineEvaluationConfig"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteOnlineEvaluationConfigResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteOnlineEvaluationConfig API operation.", Operation = new[] {"DeleteOnlineEvaluationConfig"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteOnlineEvaluationConfigResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteOnlineEvaluationConfigResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteOnlineEvaluationConfigResponse object containing multiple properties."
     )]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteOnlineEvaluationConfigResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteOnlineEvaluationConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteOnlineEvaluationConfig");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteOnlineEvaluationConfig");
             try
             {
                 return client.DeleteOnlineEvaluationConfigAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

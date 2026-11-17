@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Remove", "BACBatchEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCore.Model.DeleteBatchEvaluationResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer DeleteBatchEvaluation API operation.", Operation = new[] {"DeleteBatchEvaluation"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.DeleteBatchEvaluationResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore DeleteBatchEvaluation API operation.", Operation = new[] {"DeleteBatchEvaluation"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.DeleteBatchEvaluationResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.DeleteBatchEvaluationResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.DeleteBatchEvaluationResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.DeleteBatchEvaluationResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.DeleteBatchEvaluationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "DeleteBatchEvaluation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "DeleteBatchEvaluation");
             try
             {
                 return client.DeleteBatchEvaluationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

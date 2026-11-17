@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketACL")]
     [OutputType("Amazon.S3.Model.S3Grant")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketAcl API operation.", Operation = new[] {"GetBucketAcl"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketAclResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketAcl API operation.", Operation = new[] {"GetBucketAcl"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketAclResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.S3Grant or Amazon.S3.Model.GetBucketAclResponse",
         "This cmdlet returns a collection of Amazon.S3.Model.S3Grant objects.",
         "The service call response (type Amazon.S3.Model.GetBucketAclResponse) can be returned by specifying '-Select *'."
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketAclResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketAclRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketAcl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketAcl");
             try
             {
                 return client.GetBucketAclAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

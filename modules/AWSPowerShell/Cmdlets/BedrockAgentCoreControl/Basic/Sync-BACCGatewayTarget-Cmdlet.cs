@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Sync", "BACCGatewayTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GatewayTarget")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer SynchronizeGatewayTargets API operation.", Operation = new[] {"SynchronizeGatewayTargets"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.SynchronizeGatewayTargetsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control SynchronizeGatewayTargets API operation.", Operation = new[] {"SynchronizeGatewayTargets"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.SynchronizeGatewayTargetsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GatewayTarget or Amazon.BedrockAgentCoreControl.Model.SynchronizeGatewayTargetsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.GatewayTarget objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.SynchronizeGatewayTargetsResponse) can be returned by specifying '-Select *'."
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.SynchronizeGatewayTargetsResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.SynchronizeGatewayTargetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "SynchronizeGatewayTargets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "SynchronizeGatewayTargets");
             try
             {
                 return client.SynchronizeGatewayTargetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

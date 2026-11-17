@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     ///  
     /// <para>
     /// To reject a domain name access association with an access association source in another
-    /// AWS account, use this operation. To remove a domain name access association with an
-    /// access association source in your own account, use the DeleteDomainNameAccessAssociation
+    /// Amazon Web Services account, use this operation. To remove a domain name access association
+    /// with an access association source in your own account, use the DeleteDomainNameAccessAssociation
     /// operation.
     /// </para>
     /// </summary>

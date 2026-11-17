@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Set", "S3BucketACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketAcl API operation.", Operation = new[] {"PutBucketAcl"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketAclResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutBucketAcl API operation.", Operation = new[] {"PutBucketAcl"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketAclResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutBucketAclResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutBucketAclResponse) be returned by specifying '-Select *'."
@@ -544,7 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutBucketAclResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketAclRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutBucketAcl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketAcl");
             try
             {
                 return client.PutBucketAclAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

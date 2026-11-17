@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACMemoryExtractionJobList")]
     [OutputType("Amazon.BedrockAgentCore.Model.ExtractionJobMetadata")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer ListMemoryExtractionJobs API operation.", Operation = new[] {"ListMemoryExtractionJobs"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListMemoryExtractionJobsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore ListMemoryExtractionJobs API operation.", Operation = new[] {"ListMemoryExtractionJobs"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListMemoryExtractionJobsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.ExtractionJobMetadata or Amazon.BedrockAgentCore.Model.ListMemoryExtractionJobsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCore.Model.ExtractionJobMetadata objects.",
         "The service call response (type Amazon.BedrockAgentCore.Model.ListMemoryExtractionJobsResponse) can be returned by specifying '-Select *'."
@@ -341,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.ListMemoryExtractionJobsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.ListMemoryExtractionJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "ListMemoryExtractionJobs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "ListMemoryExtractionJobs");
             try
             {
                 return client.ListMemoryExtractionJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

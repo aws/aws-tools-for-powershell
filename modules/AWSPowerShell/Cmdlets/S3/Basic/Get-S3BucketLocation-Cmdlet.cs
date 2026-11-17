@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketLocation")]
     [OutputType("Amazon.S3.S3Region")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketLocation API operation.", Operation = new[] {"GetBucketLocation"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketLocationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketLocation API operation.", Operation = new[] {"GetBucketLocation"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketLocationResponse))]
     [AWSCmdletOutput("Amazon.S3.S3Region or Amazon.S3.Model.GetBucketLocationResponse",
         "This cmdlet returns an Amazon.S3.S3Region object.",
         "The service call response (type Amazon.S3.Model.GetBucketLocationResponse) can be returned by specifying '-Select *'."
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketLocationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketLocationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketLocation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketLocation");
             try
             {
                 return client.GetBucketLocationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

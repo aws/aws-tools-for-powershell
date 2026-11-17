@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketInventoryConfiguration")]
     [OutputType("Amazon.S3.Model.InventoryConfiguration")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketInventoryConfiguration API operation.", Operation = new[] {"GetBucketInventoryConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketInventoryConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketInventoryConfiguration API operation.", Operation = new[] {"GetBucketInventoryConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketInventoryConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.InventoryConfiguration or Amazon.S3.Model.GetBucketInventoryConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.InventoryConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetBucketInventoryConfigurationResponse) can be returned by specifying '-Select *'."
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketInventoryConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketInventoryConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketInventoryConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketInventoryConfiguration");
             try
             {
                 return client.GetBucketInventoryConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

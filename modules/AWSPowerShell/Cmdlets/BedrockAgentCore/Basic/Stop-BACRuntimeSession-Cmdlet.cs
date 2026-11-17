@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Stop", "BACRuntimeSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.StopRuntimeSessionResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer StopRuntimeSession API operation.", Operation = new[] {"StopRuntimeSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StopRuntimeSessionResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore StopRuntimeSession API operation.", Operation = new[] {"StopRuntimeSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StopRuntimeSessionResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.StopRuntimeSessionResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.StopRuntimeSessionResponse object containing multiple properties."
     )]
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.StopRuntimeSessionResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.StopRuntimeSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "StopRuntimeSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "StopRuntimeSession");
             try
             {
                 return client.StopRuntimeSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

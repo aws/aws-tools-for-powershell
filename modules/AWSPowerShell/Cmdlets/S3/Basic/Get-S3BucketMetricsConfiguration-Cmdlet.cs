@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketMetricsConfiguration")]
     [OutputType("Amazon.S3.Model.MetricsConfiguration")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketMetricsConfiguration API operation.", Operation = new[] {"GetBucketMetricsConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketMetricsConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketMetricsConfiguration API operation.", Operation = new[] {"GetBucketMetricsConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketMetricsConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.MetricsConfiguration or Amazon.S3.Model.GetBucketMetricsConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.MetricsConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetBucketMetricsConfigurationResponse) can be returned by specifying '-Select *'."
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketMetricsConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketMetricsConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketMetricsConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketMetricsConfiguration");
             try
             {
                 return client.GetBucketMetricsConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

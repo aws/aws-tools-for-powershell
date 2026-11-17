@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3BucketTagging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketTagging API operation.", Operation = new[] {"PutBucketTagging"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketTaggingResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutBucketTagging API operation.", Operation = new[] {"PutBucketTagging"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketTaggingResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutBucketTaggingResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutBucketTaggingResponse) be returned by specifying '-Select *'."
@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutBucketTaggingResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketTaggingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutBucketTagging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketTagging");
             try
             {
                 return client.PutBucketTaggingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

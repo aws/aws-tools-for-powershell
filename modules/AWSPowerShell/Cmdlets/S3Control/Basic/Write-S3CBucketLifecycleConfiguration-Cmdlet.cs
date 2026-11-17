@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Write", "S3CBucketLifecycleConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control PutBucketLifecycleConfiguration API operation.", Operation = new[] {"PutBucketLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutBucketLifecycleConfigurationResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control PutBucketLifecycleConfiguration API operation.", Operation = new[] {"PutBucketLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutBucketLifecycleConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.PutBucketLifecycleConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.PutBucketLifecycleConfigurationResponse) be returned by specifying '-Select *'."
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.PutBucketLifecycleConfigurationResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.PutBucketLifecycleConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "PutBucketLifecycleConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "PutBucketLifecycleConfiguration");
             try
             {
                 return client.PutBucketLifecycleConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

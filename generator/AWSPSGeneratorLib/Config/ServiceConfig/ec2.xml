@@ -3085,6 +3085,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="Edit" Noun="TransitGatewayPeeringAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyTransitGatewayPolicyTableEntry" OutputProperty="TransitGatewayPolicyTableEntry" Verb="Edit" Noun="TransitGatewayPolicyTableEntry" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

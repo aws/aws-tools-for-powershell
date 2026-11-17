@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SourceAuthenticationConfiguration_SecretManagerConfig_SecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the secret in AWS Secrets Manager that contains the credentials for authenticating
+        /// <para>The ARN of the secret in Secrets Manager that contains the credentials for authenticating
         /// with the source.</para>
         /// </para>
         /// </summary>

@@ -176,6 +176,21 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public Amazon.Mgn.InternetProtocol InternetProtocol { get; set; }
         #endregion
         
+        #region Parameter OutpostSnapshotLocation
+        /// <summary>
+        /// <para>
+        /// <para>Request to set the location of replication snapshots when the staging area subnet
+        /// is on an AWS Outpost during Replication Settings template creation. Set to <c>OUTPOST</c>
+        /// to keep replication snapshots on the Outpost, or <c>REGION</c> to store them in the
+        /// AWS Region. Required when the staging area subnet is on an Outpost, and not allowed
+        /// otherwise.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.OutpostSnapshotLocation")]
+        public Amazon.Mgn.OutpostSnapshotLocation OutpostSnapshotLocation { get; set; }
+        #endregion
+        
         #region Parameter ReplicationServerInstanceType
         /// <summary>
         /// <para>
@@ -422,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             #endif
             context.EbsEncryptionKeyArn = this.EbsEncryptionKeyArn;
             context.InternetProtocol = this.InternetProtocol;
+            context.OutpostSnapshotLocation = this.OutpostSnapshotLocation;
             context.ReplicationServerInstanceType = this.ReplicationServerInstanceType;
             #if MODULAR
             if (this.ReplicationServerInstanceType == null && ParameterWasBound(nameof(this.ReplicationServerInstanceType)))
@@ -527,6 +543,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.InternetProtocol != null)
             {
                 request.InternetProtocol = cmdletContext.InternetProtocol;
+            }
+            if (cmdletContext.OutpostSnapshotLocation != null)
+            {
+                request.OutpostSnapshotLocation = cmdletContext.OutpostSnapshotLocation;
             }
             if (cmdletContext.ReplicationServerInstanceType != null)
             {
@@ -677,6 +697,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public Amazon.Mgn.ReplicationConfigurationEbsEncryption EbsEncryption { get; set; }
             public System.String EbsEncryptionKeyArn { get; set; }
             public Amazon.Mgn.InternetProtocol InternetProtocol { get; set; }
+            public Amazon.Mgn.OutpostSnapshotLocation OutpostSnapshotLocation { get; set; }
             public System.String ReplicationServerInstanceType { get; set; }
             public List<System.String> ReplicationServersSecurityGroupsIDs { get; set; }
             public System.String StagingAreaSubnetId { get; set; }

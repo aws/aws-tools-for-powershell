@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3BucketWebsite", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteBucketWebsite API operation.", Operation = new[] {"DeleteBucketWebsite"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketWebsiteResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteBucketWebsite API operation.", Operation = new[] {"DeleteBucketWebsite"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketWebsiteResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteBucketWebsiteResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.DeleteBucketWebsiteResponse) be returned by specifying '-Select *'."
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.DeleteBucketWebsiteResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketWebsiteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteBucketWebsite");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteBucketWebsite");
             try
             {
                 return client.DeleteBucketWebsiteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

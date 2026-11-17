@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCConsentPortal")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetConsentPortalResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetConsentPortal API operation.", Operation = new[] {"GetConsentPortal"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetConsentPortalResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetConsentPortal API operation.", Operation = new[] {"GetConsentPortal"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetConsentPortalResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetConsentPortalResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetConsentPortalResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetConsentPortalResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetConsentPortalRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetConsentPortal");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetConsentPortal");
             try
             {
                 return client.GetConsentPortalAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

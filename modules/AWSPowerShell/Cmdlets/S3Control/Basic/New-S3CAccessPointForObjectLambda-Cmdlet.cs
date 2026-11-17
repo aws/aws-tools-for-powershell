@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("New", "S3CAccessPointForObjectLambda", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon S3 Control CreateAccessPointForObjectLambda API operation.", Operation = new[] {"CreateAccessPointForObjectLambda"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateAccessPointForObjectLambdaResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control CreateAccessPointForObjectLambda API operation.", Operation = new[] {"CreateAccessPointForObjectLambda"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateAccessPointForObjectLambdaResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3Control.Model.CreateAccessPointForObjectLambdaResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.S3Control.Model.CreateAccessPointForObjectLambdaResponse) can be returned by specifying '-Select *'."
@@ -344,7 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.CreateAccessPointForObjectLambdaResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.CreateAccessPointForObjectLambdaRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "CreateAccessPointForObjectLambda");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "CreateAccessPointForObjectLambda");
             try
             {
                 return client.CreateAccessPointForObjectLambdaAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

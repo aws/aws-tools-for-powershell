@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Add", "S3CResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.S3Control.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.S3Control.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.TagResourceResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

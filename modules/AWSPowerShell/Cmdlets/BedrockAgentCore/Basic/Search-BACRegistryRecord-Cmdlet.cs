@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Search", "BACRegistryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.RegistryRecordSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer SearchRegistryRecords API operation.", Operation = new[] {"SearchRegistryRecords"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.SearchRegistryRecordsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore SearchRegistryRecords API operation.", Operation = new[] {"SearchRegistryRecords"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.SearchRegistryRecordsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.RegistryRecordSummary or Amazon.BedrockAgentCore.Model.SearchRegistryRecordsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCore.Model.RegistryRecordSummary objects.",
         "The service call response (type Amazon.BedrockAgentCore.Model.SearchRegistryRecordsResponse) can be returned by specifying '-Select *'."
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.SearchRegistryRecordsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.SearchRegistryRecordsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "SearchRegistryRecords");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "SearchRegistryRecords");
             try
             {
                 return client.SearchRegistryRecordsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

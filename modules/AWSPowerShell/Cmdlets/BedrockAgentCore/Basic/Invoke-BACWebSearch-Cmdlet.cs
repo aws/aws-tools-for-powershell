@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Invoke", "BACWebSearch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.WebSearchResult")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer InvokeWebSearch API operation.", Operation = new[] {"InvokeWebSearch"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.InvokeWebSearchResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore InvokeWebSearch API operation.", Operation = new[] {"InvokeWebSearch"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.InvokeWebSearchResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.WebSearchResult or Amazon.BedrockAgentCore.Model.InvokeWebSearchResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCore.Model.WebSearchResult objects.",
         "The service call response (type Amazon.BedrockAgentCore.Model.InvokeWebSearchResponse) can be returned by specifying '-Select *'."
@@ -365,7 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.InvokeWebSearchResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.InvokeWebSearchRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "InvokeWebSearch");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "InvokeWebSearch");
             try
             {
                 return client.InvokeWebSearchAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

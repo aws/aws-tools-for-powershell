@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3ObjectRetention", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutObjectRetention API operation.", Operation = new[] {"PutObjectRetention"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectRetentionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutObjectRetention API operation.", Operation = new[] {"PutObjectRetention"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectRetentionResponse))]
     [AWSCmdletOutput("Amazon.S3.RequestCharged or Amazon.S3.Model.PutObjectRetentionResponse",
         "This cmdlet returns an Amazon.S3.RequestCharged object.",
         "The service call response (type Amazon.S3.Model.PutObjectRetentionResponse) can be returned by specifying '-Select *'."
@@ -460,7 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutObjectRetentionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectRetentionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutObjectRetention");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutObjectRetention");
             try
             {
                 return client.PutObjectRetentionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

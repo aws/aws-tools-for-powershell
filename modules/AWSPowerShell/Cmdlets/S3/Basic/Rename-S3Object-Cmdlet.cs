@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Rename", "S3Object", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) RenameObject API operation.", Operation = new[] {"RenameObject"}, SelectReturnType = typeof(Amazon.S3.Model.RenameObjectResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service RenameObject API operation.", Operation = new[] {"RenameObject"}, SelectReturnType = typeof(Amazon.S3.Model.RenameObjectResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.RenameObjectResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.RenameObjectResponse) be returned by specifying '-Select *'."
@@ -423,7 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.RenameObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.RenameObjectRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "RenameObject");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "RenameObject");
             try
             {
                 return client.RenameObjectAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketLogging")]
     [OutputType("Amazon.S3.Model.S3BucketLoggingConfig")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketLogging API operation.", Operation = new[] {"GetBucketLogging"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketLoggingResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketLogging API operation.", Operation = new[] {"GetBucketLogging"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketLoggingResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.S3BucketLoggingConfig or Amazon.S3.Model.GetBucketLoggingResponse",
         "This cmdlet returns an Amazon.S3.Model.S3BucketLoggingConfig object.",
         "The service call response (type Amazon.S3.Model.GetBucketLoggingResponse) can be returned by specifying '-Select *'."
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketLoggingResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketLoggingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketLogging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketLogging");
             try
             {
                 return client.GetBucketLoggingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

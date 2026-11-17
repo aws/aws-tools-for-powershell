@@ -190,6 +190,13 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.SetupFormat
+        "Get-CWOADMNConnectorTelemetrySetup/Format"
+        {
+            $v = "BICEP"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.SignalType
         "Test-CWOADMNTelemetryPipeline/SignalType"
         {
@@ -226,6 +233,20 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.ThirdPartyTelemetryEnrichmentStatus
+        "Get-CWOADMNThirdPartyTelemetryEnrichmentList/Status"
+        {
+            $v = "Impaired","Initializing","Running","Stopped"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.ThirdPartyTelemetrySource
+        "Get-CWOADMNThirdPartyTelemetryEnrichmentList/TelemetrySource"
+        {
+            $v = "Azure"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.WAFLogType
         {
             ($_ -eq "New-CWOADMNTelemetryRule/WAFLoggingParameters_LogType") -Or
@@ -250,6 +271,7 @@ $CWOADMN_map = @{
     "DestinationConfiguration_DestinationType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "ELBLoadBalancerLoggingParameters_OutputFormat"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Encryption_SseAlgorithm"=@("New-CWOADMNS3TableIntegration")
+    "Format"=@("Get-CWOADMNConnectorTelemetrySetup")
     "LoggingFilter_DefaultBehavior"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
@@ -261,6 +283,8 @@ $CWOADMN_map = @{
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "SignalType"=@("Test-CWOADMNTelemetryPipeline")
     "SourceLogsConfiguration_EncryptedLogGroupStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "Status"=@("Get-CWOADMNThirdPartyTelemetryEnrichmentList")
+    "TelemetrySource"=@("Get-CWOADMNThirdPartyTelemetryEnrichmentList")
     "WAFLoggingParameters_LogType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
 }
 
@@ -315,18 +339,23 @@ $CWOADMN_SelectCompleters = {
 
 $CWOADMN_SelectMap = @{
     "Select"=@("New-CWOADMNCentralizationRuleForOrganization",
+               "New-CWOADMNConnector",
                "New-CWOADMNDatasetIntegration",
                "New-CWOADMNS3TableIntegration",
                "New-CWOADMNTelemetryPipeline",
                "New-CWOADMNTelemetryRule",
                "New-CWOADMNTelemetryRuleForOrganization",
                "Remove-CWOADMNCentralizationRuleForOrganization",
+               "Remove-CWOADMNConnector",
                "Remove-CWOADMNDatasetIntegration",
                "Remove-CWOADMNS3TableIntegration",
                "Remove-CWOADMNTelemetryPipeline",
                "Remove-CWOADMNTelemetryRule",
                "Remove-CWOADMNTelemetryRuleForOrganization",
                "Get-CWOADMNCentralizationRuleForOrganization",
+               "Get-CWOADMNConnector",
+               "Get-CWOADMNConnectorTelemetryManifest",
+               "Get-CWOADMNConnectorTelemetrySetup",
                "Get-CWOADMNDatasetIntegration",
                "Get-CWOADMNS3TableIntegration",
                "Get-CWOADMNTelemetryEnrichmentStatus",
@@ -335,8 +364,11 @@ $CWOADMN_SelectMap = @{
                "Get-CWOADMNTelemetryPipeline",
                "Get-CWOADMNTelemetryRule",
                "Get-CWOADMNTelemetryRuleForOrganization",
+               "Get-CWOADMNThirdPartyTelemetryEnrichment",
                "Get-CWOADMNCentralizationRulesForOrganizationList",
+               "Get-CWOADMNConnectorList",
                "Get-CWOADMNDatasetIntegrationList",
+               "Get-CWOADMNResourcesByConnectorList",
                "Get-CWOADMNResourceTelemetryList",
                "Get-CWOADMNResourceTelemetryForOrganizationList",
                "Get-CWOADMNS3TableIntegrationList",
@@ -344,12 +376,17 @@ $CWOADMN_SelectMap = @{
                "Get-CWOADMNTelemetryPipelineList",
                "Get-CWOADMNTelemetryRuleList",
                "Get-CWOADMNTelemetryRulesForOrganizationList",
+               "Get-CWOADMNThirdPartyTelemetryEnrichmentList",
+               "Write-CWOADMNConnectorTelemetryManifest",
                "Start-CWOADMNTelemetryEnrichment",
                "Start-CWOADMNTelemetryEvaluation",
                "Start-CWOADMNTelemetryEvaluationForOrganization",
+               "Start-CWOADMNTelemetryPipelineRefresh",
+               "Start-CWOADMNThirdPartyTelemetryEnrichment",
                "Stop-CWOADMNTelemetryEnrichment",
                "Stop-CWOADMNTelemetryEvaluation",
                "Stop-CWOADMNTelemetryEvaluationForOrganization",
+               "Stop-CWOADMNThirdPartyTelemetryEnrichment",
                "Add-CWOADMNResourceTag",
                "Test-CWOADMNTelemetryPipeline",
                "Remove-CWOADMNResourceTag",

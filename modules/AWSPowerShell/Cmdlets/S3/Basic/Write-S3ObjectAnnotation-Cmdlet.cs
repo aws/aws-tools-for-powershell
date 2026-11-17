@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3ObjectAnnotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.Model.PutObjectAnnotationResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutObjectAnnotation API operation.", Operation = new[] {"PutObjectAnnotation"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectAnnotationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutObjectAnnotation API operation.", Operation = new[] {"PutObjectAnnotation"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectAnnotationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.PutObjectAnnotationResponse",
         "This cmdlet returns an Amazon.S3.Model.PutObjectAnnotationResponse object containing multiple properties."
     )]
@@ -543,7 +543,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutObjectAnnotationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectAnnotationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutObjectAnnotation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutObjectAnnotation");
             try
             {
                 return client.PutObjectAnnotationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

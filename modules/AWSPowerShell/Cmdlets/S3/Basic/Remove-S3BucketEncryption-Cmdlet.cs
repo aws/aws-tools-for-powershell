@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3BucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteBucketEncryption API operation.", Operation = new[] {"DeleteBucketEncryption"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketEncryptionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteBucketEncryption API operation.", Operation = new[] {"DeleteBucketEncryption"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketEncryptionResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteBucketEncryptionResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.DeleteBucketEncryptionResponse) be returned by specifying '-Select *'."
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.DeleteBucketEncryptionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketEncryptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteBucketEncryption");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteBucketEncryption");
             try
             {
                 return client.DeleteBucketEncryptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

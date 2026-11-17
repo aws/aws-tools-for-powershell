@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Set", "S3ObjectACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutObjectAcl API operation.", Operation = new[] {"PutObjectAcl"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectAclResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutObjectAcl API operation.", Operation = new[] {"PutObjectAcl"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectAclResponse))]
     [AWSCmdletOutput("Amazon.S3.RequestCharged or Amazon.S3.Model.PutObjectAclResponse",
         "This cmdlet returns an Amazon.S3.RequestCharged object.",
         "The service call response (type Amazon.S3.Model.PutObjectAclResponse) can be returned by specifying '-Select *'."
@@ -619,7 +619,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutObjectAclResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectAclRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutObjectAcl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutObjectAcl");
             try
             {
                 return client.PutObjectAclAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

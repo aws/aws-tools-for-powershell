@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Start", "BACIngestion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer IngestData API operation.", Operation = new[] {"IngestData"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.IngestDataResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore IngestData API operation.", Operation = new[] {"IngestData"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.IngestDataResponse))]
     [AWSCmdletOutput("System.String or Amazon.BedrockAgentCore.Model.IngestDataResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.BedrockAgentCore.Model.IngestDataResponse) can be returned by specifying '-Select *'."
@@ -395,7 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.IngestDataResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.IngestDataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "IngestData");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "IngestData");
             try
             {
                 return client.IngestDataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("New", "BACCHarness", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.Harness")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateHarness API operation.", Operation = new[] {"CreateHarness"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateHarnessResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control CreateHarness API operation.", Operation = new[] {"CreateHarness"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateHarnessResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.Harness or Amazon.BedrockAgentCoreControl.Model.CreateHarnessResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.Harness object.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.CreateHarnessResponse) can be returned by specifying '-Select *'."
@@ -2406,7 +2406,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.CreateHarnessResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateHarnessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateHarness");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "CreateHarness");
             try
             {
                 return client.CreateHarnessAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

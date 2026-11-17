@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CStorageLensConfigurationList")]
     [OutputType("Amazon.S3Control.Model.ListStorageLensConfigurationEntry")]
-    [AWSCmdlet("Calls the Amazon S3 Control ListStorageLensConfigurations API operation.", Operation = new[] {"ListStorageLensConfigurations"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListStorageLensConfigurationsResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control ListStorageLensConfigurations API operation.", Operation = new[] {"ListStorageLensConfigurations"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListStorageLensConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.ListStorageLensConfigurationEntry or Amazon.S3Control.Model.ListStorageLensConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.ListStorageLensConfigurationEntry objects.",
         "The service call response (type Amazon.S3Control.Model.ListStorageLensConfigurationsResponse) can be returned by specifying '-Select *'."
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.ListStorageLensConfigurationsResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.ListStorageLensConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "ListStorageLensConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "ListStorageLensConfigurations");
             try
             {
                 return client.ListStorageLensConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

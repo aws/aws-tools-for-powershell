@@ -78,6 +78,16 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         public System.String Cidr { get; set; }
         #endregion
         
+        #region Parameter DnsViewId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the DNS view to associate with this access source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DnsViewId { get; set; }
+        #endregion
+        
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
@@ -164,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             }
             #endif
             context.Cidr = this.Cidr;
+            context.DnsViewId = this.DnsViewId;
             context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             context.Protocol = this.Protocol;
@@ -190,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             if (cmdletContext.Cidr != null)
             {
                 request.Cidr = cmdletContext.Cidr;
+            }
+            if (cmdletContext.DnsViewId != null)
+            {
+                request.DnsViewId = cmdletContext.DnsViewId;
             }
             if (cmdletContext.IpAddressType != null)
             {
@@ -260,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         {
             public System.String AccessSourceId { get; set; }
             public System.String Cidr { get; set; }
+            public System.String DnsViewId { get; set; }
             public Amazon.Route53GlobalResolver.IpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public Amazon.Route53GlobalResolver.DnsProtocol Protocol { get; set; }

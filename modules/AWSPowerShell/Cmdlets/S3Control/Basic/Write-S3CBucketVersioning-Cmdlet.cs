@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Write", "S3CBucketVersioning", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control PutBucketVersioning API operation.", Operation = new[] {"PutBucketVersioning"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutBucketVersioningResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control PutBucketVersioning API operation.", Operation = new[] {"PutBucketVersioning"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutBucketVersioningResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.PutBucketVersioningResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3Control.Model.PutBucketVersioningResponse) be returned by specifying '-Select *'."
@@ -309,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.PutBucketVersioningResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.PutBucketVersioningRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "PutBucketVersioning");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "PutBucketVersioning");
             try
             {
                 return client.PutBucketVersioningAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

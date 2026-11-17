@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Bedrock AgentCore Data Plane Fronting Layer
+# Argument completions for service Amazon Bedrock AgentCore
 
 
 $BAC_Completers = {
@@ -84,6 +84,16 @@ $BAC_Completers = {
         "Update-BACABTest/ExecutionStatus"
         {
             $v = "NOT_STARTED","PAUSED","RUNNING","STOPPED"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.AgentInsightArchiveStatus
+        {
+            ($_ -eq "Get-BACAgentInsightList/ArchiveStatus") -Or
+            ($_ -eq "Update-BACAgentInsight/ArchiveStatus")
+        }
+        {
+            $v = "ACTIVE","ARCHIVED"
             break
         }
 
@@ -254,6 +264,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.ScenarioType
+        "Start-BACDatasetGeneration/ScenarioType"
+        {
+            $v = "DYNAMIC","FIXED"
+            break
+        }
+
         # Amazon.BedrockAgentCore.ScreenshotFormat
         "Invoke-BACBrowser/Action_Screenshot_Format"
         {
@@ -280,6 +297,7 @@ $BAC_map = @{
     "Action_MouseClick_Button"=@("Invoke-BACBrowser")
     "Action_MouseDrag_Button"=@("Invoke-BACBrowser")
     "Action_Screenshot_Format"=@("Invoke-BACBrowser")
+    "ArchiveStatus"=@("Get-BACAgentInsightList","Update-BACAgentInsight")
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "Arguments_Runtime"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
@@ -299,6 +317,7 @@ $BAC_map = @{
     "PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestMethod"=@("Get-BACResourcePaymentToken")
     "PaymentType"=@("Invoke-BACPayment")
     "RecordExpirySpecification_Action"=@("New-BACBatchMemoryRecord","Update-BACBatchMemoryRecord")
+    "ScenarioType"=@("Start-BACDatasetGeneration")
     "Status"=@("Get-BACBrowserSessionList","Get-BACCodeInterpreterSessionList")
     "StatusFilter"=@("Get-BACRecommendationList")
     "Token"=@("Get-BACPaymentInstrumentBalance")
@@ -366,6 +385,7 @@ $BAC_SelectMap = @{
                "Remove-BACABTest",
                "Remove-BACBatchEvaluation",
                "Remove-BACCapacityProviderSession",
+               "Remove-BACDatasetGeneration",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
                "Remove-BACPaymentInstrument",
@@ -374,9 +394,11 @@ $BAC_SelectMap = @{
                "Invoke-BACEvaluate",
                "Get-BACABTest",
                "Get-BACAgentCard",
+               "Get-BACAgentInsight",
                "Get-BACBatchEvaluation",
                "Get-BACBrowserSession",
                "Get-BACCodeInterpreterSession",
+               "Get-BACDatasetGeneration",
                "Get-BACEvent",
                "Get-BACMemoryRecord",
                "Get-BACPaymentInstrument",
@@ -398,9 +420,11 @@ $BAC_SelectMap = @{
                "Invoke-BACWebSearch",
                "Get-BACABTestList",
                "Get-BACActorList",
+               "Get-BACAgentInsightList",
                "Get-BACBatchEvaluationList",
                "Get-BACBrowserSessionList",
                "Get-BACCodeInterpreterSessionList",
+               "Get-BACDatasetGenerationList",
                "Get-BACEventList",
                "Get-BACMemoryExtractionJobList",
                "Get-BACMemoryRecordList",
@@ -415,6 +439,7 @@ $BAC_SelectMap = @{
                "Start-BACBatchEvaluation",
                "Start-BACBrowserSession",
                "Start-BACCodeInterpreterSession",
+               "Start-BACDatasetGeneration",
                "Start-BACMemoryExtractionJob",
                "Start-BACRecommendation",
                "Stop-BACBatchEvaluation",
@@ -422,6 +447,7 @@ $BAC_SelectMap = @{
                "Stop-BACCodeInterpreterSession",
                "Stop-BACRuntimeSession",
                "Update-BACABTest",
+               "Update-BACAgentInsight",
                "Update-BACBrowserStream")
 }
 

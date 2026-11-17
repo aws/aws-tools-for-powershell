@@ -153,6 +153,20 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         public System.String UserDetails_SessionId { get; set; }
         #endregion
         
+        #region Parameter SessionMetadata
+        /// <summary>
+        /// <para>
+        /// <para>A JSON serialization of attributes that apply to every event in this batch, such as
+        /// the browser, device, and operating system of the end user. CloudWatch RUM merges these
+        /// attributes into each event in the batch, so you send them once for the batch instead
+        /// of once for each event. If an attribute appears both here and in an individual event's
+        /// <c>metadata</c>, CloudWatch RUM uses the value in the event's <c>metadata</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionMetadata { get; set; }
+        #endregion
+        
         #region Parameter UserDetails_UserId
         /// <summary>
         /// <para>
@@ -247,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
                 WriteWarning("You are passing $null as a value for parameter RumEvent which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SessionMetadata = this.SessionMetadata;
             context.UserDetails_SessionId = this.UserDetails_SessionId;
             context.UserDetails_UserId = this.UserDetails_UserId;
             
@@ -319,6 +334,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             if (cmdletContext.RumEvent != null)
             {
                 request.RumEvents = cmdletContext.RumEvent;
+            }
+            if (cmdletContext.SessionMetadata != null)
+            {
+                request.SessionMetadata = cmdletContext.SessionMetadata;
             }
             
              // populate UserDetails
@@ -411,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             public System.String BatchId { get; set; }
             public System.String Id { get; set; }
             public List<Amazon.CloudWatchRUM.Model.RumEvent> RumEvent { get; set; }
+            public System.String SessionMetadata { get; set; }
             public System.String UserDetails_SessionId { get; set; }
             public System.String UserDetails_UserId { get; set; }
             public System.Func<Amazon.CloudWatchRUM.Model.PutRumEventsResponse, WriteCWRUMRumEventCmdlet, object> Select { get; set; } =

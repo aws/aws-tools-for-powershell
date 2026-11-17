@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACCodeInterpreterSession")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetCodeInterpreterSessionResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetCodeInterpreterSession API operation.", Operation = new[] {"GetCodeInterpreterSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetCodeInterpreterSessionResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore GetCodeInterpreterSession API operation.", Operation = new[] {"GetCodeInterpreterSession"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetCodeInterpreterSessionResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.GetCodeInterpreterSessionResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.GetCodeInterpreterSessionResponse object containing multiple properties."
     )]
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.GetCodeInterpreterSessionResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetCodeInterpreterSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetCodeInterpreterSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "GetCodeInterpreterSession");
             try
             {
                 return client.GetCodeInterpreterSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

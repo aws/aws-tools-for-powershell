@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3ObjectTagSet")]
     [OutputType("Amazon.S3.Model.Tag")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetObjectTagging API operation.", Operation = new[] {"GetObjectTagging"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectTaggingResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetObjectTagging API operation.", Operation = new[] {"GetObjectTagging"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectTaggingResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.Tag or Amazon.S3.Model.GetObjectTaggingResponse",
         "This cmdlet returns a collection of Amazon.S3.Model.Tag objects.",
         "The service call response (type Amazon.S3.Model.GetObjectTaggingResponse) can be returned by specifying '-Select *'."
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetObjectTaggingResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetObjectTaggingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetObjectTagging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetObjectTagging");
             try
             {
                 return client.GetObjectTaggingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

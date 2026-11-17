@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Remove", "BACEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer DeleteEvent API operation.", Operation = new[] {"DeleteEvent"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.DeleteEventResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore DeleteEvent API operation.", Operation = new[] {"DeleteEvent"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.DeleteEventResponse))]
     [AWSCmdletOutput("System.String or Amazon.BedrockAgentCore.Model.DeleteEventResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.BedrockAgentCore.Model.DeleteEventResponse) can be returned by specifying '-Select *'."
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.DeleteEventResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.DeleteEventRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "DeleteEvent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "DeleteEvent");
             try
             {
                 return client.DeleteEventAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

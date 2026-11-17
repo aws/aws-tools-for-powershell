@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Invoke", "BACEvaluate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.EvaluationResultContent")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer Evaluate API operation.", Operation = new[] {"Evaluate"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.EvaluateResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Evaluate API operation.", Operation = new[] {"Evaluate"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.EvaluateResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.EvaluationResultContent or Amazon.BedrockAgentCore.Model.EvaluateResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCore.Model.EvaluationResultContent objects.",
         "The service call response (type Amazon.BedrockAgentCore.Model.EvaluateResponse) can be returned by specifying '-Select *'."
@@ -316,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.EvaluateResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.EvaluateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "Evaluate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "Evaluate");
             try
             {
                 return client.EvaluateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

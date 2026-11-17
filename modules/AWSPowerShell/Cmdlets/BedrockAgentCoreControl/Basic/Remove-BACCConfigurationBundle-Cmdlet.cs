@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCConfigurationBundle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteConfigurationBundleResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteConfigurationBundle API operation.", Operation = new[] {"DeleteConfigurationBundle"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteConfigurationBundleResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteConfigurationBundle API operation.", Operation = new[] {"DeleteConfigurationBundle"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteConfigurationBundleResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteConfigurationBundleResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteConfigurationBundleResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteConfigurationBundleResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteConfigurationBundleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteConfigurationBundle");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteConfigurationBundle");
             try
             {
                 return client.DeleteConfigurationBundleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Update", "BACCCapacityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdateCapacityProviderResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UpdateCapacityProvider API operation.", Operation = new[] {"UpdateCapacityProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdateCapacityProviderResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control UpdateCapacityProvider API operation.", Operation = new[] {"UpdateCapacityProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UpdateCapacityProviderResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.UpdateCapacityProviderResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.UpdateCapacityProviderResponse object containing multiple properties."
     )]
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.UpdateCapacityProviderResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UpdateCapacityProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UpdateCapacityProvider");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "UpdateCapacityProvider");
             try
             {
                 return client.UpdateCapacityProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

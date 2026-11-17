@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCHarnessVersionList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.HarnessVersionSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListHarnessVersions API operation.", Operation = new[] {"ListHarnessVersions"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListHarnessVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListHarnessVersions API operation.", Operation = new[] {"ListHarnessVersions"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListHarnessVersionsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.HarnessVersionSummary or Amazon.BedrockAgentCoreControl.Model.ListHarnessVersionsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.HarnessVersionSummary objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListHarnessVersionsResponse) can be returned by specifying '-Select *'."
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListHarnessVersionsResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListHarnessVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListHarnessVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListHarnessVersions");
             try
             {
                 return client.ListHarnessVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

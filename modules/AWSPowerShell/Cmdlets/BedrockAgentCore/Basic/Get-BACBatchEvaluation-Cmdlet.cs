@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACBatchEvaluation")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetBatchEvaluationResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetBatchEvaluation API operation.", Operation = new[] {"GetBatchEvaluation"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetBatchEvaluationResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore GetBatchEvaluation API operation.", Operation = new[] {"GetBatchEvaluation"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetBatchEvaluationResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.GetBatchEvaluationResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.GetBatchEvaluationResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.GetBatchEvaluationResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetBatchEvaluationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetBatchEvaluation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "GetBatchEvaluation");
             try
             {
                 return client.GetBatchEvaluationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

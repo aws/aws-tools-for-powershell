@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_CloudProvider
         /// <summary>
         /// <para>
-        /// <para>The cloud provider to filter coverage results by.</para><para />
+        /// <para>The cloud provider to filter coverage results by. Valid values:</para><ul><li><para><c>AWS</c> – Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Microsoft Azure resources.</para></li><li><para><c>GCP</c> – Google Cloud Platform (GCP) resources.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -124,7 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_CloudProviderAccountId
         /// <summary>
         /// <para>
-        /// <para>The cloud provider account ID to filter coverage results by.</para><para />
+        /// <para>The cloud provider account ID to filter coverage results by. The value format depends
+        /// on the cloud provider:</para><ul><li><para>An Amazon Web Services account ID.</para></li><li><para>An Azure subscription ID.</para></li><li><para>A Google Cloud Platform (GCP) project ID, such as <c>my-project</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -139,7 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_CloudProviderOrgId
         /// <summary>
         /// <para>
-        /// <para>The cloud provider organization ID to filter coverage results by.</para><para />
+        /// <para>The cloud provider organization ID to filter coverage results by. The value format
+        /// depends on the cloud provider:</para><ul><li><para>An Amazon Web Services Organizations organization ID.</para></li><li><para>An Azure tenant ID.</para></li><li><para>A numeric Google Cloud Platform (GCP) organization ID.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -154,7 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_CloudProviderRegion
         /// <summary>
         /// <para>
-        /// <para>The cloud provider region to filter coverage results by.</para><para />
+        /// <para>The cloud provider region to filter coverage results by. The value format depends
+        /// on the cloud provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li><li><para>A Google Cloud Platform (GCP) location, such as the region <c>us-central1</c> or the
+        /// zone <c>us-central1-a</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -478,9 +482,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ResourceType
         /// <summary>
         /// <para>
-        /// <para>An array of Amazon Web Services resource types to return coverage statistics for.
-        /// The values can be <c>AWS_EC2_INSTANCE</c>, <c>AWS_LAMBDA_FUNCTION</c>, <c>AWS_ECR_CONTAINER_IMAGE</c>,
-        /// <c>AWS_ECR_REPOSITORY</c> or <c>AWS_ACCOUNT</c>.</para><para />
+        /// <para>An array of resource types to return coverage statistics for. Valid values:</para><ul><li><para>Amazon Web Services – <c>AWS_EC2_INSTANCE</c>, <c>AWS_LAMBDA_FUNCTION</c>, <c>AWS_ECR_CONTAINER_IMAGE</c>,
+        /// <c>AWS_ECR_REPOSITORY</c>, <c>MACHINE_IMAGE</c>, <c>CODE_REPOSITORY</c>, or <c>AWS_ACCOUNT</c>.</para></li><li><para>Microsoft Azure – <c>Microsoft.Compute/virtualMachines</c>, <c>Microsoft.ContainerRegistry/registries</c>,
+        /// <c>Microsoft.ContainerRegistry/registry/containerRepository</c>, <c>Microsoft.ContainerRegistry/registry/containerImage</c>,
+        /// or <c>Microsoft.Web/sites</c>.</para></li><li><para>Google Cloud Platform (GCP) – <c>compute.googleapis.com/Instance</c>, <c>cloudfunctions.googleapis.com/Function</c>,
+        /// <c>artifactregistry.googleapis.com/Repository</c>, or <c>artifactregistry.googleapis.com/DockerImage</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

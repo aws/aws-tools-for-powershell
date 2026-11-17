@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
-    [AWSClientCmdlet("Amazon Simple Storage Service (S3)", "S3", "2006-03-01", "S3")]
+    [AWSClientCmdlet("Amazon Simple Storage Service", "S3", "2006-03-01", "S3")]
     public abstract partial class AmazonS3ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonS3 Client { get; private set; }

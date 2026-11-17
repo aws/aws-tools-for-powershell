@@ -62,6 +62,22 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String[] ConformancePackName { get; set; }
         #endregion
         
+        #region Parameter Filters_Type
+        /// <summary>
+        /// <para>
+        /// <para>Filters results by conformance pack type. Valid values:</para><ul><li><para><c>CUSTOM</c> – A custom conformance pack.</para></li><li><para><c>MANAGED</c> – A managed conformance pack.</para></li></ul><para>If you specify both values, Config returns conformance packs of either type.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_Types")]
+        public System.String[] Filters_Type { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -137,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             {
                 context.ConformancePackName = new List<System.String>(this.ConformancePackName);
             }
+            if (this.Filters_Type != null)
+            {
+                context.Filters_Type = new List<System.String>(this.Filters_Type);
+            }
             context.Limit = this.Limit;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.Limit)) && this.Limit.HasValue)
@@ -170,6 +190,25 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (cmdletContext.ConformancePackName != null)
             {
                 request.ConformancePackNames = cmdletContext.ConformancePackName;
+            }
+            
+             // populate Filters
+            var requestFiltersIsNull = true;
+            request.Filters = new Amazon.ConfigService.Model.DescribeConformancePacksFilters();
+            List<System.String> requestFilters_filters_Type = null;
+            if (cmdletContext.Filters_Type != null)
+            {
+                requestFilters_filters_Type = cmdletContext.Filters_Type;
+            }
+            if (requestFilters_filters_Type != null)
+            {
+                request.Filters.Types = requestFilters_filters_Type;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
             }
             if (cmdletContext.Limit != null)
             {
@@ -233,6 +272,25 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (cmdletContext.ConformancePackName != null)
             {
                 request.ConformancePackNames = cmdletContext.ConformancePackName;
+            }
+            
+             // populate Filters
+            var requestFiltersIsNull = true;
+            request.Filters = new Amazon.ConfigService.Model.DescribeConformancePacksFilters();
+            List<System.String> requestFilters_filters_Type = null;
+            if (cmdletContext.Filters_Type != null)
+            {
+                requestFilters_filters_Type = cmdletContext.Filters_Type;
+            }
+            if (requestFilters_filters_Type != null)
+            {
+                request.Filters.Types = requestFilters_filters_Type;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
             }
             
             // Initialize loop variants and commence piping
@@ -348,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ConformancePackName { get; set; }
+            public List<System.String> Filters_Type { get; set; }
             public int? Limit { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ConfigService.Model.DescribeConformancePacksResponse, GetCFGConformancePackCmdlet, object> Select { get; set; } =

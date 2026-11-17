@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeletePolicyResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeletePolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeletePolicyResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeletePolicyResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeletePolicyResponse object containing multiple properties."
     )]
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeletePolicyResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeletePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeletePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeletePolicy");
             try
             {
                 return client.DeletePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

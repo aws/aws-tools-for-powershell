@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCEvaluator")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetEvaluatorResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetEvaluator API operation.", Operation = new[] {"GetEvaluator"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetEvaluatorResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetEvaluator API operation.", Operation = new[] {"GetEvaluator"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetEvaluatorResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetEvaluatorResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetEvaluatorResponse object containing multiple properties."
     )]
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetEvaluatorResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetEvaluatorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetEvaluator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetEvaluator");
             try
             {
                 return client.GetEvaluatorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

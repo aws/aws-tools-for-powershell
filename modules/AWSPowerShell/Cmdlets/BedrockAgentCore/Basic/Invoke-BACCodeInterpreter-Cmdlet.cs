@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Invoke", "BACCodeInterpreter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.InvokeCodeInterpreterResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer InvokeCodeInterpreter API operation.", Operation = new[] {"InvokeCodeInterpreter"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.InvokeCodeInterpreterResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore InvokeCodeInterpreter API operation.", Operation = new[] {"InvokeCodeInterpreter"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.InvokeCodeInterpreterResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.InvokeCodeInterpreterResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.InvokeCodeInterpreterResponse object containing multiple properties."
     )]
@@ -499,7 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.InvokeCodeInterpreterResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.InvokeCodeInterpreterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "InvokeCodeInterpreter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "InvokeCodeInterpreter");
             try
             {
                 return client.InvokeCodeInterpreterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

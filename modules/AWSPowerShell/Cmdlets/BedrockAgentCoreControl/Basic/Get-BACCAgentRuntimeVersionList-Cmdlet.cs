@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCAgentRuntimeVersionList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.AgentRuntime")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListAgentRuntimeVersions API operation.", Operation = new[] {"ListAgentRuntimeVersions"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListAgentRuntimeVersions API operation.", Operation = new[] {"ListAgentRuntimeVersions"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.AgentRuntime or Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.AgentRuntime objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsResponse) can be returned by specifying '-Select *'."
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListAgentRuntimeVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListAgentRuntimeVersions");
             try
             {
                 return client.ListAgentRuntimeVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

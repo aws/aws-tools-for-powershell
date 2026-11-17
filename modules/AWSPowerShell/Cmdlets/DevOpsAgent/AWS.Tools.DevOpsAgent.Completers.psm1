@@ -100,6 +100,16 @@ $DOPS_Completers = {
             break
         }
 
+        # Amazon.DevOpsAgent.ChatArchiveStatus
+        {
+            ($_ -eq "Get-DOPSChatList/ArchiveStatus") -Or
+            ($_ -eq "Update-DOPSChat/ArchiveStatus")
+        }
+        {
+            $v = "ACTIVE","ARCHIVED"
+            break
+        }
+
         # Amazon.DevOpsAgent.DayOfWeek
         "New-DOPSTrigger/Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek"
         {
@@ -272,7 +282,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.TaskType
         "New-DOPSBacklogTask/TaskType"
         {
-            $v = "EVALUATION","INVESTIGATION","RELEASE_READINESS_REVIEW","RELEASE_TESTING"
+            $v = "CODE_CHANGE_RISK_ANALYSIS","EVALUATION","INVESTIGATION","RELEASE_READINESS_REVIEW","RELEASE_TESTING"
             break
         }
 
@@ -305,6 +315,7 @@ $DOPS_Completers = {
 
 $DOPS_map = @{
     "Action"=@("Update-DOPSApprovalAction")
+    "ArchiveStatus"=@("Get-DOPSChatList","Update-DOPSChat")
     "AuthFlow"=@("Disable-DOPSOperatorApp","Enable-DOPSOperatorApp")
     "Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek"=@("New-DOPSTrigger")
     "Configuration_Aws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
@@ -407,6 +418,7 @@ $DOPS_SelectMap = @{
                "Get-DOPSAssetFile",
                "Get-DOPSAssociation",
                "Get-DOPSBacklogTask",
+               "Get-DOPSChat",
                "Get-DOPSOperatorApp",
                "Get-DOPSRecommendation",
                "Get-DOPSService",
@@ -439,6 +451,7 @@ $DOPS_SelectMap = @{
                "Update-DOPSAssetFile",
                "Update-DOPSAssociation",
                "Update-DOPSBacklogTask",
+               "Update-DOPSChat",
                "Update-DOPSGoal",
                "Update-DOPSOperatorAppIdpConfig",
                "Update-DOPSPrivateConnectionCertificate",

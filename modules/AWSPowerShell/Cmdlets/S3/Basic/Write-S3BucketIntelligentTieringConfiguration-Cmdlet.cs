@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3BucketIntelligentTieringConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketIntelligentTieringConfiguration API operation.", Operation = new[] {"PutBucketIntelligentTieringConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketIntelligentTieringConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutBucketIntelligentTieringConfiguration API operation.", Operation = new[] {"PutBucketIntelligentTieringConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketIntelligentTieringConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutBucketIntelligentTieringConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutBucketIntelligentTieringConfigurationResponse) be returned by specifying '-Select *'."
@@ -410,7 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutBucketIntelligentTieringConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketIntelligentTieringConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutBucketIntelligentTieringConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketIntelligentTieringConfiguration");
             try
             {
                 return client.PutBucketIntelligentTieringConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

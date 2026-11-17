@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCDataset")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetDatasetResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetDataset API operation.", Operation = new[] {"GetDataset"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetDatasetResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetDataset API operation.", Operation = new[] {"GetDataset"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetDatasetResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetDatasetResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetDatasetResponse object containing multiple properties."
     )]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetDatasetResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetDatasetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetDataset");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetDataset");
             try
             {
                 return client.GetDatasetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

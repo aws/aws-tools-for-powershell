@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCApiKeyCredentialProvider")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetApiKeyCredentialProviderResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetApiKeyCredentialProvider API operation.", Operation = new[] {"GetApiKeyCredentialProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetApiKeyCredentialProviderResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetApiKeyCredentialProvider API operation.", Operation = new[] {"GetApiKeyCredentialProvider"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetApiKeyCredentialProviderResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetApiKeyCredentialProviderResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetApiKeyCredentialProviderResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetApiKeyCredentialProviderResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetApiKeyCredentialProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetApiKeyCredentialProvider");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetApiKeyCredentialProvider");
             try
             {
                 return client.GetApiKeyCredentialProviderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

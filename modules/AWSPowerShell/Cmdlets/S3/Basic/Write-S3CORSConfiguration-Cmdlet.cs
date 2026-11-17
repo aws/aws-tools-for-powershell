@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3CORSConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutCORSConfiguration API operation.", Operation = new[] {"PutCORSConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutCORSConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutCORSConfiguration API operation.", Operation = new[] {"PutCORSConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutCORSConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutCORSConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutCORSConfigurationResponse) be returned by specifying '-Select *'."
@@ -320,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.PutCORSConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutCORSConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutCORSConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutCORSConfiguration");
             try
             {
                 return client.PutCORSConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

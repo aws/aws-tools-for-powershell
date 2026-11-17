@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketWebsite")]
     [OutputType("Amazon.S3.Model.WebsiteConfiguration")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketWebsite API operation.", Operation = new[] {"GetBucketWebsite"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketWebsiteResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketWebsite API operation.", Operation = new[] {"GetBucketWebsite"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketWebsiteResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.WebsiteConfiguration or Amazon.S3.Model.GetBucketWebsiteResponse",
         "This cmdlet returns an Amazon.S3.Model.WebsiteConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetBucketWebsiteResponse) can be returned by specifying '-Select *'."
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketWebsiteResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketWebsiteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketWebsite");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketWebsite");
             try
             {
                 return client.GetBucketWebsiteAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

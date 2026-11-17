@@ -83,7 +83,7 @@ $AWSB_Completers = {
         # Amazon.Billing.BillingFeature
         "Update-AWSBBillingPreference/Feature"
         {
-            $v = "BILLING_ALERTS","CREDIT_LEVEL_SHARING","CREDIT_PREFERENCE_OPTIONS","CREDIT_SHARING","CREDIT_SHARING_HISTORY","RI_SHARING","RI_SHARING_HISTORY"
+            $v = "BENEFIT_LEVEL_SHARING","BILLING_ALERTS","CREDIT_LEVEL_SHARING","CREDIT_PREFERENCE_OPTIONS","CREDIT_SHARING","CREDIT_SHARING_HISTORY","RI_SHARING","RI_SHARING_HISTORY"
             break
         }
 
@@ -188,7 +188,9 @@ $AWSB_SelectMap = @{
                "Get-AWSBSourceViewsForBillingViewList",
                "Get-AWSBResourceTag",
                "Invoke-AWSBCreditRedemption",
+               "Split-AWSBCredit",
                "Add-AWSBResourceTag",
+               "Invoke-AWSBCreditTransfer",
                "Remove-AWSBResourceTag",
                "Update-AWSBBillingPreference",
                "Update-AWSBBillingView")

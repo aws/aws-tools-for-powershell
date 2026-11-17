@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCPolicySummaryList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.PolicySummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListPolicySummaries API operation.", Operation = new[] {"ListPolicySummaries"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListPolicySummariesResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListPolicySummaries API operation.", Operation = new[] {"ListPolicySummaries"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListPolicySummariesResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.PolicySummary or Amazon.BedrockAgentCoreControl.Model.ListPolicySummariesResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.PolicySummary objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListPolicySummariesResponse) can be returned by specifying '-Select *'."
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListPolicySummariesResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListPolicySummariesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListPolicySummaries");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListPolicySummaries");
             try
             {
                 return client.ListPolicySummariesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

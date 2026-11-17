@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CAccessPointPolicy")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetAccessPointPolicy API operation.", Operation = new[] {"GetAccessPointPolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointPolicyResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control GetAccessPointPolicy API operation.", Operation = new[] {"GetAccessPointPolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointPolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3Control.Model.GetAccessPointPolicyResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.S3Control.Model.GetAccessPointPolicyResponse) can be returned by specifying '-Select *'."
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.GetAccessPointPolicyResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetAccessPointPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetAccessPointPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "GetAccessPointPolicy");
             try
             {
                 return client.GetAccessPointPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

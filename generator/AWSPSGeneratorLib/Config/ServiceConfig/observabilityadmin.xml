@@ -36,6 +36,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnector" OutputProperty="Connector" Verb="New" Noun="Connector" ShouldProcessTarget="ConnectorConfiguration_Azure_ClientIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDatasetIntegration" OutputProperty="*" Verb="New" Noun="DatasetIntegration" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -90,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorIdentifier" PipelineParameter="ConnectorIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDatasetIntegration" Verb="Remove" Noun="DatasetIntegration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -111,6 +119,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCentralizationRuleForOrganization" OutputProperty="*" Verb="Get" Noun="CentralizationRuleForOrganization" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnector" OutputProperty="Connector" Verb="Get" Noun="Connector" PipelineParameter="ConnectorIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectorTelemetryManifest" OutputProperty="*" Verb="Get" Noun="ConnectorTelemetryManifest" PipelineParameter="ConnectorIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectorTelemetrySetup" OutputProperty="*" Verb="Get" Noun="ConnectorTelemetrySetup" PipelineParameter="ConnectorIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -146,11 +166,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetThirdPartyTelemetryEnrichment" OutputProperty="*" Verb="Get" Noun="ThirdPartyTelemetryEnrichment" PipelineParameter="TelemetryEnrichmentIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCentralizationRulesForOrganization" OutputProperty="CentralizationRuleSummaries" Verb="Get" Noun="CentralizationRulesForOrganizationList" PipelineParameter="RuleNamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="ConnectorSummaries" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDatasetIntegrations" OutputProperty="DatasetIntegrationSummaries" Verb="Get" Noun="DatasetIntegrationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourcesByConnector" OutputProperty="Results" Verb="Get" Noun="ResourcesByConnectorList" PipelineParameter="ConnectorIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -182,6 +214,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListThirdPartyTelemetryEnrichments" OutputProperty="TelemetryEnrichments" Verb="Get" Noun="ThirdPartyTelemetryEnrichmentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConnectorTelemetryManifest" OutputProperty="Version" Verb="Write" Noun="ConnectorTelemetryManifest" ShouldProcessTarget="ConnectorIdentifier" PipelineParameter="ConnectorIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartTelemetryEnrichment" OutputProperty="*" Verb="Start" Noun="TelemetryEnrichment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -194,6 +234,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartTelemetryPipelineRefresh" Verb="Start" Noun="TelemetryPipelineRefresh" ShouldProcessTarget="PipelineIdentifier" PipelineParameter="PipelineIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartThirdPartyTelemetryEnrichment" OutputProperty="*" Verb="Start" Noun="ThirdPartyTelemetryEnrichment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopTelemetryEnrichment" OutputProperty="Status" Verb="Stop" Noun="TelemetryEnrichment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -203,6 +251,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopTelemetryEvaluationForOrganization" Verb="Stop" Noun="TelemetryEvaluationForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopThirdPartyTelemetryEnrichment" OutputProperty="*" Verb="Stop" Noun="ThirdPartyTelemetryEnrichment" ShouldProcessTarget="TelemetryEnrichmentIdentifier" PipelineParameter="TelemetryEnrichmentIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

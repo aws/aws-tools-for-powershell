@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("New", "S3BucketMetadataConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) CreateBucketMetadataConfiguration API operation.", Operation = new[] {"CreateBucketMetadataConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.CreateBucketMetadataConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service CreateBucketMetadataConfiguration API operation.", Operation = new[] {"CreateBucketMetadataConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.CreateBucketMetadataConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.CreateBucketMetadataConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.CreateBucketMetadataConfigurationResponse) be returned by specifying '-Select *'."
@@ -646,7 +646,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.CreateBucketMetadataConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CreateBucketMetadataConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "CreateBucketMetadataConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "CreateBucketMetadataConfiguration");
             try
             {
                 return client.CreateBucketMetadataConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3ObjectTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteObjectTagging API operation.", Operation = new[] {"DeleteObjectTagging"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteObjectTaggingResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteObjectTagging API operation.", Operation = new[] {"DeleteObjectTagging"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteObjectTaggingResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3.Model.DeleteObjectTaggingResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.S3.Model.DeleteObjectTaggingResponse) can be returned by specifying '-Select *'."
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.DeleteObjectTaggingResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectTaggingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "DeleteObjectTagging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteObjectTagging");
             try
             {
                 return client.DeleteObjectTaggingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

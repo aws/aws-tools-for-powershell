@@ -101,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GlobalAcceleratorExclusion
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to exclude AWS Global Accelerator traffic from encryption enforcement.</para>
+        /// <para>Specifies whether to exclude Amazon Web Services Global Accelerator traffic from encryption
+        /// enforcement.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

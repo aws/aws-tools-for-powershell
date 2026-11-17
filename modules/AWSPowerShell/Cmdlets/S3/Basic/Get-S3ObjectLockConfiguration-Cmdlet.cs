@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3ObjectLockConfiguration")]
     [OutputType("Amazon.S3.Model.ObjectLockConfiguration")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetObjectLockConfiguration API operation.", Operation = new[] {"GetObjectLockConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectLockConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetObjectLockConfiguration API operation.", Operation = new[] {"GetObjectLockConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectLockConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ObjectLockConfiguration or Amazon.S3.Model.GetObjectLockConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.ObjectLockConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetObjectLockConfigurationResponse) can be returned by specifying '-Select *'."
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetObjectLockConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetObjectLockConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetObjectLockConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetObjectLockConfiguration");
             try
             {
                 return client.GetObjectLockConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

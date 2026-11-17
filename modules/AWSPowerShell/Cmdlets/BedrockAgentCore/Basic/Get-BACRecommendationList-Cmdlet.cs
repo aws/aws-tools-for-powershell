@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACRecommendationList")]
     [OutputType("Amazon.BedrockAgentCore.Model.RecommendationSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer ListRecommendations API operation.", Operation = new[] {"ListRecommendations"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListRecommendationsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore ListRecommendations API operation.", Operation = new[] {"ListRecommendations"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.ListRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.RecommendationSummary or Amazon.BedrockAgentCore.Model.ListRecommendationsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCore.Model.RecommendationSummary objects.",
         "The service call response (type Amazon.BedrockAgentCore.Model.ListRecommendationsResponse) can be returned by specifying '-Select *'."
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.ListRecommendationsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.ListRecommendationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "ListRecommendations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "ListRecommendations");
             try
             {
                 return client.ListRecommendationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

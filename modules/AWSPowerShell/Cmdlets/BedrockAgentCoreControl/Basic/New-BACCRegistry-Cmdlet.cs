@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("New", "BACCRegistry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateRegistry API operation.", Operation = new[] {"CreateRegistry"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateRegistryResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control CreateRegistry API operation.", Operation = new[] {"CreateRegistry"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateRegistryResponse))]
     [AWSCmdletOutput("System.String or Amazon.BedrockAgentCoreControl.Model.CreateRegistryResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.CreateRegistryResponse) can be returned by specifying '-Select *'."
@@ -838,7 +838,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.CreateRegistryResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateRegistryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateRegistry");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "CreateRegistry");
             try
             {
                 return client.CreateRegistryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Set", "BACCTokenVaultCMK", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.SetTokenVaultCMKResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer SetTokenVaultCMK API operation.", Operation = new[] {"SetTokenVaultCMK"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.SetTokenVaultCMKResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control SetTokenVaultCMK API operation.", Operation = new[] {"SetTokenVaultCMK"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.SetTokenVaultCMKResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.SetTokenVaultCMKResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.SetTokenVaultCMKResponse object containing multiple properties."
     )]
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.SetTokenVaultCMKResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.SetTokenVaultCMKRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "SetTokenVaultCMK");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "SetTokenVaultCMK");
             try
             {
                 return client.SetTokenVaultCMKAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

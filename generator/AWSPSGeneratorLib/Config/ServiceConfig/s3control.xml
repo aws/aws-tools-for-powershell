@@ -5,7 +5,7 @@
     <C2jFilename>s3control</C2jFilename>
     <AssemblyName>S3Control</AssemblyName>
     <ServiceNounPrefix>S3C</ServiceNounPrefix>
-    <ServiceName>Amazon S3 Control</ServiceName>
+    <ServiceName>AWS S3 Control</ServiceName>
     <ServiceId>S3 Control</ServiceId>
     <ServiceClientInterface>IAmazonS3Control</ServiceClientInterface>
     <ServiceClient>AmazonS3ControlClient</ServiceClient>

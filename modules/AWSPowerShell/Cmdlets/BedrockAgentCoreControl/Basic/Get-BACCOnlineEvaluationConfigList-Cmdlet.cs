@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCOnlineEvaluationConfigList")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.OnlineEvaluationConfigSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListOnlineEvaluationConfigs API operation.", Operation = new[] {"ListOnlineEvaluationConfigs"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListOnlineEvaluationConfigsResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control ListOnlineEvaluationConfigs API operation.", Operation = new[] {"ListOnlineEvaluationConfigs"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListOnlineEvaluationConfigsResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.OnlineEvaluationConfigSummary or Amazon.BedrockAgentCoreControl.Model.ListOnlineEvaluationConfigsResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.OnlineEvaluationConfigSummary objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListOnlineEvaluationConfigsResponse) can be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.ListOnlineEvaluationConfigsResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListOnlineEvaluationConfigsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListOnlineEvaluationConfigs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "ListOnlineEvaluationConfigs");
             try
             {
                 return client.ListOnlineEvaluationConfigsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

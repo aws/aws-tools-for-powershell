@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <important><para>
-    ///  We recommend that you retrieve your S3 Metadata configurations by using the V2 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataTableConfiguration.html">GetBucketMetadataTableConfiguration</a>
+    ///  We recommend that you retrieve your S3 Metadata configurations by using the V2 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html">GetBucketMetadataConfiguration</a>
     /// API operation. We no longer recommend using the V1 <c>GetBucketMetadataTableConfiguration</c>
     /// API operation. 
     /// </para><para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketMetadataTableConfiguration")]
     [OutputType("Amazon.S3.Model.GetBucketMetadataTableConfigurationResult")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketMetadataTableConfiguration API operation.", Operation = new[] {"GetBucketMetadataTableConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketMetadataTableConfigurationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketMetadataTableConfiguration API operation.", Operation = new[] {"GetBucketMetadataTableConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketMetadataTableConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.GetBucketMetadataTableConfigurationResult or Amazon.S3.Model.GetBucketMetadataTableConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.GetBucketMetadataTableConfigurationResult object.",
         "The service call response (type Amazon.S3.Model.GetBucketMetadataTableConfigurationResponse) can be returned by specifying '-Select *'."
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetBucketMetadataTableConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketMetadataTableConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketMetadataTableConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketMetadataTableConfiguration");
             try
             {
                 return client.GetBucketMetadataTableConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

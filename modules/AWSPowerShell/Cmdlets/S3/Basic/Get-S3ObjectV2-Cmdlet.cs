@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3ObjectV2", DefaultParameterSetName="GetMultipleObjects")]
     [OutputType("Amazon.S3.Model.S3Object")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) ListObjectsV2 API operation.", Operation = new[] {"ListObjectsV2"}, SelectReturnType = typeof(Amazon.S3.Model.ListObjectsV2Response))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service ListObjectsV2 API operation.", Operation = new[] {"ListObjectsV2"}, SelectReturnType = typeof(Amazon.S3.Model.ListObjectsV2Response))]
     [AWSCmdletOutput("Amazon.S3.Model.S3Object or Amazon.S3.Model.ListObjectsV2Response",
         "This cmdlet returns a collection of Amazon.S3.Model.S3Object objects.",
         "The service call response (type Amazon.S3.Model.ListObjectsV2Response) can be returned by specifying '-Select *'."
@@ -585,7 +585,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.ListObjectsV2Response CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListObjectsV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "ListObjectsV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "ListObjectsV2");
             try
             {
                 return client.ListObjectsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

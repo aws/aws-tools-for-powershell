@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("New", "BACCGatewayRateLimit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CreateGatewayRateLimitResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer CreateGatewayRateLimit API operation.", Operation = new[] {"CreateGatewayRateLimit"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateGatewayRateLimitResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control CreateGatewayRateLimit API operation.", Operation = new[] {"CreateGatewayRateLimit"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.CreateGatewayRateLimitResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.CreateGatewayRateLimitResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.CreateGatewayRateLimitResponse object containing multiple properties."
     )]
@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.CreateGatewayRateLimitResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.CreateGatewayRateLimitRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "CreateGatewayRateLimit");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "CreateGatewayRateLimit");
             try
             {
                 return client.CreateGatewayRateLimitAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

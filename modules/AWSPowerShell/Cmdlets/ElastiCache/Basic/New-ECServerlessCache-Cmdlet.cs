@@ -101,6 +101,23 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String Engine { get; set; }
         #endregion
         
+        #region Parameter Integration
+        /// <summary>
+        /// <para>
+        /// <para>Which serverless cache integrations to enable. Valid values are:</para><ul><li><para><c>dynamodb</c> – DynamoDB integration.</para></li></ul><para>DynamoDB integration requires the Valkey engine with a major engine version of 9 or
+        /// above. If not specified, no integrations are enabled.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Integrations")]
+        public Amazon.ElastiCache.Model.IntegrationRequest[] Integration { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -364,6 +381,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 WriteWarning("You are passing $null as a value for parameter Engine which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Integration != null)
+            {
+                context.Integration = new List<Amazon.ElastiCache.Model.IntegrationRequest>(this.Integration);
+            }
             context.KmsKeyId = this.KmsKeyId;
             context.MajorEngineVersion = this.MajorEngineVersion;
             context.NetworkType = this.NetworkType;
@@ -513,6 +534,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.Engine = cmdletContext.Engine;
             }
+            if (cmdletContext.Integration != null)
+            {
+                request.Integrations = cmdletContext.Integration;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -617,6 +642,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String DailySnapshotTime { get; set; }
             public System.String Description { get; set; }
             public System.String Engine { get; set; }
+            public List<Amazon.ElastiCache.Model.IntegrationRequest> Integration { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MajorEngineVersion { get; set; }
             public Amazon.ElastiCache.NetworkType NetworkType { get; set; }

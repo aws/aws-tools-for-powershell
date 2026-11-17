@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Write", "S3CMultiRegionAccessPointPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon S3 Control PutMultiRegionAccessPointPolicy API operation.", Operation = new[] {"PutMultiRegionAccessPointPolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutMultiRegionAccessPointPolicyResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control PutMultiRegionAccessPointPolicy API operation.", Operation = new[] {"PutMultiRegionAccessPointPolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutMultiRegionAccessPointPolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3Control.Model.PutMultiRegionAccessPointPolicyResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.S3Control.Model.PutMultiRegionAccessPointPolicyResponse) can be returned by specifying '-Select *'."
@@ -276,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.PutMultiRegionAccessPointPolicyResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.PutMultiRegionAccessPointPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "PutMultiRegionAccessPointPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "PutMultiRegionAccessPointPolicy");
             try
             {
                 return client.PutMultiRegionAccessPointPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

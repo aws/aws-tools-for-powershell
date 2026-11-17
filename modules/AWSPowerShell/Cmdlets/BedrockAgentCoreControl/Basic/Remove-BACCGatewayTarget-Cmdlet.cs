@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Remove", "BACCGatewayTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteGatewayTarget API operation.", Operation = new[] {"DeleteGatewayTarget"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control DeleteGatewayTarget API operation.", Operation = new[] {"DeleteGatewayTarget"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse object containing multiple properties."
     )]
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteGatewayTarget");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "DeleteGatewayTarget");
             try
             {
                 return client.DeleteGatewayTargetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

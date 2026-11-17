@@ -128,6 +128,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String InstanceType { get; set; }
         #endregion
         
+        #region Parameter InstanceTypePreference
+        /// <summary>
+        /// <para>
+        /// <para>List of instance type preferences for the Capacity Block offering search. Accepts
+        /// one or more instance type names. Either this or the legacy <c>InstanceType</c> parameter
+        /// is required.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceTypePreferences")]
+        public Amazon.EC2.Model.CapacityBlockInstanceTypePreference[] InstanceTypePreference { get; set; }
+        #endregion
+        
         #region Parameter StartDateRange
         /// <summary>
         /// <para>
@@ -237,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.EndDateRange = this.EndDateRange;
             context.InstanceCount = this.InstanceCount;
             context.InstanceType = this.InstanceType;
+            if (this.InstanceTypePreference != null)
+            {
+                context.InstanceTypePreference = new List<Amazon.EC2.Model.CapacityBlockInstanceTypePreference>(this.InstanceTypePreference);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.StartDateRange = this.StartDateRange;
@@ -283,6 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceType != null)
             {
                 request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.InstanceTypePreference != null)
+            {
+                request.InstanceTypePreferences = cmdletContext.InstanceTypePreference;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -385,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.DateTime? EndDateRange { get; set; }
             public System.Int32? InstanceCount { get; set; }
             public System.String InstanceType { get; set; }
+            public List<Amazon.EC2.Model.CapacityBlockInstanceTypePreference> InstanceTypePreference { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? StartDateRange { get; set; }

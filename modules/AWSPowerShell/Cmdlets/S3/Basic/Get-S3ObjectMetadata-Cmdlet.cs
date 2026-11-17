@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3ObjectMetadata")]
     [OutputType("Amazon.S3.Model.GetObjectMetadataResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetObjectMetadata API operation.", Operation = new[] {"GetObjectMetadata"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectMetadataResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetObjectMetadata API operation.", Operation = new[] {"GetObjectMetadata"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectMetadataResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.GetObjectMetadataResponse",
         "This cmdlet returns an Amazon.S3.Model.GetObjectMetadataResponse object containing multiple properties."
     )]
@@ -615,7 +615,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.GetObjectMetadataResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetObjectMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetObjectMetadata");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetObjectMetadata");
             try
             {
                 return client.GetObjectMetadataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

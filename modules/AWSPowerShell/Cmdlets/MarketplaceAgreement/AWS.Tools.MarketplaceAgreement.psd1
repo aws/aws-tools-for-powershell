@@ -87,19 +87,28 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Approve-MASAgreementApproval', 
         'Approve-MASAgreementCancellationRequest', 
         'Approve-MASAgreementPaymentRequest', 
         'Approve-MASAgreementRequest', 
+        'Deny-MASAgreementApproval', 
         'Deny-MASAgreementCancellationRequest', 
         'Deny-MASAgreementPaymentRequest', 
         'Get-MASAgreement', 
+        'Get-MASAgreementApproval', 
+        'Get-MASAgreementApprovalList', 
         'Get-MASAgreementCancellationRequest', 
         'Get-MASAgreementCancellationRequestList', 
         'Get-MASAgreementChargeList', 
+        'Get-MASAgreementContact', 
         'Get-MASAgreementEntitlement', 
         'Get-MASAgreementInvoiceLineItemList', 
         'Get-MASAgreementPaymentRequest', 
         'Get-MASAgreementPaymentRequestList', 
+        'Get-MASAgreementRequest', 
+        'Get-MASAgreementRequestApprovalPlan', 
+        'Get-MASAgreementRequestList', 
+        'Get-MASAgreementRequestTerm', 
         'Get-MASAgreementTerm', 
         'Get-MASBillingAdjustmentRequest', 
         'Get-MASBillingAdjustmentRequestList', 
@@ -108,9 +117,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Search-MASAgreement', 
         'Send-MASAgreementCancellationRequest', 
         'Send-MASAgreementPaymentRequest', 
+        'Start-MASAgreementApproval', 
         'Stop-MASAgreement', 
         'Stop-MASAgreementCancellationRequest', 
         'Stop-MASAgreementPaymentRequest', 
+        'Stop-MASAgreementRequest', 
         'Update-MASPurchaseOrder')
 
     # Variables to export from this module

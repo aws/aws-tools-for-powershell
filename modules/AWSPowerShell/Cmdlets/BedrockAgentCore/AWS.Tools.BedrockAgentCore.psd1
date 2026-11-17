@@ -25,7 +25,7 @@
     Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The BedrockAgentCore module of AWS Tools for PowerShell lets developers and administrators manage Amazon Bedrock AgentCore Data Plane Fronting Layer from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The BedrockAgentCore module of AWS Tools for PowerShell lets developers and administrators manage Amazon Bedrock AgentCore from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -92,12 +92,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BACABTestList', 
         'Get-BACActorList', 
         'Get-BACAgentCard', 
+        'Get-BACAgentInsight', 
+        'Get-BACAgentInsightList', 
         'Get-BACBatchEvaluation', 
         'Get-BACBatchEvaluationList', 
         'Get-BACBrowserSession', 
         'Get-BACBrowserSessionList', 
         'Get-BACCodeInterpreterSession', 
         'Get-BACCodeInterpreterSessionList', 
+        'Get-BACDatasetGeneration', 
+        'Get-BACDatasetGenerationList', 
         'Get-BACEvent', 
         'Get-BACEventList', 
         'Get-BACMemoryExtractionJobList', 
@@ -135,6 +139,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BACBatchEvaluation', 
         'Remove-BACBatchMemoryRecord', 
         'Remove-BACCapacityProviderSession', 
+        'Remove-BACDatasetGeneration', 
         'Remove-BACEvent', 
         'Remove-BACMemoryRecord', 
         'Remove-BACPaymentInstrument', 
@@ -145,6 +150,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-BACBatchEvaluation', 
         'Start-BACBrowserSession', 
         'Start-BACCodeInterpreterSession', 
+        'Start-BACDatasetGeneration', 
         'Start-BACIngestion', 
         'Start-BACMemoryExtractionJob', 
         'Start-BACRecommendation', 
@@ -153,6 +159,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-BACCodeInterpreterSession', 
         'Stop-BACRuntimeSession', 
         'Update-BACABTest', 
+        'Update-BACAgentInsight', 
         'Update-BACBatchMemoryRecord', 
         'Update-BACBrowserStream')
 

@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// <summary>
     /// Removes tags from the specified Kinesis resource. Removed tags are deleted and can't
     /// be recovered after this operation completes successfully.
+    /// 
+    ///  
+    /// <para>
+    /// The Kinesis resource can be a data stream, a queue, or an enhanced fan-out consumer.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "KINResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

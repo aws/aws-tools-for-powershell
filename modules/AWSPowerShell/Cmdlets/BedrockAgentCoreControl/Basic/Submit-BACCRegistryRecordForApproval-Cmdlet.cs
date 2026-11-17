@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Submit", "BACCRegistryRecordForApproval", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.SubmitRegistryRecordForApprovalResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer SubmitRegistryRecordForApproval API operation.", Operation = new[] {"SubmitRegistryRecordForApproval"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.SubmitRegistryRecordForApprovalResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control SubmitRegistryRecordForApproval API operation.", Operation = new[] {"SubmitRegistryRecordForApproval"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.SubmitRegistryRecordForApprovalResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.SubmitRegistryRecordForApprovalResponse",
         "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.SubmitRegistryRecordForApprovalResponse object containing multiple properties."
     )]
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.SubmitRegistryRecordForApprovalResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.SubmitRegistryRecordForApprovalRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "SubmitRegistryRecordForApproval");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "SubmitRegistryRecordForApproval");
             try
             {
                 return client.SubmitRegistryRecordForApprovalAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

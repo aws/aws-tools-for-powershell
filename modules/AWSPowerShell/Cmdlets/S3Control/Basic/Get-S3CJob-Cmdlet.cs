@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CJob")]
     [OutputType("Amazon.S3Control.Model.JobDescriptor")]
-    [AWSCmdlet("Calls the Amazon S3 Control DescribeJob API operation.", Operation = new[] {"DescribeJob"}, SelectReturnType = typeof(Amazon.S3Control.Model.DescribeJobResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control DescribeJob API operation.", Operation = new[] {"DescribeJob"}, SelectReturnType = typeof(Amazon.S3Control.Model.DescribeJobResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.JobDescriptor or Amazon.S3Control.Model.DescribeJobResponse",
         "This cmdlet returns an Amazon.S3Control.Model.JobDescriptor object.",
         "The service call response (type Amazon.S3Control.Model.DescribeJobResponse) can be returned by specifying '-Select *'."
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.DescribeJobResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DescribeJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DescribeJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "DescribeJob");
             try
             {
                 return client.DescribeJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

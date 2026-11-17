@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Remove", "S3CMultiRegionAccessPoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon S3 Control DeleteMultiRegionAccessPoint API operation.", Operation = new[] {"DeleteMultiRegionAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteMultiRegionAccessPointResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control DeleteMultiRegionAccessPoint API operation.", Operation = new[] {"DeleteMultiRegionAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteMultiRegionAccessPointResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3Control.Model.DeleteMultiRegionAccessPointResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.S3Control.Model.DeleteMultiRegionAccessPointResponse) can be returned by specifying '-Select *'."
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.DeleteMultiRegionAccessPointResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeleteMultiRegionAccessPointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeleteMultiRegionAccessPoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "DeleteMultiRegionAccessPoint");
             try
             {
                 return client.DeleteMultiRegionAccessPointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

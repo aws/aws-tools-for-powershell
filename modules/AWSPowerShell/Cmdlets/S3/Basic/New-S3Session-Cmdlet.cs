@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("New", "S3Session", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.Model.SessionCredentials")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) CreateSession API operation.", Operation = new[] {"CreateSession"}, SelectReturnType = typeof(Amazon.S3.Model.CreateSessionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service CreateSession API operation.", Operation = new[] {"CreateSession"}, SelectReturnType = typeof(Amazon.S3.Model.CreateSessionResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.SessionCredentials or Amazon.S3.Model.CreateSessionResponse",
         "This cmdlet returns an Amazon.S3.Model.SessionCredentials object.",
         "The service call response (type Amazon.S3.Model.CreateSessionResponse) can be returned by specifying '-Select *'."
@@ -409,7 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private Amazon.S3.Model.CreateSessionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CreateSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "CreateSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "CreateSession");
             try
             {
                 return client.CreateSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

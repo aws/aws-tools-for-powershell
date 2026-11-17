@@ -30,8 +30,8 @@ using Amazon.ObservabilityAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOADMN
 {
     /// <summary>
-    /// Lists all tags attached to the specified resource. Supports telemetry rule resources
-    /// and telemetry pipeline resources.
+    /// Lists all tags attached to the specified resource. Supports telemetry rule resources,
+    /// telemetry pipeline resources, and third-party telemetry enrichment resources.
     /// </summary>
     [Cmdlet("Get", "CWOADMNResourceTag")]
     [OutputType("System.String")]

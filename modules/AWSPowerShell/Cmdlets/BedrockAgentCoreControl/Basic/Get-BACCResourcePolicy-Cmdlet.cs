@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// </summary>
     [Cmdlet("Get", "BACCResourcePolicy")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetResourcePolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Control GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.BedrockAgentCoreControl.Model.GetResourcePolicyResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.GetResourcePolicyResponse) can be returned by specifying '-Select *'."
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         private Amazon.BedrockAgentCoreControl.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Control", "GetResourcePolicy");
             try
             {
                 return client.GetResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

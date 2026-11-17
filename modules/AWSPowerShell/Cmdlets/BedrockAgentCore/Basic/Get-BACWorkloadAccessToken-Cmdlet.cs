@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Get", "BACWorkloadAccessToken")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetWorkloadAccessToken API operation.", Operation = new[] {"GetWorkloadAccessToken"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore GetWorkloadAccessToken API operation.", Operation = new[] {"GetWorkloadAccessToken"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse))]
     [AWSCmdletOutput("System.String or Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetWorkloadAccessToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "GetWorkloadAccessToken");
             try
             {
                 return client.GetWorkloadAccessTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

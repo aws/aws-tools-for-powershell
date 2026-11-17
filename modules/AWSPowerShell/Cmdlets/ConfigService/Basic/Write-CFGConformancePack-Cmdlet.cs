@@ -48,8 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// account. The service-linked role is created only when the role does not exist in your
     /// account. 
     /// </para><note><para>
-    /// You must specify only one of the follow parameters: <c>TemplateS3Uri</c>, <c>TemplateBody</c>
-    /// or <c>TemplateSSMDocumentDetails</c>.
+    /// For custom conformance packs, you must specify only one of <c>TemplateS3Uri</c>, <c>TemplateBody</c>,
+    /// <c>TemplateSSMDocumentDetails</c>.
+    /// </para><para>
+    /// For managed conformance packs, you must specify <c>Source</c>. Do not specify <c>TemplateS3Uri</c>,
+    /// <c>TemplateBody</c>, <c>TemplateSSMDocumentDetails</c>, <c>DeliveryS3Bucket</c>, or
+    /// <c>DeliveryS3KeyPrefix</c>.
     /// </para></note><note><para><b>Tags are added at creation and cannot be updated with this operation</b></para><para><c>PutConformancePack</c> is an idempotent API. Subsequent requests won't create
     /// a duplicate resource if one was already created. If a following request has different
     /// <c>tags</c> values, Config will ignore these differences and treat it as an idempotent
@@ -77,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConformancePackInputParameter
         /// <summary>
         /// <para>
-        /// <para>A list of <c>ConformancePackInputParameter</c> objects.</para><para />
+        /// <para>A list of <c>ConformancePackInputParameter</c> objects. Custom conformance packs can
+        /// have at most 60 input parameters. Managed conformance packs can have at most 330 input
+        /// parameters.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -150,6 +156,29 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String TemplateSSMDocumentDetails_DocumentVersion { get; set; }
         #endregion
         
+        #region Parameter Source_SourceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>A predefined identifier for a managed conformance pack. The identifier specifies which
+        /// managed conformance pack Config deploys in your account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Source_SourceIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Scope_TagKey
+        /// <summary>
+        /// <para>
+        /// <para>The tag key that applies to only those Amazon Web Services resources that you want
+        /// to trigger an evaluation for the rules in the conformance pack. Defines the <a>Scope$TagKey</a>
+        /// of all Config rules in the conformance pack. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Scope_TagKey { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -165,6 +194,20 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.ConfigService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter Scope_TagValue
+        /// <summary>
+        /// <para>
+        /// <para>The tag value that applies to only those Amazon Web Services resources that you want
+        /// to trigger an evaluation for the rules in the conformance pack. If you do not specify
+        /// a value for <c>TagValue</c>, resources that have the tag key <c>TagKey</c> trigger
+        /// an evaluation, regardless of the tag value. Defines the <a>Scope$TagValue</a> of all
+        /// Config rules in the conformance pack. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Scope_TagValue { get; set; }
         #endregion
         
         #region Parameter TemplateBody
@@ -252,6 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             #endif
             context.DeliveryS3Bucket = this.DeliveryS3Bucket;
             context.DeliveryS3KeyPrefix = this.DeliveryS3KeyPrefix;
+            context.Scope_TagKey = this.Scope_TagKey;
+            context.Scope_TagValue = this.Scope_TagValue;
+            context.Source_SourceIdentifier = this.Source_SourceIdentifier;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ConfigService.Model.Tag>(this.Tag);
@@ -291,6 +337,54 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (cmdletContext.DeliveryS3KeyPrefix != null)
             {
                 request.DeliveryS3KeyPrefix = cmdletContext.DeliveryS3KeyPrefix;
+            }
+            
+             // populate Scope
+            var requestScopeIsNull = true;
+            request.Scope = new Amazon.ConfigService.Model.ConformancePackScope();
+            System.String requestScope_scope_TagKey = null;
+            if (cmdletContext.Scope_TagKey != null)
+            {
+                requestScope_scope_TagKey = cmdletContext.Scope_TagKey;
+            }
+            if (requestScope_scope_TagKey != null)
+            {
+                request.Scope.TagKey = requestScope_scope_TagKey;
+                requestScopeIsNull = false;
+            }
+            System.String requestScope_scope_TagValue = null;
+            if (cmdletContext.Scope_TagValue != null)
+            {
+                requestScope_scope_TagValue = cmdletContext.Scope_TagValue;
+            }
+            if (requestScope_scope_TagValue != null)
+            {
+                request.Scope.TagValue = requestScope_scope_TagValue;
+                requestScopeIsNull = false;
+            }
+             // determine if request.Scope should be set to null
+            if (requestScopeIsNull)
+            {
+                request.Scope = null;
+            }
+            
+             // populate Source
+            var requestSourceIsNull = true;
+            request.Source = new Amazon.ConfigService.Model.ConformancePackSource();
+            System.String requestSource_source_SourceIdentifier = null;
+            if (cmdletContext.Source_SourceIdentifier != null)
+            {
+                requestSource_source_SourceIdentifier = cmdletContext.Source_SourceIdentifier;
+            }
+            if (requestSource_source_SourceIdentifier != null)
+            {
+                request.Source.SourceIdentifier = requestSource_source_SourceIdentifier;
+                requestSourceIsNull = false;
+            }
+             // determine if request.Source should be set to null
+            if (requestSourceIsNull)
+            {
+                request.Source = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -392,6 +486,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public System.String ConformancePackName { get; set; }
             public System.String DeliveryS3Bucket { get; set; }
             public System.String DeliveryS3KeyPrefix { get; set; }
+            public System.String Scope_TagKey { get; set; }
+            public System.String Scope_TagValue { get; set; }
+            public System.String Source_SourceIdentifier { get; set; }
             public List<Amazon.ConfigService.Model.Tag> Tag { get; set; }
             public System.String TemplateBody { get; set; }
             public System.String TemplateS3Uri { get; set; }

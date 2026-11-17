@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </summary>
     [Cmdlet("Get", "S3CAccessGrantsLocationList")]
     [OutputType("Amazon.S3Control.Model.ListAccessGrantsLocationsEntry")]
-    [AWSCmdlet("Calls the Amazon S3 Control ListAccessGrantsLocations API operation.", Operation = new[] {"ListAccessGrantsLocations"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListAccessGrantsLocationsResponse))]
+    [AWSCmdlet("Calls the AWS S3 Control ListAccessGrantsLocations API operation.", Operation = new[] {"ListAccessGrantsLocations"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListAccessGrantsLocationsResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.ListAccessGrantsLocationsEntry or Amazon.S3Control.Model.ListAccessGrantsLocationsResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.ListAccessGrantsLocationsEntry objects.",
         "The service call response (type Amazon.S3Control.Model.ListAccessGrantsLocationsResponse) can be returned by specifying '-Select *'."
@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         private Amazon.S3Control.Model.ListAccessGrantsLocationsResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.ListAccessGrantsLocationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "ListAccessGrantsLocations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS S3 Control", "ListAccessGrantsLocations");
             try
             {
                 return client.ListAccessGrantsLocationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

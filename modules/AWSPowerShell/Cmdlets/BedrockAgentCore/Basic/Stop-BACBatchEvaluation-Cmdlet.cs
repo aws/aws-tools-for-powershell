@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// </summary>
     [Cmdlet("Stop", "BACBatchEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.StopBatchEvaluationResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer StopBatchEvaluation API operation.", Operation = new[] {"StopBatchEvaluation"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StopBatchEvaluationResponse))]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore StopBatchEvaluation API operation.", Operation = new[] {"StopBatchEvaluation"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.StopBatchEvaluationResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.StopBatchEvaluationResponse",
         "This cmdlet returns an Amazon.BedrockAgentCore.Model.StopBatchEvaluationResponse object containing multiple properties."
     )]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         private Amazon.BedrockAgentCore.Model.StopBatchEvaluationResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.StopBatchEvaluationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "StopBatchEvaluation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore", "StopBatchEvaluation");
             try
             {
                 return client.StopBatchEvaluationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
