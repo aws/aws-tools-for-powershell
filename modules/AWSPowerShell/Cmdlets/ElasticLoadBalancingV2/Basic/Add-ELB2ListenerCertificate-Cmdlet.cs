@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Add", "ELB2ListenerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Certificate")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 AddListenerCertificates API operation.", Operation = new[] {"AddListenerCertificates"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.AddListenerCertificatesResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing AddListenerCertificates API operation.", Operation = new[] {"AddListenerCertificates"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.AddListenerCertificatesResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Certificate or Amazon.ElasticLoadBalancingV2.Model.AddListenerCertificatesResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.Certificate objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.AddListenerCertificatesResponse) can be returned by specifying '-Select *'."
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.AddListenerCertificatesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.AddListenerCertificatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "AddListenerCertificates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "AddListenerCertificates");
             try
             {
                 return client.AddListenerCertificatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

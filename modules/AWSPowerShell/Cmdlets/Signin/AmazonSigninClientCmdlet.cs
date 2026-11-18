@@ -28,7 +28,7 @@ using Amazon.Signin.Model;
 
 namespace Amazon.PowerShell.Cmdlets.AMSP
 {
-    [AWSClientCmdlet("AWS Sign-In Data Plane", "AMSP", "2023-01-01", "Signin")]
+    [AWSClientCmdlet("AWS Sign-In Service", "AMSP", "2023-01-01", "Signin")]
     public abstract partial class AmazonSigninClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSignin Client { get; private set; }

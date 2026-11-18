@@ -5,7 +5,7 @@
     <C2jFilename>signin</C2jFilename>
     <AssemblyName>Signin</AssemblyName>
     <ServiceNounPrefix>AMSP</ServiceNounPrefix>
-    <ServiceName>AWS Sign-In Data Plane</ServiceName>
+    <ServiceName>AWS Sign-In Service</ServiceName>
     <ServiceId>Signin</ServiceId>
     <ServiceClientInterface>IAmazonSignin</ServiceClientInterface>
     <ServiceClient>AmazonSigninClient</ServiceClient>
@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchRevokeSessions" OutputProperty="*" Verb="Revoke" Noun="SessionBatch" ShouldProcessTarget="SessionArns" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBearerToken" OutputProperty="*" Verb="New" Noun="BearerToken" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -51,11 +55,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="SessionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="IntrospectOAuth2TokenWithIAM" OutputProperty="*" Verb="Invoke" Noun="IntrospectOAuth2TokenWithIAM" ShouldProcessTarget="Token" PipelineParameter="Token" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListResourcePermissionStatements" OutputProperty="PermissionStatements" Verb="Get" Noun="ResourcePermissionStatementList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSessions" OutputProperty="Items" Verb="Get" Noun="SessionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

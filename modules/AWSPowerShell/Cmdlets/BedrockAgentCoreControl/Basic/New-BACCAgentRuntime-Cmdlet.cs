@@ -439,6 +439,20 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride[] AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride { get; set; }
         #endregion
         
+        #region Parameter CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode
+        /// <summary>
+        /// <para>
+        /// <para>The privilege mode of the agents. If you omit this field, the agents run in <c>STANDARD</c>
+        /// privilege mode. The following values are possible:</para><ul><li><para><c>STANDARD</c> – The agent runs without elevated privileges. This is the default.</para></li><li><para><c>PRIVILEGED</c> – The agent runs with elevated privileges on its instance. Use
+        /// this mode for agents that build container images, run containers, or install system
+        /// packages. A session that runs a <c>PRIVILEGED</c> agent runs only that agent.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.PrivilegeMode")]
+        public Amazon.BedrockAgentCoreControl.PrivilegeMode CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode { get; set; }
+        #endregion
+        
         #region Parameter RequestHeaderConfiguration_RequestHeaderAllowlist
         /// <summary>
         /// <para>
@@ -837,6 +851,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride = new List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride>(this.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride);
             }
             context.CapacityProviderConfiguration_CapacityProviderArn = this.CapacityProviderConfiguration_CapacityProviderArn;
+            context.CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode = this.CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.EnvironmentVariable != null)
@@ -1313,6 +1328,46 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 request.CapacityProviderConfiguration.CapacityProviderArn = requestCapacityProviderConfiguration_capacityProviderConfiguration_CapacityProviderArn;
                 requestCapacityProviderConfigurationIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.Model.OperatingSystemConfiguration requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration = null;
+            
+             // populate OperatingSystemConfiguration
+            var requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfigurationIsNull = true;
+            requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration = new Amazon.BedrockAgentCoreControl.Model.OperatingSystemConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.LinuxOperatingSystemConfiguration requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux = null;
+            
+             // populate Linux
+            var requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_LinuxIsNull = true;
+            requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux = new Amazon.BedrockAgentCoreControl.Model.LinuxOperatingSystemConfiguration();
+            Amazon.BedrockAgentCoreControl.PrivilegeMode requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux_capacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode = null;
+            if (cmdletContext.CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode != null)
+            {
+                requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux_capacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode = cmdletContext.CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode;
+            }
+            if (requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux_capacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode != null)
+            {
+                requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux.PrivilegeMode = requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux_capacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode;
+                requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_LinuxIsNull = false;
+            }
+             // determine if requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux should be set to null
+            if (requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_LinuxIsNull)
+            {
+                requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux = null;
+            }
+            if (requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux != null)
+            {
+                requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration.Linux = requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration_Linux;
+                requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfigurationIsNull = false;
+            }
+             // determine if requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration should be set to null
+            if (requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfigurationIsNull)
+            {
+                requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration = null;
+            }
+            if (requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration != null)
+            {
+                request.CapacityProviderConfiguration.OperatingSystemConfiguration = requestCapacityProviderConfiguration_capacityProviderConfiguration_OperatingSystemConfiguration;
+                requestCapacityProviderConfigurationIsNull = false;
+            }
              // determine if request.CapacityProviderConfiguration should be set to null
             if (requestCapacityProviderConfigurationIsNull)
             {
@@ -1671,6 +1726,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride> AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride { get; set; }
             public System.String CapacityProviderConfiguration_CapacityProviderArn { get; set; }
+            public Amazon.BedrockAgentCoreControl.PrivilegeMode CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }

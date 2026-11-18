@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("New", "SES2MultiRegionEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleEmailV2.Model.CreateMultiRegionEndpointResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) CreateMultiRegionEndpoint API operation.", Operation = new[] {"CreateMultiRegionEndpoint"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.CreateMultiRegionEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service CreateMultiRegionEndpoint API operation.", Operation = new[] {"CreateMultiRegionEndpoint"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.CreateMultiRegionEndpointResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.CreateMultiRegionEndpointResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.CreateMultiRegionEndpointResponse object containing multiple properties."
     )]
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.CreateMultiRegionEndpointResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.CreateMultiRegionEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "CreateMultiRegionEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "CreateMultiRegionEndpoint");
             try
             {
                 return client.CreateMultiRegionEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Test", "WAF2Capacity")]
     [OutputType("System.Int64")]
-    [AWSCmdlet("Calls the AWS WAF V2 CheckCapacity API operation.", Operation = new[] {"CheckCapacity"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CheckCapacityResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 CheckCapacity API operation.", Operation = new[] {"CheckCapacity"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CheckCapacityResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.WAFV2.Model.CheckCapacityResponse",
         "This cmdlet returns a collection of System.Int64 objects.",
         "The service call response (type Amazon.WAFV2.Model.CheckCapacityResponse) can be returned by specifying '-Select *'."
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.CheckCapacityResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.CheckCapacityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "CheckCapacity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "CheckCapacity");
             try
             {
                 return client.CheckCapacityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

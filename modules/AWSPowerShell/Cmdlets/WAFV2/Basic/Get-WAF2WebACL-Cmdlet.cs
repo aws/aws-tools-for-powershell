@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2WebACL")]
     [OutputType("Amazon.WAFV2.Model.GetWebACLResponse")]
-    [AWSCmdlet("Calls the AWS WAF V2 GetWebACL API operation.", Operation = new[] {"GetWebACL"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetWebACLResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 GetWebACL API operation.", Operation = new[] {"GetWebACL"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetWebACLResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.GetWebACLResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.GetWebACLResponse object containing multiple properties."
     )]
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.GetWebACLResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GetWebACLRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GetWebACL");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "GetWebACL");
             try
             {
                 return client.GetWebACLAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

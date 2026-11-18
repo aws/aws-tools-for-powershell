@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Test", "SES2RenderEmailTemplate")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) TestRenderEmailTemplate API operation.", Operation = new[] {"TestRenderEmailTemplate"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.TestRenderEmailTemplateResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service TestRenderEmailTemplate API operation.", Operation = new[] {"TestRenderEmailTemplate"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.TestRenderEmailTemplateResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleEmailV2.Model.TestRenderEmailTemplateResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleEmailV2.Model.TestRenderEmailTemplateResponse) can be returned by specifying '-Select *'."
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.TestRenderEmailTemplateResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.TestRenderEmailTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "TestRenderEmailTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "TestRenderEmailTemplate");
             try
             {
                 return client.TestRenderEmailTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

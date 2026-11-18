@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2LoggingConfigurationList")]
     [OutputType("Amazon.WAFV2.Model.LoggingConfiguration")]
-    [AWSCmdlet("Calls the AWS WAF V2 ListLoggingConfigurations API operation.", Operation = new[] {"ListLoggingConfigurations"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListLoggingConfigurationsResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 ListLoggingConfigurations API operation.", Operation = new[] {"ListLoggingConfigurations"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListLoggingConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.LoggingConfiguration or Amazon.WAFV2.Model.ListLoggingConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.WAFV2.Model.LoggingConfiguration objects.",
         "The service call response (type Amazon.WAFV2.Model.ListLoggingConfigurationsResponse) can be returned by specifying '-Select *'."
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.ListLoggingConfigurationsResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.ListLoggingConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "ListLoggingConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "ListLoggingConfigurations");
             try
             {
                 return client.ListLoggingConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2MobileSdkReleaseList")]
     [OutputType("Amazon.WAFV2.Model.ReleaseSummary")]
-    [AWSCmdlet("Calls the AWS WAF V2 ListMobileSdkReleases API operation.", Operation = new[] {"ListMobileSdkReleases"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListMobileSdkReleasesResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 ListMobileSdkReleases API operation.", Operation = new[] {"ListMobileSdkReleases"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListMobileSdkReleasesResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.ReleaseSummary or Amazon.WAFV2.Model.ListMobileSdkReleasesResponse",
         "This cmdlet returns a collection of Amazon.WAFV2.Model.ReleaseSummary objects.",
         "The service call response (type Amazon.WAFV2.Model.ListMobileSdkReleasesResponse) can be returned by specifying '-Select *'."
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.ListMobileSdkReleasesResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.ListMobileSdkReleasesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "ListMobileSdkReleases");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "ListMobileSdkReleases");
             try
             {
                 return client.ListMobileSdkReleasesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

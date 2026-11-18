@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Returns summary information about operations performed on a StackSet.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Reports role provisioning and stack instances deployment progress in <c>StatusDetails.Stages</c>.
+    /// The breakdown for each Amazon Web Services Region is available only from <a>DescribeStackSetOperation</a>.
+    /// </para><note><para>
     /// This API provides <i>eventually consistent</i> reads meaning it may take some time
     /// but will eventually return the most up-to-date data.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

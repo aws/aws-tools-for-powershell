@@ -28,7 +28,7 @@ using Amazon.WAFV2.Model;
 
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
-    [AWSClientCmdlet("AWS WAF V2", "WAF2", "2019-07-29", "WAFV2")]
+    [AWSClientCmdlet("AWS WAFV2", "WAF2", "2019-07-29", "WAFV2")]
     public abstract partial class AmazonWAFV2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonWAFV2 Client { get; private set; }

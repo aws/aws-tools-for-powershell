@@ -193,6 +193,7 @@ $NPT_SelectMap = @{
                "Get-NPTGlobalCluster",
                "Get-NPTOrderableDBInstanceOption",
                "Get-NPTPendingMaintenanceAction",
+               "Get-NPTServerlessV2PlatformVersionDetail",
                "Get-NPTValidDBInstanceModification",
                "Start-NPTDBClusterFailover",
                "Edit-NPTGlobalClusterPrimary",

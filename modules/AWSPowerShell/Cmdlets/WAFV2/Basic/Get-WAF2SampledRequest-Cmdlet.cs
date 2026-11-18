@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2SampledRequest")]
     [OutputType("Amazon.WAFV2.Model.GetSampledRequestsResponse")]
-    [AWSCmdlet("Calls the AWS WAF V2 GetSampledRequests API operation.", Operation = new[] {"GetSampledRequests"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetSampledRequestsResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 GetSampledRequests API operation.", Operation = new[] {"GetSampledRequests"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetSampledRequestsResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.GetSampledRequestsResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.GetSampledRequestsResponse object containing multiple properties."
     )]
@@ -339,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.GetSampledRequestsResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GetSampledRequestsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GetSampledRequests");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "GetSampledRequests");
             try
             {
                 return client.GetSampledRequestsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

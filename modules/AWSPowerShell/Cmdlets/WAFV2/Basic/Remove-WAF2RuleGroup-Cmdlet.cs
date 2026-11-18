@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Remove", "WAF2RuleGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 DeleteRuleGroup API operation.", Operation = new[] {"DeleteRuleGroup"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteRuleGroupResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 DeleteRuleGroup API operation.", Operation = new[] {"DeleteRuleGroup"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteRuleGroupResponse))]
     [AWSCmdletOutput("None or Amazon.WAFV2.Model.DeleteRuleGroupResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WAFV2.Model.DeleteRuleGroupResponse) be returned by specifying '-Select *'."
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.DeleteRuleGroupResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DeleteRuleGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DeleteRuleGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "DeleteRuleGroup");
             try
             {
                 return client.DeleteRuleGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

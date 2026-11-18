@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("Write", "AMSPResourcePermissionStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane PutResourcePermissionStatement API operation.", Operation = new[] {"PutResourcePermissionStatement"}, SelectReturnType = typeof(Amazon.Signin.Model.PutResourcePermissionStatementResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service PutResourcePermissionStatement API operation.", Operation = new[] {"PutResourcePermissionStatement"}, SelectReturnType = typeof(Amazon.Signin.Model.PutResourcePermissionStatementResponse))]
     [AWSCmdletOutput("System.String or Amazon.Signin.Model.PutResourcePermissionStatementResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.Signin.Model.PutResourcePermissionStatementResponse) can be returned by specifying '-Select *'."
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.PutResourcePermissionStatementResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.PutResourcePermissionStatementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "PutResourcePermissionStatement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "PutResourcePermissionStatement");
             try
             {
                 return client.PutResourcePermissionStatementAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

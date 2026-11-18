@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("New", "BRKTSpendingLimit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Braket CreateSpendingLimit API operation.", Operation = new[] {"CreateSpendingLimit"}, SelectReturnType = typeof(Amazon.Braket.Model.CreateSpendingLimitResponse))]
+    [AWSCmdlet("Calls the Braket CreateSpendingLimit API operation.", Operation = new[] {"CreateSpendingLimit"}, SelectReturnType = typeof(Amazon.Braket.Model.CreateSpendingLimitResponse))]
     [AWSCmdletOutput("System.String or Amazon.Braket.Model.CreateSpendingLimitResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.Braket.Model.CreateSpendingLimitResponse) can be returned by specifying '-Select *'."
@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.CreateSpendingLimitResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.CreateSpendingLimitRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "CreateSpendingLimit");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "CreateSpendingLimit");
             try
             {
                 return client.CreateSpendingLimitAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

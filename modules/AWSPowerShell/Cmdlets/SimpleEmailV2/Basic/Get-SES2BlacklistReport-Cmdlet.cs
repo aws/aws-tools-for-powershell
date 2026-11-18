@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2BlacklistReport")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetBlacklistReports API operation.", Operation = new[] {"GetBlacklistReports"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetBlacklistReportsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetBlacklistReports API operation.", Operation = new[] {"GetBlacklistReports"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetBlacklistReportsResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleEmailV2.Model.GetBlacklistReportsResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.SimpleEmailV2.Model.GetBlacklistReportsResponse) can be returned by specifying '-Select *'."
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetBlacklistReportsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetBlacklistReportsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetBlacklistReports");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetBlacklistReports");
             try
             {
                 return client.GetBlacklistReportsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

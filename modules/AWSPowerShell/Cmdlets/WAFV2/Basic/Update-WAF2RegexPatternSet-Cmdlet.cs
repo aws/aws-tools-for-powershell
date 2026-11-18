@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Update", "WAF2RegexPatternSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS WAF V2 UpdateRegexPatternSet API operation.", Operation = new[] {"UpdateRegexPatternSet"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UpdateRegexPatternSetResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 UpdateRegexPatternSet API operation.", Operation = new[] {"UpdateRegexPatternSet"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UpdateRegexPatternSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.UpdateRegexPatternSetResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WAFV2.Model.UpdateRegexPatternSetResponse) can be returned by specifying '-Select *'."
@@ -346,7 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.UpdateRegexPatternSetResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.UpdateRegexPatternSetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "UpdateRegexPatternSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "UpdateRegexPatternSet");
             try
             {
                 return client.UpdateRegexPatternSetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

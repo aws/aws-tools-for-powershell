@@ -6,6 +6,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWS.Tools.Common", "..\modu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWS.Tools.Installer", "..\modules\Installer\AWS.Tools.Installer.Lib\AWS.Tools.Installer.csproj", "{B7E9C5A1-5F9D-4D2A-9C8B-1E3F4A8D9C7E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWS.Tools.AbuseSignal", "..\modules\AWSPowerShell\Cmdlets\AbuseSignal\AWS.Tools.AbuseSignal.csproj", "{E5296B26-97E1-4A0A-AF9F-764C92F8C992}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWS.Tools.AccessAnalyzer", "..\modules\AWSPowerShell\Cmdlets\AccessAnalyzer\AWS.Tools.AccessAnalyzer.csproj", "{8DFF60BE-0E7E-4F98-B7D0-95E36627CCB9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWS.Tools.AccountAccessRuntime", "..\modules\AWSPowerShell\Cmdlets\AccountAccessRuntime\AWS.Tools.AccountAccessRuntime.csproj", "{EAE32327-E8AC-4986-814F-6D53135D5D7B}"
@@ -882,6 +884,10 @@ Global
 		{B7E9C5A1-5F9D-4D2A-9C8B-1E3F4A8D9C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7E9C5A1-5F9D-4D2A-9C8B-1E3F4A8D9C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7E9C5A1-5F9D-4D2A-9C8B-1E3F4A8D9C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5296B26-97E1-4A0A-AF9F-764C92F8C992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5296B26-97E1-4A0A-AF9F-764C92F8C992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5296B26-97E1-4A0A-AF9F-764C92F8C992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5296B26-97E1-4A0A-AF9F-764C92F8C992}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8DFF60BE-0E7E-4F98-B7D0-95E36627CCB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8DFF60BE-0E7E-4F98-B7D0-95E36627CCB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DFF60BE-0E7E-4F98-B7D0-95E36627CCB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -2607,6 +2613,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{E5296B26-97E1-4A0A-AF9F-764C92F8C992} = {899FAE76-60BB-4E45-B106-4B2FACE6FC3A}
 		{8DFF60BE-0E7E-4F98-B7D0-95E36627CCB9} = {899FAE76-60BB-4E45-B106-4B2FACE6FC3A}
 		{EAE32327-E8AC-4986-814F-6D53135D5D7B} = {899FAE76-60BB-4E45-B106-4B2FACE6FC3A}
 		{0676C709-091A-4C58-9DAC-46BED9ED818D} = {899FAE76-60BB-4E45-B106-4B2FACE6FC3A}

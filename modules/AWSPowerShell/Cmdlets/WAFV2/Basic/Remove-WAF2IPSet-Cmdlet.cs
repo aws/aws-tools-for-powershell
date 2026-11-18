@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Remove", "WAF2IPSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 DeleteIPSet API operation.", Operation = new[] {"DeleteIPSet"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteIPSetResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 DeleteIPSet API operation.", Operation = new[] {"DeleteIPSet"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteIPSetResponse))]
     [AWSCmdletOutput("None or Amazon.WAFV2.Model.DeleteIPSetResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WAFV2.Model.DeleteIPSetResponse) be returned by specifying '-Select *'."
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.DeleteIPSetResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DeleteIPSetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DeleteIPSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "DeleteIPSet");
             try
             {
                 return client.DeleteIPSetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2SuppressedDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutSuppressedDestination API operation.", Operation = new[] {"PutSuppressedDestination"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutSuppressedDestinationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutSuppressedDestination API operation.", Operation = new[] {"PutSuppressedDestination"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutSuppressedDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutSuppressedDestinationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutSuppressedDestinationResponse) be returned by specifying '-Select *'."
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutSuppressedDestinationResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutSuppressedDestinationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutSuppressedDestination");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutSuppressedDestination");
             try
             {
                 return client.PutSuppressedDestinationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2ReputationEntity")]
     [OutputType("Amazon.SimpleEmailV2.Model.ReputationEntity")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetReputationEntity API operation.", Operation = new[] {"GetReputationEntity"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetReputationEntityResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetReputationEntity API operation.", Operation = new[] {"GetReputationEntity"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetReputationEntityResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.ReputationEntity or Amazon.SimpleEmailV2.Model.GetReputationEntityResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.ReputationEntity object.",
         "The service call response (type Amazon.SimpleEmailV2.Model.GetReputationEntityResponse) can be returned by specifying '-Select *'."
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetReputationEntityResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetReputationEntityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetReputationEntity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetReputationEntity");
             try
             {
                 return client.GetReputationEntityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

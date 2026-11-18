@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Set", "ELB2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 SetSecurityGroups API operation.", Operation = new[] {"SetSecurityGroups"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing SetSecurityGroups API operation.", Operation = new[] {"SetSecurityGroups"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse) can be returned by specifying '-Select *'."
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "SetSecurityGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "SetSecurityGroups");
             try
             {
                 return client.SetSecurityGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

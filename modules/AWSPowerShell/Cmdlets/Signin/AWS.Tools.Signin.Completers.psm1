@@ -72,8 +72,34 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Sign-In Data Plane
+# Argument completions for service AWS Sign-In Service
 
+
+$AMSP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Signin.SessionStatus
+        "Get-AMSPSessionList/Status"
+        {
+            $v = "ACTIVE","REVOKED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AMSP_map = @{
+    "Status"=@("Get-AMSPSessionList")
+}
+
+_awsArgumentCompleterRegistration $AMSP_Completers $AMSP_map
 
 $AMSP_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -123,7 +149,8 @@ $AMSP_SelectCompleters = {
 }
 
 $AMSP_SelectMap = @{
-    "Select"=@("New-AMSPBearerToken",
+    "Select"=@("Revoke-AMSPSessionBatch",
+               "New-AMSPBearerToken",
                "New-AMSPOAuth2Token",
                "New-AMSPOAuth2TokenWithIAM",
                "New-AMSPOAuth2TokenWithTokenExchange",
@@ -131,8 +158,10 @@ $AMSP_SelectMap = @{
                "Remove-AMSPResourcePermissionStatement",
                "Get-AMSPConsoleAuthorizationConfiguration",
                "Get-AMSPResourcePolicy",
+               "Get-AMSPSession",
                "Invoke-AMSPIntrospectOAuth2TokenWithIAM",
                "Get-AMSPResourcePermissionStatementList",
+               "Get-AMSPSessionList",
                "Write-AMSPConsoleAuthorizationConfiguration",
                "Write-AMSPResourcePermissionStatement",
                "Revoke-AMSPOAuth2TokenWithIAM")

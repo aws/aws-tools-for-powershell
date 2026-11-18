@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("New", "BRKTQuantumTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Braket CreateQuantumTask API operation.", Operation = new[] {"CreateQuantumTask"}, SelectReturnType = typeof(Amazon.Braket.Model.CreateQuantumTaskResponse))]
+    [AWSCmdlet("Calls the Braket CreateQuantumTask API operation.", Operation = new[] {"CreateQuantumTask"}, SelectReturnType = typeof(Amazon.Braket.Model.CreateQuantumTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.Braket.Model.CreateQuantumTaskResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.Braket.Model.CreateQuantumTaskResponse) can be returned by specifying '-Select *'."
@@ -147,7 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter OutputS3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The key prefix for the location in the S3 bucket to store quantum task results in.</para>
+        /// <para>The key prefix for the location in the S3 bucket to store quantum task results in.
+        /// For example, <c>results/</c>. Must not contain path traversal sequences such as <c>../</c>
+        /// or <c>./</c>. The following characters are not valid in the key prefix:</para><ul><li><para>Braces (<c>{</c> or <c>}</c>)</para></li><li><para>Brackets (<c>[</c> or <c>]</c>)</para></li><li><para>Less than or greater than sign (<c>&lt;</c> or <c>&gt;</c>)</para></li><li><para>Backslash (<c>\</c>)</para></li><li><para>Vertical bar or pipe (<c>|</c>)</para></li><li><para>Caret or circumflex (<c>^</c>)</para></li><li><para>Tilde (<c>~</c>)</para></li><li><para>Grave accent or backtick (<c>`</c>)</para></li><li><para>Percent character (<c>%</c>)</para></li><li><para>Pound sign (<c>#</c>)</para></li><li><para>Quotation mark (<c>"</c>)</para></li><li><para>Non-printable ASCII characters (128–255 decimal characters)</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -411,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.CreateQuantumTaskResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.CreateQuantumTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "CreateQuantumTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "CreateQuantumTask");
             try
             {
                 return client.CreateQuantumTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

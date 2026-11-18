@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Remove", "WAF2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WAFV2.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WAFV2.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Remove", "SES2MultiRegionEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SimpleEmailV2.Status")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteMultiRegionEndpoint API operation.", Operation = new[] {"DeleteMultiRegionEndpoint"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteMultiRegionEndpoint API operation.", Operation = new[] {"DeleteMultiRegionEndpoint"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Status or Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Status object.",
         "The service call response (type Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse) can be returned by specifying '-Select *'."
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "DeleteMultiRegionEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteMultiRegionEndpoint");
             try
             {
                 return client.DeleteMultiRegionEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

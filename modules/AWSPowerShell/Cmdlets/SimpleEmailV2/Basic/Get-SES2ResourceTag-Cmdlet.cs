@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2ResourceTag")]
     [OutputType("Amazon.SimpleEmailV2.Model.Tag")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.Tag or Amazon.SimpleEmailV2.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.Tag objects.",
         "The service call response (type Amazon.SimpleEmailV2.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

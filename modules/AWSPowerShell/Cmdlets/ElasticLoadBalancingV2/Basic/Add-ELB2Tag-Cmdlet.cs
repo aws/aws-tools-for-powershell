@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Add", "ELB2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 AddTags API operation.", Operation = new[] {"AddTags"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.AddTagsResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing AddTags API operation.", Operation = new[] {"AddTags"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.AddTagsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.AddTagsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.AddTagsResponse) be returned by specifying '-Select *'."
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.AddTagsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.AddTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "AddTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "AddTags");
             try
             {
                 return client.AddTagsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

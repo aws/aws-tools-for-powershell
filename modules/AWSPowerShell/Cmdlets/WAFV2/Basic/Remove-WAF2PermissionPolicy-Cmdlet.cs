@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Remove", "WAF2PermissionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 DeletePermissionPolicy API operation.", Operation = new[] {"DeletePermissionPolicy"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeletePermissionPolicyResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 DeletePermissionPolicy API operation.", Operation = new[] {"DeletePermissionPolicy"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeletePermissionPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.WAFV2.Model.DeletePermissionPolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WAFV2.Model.DeletePermissionPolicyResponse) be returned by specifying '-Select *'."
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.DeletePermissionPolicyResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DeletePermissionPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DeletePermissionPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "DeletePermissionPolicy");
             try
             {
                 return client.DeletePermissionPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Remove", "WAF2APIKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 DeleteAPIKey API operation.", Operation = new[] {"DeleteAPIKey"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteAPIKeyResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 DeleteAPIKey API operation.", Operation = new[] {"DeleteAPIKey"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteAPIKeyResponse))]
     [AWSCmdletOutput("None or Amazon.WAFV2.Model.DeleteAPIKeyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WAFV2.Model.DeleteAPIKeyResponse) be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.DeleteAPIKeyResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DeleteAPIKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DeleteAPIKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "DeleteAPIKey");
             try
             {
                 return client.DeleteAPIKeyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

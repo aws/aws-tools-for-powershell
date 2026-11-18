@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// configured tag keys will appear in Health event data across the organization.
     /// </summary>
     [Cmdlet("Update", "HLTHTagsForOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AWSHealth.Model.TagKeyForOrganization")]
+    [OutputType("Amazon.AWSHealth.Model.OrganizationTagKey")]
     [AWSCmdlet("Calls the AWS Health APIs and Notifications ConfigureTagsForOrganization API operation.", Operation = new[] {"ConfigureTagsForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.ConfigureTagsForOrganizationResponse))]
-    [AWSCmdletOutput("Amazon.AWSHealth.Model.TagKeyForOrganization or Amazon.AWSHealth.Model.ConfigureTagsForOrganizationResponse",
-        "This cmdlet returns a collection of Amazon.AWSHealth.Model.TagKeyForOrganization objects.",
+    [AWSCmdletOutput("Amazon.AWSHealth.Model.OrganizationTagKey or Amazon.AWSHealth.Model.ConfigureTagsForOrganizationResponse",
+        "This cmdlet returns a collection of Amazon.AWSHealth.Model.OrganizationTagKey objects.",
         "The service call response (type Amazon.AWSHealth.Model.ConfigureTagsForOrganizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateHLTHTagsForOrganizationCmdlet : AmazonAWSHealthClientCmdlet, IExecutor

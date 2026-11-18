@@ -162,6 +162,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SECAGSecurityRequirementPack', 
         'Remove-SECAGTargetDomain', 
         'Remove-SECAGThreatModelBatch', 
+        'Resume-SECAGPentestJob', 
         'Start-SECAGCodeRemediation', 
         'Start-SECAGCodeReviewJob', 
         'Start-SECAGPentestJob', 

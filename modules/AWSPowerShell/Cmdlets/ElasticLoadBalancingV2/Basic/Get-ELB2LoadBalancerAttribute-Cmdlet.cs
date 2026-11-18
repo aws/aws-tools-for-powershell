@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2LoadBalancerAttribute")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.LoadBalancerAttribute")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeLoadBalancerAttributes API operation.", Operation = new[] {"DescribeLoadBalancerAttributes"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeLoadBalancerAttributesResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing DescribeLoadBalancerAttributes API operation.", Operation = new[] {"DescribeLoadBalancerAttributes"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeLoadBalancerAttributesResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.LoadBalancerAttribute or Amazon.ElasticLoadBalancingV2.Model.DescribeLoadBalancerAttributesResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.LoadBalancerAttribute objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeLoadBalancerAttributesResponse) can be returned by specifying '-Select *'."
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.DescribeLoadBalancerAttributesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeLoadBalancerAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DescribeLoadBalancerAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DescribeLoadBalancerAttributes");
             try
             {
                 return client.DescribeLoadBalancerAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

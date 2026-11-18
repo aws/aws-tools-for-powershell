@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2ConfigurationSetSuppressionOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutConfigurationSetSuppressionOptions API operation.", Operation = new[] {"PutConfigurationSetSuppressionOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetSuppressionOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutConfigurationSetSuppressionOptions API operation.", Operation = new[] {"PutConfigurationSetSuppressionOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetSuppressionOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutConfigurationSetSuppressionOptionsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutConfigurationSetSuppressionOptionsResponse) be returned by specifying '-Select *'."
@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutConfigurationSetSuppressionOptionsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutConfigurationSetSuppressionOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutConfigurationSetSuppressionOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutConfigurationSetSuppressionOptions");
             try
             {
                 return client.PutConfigurationSetSuppressionOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

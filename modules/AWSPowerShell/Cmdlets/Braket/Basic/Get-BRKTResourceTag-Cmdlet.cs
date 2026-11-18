@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("Get", "BRKTResourceTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Braket ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Braket.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the Braket ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Braket.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Braket.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.Braket.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

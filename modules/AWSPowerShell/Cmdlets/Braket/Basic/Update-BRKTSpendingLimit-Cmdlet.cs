@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("Update", "BRKTSpendingLimit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Braket UpdateSpendingLimit API operation.", Operation = new[] {"UpdateSpendingLimit"}, SelectReturnType = typeof(Amazon.Braket.Model.UpdateSpendingLimitResponse))]
+    [AWSCmdlet("Calls the Braket UpdateSpendingLimit API operation.", Operation = new[] {"UpdateSpendingLimit"}, SelectReturnType = typeof(Amazon.Braket.Model.UpdateSpendingLimitResponse))]
     [AWSCmdletOutput("None or Amazon.Braket.Model.UpdateSpendingLimitResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Braket.Model.UpdateSpendingLimitResponse) be returned by specifying '-Select *'."
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.UpdateSpendingLimitResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.UpdateSpendingLimitRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "UpdateSpendingLimit");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "UpdateSpendingLimit");
             try
             {
                 return client.UpdateSpendingLimitAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

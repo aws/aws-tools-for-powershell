@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Write", "WAF2LoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAFV2.Model.LoggingConfiguration")]
-    [AWSCmdlet("Calls the AWS WAF V2 PutLoggingConfiguration API operation.", Operation = new[] {"PutLoggingConfiguration"}, SelectReturnType = typeof(Amazon.WAFV2.Model.PutLoggingConfigurationResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 PutLoggingConfiguration API operation.", Operation = new[] {"PutLoggingConfiguration"}, SelectReturnType = typeof(Amazon.WAFV2.Model.PutLoggingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.LoggingConfiguration or Amazon.WAFV2.Model.PutLoggingConfigurationResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.LoggingConfiguration object.",
         "The service call response (type Amazon.WAFV2.Model.PutLoggingConfigurationResponse) can be returned by specifying '-Select *'."
@@ -462,7 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.PutLoggingConfigurationResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.PutLoggingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "PutLoggingConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "PutLoggingConfiguration");
             try
             {
                 return client.PutLoggingConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Remove", "SES2EmailIdentityPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteEmailIdentityPolicy API operation.", Operation = new[] {"DeleteEmailIdentityPolicy"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteEmailIdentityPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteEmailIdentityPolicy API operation.", Operation = new[] {"DeleteEmailIdentityPolicy"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteEmailIdentityPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DeleteEmailIdentityPolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.DeleteEmailIdentityPolicyResponse) be returned by specifying '-Select *'."
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.DeleteEmailIdentityPolicyResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.DeleteEmailIdentityPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "DeleteEmailIdentityPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteEmailIdentityPolicy");
             try
             {
                 return client.DeleteEmailIdentityPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

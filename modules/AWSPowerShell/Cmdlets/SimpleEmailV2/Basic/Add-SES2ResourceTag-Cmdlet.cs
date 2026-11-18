@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Add", "SES2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.TagResourceResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

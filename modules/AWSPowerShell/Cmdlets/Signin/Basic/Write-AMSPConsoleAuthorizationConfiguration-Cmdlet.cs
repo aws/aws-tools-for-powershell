@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("Write", "AMSPConsoleAuthorizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Signin.Model.PutConsoleAuthorizationConfigurationResponse")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane PutConsoleAuthorizationConfiguration API operation.", Operation = new[] {"PutConsoleAuthorizationConfiguration"}, SelectReturnType = typeof(Amazon.Signin.Model.PutConsoleAuthorizationConfigurationResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service PutConsoleAuthorizationConfiguration API operation.", Operation = new[] {"PutConsoleAuthorizationConfiguration"}, SelectReturnType = typeof(Amazon.Signin.Model.PutConsoleAuthorizationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Signin.Model.PutConsoleAuthorizationConfigurationResponse",
         "This cmdlet returns an Amazon.Signin.Model.PutConsoleAuthorizationConfigurationResponse object containing multiple properties."
     )]
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.PutConsoleAuthorizationConfigurationResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.PutConsoleAuthorizationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "PutConsoleAuthorizationConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "PutConsoleAuthorizationConfiguration");
             try
             {
                 return client.PutConsoleAuthorizationConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

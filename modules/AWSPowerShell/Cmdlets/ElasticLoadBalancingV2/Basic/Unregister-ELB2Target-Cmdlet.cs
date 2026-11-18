@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Unregister", "ELB2Target", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DeregisterTargets API operation.", Operation = new[] {"DeregisterTargets"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeregisterTargetsResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing DeregisterTargets API operation.", Operation = new[] {"DeregisterTargets"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeregisterTargetsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.DeregisterTargetsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeregisterTargetsResponse) be returned by specifying '-Select *'."
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.DeregisterTargetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DeregisterTargetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DeregisterTargets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DeregisterTargets");
             try
             {
                 return client.DeregisterTargetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

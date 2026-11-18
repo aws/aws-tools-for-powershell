@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Remove", "WAF2LoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 DeleteLoggingConfiguration API operation.", Operation = new[] {"DeleteLoggingConfiguration"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 DeleteLoggingConfiguration API operation.", Operation = new[] {"DeleteLoggingConfiguration"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse) be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DeleteLoggingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DeleteLoggingConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "DeleteLoggingConfiguration");
             try
             {
                 return client.DeleteLoggingConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

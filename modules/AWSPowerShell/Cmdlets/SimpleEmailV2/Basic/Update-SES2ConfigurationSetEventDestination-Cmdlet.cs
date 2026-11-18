@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Update", "SES2ConfigurationSetEventDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) UpdateConfigurationSetEventDestination API operation.", Operation = new[] {"UpdateConfigurationSetEventDestination"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateConfigurationSetEventDestinationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service UpdateConfigurationSetEventDestination API operation.", Operation = new[] {"UpdateConfigurationSetEventDestination"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateConfigurationSetEventDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.UpdateConfigurationSetEventDestinationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.UpdateConfigurationSetEventDestinationResponse) be returned by specifying '-Select *'."
@@ -489,7 +489,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.UpdateConfigurationSetEventDestinationResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.UpdateConfigurationSetEventDestinationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "UpdateConfigurationSetEventDestination");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "UpdateConfigurationSetEventDestination");
             try
             {
                 return client.UpdateConfigurationSetEventDestinationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

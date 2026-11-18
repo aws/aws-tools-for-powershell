@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Remove", "ELB2Rule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DeleteRule API operation.", Operation = new[] {"DeleteRule"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeleteRuleResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing DeleteRule API operation.", Operation = new[] {"DeleteRule"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeleteRuleResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.DeleteRuleResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteRuleResponse) be returned by specifying '-Select *'."
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.DeleteRuleResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DeleteRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DeleteRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DeleteRule");
             try
             {
                 return client.DeleteRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

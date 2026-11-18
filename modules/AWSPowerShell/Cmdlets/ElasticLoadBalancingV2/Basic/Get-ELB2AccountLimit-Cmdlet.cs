@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2AccountLimit")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Limit")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeAccountLimits API operation.", Operation = new[] {"DescribeAccountLimits"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing DescribeAccountLimits API operation.", Operation = new[] {"DescribeAccountLimits"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Limit or Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.Limit objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsResponse) can be returned by specifying '-Select *'."
@@ -308,7 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DescribeAccountLimits");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DescribeAccountLimits");
             try
             {
                 return client.DescribeAccountLimitsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("Get", "BRKTQuantumTask")]
     [OutputType("Amazon.Braket.Model.GetQuantumTaskResponse")]
-    [AWSCmdlet("Calls the Amazon Braket GetQuantumTask API operation.", Operation = new[] {"GetQuantumTask"}, SelectReturnType = typeof(Amazon.Braket.Model.GetQuantumTaskResponse))]
+    [AWSCmdlet("Calls the Braket GetQuantumTask API operation.", Operation = new[] {"GetQuantumTask"}, SelectReturnType = typeof(Amazon.Braket.Model.GetQuantumTaskResponse))]
     [AWSCmdletOutput("Amazon.Braket.Model.GetQuantumTaskResponse",
         "This cmdlet returns an Amazon.Braket.Model.GetQuantumTaskResponse object containing multiple properties."
     )]
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.GetQuantumTaskResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.GetQuantumTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "GetQuantumTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "GetQuantumTask");
             try
             {
                 return client.GetQuantumTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

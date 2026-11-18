@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("Revoke", "AMSPOAuth2TokenWithIAM", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane RevokeOAuth2TokenWithIAM API operation.", Operation = new[] {"RevokeOAuth2TokenWithIAM"}, SelectReturnType = typeof(Amazon.Signin.Model.RevokeOAuth2TokenWithIAMResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service RevokeOAuth2TokenWithIAM API operation.", Operation = new[] {"RevokeOAuth2TokenWithIAM"}, SelectReturnType = typeof(Amazon.Signin.Model.RevokeOAuth2TokenWithIAMResponse))]
     [AWSCmdletOutput("None or Amazon.Signin.Model.RevokeOAuth2TokenWithIAMResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Signin.Model.RevokeOAuth2TokenWithIAMResponse) be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.RevokeOAuth2TokenWithIAMResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.RevokeOAuth2TokenWithIAMRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "RevokeOAuth2TokenWithIAM");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "RevokeOAuth2TokenWithIAM");
             try
             {
                 return client.RevokeOAuth2TokenWithIAMAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

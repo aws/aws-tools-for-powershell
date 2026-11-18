@@ -312,7 +312,10 @@ $CRS_Completers = {
         }
 
         # Amazon.CleanRooms.ProtectedJobWorkerComputeType
-        "Start-CRSProtectedJob/Worker_Type"
+        {
+            ($_ -eq "Import-CRSIntermediateTable/ComputeConfiguration_JobComputeConfiguration_Worker_Type") -Or
+            ($_ -eq "Start-CRSProtectedJob/Worker_Type")
+        }
         {
             $v = "CR.1X","CR.4X"
             break
@@ -395,6 +398,7 @@ $CRS_map = @{
     "AnalyticsEngine"=@("New-CRSCollaboration","Update-CRSCollaboration")
     "Athena_Region"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
+    "ComputeConfiguration_JobComputeConfiguration_Worker_Type"=@("Import-CRSIntermediateTable")
     "ComputeConfiguration_QueryComputeConfiguration_Type"=@("Import-CRSIntermediateTable")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("New-CRSMembership","Update-CRSMembership")

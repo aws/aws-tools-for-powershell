@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2ConfigurationSetTrackingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutConfigurationSetTrackingOptions API operation.", Operation = new[] {"PutConfigurationSetTrackingOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutConfigurationSetTrackingOptions API operation.", Operation = new[] {"PutConfigurationSetTrackingOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsResponse) be returned by specifying '-Select *'."
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutConfigurationSetTrackingOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutConfigurationSetTrackingOptions");
             try
             {
                 return client.PutConfigurationSetTrackingOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

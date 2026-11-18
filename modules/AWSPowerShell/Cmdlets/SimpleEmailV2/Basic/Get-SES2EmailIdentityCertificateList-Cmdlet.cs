@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2EmailIdentityCertificateList")]
     [OutputType("Amazon.SimpleEmailV2.Model.IdentityCertificate")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) ListEmailIdentityCertificates API operation.", Operation = new[] {"ListEmailIdentityCertificates"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListEmailIdentityCertificatesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service ListEmailIdentityCertificates API operation.", Operation = new[] {"ListEmailIdentityCertificates"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListEmailIdentityCertificatesResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.IdentityCertificate or Amazon.SimpleEmailV2.Model.ListEmailIdentityCertificatesResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.IdentityCertificate objects.",
         "The service call response (type Amazon.SimpleEmailV2.Model.ListEmailIdentityCertificatesResponse) can be returned by specifying '-Select *'."
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.ListEmailIdentityCertificatesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.ListEmailIdentityCertificatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "ListEmailIdentityCertificates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "ListEmailIdentityCertificates");
             try
             {
                 return client.ListEmailIdentityCertificatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

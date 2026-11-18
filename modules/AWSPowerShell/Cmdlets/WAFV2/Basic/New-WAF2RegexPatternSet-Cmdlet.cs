@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("New", "WAF2RegexPatternSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAFV2.Model.RegexPatternSetSummary")]
-    [AWSCmdlet("Calls the AWS WAF V2 CreateRegexPatternSet API operation.", Operation = new[] {"CreateRegexPatternSet"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CreateRegexPatternSetResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 CreateRegexPatternSet API operation.", Operation = new[] {"CreateRegexPatternSet"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CreateRegexPatternSetResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.RegexPatternSetSummary or Amazon.WAFV2.Model.CreateRegexPatternSetResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.RegexPatternSetSummary object.",
         "The service call response (type Amazon.WAFV2.Model.CreateRegexPatternSetResponse) can be returned by specifying '-Select *'."
@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.CreateRegexPatternSetResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.CreateRegexPatternSetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "CreateRegexPatternSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "CreateRegexPatternSet");
             try
             {
                 return client.CreateRegexPatternSetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

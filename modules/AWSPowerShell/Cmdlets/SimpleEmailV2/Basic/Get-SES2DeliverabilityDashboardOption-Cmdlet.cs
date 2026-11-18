@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2DeliverabilityDashboardOption")]
     [OutputType("Amazon.SimpleEmailV2.Model.GetDeliverabilityDashboardOptionsResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetDeliverabilityDashboardOptions API operation.", Operation = new[] {"GetDeliverabilityDashboardOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDeliverabilityDashboardOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetDeliverabilityDashboardOptions API operation.", Operation = new[] {"GetDeliverabilityDashboardOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDeliverabilityDashboardOptionsResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetDeliverabilityDashboardOptionsResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetDeliverabilityDashboardOptionsResponse object containing multiple properties."
     )]
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetDeliverabilityDashboardOptionsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetDeliverabilityDashboardOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetDeliverabilityDashboardOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetDeliverabilityDashboardOptions");
             try
             {
                 return client.GetDeliverabilityDashboardOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

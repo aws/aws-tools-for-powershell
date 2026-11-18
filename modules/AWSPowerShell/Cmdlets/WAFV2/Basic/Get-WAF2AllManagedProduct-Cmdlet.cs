@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2AllManagedProduct")]
     [OutputType("Amazon.WAFV2.Model.ManagedProductDescriptor")]
-    [AWSCmdlet("Calls the AWS WAF V2 DescribeAllManagedProducts API operation.", Operation = new[] {"DescribeAllManagedProducts"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DescribeAllManagedProductsResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 DescribeAllManagedProducts API operation.", Operation = new[] {"DescribeAllManagedProducts"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DescribeAllManagedProductsResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.ManagedProductDescriptor or Amazon.WAFV2.Model.DescribeAllManagedProductsResponse",
         "This cmdlet returns a collection of Amazon.WAFV2.Model.ManagedProductDescriptor objects.",
         "The service call response (type Amazon.WAFV2.Model.DescribeAllManagedProductsResponse) can be returned by specifying '-Select *'."
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.DescribeAllManagedProductsResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DescribeAllManagedProductsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DescribeAllManagedProducts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "DescribeAllManagedProducts");
             try
             {
                 return client.DescribeAllManagedProductsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

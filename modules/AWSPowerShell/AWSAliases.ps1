@@ -1,3 +1,9 @@
+Set-Alias -Name Create-ABSAbuseReport -Value New-ABSAbuseReport
+Set-Alias -Name ABS-CreateAbuseReport -Value New-ABSAbuseReport
+Set-Alias -Name ABS-GetAbuseReportStatus -Value Get-ABSAbuseReportStatus
+Set-Alias -Name List-ABSAbuseReportStatuses -Value Get-ABSAbuseReportStatusList
+Set-Alias -Name List-ABSAbuseReportStatusList -Value Get-ABSAbuseReportStatusList
+Set-Alias -Name ABS-ListAbuseReportStatuses -Value Get-ABSAbuseReportStatusList
 Set-Alias -Name Apply-IAMAAArchiveRule -Value Start-IAMAAArchiveRule
 Set-Alias -Name IAMAA-ApplyArchiveRule -Value Start-IAMAAArchiveRule
 Set-Alias -Name Cancel-IAMAAPolicyGeneration -Value Stop-IAMAAPolicyGeneration
@@ -7056,6 +7062,8 @@ Set-Alias -Name User-CGIPUserGlobalAdmin -Value Disconnect-CGIPUserGlobalAdmin
 Set-Alias -Name CGIP-AdminUserGlobalSignOut -Value Disconnect-CGIPUserGlobalAdmin
 Set-Alias -Name Associate-CGIPSoftwareToken -Value Add-CGIPSoftwareToken
 Set-Alias -Name CGIP-AssociateSoftwareToken -Value Add-CGIPSoftwareToken
+Set-Alias -Name Cancel-CGIPPointInTimeRecovery -Value Stop-CGIPPointInTimeRecovery
+Set-Alias -Name CGIP-CancelPointInTimeRecovery -Value Stop-CGIPPointInTimeRecovery
 Set-Alias -Name Change-CGIPPassword -Value Update-CGIPPassword
 Set-Alias -Name CGIP-ChangePassword -Value Update-CGIPPassword
 Set-Alias -Name CGIP-CompleteWebAuthnRegistration -Value Complete-CGIPWebAuthnRegistration
@@ -7119,6 +7127,9 @@ Set-Alias -Name Describe-CGIPManagedLoginBranding -Value Get-CGIPManagedLoginBra
 Set-Alias -Name CGIP-DescribeManagedLoginBranding -Value Get-CGIPManagedLoginBranding
 Set-Alias -Name Describe-CGIPManagedLoginBrandingByClient -Value Get-CGIPManagedLoginBrandingByClient
 Set-Alias -Name CGIP-DescribeManagedLoginBrandingByClient -Value Get-CGIPManagedLoginBrandingByClient
+Set-Alias -Name Describe-CGIPPointInTimeRecovery -Value Get-CGIPPointInTimeRecoveryDetail
+Set-Alias -Name Describe-CGIPPointInTimeRecoveryDetail -Value Get-CGIPPointInTimeRecoveryDetail
+Set-Alias -Name CGIP-DescribePointInTimeRecovery -Value Get-CGIPPointInTimeRecoveryDetail
 Set-Alias -Name Describe-CGIPResourceServer -Value Get-CGIPResourceServer
 Set-Alias -Name CGIP-DescribeResourceServer -Value Get-CGIPResourceServer
 Set-Alias -Name Describe-CGIPRiskConfiguration -Value Get-CGIPRiskConfiguration
@@ -7166,6 +7177,8 @@ Set-Alias -Name Global-CGIPDeviceGlobal -Value Disconnect-CGIPDeviceGlobal
 Set-Alias -Name CGIP-GlobalSignOut -Value Disconnect-CGIPDeviceGlobal
 Set-Alias -Name Initiate-CGIPAuth -Value Start-CGIPAuth
 Set-Alias -Name CGIP-InitiateAuth -Value Start-CGIPAuth
+Set-Alias -Name Initiate-CGIPPointInTimeRecovery -Value Initialize-CGIPPointInTimeRecovery
+Set-Alias -Name CGIP-InitiatePointInTimeRecovery -Value Initialize-CGIPPointInTimeRecovery
 Set-Alias -Name List-CGIPDevices -Value Get-CGIPDeviceList
 Set-Alias -Name List-CGIPDeviceList -Value Get-CGIPDeviceList
 Set-Alias -Name CGIP-ListDevices -Value Get-CGIPDeviceList
@@ -7175,6 +7188,9 @@ Set-Alias -Name CGIP-ListGroups -Value Get-CGIPGroupList
 Set-Alias -Name List-CGIPIdentityProviders -Value Get-CGIPIdentityProviderList
 Set-Alias -Name List-CGIPIdentityProviderList -Value Get-CGIPIdentityProviderList
 Set-Alias -Name CGIP-ListIdentityProviders -Value Get-CGIPIdentityProviderList
+Set-Alias -Name List-CGIPPointInTimeRecoveries -Value Get-CGIPPointInTimeRecoveryList
+Set-Alias -Name List-CGIPPointInTimeRecoveryList -Value Get-CGIPPointInTimeRecoveryList
+Set-Alias -Name CGIP-ListPointInTimeRecoveries -Value Get-CGIPPointInTimeRecoveryList
 Set-Alias -Name List-CGIPResourceServers -Value Get-CGIPResourceServerList
 Set-Alias -Name List-CGIPResourceServerList -Value Get-CGIPResourceServerList
 Set-Alias -Name CGIP-ListResourceServers -Value Get-CGIPResourceServerList
@@ -7227,6 +7243,7 @@ Set-Alias -Name CGIP-SetUserSettings -Value Set-CGIPUserSetting
 Set-Alias -Name Sign-CGIPUp -Value Register-CGIPUserInPool
 Set-Alias -Name Sign-CGIPUserInPool -Value Register-CGIPUserInPool
 Set-Alias -Name CGIP-SignUp -Value Register-CGIPUserInPool
+Set-Alias -Name CGIP-StartPointInTimeRecovery -Value Start-CGIPPointInTimeRecovery
 Set-Alias -Name CGIP-StartUserImportJob -Value Start-CGIPUserImportJob
 Set-Alias -Name CGIP-StartWebAuthnRegistration -Value Start-CGIPWebAuthnRegistration
 Set-Alias -Name CGIP-StopUserImportJob -Value Stop-CGIPUserImportJob
@@ -24934,6 +24951,9 @@ Set-Alias -Name NPT-DescribeOrderableDBInstanceOptions -Value Get-NPTOrderableDB
 Set-Alias -Name Describe-NPTPendingMaintenanceActions -Value Get-NPTPendingMaintenanceAction
 Set-Alias -Name Describe-NPTPendingMaintenanceAction -Value Get-NPTPendingMaintenanceAction
 Set-Alias -Name NPT-DescribePendingMaintenanceActions -Value Get-NPTPendingMaintenanceAction
+Set-Alias -Name Describe-NPTServerlessV2PlatformVersions -Value Get-NPTServerlessV2PlatformVersionDetail
+Set-Alias -Name Describe-NPTServerlessV2PlatformVersionDetail -Value Get-NPTServerlessV2PlatformVersionDetail
+Set-Alias -Name NPT-DescribeServerlessV2PlatformVersions -Value Get-NPTServerlessV2PlatformVersionDetail
 Set-Alias -Name Describe-NPTValidDBInstanceModifications -Value Get-NPTValidDBInstanceModification
 Set-Alias -Name Describe-NPTValidDBInstanceModification -Value Get-NPTValidDBInstanceModification
 Set-Alias -Name NPT-DescribeValidDBInstanceModifications -Value Get-NPTValidDBInstanceModification
@@ -33252,6 +33272,7 @@ Set-Alias -Name SECAG-ListThreatModels -Value Get-SECAGThreatModelList
 Set-Alias -Name List-SECAGThreats -Value Get-SECAGThreatList
 Set-Alias -Name List-SECAGThreatList -Value Get-SECAGThreatList
 Set-Alias -Name SECAG-ListThreats -Value Get-SECAGThreatList
+Set-Alias -Name SECAG-ResumePentestJob -Value Resume-SECAGPentestJob
 Set-Alias -Name SECAG-StartCodeRemediation -Value Start-SECAGCodeRemediation
 Set-Alias -Name SECAG-StartCodeReviewJob -Value Start-SECAGCodeReviewJob
 Set-Alias -Name SECAG-StartPentestJob -Value Start-SECAGPentestJob
@@ -34083,6 +34104,9 @@ Set-Alias -Name SES2-ListTenants -Value Get-SES2TenantList
 Set-Alias -Name Put-SES2AccountDedicatedIpWarmupAttributes -Value Write-SES2AccountDedicatedIpWarmupAttribute
 Set-Alias -Name Put-SES2AccountDedicatedIpWarmupAttribute -Value Write-SES2AccountDedicatedIpWarmupAttribute
 Set-Alias -Name SES2-PutAccountDedicatedIpWarmupAttributes -Value Write-SES2AccountDedicatedIpWarmupAttribute
+Set-Alias -Name Put-SES2AccountDeliveryAttributes -Value Write-SES2AccountDeliveryAttribute
+Set-Alias -Name Put-SES2AccountDeliveryAttribute -Value Write-SES2AccountDeliveryAttribute
+Set-Alias -Name SES2-PutAccountDeliveryAttributes -Value Write-SES2AccountDeliveryAttribute
 Set-Alias -Name Put-SES2AccountDetails -Value Write-SES2AccountDetail
 Set-Alias -Name Put-SES2AccountDetail -Value Write-SES2AccountDetail
 Set-Alias -Name SES2-PutAccountDetails -Value Write-SES2AccountDetail
@@ -34237,6 +34261,8 @@ Set-Alias -Name SHLD-UpdateEmergencyContactSettings -Value Update-SHLDEmergencyC
 Set-Alias -Name SHLD-UpdateProtectionGroup -Value Update-SHLDProtectionGroup
 Set-Alias -Name SHLD-UpdateSubscription -Value Update-SHLDSubscription
 Set-Alias -Name SGND-GetRevocationStatus -Value Get-SGNDRevocationStatus
+Set-Alias -Name Revoke-AMSPSessions -Value Revoke-AMSPSessionBatch
+Set-Alias -Name AMSP-BatchRevokeSessions -Value Revoke-AMSPSessionBatch
 Set-Alias -Name Create-AMSPBearerToken -Value New-AMSPBearerToken
 Set-Alias -Name AMSP-CreateBearerToken -Value New-AMSPBearerToken
 Set-Alias -Name Create-AMSPOAuth2Token -Value New-AMSPOAuth2Token
@@ -34251,12 +34277,16 @@ Set-Alias -Name Delete-AMSPResourcePermissionStatement -Value Remove-AMSPResourc
 Set-Alias -Name AMSP-DeleteResourcePermissionStatement -Value Remove-AMSPResourcePermissionStatement
 Set-Alias -Name AMSP-GetConsoleAuthorizationConfiguration -Value Get-AMSPConsoleAuthorizationConfiguration
 Set-Alias -Name AMSP-GetResourcePolicy -Value Get-AMSPResourcePolicy
+Set-Alias -Name AMSP-GetSession -Value Get-AMSPSession
 Set-Alias -Name Introspect-AMSPOAuth2TokenWithIAM -Value Invoke-AMSPIntrospectOAuth2TokenWithIAM
 Set-Alias -Name Introspect-AMSPIntrospectOAuth2TokenWithIAM -Value Invoke-AMSPIntrospectOAuth2TokenWithIAM
 Set-Alias -Name AMSP-IntrospectOAuth2TokenWithIAM -Value Invoke-AMSPIntrospectOAuth2TokenWithIAM
 Set-Alias -Name List-AMSPResourcePermissionStatements -Value Get-AMSPResourcePermissionStatementList
 Set-Alias -Name List-AMSPResourcePermissionStatementList -Value Get-AMSPResourcePermissionStatementList
 Set-Alias -Name AMSP-ListResourcePermissionStatements -Value Get-AMSPResourcePermissionStatementList
+Set-Alias -Name List-AMSPSessions -Value Get-AMSPSessionList
+Set-Alias -Name List-AMSPSessionList -Value Get-AMSPSessionList
+Set-Alias -Name AMSP-ListSessions -Value Get-AMSPSessionList
 Set-Alias -Name Put-AMSPConsoleAuthorizationConfiguration -Value Write-AMSPConsoleAuthorizationConfiguration
 Set-Alias -Name AMSP-PutConsoleAuthorizationConfiguration -Value Write-AMSPConsoleAuthorizationConfiguration
 Set-Alias -Name Put-AMSPResourcePermissionStatement -Value Write-AMSPResourcePermissionStatement

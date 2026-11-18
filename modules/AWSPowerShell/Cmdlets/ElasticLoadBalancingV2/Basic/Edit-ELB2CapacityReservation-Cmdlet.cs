@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Edit", "ELB2CapacityReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.ModifyCapacityReservationResponse")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 ModifyCapacityReservation API operation.", Operation = new[] {"ModifyCapacityReservation"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyCapacityReservationResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing ModifyCapacityReservation API operation.", Operation = new[] {"ModifyCapacityReservation"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyCapacityReservationResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.ModifyCapacityReservationResponse",
         "This cmdlet returns an Amazon.ElasticLoadBalancingV2.Model.ModifyCapacityReservationResponse object containing multiple properties."
     )]
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.ModifyCapacityReservationResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyCapacityReservationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "ModifyCapacityReservation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "ModifyCapacityReservation");
             try
             {
                 return client.ModifyCapacityReservationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

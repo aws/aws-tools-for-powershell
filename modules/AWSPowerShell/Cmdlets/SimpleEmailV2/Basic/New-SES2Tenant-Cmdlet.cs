@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("New", "SES2Tenant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleEmailV2.Model.CreateTenantResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) CreateTenant API operation.", Operation = new[] {"CreateTenant"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.CreateTenantResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service CreateTenant API operation.", Operation = new[] {"CreateTenant"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.CreateTenantResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.CreateTenantResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.CreateTenantResponse object containing multiple properties."
     )]
@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.CreateTenantResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.CreateTenantRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "CreateTenant");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "CreateTenant");
             try
             {
                 return client.CreateTenantAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

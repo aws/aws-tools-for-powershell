@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("Get", "AMSPResourcePermissionStatementList")]
     [OutputType("Amazon.Signin.Model.PermissionStatementSummary")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane ListResourcePermissionStatements API operation.", Operation = new[] {"ListResourcePermissionStatements"}, SelectReturnType = typeof(Amazon.Signin.Model.ListResourcePermissionStatementsResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service ListResourcePermissionStatements API operation.", Operation = new[] {"ListResourcePermissionStatements"}, SelectReturnType = typeof(Amazon.Signin.Model.ListResourcePermissionStatementsResponse))]
     [AWSCmdletOutput("Amazon.Signin.Model.PermissionStatementSummary or Amazon.Signin.Model.ListResourcePermissionStatementsResponse",
         "This cmdlet returns a collection of Amazon.Signin.Model.PermissionStatementSummary objects.",
         "The service call response (type Amazon.Signin.Model.ListResourcePermissionStatementsResponse) can be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.ListResourcePermissionStatementsResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.ListResourcePermissionStatementsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "ListResourcePermissionStatements");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "ListResourcePermissionStatements");
             try
             {
                 return client.ListResourcePermissionStatementsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

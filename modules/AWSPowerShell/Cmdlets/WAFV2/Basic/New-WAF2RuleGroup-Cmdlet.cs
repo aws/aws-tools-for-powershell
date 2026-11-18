@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("New", "WAF2RuleGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAFV2.Model.RuleGroupSummary")]
-    [AWSCmdlet("Calls the AWS WAF V2 CreateRuleGroup API operation.", Operation = new[] {"CreateRuleGroup"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CreateRuleGroupResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 CreateRuleGroup API operation.", Operation = new[] {"CreateRuleGroup"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CreateRuleGroupResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.RuleGroupSummary or Amazon.WAFV2.Model.CreateRuleGroupResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.RuleGroupSummary object.",
         "The service call response (type Amazon.WAFV2.Model.CreateRuleGroupResponse) can be returned by specifying '-Select *'."
@@ -582,7 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.CreateRuleGroupResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.CreateRuleGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "CreateRuleGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "CreateRuleGroup");
             try
             {
                 return client.CreateRuleGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

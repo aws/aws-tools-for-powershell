@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2PermissionPolicy")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS WAF V2 GetPermissionPolicy API operation.", Operation = new[] {"GetPermissionPolicy"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetPermissionPolicyResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 GetPermissionPolicy API operation.", Operation = new[] {"GetPermissionPolicy"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetPermissionPolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.GetPermissionPolicyResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WAFV2.Model.GetPermissionPolicyResponse) can be returned by specifying '-Select *'."
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.GetPermissionPolicyResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GetPermissionPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GetPermissionPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "GetPermissionPolicy");
             try
             {
                 return client.GetPermissionPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

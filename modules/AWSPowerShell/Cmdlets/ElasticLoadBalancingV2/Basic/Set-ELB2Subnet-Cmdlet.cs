@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Set", "ELB2Subnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.AvailabilityZone")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 SetSubnets API operation.", Operation = new[] {"SetSubnets"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.SetSubnetsResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing SetSubnets API operation.", Operation = new[] {"SetSubnets"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.SetSubnetsResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.AvailabilityZone or Amazon.ElasticLoadBalancingV2.Model.SetSubnetsResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.AvailabilityZone objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetSubnetsResponse) can be returned by specifying '-Select *'."
@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.SetSubnetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetSubnetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "SetSubnets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "SetSubnets");
             try
             {
                 return client.SetSubnetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

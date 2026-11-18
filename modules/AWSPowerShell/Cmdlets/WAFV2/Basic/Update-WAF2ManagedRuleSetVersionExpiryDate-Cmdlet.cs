@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Update", "WAF2ManagedRuleSetVersionExpiryDate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAFV2.Model.UpdateManagedRuleSetVersionExpiryDateResponse")]
-    [AWSCmdlet("Calls the AWS WAF V2 UpdateManagedRuleSetVersionExpiryDate API operation.", Operation = new[] {"UpdateManagedRuleSetVersionExpiryDate"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UpdateManagedRuleSetVersionExpiryDateResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 UpdateManagedRuleSetVersionExpiryDate API operation.", Operation = new[] {"UpdateManagedRuleSetVersionExpiryDate"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UpdateManagedRuleSetVersionExpiryDateResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.UpdateManagedRuleSetVersionExpiryDateResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.UpdateManagedRuleSetVersionExpiryDateResponse object containing multiple properties."
     )]
@@ -334,7 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.UpdateManagedRuleSetVersionExpiryDateResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.UpdateManagedRuleSetVersionExpiryDateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "UpdateManagedRuleSetVersionExpiryDate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "UpdateManagedRuleSetVersionExpiryDate");
             try
             {
                 return client.UpdateManagedRuleSetVersionExpiryDateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

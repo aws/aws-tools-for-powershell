@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("Get", "BRKTJob")]
     [OutputType("Amazon.Braket.Model.GetJobResponse")]
-    [AWSCmdlet("Calls the Amazon Braket GetJob API operation.", Operation = new[] {"GetJob"}, SelectReturnType = typeof(Amazon.Braket.Model.GetJobResponse))]
+    [AWSCmdlet("Calls the Braket GetJob API operation.", Operation = new[] {"GetJob"}, SelectReturnType = typeof(Amazon.Braket.Model.GetJobResponse))]
     [AWSCmdletOutput("Amazon.Braket.Model.GetJobResponse",
         "This cmdlet returns an Amazon.Braket.Model.GetJobResponse object containing multiple properties."
     )]
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.GetJobResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.GetJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "GetJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "GetJob");
             try
             {
                 return client.GetJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

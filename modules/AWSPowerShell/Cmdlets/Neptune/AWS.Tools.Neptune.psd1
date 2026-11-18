@@ -124,6 +124,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-NPTOrderableDBInstanceOption', 
         'Get-NPTPendingMaintenanceAction', 
         'Get-NPTResourceTagList', 
+        'Get-NPTServerlessV2PlatformVersionDetail', 
         'Get-NPTValidDBInstanceModification', 
         'New-NPTDBCluster', 
         'New-NPTDBClusterEndpoint', 

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("Add", "BRKTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Braket TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Braket.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the Braket TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Braket.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Braket.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Braket.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.TagResourceResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

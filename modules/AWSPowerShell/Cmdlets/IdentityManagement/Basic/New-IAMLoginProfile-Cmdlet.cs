@@ -57,6 +57,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter MaxSigninSessionDuration
+        /// <summary>
+        /// <para>
+        /// <para>The maximum duration (in seconds) of an Amazon Web Services Sign-In session for this
+        /// IAM user. This setting can have a value from 1 hour (3600 seconds) to 90 days (7776000
+        /// seconds), inclusive. If you do not specify a value, the setting remains unset and
+        /// the existing sign-in session behavior applies.</para><note><para>This setting is not supported for the root user.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxSigninSessionDuration { get; set; }
+        #endregion
+        
         #region Parameter Password
         /// <summary>
         /// <para>
@@ -146,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 context.Select = CreateSelectDelegate<Amazon.IdentityManagement.Model.CreateLoginProfileResponse, NewIAMLoginProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.MaxSigninSessionDuration = this.MaxSigninSessionDuration;
             context.Password = this.Password;
             context.PasswordResetRequired = this.PasswordResetRequired;
             context.UserName = this.UserName;
@@ -165,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             // create request
             var request = new Amazon.IdentityManagement.Model.CreateLoginProfileRequest();
             
+            if (cmdletContext.MaxSigninSessionDuration != null)
+            {
+                request.MaxSigninSessionDuration = cmdletContext.MaxSigninSessionDuration.Value;
+            }
             if (cmdletContext.Password != null)
             {
                 request.Password = cmdletContext.Password;
@@ -232,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? MaxSigninSessionDuration { get; set; }
             public System.String Password { get; set; }
             public System.Boolean? PasswordResetRequired { get; set; }
             public System.String UserName { get; set; }

@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Remove", "WAF2WebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 DeleteWebACL API operation.", Operation = new[] {"DeleteWebACL"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteWebACLResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 DeleteWebACL API operation.", Operation = new[] {"DeleteWebACL"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteWebACLResponse))]
     [AWSCmdletOutput("None or Amazon.WAFV2.Model.DeleteWebACLResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WAFV2.Model.DeleteWebACLResponse) be returned by specifying '-Select *'."
@@ -289,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.DeleteWebACLResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DeleteWebACLRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DeleteWebACL");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "DeleteWebACL");
             try
             {
                 return client.DeleteWebACLAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

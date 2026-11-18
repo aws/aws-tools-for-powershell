@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Send", "SES2CustomVerificationEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) SendCustomVerificationEmail API operation.", Operation = new[] {"SendCustomVerificationEmail"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.SendCustomVerificationEmailResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service SendCustomVerificationEmail API operation.", Operation = new[] {"SendCustomVerificationEmail"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.SendCustomVerificationEmailResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleEmailV2.Model.SendCustomVerificationEmailResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SimpleEmailV2.Model.SendCustomVerificationEmailResponse) can be returned by specifying '-Select *'."
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.SendCustomVerificationEmailResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.SendCustomVerificationEmailRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "SendCustomVerificationEmail");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "SendCustomVerificationEmail");
             try
             {
                 return client.SendCustomVerificationEmailAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

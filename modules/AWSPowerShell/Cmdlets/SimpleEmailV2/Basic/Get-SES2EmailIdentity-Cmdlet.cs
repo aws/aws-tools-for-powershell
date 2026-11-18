@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2EmailIdentity")]
     [OutputType("Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetEmailIdentity API operation.", Operation = new[] {"GetEmailIdentity"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetEmailIdentity API operation.", Operation = new[] {"GetEmailIdentity"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse object containing multiple properties."
     )]
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetEmailIdentityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetEmailIdentity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetEmailIdentity");
             try
             {
                 return client.GetEmailIdentityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

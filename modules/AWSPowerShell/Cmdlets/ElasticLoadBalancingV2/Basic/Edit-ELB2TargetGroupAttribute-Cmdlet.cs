@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Edit", "ELB2TargetGroupAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetGroupAttribute")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 ModifyTargetGroupAttributes API operation.", Operation = new[] {"ModifyTargetGroupAttributes"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupAttributesResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing ModifyTargetGroupAttributes API operation.", Operation = new[] {"ModifyTargetGroupAttributes"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupAttributesResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.TargetGroupAttribute or Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupAttributesResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.TargetGroupAttribute objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupAttributesResponse) can be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupAttributesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "ModifyTargetGroupAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "ModifyTargetGroupAttributes");
             try
             {
                 return client.ModifyTargetGroupAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

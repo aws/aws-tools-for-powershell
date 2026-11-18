@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Update", "SES2EmailIdentityPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) UpdateEmailIdentityPolicy API operation.", Operation = new[] {"UpdateEmailIdentityPolicy"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateEmailIdentityPolicyResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service UpdateEmailIdentityPolicy API operation.", Operation = new[] {"UpdateEmailIdentityPolicy"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateEmailIdentityPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.UpdateEmailIdentityPolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.UpdateEmailIdentityPolicyResponse) be returned by specifying '-Select *'."
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.UpdateEmailIdentityPolicyResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.UpdateEmailIdentityPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "UpdateEmailIdentityPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "UpdateEmailIdentityPolicy");
             try
             {
                 return client.UpdateEmailIdentityPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

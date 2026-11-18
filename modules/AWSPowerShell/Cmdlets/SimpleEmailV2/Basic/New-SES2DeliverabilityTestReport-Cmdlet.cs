@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("New", "SES2DeliverabilityTestReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleEmailV2.Model.CreateDeliverabilityTestReportResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) CreateDeliverabilityTestReport API operation.", Operation = new[] {"CreateDeliverabilityTestReport"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.CreateDeliverabilityTestReportResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service CreateDeliverabilityTestReport API operation.", Operation = new[] {"CreateDeliverabilityTestReport"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.CreateDeliverabilityTestReportResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.CreateDeliverabilityTestReportResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.CreateDeliverabilityTestReportResponse object containing multiple properties."
     )]
@@ -786,7 +786,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.CreateDeliverabilityTestReportResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.CreateDeliverabilityTestReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "CreateDeliverabilityTestReport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "CreateDeliverabilityTestReport");
             try
             {
                 return client.CreateDeliverabilityTestReportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

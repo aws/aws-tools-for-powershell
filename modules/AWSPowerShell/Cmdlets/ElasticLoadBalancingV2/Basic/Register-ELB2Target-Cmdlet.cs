@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Register", "ELB2Target", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 RegisterTargets API operation.", Operation = new[] {"RegisterTargets"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing RegisterTargets API operation.", Operation = new[] {"RegisterTargets"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse) be returned by specifying '-Select *'."
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "RegisterTargets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "RegisterTargets");
             try
             {
                 return client.RegisterTargetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

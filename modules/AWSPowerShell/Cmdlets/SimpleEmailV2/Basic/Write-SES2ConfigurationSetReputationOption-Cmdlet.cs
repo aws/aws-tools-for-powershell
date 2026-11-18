@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2ConfigurationSetReputationOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutConfigurationSetReputationOptions API operation.", Operation = new[] {"PutConfigurationSetReputationOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetReputationOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutConfigurationSetReputationOptions API operation.", Operation = new[] {"PutConfigurationSetReputationOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetReputationOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutConfigurationSetReputationOptionsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutConfigurationSetReputationOptionsResponse) be returned by specifying '-Select *'."
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutConfigurationSetReputationOptionsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutConfigurationSetReputationOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutConfigurationSetReputationOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutConfigurationSetReputationOptions");
             try
             {
                 return client.PutConfigurationSetReputationOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

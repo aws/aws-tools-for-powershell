@@ -5,7 +5,7 @@
     <C2jFilename>wafv2</C2jFilename>
     <AssemblyName>WAFV2</AssemblyName>
     <ServiceNounPrefix>WAF2</ServiceNounPrefix>
-    <ServiceName>AWS WAF V2</ServiceName>
+    <ServiceName>AWS WAFV2</ServiceName>
     <ServiceId>WAFV2</ServiceId>
     <ServiceClientInterface>IAmazonWAFV2</ServiceClientInterface>
     <ServiceClient>AmazonWAFV2Client</ServiceClient>

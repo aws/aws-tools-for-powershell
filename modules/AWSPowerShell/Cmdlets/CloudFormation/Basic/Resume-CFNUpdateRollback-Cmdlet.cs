@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// for troubleshooting a failed update rollback, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">Update
     /// rollback failed</a>.
     /// </para><para><c>ForceRollback</c> and <c>ResourcesToSkip</c> are mutually exclusive. For details,
-    /// see <a>ContinueUpdateRollbackInput$ForceRollback</a>.
+    /// see the <c>ForceRollback</c> parameter.
     /// </para>
     /// </summary>
     [Cmdlet("Resume", "CFNUpdateRollback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

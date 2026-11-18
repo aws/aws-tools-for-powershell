@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2EmailAddressInsight")]
     [OutputType("Amazon.SimpleEmailV2.Model.MailboxValidation")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetEmailAddressInsights API operation.", Operation = new[] {"GetEmailAddressInsights"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetEmailAddressInsightsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetEmailAddressInsights API operation.", Operation = new[] {"GetEmailAddressInsights"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetEmailAddressInsightsResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.MailboxValidation or Amazon.SimpleEmailV2.Model.GetEmailAddressInsightsResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.MailboxValidation object.",
         "The service call response (type Amazon.SimpleEmailV2.Model.GetEmailAddressInsightsResponse) can be returned by specifying '-Select *'."
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetEmailAddressInsightsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetEmailAddressInsightsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetEmailAddressInsights");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetEmailAddressInsights");
             try
             {
                 return client.GetEmailAddressInsightsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Remove", "ELB2ListenerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 RemoveListenerCertificates API operation.", Operation = new[] {"RemoveListenerCertificates"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.RemoveListenerCertificatesResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing RemoveListenerCertificates API operation.", Operation = new[] {"RemoveListenerCertificates"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.RemoveListenerCertificatesResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.RemoveListenerCertificatesResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.RemoveListenerCertificatesResponse) be returned by specifying '-Select *'."
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.RemoveListenerCertificatesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.RemoveListenerCertificatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "RemoveListenerCertificates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "RemoveListenerCertificates");
             try
             {
                 return client.RemoveListenerCertificatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

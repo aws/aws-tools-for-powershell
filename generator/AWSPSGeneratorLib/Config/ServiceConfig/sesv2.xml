@@ -5,7 +5,7 @@
     <C2jFilename>sesv2</C2jFilename>
     <AssemblyName>SimpleEmailV2</AssemblyName>
     <ServiceNounPrefix>SES2</ServiceNounPrefix>
-    <ServiceName>Amazon Simple Email Service V2 (SES V2)</ServiceName>
+    <ServiceName>Amazon Simple Email Service</ServiceName>
     <ServiceId>SESv2</ServiceId>
     <ServiceClientInterface>IAmazonSimpleEmailServiceV2</ServiceClientInterface>
     <ServiceClient>AmazonSimpleEmailServiceV2Client</ServiceClient>
@@ -385,6 +385,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAccountDedicatedIpWarmupAttributes" Verb="Write" Noun="AccountDedicatedIpWarmupAttribute" ShouldProcessTarget="AutoWarmupEnabled" PipelineParameter="AutoWarmupEnabled" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAccountDeliveryAttributes" Verb="Write" Noun="AccountDeliveryAttribute" ShouldProcessTarget="SharedPoolDeliveryMode" PipelineParameter="SharedPoolDeliveryMode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -55,6 +55,7 @@ This product provides support for all AWS services in a single module. As an alt
 
 # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
+        'AWSSDK.AbuseSignal.dll',
         'AWSSDK.AccessAnalyzer.dll',
         'AWSSDK.Account.dll',
         'AWSSDK.AccountAccess.dll',

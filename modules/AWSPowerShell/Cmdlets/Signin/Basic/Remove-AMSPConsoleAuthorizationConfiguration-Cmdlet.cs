@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("Remove", "AMSPConsoleAuthorizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Signin.Model.DeleteConsoleAuthorizationConfigurationResponse")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane DeleteConsoleAuthorizationConfiguration API operation.", Operation = new[] {"DeleteConsoleAuthorizationConfiguration"}, SelectReturnType = typeof(Amazon.Signin.Model.DeleteConsoleAuthorizationConfigurationResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service DeleteConsoleAuthorizationConfiguration API operation.", Operation = new[] {"DeleteConsoleAuthorizationConfiguration"}, SelectReturnType = typeof(Amazon.Signin.Model.DeleteConsoleAuthorizationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Signin.Model.DeleteConsoleAuthorizationConfigurationResponse",
         "This cmdlet returns an Amazon.Signin.Model.DeleteConsoleAuthorizationConfigurationResponse object containing multiple properties."
     )]
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.DeleteConsoleAuthorizationConfigurationResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.DeleteConsoleAuthorizationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "DeleteConsoleAuthorizationConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "DeleteConsoleAuthorizationConfiguration");
             try
             {
                 return client.DeleteConsoleAuthorizationConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

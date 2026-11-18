@@ -30,9 +30,9 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Changes the password for the specified IAM user. You can use the CLI, the Amazon Web
-    /// Services API, or the <b>Users</b> page in the IAM console to change the password for
-    /// any IAM user. Use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html">ChangePassword</a>
+    /// Changes the password or the maximum sign-in session duration for the specified IAM
+    /// user. You can use the CLI, the Amazon Web Services API, or the <b>Users</b> page in
+    /// the IAM console to change the password for any IAM user. Use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html">ChangePassword</a>
     /// to change your own password in the <b>My Security Credentials</b> page in the Amazon
     /// Web Services Management Console.
     /// 
@@ -54,6 +54,23 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter MaxSigninSessionDuration
+        /// <summary>
+        /// <para>
+        /// <para>The maximum duration (in seconds) of an Amazon Web Services Sign-In session for the
+        /// specified IAM user. This setting can have a value from 1 hour (3600 seconds) to 90
+        /// days (7776000 seconds), inclusive, and replaces any value currently configured for
+        /// the user.</para><para>If you omit both this parameter and <c>ResetMaxSigninSessionDuration</c>, the current
+        /// setting is unchanged. You cannot specify this parameter and set <c>ResetMaxSigninSessionDuration</c>
+        /// to <c>true</c> in the same request. If you update only the sign-in session duration,
+        /// the user's password and <c>PasswordResetRequired</c> setting do not change.</para><para>Changes to this setting apply to new sign-in sessions. Sessions that are already established
+        /// are not affected.</para><note><para>This setting is not supported for the root user.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxSigninSessionDuration { get; set; }
+        #endregion
         
         #region Parameter Password
         /// <summary>
@@ -79,6 +96,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? PasswordResetRequired { get; set; }
+        #endregion
+        
+        #region Parameter ResetMaxSigninSessionDuration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to clear the maximum sign-in session duration for the specified
+        /// IAM user. Set this value to <c>true</c> to return the setting to its unset state,
+        /// so that the existing sign-in session behavior applies. When the setting is unset,
+        /// the user's <c>MaxSigninSessionDuration</c> is omitted from responses.</para><para>If you set this value to <c>false</c> or omit it, the current setting is not cleared.
+        /// You cannot set this value to <c>true</c> and specify <c>MaxSigninSessionDuration</c>
+        /// in the same request. Clearing a setting that is already unset has no effect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ResetMaxSigninSessionDuration { get; set; }
         #endregion
         
         #region Parameter UserName
@@ -145,8 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 context.Select = CreateSelectDelegate<Amazon.IdentityManagement.Model.UpdateLoginProfileResponse, UpdateIAMLoginProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.MaxSigninSessionDuration = this.MaxSigninSessionDuration;
             context.Password = this.Password;
             context.PasswordResetRequired = this.PasswordResetRequired;
+            context.ResetMaxSigninSessionDuration = this.ResetMaxSigninSessionDuration;
             context.UserName = this.UserName;
             #if MODULAR
             if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
@@ -170,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             // create request
             var request = new Amazon.IdentityManagement.Model.UpdateLoginProfileRequest();
             
+            if (cmdletContext.MaxSigninSessionDuration != null)
+            {
+                request.MaxSigninSessionDuration = cmdletContext.MaxSigninSessionDuration.Value;
+            }
             if (cmdletContext.Password != null)
             {
                 request.Password = cmdletContext.Password;
@@ -177,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.PasswordResetRequired != null)
             {
                 request.PasswordResetRequired = cmdletContext.PasswordResetRequired.Value;
+            }
+            if (cmdletContext.ResetMaxSigninSessionDuration != null)
+            {
+                request.ResetMaxSigninSessionDuration = cmdletContext.ResetMaxSigninSessionDuration.Value;
             }
             if (cmdletContext.UserName != null)
             {
@@ -237,8 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? MaxSigninSessionDuration { get; set; }
             public System.String Password { get; set; }
             public System.Boolean? PasswordResetRequired { get; set; }
+            public System.Boolean? ResetMaxSigninSessionDuration { get; set; }
             public System.String UserName { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.UpdateLoginProfileResponse, UpdateIAMLoginProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

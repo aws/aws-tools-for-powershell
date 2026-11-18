@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2WebACLForResource")]
     [OutputType("Amazon.WAFV2.Model.WebACL")]
-    [AWSCmdlet("Calls the AWS WAF V2 GetWebACLForResource API operation.", Operation = new[] {"GetWebACLForResource"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetWebACLForResourceResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 GetWebACLForResource API operation.", Operation = new[] {"GetWebACLForResource"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetWebACLForResourceResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.WebACL or Amazon.WAFV2.Model.GetWebACLForResourceResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.WebACL object.",
         "The service call response (type Amazon.WAFV2.Model.GetWebACLForResourceResponse) can be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.GetWebACLForResourceResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GetWebACLForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GetWebACLForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "GetWebACLForResource");
             try
             {
                 return client.GetWebACLForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

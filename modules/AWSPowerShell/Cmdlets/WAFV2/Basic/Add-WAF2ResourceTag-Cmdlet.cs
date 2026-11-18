@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Add", "WAF2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.WAFV2.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.WAFV2.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WAFV2.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WAFV2.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.TagResourceResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

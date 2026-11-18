@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2ExportJob")]
     [OutputType("Amazon.SimpleEmailV2.Model.GetExportJobResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetExportJob API operation.", Operation = new[] {"GetExportJob"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetExportJobResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetExportJob API operation.", Operation = new[] {"GetExportJob"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetExportJobResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetExportJobResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetExportJobResponse object containing multiple properties."
     )]
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetExportJobResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetExportJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetExportJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetExportJob");
             try
             {
                 return client.GetExportJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

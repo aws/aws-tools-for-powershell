@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2CustomVerificationEmailTemplateList")]
     [OutputType("Amazon.SimpleEmailV2.Model.CustomVerificationEmailTemplateMetadata")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) ListCustomVerificationEmailTemplates API operation.", Operation = new[] {"ListCustomVerificationEmailTemplates"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListCustomVerificationEmailTemplatesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service ListCustomVerificationEmailTemplates API operation.", Operation = new[] {"ListCustomVerificationEmailTemplates"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListCustomVerificationEmailTemplatesResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.CustomVerificationEmailTemplateMetadata or Amazon.SimpleEmailV2.Model.ListCustomVerificationEmailTemplatesResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.CustomVerificationEmailTemplateMetadata objects.",
         "The service call response (type Amazon.SimpleEmailV2.Model.ListCustomVerificationEmailTemplatesResponse) can be returned by specifying '-Select *'."
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.ListCustomVerificationEmailTemplatesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.ListCustomVerificationEmailTemplatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "ListCustomVerificationEmailTemplates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "ListCustomVerificationEmailTemplates");
             try
             {
                 return client.ListCustomVerificationEmailTemplatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

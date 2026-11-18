@@ -457,6 +457,7 @@ $SECAG_SelectMap = @{
                "Get-SECAGThreatModelJobTaskList",
                "Get-SECAGThreatModelList",
                "Get-SECAGThreatList",
+               "Resume-SECAGPentestJob",
                "Start-SECAGCodeRemediation",
                "Start-SECAGCodeReviewJob",
                "Start-SECAGPentestJob",

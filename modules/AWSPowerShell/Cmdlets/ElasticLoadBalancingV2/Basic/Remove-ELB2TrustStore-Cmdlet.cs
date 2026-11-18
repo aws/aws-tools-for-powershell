@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Remove", "ELB2TrustStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DeleteTrustStore API operation.", Operation = new[] {"DeleteTrustStore"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeleteTrustStoreResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing DeleteTrustStore API operation.", Operation = new[] {"DeleteTrustStore"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeleteTrustStoreResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.DeleteTrustStoreResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteTrustStoreResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.DeleteTrustStoreResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DeleteTrustStoreRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DeleteTrustStore");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DeleteTrustStore");
             try
             {
                 return client.DeleteTrustStoreAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

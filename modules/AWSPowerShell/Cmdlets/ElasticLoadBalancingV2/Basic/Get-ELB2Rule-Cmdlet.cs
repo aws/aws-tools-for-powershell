@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2Rule")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Rule")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeRules API operation.", Operation = new[] {"DescribeRules"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeRulesResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing DescribeRules API operation.", Operation = new[] {"DescribeRules"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeRulesResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Rule or Amazon.ElasticLoadBalancingV2.Model.DescribeRulesResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.Rule objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeRulesResponse) can be returned by specifying '-Select *'."
@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.DescribeRulesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DescribeRules");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DescribeRules");
             try
             {
                 return client.DescribeRulesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

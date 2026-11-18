@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2EmailIdentityDkimAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutEmailIdentityDkimAttributes API operation.", Operation = new[] {"PutEmailIdentityDkimAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimAttributesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutEmailIdentityDkimAttributes API operation.", Operation = new[] {"PutEmailIdentityDkimAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimAttributesResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimAttributesResponse) be returned by specifying '-Select *'."
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimAttributesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutEmailIdentityDkimAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutEmailIdentityDkimAttributes");
             try
             {
                 return client.PutEmailIdentityDkimAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

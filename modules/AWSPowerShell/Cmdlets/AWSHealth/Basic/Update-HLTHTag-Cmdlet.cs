@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("TagKeys")]
-        public Amazon.AWSHealth.Model.ResourceTagKey[] TagKey { get; set; }
+        public Amazon.AWSHealth.Model.ConfigureTagsTagKey[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             }
             if (this.TagKey != null)
             {
-                context.TagKey = new List<Amazon.AWSHealth.Model.ResourceTagKey>(this.TagKey);
+                context.TagKey = new List<Amazon.AWSHealth.Model.ConfigureTagsTagKey>(this.TagKey);
             }
             #if MODULAR
             if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.AWSHealth.Model.ResourceTagKey> TagKey { get; set; }
+            public List<Amazon.AWSHealth.Model.ConfigureTagsTagKey> TagKey { get; set; }
             public System.Func<Amazon.AWSHealth.Model.ConfigureTagsResponse, UpdateHLTHTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConfiguredTagKeys;
         }

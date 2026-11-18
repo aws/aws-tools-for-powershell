@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Update", "SES2ReputationEntityCustomerManagedStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) UpdateReputationEntityCustomerManagedStatus API operation.", Operation = new[] {"UpdateReputationEntityCustomerManagedStatus"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateReputationEntityCustomerManagedStatusResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service UpdateReputationEntityCustomerManagedStatus API operation.", Operation = new[] {"UpdateReputationEntityCustomerManagedStatus"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateReputationEntityCustomerManagedStatusResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.UpdateReputationEntityCustomerManagedStatusResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.UpdateReputationEntityCustomerManagedStatusResponse) be returned by specifying '-Select *'."
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.UpdateReputationEntityCustomerManagedStatusResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.UpdateReputationEntityCustomerManagedStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "UpdateReputationEntityCustomerManagedStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "UpdateReputationEntityCustomerManagedStatus");
             try
             {
                 return client.UpdateReputationEntityCustomerManagedStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

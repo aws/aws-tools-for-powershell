@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2AccountPricingAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutAccountPricingAttributes API operation.", Operation = new[] {"PutAccountPricingAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutAccountPricingAttributes API operation.", Operation = new[] {"PutAccountPricingAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse) be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutAccountPricingAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutAccountPricingAttributes");
             try
             {
                 return client.PutAccountPricingAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

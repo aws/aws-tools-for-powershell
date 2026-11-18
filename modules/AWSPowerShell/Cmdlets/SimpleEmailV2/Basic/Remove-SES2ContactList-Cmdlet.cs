@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Remove", "SES2ContactList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteContactList API operation.", Operation = new[] {"DeleteContactList"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteContactListResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteContactList API operation.", Operation = new[] {"DeleteContactList"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteContactListResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DeleteContactListResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.DeleteContactListResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.DeleteContactListResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.DeleteContactListRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "DeleteContactList");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteContactList");
             try
             {
                 return client.DeleteContactListAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

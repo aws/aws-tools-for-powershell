@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Edit", "ELB2IpPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.IpamPools")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 ModifyIpPools API operation.", Operation = new[] {"ModifyIpPools"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing ModifyIpPools API operation.", Operation = new[] {"ModifyIpPools"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.IpamPools or Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse",
         "This cmdlet returns an Amazon.ElasticLoadBalancingV2.Model.IpamPools object.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse) can be returned by specifying '-Select *'."
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "ModifyIpPools");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "ModifyIpPools");
             try
             {
                 return client.ModifyIpPoolsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

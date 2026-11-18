@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2DeliverabilityDashboardOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutDeliverabilityDashboardOption API operation.", Operation = new[] {"PutDeliverabilityDashboardOption"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutDeliverabilityDashboardOptionResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutDeliverabilityDashboardOption API operation.", Operation = new[] {"PutDeliverabilityDashboardOption"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutDeliverabilityDashboardOptionResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutDeliverabilityDashboardOptionResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutDeliverabilityDashboardOptionResponse) be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutDeliverabilityDashboardOptionResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutDeliverabilityDashboardOptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutDeliverabilityDashboardOption");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutDeliverabilityDashboardOption");
             try
             {
                 return client.PutDeliverabilityDashboardOptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

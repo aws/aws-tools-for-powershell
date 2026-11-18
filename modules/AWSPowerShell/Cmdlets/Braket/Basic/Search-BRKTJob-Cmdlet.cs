@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("Search", "BRKTJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Braket.Model.JobSummary")]
-    [AWSCmdlet("Calls the Amazon Braket SearchJobs API operation.", Operation = new[] {"SearchJobs"}, SelectReturnType = typeof(Amazon.Braket.Model.SearchJobsResponse))]
+    [AWSCmdlet("Calls the Braket SearchJobs API operation.", Operation = new[] {"SearchJobs"}, SelectReturnType = typeof(Amazon.Braket.Model.SearchJobsResponse))]
     [AWSCmdletOutput("Amazon.Braket.Model.JobSummary or Amazon.Braket.Model.SearchJobsResponse",
         "This cmdlet returns a collection of Amazon.Braket.Model.JobSummary objects.",
         "The service call response (type Amazon.Braket.Model.SearchJobsResponse) can be returned by specifying '-Select *'."
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.SearchJobsResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.SearchJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "SearchJobs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "SearchJobs");
             try
             {
                 return client.SearchJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

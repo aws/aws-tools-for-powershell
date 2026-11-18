@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2TrustStoreRevocation")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.DescribeTrustStoreRevocation")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeTrustStoreRevocations API operation.", Operation = new[] {"DescribeTrustStoreRevocations"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeTrustStoreRevocationsResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing DescribeTrustStoreRevocations API operation.", Operation = new[] {"DescribeTrustStoreRevocations"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeTrustStoreRevocationsResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.DescribeTrustStoreRevocation or Amazon.ElasticLoadBalancingV2.Model.DescribeTrustStoreRevocationsResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.DescribeTrustStoreRevocation objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeTrustStoreRevocationsResponse) can be returned by specifying '-Select *'."
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.DescribeTrustStoreRevocationsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeTrustStoreRevocationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DescribeTrustStoreRevocations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DescribeTrustStoreRevocations");
             try
             {
                 return client.DescribeTrustStoreRevocationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

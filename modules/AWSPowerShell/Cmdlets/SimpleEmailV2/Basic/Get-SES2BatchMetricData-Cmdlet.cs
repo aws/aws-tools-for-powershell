@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2BatchMetricData")]
     [OutputType("Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) BatchGetMetricData API operation.", Operation = new[] {"BatchGetMetricData"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service BatchGetMetricData API operation.", Operation = new[] {"BatchGetMetricData"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse object containing multiple properties."
     )]
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.BatchGetMetricDataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "BatchGetMetricData");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "BatchGetMetricData");
             try
             {
                 return client.BatchGetMetricDataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

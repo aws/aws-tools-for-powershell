@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("New", "AMSPBearerToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Signin.Model.CreateBearerTokenResponse")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane CreateBearerToken API operation.", Operation = new[] {"CreateBearerToken"}, SelectReturnType = typeof(Amazon.Signin.Model.CreateBearerTokenResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service CreateBearerToken API operation.", Operation = new[] {"CreateBearerToken"}, SelectReturnType = typeof(Amazon.Signin.Model.CreateBearerTokenResponse))]
     [AWSCmdletOutput("Amazon.Signin.Model.CreateBearerTokenResponse",
         "This cmdlet returns an Amazon.Signin.Model.CreateBearerTokenResponse object containing multiple properties."
     )]
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.CreateBearerTokenResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.CreateBearerTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "CreateBearerToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "CreateBearerToken");
             try
             {
                 return client.CreateBearerTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2AvailableManagedRuleGroupList")]
     [OutputType("Amazon.WAFV2.Model.ManagedRuleGroupSummary")]
-    [AWSCmdlet("Calls the AWS WAF V2 ListAvailableManagedRuleGroups API operation.", Operation = new[] {"ListAvailableManagedRuleGroups"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListAvailableManagedRuleGroupsResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 ListAvailableManagedRuleGroups API operation.", Operation = new[] {"ListAvailableManagedRuleGroups"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListAvailableManagedRuleGroupsResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.ManagedRuleGroupSummary or Amazon.WAFV2.Model.ListAvailableManagedRuleGroupsResponse",
         "This cmdlet returns a collection of Amazon.WAFV2.Model.ManagedRuleGroupSummary objects.",
         "The service call response (type Amazon.WAFV2.Model.ListAvailableManagedRuleGroupsResponse) can be returned by specifying '-Select *'."
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.ListAvailableManagedRuleGroupsResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.ListAvailableManagedRuleGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "ListAvailableManagedRuleGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "ListAvailableManagedRuleGroups");
             try
             {
                 return client.ListAvailableManagedRuleGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

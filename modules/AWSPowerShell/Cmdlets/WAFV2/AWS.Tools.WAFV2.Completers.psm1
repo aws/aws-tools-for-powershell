@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS WAF V2
+# Argument completions for service AWS WAFV2
 
 
 $WAF2_Completers = {
@@ -80,6 +80,16 @@ $WAF2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WAFV2.AnalyticsMode
+        {
+            ($_ -eq "New-WAF2WebACL/AnalyticsConfig_Mode") -Or
+            ($_ -eq "Update-WAF2WebACL/AnalyticsConfig_Mode")
+        }
+        {
+            $v = "CROSS_REGION","DISABLED"
+            break
+        }
+
         # Amazon.WAFV2.Currency
         {
             ($_ -eq "Get-WAF2RevenueStatistic/Currency") -Or
@@ -283,6 +293,7 @@ $WAF2_Completers = {
 }
 
 $WAF2_map = @{
+    "AnalyticsConfig_Mode"=@("New-WAF2WebACL","Update-WAF2WebACL")
     "Currency"=@("Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsSummary","Get-WAF2RevenueStatisticsTimeSeries","Get-WAF2SettlementRecordList")
     "GroupBy"=@("Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsTimeSeries")
     "Interval"=@("Get-WAF2RevenueStatisticsTimeSeries")

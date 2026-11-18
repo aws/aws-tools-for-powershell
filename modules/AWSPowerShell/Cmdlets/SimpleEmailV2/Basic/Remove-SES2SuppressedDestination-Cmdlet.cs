@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Remove", "SES2SuppressedDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteSuppressedDestination API operation.", Operation = new[] {"DeleteSuppressedDestination"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteSuppressedDestination API operation.", Operation = new[] {"DeleteSuppressedDestination"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse) be returned by specifying '-Select *'."
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.DeleteSuppressedDestinationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "DeleteSuppressedDestination");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteSuppressedDestination");
             try
             {
                 return client.DeleteSuppressedDestinationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

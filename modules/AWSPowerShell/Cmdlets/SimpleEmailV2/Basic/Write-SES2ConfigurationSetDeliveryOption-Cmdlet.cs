@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2ConfigurationSetDeliveryOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutConfigurationSetDeliveryOptions API operation.", Operation = new[] {"PutConfigurationSetDeliveryOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetDeliveryOptionsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutConfigurationSetDeliveryOptions API operation.", Operation = new[] {"PutConfigurationSetDeliveryOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetDeliveryOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutConfigurationSetDeliveryOptionsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutConfigurationSetDeliveryOptionsResponse) be returned by specifying '-Select *'."
@@ -86,12 +86,29 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String SendingPoolName { get; set; }
         #endregion
         
+        #region Parameter SharedPoolDeliveryMode
+        /// <summary>
+        /// <para>
+        /// <para>The shared pool delivery mode for email that you send with the configuration set from
+        /// shared IP addresses. This setting overrides the shared pool delivery mode of your
+        /// account. Can be one of the following:</para><ul><li><para><c>GLOBAL</c> – Amazon SES delivers from your sending Region first and, when it improves
+        /// your deliverability, also uses Amazon SES shared IP addresses with established sending
+        /// history in other Amazon Web Services Regions within the same Amazon Web Services partition.</para></li><li><para><c>REGIONAL</c> – Amazon SES delivers your email only from shared IP addresses in
+        /// your sending Region.</para></li><li><para><c>ACCOUNT</c> – The configuration set uses the shared pool delivery mode of your
+        /// account.</para></li></ul><para>If you don't specify a value, the current value doesn't change.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.SharedPoolDeliveryMode")]
+        public Amazon.SimpleEmailV2.SharedPoolDeliveryMode SharedPoolDeliveryMode { get; set; }
+        #endregion
+        
         #region Parameter TlsPolicy
         /// <summary>
         /// <para>
         /// <para>Specifies whether messages that use the configuration set are required to use Transport
-        /// Layer Security (TLS). If the value is <c>Require</c>, messages are only delivered
-        /// if a TLS connection can be established. If the value is <c>Optional</c>, messages
+        /// Layer Security (TLS). If the value is <c>REQUIRE</c>, messages are only delivered
+        /// if a TLS connection can be established. If the value is <c>OPTIONAL</c>, messages
         /// can be delivered in plain text if a TLS connection can't be established.</para>
         /// </para>
         /// </summary>
@@ -154,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             #endif
             context.MaxDeliverySecond = this.MaxDeliverySecond;
             context.SendingPoolName = this.SendingPoolName;
+            context.SharedPoolDeliveryMode = this.SharedPoolDeliveryMode;
             context.TlsPolicy = this.TlsPolicy;
             
             // allow further manipulation of loaded context prior to processing
@@ -182,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (cmdletContext.SendingPoolName != null)
             {
                 request.SendingPoolName = cmdletContext.SendingPoolName;
+            }
+            if (cmdletContext.SharedPoolDeliveryMode != null)
+            {
+                request.SharedPoolDeliveryMode = cmdletContext.SharedPoolDeliveryMode;
             }
             if (cmdletContext.TlsPolicy != null)
             {
@@ -222,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutConfigurationSetDeliveryOptionsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutConfigurationSetDeliveryOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutConfigurationSetDeliveryOptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutConfigurationSetDeliveryOptions");
             try
             {
                 return client.PutConfigurationSetDeliveryOptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -245,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.String ConfigurationSetName { get; set; }
             public System.Int64? MaxDeliverySecond { get; set; }
             public System.String SendingPoolName { get; set; }
+            public Amazon.SimpleEmailV2.SharedPoolDeliveryMode SharedPoolDeliveryMode { get; set; }
             public Amazon.SimpleEmailV2.TlsPolicy TlsPolicy { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.PutConfigurationSetDeliveryOptionsResponse, WriteSES2ConfigurationSetDeliveryOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

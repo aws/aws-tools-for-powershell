@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2EmailIdentityDkimSigningAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutEmailIdentityDkimSigningAttributes API operation.", Operation = new[] {"PutEmailIdentityDkimSigningAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutEmailIdentityDkimSigningAttributes API operation.", Operation = new[] {"PutEmailIdentityDkimSigningAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse object containing multiple properties."
     )]
@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutEmailIdentityDkimSigningAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutEmailIdentityDkimSigningAttributes");
             try
             {
                 return client.PutEmailIdentityDkimSigningAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

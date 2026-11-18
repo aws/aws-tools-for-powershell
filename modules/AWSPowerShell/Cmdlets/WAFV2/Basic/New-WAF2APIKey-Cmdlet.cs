@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("New", "WAF2APIKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS WAF V2 CreateAPIKey API operation.", Operation = new[] {"CreateAPIKey"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CreateAPIKeyResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 CreateAPIKey API operation.", Operation = new[] {"CreateAPIKey"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CreateAPIKeyResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.CreateAPIKeyResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WAFV2.Model.CreateAPIKeyResponse) can be returned by specifying '-Select *'."
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.CreateAPIKeyResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.CreateAPIKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "CreateAPIKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "CreateAPIKey");
             try
             {
                 return client.CreateAPIKeyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

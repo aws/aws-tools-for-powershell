@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("Invoke", "AMSPIntrospectOAuth2TokenWithIAM", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Signin.Model.IntrospectOAuth2TokenWithIAMResponse")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane IntrospectOAuth2TokenWithIAM API operation.", Operation = new[] {"IntrospectOAuth2TokenWithIAM"}, SelectReturnType = typeof(Amazon.Signin.Model.IntrospectOAuth2TokenWithIAMResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service IntrospectOAuth2TokenWithIAM API operation.", Operation = new[] {"IntrospectOAuth2TokenWithIAM"}, SelectReturnType = typeof(Amazon.Signin.Model.IntrospectOAuth2TokenWithIAMResponse))]
     [AWSCmdletOutput("Amazon.Signin.Model.IntrospectOAuth2TokenWithIAMResponse",
         "This cmdlet returns an Amazon.Signin.Model.IntrospectOAuth2TokenWithIAMResponse object containing multiple properties."
     )]
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.IntrospectOAuth2TokenWithIAMResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.IntrospectOAuth2TokenWithIAMRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "IntrospectOAuth2TokenWithIAM");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "IntrospectOAuth2TokenWithIAM");
             try
             {
                 return client.IntrospectOAuth2TokenWithIAMAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

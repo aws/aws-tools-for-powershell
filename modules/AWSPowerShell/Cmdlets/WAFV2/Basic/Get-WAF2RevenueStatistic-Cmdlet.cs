@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2RevenueStatistic")]
     [OutputType("Amazon.WAFV2.Model.GetRevenueStatisticsResponse")]
-    [AWSCmdlet("Calls the AWS WAF V2 GetRevenueStatistics API operation.", Operation = new[] {"GetRevenueStatistics"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetRevenueStatisticsResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 GetRevenueStatistics API operation.", Operation = new[] {"GetRevenueStatistics"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetRevenueStatisticsResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.GetRevenueStatisticsResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.GetRevenueStatisticsResponse object containing multiple properties."
     )]
@@ -445,7 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.GetRevenueStatisticsResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GetRevenueStatisticsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GetRevenueStatistics");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "GetRevenueStatistics");
             try
             {
                 return client.GetRevenueStatisticsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Update", "SES2ConfigurationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) UpdateConfigurationSet API operation.", Operation = new[] {"UpdateConfigurationSet"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateConfigurationSetResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service UpdateConfigurationSet API operation.", Operation = new[] {"UpdateConfigurationSet"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateConfigurationSetResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.UpdateConfigurationSetResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.UpdateConfigurationSetResponse) be returned by specifying '-Select *'."
@@ -258,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.UpdateConfigurationSetResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.UpdateConfigurationSetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "UpdateConfigurationSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "UpdateConfigurationSet");
             try
             {
                 return client.UpdateConfigurationSetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

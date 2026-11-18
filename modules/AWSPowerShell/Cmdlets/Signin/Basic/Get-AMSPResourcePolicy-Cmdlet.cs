@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("Get", "AMSPResourcePolicy")]
     [OutputType("Amazon.Signin.Model.SigninResourceBasedPolicy")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.Signin.Model.GetResourcePolicyResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.Signin.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.Signin.Model.SigninResourceBasedPolicy or Amazon.Signin.Model.GetResourcePolicyResponse",
         "This cmdlet returns an Amazon.Signin.Model.SigninResourceBasedPolicy object.",
         "The service call response (type Amazon.Signin.Model.GetResourcePolicyResponse) can be returned by specifying '-Select *'."
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.GetResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "GetResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "GetResourcePolicy");
             try
             {
                 return client.GetResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

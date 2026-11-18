@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("New", "WAF2MobileSdkReleaseUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS WAF V2 GenerateMobileSdkReleaseUrl API operation.", Operation = new[] {"GenerateMobileSdkReleaseUrl"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GenerateMobileSdkReleaseUrlResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 GenerateMobileSdkReleaseUrl API operation.", Operation = new[] {"GenerateMobileSdkReleaseUrl"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GenerateMobileSdkReleaseUrlResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.GenerateMobileSdkReleaseUrlResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WAFV2.Model.GenerateMobileSdkReleaseUrlResponse) can be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.GenerateMobileSdkReleaseUrlResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GenerateMobileSdkReleaseUrlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GenerateMobileSdkReleaseUrl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "GenerateMobileSdkReleaseUrl");
             try
             {
                 return client.GenerateMobileSdkReleaseUrlAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

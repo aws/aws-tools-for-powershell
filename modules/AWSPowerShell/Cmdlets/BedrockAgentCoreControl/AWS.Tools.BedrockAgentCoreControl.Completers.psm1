@@ -433,6 +433,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.PrivilegeMode
+        {
+            ($_ -eq "New-BACCAgentRuntime/CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode") -Or
+            ($_ -eq "Update-BACCAgentRuntime/CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode")
+        }
+        {
+            $v = "PRIVILEGED","STANDARD"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.RegistryAuthorizerType
         {
             ($_ -eq "Get-BACCRegistryList/AuthorizerType") -Or
@@ -586,6 +596,7 @@ $BACC_map = @{
     "AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCAgentRuntime","New-BACCGateway","New-BACCHarness","New-BACCPaymentManager","New-BACCRegistry","Update-BACCAgentRuntime","Update-BACCGateway","Update-BACCPaymentManager")
     "AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-BACCHarness","Update-BACCRegistry")
     "AuthorizerType"=@("Get-BACCRegistryList","New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
+    "CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationPreference"=@("New-BACCCapacityProvider")
     "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_Monitoring"=@("New-BACCCapacityProvider")

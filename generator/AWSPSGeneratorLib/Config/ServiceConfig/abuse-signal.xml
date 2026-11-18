@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>abuse-signal</C2jFilename>
+    <AssemblyName>AbuseSignal</AssemblyName>
+    <ServiceNounPrefix>ABS</ServiceNounPrefix>
+    <ServiceName>AWS Abuse Signal API</ServiceName>
+    <ServiceId>Abuse Signal</ServiceId>
+    <ServiceClientInterface>IAmazonAbuseSignal</ServiceClientInterface>
+    <ServiceClient>AmazonAbuseSignalClient</ServiceClient>
+    <ServiceModuleGuid>e5296b26-97e1-4a0a-af9f-764c92f8c992</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAbuseReport" OutputProperty="*" Verb="New" Noun="AbuseReport" ShouldProcessTarget="CorrelationId" PipelineParameter="CorrelationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAbuseReportStatus" OutputProperty="*" Verb="Get" Noun="AbuseReportStatus" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAbuseReportStatuses" OutputProperty="Reports" Verb="Get" Noun="AbuseReportStatusList" PipelineParameter="CorrelationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

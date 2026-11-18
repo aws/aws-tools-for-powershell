@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2Tenant")]
     [OutputType("Amazon.SimpleEmailV2.Model.Tenant")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetTenant API operation.", Operation = new[] {"GetTenant"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetTenantResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetTenant API operation.", Operation = new[] {"GetTenant"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetTenantResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.Tenant or Amazon.SimpleEmailV2.Model.GetTenantResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.Tenant object.",
         "The service call response (type Amazon.SimpleEmailV2.Model.GetTenantResponse) can be returned by specifying '-Select *'."
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetTenantResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetTenantRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetTenant");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetTenant");
             try
             {
                 return client.GetTenantAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

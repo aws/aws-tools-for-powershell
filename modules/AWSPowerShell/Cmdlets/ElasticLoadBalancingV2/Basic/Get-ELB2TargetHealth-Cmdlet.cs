@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2TargetHealth")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetHealthDescription")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeTargetHealth API operation.", Operation = new[] {"DescribeTargetHealth"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing DescribeTargetHealth API operation.", Operation = new[] {"DescribeTargetHealth"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.TargetHealthDescription or Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.TargetHealthDescription objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse) can be returned by specifying '-Select *'."
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DescribeTargetHealth");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DescribeTargetHealth");
             try
             {
                 return client.DescribeTargetHealthAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

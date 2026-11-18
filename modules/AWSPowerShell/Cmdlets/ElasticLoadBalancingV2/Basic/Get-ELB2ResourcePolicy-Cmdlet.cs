@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2ResourcePolicy")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "GetResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "GetResourcePolicy");
             try
             {
                 return client.GetResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2TenantSuppressionAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutTenantSuppressionAttributes API operation.", Operation = new[] {"PutTenantSuppressionAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutTenantSuppressionAttributesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutTenantSuppressionAttributes API operation.", Operation = new[] {"PutTenantSuppressionAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutTenantSuppressionAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutTenantSuppressionAttributesResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutTenantSuppressionAttributesResponse) be returned by specifying '-Select *'."
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutTenantSuppressionAttributesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutTenantSuppressionAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutTenantSuppressionAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutTenantSuppressionAttributes");
             try
             {
                 return client.PutTenantSuppressionAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

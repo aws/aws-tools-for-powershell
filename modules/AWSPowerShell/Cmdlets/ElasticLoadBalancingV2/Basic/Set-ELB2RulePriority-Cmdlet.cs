@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Set", "ELB2RulePriority", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Rule")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 SetRulePriorities API operation.", Operation = new[] {"SetRulePriorities"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.SetRulePrioritiesResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing SetRulePriorities API operation.", Operation = new[] {"SetRulePriorities"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.SetRulePrioritiesResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Rule or Amazon.ElasticLoadBalancingV2.Model.SetRulePrioritiesResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.Rule objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetRulePrioritiesResponse) can be returned by specifying '-Select *'."
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.SetRulePrioritiesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetRulePrioritiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "SetRulePriorities");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "SetRulePriorities");
             try
             {
                 return client.SetRulePrioritiesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2SuppressedDestinationList")]
     [OutputType("Amazon.SimpleEmailV2.Model.SuppressedDestinationSummary")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) ListSuppressedDestinations API operation.", Operation = new[] {"ListSuppressedDestinations"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListSuppressedDestinationsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service ListSuppressedDestinations API operation.", Operation = new[] {"ListSuppressedDestinations"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListSuppressedDestinationsResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.SuppressedDestinationSummary or Amazon.SimpleEmailV2.Model.ListSuppressedDestinationsResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.SuppressedDestinationSummary objects.",
         "The service call response (type Amazon.SimpleEmailV2.Model.ListSuppressedDestinationsResponse) can be returned by specifying '-Select *'."
@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.ListSuppressedDestinationsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.ListSuppressedDestinationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "ListSuppressedDestinations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "ListSuppressedDestinations");
             try
             {
                 return client.ListSuppressedDestinationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

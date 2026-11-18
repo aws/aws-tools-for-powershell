@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Update", "WAF2IPSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS WAF V2 UpdateIPSet API operation.", Operation = new[] {"UpdateIPSet"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UpdateIPSetResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 UpdateIPSet API operation.", Operation = new[] {"UpdateIPSet"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UpdateIPSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.UpdateIPSetResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WAFV2.Model.UpdateIPSetResponse) can be returned by specifying '-Select *'."
@@ -379,7 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.UpdateIPSetResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.UpdateIPSetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "UpdateIPSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "UpdateIPSet");
             try
             {
                 return client.UpdateIPSetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

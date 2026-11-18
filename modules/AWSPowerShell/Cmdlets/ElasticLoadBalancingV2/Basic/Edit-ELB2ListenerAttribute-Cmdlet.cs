@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Edit", "ELB2ListenerAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 ModifyListenerAttributes API operation.", Operation = new[] {"ModifyListenerAttributes"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing ModifyListenerAttributes API operation.", Operation = new[] {"ModifyListenerAttributes"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute or Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse) can be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "ModifyListenerAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "ModifyListenerAttributes");
             try
             {
                 return client.ModifyListenerAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

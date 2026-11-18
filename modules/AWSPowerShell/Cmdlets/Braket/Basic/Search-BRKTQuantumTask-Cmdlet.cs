@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("Search", "BRKTQuantumTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Braket.Model.QuantumTaskSummary")]
-    [AWSCmdlet("Calls the Amazon Braket SearchQuantumTasks API operation.", Operation = new[] {"SearchQuantumTasks"}, SelectReturnType = typeof(Amazon.Braket.Model.SearchQuantumTasksResponse))]
+    [AWSCmdlet("Calls the Braket SearchQuantumTasks API operation.", Operation = new[] {"SearchQuantumTasks"}, SelectReturnType = typeof(Amazon.Braket.Model.SearchQuantumTasksResponse))]
     [AWSCmdletOutput("Amazon.Braket.Model.QuantumTaskSummary or Amazon.Braket.Model.SearchQuantumTasksResponse",
         "This cmdlet returns a collection of Amazon.Braket.Model.QuantumTaskSummary objects.",
         "The service call response (type Amazon.Braket.Model.SearchQuantumTasksResponse) can be returned by specifying '-Select *'."
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.SearchQuantumTasksResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.SearchQuantumTasksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "SearchQuantumTasks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "SearchQuantumTasks");
             try
             {
                 return client.SearchQuantumTasksAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

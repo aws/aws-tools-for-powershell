@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Remove", "WAF2FirewallManagerRuleGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS WAF V2 DeleteFirewallManagerRuleGroups API operation.", Operation = new[] {"DeleteFirewallManagerRuleGroups"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteFirewallManagerRuleGroupsResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 DeleteFirewallManagerRuleGroups API operation.", Operation = new[] {"DeleteFirewallManagerRuleGroups"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteFirewallManagerRuleGroupsResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.DeleteFirewallManagerRuleGroupsResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WAFV2.Model.DeleteFirewallManagerRuleGroupsResponse) can be returned by specifying '-Select *'."
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.DeleteFirewallManagerRuleGroupsResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DeleteFirewallManagerRuleGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DeleteFirewallManagerRuleGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "DeleteFirewallManagerRuleGroups");
             try
             {
                 return client.DeleteFirewallManagerRuleGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

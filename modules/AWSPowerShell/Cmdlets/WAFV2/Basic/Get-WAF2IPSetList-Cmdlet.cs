@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2IPSetList")]
     [OutputType("Amazon.WAFV2.Model.IPSetSummary")]
-    [AWSCmdlet("Calls the AWS WAF V2 ListIPSets API operation.", Operation = new[] {"ListIPSets"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListIPSetsResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 ListIPSets API operation.", Operation = new[] {"ListIPSets"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListIPSetsResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.IPSetSummary or Amazon.WAFV2.Model.ListIPSetsResponse",
         "This cmdlet returns a collection of Amazon.WAFV2.Model.IPSetSummary objects.",
         "The service call response (type Amazon.WAFV2.Model.ListIPSetsResponse) can be returned by specifying '-Select *'."
@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.ListIPSetsResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.ListIPSetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "ListIPSets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "ListIPSets");
             try
             {
                 return client.ListIPSetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

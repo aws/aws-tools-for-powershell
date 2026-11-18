@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Simple Email Service V2 (SES V2)
+# Argument completions for service Amazon Simple Email Service
 
 
 $SES2_Completers = {
@@ -80,6 +80,13 @@ $SES2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SimpleEmailV2.AccountSharedPoolDeliveryMode
+        "Write-SES2AccountDeliveryAttribute/SharedPoolDeliveryMode"
+        {
+            $v = "GLOBAL","REGIONAL"
+            break
+        }
+
         # Amazon.SimpleEmailV2.BehaviorOnMxFailure
         "Write-SES2EmailIdentityMailFromAttribute/BehaviorOnMxFailure"
         {
@@ -234,6 +241,16 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.SharedPoolDeliveryMode
+        {
+            ($_ -eq "New-SES2ConfigurationSet/DeliveryOptions_SharedPoolDeliveryMode") -Or
+            ($_ -eq "Write-SES2ConfigurationSetDeliveryOption/SharedPoolDeliveryMode")
+        }
+        {
+            $v = "ACCOUNT","GLOBAL","REGIONAL"
+            break
+        }
+
         # Amazon.SimpleEmailV2.SignatureFormat
         {
             ($_ -eq "New-SES2ConfigurationSet/MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat") -Or
@@ -314,6 +331,7 @@ $SES2_map = @{
     "ContactListDestination_ContactListImportAction"=@("New-SES2ImportJob")
     "DashboardAttributes_EngagementMetric"=@("Write-SES2AccountVdmAttribute")
     "DashboardOptions_EngagementMetric"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
+    "DeliveryOptions_SharedPoolDeliveryMode"=@("New-SES2ConfigurationSet")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
     "DkimSigningAttributes_DomainSigningAttributesOrigin"=@("New-SES2EmailIdentity")
     "DkimSigningAttributes_NextSigningKeyLength"=@("New-SES2EmailIdentity")
@@ -334,6 +352,7 @@ $SES2_map = @{
     "ReputationEntityType"=@("Get-SES2ReputationEntity","Update-SES2ReputationEntityCustomerManagedStatus","Update-SES2ReputationEntityPolicy")
     "ScalingMode"=@("New-SES2DedicatedIpPool","Write-SES2DedicatedIpPoolScalingAttribute")
     "SendingStatus"=@("Update-SES2ReputationEntityCustomerManagedStatus")
+    "SharedPoolDeliveryMode"=@("Write-SES2AccountDeliveryAttribute","Write-SES2ConfigurationSetDeliveryOption")
     "SigningAttributes_DomainSigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
@@ -480,6 +499,7 @@ $SES2_SelectMap = @{
                "Get-SES2TenantResourceList",
                "Get-SES2TenantList",
                "Write-SES2AccountDedicatedIpWarmupAttribute",
+               "Write-SES2AccountDeliveryAttribute",
                "Write-SES2AccountDetail",
                "Write-SES2AccountPricingAttribute",
                "Write-SES2AccountSendingAttribute",

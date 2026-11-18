@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Remove", "SES2DedicatedIpPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteDedicatedIpPool API operation.", Operation = new[] {"DeleteDedicatedIpPool"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteDedicatedIpPoolResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteDedicatedIpPool API operation.", Operation = new[] {"DeleteDedicatedIpPool"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteDedicatedIpPoolResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DeleteDedicatedIpPoolResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.DeleteDedicatedIpPoolResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.DeleteDedicatedIpPoolResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.DeleteDedicatedIpPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "DeleteDedicatedIpPool");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteDedicatedIpPool");
             try
             {
                 return client.DeleteDedicatedIpPoolAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

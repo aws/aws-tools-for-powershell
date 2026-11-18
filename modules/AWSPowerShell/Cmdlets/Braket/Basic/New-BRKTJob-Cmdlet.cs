@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("New", "BRKTJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Braket CreateJob API operation.", Operation = new[] {"CreateJob"}, SelectReturnType = typeof(Amazon.Braket.Model.CreateJobResponse))]
+    [AWSCmdlet("Calls the Braket CreateJob API operation.", Operation = new[] {"CreateJob"}, SelectReturnType = typeof(Amazon.Braket.Model.CreateJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Braket.Model.CreateJobResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.Braket.Model.CreateJobResponse) can be returned by specifying '-Select *'."
@@ -750,7 +750,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.CreateJobResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.CreateJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "CreateJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "CreateJob");
             try
             {
                 return client.CreateJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

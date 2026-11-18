@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Write", "WAF2ManagedRuleSetVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS WAF V2 PutManagedRuleSetVersions API operation.", Operation = new[] {"PutManagedRuleSetVersions"}, SelectReturnType = typeof(Amazon.WAFV2.Model.PutManagedRuleSetVersionsResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 PutManagedRuleSetVersions API operation.", Operation = new[] {"PutManagedRuleSetVersions"}, SelectReturnType = typeof(Amazon.WAFV2.Model.PutManagedRuleSetVersionsResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.PutManagedRuleSetVersionsResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WAFV2.Model.PutManagedRuleSetVersionsResponse) can be returned by specifying '-Select *'."
@@ -329,7 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.PutManagedRuleSetVersionsResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.PutManagedRuleSetVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "PutManagedRuleSetVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "PutManagedRuleSetVersions");
             try
             {
                 return client.PutManagedRuleSetVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

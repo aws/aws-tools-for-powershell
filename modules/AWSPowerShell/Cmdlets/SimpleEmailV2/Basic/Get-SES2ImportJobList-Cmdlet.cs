@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2ImportJobList")]
     [OutputType("Amazon.SimpleEmailV2.Model.ImportJobSummary")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) ListImportJobs API operation.", Operation = new[] {"ListImportJobs"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListImportJobsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service ListImportJobs API operation.", Operation = new[] {"ListImportJobs"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListImportJobsResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.ImportJobSummary or Amazon.SimpleEmailV2.Model.ListImportJobsResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.ImportJobSummary objects.",
         "The service call response (type Amazon.SimpleEmailV2.Model.ListImportJobsResponse) can be returned by specifying '-Select *'."
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.ListImportJobsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.ListImportJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "ListImportJobs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "ListImportJobs");
             try
             {
                 return client.ListImportJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

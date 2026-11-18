@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
-    [AWSClientCmdlet("Elastic Load Balancing V2", "ELB2", "2015-12-01", "ElasticLoadBalancingV2")]
+    [AWSClientCmdlet("Elastic Load Balancing", "ELB2", "2015-12-01", "ElasticLoadBalancingV2")]
     public abstract partial class AmazonElasticLoadBalancingV2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticLoadBalancingV2 Client { get; private set; }

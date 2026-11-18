@@ -1,4 +1,47 @@
-﻿### 5.0.338 (2026-11-17 20:14Z)
+﻿### 5.0.339 (2026-11-18 20:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.5.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock AgentCore Control
+    * Modified cmdlet New-BACCAgentRuntime: added parameter CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameter CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPPointInTimeRecoveryDetail leveraging the DescribePointInTimeRecovery service API.
+    * Added cmdlet Get-CGIPPointInTimeRecoveryList leveraging the ListPointInTimeRecoveries service API.
+    * Added cmdlet Initialize-CGIPPointInTimeRecovery leveraging the InitiatePointInTimeRecovery service API.
+    * Added cmdlet Start-CGIPPointInTimeRecovery leveraging the StartPointInTimeRecovery service API.
+    * Added cmdlet Stop-CGIPPointInTimeRecovery leveraging the CancelPointInTimeRecovery service API.
+  * Amazon Neptune
+    * Added cmdlet Get-NPTServerlessV2PlatformVersionDetail leveraging the DescribeServerlessV2PlatformVersions service API.
+  * Amazon Simple Email Service
+    * Added cmdlet Write-SES2AccountDeliveryAttribute leveraging the PutAccountDeliveryAttributes service API.
+    * Modified cmdlet New-SES2ConfigurationSet: added parameter DeliveryOptions_SharedPoolDeliveryMode.
+    * Modified cmdlet Write-SES2ConfigurationSetDeliveryOption: added parameter SharedPoolDeliveryMode.
+  * AWS Abuse Signal API. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ABS and can be listed using the command 'Get-AWSCmdletName -Service ABS'.
+  * AWS Clean Rooms Service
+    * Modified cmdlet Import-CRSIntermediateTable: added parameters ComputeConfiguration_JobComputeConfiguration_Worker_Number, ComputeConfiguration_JobComputeConfiguration_Worker_Properties_Spark and ComputeConfiguration_JobComputeConfiguration_Worker_Type.
+    * Modified cmdlet New-CRSIntermediateTable: added parameter PopulationAnalysisConfiguration_JobParameters_AnalysisTemplateArn.
+  * AWS Health APIs and Notifications
+    * [Breaking Change] Modified cmdlet Update-HLTHTag: the type of parameter TagKey changed from Amazon.AWSHealth.Model.ResourceTagKey[] to Amazon.AWSHealth.Model.ConfigureTagsTagKey[].
+    * [Breaking Change] Modified cmdlet Update-HLTHTagsForOrganization: output changed from Amazon.AWSHealth.Model.TagKeyForOrganization to Amazon.AWSHealth.Model.OrganizationTagKey.
+  * AWS Identity and Access Management
+    * Modified cmdlet New-IAMLoginProfile: added parameter MaxSigninSessionDuration.
+    * Modified cmdlet New-IAMRole: added parameter MaxSigninSessionDuration.
+    * Modified cmdlet Update-IAMLoginProfile: added parameters MaxSigninSessionDuration and ResetMaxSigninSessionDuration.
+    * Modified cmdlet Update-IAMRole: added parameters MaxSigninSessionDuration and ResetMaxSigninSessionDuration.
+  * AWS Resilience Hub V2
+    * Modified cmdlet Get-RH2TestTemplateList: added parameters MaxResult, NextToken and NoAutoIteration.
+  * AWS Security Agent
+    * Added cmdlet Resume-SECAGPentestJob leveraging the ResumePentestJob service API.
+    * Modified cmdlet Stop-SECAGPentestJob: added parameter Pause.
+  * AWS Sign-In Service
+    * Added cmdlet Get-AMSPSession leveraging the GetSession service API.
+    * Added cmdlet Get-AMSPSessionList leveraging the ListSessions service API.
+    * Added cmdlet Revoke-AMSPSessionBatch leveraging the BatchRevokeSessions service API.
+    * Modified cmdlet New-AMSPOAuth2TokenWithTokenExchange: added parameters Assertion and ClientId.
+  * AWS WAFV2
+    * Modified cmdlet New-WAF2WebACL: added parameter AnalyticsConfig_Mode.
+    * Modified cmdlet Update-WAF2WebACL: added parameter AnalyticsConfig_Mode.
+
+### 5.0.338 (2026-11-17 20:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.4.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon API Gateway
     * Modified cmdlet New-AGAuthorizer: added parameters JwtConfiguration_DefaultAlgorithm and JwtConfiguration_Issuer.

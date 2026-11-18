@@ -72,6 +72,63 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
+# Argument completions for service AWS Abuse Signal API
+
+
+$ABS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.ABS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ABS_SelectMap = @{
+    "Select"=@("New-ABSAbuseReport",
+               "Get-ABSAbuseReportStatus",
+               "Get-ABSAbuseReportStatusList")
+}
+
+_awsArgumentCompleterRegistration $ABS_SelectCompleters $ABS_SelectMap
 # Argument completions for service AWS IAM Access Analyzer
 
 
@@ -9581,6 +9638,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.PrivilegeMode
+        {
+            ($_ -eq "New-BACCAgentRuntime/CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode") -Or
+            ($_ -eq "Update-BACCAgentRuntime/CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode")
+        }
+        {
+            $v = "PRIVILEGED","STANDARD"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.RegistryAuthorizerType
         {
             ($_ -eq "Get-BACCRegistryList/AuthorizerType") -Or
@@ -9734,6 +9801,7 @@ $BACC_map = @{
     "AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCAgentRuntime","New-BACCGateway","New-BACCHarness","New-BACCPaymentManager","New-BACCRegistry","Update-BACCAgentRuntime","Update-BACCGateway","Update-BACCPaymentManager")
     "AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-BACCHarness","Update-BACCRegistry")
     "AuthorizerType"=@("Get-BACCRegistryList","New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
+    "CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationPreference"=@("New-BACCCapacityProvider")
     "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_Monitoring"=@("New-BACCCapacityProvider")
@@ -11763,7 +11831,7 @@ $ABC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $ABC_SelectCompleters $ABC_SelectMap
-# Argument completions for service Amazon Braket
+# Argument completions for service Braket
 
 
 $BRKT_Completers = {
@@ -11788,7 +11856,7 @@ $BRKT_Completers = {
         # Amazon.Braket.InstanceType
         "New-BRKTJob/InstanceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p4d.24xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.xlarge"
             break
         }
 
@@ -14257,7 +14325,10 @@ $CRS_Completers = {
         }
 
         # Amazon.CleanRooms.ProtectedJobWorkerComputeType
-        "Start-CRSProtectedJob/Worker_Type"
+        {
+            ($_ -eq "Import-CRSIntermediateTable/ComputeConfiguration_JobComputeConfiguration_Worker_Type") -Or
+            ($_ -eq "Start-CRSProtectedJob/Worker_Type")
+        }
         {
             $v = "CR.1X","CR.4X"
             break
@@ -14340,6 +14411,7 @@ $CRS_map = @{
     "AnalyticsEngine"=@("New-CRSCollaboration","Update-CRSCollaboration")
     "Athena_Region"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
+    "ComputeConfiguration_JobComputeConfiguration_Worker_Type"=@("Import-CRSIntermediateTable")
     "ComputeConfiguration_QueryComputeConfiguration_Type"=@("Import-CRSIntermediateTable")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "DefaultJobResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("New-CRSMembership","Update-CRSMembership")
@@ -15573,8 +15645,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16267,8 +16339,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -20425,6 +20497,7 @@ $CGIP_SelectMap = @{
                "Update-CGIPUserAttributeAdmin",
                "Disconnect-CGIPUserGlobalAdmin",
                "Add-CGIPSoftwareToken",
+               "Stop-CGIPPointInTimeRecovery",
                "Update-CGIPPassword",
                "Complete-CGIPWebAuthnRegistration",
                "Approve-CGIPDevice",
@@ -20456,6 +20529,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPIdentityProvider",
                "Get-CGIPManagedLoginBranding",
                "Get-CGIPManagedLoginBrandingByClient",
+               "Get-CGIPPointInTimeRecoveryDetail",
                "Get-CGIPResourceServer",
                "Get-CGIPRiskConfiguration",
                "Get-CGIPTerm",
@@ -20485,9 +20559,11 @@ $CGIP_SelectMap = @{
                "Get-CGIPUserPoolSessionConfiguration",
                "Disconnect-CGIPDeviceGlobal",
                "Start-CGIPAuth",
+               "Initialize-CGIPPointInTimeRecovery",
                "Get-CGIPDeviceList",
                "Get-CGIPGroupList",
                "Get-CGIPIdentityProviderList",
+               "Get-CGIPPointInTimeRecoveryList",
                "Get-CGIPResourceServerList",
                "Get-CGIPResourceTag",
                "Get-CGIPTermList",
@@ -20513,6 +20589,7 @@ $CGIP_SelectMap = @{
                "Set-CGIPUserPoolSessionConfiguration",
                "Set-CGIPUserSetting",
                "Register-CGIPUserInPool",
+               "Start-CGIPPointInTimeRecovery",
                "Start-CGIPUserImportJob",
                "Start-CGIPWebAuthnRegistration",
                "Stop-CGIPUserImportJob",
@@ -31223,12 +31300,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertTo-DDBItem",
                "ConvertFrom-DDBItem",
-               "New-DDBTable",
                "New-DDBTableSchema",
-               "Add-DDBKeySchema",
-               "Add-DDBIndexSchema")
+               "ConvertTo-DDBItem",
+               "New-DDBTable",
+               "Add-DDBIndexSchema",
+               "Add-DDBKeySchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -34192,8 +34269,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -36282,7 +36359,7 @@ $ELB_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $ELB_SelectCompleters $ELB_SelectMap
-# Argument completions for service Elastic Load Balancing V2
+# Argument completions for service Elastic Load Balancing
 
 
 $ELB2_Completers = {
@@ -63519,6 +63596,7 @@ $NPT_SelectMap = @{
                "Get-NPTGlobalCluster",
                "Get-NPTOrderableDBInstanceOption",
                "Get-NPTPendingMaintenanceAction",
+               "Get-NPTServerlessV2PlatformVersionDetail",
                "Get-NPTValidDBInstanceModification",
                "Start-NPTDBClusterFailover",
                "Edit-NPTGlobalClusterPrimary",
@@ -81851,18 +81929,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Write-S3Object",
-               "Copy-S3Object",
-               "Test-S3Bucket",
-               "Dismount-S3PSDrive",
-               "Remove-S3MultipartUpload",
                "Read-S3Object",
-               "Remove-S3Object",
-               "Get-S3MultipartUpload",
-               "New-S3Bucket",
-               "Get-S3PreSignedURL",
                "Mount-S3PSDrive",
-               "Remove-S3Bucket")
+               "Write-S3Object",
+               "Get-S3MultipartUpload",
+               "Copy-S3Object",
+               "Remove-S3Object",
+               "Remove-S3MultipartUpload",
+               "Remove-S3Bucket",
+               "Test-S3Bucket",
+               "Get-S3PreSignedURL",
+               "Dismount-S3PSDrive",
+               "New-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -87289,6 +87367,7 @@ $SECAG_SelectMap = @{
                "Get-SECAGThreatModelJobTaskList",
                "Get-SECAGThreatModelList",
                "Get-SECAGThreatList",
+               "Resume-SECAGPentestJob",
                "Start-SECAGCodeRemediation",
                "Start-SECAGCodeReviewJob",
                "Start-SECAGPentestJob",
@@ -88682,7 +88761,7 @@ $SD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SD_SelectCompleters $SD_SelectMap
-# Argument completions for service Amazon Simple Email Service V2 (SES V2)
+# Argument completions for service Amazon Simple Email Service
 
 
 $SES2_Completers = {
@@ -88690,6 +88769,13 @@ $SES2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SimpleEmailV2.AccountSharedPoolDeliveryMode
+        "Write-SES2AccountDeliveryAttribute/SharedPoolDeliveryMode"
+        {
+            $v = "GLOBAL","REGIONAL"
+            break
+        }
+
         # Amazon.SimpleEmailV2.BehaviorOnMxFailure
         "Write-SES2EmailIdentityMailFromAttribute/BehaviorOnMxFailure"
         {
@@ -88844,6 +88930,16 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.SharedPoolDeliveryMode
+        {
+            ($_ -eq "New-SES2ConfigurationSet/DeliveryOptions_SharedPoolDeliveryMode") -Or
+            ($_ -eq "Write-SES2ConfigurationSetDeliveryOption/SharedPoolDeliveryMode")
+        }
+        {
+            $v = "ACCOUNT","GLOBAL","REGIONAL"
+            break
+        }
+
         # Amazon.SimpleEmailV2.SignatureFormat
         {
             ($_ -eq "New-SES2ConfigurationSet/MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat") -Or
@@ -88924,6 +89020,7 @@ $SES2_map = @{
     "ContactListDestination_ContactListImportAction"=@("New-SES2ImportJob")
     "DashboardAttributes_EngagementMetric"=@("Write-SES2AccountVdmAttribute")
     "DashboardOptions_EngagementMetric"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
+    "DeliveryOptions_SharedPoolDeliveryMode"=@("New-SES2ConfigurationSet")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
     "DkimSigningAttributes_DomainSigningAttributesOrigin"=@("New-SES2EmailIdentity")
     "DkimSigningAttributes_NextSigningKeyLength"=@("New-SES2EmailIdentity")
@@ -88944,6 +89041,7 @@ $SES2_map = @{
     "ReputationEntityType"=@("Get-SES2ReputationEntity","Update-SES2ReputationEntityCustomerManagedStatus","Update-SES2ReputationEntityPolicy")
     "ScalingMode"=@("New-SES2DedicatedIpPool","Write-SES2DedicatedIpPoolScalingAttribute")
     "SendingStatus"=@("Update-SES2ReputationEntityCustomerManagedStatus")
+    "SharedPoolDeliveryMode"=@("Write-SES2AccountDeliveryAttribute","Write-SES2ConfigurationSetDeliveryOption")
     "SigningAttributes_DomainSigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
@@ -89090,6 +89188,7 @@ $SES2_SelectMap = @{
                "Get-SES2TenantResourceList",
                "Get-SES2TenantList",
                "Write-SES2AccountDedicatedIpWarmupAttribute",
+               "Write-SES2AccountDeliveryAttribute",
                "Write-SES2AccountDetail",
                "Write-SES2AccountPricingAttribute",
                "Write-SES2AccountSendingAttribute",
@@ -89335,8 +89434,34 @@ $SGND_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SGND_SelectCompleters $SGND_SelectMap
-# Argument completions for service AWS Sign-In Data Plane
+# Argument completions for service AWS Sign-In Service
 
+
+$AMSP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Signin.SessionStatus
+        "Get-AMSPSessionList/Status"
+        {
+            $v = "ACTIVE","REVOKED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AMSP_map = @{
+    "Status"=@("Get-AMSPSessionList")
+}
+
+_awsArgumentCompleterRegistration $AMSP_Completers $AMSP_map
 
 $AMSP_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -89386,7 +89511,8 @@ $AMSP_SelectCompleters = {
 }
 
 $AMSP_SelectMap = @{
-    "Select"=@("New-AMSPBearerToken",
+    "Select"=@("Revoke-AMSPSessionBatch",
+               "New-AMSPBearerToken",
                "New-AMSPOAuth2Token",
                "New-AMSPOAuth2TokenWithIAM",
                "New-AMSPOAuth2TokenWithTokenExchange",
@@ -89394,8 +89520,10 @@ $AMSP_SelectMap = @{
                "Remove-AMSPResourcePermissionStatement",
                "Get-AMSPConsoleAuthorizationConfiguration",
                "Get-AMSPResourcePolicy",
+               "Get-AMSPSession",
                "Invoke-AMSPIntrospectOAuth2TokenWithIAM",
                "Get-AMSPResourcePermissionStatementList",
+               "Get-AMSPSessionList",
                "Write-AMSPConsoleAuthorizationConfiguration",
                "Write-AMSPResourcePermissionStatement",
                "Revoke-AMSPOAuth2TokenWithIAM")
@@ -92108,8 +92236,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -95937,7 +96065,7 @@ $WAF_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $WAF_SelectCompleters $WAF_SelectMap
-# Argument completions for service AWS WAF V2
+# Argument completions for service AWS WAFV2
 
 
 $WAF2_Completers = {
@@ -95945,6 +96073,16 @@ $WAF2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WAFV2.AnalyticsMode
+        {
+            ($_ -eq "New-WAF2WebACL/AnalyticsConfig_Mode") -Or
+            ($_ -eq "Update-WAF2WebACL/AnalyticsConfig_Mode")
+        }
+        {
+            $v = "CROSS_REGION","DISABLED"
+            break
+        }
+
         # Amazon.WAFV2.Currency
         {
             ($_ -eq "Get-WAF2RevenueStatistic/Currency") -Or
@@ -96148,6 +96286,7 @@ $WAF2_Completers = {
 }
 
 $WAF2_map = @{
+    "AnalyticsConfig_Mode"=@("New-WAF2WebACL","Update-WAF2WebACL")
     "Currency"=@("Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsSummary","Get-WAF2RevenueStatisticsTimeSeries","Get-WAF2SettlementRecordList")
     "GroupBy"=@("Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsTimeSeries")
     "Interval"=@("Get-WAF2RevenueStatisticsTimeSeries")
@@ -98926,6 +99065,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -98965,41 +99142,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

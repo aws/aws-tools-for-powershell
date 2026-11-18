@@ -304,7 +304,9 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Tag
         /// <summary>
         /// <para>
-        /// <para>A map of resource tag key-value pairs to filter affected entities.</para><note><para>Currently, the <c>tags</c> property isn't supported.</para></note><para />
+        /// <para>A map of tag keys to lists of tag values. A tag matches when its key is in the map
+        /// and its value is one of the values listed for that key. The filter matches when at
+        /// least one key in the map matches.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2DedicatedIp")]
     [OutputType("Amazon.SimpleEmailV2.Model.DedicatedIp")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetDedicatedIp API operation.", Operation = new[] {"GetDedicatedIp"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDedicatedIpResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetDedicatedIp API operation.", Operation = new[] {"GetDedicatedIp"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDedicatedIpResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.DedicatedIp or Amazon.SimpleEmailV2.Model.GetDedicatedIpResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.DedicatedIp object.",
         "The service call response (type Amazon.SimpleEmailV2.Model.GetDedicatedIpResponse) can be returned by specifying '-Select *'."
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetDedicatedIpResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetDedicatedIpRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetDedicatedIp");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetDedicatedIp");
             try
             {
                 return client.GetDedicatedIpAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

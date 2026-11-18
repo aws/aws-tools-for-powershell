@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2DomainDeliverabilityCampaign")]
     [OutputType("Amazon.SimpleEmailV2.Model.DomainDeliverabilityCampaign")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetDomainDeliverabilityCampaign API operation.", Operation = new[] {"GetDomainDeliverabilityCampaign"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDomainDeliverabilityCampaignResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetDomainDeliverabilityCampaign API operation.", Operation = new[] {"GetDomainDeliverabilityCampaign"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDomainDeliverabilityCampaignResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.DomainDeliverabilityCampaign or Amazon.SimpleEmailV2.Model.GetDomainDeliverabilityCampaignResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.DomainDeliverabilityCampaign object.",
         "The service call response (type Amazon.SimpleEmailV2.Model.GetDomainDeliverabilityCampaignResponse) can be returned by specifying '-Select *'."
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetDomainDeliverabilityCampaignResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetDomainDeliverabilityCampaignRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetDomainDeliverabilityCampaign");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetDomainDeliverabilityCampaign");
             try
             {
                 return client.GetDomainDeliverabilityCampaignAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

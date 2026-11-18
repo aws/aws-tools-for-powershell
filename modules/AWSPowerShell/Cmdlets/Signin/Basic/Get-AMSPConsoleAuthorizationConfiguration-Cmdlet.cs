@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("Get", "AMSPConsoleAuthorizationConfiguration")]
     [OutputType("Amazon.Signin.Model.GetConsoleAuthorizationConfigurationResponse")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane GetConsoleAuthorizationConfiguration API operation.", Operation = new[] {"GetConsoleAuthorizationConfiguration"}, SelectReturnType = typeof(Amazon.Signin.Model.GetConsoleAuthorizationConfigurationResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service GetConsoleAuthorizationConfiguration API operation.", Operation = new[] {"GetConsoleAuthorizationConfiguration"}, SelectReturnType = typeof(Amazon.Signin.Model.GetConsoleAuthorizationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Signin.Model.GetConsoleAuthorizationConfigurationResponse",
         "This cmdlet returns an Amazon.Signin.Model.GetConsoleAuthorizationConfigurationResponse object containing multiple properties."
     )]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.GetConsoleAuthorizationConfigurationResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.GetConsoleAuthorizationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "GetConsoleAuthorizationConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "GetConsoleAuthorizationConfiguration");
             try
             {
                 return client.GetConsoleAuthorizationConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

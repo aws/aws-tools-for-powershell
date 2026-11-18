@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("New", "AMSPOAuth2TokenWithIAM", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Signin.Model.CreateOAuth2TokenWithIAMResponse")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane CreateOAuth2TokenWithIAM API operation.", Operation = new[] {"CreateOAuth2TokenWithIAM"}, SelectReturnType = typeof(Amazon.Signin.Model.CreateOAuth2TokenWithIAMResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service CreateOAuth2TokenWithIAM API operation.", Operation = new[] {"CreateOAuth2TokenWithIAM"}, SelectReturnType = typeof(Amazon.Signin.Model.CreateOAuth2TokenWithIAMResponse))]
     [AWSCmdletOutput("Amazon.Signin.Model.CreateOAuth2TokenWithIAMResponse",
         "This cmdlet returns an Amazon.Signin.Model.CreateOAuth2TokenWithIAMResponse object containing multiple properties."
     )]
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.CreateOAuth2TokenWithIAMResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.CreateOAuth2TokenWithIAMRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "CreateOAuth2TokenWithIAM");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "CreateOAuth2TokenWithIAM");
             try
             {
                 return client.CreateOAuth2TokenWithIAMAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

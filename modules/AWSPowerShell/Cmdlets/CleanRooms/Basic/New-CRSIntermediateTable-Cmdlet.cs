@@ -46,6 +46,18 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter PopulationAnalysisConfiguration_JobParameters_AnalysisTemplateArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the ARN of the PySpark analysis template that populates the intermediate
+        /// table. Provide this ARN in <c>jobParameters</c> when you populate the intermediate
+        /// table with results from a PySpark job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PopulationAnalysisConfiguration_JobParameters_AnalysisTemplateArn { get; set; }
+        #endregion
+        
         #region Parameter PopulationAnalysisConfiguration_SqlParameters_AnalysisTemplateArn
         /// <summary>
         /// <para>
@@ -218,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PopulationAnalysisConfiguration_JobParameters_AnalysisTemplateArn = this.PopulationAnalysisConfiguration_JobParameters_AnalysisTemplateArn;
             context.PopulationAnalysisConfiguration_SqlParameters_AnalysisTemplateArn = this.PopulationAnalysisConfiguration_SqlParameters_AnalysisTemplateArn;
             context.PopulationAnalysisConfiguration_SqlParameters_QueryString = this.PopulationAnalysisConfiguration_SqlParameters_QueryString;
             context.RetentionInDay = this.RetentionInDay;
@@ -265,6 +278,31 @@ namespace Amazon.PowerShell.Cmdlets.CRS
              // populate PopulationAnalysisConfiguration
             var requestPopulationAnalysisConfigurationIsNull = true;
             request.PopulationAnalysisConfiguration = new Amazon.CleanRooms.Model.PopulationAnalysisConfiguration();
+            Amazon.CleanRooms.Model.PopulationAnalysisJobParameters requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters = null;
+            
+             // populate JobParameters
+            var requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParametersIsNull = true;
+            requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters = new Amazon.CleanRooms.Model.PopulationAnalysisJobParameters();
+            System.String requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters_populationAnalysisConfiguration_JobParameters_AnalysisTemplateArn = null;
+            if (cmdletContext.PopulationAnalysisConfiguration_JobParameters_AnalysisTemplateArn != null)
+            {
+                requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters_populationAnalysisConfiguration_JobParameters_AnalysisTemplateArn = cmdletContext.PopulationAnalysisConfiguration_JobParameters_AnalysisTemplateArn;
+            }
+            if (requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters_populationAnalysisConfiguration_JobParameters_AnalysisTemplateArn != null)
+            {
+                requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters.AnalysisTemplateArn = requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters_populationAnalysisConfiguration_JobParameters_AnalysisTemplateArn;
+                requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParametersIsNull = false;
+            }
+             // determine if requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters should be set to null
+            if (requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParametersIsNull)
+            {
+                requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters = null;
+            }
+            if (requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters != null)
+            {
+                request.PopulationAnalysisConfiguration.JobParameters = requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_JobParameters;
+                requestPopulationAnalysisConfigurationIsNull = false;
+            }
             Amazon.CleanRooms.Model.PopulationAnalysisSqlParameters requestPopulationAnalysisConfiguration_populationAnalysisConfiguration_SqlParameters = null;
             
              // populate SqlParameters
@@ -372,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String KmsKeyArn { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public System.String Name { get; set; }
+            public System.String PopulationAnalysisConfiguration_JobParameters_AnalysisTemplateArn { get; set; }
             public System.String PopulationAnalysisConfiguration_SqlParameters_AnalysisTemplateArn { get; set; }
             public System.String PopulationAnalysisConfiguration_SqlParameters_QueryString { get; set; }
             public System.Int32? RetentionInDay { get; set; }

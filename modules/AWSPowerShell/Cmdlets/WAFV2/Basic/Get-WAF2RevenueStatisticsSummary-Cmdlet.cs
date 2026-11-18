@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2RevenueStatisticsSummary")]
     [OutputType("Amazon.WAFV2.Model.RevenueBreakdown")]
-    [AWSCmdlet("Calls the AWS WAF V2 GetRevenueStatisticsSummary API operation.", Operation = new[] {"GetRevenueStatisticsSummary"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetRevenueStatisticsSummaryResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 GetRevenueStatisticsSummary API operation.", Operation = new[] {"GetRevenueStatisticsSummary"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetRevenueStatisticsSummaryResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.RevenueBreakdown or Amazon.WAFV2.Model.GetRevenueStatisticsSummaryResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.RevenueBreakdown object.",
         "The service call response (type Amazon.WAFV2.Model.GetRevenueStatisticsSummaryResponse) can be returned by specifying '-Select *'."
@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.GetRevenueStatisticsSummaryResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GetRevenueStatisticsSummaryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GetRevenueStatisticsSummary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "GetRevenueStatisticsSummary");
             try
             {
                 return client.GetRevenueStatisticsSummaryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

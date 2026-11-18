@@ -30,7 +30,9 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Updates the description or maximum session duration setting of a role.
+    /// Updates the description, maximum session duration, or maximum sign-in session duration
+    /// of a role. You cannot change the maximum sign-in session duration of a service-linked
+    /// role.
     /// </summary>
     [Cmdlet("Update", "IAMRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -74,6 +76,37 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? MaxSessionDuration { get; set; }
+        #endregion
+        
+        #region Parameter MaxSigninSessionDuration
+        /// <summary>
+        /// <para>
+        /// <para>The maximum duration (in seconds) of an Amazon Web Services Sign-In session for users
+        /// who sign in with the specified role. This setting can have a value from 1 hour (3600
+        /// seconds) to 90 days (7776000 seconds), inclusive, and replaces any value currently
+        /// configured for the role. This setting is independent of <c>MaxSessionDuration</c>.</para><para>If you omit both this parameter and <c>ResetMaxSigninSessionDuration</c>, the current
+        /// setting is unchanged. You cannot specify this parameter and set <c>ResetMaxSigninSessionDuration</c>
+        /// to <c>true</c> in the same request.</para><para>Changes to this setting apply to new sign-in sessions. Sessions that are already established
+        /// are not affected.</para><note><para>You cannot set this value on a service-linked role.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxSigninSessionDuration { get; set; }
+        #endregion
+        
+        #region Parameter ResetMaxSigninSessionDuration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to clear the role's maximum sign-in session duration. Set this value
+        /// to <c>true</c> to return the setting to its unset state, so that the existing sign-in
+        /// session behavior applies. When the setting is unset, the role's <c>MaxSigninSessionDuration</c>
+        /// is omitted from responses.</para><para>If you set this value to <c>false</c> or omit it, the current setting is not cleared.
+        /// You cannot set this value to <c>true</c> and specify <c>MaxSigninSessionDuration</c>
+        /// in the same request. Clearing a setting that is already unset has no effect.</para><note><para>You cannot reset this value on a service-linked role.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ResetMaxSigninSessionDuration { get; set; }
         #endregion
         
         #region Parameter RoleName
@@ -140,6 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             context.Description = this.Description;
             context.MaxSessionDuration = this.MaxSessionDuration;
+            context.MaxSigninSessionDuration = this.MaxSigninSessionDuration;
+            context.ResetMaxSigninSessionDuration = this.ResetMaxSigninSessionDuration;
             context.RoleName = this.RoleName;
             #if MODULAR
             if (this.RoleName == null && ParameterWasBound(nameof(this.RoleName)))
@@ -170,6 +205,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.MaxSessionDuration != null)
             {
                 request.MaxSessionDuration = cmdletContext.MaxSessionDuration.Value;
+            }
+            if (cmdletContext.MaxSigninSessionDuration != null)
+            {
+                request.MaxSigninSessionDuration = cmdletContext.MaxSigninSessionDuration.Value;
+            }
+            if (cmdletContext.ResetMaxSigninSessionDuration != null)
+            {
+                request.ResetMaxSigninSessionDuration = cmdletContext.ResetMaxSigninSessionDuration.Value;
             }
             if (cmdletContext.RoleName != null)
             {
@@ -232,6 +275,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             public System.String Description { get; set; }
             public System.Int32? MaxSessionDuration { get; set; }
+            public System.Int32? MaxSigninSessionDuration { get; set; }
+            public System.Boolean? ResetMaxSigninSessionDuration { get; set; }
             public System.String RoleName { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.UpdateRoleResponse, UpdateIAMRoleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

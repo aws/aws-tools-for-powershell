@@ -44,18 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// group with a running DB cluster, you need to reboot the DB instances in the DB cluster
     /// without failover for the new DB cluster parameter group and associated settings to
     /// take effect.
-    /// </para><important><para>
-    /// After you create a DB cluster parameter group, you should wait at least 5 minutes
-    /// before creating your first DB cluster that uses that DB cluster parameter group as
-    /// the default parameter group. This allows Amazon Neptune to fully complete the create
-    /// action before the DB cluster parameter group is used as the default for a new DB cluster.
-    /// This is especially important for parameters that are critical when creating the default
-    /// database for a DB cluster, such as the character set for the default database defined
-    /// by the <c>character_set_database</c> parameter. You can use the <i>Parameter Groups</i>
-    /// option of the <a href="https://console.aws.amazon.com/rds/">Amazon Neptune console</a>
-    /// or the <a>DescribeDBClusterParameters</a> command to verify that your DB cluster parameter
-    /// group has been created or modified.
-    /// </para></important>
+    /// </para>
     /// </summary>
     [Cmdlet("New", "NPTDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Neptune.Model.DBClusterParameterGroup")]

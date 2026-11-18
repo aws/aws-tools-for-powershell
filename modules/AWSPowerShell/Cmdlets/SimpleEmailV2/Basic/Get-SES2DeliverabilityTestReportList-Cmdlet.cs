@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2DeliverabilityTestReportList")]
     [OutputType("Amazon.SimpleEmailV2.Model.DeliverabilityTestReport")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) ListDeliverabilityTestReports API operation.", Operation = new[] {"ListDeliverabilityTestReports"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListDeliverabilityTestReportsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service ListDeliverabilityTestReports API operation.", Operation = new[] {"ListDeliverabilityTestReports"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListDeliverabilityTestReportsResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.DeliverabilityTestReport or Amazon.SimpleEmailV2.Model.ListDeliverabilityTestReportsResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.DeliverabilityTestReport objects.",
         "The service call response (type Amazon.SimpleEmailV2.Model.ListDeliverabilityTestReportsResponse) can be returned by specifying '-Select *'."
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.ListDeliverabilityTestReportsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.ListDeliverabilityTestReportsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "ListDeliverabilityTestReports");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "ListDeliverabilityTestReports");
             try
             {
                 return client.ListDeliverabilityTestReportsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

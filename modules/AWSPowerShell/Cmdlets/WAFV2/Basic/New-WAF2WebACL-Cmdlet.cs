@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("New", "WAF2WebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAFV2.Model.WebACLSummary")]
-    [AWSCmdlet("Calls the AWS WAF V2 CreateWebACL API operation.", Operation = new[] {"CreateWebACL"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CreateWebACLResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 CreateWebACL API operation.", Operation = new[] {"CreateWebACL"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CreateWebACLResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.WebACLSummary or Amazon.WAFV2.Model.CreateWebACLResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.WebACLSummary object.",
         "The service call response (type Amazon.WAFV2.Model.CreateWebACLResponse) can be returned by specifying '-Select *'."
@@ -294,6 +294,20 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.String VisibilityConfig_MetricName { get; set; }
         #endregion
         
+        #region Parameter AnalyticsConfig_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The security analytics mode for the web ACL. Valid values:</para><ul><li><para><c>CROSS_REGION</c> - Enables security analytics. WAF transfers and stores the web
+        /// ACL's request logs outside the Amazon Web Services Region where the web ACL is hosted,
+        /// for aggregation and processing. </para></li><li><para><c>DISABLED</c> - Disables security analytics. WAF stops transferring the web ACL's
+        /// request logs. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WAFV2.AnalyticsMode")]
+        public Amazon.WAFV2.AnalyticsMode AnalyticsConfig_Mode { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -493,6 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.CreateWebACLResponse, NewWAF2WebACLCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AnalyticsConfig_Mode = this.AnalyticsConfig_Mode;
             if (this.ApplicationConfig_Attribute != null)
             {
                 context.ApplicationConfig_Attribute = new List<Amazon.WAFV2.Model.ApplicationAttribute>(this.ApplicationConfig_Attribute);
@@ -603,6 +618,25 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // create request
             var request = new Amazon.WAFV2.Model.CreateWebACLRequest();
             
+            
+             // populate AnalyticsConfig
+            var requestAnalyticsConfigIsNull = true;
+            request.AnalyticsConfig = new Amazon.WAFV2.Model.AnalyticsConfig();
+            Amazon.WAFV2.AnalyticsMode requestAnalyticsConfig_analyticsConfig_Mode = null;
+            if (cmdletContext.AnalyticsConfig_Mode != null)
+            {
+                requestAnalyticsConfig_analyticsConfig_Mode = cmdletContext.AnalyticsConfig_Mode;
+            }
+            if (requestAnalyticsConfig_analyticsConfig_Mode != null)
+            {
+                request.AnalyticsConfig.Mode = requestAnalyticsConfig_analyticsConfig_Mode;
+                requestAnalyticsConfigIsNull = false;
+            }
+             // determine if request.AnalyticsConfig should be set to null
+            if (requestAnalyticsConfigIsNull)
+            {
+                request.AnalyticsConfig = null;
+            }
             
              // populate ApplicationConfig
             var requestApplicationConfigIsNull = true;
@@ -942,7 +976,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.CreateWebACLResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.CreateWebACLRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "CreateWebACL");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "CreateWebACL");
             try
             {
                 return client.CreateWebACLAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -962,6 +996,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.WAFV2.AnalyticsMode AnalyticsConfig_Mode { get; set; }
             public List<Amazon.WAFV2.Model.ApplicationAttribute> ApplicationConfig_Attribute { get; set; }
             public Dictionary<System.String, Amazon.WAFV2.Model.ChallengeJavascriptSdkInjectionConfig> AssociationConfig_ChallengeJavascriptSdkInjection { get; set; }
             public Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig> AssociationConfig_RequestBody { get; set; }

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Write", "WAF2PermissionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 PutPermissionPolicy API operation.", Operation = new[] {"PutPermissionPolicy"}, SelectReturnType = typeof(Amazon.WAFV2.Model.PutPermissionPolicyResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 PutPermissionPolicy API operation.", Operation = new[] {"PutPermissionPolicy"}, SelectReturnType = typeof(Amazon.WAFV2.Model.PutPermissionPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.WAFV2.Model.PutPermissionPolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WAFV2.Model.PutPermissionPolicyResponse) be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.PutPermissionPolicyResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.PutPermissionPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "PutPermissionPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "PutPermissionPolicy");
             try
             {
                 return client.PutPermissionPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

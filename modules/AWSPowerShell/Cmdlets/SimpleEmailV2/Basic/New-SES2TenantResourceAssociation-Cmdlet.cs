@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("New", "SES2TenantResourceAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) CreateTenantResourceAssociation API operation.", Operation = new[] {"CreateTenantResourceAssociation"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.CreateTenantResourceAssociationResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service CreateTenantResourceAssociation API operation.", Operation = new[] {"CreateTenantResourceAssociation"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.CreateTenantResourceAssociationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.CreateTenantResourceAssociationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.CreateTenantResourceAssociationResponse) be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.CreateTenantResourceAssociationResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.CreateTenantResourceAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "CreateTenantResourceAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "CreateTenantResourceAssociation");
             try
             {
                 return client.CreateTenantResourceAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

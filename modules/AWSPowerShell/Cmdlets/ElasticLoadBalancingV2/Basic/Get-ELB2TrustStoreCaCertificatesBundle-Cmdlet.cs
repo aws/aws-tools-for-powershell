@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2TrustStoreCaCertificatesBundle")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 GetTrustStoreCaCertificatesBundle API operation.", Operation = new[] {"GetTrustStoreCaCertificatesBundle"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.GetTrustStoreCaCertificatesBundleResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing GetTrustStoreCaCertificatesBundle API operation.", Operation = new[] {"GetTrustStoreCaCertificatesBundle"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.GetTrustStoreCaCertificatesBundleResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElasticLoadBalancingV2.Model.GetTrustStoreCaCertificatesBundleResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.GetTrustStoreCaCertificatesBundleResponse) can be returned by specifying '-Select *'."
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.GetTrustStoreCaCertificatesBundleResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.GetTrustStoreCaCertificatesBundleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "GetTrustStoreCaCertificatesBundle");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "GetTrustStoreCaCertificatesBundle");
             try
             {
                 return client.GetTrustStoreCaCertificatesBundleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

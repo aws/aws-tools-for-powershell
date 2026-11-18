@@ -158,6 +158,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelPointInTimeRecovery" OutputProperty="Restoration" Verb="Stop" Noun="PointInTimeRecovery" ShouldProcessTarget="RestoreId,UserPoolId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ChangePassword" Verb="Update" Noun="Password" ShouldProcessTarget="AccessToken" AnonymousAuthentication="Always" PipelineParameter="AccessToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -303,6 +307,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePointInTimeRecovery" OutputProperty="Restoration" Verb="Get" Noun="PointInTimeRecoveryDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeResourceServer" OutputProperty="ResourceServer" Verb="Get" Noun="ResourceServer" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -419,6 +427,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="InitiatePointInTimeRecovery" OutputProperty="Restoration" Verb="Initialize" Noun="PointInTimeRecovery" ShouldProcessTarget="UserPoolId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="AccessToken" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
@@ -430,6 +442,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="Providers" Verb="Get" Noun="IdentityProviderList" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPointInTimeRecoveries" OutputProperty="Restorations" Verb="Get" Noun="PointInTimeRecoveryList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -553,6 +569,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SignUp" OutputProperty="*" Verb="Register" Noun="UserInPool" ShouldProcessTarget="Username" AnonymousAuthentication="Always" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPointInTimeRecovery" OutputProperty="Restoration" Verb="Start" Noun="PointInTimeRecovery" ShouldProcessTarget="RestoreId,UserPoolId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
     /// </summary>
     [Cmdlet("New", "AMSPOAuth2TokenWithTokenExchange", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Signin.Model.CreateOAuth2TokenWithTokenExchangeResponse")]
-    [AWSCmdlet("Calls the AWS Sign-In Data Plane CreateOAuth2TokenWithTokenExchange API operation.", Operation = new[] {"CreateOAuth2TokenWithTokenExchange"}, SelectReturnType = typeof(Amazon.Signin.Model.CreateOAuth2TokenWithTokenExchangeResponse))]
+    [AWSCmdlet("Calls the AWS Sign-In Service CreateOAuth2TokenWithTokenExchange API operation.", Operation = new[] {"CreateOAuth2TokenWithTokenExchange"}, SelectReturnType = typeof(Amazon.Signin.Model.CreateOAuth2TokenWithTokenExchangeResponse))]
     [AWSCmdletOutput("Amazon.Signin.Model.CreateOAuth2TokenWithTokenExchangeResponse",
         "This cmdlet returns an Amazon.Signin.Model.CreateOAuth2TokenWithTokenExchangeResponse object containing multiple properties."
     )]
@@ -45,11 +45,34 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Assertion
+        /// <summary>
+        /// <para>
+        /// The JWT authorization grant, as defined in RFC
+        /// 7523. Required when "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer".
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Assertion { get; set; }
+        #endregion
+        
+        #region Parameter ClientId
+        /// <summary>
+        /// <para>
+        /// The OAuth 2.0 client identifier. If provided
+        /// with "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer", must match the assertion's
+        /// "client_id" claim.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientId { get; set; }
+        #endregion
+        
         #region Parameter GrantType
         /// <summary>
         /// <para>
-        /// The OAuth 2.0 grant type. Currently only supports
-        /// "urn:ietf:params:oauth:grant-type:token-exchange".
+        /// The OAuth 2.0 grant type. Currently supports
+        /// "urn:ietf:params:oauth:grant-type:token-exchange" and "urn:ietf:params:oauth:grant-type:jwt-bearer".
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,8 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         /// <summary>
         /// <para>
         /// The OAuth resource for which the access token
-        /// is requested. Required when "grant_type=urn:ietf:params:oauth:grant-type:token-exchange".
-        /// Example: "glue.amazonaws.com".
+        /// is requested: - "grant_type=urn:ietf:params:oauth:grant-type:token-exchange": Required.
+        /// Must be a service principal. Example: "glue.amazonaws.com". - "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer":
+        /// Required when the assertion has no "resource" claim, otherwise must match it. Must
+        /// be a URI. Example: "https://aws-mcp.us-east-1.api.aws/mcp".
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,9 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// IAM managed policy Amazon Resource Names (ARNs)
+        /// The IAM managed policy Amazon Resource Names (ARNs)
         /// to apply as session policies that further scope down the permissions of the issued
         /// access token, provided as a space-delimited list. Example: "arn:aws:iam::444455556666:policy/MyPolicy".
+        /// If provided with "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer", must match
+        /// the assertion's "scope" claim.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,6 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
                 context.Select = CreateSelectDelegate<Amazon.Signin.Model.CreateOAuth2TokenWithTokenExchangeResponse, NewAMSPOAuth2TokenWithTokenExchangeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Assertion = this.Assertion;
+            context.ClientId = this.ClientId;
             context.GrantType = this.GrantType;
             #if MODULAR
             if (this.GrantType == null && ParameterWasBound(nameof(this.GrantType)))
@@ -182,6 +211,14 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
             // create request
             var request = new Amazon.Signin.Model.CreateOAuth2TokenWithTokenExchangeRequest();
             
+            if (cmdletContext.Assertion != null)
+            {
+                request.Assertion = cmdletContext.Assertion;
+            }
+            if (cmdletContext.ClientId != null)
+            {
+                request.ClientId = cmdletContext.ClientId;
+            }
             if (cmdletContext.GrantType != null)
             {
                 request.GrantType = cmdletContext.GrantType;
@@ -237,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         private Amazon.Signin.Model.CreateOAuth2TokenWithTokenExchangeResponse CallAWSServiceOperation(IAmazonSignin client, Amazon.Signin.Model.CreateOAuth2TokenWithTokenExchangeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Data Plane", "CreateOAuth2TokenWithTokenExchange");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Sign-In Service", "CreateOAuth2TokenWithTokenExchange");
             try
             {
                 return client.CreateOAuth2TokenWithTokenExchangeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -257,6 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Assertion { get; set; }
+            public System.String ClientId { get; set; }
             public System.String GrantType { get; set; }
             public System.String Resource { get; set; }
             public System.String Scope { get; set; }

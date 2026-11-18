@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2TopPathStatisticsByTraffic")]
     [OutputType("Amazon.WAFV2.Model.GetTopPathStatisticsByTrafficResponse")]
-    [AWSCmdlet("Calls the AWS WAF V2 GetTopPathStatisticsByTraffic API operation.", Operation = new[] {"GetTopPathStatisticsByTraffic"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetTopPathStatisticsByTrafficResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 GetTopPathStatisticsByTraffic API operation.", Operation = new[] {"GetTopPathStatisticsByTraffic"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetTopPathStatisticsByTrafficResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.GetTopPathStatisticsByTrafficResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.GetTopPathStatisticsByTrafficResponse object containing multiple properties."
     )]
@@ -454,7 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.GetTopPathStatisticsByTrafficResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GetTopPathStatisticsByTrafficRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GetTopPathStatisticsByTraffic");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "GetTopPathStatisticsByTraffic");
             try
             {
                 return client.GetTopPathStatisticsByTrafficAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

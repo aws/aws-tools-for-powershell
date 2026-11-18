@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Send", "SES2BulkEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleEmailV2.Model.BulkEmailEntryResult")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) SendBulkEmail API operation.", Operation = new[] {"SendBulkEmail"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.SendBulkEmailResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service SendBulkEmail API operation.", Operation = new[] {"SendBulkEmail"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.SendBulkEmailResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.BulkEmailEntryResult or Amazon.SimpleEmailV2.Model.SendBulkEmailResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.BulkEmailEntryResult objects.",
         "The service call response (type Amazon.SimpleEmailV2.Model.SendBulkEmailResponse) can be returned by specifying '-Select *'."
@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>A list of tags, in the form of name/value pairs, to apply to an email that you send
-        /// using the <c>SendEmail</c> operation. Tags correspond to characteristics of the email
-        /// that you define, so that you can publish email sending events.</para><para />
+        /// using the <c>SendBulkEmail</c> operation. Tags correspond to characteristics of the
+        /// email that you define, so that you can publish email sending events.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -667,7 +667,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.SendBulkEmailResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.SendBulkEmailRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "SendBulkEmail");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "SendBulkEmail");
             try
             {
                 return client.SendBulkEmailAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

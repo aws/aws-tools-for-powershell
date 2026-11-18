@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2DedicatedIpPoolScalingAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutDedicatedIpPoolScalingAttributes API operation.", Operation = new[] {"PutDedicatedIpPoolScalingAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutDedicatedIpPoolScalingAttributesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutDedicatedIpPoolScalingAttributes API operation.", Operation = new[] {"PutDedicatedIpPoolScalingAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutDedicatedIpPoolScalingAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutDedicatedIpPoolScalingAttributesResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutDedicatedIpPoolScalingAttributesResponse) be returned by specifying '-Select *'."
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutDedicatedIpPoolScalingAttributesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutDedicatedIpPoolScalingAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutDedicatedIpPoolScalingAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutDedicatedIpPoolScalingAttributes");
             try
             {
                 return client.PutDedicatedIpPoolScalingAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

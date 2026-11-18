@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Add", "WAF2WebACLToResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 AssociateWebACL API operation.", Operation = new[] {"AssociateWebACL"}, SelectReturnType = typeof(Amazon.WAFV2.Model.AssociateWebACLResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 AssociateWebACL API operation.", Operation = new[] {"AssociateWebACL"}, SelectReturnType = typeof(Amazon.WAFV2.Model.AssociateWebACLResponse))]
     [AWSCmdletOutput("None or Amazon.WAFV2.Model.AssociateWebACLResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.WAFV2.Model.AssociateWebACLResponse) be returned by specifying '-Select *'."
@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.AssociateWebACLResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.AssociateWebACLRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "AssociateWebACL");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "AssociateWebACL");
             try
             {
                 return client.AssociateWebACLAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

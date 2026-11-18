@@ -71,6 +71,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="AWSSDK.AbuseSignal">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AbuseSignal.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AccessAnalyzer">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AccessAnalyzer.dll</HintPath>
     </Reference>
@@ -1385,6 +1388,9 @@
     <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+    <Reference Include="AWSSDK.AbuseSignal">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AbuseSignal.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AccessAnalyzer">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AccessAnalyzer.dll</HintPath>
     </Reference>

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Add", "SES2EmailIdentityCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) AssociateEmailIdentityCertificate API operation.", Operation = new[] {"AssociateEmailIdentityCertificate"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.AssociateEmailIdentityCertificateResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service AssociateEmailIdentityCertificate API operation.", Operation = new[] {"AssociateEmailIdentityCertificate"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.AssociateEmailIdentityCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.AssociateEmailIdentityCertificateResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.AssociateEmailIdentityCertificateResponse) be returned by specifying '-Select *'."
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.AssociateEmailIdentityCertificateResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.AssociateEmailIdentityCertificateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "AssociateEmailIdentityCertificate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "AssociateEmailIdentityCertificate");
             try
             {
                 return client.AssociateEmailIdentityCertificateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

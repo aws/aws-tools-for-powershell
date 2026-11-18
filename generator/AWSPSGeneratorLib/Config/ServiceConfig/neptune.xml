@@ -198,6 +198,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServerlessV2PlatformVersions" OutputProperty="ServerlessV2PlatformVersions" Verb="Get" Noun="ServerlessV2PlatformVersionDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeValidDBInstanceModifications" OutputProperty="ValidDBInstanceModificationsMessage" Verb="Get" Noun="ValidDBInstanceModification" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Update", "WAF2RuleGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS WAF V2 UpdateRuleGroup API operation.", Operation = new[] {"UpdateRuleGroup"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UpdateRuleGroupResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 UpdateRuleGroup API operation.", Operation = new[] {"UpdateRuleGroup"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UpdateRuleGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.UpdateRuleGroupResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.WAFV2.Model.UpdateRuleGroupResponse) can be returned by specifying '-Select *'."
@@ -614,7 +614,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.UpdateRuleGroupResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.UpdateRuleGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "UpdateRuleGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "UpdateRuleGroup");
             try
             {
                 return client.UpdateRuleGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

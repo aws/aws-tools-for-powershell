@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2SSLPolicy")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.SslPolicy")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeSSLPolicies API operation.", Operation = new[] {"DescribeSSLPolicies"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing DescribeSSLPolicies API operation.", Operation = new[] {"DescribeSSLPolicies"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.SslPolicy or Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.SslPolicy objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesResponse) can be returned by specifying '-Select *'."
@@ -354,7 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DescribeSSLPolicies");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DescribeSSLPolicies");
             try
             {
                 return client.DescribeSSLPoliciesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

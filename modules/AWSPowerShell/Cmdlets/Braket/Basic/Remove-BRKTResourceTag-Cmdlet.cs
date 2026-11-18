@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("Remove", "BRKTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Braket UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Braket.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the Braket UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Braket.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Braket.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Braket.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

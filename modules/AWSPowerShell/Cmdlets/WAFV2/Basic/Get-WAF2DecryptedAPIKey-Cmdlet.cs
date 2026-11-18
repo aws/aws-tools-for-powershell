@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </summary>
     [Cmdlet("Get", "WAF2DecryptedAPIKey")]
     [OutputType("Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse")]
-    [AWSCmdlet("Calls the AWS WAF V2 GetDecryptedAPIKey API operation.", Operation = new[] {"GetDecryptedAPIKey"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse))]
+    [AWSCmdlet("Calls the AWS WAFV2 GetDecryptedAPIKey API operation.", Operation = new[] {"GetDecryptedAPIKey"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse object containing multiple properties."
     )]
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         private Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GetDecryptedAPIKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GetDecryptedAPIKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAFV2", "GetDecryptedAPIKey");
             try
             {
                 return client.GetDecryptedAPIKeyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

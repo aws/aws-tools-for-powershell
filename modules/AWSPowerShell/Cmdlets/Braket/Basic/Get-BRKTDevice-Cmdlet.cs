@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     /// </summary>
     [Cmdlet("Get", "BRKTDevice")]
     [OutputType("Amazon.Braket.Model.GetDeviceResponse")]
-    [AWSCmdlet("Calls the Amazon Braket GetDevice API operation.", Operation = new[] {"GetDevice"}, SelectReturnType = typeof(Amazon.Braket.Model.GetDeviceResponse))]
+    [AWSCmdlet("Calls the Braket GetDevice API operation.", Operation = new[] {"GetDevice"}, SelectReturnType = typeof(Amazon.Braket.Model.GetDeviceResponse))]
     [AWSCmdletOutput("Amazon.Braket.Model.GetDeviceResponse",
         "This cmdlet returns an Amazon.Braket.Model.GetDeviceResponse object containing multiple properties."
     )]
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         private Amazon.Braket.Model.GetDeviceResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.GetDeviceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "GetDevice");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Braket", "GetDevice");
             try
             {
                 return client.GetDeviceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

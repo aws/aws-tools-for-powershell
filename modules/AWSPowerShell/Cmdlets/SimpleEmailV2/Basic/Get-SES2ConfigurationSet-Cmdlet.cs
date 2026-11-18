@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2ConfigurationSet")]
     [OutputType("Amazon.SimpleEmailV2.Model.GetConfigurationSetResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetConfigurationSet API operation.", Operation = new[] {"GetConfigurationSet"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetConfigurationSetResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetConfigurationSet API operation.", Operation = new[] {"GetConfigurationSet"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetConfigurationSetResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetConfigurationSetResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetConfigurationSetResponse object containing multiple properties."
     )]
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetConfigurationSetResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetConfigurationSetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetConfigurationSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetConfigurationSet");
             try
             {
                 return client.GetConfigurationSetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

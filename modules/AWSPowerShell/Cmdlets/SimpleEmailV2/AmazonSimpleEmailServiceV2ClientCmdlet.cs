@@ -28,7 +28,7 @@ using Amazon.SimpleEmailV2.Model;
 
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
-    [AWSClientCmdlet("Amazon Simple Email Service V2 (SES V2)", "SES2", "2019-09-27", "SimpleEmailV2")]
+    [AWSClientCmdlet("Amazon Simple Email Service", "SES2", "2019-09-27", "SimpleEmailV2")]
     public abstract partial class AmazonSimpleEmailServiceV2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSimpleEmailServiceV2 Client { get; private set; }

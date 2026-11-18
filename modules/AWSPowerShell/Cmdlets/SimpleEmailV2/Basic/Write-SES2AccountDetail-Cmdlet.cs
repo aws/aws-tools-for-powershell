@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2AccountDetail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutAccountDetails API operation.", Operation = new[] {"PutAccountDetails"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutAccountDetailsResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutAccountDetails API operation.", Operation = new[] {"PutAccountDetails"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutAccountDetailsResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutAccountDetailsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutAccountDetailsResponse) be returned by specifying '-Select *'."
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ContactLanguage
         /// <summary>
         /// <para>
-        /// <para>The language you would prefer to be contacted with.</para>
+        /// <para>The language you would prefer to be contacted with. The contact language can be one
+        /// of <c>EN</c> or <c>JA</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutAccountDetailsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutAccountDetailsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutAccountDetails");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutAccountDetails");
             try
             {
                 return client.PutAccountDetailsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

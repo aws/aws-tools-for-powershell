@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2DedicatedIpWarmupAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutDedicatedIpWarmupAttributes API operation.", Operation = new[] {"PutDedicatedIpWarmupAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutDedicatedIpWarmupAttributesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutDedicatedIpWarmupAttributes API operation.", Operation = new[] {"PutDedicatedIpWarmupAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutDedicatedIpWarmupAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutDedicatedIpWarmupAttributesResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutDedicatedIpWarmupAttributesResponse) be returned by specifying '-Select *'."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutDedicatedIpWarmupAttributesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutDedicatedIpWarmupAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutDedicatedIpWarmupAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutDedicatedIpWarmupAttributes");
             try
             {
                 return client.PutDedicatedIpWarmupAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -28,7 +28,7 @@ using Amazon.Braket.Model;
 
 namespace Amazon.PowerShell.Cmdlets.BRKT
 {
-    [AWSClientCmdlet("Amazon Braket", "BRKT", "2019-09-01", "Braket")]
+    [AWSClientCmdlet("Braket", "BRKT", "2019-09-01", "Braket")]
     public abstract partial class AmazonBraketClientCmdlet : ServiceCmdlet
     {
         protected IAmazonBraket Client { get; private set; }

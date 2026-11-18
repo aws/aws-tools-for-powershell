@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Remove", "SES2CustomVerificationEmailTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteCustomVerificationEmailTemplate API operation.", Operation = new[] {"DeleteCustomVerificationEmailTemplate"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteCustomVerificationEmailTemplate API operation.", Operation = new[] {"DeleteCustomVerificationEmailTemplate"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse) be returned by specifying '-Select *'."
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "DeleteCustomVerificationEmailTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteCustomVerificationEmailTemplate");
             try
             {
                 return client.DeleteCustomVerificationEmailTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

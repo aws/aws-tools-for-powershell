@@ -108,6 +108,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.Int32? MaxSessionDuration { get; set; }
         #endregion
         
+        #region Parameter MaxSigninSessionDuration
+        /// <summary>
+        /// <para>
+        /// <para>The maximum duration (in seconds) of an Amazon Web Services Sign-In session for users
+        /// who sign in with this role. This setting can have a value from 1 hour (3600 seconds)
+        /// to 90 days (7776000 seconds), inclusive. If you do not specify a value, the setting
+        /// remains unset and the existing sign-in session behavior applies.</para><para>This setting is independent of <c>MaxSessionDuration</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxSigninSessionDuration { get; set; }
+        #endregion
+        
         #region Parameter Path
         /// <summary>
         /// <para>
@@ -234,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             #endif
             context.Description = this.Description;
             context.MaxSessionDuration = this.MaxSessionDuration;
+            context.MaxSigninSessionDuration = this.MaxSigninSessionDuration;
             context.Path = this.Path;
             context.PermissionsBoundary = this.PermissionsBoundary;
             context.RoleName = this.RoleName;
@@ -274,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.MaxSessionDuration != null)
             {
                 request.MaxSessionDuration = cmdletContext.MaxSessionDuration.Value;
+            }
+            if (cmdletContext.MaxSigninSessionDuration != null)
+            {
+                request.MaxSigninSessionDuration = cmdletContext.MaxSigninSessionDuration.Value;
             }
             if (cmdletContext.Path != null)
             {
@@ -349,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public System.String AssumeRolePolicyDocument { get; set; }
             public System.String Description { get; set; }
             public System.Int32? MaxSessionDuration { get; set; }
+            public System.Int32? MaxSigninSessionDuration { get; set; }
             public System.String Path { get; set; }
             public System.String PermissionsBoundary { get; set; }
             public System.String RoleName { get; set; }

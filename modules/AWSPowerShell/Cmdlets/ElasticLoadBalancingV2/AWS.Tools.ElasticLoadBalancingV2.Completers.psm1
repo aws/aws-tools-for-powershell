@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Elastic Load Balancing V2
+# Argument completions for service Elastic Load Balancing
 
 
 $ELB2_Completers = {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Write", "SES2AccountVdmAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutAccountVdmAttributes API operation.", Operation = new[] {"PutAccountVdmAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutAccountVdmAttributesResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutAccountVdmAttributes API operation.", Operation = new[] {"PutAccountVdmAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutAccountVdmAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutAccountVdmAttributesResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.SimpleEmailV2.Model.PutAccountVdmAttributesResponse) be returned by specifying '-Select *'."
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.PutAccountVdmAttributesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutAccountVdmAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutAccountVdmAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutAccountVdmAttributes");
             try
             {
                 return client.PutAccountVdmAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

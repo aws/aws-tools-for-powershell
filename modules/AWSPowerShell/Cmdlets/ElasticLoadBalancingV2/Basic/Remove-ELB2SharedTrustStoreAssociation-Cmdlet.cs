@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Remove", "ELB2SharedTrustStoreAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DeleteSharedTrustStoreAssociation API operation.", Operation = new[] {"DeleteSharedTrustStoreAssociation"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse))]
+    [AWSCmdlet("Calls the Elastic Load Balancing DeleteSharedTrustStoreAssociation API operation.", Operation = new[] {"DeleteSharedTrustStoreAssociation"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse) be returned by specifying '-Select *'."
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DeleteSharedTrustStoreAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DeleteSharedTrustStoreAssociation");
             try
             {
                 return client.DeleteSharedTrustStoreAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

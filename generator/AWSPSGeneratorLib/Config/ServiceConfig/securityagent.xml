@@ -315,6 +315,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResumePentestJob" OutputProperty="*" Verb="Resume" Noun="PentestJob" ShouldProcessTarget="PentestJobId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartCodeRemediation" Verb="Start" Noun="CodeRemediation" ShouldProcessTarget="AgentSpaceId,PentestJobId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

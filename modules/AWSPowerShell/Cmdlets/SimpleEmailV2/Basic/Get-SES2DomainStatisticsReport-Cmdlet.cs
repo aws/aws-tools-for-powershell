@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// </summary>
     [Cmdlet("Get", "SES2DomainStatisticsReport")]
     [OutputType("Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetDomainStatisticsReport API operation.", Operation = new[] {"GetDomainStatisticsReport"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse))]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetDomainStatisticsReport API operation.", Operation = new[] {"GetDomainStatisticsReport"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse object containing multiple properties."
     )]
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         private Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetDomainStatisticsReport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetDomainStatisticsReport");
             try
             {
                 return client.GetDomainStatisticsReportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Returns the description of the specified StackSet operation.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Reports role provisioning and stack instances deployment progress in <c>StatusDetails.Stages</c>.
+    /// A breakdown for each Amazon Web Services Region is available in <c>RegionalStatusDetails</c>.
+    /// </para><note><para>
     /// This API provides <i>strongly consistent</i> reads meaning it will always return the
     /// most up-to-date data.
     /// </para></note>
