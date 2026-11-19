@@ -203,12 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// macros, you must update the StackSet directly from the processed template, without
         /// first reviewing the resulting changes in a change set. To update the StackSet directly,
         /// you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Perform
-        /// custom processing on CloudFormation templates with template macros</a>.</para><important><para>StackSets with service-managed permissions do not currently support the use of macros
-        /// in templates. (This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-include.html">AWS::Include</a>
+        /// custom processing on CloudFormation templates with template macros</a>.</para><important><para>With service-managed permissions, CloudFormation can process macros, nested stacks,
+        /// and transforms in your StackSet template only when you provide a custom execution
+        /// role template. (Macros include the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-include.html">AWS::Include</a>
         /// and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-        /// transforms, which are macros hosted by CloudFormation.) Even if you specify this capability
-        /// for a StackSet with service-managed permissions, if you reference a macro in your
-        /// template the StackSet operation will fail.</para></important></li></ul><para />
+        /// transforms, which are macros hosted by CloudFormation.) The default service-managed
+        /// execution role can't provision them: if you reference a macro in your template, the
+        /// StackSet operation fails even when you specify this capability.</para><para>To use macros, nested stacks, or transforms with service-managed permissions, specify
+        /// a custom execution role template in <c>ExecutionRoleTemplateBody</c> or <c>ExecutionRoleTemplateUrl</c>,
+        /// and specify both <c>CAPABILITY_NAMED_IAM</c> and <c>CAPABILITY_AUTO_EXPAND</c>.</para></important></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -264,17 +267,50 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ExecutionRoleName
         /// <summary>
         /// <para>
-        /// <para>[Self-managed permissions] The name of the IAM execution role to use to update the
+        /// <para>The name of the IAM execution role that CloudFormation uses for StackSet operations
+        /// in your target accounts.</para><para>[Self-managed permissions] The name of the IAM execution role to use to update the
         /// stack set. If you do not specify an execution role, CloudFormation uses the <c>AWSCloudFormationStackSetExecutionRole</c>
-        /// role for the StackSet operation.</para><para>Specify an IAM role only if you are using customized execution roles to control which
-        /// stack resources users and groups can include in their StackSets.</para><para>If you specify a customized execution role, CloudFormation uses that role to update
+        /// role for the StackSet operation. Specify an IAM role only if you are using customized
+        /// execution roles to control which stack resources users and groups can include in their
+        /// StackSets.</para><para>If you specify a customized execution role, CloudFormation uses that role to update
         /// the stack. If you do not specify a customized execution role, CloudFormation performs
         /// the update using the role previously associated with the StackSet, so long as you
-        /// have permissions to perform operations on the StackSet.</para>
+        /// have permissions to perform operations on the StackSet.</para><para>[Service-managed permissions] Set this name when you use custom execution roles. The
+        /// role that your custom execution role template provisions in your target accounts must
+        /// have this same name, and the name must begin with <c>stacksets-exec-custom-</c>. You
+        /// don't need to specify this parameter if an execution role name is already configured
+        /// for the StackSet and you aren't changing it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ExecutionRoleName { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionRoleTemplateBody
+        /// <summary>
+        /// <para>
+        /// <para>The body of the template that creates or updates a custom execution role in target
+        /// accounts. This parameter applies only when the permissions model is <c>SERVICE_MANAGED</c>.</para><para>Conditional: Specify either <c>ExecutionRoleTemplateBody</c> or <c>ExecutionRoleTemplateUrl</c>,
+        /// but not both. If you don't specify either, CloudFormation uses the default service-managed
+        /// execution role in target accounts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionRoleTemplateBody { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionRoleTemplateUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of an Amazon S3 object that contains the template that creates or updates
+        /// a custom execution role in target accounts. This parameter applies only when the permissions
+        /// model is <c>SERVICE_MANAGED</c>.</para><para>Conditional: Specify either <c>ExecutionRoleTemplateBody</c> or <c>ExecutionRoleTemplateUrl</c>,
+        /// but not both. If you don't specify either, CloudFormation uses the default service-managed
+        /// execution role in target accounts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionRoleTemplateUrl { get; set; }
         #endregion
         
         #region Parameter OperationId
@@ -406,6 +442,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String StackSetName { get; set; }
         #endregion
         
+        #region Parameter StackSetOutputBucket
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon S3 bucket that stores the execution role stack template body.
+        /// CloudFormation uses this bucket only when you specify a custom execution role template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StackSetOutputBucket { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -459,6 +506,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TemplateURL { get; set; }
+        #endregion
+        
+        #region Parameter UseAdminExecutionRole
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether CloudFormation uses the default service-managed execution role instead
+        /// of a custom execution role in target accounts. If you set this to <c>true</c>, CloudFormation
+        /// ignores any custom execution role template specified in <c>ExecutionRoleTemplateBody</c>
+        /// or <c>ExecutionRoleTemplateUrl</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseAdminExecutionRole { get; set; }
         #endregion
         
         #region Parameter UsePreviousTemplate
@@ -546,6 +606,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             context.Description = this.Description;
             context.ExecutionRoleName = this.ExecutionRoleName;
+            context.ExecutionRoleTemplateBody = this.ExecutionRoleTemplateBody;
+            context.ExecutionRoleTemplateUrl = this.ExecutionRoleTemplateUrl;
             context.ManagedExecution_Active = this.ManagedExecution_Active;
             context.OperationId = this.OperationId;
             context.OperationPreference = this.OperationPreference;
@@ -565,12 +627,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 WriteWarning("You are passing $null as a value for parameter StackSetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StackSetOutputBucket = this.StackSetOutputBucket;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.CloudFormation.Model.Tag>(this.Tag);
             }
             context.TemplateBody = this.TemplateBody;
             context.TemplateURL = this.TemplateURL;
+            context.UseAdminExecutionRole = this.UseAdminExecutionRole;
             context.UsePreviousTemplate = this.UsePreviousTemplate;
             
             // allow further manipulation of loaded context prior to processing
@@ -700,6 +764,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 request.ExecutionRoleName = cmdletContext.ExecutionRoleName;
             }
+            if (cmdletContext.ExecutionRoleTemplateBody != null)
+            {
+                request.ExecutionRoleTemplateBody = cmdletContext.ExecutionRoleTemplateBody;
+            }
+            if (cmdletContext.ExecutionRoleTemplateUrl != null)
+            {
+                request.ExecutionRoleTemplateUrl = cmdletContext.ExecutionRoleTemplateUrl;
+            }
             
              // populate ManagedExecution
             var requestManagedExecutionIsNull = true;
@@ -743,6 +815,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 request.StackSetName = cmdletContext.StackSetName;
             }
+            if (cmdletContext.StackSetOutputBucket != null)
+            {
+                request.StackSetOutputBucket = cmdletContext.StackSetOutputBucket;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -754,6 +830,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.TemplateURL != null)
             {
                 request.TemplateURL = cmdletContext.TemplateURL;
+            }
+            if (cmdletContext.UseAdminExecutionRole != null)
+            {
+                request.UseAdminExecutionRole = cmdletContext.UseAdminExecutionRole.Value;
             }
             if (cmdletContext.UsePreviousTemplate != null)
             {
@@ -827,6 +907,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<System.String> DeploymentTargets_OrganizationalUnitId { get; set; }
             public System.String Description { get; set; }
             public System.String ExecutionRoleName { get; set; }
+            public System.String ExecutionRoleTemplateBody { get; set; }
+            public System.String ExecutionRoleTemplateUrl { get; set; }
             public System.Boolean? ManagedExecution_Active { get; set; }
             public System.String OperationId { get; set; }
             public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreference { get; set; }
@@ -834,9 +916,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public Amazon.CloudFormation.PermissionModels PermissionModel { get; set; }
             public List<System.String> StackRegion { get; set; }
             public System.String StackSetName { get; set; }
+            public System.String StackSetOutputBucket { get; set; }
             public List<Amazon.CloudFormation.Model.Tag> Tag { get; set; }
             public System.String TemplateBody { get; set; }
             public System.String TemplateURL { get; set; }
+            public System.Boolean? UseAdminExecutionRole { get; set; }
             public System.Boolean? UsePreviousTemplate { get; set; }
             public System.Func<Amazon.CloudFormation.Model.UpdateStackSetResponse, UpdateCFNStackSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OperationId;

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Get", "BCMPCBillEstimateInputUsageModificationList")]
     [OutputType("Amazon.BCMPricingCalculator.Model.BillEstimateInputUsageModificationSummary")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator ListBillEstimateInputUsageModifications API operation.", Operation = new[] {"ListBillEstimateInputUsageModifications"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.ListBillEstimateInputUsageModificationsResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator ListBillEstimateInputUsageModifications API operation.", Operation = new[] {"ListBillEstimateInputUsageModifications"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.ListBillEstimateInputUsageModificationsResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BillEstimateInputUsageModificationSummary or Amazon.BCMPricingCalculator.Model.ListBillEstimateInputUsageModificationsResponse",
         "This cmdlet returns a collection of Amazon.BCMPricingCalculator.Model.BillEstimateInputUsageModificationSummary objects.",
         "The service call response (type Amazon.BCMPricingCalculator.Model.ListBillEstimateInputUsageModificationsResponse) can be returned by specifying '-Select *'."
@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.ListBillEstimateInputUsageModificationsResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.ListBillEstimateInputUsageModificationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "ListBillEstimateInputUsageModifications");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "ListBillEstimateInputUsageModifications");
             try
             {
                 return client.ListBillEstimateInputUsageModificationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

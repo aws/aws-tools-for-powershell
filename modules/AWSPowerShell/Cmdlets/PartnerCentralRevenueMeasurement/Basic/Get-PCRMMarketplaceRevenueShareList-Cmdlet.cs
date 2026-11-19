@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         #region Parameter CreatedAfter
         /// <summary>
         /// <para>
-        /// <para>Filter results to only include marketplace revenue shares created after this timestamp.</para>
+        /// <para>Filter results to marketplace revenue shares created at or after this timestamp (inclusive).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,17 +75,35 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         #region Parameter CreatedBefore
         /// <summary>
         /// <para>
-        /// <para>Filter results to only include marketplace revenue shares created before this timestamp.</para>
+        /// <para>Filter results to marketplace revenue shares created before this timestamp (exclusive).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? CreatedBefore { get; set; }
         #endregion
         
+        #region Parameter Identifier
+        /// <summary>
+        /// <para>
+        /// <para>Filter results to only include these marketplace revenue shares, by ID or ARN. 1 to
+        /// 100 identifiers. When several filters are sent, a share must match all of them.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Identifiers")]
+        public System.String[] Identifier { get; set; }
+        #endregion
+        
         #region Parameter ProductCode
         /// <summary>
         /// <para>
-        /// <para>Filter results to only include shares with these product codes.</para><para />
+        /// <para>Filter results to the marketplace revenue shares that contain a product with any of
+        /// these product codes. 1 to 10 product codes.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -101,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         #region Parameter ProductId
         /// <summary>
         /// <para>
-        /// <para>Filter results to only include shares with these product identifiers.</para><para />
+        /// <para>Filter results to the marketplace revenue shares that contain any of these products.
+        /// 1 to 10 product IDs or product ARNs. Shares the caller does not own are never returned.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -216,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             #endif
             context.CreatedAfter = this.CreatedAfter;
             context.CreatedBefore = this.CreatedBefore;
+            if (this.Identifier != null)
+            {
+                context.Identifier = new List<System.String>(this.Identifier);
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -266,6 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             if (cmdletContext.CreatedBefore != null)
             {
                 request.CreatedBefore = cmdletContext.CreatedBefore.Value;
+            }
+            if (cmdletContext.Identifier != null)
+            {
+                request.Identifiers = cmdletContext.Identifier;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -369,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
             public System.DateTime? CreatedAfter { get; set; }
             public System.DateTime? CreatedBefore { get; set; }
+            public List<System.String> Identifier { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> ProductCode { get; set; }

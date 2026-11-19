@@ -104,6 +104,8 @@ $EVBV2_Completers = {
 
         # Amazon.EventBridgeV2.IncludePayload
         {
+            ($_ -eq "New-EVBV2EventSource/Configuration_WebhookEventsConfiguration_LogConfiguration_IncludePayload") -Or
+            ($_ -eq "Update-EVBV2EventSource/Configuration_WebhookEventsConfiguration_LogConfiguration_IncludePayload") -Or
             ($_ -eq "New-EVBV2Subscriber/LogConfiguration_IncludePayload") -Or
             ($_ -eq "Update-EVBV2Subscriber/LogConfiguration_IncludePayload")
         }
@@ -126,11 +128,43 @@ $EVBV2_Completers = {
 
         # Amazon.EventBridgeV2.LogLevel
         {
+            ($_ -eq "New-EVBV2EventSource/Configuration_WebhookEventsConfiguration_LogConfiguration_Level") -Or
+            ($_ -eq "Update-EVBV2EventSource/Configuration_WebhookEventsConfiguration_LogConfiguration_Level") -Or
             ($_ -eq "New-EVBV2Subscriber/LogConfiguration_Level") -Or
             ($_ -eq "Update-EVBV2Subscriber/LogConfiguration_Level")
         }
         {
             $v = "ERROR","INFO","OFF"
+            break
+        }
+
+        # Amazon.EventBridgeV2.MskAcks
+        {
+            ($_ -eq "New-EVBV2Subscriber/InvokeConfiguration_MskParameters_Ack") -Or
+            ($_ -eq "Update-EVBV2Subscriber/InvokeConfiguration_MskParameters_Ack")
+        }
+        {
+            $v = "ALL","LEADER"
+            break
+        }
+
+        # Amazon.EventBridgeV2.MskCompression
+        {
+            ($_ -eq "New-EVBV2Subscriber/InvokeConfiguration_MskParameters_Compression") -Or
+            ($_ -eq "Update-EVBV2Subscriber/InvokeConfiguration_MskParameters_Compression")
+        }
+        {
+            $v = "GZIP","LZ4","NONE","SNAPPY","ZSTD"
+            break
+        }
+
+        # Amazon.EventBridgeV2.MskConnectivity
+        {
+            ($_ -eq "New-EVBV2Subscriber/InvokeConfiguration_MskParameters_Connectivity") -Or
+            ($_ -eq "Update-EVBV2Subscriber/InvokeConfiguration_MskParameters_Connectivity")
+        }
+        {
+            $v = "PRIVATE","PUBLIC"
             break
         }
 
@@ -192,6 +226,56 @@ $EVBV2_Completers = {
             break
         }
 
+        # Amazon.EventBridgeV2.WebhookDeduplicationType
+        {
+            ($_ -eq "New-EVBV2EventSource/Configuration_WebhookEventsConfiguration_DeduplicationConfiguration_DeduplicationType") -Or
+            ($_ -eq "Update-EVBV2EventSource/Configuration_WebhookEventsConfiguration_DeduplicationConfiguration_DeduplicationType")
+        }
+        {
+            $v = "CONTENT_BASED"
+            break
+        }
+
+        # Amazon.EventBridgeV2.WebhookHmacAlgorithm
+        {
+            ($_ -eq "New-EVBV2EventSource/Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Algorithm") -Or
+            ($_ -eq "Update-EVBV2EventSource/Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Algorithm")
+        }
+        {
+            $v = "SHA1","SHA256"
+            break
+        }
+
+        # Amazon.EventBridgeV2.WebhookHmacEncoding
+        {
+            ($_ -eq "New-EVBV2EventSource/Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Encoding") -Or
+            ($_ -eq "Update-EVBV2EventSource/Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Encoding")
+        }
+        {
+            $v = "BASE64","HEX"
+            break
+        }
+
+        # Amazon.EventBridgeV2.WebhookSecretEncoding
+        {
+            ($_ -eq "New-EVBV2EventSource/Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SecretEncoding") -Or
+            ($_ -eq "Update-EVBV2EventSource/Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SecretEncoding")
+        }
+        {
+            $v = "BASE64","RAW"
+            break
+        }
+
+        # Amazon.EventBridgeV2.WebhookSignedMessageComposition
+        {
+            ($_ -eq "New-EVBV2EventSource/Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SignedMessageComposition") -Or
+            ($_ -eq "Update-EVBV2EventSource/Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SignedMessageComposition")
+        }
+        {
+            $v = "BODY","MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY","TIMESTAMP_DOT_BODY"
+            break
+        }
+
 
     }
 
@@ -201,10 +285,20 @@ $EVBV2_Completers = {
 }
 
 $EVBV2_map = @{
+    "Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Algorithm"=@("New-EVBV2EventSource","Update-EVBV2EventSource")
+    "Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Encoding"=@("New-EVBV2EventSource","Update-EVBV2EventSource")
+    "Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SecretEncoding"=@("New-EVBV2EventSource","Update-EVBV2EventSource")
+    "Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SignedMessageComposition"=@("New-EVBV2EventSource","Update-EVBV2EventSource")
+    "Configuration_WebhookEventsConfiguration_DeduplicationConfiguration_DeduplicationType"=@("New-EVBV2EventSource","Update-EVBV2EventSource")
+    "Configuration_WebhookEventsConfiguration_LogConfiguration_IncludePayload"=@("New-EVBV2EventSource","Update-EVBV2EventSource")
+    "Configuration_WebhookEventsConfiguration_LogConfiguration_Level"=@("New-EVBV2EventSource","Update-EVBV2EventSource")
     "DeduplicationConfiguration_DeduplicationType"=@("Write-EVBV2Event","Write-EVBV2RawEvent")
     "FilterConfiguration_Language"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
     "InvokeConfiguration_EventBusV2Parameters_DeduplicationConfiguration_DeduplicationType"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
     "InvokeConfiguration_LambdaParameters_InvocationType"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "InvokeConfiguration_MskParameters_Ack"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "InvokeConfiguration_MskParameters_Compression"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "InvokeConfiguration_MskParameters_Connectivity"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
     "InvokeConfiguration_StepFunctionsParameters_InvocationType"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
     "LogConfiguration_IncludePayload"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
     "LogConfiguration_Level"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
@@ -287,6 +381,7 @@ $EVBV2_SelectMap = @{
                "Write-EVBV2RawEvent",
                "Write-EVBV2ResourcePolicy",
                "Revoke-EVBV2Resource",
+               "Invoke-EVBV2WebhookCredentialRotation",
                "Add-EVBV2ResourceTag",
                "Remove-EVBV2ResourceTag",
                "Update-EVBV2EventBus",

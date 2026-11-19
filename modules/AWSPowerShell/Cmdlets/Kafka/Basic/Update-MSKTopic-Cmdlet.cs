@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Update", "MSKTopic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.UpdateTopicResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) UpdateTopic API operation.", Operation = new[] {"UpdateTopic"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateTopicResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka UpdateTopic API operation.", Operation = new[] {"UpdateTopic"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateTopicResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.UpdateTopicResponse",
         "This cmdlet returns an Amazon.Kafka.Model.UpdateTopicResponse object containing multiple properties."
     )]
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.UpdateTopicResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.UpdateTopicRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "UpdateTopic");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "UpdateTopic");
             try
             {
                 return client.UpdateTopicAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

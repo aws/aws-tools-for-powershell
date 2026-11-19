@@ -254,6 +254,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-IAMDelegationRequest', 
         'Update-IAMGroup', 
         'Update-IAMLoginProfile', 
+        'Update-IAMOpenIDConnectProvider', 
         'Update-IAMOpenIDConnectProviderThumbprint', 
         'Update-IAMRole', 
         'Update-IAMRoleDescription', 

@@ -70,6 +70,41 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.Boolean? PaymentInput_Mpp_BuyerPaysGasFee { get; set; }
         #endregion
         
+        #region Parameter PaymentInput_AwsBillingX402_Options_DpopJwk_Crv
+        /// <summary>
+        /// <para>
+        /// <para>The elliptic curve of the key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCore.JwkEllipticCurve")]
+        public Amazon.BedrockAgentCore.JwkEllipticCurve PaymentInput_AwsBillingX402_Options_DpopJwk_Crv { get; set; }
+        #endregion
+        
+        #region Parameter PaymentInput_AwsBillingX402_Options_DpopJwk_Kty
+        /// <summary>
+        /// <para>
+        /// <para>The key type. The only valid value is <c>EC</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCore.JwkKeyType")]
+        public Amazon.BedrockAgentCore.JwkKeyType PaymentInput_AwsBillingX402_Options_DpopJwk_Kty { get; set; }
+        #endregion
+        
+        #region Parameter PaymentInput_AwsBillingX402_Payload
+        /// <summary>
+        /// <para>
+        /// <para>The seller's x402 payment requirement for AWS Billing, passed unchanged as a JSON
+        /// object. The service reads the seller-signed quote token from <c>extra.quoteToken</c>
+        /// and returns a <c>ValidationException</c> if it is missing or invalid. Any change to
+        /// the quote token invalidates its signature.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject PaymentInput_AwsBillingX402_Payload { get; set; }
+        #endregion
+        
         #region Parameter PaymentInput_CryptoX402_Payload
         /// <summary>
         /// <para>
@@ -83,7 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter PaymentInstrumentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the payment instrument to use.</para>
+        /// <para>The ID of the payment instrument to use. For the <c>CRYPTO_X402</c> and <c>MPP</c>
+        /// payment types, specify the ID of a payment instrument that you created. For the <c>AWS_BILLING_X402</c>
+        /// payment type, specify the service-managed instrument ID <c>aws.agentcorepayments.awsbilling.v1</c>.
+        /// You don't create this instrument; it's available for any payment manager that has
+        /// an AWS Billing payment connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -174,6 +213,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String UserId { get; set; }
         #endregion
         
+        #region Parameter PaymentInput_AwsBillingX402_Version
+        /// <summary>
+        /// <para>
+        /// <para>The x402 protocol version of the seller's HTTP 402 response, from its <c>x402Version</c>
+        /// field. For example, <c>2</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PaymentInput_AwsBillingX402_Version { get; set; }
+        #endregion
+        
         #region Parameter PaymentInput_CryptoX402_Version
         /// <summary>
         /// <para>
@@ -210,6 +260,26 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PaymentInput_Mpp_WwwAuthenticateHeaders")]
         public System.String[] PaymentInput_Mpp_WwwAuthenticateHeader { get; set; }
+        #endregion
+        
+        #region Parameter PaymentInput_AwsBillingX402_Options_DpopJwk_X
+        /// <summary>
+        /// <para>
+        /// <para>The x-coordinate of the elliptic curve point, base64url-encoded.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PaymentInput_AwsBillingX402_Options_DpopJwk_X { get; set; }
+        #endregion
+        
+        #region Parameter PaymentInput_AwsBillingX402_Options_DpopJwk_Y
+        /// <summary>
+        /// <para>
+        /// <para>The y-coordinate of the elliptic curve point, base64url-encoded.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PaymentInput_AwsBillingX402_Options_DpopJwk_Y { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -271,6 +341,12 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             }
             context.AgentName = this.AgentName;
             context.ClientToken = this.ClientToken;
+            context.PaymentInput_AwsBillingX402_Options_DpopJwk_Crv = this.PaymentInput_AwsBillingX402_Options_DpopJwk_Crv;
+            context.PaymentInput_AwsBillingX402_Options_DpopJwk_Kty = this.PaymentInput_AwsBillingX402_Options_DpopJwk_Kty;
+            context.PaymentInput_AwsBillingX402_Options_DpopJwk_X = this.PaymentInput_AwsBillingX402_Options_DpopJwk_X;
+            context.PaymentInput_AwsBillingX402_Options_DpopJwk_Y = this.PaymentInput_AwsBillingX402_Options_DpopJwk_Y;
+            context.PaymentInput_AwsBillingX402_Payload = this.PaymentInput_AwsBillingX402_Payload;
+            context.PaymentInput_AwsBillingX402_Version = this.PaymentInput_AwsBillingX402_Version;
             context.PaymentInput_CryptoX402_Payload = this.PaymentInput_CryptoX402_Payload;
             context.PaymentInput_CryptoX402_Permit2AllowanceLimit = this.PaymentInput_CryptoX402_Permit2AllowanceLimit;
             context.PaymentInput_CryptoX402_Version = this.PaymentInput_CryptoX402_Version;
@@ -337,6 +413,111 @@ namespace Amazon.PowerShell.Cmdlets.BAC
              // populate PaymentInput
             var requestPaymentInputIsNull = true;
             request.PaymentInput = new Amazon.BedrockAgentCore.Model.PaymentInput();
+            Amazon.BedrockAgentCore.Model.AwsBillingX402PaymentInput requestPaymentInput_paymentInput_AwsBillingX402 = null;
+            
+             // populate AwsBillingX402
+            var requestPaymentInput_paymentInput_AwsBillingX402IsNull = true;
+            requestPaymentInput_paymentInput_AwsBillingX402 = new Amazon.BedrockAgentCore.Model.AwsBillingX402PaymentInput();
+            Amazon.Runtime.Documents.Document? requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Payload = null;
+            if (cmdletContext.PaymentInput_AwsBillingX402_Payload != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Payload = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.PaymentInput_AwsBillingX402_Payload);
+            }
+            if (requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Payload != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402.Payload = requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Payload.Value;
+                requestPaymentInput_paymentInput_AwsBillingX402IsNull = false;
+            }
+            System.String requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Version = null;
+            if (cmdletContext.PaymentInput_AwsBillingX402_Version != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Version = cmdletContext.PaymentInput_AwsBillingX402_Version;
+            }
+            if (requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Version != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402.Version = requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Version;
+                requestPaymentInput_paymentInput_AwsBillingX402IsNull = false;
+            }
+            Amazon.BedrockAgentCore.Model.AwsBillingPaymentOptions requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options = null;
+            
+             // populate Options
+            var requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_OptionsIsNull = true;
+            requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options = new Amazon.BedrockAgentCore.Model.AwsBillingPaymentOptions();
+            Amazon.BedrockAgentCore.Model.DpopJwk requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk = null;
+            
+             // populate DpopJwk
+            var requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwkIsNull = true;
+            requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk = new Amazon.BedrockAgentCore.Model.DpopJwk();
+            Amazon.BedrockAgentCore.JwkEllipticCurve requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Crv = null;
+            if (cmdletContext.PaymentInput_AwsBillingX402_Options_DpopJwk_Crv != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Crv = cmdletContext.PaymentInput_AwsBillingX402_Options_DpopJwk_Crv;
+            }
+            if (requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Crv != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk.Crv = requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Crv;
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwkIsNull = false;
+            }
+            Amazon.BedrockAgentCore.JwkKeyType requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Kty = null;
+            if (cmdletContext.PaymentInput_AwsBillingX402_Options_DpopJwk_Kty != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Kty = cmdletContext.PaymentInput_AwsBillingX402_Options_DpopJwk_Kty;
+            }
+            if (requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Kty != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk.Kty = requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Kty;
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwkIsNull = false;
+            }
+            System.String requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_X = null;
+            if (cmdletContext.PaymentInput_AwsBillingX402_Options_DpopJwk_X != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_X = cmdletContext.PaymentInput_AwsBillingX402_Options_DpopJwk_X;
+            }
+            if (requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_X != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk.X = requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_X;
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwkIsNull = false;
+            }
+            System.String requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Y = null;
+            if (cmdletContext.PaymentInput_AwsBillingX402_Options_DpopJwk_Y != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Y = cmdletContext.PaymentInput_AwsBillingX402_Options_DpopJwk_Y;
+            }
+            if (requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Y != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk.Y = requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk_paymentInput_AwsBillingX402_Options_DpopJwk_Y;
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwkIsNull = false;
+            }
+             // determine if requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk should be set to null
+            if (requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwkIsNull)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk = null;
+            }
+            if (requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options.DpopJwk = requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options_paymentInput_AwsBillingX402_Options_DpopJwk;
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_OptionsIsNull = false;
+            }
+             // determine if requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options should be set to null
+            if (requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_OptionsIsNull)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options = null;
+            }
+            if (requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options != null)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402.Options = requestPaymentInput_paymentInput_AwsBillingX402_paymentInput_AwsBillingX402_Options;
+                requestPaymentInput_paymentInput_AwsBillingX402IsNull = false;
+            }
+             // determine if requestPaymentInput_paymentInput_AwsBillingX402 should be set to null
+            if (requestPaymentInput_paymentInput_AwsBillingX402IsNull)
+            {
+                requestPaymentInput_paymentInput_AwsBillingX402 = null;
+            }
+            if (requestPaymentInput_paymentInput_AwsBillingX402 != null)
+            {
+                request.PaymentInput.AwsBillingX402 = requestPaymentInput_paymentInput_AwsBillingX402;
+                requestPaymentInputIsNull = false;
+            }
             Amazon.BedrockAgentCore.Model.CryptoX402PaymentInput requestPaymentInput_paymentInput_CryptoX402 = null;
             
              // populate CryptoX402
@@ -509,6 +690,12 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             public System.String AgentName { get; set; }
             public System.String ClientToken { get; set; }
+            public Amazon.BedrockAgentCore.JwkEllipticCurve PaymentInput_AwsBillingX402_Options_DpopJwk_Crv { get; set; }
+            public Amazon.BedrockAgentCore.JwkKeyType PaymentInput_AwsBillingX402_Options_DpopJwk_Kty { get; set; }
+            public System.String PaymentInput_AwsBillingX402_Options_DpopJwk_X { get; set; }
+            public System.String PaymentInput_AwsBillingX402_Options_DpopJwk_Y { get; set; }
+            public System.Management.Automation.PSObject PaymentInput_AwsBillingX402_Payload { get; set; }
+            public System.String PaymentInput_AwsBillingX402_Version { get; set; }
             public System.Management.Automation.PSObject PaymentInput_CryptoX402_Payload { get; set; }
             public System.String PaymentInput_CryptoX402_Permit2AllowanceLimit { get; set; }
             public System.String PaymentInput_CryptoX402_Version { get; set; }

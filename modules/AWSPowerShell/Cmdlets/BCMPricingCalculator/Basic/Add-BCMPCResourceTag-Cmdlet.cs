@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Add", "BCMPCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.BCMPricingCalculator.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BCMPricingCalculator.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.TagResourceResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

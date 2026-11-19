@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Update", "RTBLinkModuleFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RTBFabric.Model.UpdateLinkModuleFlowResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric UpdateLinkModuleFlow API operation.", Operation = new[] {"UpdateLinkModuleFlow"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.UpdateLinkModuleFlowResponse))]
+    [AWSCmdlet("Calls the RTBFabric UpdateLinkModuleFlow API operation.", Operation = new[] {"UpdateLinkModuleFlow"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.UpdateLinkModuleFlowResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.UpdateLinkModuleFlowResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.UpdateLinkModuleFlowResponse object containing multiple properties."
     )]
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.UpdateLinkModuleFlowResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.UpdateLinkModuleFlowRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "UpdateLinkModuleFlow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "UpdateLinkModuleFlow");
             try
             {
                 return client.UpdateLinkModuleFlowAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

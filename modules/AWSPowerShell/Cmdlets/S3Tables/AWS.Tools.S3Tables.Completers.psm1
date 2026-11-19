@@ -318,6 +318,7 @@ $S3T_SelectMap = @{
                "Remove-S3TTableBucketReplication",
                "Remove-S3TTablePolicy",
                "Remove-S3TTableReplication",
+               "Unregister-S3TTableReplication",
                "Get-S3TNamespace",
                "Get-S3TTable",
                "Get-S3TTableBucket",

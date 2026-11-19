@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Remove", "RTBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon RTBFabric UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the RTBFabric UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.RTBFabric.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.RTBFabric.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

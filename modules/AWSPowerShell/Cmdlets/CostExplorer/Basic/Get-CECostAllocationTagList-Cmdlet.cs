@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CECostAllocationTagList")]
     [OutputType("Amazon.CostExplorer.Model.CostAllocationTag")]
-    [AWSCmdlet("Calls the AWS Cost Explorer ListCostAllocationTags API operation.", Operation = new[] {"ListCostAllocationTags"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostAllocationTagsResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service ListCostAllocationTags API operation.", Operation = new[] {"ListCostAllocationTags"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostAllocationTagsResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.CostAllocationTag or Amazon.CostExplorer.Model.ListCostAllocationTagsResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.CostAllocationTag objects.",
         "The service call response (type Amazon.CostExplorer.Model.ListCostAllocationTagsResponse) can be returned by specifying '-Select *'."
@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.ListCostAllocationTagsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.ListCostAllocationTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "ListCostAllocationTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "ListCostAllocationTags");
             try
             {
                 return client.ListCostAllocationTagsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

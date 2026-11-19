@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Set", "CEAnomalyFeedback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Cost Explorer ProvideAnomalyFeedback API operation.", Operation = new[] {"ProvideAnomalyFeedback"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ProvideAnomalyFeedbackResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service ProvideAnomalyFeedback API operation.", Operation = new[] {"ProvideAnomalyFeedback"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ProvideAnomalyFeedbackResponse))]
     [AWSCmdletOutput("System.String or Amazon.CostExplorer.Model.ProvideAnomalyFeedbackResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.CostExplorer.Model.ProvideAnomalyFeedbackResponse) can be returned by specifying '-Select *'."
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.ProvideAnomalyFeedbackResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.ProvideAnomalyFeedbackRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "ProvideAnomalyFeedback");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "ProvideAnomalyFeedback");
             try
             {
                 return client.ProvideAnomalyFeedbackAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

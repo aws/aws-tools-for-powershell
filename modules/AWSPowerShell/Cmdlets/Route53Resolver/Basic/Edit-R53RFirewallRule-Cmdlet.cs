@@ -62,6 +62,19 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public Amazon.Route53Resolver.Action Action { get; set; }
         #endregion
         
+        #region Parameter FirewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the managed domain list that DNS Firewall creates and maintains for this
+        /// AutoAllowlist rule. The list is named <c>AutoAllowlist - </c> followed by the rule
+        /// name, cut to 64 characters, and is renamed when you rename the rule. DNS Firewall
+        /// returns this value in responses. You can't set it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId { get; set; }
+        #endregion
+        
         #region Parameter BlockOverrideDnsType
         /// <summary>
         /// <para>
@@ -198,7 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// chain. The individual domains in the redirection chain must be added to the domain
         /// list.</para><para><c>TRUST_REDIRECTION_DOMAIN</c>: Inspects only the first domain in the redirection
         /// chain. You don't need to add the subsequent domains in the domain in the redirection
-        /// list to the domain list.</para>
+        /// list to the domain list.</para><para>You can't set this value on an AutoAllowlist rule, which always inspects the redirection
+        /// chain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,6 +245,38 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String FirewallThreatProtectionId { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a domain list whose domains DNS Firewall copies into the AutoAllowlist rule's
+        /// managed domain list after you create the rule. You must own the source list, and it
+        /// must be in <c>COMPLETE</c> status, in the same Region, and not a managed or AutoAllowlist
+        /// list. DNS Firewall reads the source list while the copy runs, so don't change or delete
+        /// it until the managed list's status is no longer <c>IMPORTING</c>. A change made to
+        /// the source list during the copy can be reflected in the managed list, and deleting
+        /// the source list fails the copy. The managed list then has status <c>COMPLETE</c>,
+        /// or <c>COMPLETE_IMPORT_FAILED</c> if the copy failed. DNS Firewall uses this value
+        /// only when you create the rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRuleType_AutoAllowlist_InitialDataTimeframeHour
+        /// <summary>
+        /// <para>
+        /// <para>The look-back window, in hours, of historical DNS traffic that DNS Firewall uses to
+        /// seed the initial set of observed domains when you create the rule. Valid values are
+        /// from <c>1</c> to <c>168</c> (7 days). You can't change this value after you create
+        /// the rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallRuleType_AutoAllowlist_InitialDataTimeframeHours")]
+        public System.Int32? FirewallRuleType_AutoAllowlist_InitialDataTimeframeHour { get; set; }
         #endregion
         
         #region Parameter Name
@@ -279,7 +325,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// For more information, see <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List
         /// of DNS record types</a>.</para><note><para>If you set up a firewall BLOCK rule with action NXDOMAIN on query type equals AAAA,
         /// this action will not be applied to synthetic IPv6 addresses generated when DNS64 is
-        /// enabled. </para></note></li></ul>
+        /// enabled. </para></note></li></ul><para>You can't set <c>Qtype</c> on an AutoAllowlist rule, because the rule applies to all
+        /// query types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -363,6 +410,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 WriteWarning("You are passing $null as a value for parameter FirewallRuleGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FirewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId = this.FirewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId;
+            context.FirewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId = this.FirewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId;
+            context.FirewallRuleType_AutoAllowlist_InitialDataTimeframeHour = this.FirewallRuleType_AutoAllowlist_InitialDataTimeframeHour;
             context.FirewallRuleType_DnsThreatProtection_ConfidenceThreshold = this.FirewallRuleType_DnsThreatProtection_ConfidenceThreshold;
             context.FirewallRuleType_DnsThreatProtection_Value = this.FirewallRuleType_DnsThreatProtection_Value;
             context.FirewallRuleType_FirewallAdvancedContentCategory_Category = this.FirewallRuleType_FirewallAdvancedContentCategory_Category;
@@ -542,6 +592,51 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 request.FirewallRuleType.DnsThreatProtection = requestFirewallRuleType_firewallRuleType_DnsThreatProtection;
                 requestFirewallRuleTypeIsNull = false;
             }
+            Amazon.Route53Resolver.Model.AutoAllowlistConfig requestFirewallRuleType_firewallRuleType_AutoAllowlist = null;
+            
+             // populate AutoAllowlist
+            var requestFirewallRuleType_firewallRuleType_AutoAllowlistIsNull = true;
+            requestFirewallRuleType_firewallRuleType_AutoAllowlist = new Amazon.Route53Resolver.Model.AutoAllowlistConfig();
+            System.String requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId = null;
+            if (cmdletContext.FirewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId != null)
+            {
+                requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId = cmdletContext.FirewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId;
+            }
+            if (requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId != null)
+            {
+                requestFirewallRuleType_firewallRuleType_AutoAllowlist.AutoAllowlistFirewallDomainListId = requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId;
+                requestFirewallRuleType_firewallRuleType_AutoAllowlistIsNull = false;
+            }
+            System.String requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId = null;
+            if (cmdletContext.FirewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId != null)
+            {
+                requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId = cmdletContext.FirewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId;
+            }
+            if (requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId != null)
+            {
+                requestFirewallRuleType_firewallRuleType_AutoAllowlist.ImportFromFirewallDomainListId = requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId;
+                requestFirewallRuleType_firewallRuleType_AutoAllowlistIsNull = false;
+            }
+            System.Int32? requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_InitialDataTimeframeHour = null;
+            if (cmdletContext.FirewallRuleType_AutoAllowlist_InitialDataTimeframeHour != null)
+            {
+                requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_InitialDataTimeframeHour = cmdletContext.FirewallRuleType_AutoAllowlist_InitialDataTimeframeHour.Value;
+            }
+            if (requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_InitialDataTimeframeHour != null)
+            {
+                requestFirewallRuleType_firewallRuleType_AutoAllowlist.InitialDataTimeframeHours = requestFirewallRuleType_firewallRuleType_AutoAllowlist_firewallRuleType_AutoAllowlist_InitialDataTimeframeHour.Value;
+                requestFirewallRuleType_firewallRuleType_AutoAllowlistIsNull = false;
+            }
+             // determine if requestFirewallRuleType_firewallRuleType_AutoAllowlist should be set to null
+            if (requestFirewallRuleType_firewallRuleType_AutoAllowlistIsNull)
+            {
+                requestFirewallRuleType_firewallRuleType_AutoAllowlist = null;
+            }
+            if (requestFirewallRuleType_firewallRuleType_AutoAllowlist != null)
+            {
+                request.FirewallRuleType.AutoAllowlist = requestFirewallRuleType_firewallRuleType_AutoAllowlist;
+                requestFirewallRuleTypeIsNull = false;
+            }
              // determine if request.FirewallRuleType should be set to null
             if (requestFirewallRuleTypeIsNull)
             {
@@ -628,6 +723,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public System.String FirewallDomainListId { get; set; }
             public Amazon.Route53Resolver.FirewallDomainRedirectionAction FirewallDomainRedirectionAction { get; set; }
             public System.String FirewallRuleGroupId { get; set; }
+            public System.String FirewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId { get; set; }
+            public System.String FirewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId { get; set; }
+            public System.Int32? FirewallRuleType_AutoAllowlist_InitialDataTimeframeHour { get; set; }
             public Amazon.Route53Resolver.ConfidenceThreshold FirewallRuleType_DnsThreatProtection_ConfidenceThreshold { get; set; }
             public System.String FirewallRuleType_DnsThreatProtection_Value { get; set; }
             public System.String FirewallRuleType_FirewallAdvancedContentCategory_Category { get; set; }

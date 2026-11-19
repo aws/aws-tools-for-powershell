@@ -75,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.CCON
         public System.String HostArn { get; set; }
         #endregion
         
+        #region Parameter ProviderEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint of the ghe.com tenant where your organization resides. Provide this parameter
+        /// only when <c>ProviderType</c> is <c>GitHubEnterpriseCloudDataResidency</c>. Leave
+        /// this parameter empty for all other provider types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProviderEndpoint { get; set; }
+        #endregion
+        
         #region Parameter ProviderType
         /// <summary>
         /// <para>
@@ -156,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
             }
             #endif
             context.HostArn = this.HostArn;
+            context.ProviderEndpoint = this.ProviderEndpoint;
             context.ProviderType = this.ProviderType;
             if (this.Tag != null)
             {
@@ -184,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.CCON
             if (cmdletContext.HostArn != null)
             {
                 request.HostArn = cmdletContext.HostArn;
+            }
+            if (cmdletContext.ProviderEndpoint != null)
+            {
+                request.ProviderEndpoint = cmdletContext.ProviderEndpoint;
             }
             if (cmdletContext.ProviderType != null)
             {
@@ -250,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
         {
             public System.String ConnectionName { get; set; }
             public System.String HostArn { get; set; }
+            public System.String ProviderEndpoint { get; set; }
             public Amazon.CodeConnections.ProviderType ProviderType { get; set; }
             public List<Amazon.CodeConnections.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.CodeConnections.Model.CreateConnectionResponse, NewCCONConnectionCmdlet, object> Select { get; set; } =

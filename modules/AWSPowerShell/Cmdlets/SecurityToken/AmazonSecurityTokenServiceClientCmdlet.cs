@@ -28,7 +28,7 @@ using Amazon.SecurityToken.Model;
 
 namespace Amazon.PowerShell.Cmdlets.STS
 {
-    [AWSClientCmdlet("AWS Security Token Service (STS)", "STS", "2011-06-15", "SecurityToken")]
+    [AWSClientCmdlet("AWS Security Token Service", "STS", "2011-06-15", "SecurityToken")]
     public abstract partial class AmazonSecurityTokenServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSecurityTokenService Client { get; private set; }

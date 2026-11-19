@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("New", "RTBLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RTBFabric.Model.CreateLinkResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric CreateLink API operation.", Operation = new[] {"CreateLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.CreateLinkResponse))]
+    [AWSCmdlet("Calls the RTBFabric CreateLink API operation.", Operation = new[] {"CreateLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.CreateLinkResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.CreateLinkResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.CreateLinkResponse object containing multiple properties."
     )]
@@ -433,7 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.CreateLinkResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.CreateLinkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "CreateLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "CreateLink");
             try
             {
                 return client.CreateLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

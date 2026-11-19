@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Specifies the catalog related to the request. Valid values are:</para><ul><li><para>AWS: Stops the request from the production AWS environment.</para></li><li><para>Sandbox: Stops the request from a sandbox environment used for testing or development
-        /// purposes.</para></li></ul>
+        /// <para>Specifies the catalog related to the request. Valid values are:</para><ul><li><para> AWS: Stops the request from the production AWS environment. </para></li><li><para> Sandbox: Stops the request from a sandbox environment used for testing or development
+        /// purposes. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

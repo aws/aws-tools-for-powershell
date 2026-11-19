@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// 
     ///  
     /// <para>
+    /// You can't import into an AutoAllowlist rule's managed domain list. To seed such a
+    /// list, specify <c>ImportFromFirewallDomainListId</c> when you create the rule.
+    /// </para><para>
     /// Each domain specification in your domain list must satisfy the following requirements:
     /// 
     /// </para><ul><li><para>

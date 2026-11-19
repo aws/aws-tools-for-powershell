@@ -1,4 +1,166 @@
-﻿### 5.0.339 (2026-11-18 20:28Z)
+﻿### 5.0.340 (2026-11-19 20:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.6.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Agent Registry
+    * Modified cmdlet Search-AGRGDiscoverableRegistryRecord: added parameters NextToken, NoAutoIteration and SearchType.
+  * Agent Registry Control
+    * Modified cmdlet New-AGRCRegistryRecord: added parameters Artifact_Content, Artifact_Sha256, Descriptors_AgentSkillsDefinition_AdditionalData_RepositoryProvider, Descriptors_AgentSkillsDefinition_AdditionalData_SkillPackage_Source_FromUrl_CredentialProviderConfiguration, Descriptors_AgentSkillsDefinition_AdditionalData_SkillPackage_Source_FromUrl_Url and Descriptors_AgentSkillsDefinition_AdditionalData_SourceConfiguration_S3_BucketOwnerAccountId.
+    * Modified cmdlet Update-AGRCRegistryRecord: added parameters Artifact_OptionalValue_Content, Artifact_OptionalValue_Sha256, Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_RepositoryProvider_OptionalValue, Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_SkillPackage_OptionalValue_Source_FromUrl_CredentialProviderConfiguration, Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_SkillPackage_OptionalValue_Source_FromUrl_Url, Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_SourceConfiguration_OptionalValue_S3_BucketOwnerAccountId and ForceAuthentication.
+  * Amazon AppStream
+    * Modified cmdlet New-APSStack: added parameters WebAuthnRedirection_Enabled and WebAuthnRedirection_ProcessCompatibilityList.
+    * Modified cmdlet Update-APSStack: added parameters WebAuthnRedirection_Enabled and WebAuthnRedirection_ProcessCompatibilityList.
+  * Amazon Bedrock AgentCore
+    * Modified cmdlet Invoke-BACPayment: added parameters PaymentInput_AwsBillingX402_Options_DpopJwk_Crv, PaymentInput_AwsBillingX402_Options_DpopJwk_Kty, PaymentInput_AwsBillingX402_Options_DpopJwk_X, PaymentInput_AwsBillingX402_Options_DpopJwk_Y, PaymentInput_AwsBillingX402_Payload and PaymentInput_AwsBillingX402_Version.
+  * Amazon Bedrock AgentCore Control
+    * Modified cmdlet New-BACCCapacityProvider: added parameter ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization.
+  * Amazon CloudFront
+    * Modified cmdlet New-CFConnectionGroup: added parameter ViewerFallback_DistributionId.
+    * Modified cmdlet New-CFDistributionTenant: added parameter OnDomainTakeover.
+    * Modified cmdlet Update-CFConnectionGroup: added parameter ViewerFallback_DistributionId.
+    * Modified cmdlet Update-CFDistributionTenant: added parameter OnDomainTakeover.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPCIMDPolicyDetail leveraging the DescribeCIMDPolicy service API.
+    * Added cmdlet Get-CGIPCIMDPolicyList leveraging the ListCIMDPolicies service API.
+    * Added cmdlet Get-CGIPClientMetadataURLsList leveraging the ListClientMetadataURLs service API.
+    * Added cmdlet New-CGIPCIMDPolicy leveraging the CreateCIMDPolicy service API.
+    * Added cmdlet Remove-CGIPCIMDPolicy leveraging the DeleteCIMDPolicy service API.
+    * Added cmdlet Update-CGIPCIMDPolicy leveraging the UpdateCIMDPolicy service API.
+    * Added cmdlet Update-CGIPClientMetadataURLState leveraging the UpdateClientMetadataURLState service API.
+    * Modified cmdlet New-CGIPUserPoolClient: added parameter PublishSecretsInAWSSecretsManager.
+    * Modified cmdlet Update-CGIPUserPoolClient: added parameter PublishSecretsInAWSSecretsManager.
+  * Amazon Connect Cases
+    * Modified cmdlet Update-CCASRelatedItem: added parameter Content_Sla_SlaUpdateConfiguration_TargetSlaMinute.
+  * Amazon EventBridgeV2
+    * Added cmdlet Invoke-EVBV2WebhookCredentialRotation leveraging the RotateWebhookCredentials service API.
+    * Modified cmdlet New-EVBV2EventSource: added parameters Configuration_WebhookEventsConfiguration_AuthConfiguration_BasicHttpAuthConfiguration_Password, Configuration_WebhookEventsConfiguration_AuthConfiguration_BasicHttpAuthConfiguration_Username, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Algorithm, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Delimiter, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Encoding, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_MessageIdHttpHeader, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SecretEncoding, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SecretValue, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SignatureHttpHeader, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SignaturePrefix, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SignedMessageComposition, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_TimestampHttpHeader, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_TimestampPrefix, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_TimestampToleranceInSecond, Configuration_WebhookEventsConfiguration_AuthConfiguration_StaticTokenAuthConfiguration_SecretValue, Configuration_WebhookEventsConfiguration_AuthConfiguration_StaticTokenAuthConfiguration_TokenHttpHeader, Configuration_WebhookEventsConfiguration_DeduplicationConfiguration_DeduplicationType, Configuration_WebhookEventsConfiguration_KmsKeyIdentifier, Configuration_WebhookEventsConfiguration_LogConfiguration_IncludePayload, Configuration_WebhookEventsConfiguration_LogConfiguration_Level, Configuration_WebhookEventsConfiguration_MetadataHttpHeader and Configuration_WebhookEventsConfiguration_RoleArn.
+    * Modified cmdlet New-EVBV2Subscriber: added parameters InvokeConfiguration_MskParameters_Ack, InvokeConfiguration_MskParameters_ClientId, InvokeConfiguration_MskParameters_Compression, InvokeConfiguration_MskParameters_Connectivity, InvokeConfiguration_MskParameters_Header, InvokeConfiguration_MskParameters_PartitionKey and InvokeConfiguration_MskParameters_TopicName.
+    * Modified cmdlet Update-EVBV2EventSource: added parameters Configuration_WebhookEventsConfiguration_AuthConfiguration_BasicHttpAuthConfiguration_Password, Configuration_WebhookEventsConfiguration_AuthConfiguration_BasicHttpAuthConfiguration_Username, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Algorithm, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Delimiter, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_Encoding, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_MessageIdHttpHeader, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SecretEncoding, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SecretValue, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SignatureHttpHeader, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SignaturePrefix, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_SignedMessageComposition, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_TimestampHttpHeader, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_TimestampPrefix, Configuration_WebhookEventsConfiguration_AuthConfiguration_HmacAuthConfiguration_TimestampToleranceInSecond, Configuration_WebhookEventsConfiguration_AuthConfiguration_StaticTokenAuthConfiguration_SecretValue, Configuration_WebhookEventsConfiguration_AuthConfiguration_StaticTokenAuthConfiguration_TokenHttpHeader, Configuration_WebhookEventsConfiguration_DeduplicationConfiguration_DeduplicationType, Configuration_WebhookEventsConfiguration_KmsKeyIdentifier, Configuration_WebhookEventsConfiguration_LogConfiguration_IncludePayload, Configuration_WebhookEventsConfiguration_LogConfiguration_Level, Configuration_WebhookEventsConfiguration_MetadataHttpHeader and Configuration_WebhookEventsConfiguration_RoleArn.
+    * Modified cmdlet Update-EVBV2Subscriber: added parameters InvokeConfiguration_MskParameters_Ack, InvokeConfiguration_MskParameters_ClientId, InvokeConfiguration_MskParameters_Compression, InvokeConfiguration_MskParameters_Connectivity, InvokeConfiguration_MskParameters_Header, InvokeConfiguration_MskParameters_PartitionKey and InvokeConfiguration_MskParameters_TopicName.
+  * Amazon Polly
+    * Added cmdlet Get-POLVoiceDetail leveraging the GetVoice service API.
+    * Added cmdlet New-POLVoice leveraging the CreateVoice service API.
+    * Added cmdlet Remove-POLVoice leveraging the DeleteVoice service API.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBCluster: added parameters DBSubnetGroupName, EnableInternetAccessGateway and EnableVPCNetworking.
+    * Modified cmdlet New-RDSDBCluster: added parameters EnableInternetAccessGateway and EnableVPCNetworking.
+  * Amazon Route 53
+    * Added cmdlet Get-R53HealthChecksBySourceList leveraging the ListHealthChecksBySource service API.
+    * Added cmdlet Get-R53HealthCheckSource leveraging the GetHealthCheckSource service API.
+    * Added cmdlet Get-R53HealthCheckSourceList leveraging the ListHealthCheckSources service API.
+    * Added cmdlet New-R53HealthCheckSource leveraging the CreateHealthCheckSource service API.
+    * Added cmdlet Remove-R53HealthCheckSource leveraging the DeleteHealthCheckSource service API.
+    * Modified cmdlet New-R53HealthCheck: added parameters HealthCheckConfig_EndpointType and HealthCheckConfig_HealthCheckSourceId.
+    * Modified cmdlet Update-R53HealthCheck: added parameter HealthCheckSourceId.
+  * Amazon Route 53 Resolver
+    * Added cmdlet Get-R53RFirewallRuleDomainList leveraging the ListFirewallRuleDomains service API.
+    * Modified cmdlet Edit-R53RFirewallRule: added parameters FirewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId, FirewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId and FirewallRuleType_AutoAllowlist_InitialDataTimeframeHour.
+    * Modified cmdlet New-R53RFirewallRule: added parameters FirewallRuleType_AutoAllowlist_AutoAllowlistFirewallDomainListId, FirewallRuleType_AutoAllowlist_ImportFromFirewallDomainListId and FirewallRuleType_AutoAllowlist_InitialDataTimeframeHour.
+  * Amazon S3 Tables
+    * Added cmdlet Unregister-S3TTableReplication leveraging the DisassociateTableReplication service API.
+  * AWS Billing and Cost Management Pricing Calculator
+    * Added cmdlet Get-BCMPCUsageLinesEstimatedCost leveraging the GetUsageLinesEstimatedCost service API.
+  * AWS Certificate Manager
+    * Modified cmdlet Get-ACMCertificateList: added parameter RootHierarchyType.
+    * Modified cmdlet New-ACMCertificate: added parameters CertificateUsage and RootHierarchyType.
+  * AWS CloudFormation
+    * Modified cmdlet New-CFNStackSet: added parameters ExecutionRoleTemplateBody, ExecutionRoleTemplateUrl and StackSetOutputBucket.
+    * Modified cmdlet Update-CFNStackSet: added parameters ExecutionRoleTemplateBody, ExecutionRoleTemplateUrl, StackSetOutputBucket and UseAdminExecutionRole.
+  * AWS CodeConnections
+    * Modified cmdlet New-CCONConnection: added parameter ProviderEndpoint.
+  * AWS DevOps Agent Service
+    * Modified cmdlet Add-DOPSService: added parameters Configuration_Aws_ServiceManagementRoleArn, Configuration_SourceAwsOrg_AccountType, Configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount, Configuration_SourceAwsOrg_DeploymentState_Issue, Configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt, Configuration_SourceAwsOrg_OrganizationalUnit_AccountId and Configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId.
+    * Modified cmdlet New-DOPSAgentSpace: added parameter AwsSourceMode.
+    * Modified cmdlet Update-DOPSAgentSpace: added parameter AwsSourceMode.
+    * Modified cmdlet Update-DOPSAssociation: added parameters Configuration_Aws_ServiceManagementRoleArn, Configuration_SourceAwsOrg_AccountType, Configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount, Configuration_SourceAwsOrg_DeploymentState_Issue, Configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt, Configuration_SourceAwsOrg_OrganizationalUnit_AccountId and Configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId.
+  * AWS Elemental MediaLive
+    * Modified cmdlet New-EMLChannel: added parameters JpegXsInputSpecification_Codec, JpegXsInputSpecification_MaximumBitrate and JpegXsInputSpecification_Resolution.
+    * Modified cmdlet Update-EMLChannel: added parameters JpegXsInputSpecification_Codec, JpegXsInputSpecification_MaximumBitrate and JpegXsInputSpecification_Resolution.
+  * AWS Identity and Access Management
+    * Added cmdlet Update-IAMOpenIDConnectProvider leveraging the UpdateOpenIDConnectProvider service API.
+    * Modified cmdlet New-IAMOpenIDConnectProvider: added parameters ContextProvider_KeyDefinitionList, ContextProvider_SubjectSourceKey, ContextProvider_SubjectTypeSourceKey, ContextProvider_SubjectTypeValue and IdentityCenterInstanceArn.
+    * Modified cmdlet New-IAMSAMLProvider: added parameters ContextProvider_KeyDefinitionList, ContextProvider_SubjectSourceKey, ContextProvider_SubjectTypeSourceKey, ContextProvider_SubjectTypeValue and IdentityCenterInstanceArn.
+    * Modified cmdlet Update-IAMSAMLProvider: added parameters ContextProvider_KeyDefinitionList, ContextProvider_SubjectSourceKey, ContextProvider_SubjectTypeSourceKey, ContextProvider_SubjectTypeValue, IdentityCenterInstanceArn, RemoveContextProvider and RemoveIdentityCenterInstance.
+  * AWS Marketplace Catalog Service
+    * Added cmdlet Start-MCATAssessment leveraging the StartAssessment service API.
+    * Modified cmdlet Get-MCATAssessmentList: added parameter AssessmentTargetFilter_EntityIds.
+    * Modified cmdlet Get-MCATEntityList: added parameter EntityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList.
+  * AWS Marketplace Deployment Service
+    * Added cmdlet Get-MDDeploymentConfiguration leveraging the GetDeploymentConfiguration service API.
+    * Added cmdlet Get-MDDeploymentConfigurationJob leveraging the GetDeploymentConfigurationJob service API.
+    * Added cmdlet Get-MDDeploymentConfigurationJobList leveraging the ListDeploymentConfigurationJobs service API.
+    * Added cmdlet Start-MDDeploymentConfigurationJob leveraging the StartDeploymentConfigurationJob service API.
+  * AWS Parallel Computing Service
+    * Modified cmdlet New-PCSCluster: added parameter SlurmConfiguration_JobSubmitPlugin.
+    * Modified cmdlet Update-PCSCluster: added parameter SlurmConfiguration_JobSubmitPlugin.
+  * AWS Security Token Service
+    * Added cmdlet Get-STSScopedCredential leveraging the GetScopedCredentials service API.
+    * Modified cmdlet Get-STSWebIdentityToken: added parameters Scope and SubjectMode.
+  * Elastic Load Balancing
+    * Modified cmdlet Edit-ELB2Listener: added parameter MutualAuthentication_ClientCertificateIdentityFilter.
+    * Modified cmdlet New-ELB2Listener: added parameter MutualAuthentication_ClientCertificateIdentityFilter.
+  * IAM Roles Anywhere
+    * Modified cmdlet New-IAMRAProfile: added parameters TipConfiguration_Status, TipConfiguration_SubjectSource and TipConfiguration_SubjectType.
+    * Modified cmdlet Update-IAMRAProfile: added parameters TipConfiguration_Status, TipConfiguration_SubjectSource and TipConfiguration_SubjectType.
+  * Inspector2
+    * Modified cmdlet New-INS2CodeSecurityIntegration: added parameters Details_GithubEnterprise_InstanceUrl, Details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn, Details_GithubEnterprise_VpcConfiguration_SecurityGroup, Details_GithubEnterprise_VpcConfiguration_SubnetId, Details_GithubEnterprise_VpcConfiguration_TlsCertificate, Details_GithubEnterprise_VpcConfiguration_VpcEndpointId, Details_GithubEnterprise_VpcConfiguration_VpcId, Details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn, Details_GitlabSelfManaged_VpcConfiguration_SecurityGroup, Details_GitlabSelfManaged_VpcConfiguration_SubnetId, Details_GitlabSelfManaged_VpcConfiguration_TlsCertificate, Details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId and Details_GitlabSelfManaged_VpcConfiguration_VpcId.
+    * Modified cmdlet Update-INS2CodeSecurityIntegration: added parameters Details_Github_StateToken, Details_GithubEnterpriseServer_AppInstallation_Code, Details_GithubEnterpriseServer_AppInstallation_InstallationId, Details_GithubEnterpriseServer_AppInstallation_StateToken, Details_GithubEnterpriseServer_AppRegistration_ManifestCode and Details_GitlabSelfManaged_StateToken.
+  * Managed Streaming for Kafka
+    * Added cmdlet Get-MSKAssessmentDetail leveraging the DescribeAssessment service API.
+    * Added cmdlet Get-MSKAssessmentFindingList leveraging the ListAssessmentFindings service API.
+    * Added cmdlet Get-MSKAssessmentList leveraging the ListAssessments service API.
+    * Added cmdlet Get-MSKTopicReassignmentDetail leveraging the DescribeTopicReassignment service API.
+    * Added cmdlet Get-MSKTopicReassignmentList leveraging the ListTopicReassignments service API.
+    * Added cmdlet New-MSKAssessment leveraging the CreateAssessment service API.
+    * Added cmdlet Remove-MSKAssessment leveraging the DeleteAssessment service API.
+    * Added cmdlet Start-MSKTopicReassignment leveraging the StartTopicReassignment service API.
+    * Added cmdlet Stop-MSKTopicReassignment leveraging the StopTopicReassignment service API.
+    * Modified cmdlet Update-MSKBrokerType: added parameter TopicReassignment.
+  * Partner Central Marketing API. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PCMG and can be listed using the command 'Get-AWSCmdletName -Service PCMG'.
+  * Partner Central Revenue Measurement API
+    * Added cmdlet Update-PCRMMarketplaceRevenueShare leveraging the UpdateMarketplaceRevenueShare service API.
+    * [Breaking Change] Modified cmdlet Get-PCRMMarketplaceRevenueShare: removed parameter ProductId; the type of parameter Revision changed from System.Int32 to System.String; added parameter Identifier.
+    * [Breaking Change] Modified cmdlet Get-PCRMMarketplaceRevenueShareAllocation: removed parameter ProductId; added parameter MarketplaceRevenueShareIdentifier.
+    * [Breaking Change] Modified cmdlet Get-PCRMMarketplaceRevenueShareAllocationList: removed parameters ProductId and Status; added parameters AfterEffectiveUntil, BeforeEffectiveUntil, MarketplaceRevenueShareIdentifier and StatusFilter.
+    * Modified cmdlet Get-PCRMMarketplaceRevenueShareList: added parameter Identifier.
+    * Modified cmdlet Get-PCRMRevenueAttributionList: added parameter ContextFilter.
+    * [Breaking Change] Modified cmdlet New-PCRMMarketplaceRevenueShare: removed parameter ProductId; added parameter Product.
+    * [Breaking Change] Modified cmdlet New-PCRMMarketplaceRevenueShareAllocation: removed parameter ProductId; added parameters MarketplaceRevenueShareIdentifier and MarketplaceRevenueShareRevision.
+    * Modified cmdlet New-PCRMRevenueAttribution: added parameter Context.
+    * [Breaking Change] Modified cmdlet Update-PCRMMarketplaceRevenueShareAllocation: removed parameters EffectiveFrom, EffectiveUntil and ProductId; added parameter MarketplaceRevenueShareIdentifier.
+    * Modified cmdlet Update-PCRMRevenueAttribution: added parameter Context.
+  * Partner Central Selling API
+    * Added cmdlet Get-PCCustomerAccount leveraging the GetCustomerAccount service API.
+    * Added cmdlet Get-PCCustomerAccountBulkJob leveraging the GetCustomerAccountBulkJob service API.
+    * Added cmdlet Get-PCCustomerAccountBulkJobList leveraging the ListCustomerAccountBulkJobs service API.
+    * Added cmdlet Get-PCCustomerAccountBulkJobReportUrl leveraging the GetCustomerAccountBulkJobReportUrl service API.
+    * Added cmdlet Get-PCCustomerAccountBulkJobResultList leveraging the ListCustomerAccountBulkJobResults service API.
+    * Added cmdlet Get-PCCustomerAccountStatistic leveraging the GetCustomerAccountStatistics service API.
+    * Added cmdlet Get-PCEngagementGroupList leveraging the ListEngagementGroups service API.
+    * Added cmdlet Get-PCOpportunityBulkJobList leveraging the ListOpportunityBulkJobs service API.
+    * Added cmdlet Get-PCOpportunityBulkJobReportUrl leveraging the GetOpportunityBulkJobReportUrl service API.
+    * Added cmdlet Get-PCOpportunityBulkJobResultList leveraging the ListOpportunityBulkJobResults service API.
+    * Added cmdlet New-PCCustomerAccount leveraging the CreateCustomerAccount service API.
+    * Added cmdlet Remove-PCCustomerAccount leveraging the DeleteCustomerAccount service API.
+    * Added cmdlet Search-PCCustomerAccount leveraging the SearchCustomerAccounts service API.
+    * Added cmdlet Search-PCEngagement leveraging the SearchEngagements service API.
+    * Added cmdlet Search-PCOpportunity leveraging the SearchOpportunities service API.
+    * Added cmdlet Start-PCCustomerAccountBulkJob leveraging the StartCustomerAccountBulkJob service API.
+    * Added cmdlet Start-PCOpportunityBulkJob leveraging the StartOpportunityBulkJob service API.
+    * Added cmdlet Update-PCCustomerAccount leveraging the UpdateCustomerAccount service API.
+    * Modified cmdlet Invoke-PCCreateEngagementInvitation: added parameters Invitation_Payload_AccountPlanningInvitation_AccountIdentifier, Invitation_Payload_AccountPlanningInvitation_Customer_CompanyName, Invitation_Payload_AccountPlanningInvitation_Customer_CountryCode, Invitation_Payload_AccountPlanningInvitation_Customer_Industry, Invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl, Invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone, Invitation_Payload_AccountPlanningInvitation_PreferredContact_Window, Invitation_Payload_AccountPlanningInvitation_SenderContact and Invitation_Payload_OpportunityInvitation_OpportunityType.
+    * Modified cmdlet New-PCEngagementContext: added parameters Payload_CustomerAccount_AccountIdentifier, Payload_CustomerAccount_Customer_CompanyName, Payload_CustomerAccount_Customer_CountryCode, Payload_CustomerAccount_Customer_Industry, Payload_CustomerAccount_Customer_WebsiteUrl, Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow and Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel.
+    * Modified cmdlet Update-PCEngagementContext: added parameters Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow and Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel.
+  * RTBFabric
+    * Added cmdlet Get-RTBAvailableModule leveraging the GetAvailableModule service API.
+    * Added cmdlet Get-RTBAvailableModuleList leveraging the ListAvailableModules service API.
+    * Added cmdlet Get-RTBAvailableModuleVersion leveraging the GetAvailableModuleVersion service API.
+    * Added cmdlet Get-RTBAvailableModuleVersionList leveraging the ListAvailableModuleVersions service API.
+    * Added cmdlet Get-RTBUpdate leveraging the GetUpdate service API.
+    * Added cmdlet Get-RTBUpdateList leveraging the ListUpdates service API.
+    * Added cmdlet Write-RTBLinkFlow leveraging the PutLinkFlows service API.
+    * Modified cmdlet Update-RTBLink: added parameter ClientToken.
+    * Modified cmdlet Update-RTBLinkRoutingRule: added parameter ClientToken.
+
+### 5.0.339 (2026-11-18 20:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.5.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock AgentCore Control
     * Modified cmdlet New-BACCAgentRuntime: added parameter CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode.

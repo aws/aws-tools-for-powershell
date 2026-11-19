@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Remove", "RTBCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RTBFabric.Model.DisassociateCertificateResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric DisassociateCertificate API operation.", Operation = new[] {"DisassociateCertificate"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.DisassociateCertificateResponse))]
+    [AWSCmdlet("Calls the RTBFabric DisassociateCertificate API operation.", Operation = new[] {"DisassociateCertificate"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.DisassociateCertificateResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.DisassociateCertificateResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.DisassociateCertificateResponse object containing multiple properties."
     )]
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.DisassociateCertificateResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.DisassociateCertificateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "DisassociateCertificate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "DisassociateCertificate");
             try
             {
                 return client.DisassociateCertificateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

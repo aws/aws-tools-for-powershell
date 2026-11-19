@@ -21,7 +21,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateVoice" OutputProperty="Voice" Verb="New" Noun="Voice" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteLexicon" Verb="Remove" Noun="Lexicon" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoice" Verb="Remove" Noun="Voice" ShouldProcessTarget="VoiceId" PipelineParameter="VoiceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -34,6 +42,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSpeechSynthesisTask" OutputProperty="SynthesisTask" Verb="Get" Noun="SpeechSynthesisTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoice" OutputProperty="Voice" Verb="Get" Noun="VoiceDetail" PipelineParameter="VoiceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

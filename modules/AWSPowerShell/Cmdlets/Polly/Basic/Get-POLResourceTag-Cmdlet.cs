@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that identifies the resource for which to list the
-        /// tags. Currently, the only supported resource is an Amazon Polly lexicon.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to list the tags for. You can tag Amazon
+        /// Polly lexicons and custom voices.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

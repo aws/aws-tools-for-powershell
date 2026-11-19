@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
 {
     /// <summary>
     /// Delete usage that you have created in a Bill Scenario. You can only delete usage
-    /// that you had added and cannot model deletion (or removal) of a existing usage. If
-    /// you want model removal of an existing usage, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateBillScenarioUsageModification.html">
+    /// that you had added and can't model deletion (or removal) of a existing usage. If you
+    /// want model removal of an existing usage, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateBillScenarioUsageModification.html">
     /// BatchUpdateBillScenarioUsageModification</a>. 
     /// 
     ///  <note><para>
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("New", "BCMPCDeleteBillScenarioUsageModification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioUsageModificationError")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator BatchDeleteBillScenarioUsageModification API operation.", Operation = new[] {"BatchDeleteBillScenarioUsageModification"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioUsageModificationResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator BatchDeleteBillScenarioUsageModification API operation.", Operation = new[] {"BatchDeleteBillScenarioUsageModification"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioUsageModificationResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioUsageModificationError or Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioUsageModificationResponse",
         "This cmdlet returns a collection of Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioUsageModificationError objects.",
         "The service call response (type Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioUsageModificationResponse) can be returned by specifying '-Select *'."
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioUsageModificationResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioUsageModificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "BatchDeleteBillScenarioUsageModification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "BatchDeleteBillScenarioUsageModification");
             try
             {
                 return client.BatchDeleteBillScenarioUsageModificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

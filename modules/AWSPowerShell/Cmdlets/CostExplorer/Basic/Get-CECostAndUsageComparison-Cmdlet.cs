@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CECostAndUsageComparison")]
     [OutputType("Amazon.CostExplorer.Model.GetCostAndUsageComparisonsResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetCostAndUsageComparisons API operation.", Operation = new[] {"GetCostAndUsageComparisons"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetCostAndUsageComparisonsResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetCostAndUsageComparisons API operation.", Operation = new[] {"GetCostAndUsageComparisons"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetCostAndUsageComparisonsResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GetCostAndUsageComparisonsResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.GetCostAndUsageComparisonsResponse object containing multiple properties."
     )]
@@ -355,7 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetCostAndUsageComparisonsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetCostAndUsageComparisonsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetCostAndUsageComparisons");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetCostAndUsageComparisons");
             try
             {
                 return client.GetCostAndUsageComparisonsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

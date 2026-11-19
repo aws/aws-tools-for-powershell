@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Update", "MSKClusterKafkaVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.UpdateClusterKafkaVersionResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) UpdateClusterKafkaVersion API operation.", Operation = new[] {"UpdateClusterKafkaVersion"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateClusterKafkaVersionResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka UpdateClusterKafkaVersion API operation.", Operation = new[] {"UpdateClusterKafkaVersion"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateClusterKafkaVersionResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.UpdateClusterKafkaVersionResponse",
         "This cmdlet returns an Amazon.Kafka.Model.UpdateClusterKafkaVersionResponse object containing multiple properties."
     )]
@@ -276,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.UpdateClusterKafkaVersionResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.UpdateClusterKafkaVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "UpdateClusterKafkaVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "UpdateClusterKafkaVersion");
             try
             {
                 return client.UpdateClusterKafkaVersionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>ARN of a resource a bus owner can revoke: a subscriber or an EventSource. The pattern
+        /// is the revocable subset of TaggableResourceArn; buses are not revocable.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

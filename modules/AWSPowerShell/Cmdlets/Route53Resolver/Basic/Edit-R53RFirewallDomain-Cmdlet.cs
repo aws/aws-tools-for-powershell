@@ -30,7 +30,23 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Updates the firewall domain list from an array of domain specifications.
+    /// Updates the firewall domain list from an array of domain specifications. 
+    /// 
+    ///  
+    /// <para>
+    /// For an AutoAllowlist rule's managed domain list, use <c>ADD</c> to approve observed
+    /// domains, <c>REMOVE</c> to stop allowing domains, unless a wildcard entry that's still
+    /// on the list matches them, and <c>DENY</c> to dismiss observed domains. <c>REPLACE</c>
+    /// and <a>ImportFirewallDomains</a> aren't supported for these lists.
+    /// </para><para>
+    /// DNS Firewall throttles <c>UpdateFirewallDomains</c> requests based on both the request
+    /// rate and the total number of domains across your requests.
+    /// </para><para><b>Best Practice for Updating Domain Lists</b></para><para>
+    /// If you only need to modify a subset of domains, use the <c>ADD</c> or <c>REMOVE</c>
+    /// operations instead of <c>REPLACE</c>. With <c>REPLACE</c>, you send the complete list
+    /// you want to end up with, and throttling counts every domain in that request, including
+    /// domains that aren't changing, which can use up your available throttling capacity.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "R53RFirewallDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.UpdateFirewallDomainsResponse")]
@@ -89,8 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Operation
         /// <summary>
         /// <para>
-        /// <para>What you want DNS Firewall to do with the domains that you are providing: </para><ul><li><para><c>ADD</c> - Add the domains to the ones that are already in the domain list. </para></li><li><para><c>REMOVE</c> - Search the domain list for the domains and remove them from the list.</para></li><li><para><c>REPLACE</c> - Update the domain list to exactly match the list that you are providing.
-        /// </para></li></ul>
+        /// <para>What you want DNS Firewall to do with the domains that you are providing: </para><ul><li><para><c>ADD</c> - Add the domains to the ones that are already in the domain list. For
+        /// an AutoAllowlist rule's managed domain list, this also marks the observed domains
+        /// as allowed.</para></li><li><para><c>REMOVE</c> - Search the domain list for the domains and remove them from the list.
+        /// For an AutoAllowlist rule's managed domain list, the rule no longer allows the removed
+        /// domains, unless a wildcard entry that's still on the list matches them.</para></li><li><para><c>REPLACE</c> - Update the domain list to exactly match the list that you are providing.
+        /// Not supported for an AutoAllowlist rule's managed domain list.</para></li><li><para><c>DENY</c> - For an AutoAllowlist rule's managed domain list only, mark the specified
+        /// observed domains as denied so that they're no longer listed for review. If a domain
+        /// is on the managed domain list, <c>DENY</c> also removes it from the list. Specify
+        /// fully qualified domain names. Wildcards aren't accepted.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

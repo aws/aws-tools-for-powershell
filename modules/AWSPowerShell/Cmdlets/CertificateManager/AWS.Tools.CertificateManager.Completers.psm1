@@ -131,6 +131,13 @@ $ACM_Completers = {
             break
         }
 
+        # Amazon.CertificateManager.CertificateUsage
+        "New-ACMCertificate/CertificateUsage"
+        {
+            $v = "CLIENT_AND_SERVER_AUTH","CLIENT_AUTH_ONLY"
+            break
+        }
+
         # Amazon.CertificateManager.DomainScopeOption
         {
             ($_ -eq "New-ACMAcmeDomainValidation/PrevalidationOptions_DnsPrevalidation_DomainScope_ExactDomain") -Or
@@ -156,6 +163,13 @@ $ACM_Completers = {
         "Revoke-ACMCertificate/RevocationReason"
         {
             $v = "AFFILIATION_CHANGED","A_A_COMPROMISE","CA_COMPROMISE","CERTIFICATE_HOLD","CESSATION_OF_OPERATION","KEY_COMPROMISE","PRIVILEGE_WITHDRAWN","REMOVE_FROM_CRL","SUPERCEDED","SUPERSEDED","UNSPECIFIED"
+            break
+        }
+
+        # Amazon.CertificateManager.RootHierarchyType
+        "New-ACMCertificate/RootHierarchyType"
+        {
+            $v = "N2_AMAZON_MANAGED","N2_SFG2_AMAZON_MANAGED"
             break
         }
 
@@ -215,6 +229,7 @@ $ACM_Completers = {
 
 $ACM_map = @{
     "AuthorizationBehavior"=@("New-ACMAcmeEndpoint","Update-ACMAcmeEndpoint")
+    "CertificateUsage"=@("New-ACMCertificate")
     "Contact"=@("New-ACMAcmeEndpoint","Update-ACMAcmeEndpoint")
     "Expiration_Type"=@("New-ACMAcmeExternalAccountBinding")
     "Includes_ExportOption"=@("Get-ACMCertificateList")
@@ -228,6 +243,7 @@ $ACM_map = @{
     "PrevalidationOptions_DnsPrevalidation_DomainScope_Subdomain"=@("New-ACMAcmeDomainValidation","Update-ACMAcmeDomainValidation")
     "PrevalidationOptions_DnsPrevalidation_DomainScope_Wildcard"=@("New-ACMAcmeDomainValidation","Update-ACMAcmeDomainValidation")
     "RevocationReason"=@("Revoke-ACMCertificate")
+    "RootHierarchyType"=@("New-ACMCertificate")
     "SortBy"=@("Get-ACMCertificateList","Search-ACMCertificate")
     "SortOrder"=@("Get-ACMCertificateList","Search-ACMCertificate")
     "ValidationMethod"=@("New-ACMCertificate")

@@ -87,7 +87,7 @@ $CCON_Completers = {
             ($_ -eq "Get-CCONConnectionList/ProviderTypeFilter")
         }
         {
-            $v = "AzureDevOps","Bitbucket","GitHub","GitHubEnterpriseServer","GitLab","GitLabSelfManaged"
+            $v = "AzureDevOps","Bitbucket","GitHub","GitHubEnterpriseCloudDataResidency","GitHubEnterpriseServer","GitLab","GitLabSelfManaged"
             break
         }
 

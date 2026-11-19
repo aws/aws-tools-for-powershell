@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Remove", "CECostCategoryDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer DeleteCostCategoryDefinition API operation.", Operation = new[] {"DeleteCostCategoryDefinition"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service DeleteCostCategoryDefinition API operation.", Operation = new[] {"DeleteCostCategoryDefinition"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse object containing multiple properties."
     )]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "DeleteCostCategoryDefinition");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "DeleteCostCategoryDefinition");
             try
             {
                 return client.DeleteCostCategoryDefinitionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

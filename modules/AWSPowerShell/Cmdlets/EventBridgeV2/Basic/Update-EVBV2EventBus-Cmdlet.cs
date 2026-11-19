@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Free-text description. Used by every resource type that has one: event buses, subscribers,
+        /// and event sources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter EventBusArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies an event bus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter EncryptionConfiguration_KmsKeyIdentifier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Identifier of the AWS KMS customer managed key used to encrypt events: a key ID, key
+        /// ARN, alias name, or alias ARN. When absent, events are encrypted with an AWS owned
+        /// key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter StorageConfiguration_RetentionPeriodInDay
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Number of days events are retained on the event bus.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

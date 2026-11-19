@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Remove", "MSKVpcConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Kafka.Model.DeleteVpcConnectionResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DeleteVpcConnection API operation.", Operation = new[] {"DeleteVpcConnection"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteVpcConnectionResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka DeleteVpcConnection API operation.", Operation = new[] {"DeleteVpcConnection"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteVpcConnectionResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.DeleteVpcConnectionResponse",
         "This cmdlet returns an Amazon.Kafka.Model.DeleteVpcConnectionResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.DeleteVpcConnectionResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DeleteVpcConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DeleteVpcConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "DeleteVpcConnection");
             try
             {
                 return client.DeleteVpcConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -56,9 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// A list of tags that are attached to the specified IAM OIDC provider
     /// </para></li><li><para>
     /// A list of thumbprints of one or more server certificates that the IdP uses
+    /// </para></li><li><para>
+    /// A trusted identity propagation context provider that defines how the subject is derived
+    /// and how keys from the provider's token are mapped into trusted context keys. Specifying
+    /// a context provider enables trusted identity propagation for the provider. For more
+    /// information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextProvider.html">ContextProvider</a>.
+    /// </para></li><li><para>
+    /// The ARN of an IAM Identity Center instance to associate with the OIDC provider. If
+    /// you specify an IAM Identity Center instance, you must also specify a context provider.
     /// </para></li></ul><para>
-    /// You get all of this information from the OIDC IdP you want to use to access Amazon
-    /// Web Services.
+    /// You get the URL, client IDs, and thumbprints from the OIDC IdP you want to use to
+    /// access Amazon Web Services.
     /// </para><note><para>
     /// Amazon Web Services secures communication with OIDC identity providers (IdPs) using
     /// our library of trusted root certificate authorities (CAs) to verify the JSON Web Key
@@ -69,7 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// The trust for the OIDC provider is derived from the IAM provider that this operation
     /// creates. Therefore, it is best to limit access to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>
     /// operation to highly privileged users.
-    /// </para></note>
+    /// </para></note><para>
+    /// To control who can configure trusted identity propagation on an OIDC provider, use
+    /// the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityPropagation">iam:EnableIdentityPropagation</a>,
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityCenterAssociation">iam:EnableIdentityCenterAssociation</a>,
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityProviderIssuers">iam:RequestIdentityProviderIssuers</a>,
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityProviderIssuers">iam:ResourceIdentityProviderIssuers</a>,
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityCenterInstanceArn">iam:RequestIdentityCenterInstanceArn</a>,
+    /// and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityCenterInstanceArn">iam:ResourceIdentityCenterInstanceArn</a>
+    /// condition keys in IAM policies. The <c>Request</c> keys contain the values in the
+    /// request. The <c>Resource</c> keys contain the values stored on the provider.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IAMOpenIDConnectProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -102,6 +120,75 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] ClientIDList { get; set; }
+        #endregion
+        
+        #region Parameter IdentityCenterInstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM Identity Center instance to associate with
+        /// the OpenID Connect (OIDC) provider. If you specify this parameter, you must also specify
+        /// <c>ContextProvider</c>.</para><para>For the format, see <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_InstanceMetadata.html">InstanceMetadata</a>
+        /// in the <i>IAM Identity Center API Reference</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterInstanceArn { get; set; }
+        #endregion
+        
+        #region Parameter ContextProvider_KeyDefinitionList
+        /// <summary>
+        /// <para>
+        /// <para>A list of source-to-target key mappings that define how keys from the external identity
+        /// provider's assertion or token are mapped into trusted context keys. You can specify
+        /// from 0 to 10 mappings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IdentityManagement.Model.ContextProviderKeyDefinition[] ContextProvider_KeyDefinitionList { get; set; }
+        #endregion
+        
+        #region Parameter ContextProvider_SubjectSourceKey
+        /// <summary>
+        /// <para>
+        /// <para>The source key that is used to derive the subject for the injected trusted context.
+        /// This value identifies the claim or attribute in the external identity provider's assertion
+        /// or token that supplies the subject.</para><para>The key can contain only ASCII letters (A-Z, a-z), numbers (0-9), single spaces, and
+        /// the following characters: <c>_ . : / = + - @ #</c>. It can't start or end with a space
+        /// or contain two spaces in a row.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContextProvider_SubjectSourceKey { get; set; }
+        #endregion
+        
+        #region Parameter ContextProvider_SubjectTypeSourceKey
+        /// <summary>
+        /// <para>
+        /// <para>The source key that supplies the subject type from the external identity provider's
+        /// assertion or token.</para><para>The key can contain only ASCII letters (A-Z, a-z), numbers (0-9), single spaces, and
+        /// the following characters: <c>_ . : / = + - @ #</c>. It can't start or end with a space
+        /// or contain two spaces in a row.</para><para>This parameter is mutually exclusive with <c>SubjectTypeValue</c>. Specify either
+        /// <c>SubjectTypeSourceKey</c> or <c>SubjectTypeValue</c>, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContextProvider_SubjectTypeSourceKey { get; set; }
+        #endregion
+        
+        #region Parameter ContextProvider_SubjectTypeValue
+        /// <summary>
+        /// <para>
+        /// <para>A static value for the subject type, such as <c>user</c> or <c>workload</c>.</para><para>This parameter is optional and is mutually exclusive with <c>SubjectTypeSourceKey</c>.
+        /// Specify either <c>SubjectTypeValue</c> or <c>SubjectTypeSourceKey</c>, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContextProvider_SubjectTypeValue { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -225,6 +312,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 context.ClientIDList = new List<System.String>(this.ClientIDList);
             }
+            if (this.ContextProvider_KeyDefinitionList != null)
+            {
+                context.ContextProvider_KeyDefinitionList = new List<Amazon.IdentityManagement.Model.ContextProviderKeyDefinition>(this.ContextProvider_KeyDefinitionList);
+            }
+            context.ContextProvider_SubjectSourceKey = this.ContextProvider_SubjectSourceKey;
+            context.ContextProvider_SubjectTypeSourceKey = this.ContextProvider_SubjectTypeSourceKey;
+            context.ContextProvider_SubjectTypeValue = this.ContextProvider_SubjectTypeValue;
+            context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.IdentityManagement.Model.Tag>(this.Tag);
@@ -259,6 +354,59 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.ClientIDList != null)
             {
                 request.ClientIDList = cmdletContext.ClientIDList;
+            }
+            
+             // populate ContextProvider
+            var requestContextProviderIsNull = true;
+            request.ContextProvider = new Amazon.IdentityManagement.Model.ContextProvider();
+            List<Amazon.IdentityManagement.Model.ContextProviderKeyDefinition> requestContextProvider_contextProvider_KeyDefinitionList = null;
+            if (cmdletContext.ContextProvider_KeyDefinitionList != null)
+            {
+                requestContextProvider_contextProvider_KeyDefinitionList = cmdletContext.ContextProvider_KeyDefinitionList;
+            }
+            if (requestContextProvider_contextProvider_KeyDefinitionList != null)
+            {
+                request.ContextProvider.KeyDefinitionList = requestContextProvider_contextProvider_KeyDefinitionList;
+                requestContextProviderIsNull = false;
+            }
+            System.String requestContextProvider_contextProvider_SubjectSourceKey = null;
+            if (cmdletContext.ContextProvider_SubjectSourceKey != null)
+            {
+                requestContextProvider_contextProvider_SubjectSourceKey = cmdletContext.ContextProvider_SubjectSourceKey;
+            }
+            if (requestContextProvider_contextProvider_SubjectSourceKey != null)
+            {
+                request.ContextProvider.SubjectSourceKey = requestContextProvider_contextProvider_SubjectSourceKey;
+                requestContextProviderIsNull = false;
+            }
+            System.String requestContextProvider_contextProvider_SubjectTypeSourceKey = null;
+            if (cmdletContext.ContextProvider_SubjectTypeSourceKey != null)
+            {
+                requestContextProvider_contextProvider_SubjectTypeSourceKey = cmdletContext.ContextProvider_SubjectTypeSourceKey;
+            }
+            if (requestContextProvider_contextProvider_SubjectTypeSourceKey != null)
+            {
+                request.ContextProvider.SubjectTypeSourceKey = requestContextProvider_contextProvider_SubjectTypeSourceKey;
+                requestContextProviderIsNull = false;
+            }
+            System.String requestContextProvider_contextProvider_SubjectTypeValue = null;
+            if (cmdletContext.ContextProvider_SubjectTypeValue != null)
+            {
+                requestContextProvider_contextProvider_SubjectTypeValue = cmdletContext.ContextProvider_SubjectTypeValue;
+            }
+            if (requestContextProvider_contextProvider_SubjectTypeValue != null)
+            {
+                request.ContextProvider.SubjectTypeValue = requestContextProvider_contextProvider_SubjectTypeValue;
+                requestContextProviderIsNull = false;
+            }
+             // determine if request.ContextProvider should be set to null
+            if (requestContextProviderIsNull)
+            {
+                request.ContextProvider = null;
+            }
+            if (cmdletContext.IdentityCenterInstanceArn != null)
+            {
+                request.IdentityCenterInstanceArn = cmdletContext.IdentityCenterInstanceArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -328,6 +476,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ClientIDList { get; set; }
+            public List<Amazon.IdentityManagement.Model.ContextProviderKeyDefinition> ContextProvider_KeyDefinitionList { get; set; }
+            public System.String ContextProvider_SubjectSourceKey { get; set; }
+            public System.String ContextProvider_SubjectTypeSourceKey { get; set; }
+            public System.String ContextProvider_SubjectTypeValue { get; set; }
+            public System.String IdentityCenterInstanceArn { get; set; }
             public List<Amazon.IdentityManagement.Model.Tag> Tag { get; set; }
             public List<System.String> ThumbprintList { get; set; }
             public System.String Url { get; set; }

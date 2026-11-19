@@ -39,6 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// By default, this action does not return certificates with a <c>CertificateKeyPairOrigin</c>
     /// of <c>ACME</c>. To include ACME certificates, specify <c>ACME</c> in the <c>CertificateKeyPairOrigins</c>
     /// filter.
+    /// </para></note><note><para>
+    /// By default, this action does not return certificates with a <c>RootHierarchyType</c>
+    /// of <c>N2_AMAZON_MANAGED</c> or <c>N2_SFG2_AMAZON_MANAGED</c>. To list only Amazon
+    /// N2 certificates, specify one or both of these values in the <c>RootHierarchyTypes</c>
+    /// filter.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ACMCertificateList")]
@@ -158,6 +163,26 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CertificateManager.CertificateManagedBy")]
         public Amazon.CertificateManager.CertificateManagedBy Includes_ManagedBy { get; set; }
+        #endregion
+        
+        #region Parameter RootHierarchyType
+        /// <summary>
+        /// <para>
+        /// <para>Filter the certificate list by root hierarchy type. Specify one or more <c>RootHierarchyType</c>
+        /// values. By default, this action does not return certificates with a <c>RootHierarchyType</c>
+        /// of <c>N2_AMAZON_MANAGED</c> or <c>N2_SFG2_AMAZON_MANAGED</c>. To list only Amazon
+        /// N2 certificates, specify one or both of these values in the <c>RootHierarchyTypes</c>
+        /// filter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RootHierarchyTypes")]
+        public System.String[] RootHierarchyType { get; set; }
         #endregion
         
         #region Parameter SortBy
@@ -292,6 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             }
             #endif
             context.NextToken = this.NextToken;
+            if (this.RootHierarchyType != null)
+            {
+                context.RootHierarchyType = new List<System.String>(this.RootHierarchyType);
+            }
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             
@@ -383,6 +412,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (cmdletContext.MaxItem != null)
             {
                 request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxItem.Value);
+            }
+            if (cmdletContext.RootHierarchyType != null)
+            {
+                request.RootHierarchyTypes = cmdletContext.RootHierarchyType;
             }
             if (cmdletContext.SortBy != null)
             {
@@ -514,6 +547,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             {
                 request.Includes = null;
             }
+            if (cmdletContext.RootHierarchyType != null)
+            {
+                request.RootHierarchyTypes = cmdletContext.RootHierarchyType;
+            }
             if (cmdletContext.SortBy != null)
             {
                 request.SortBy = cmdletContext.SortBy;
@@ -644,6 +681,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public Amazon.CertificateManager.CertificateManagedBy Includes_ManagedBy { get; set; }
             public int? MaxItem { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> RootHierarchyType { get; set; }
             public Amazon.CertificateManager.SortBy SortBy { get; set; }
             public Amazon.CertificateManager.SortOrder SortOrder { get; set; }
             public System.Func<Amazon.CertificateManager.Model.ListCertificatesResponse, GetACMCertificateListCmdlet, object> Select { get; set; } =

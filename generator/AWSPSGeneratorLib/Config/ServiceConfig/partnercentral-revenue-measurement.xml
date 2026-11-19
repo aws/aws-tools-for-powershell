@@ -19,11 +19,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateMarketplaceRevenueShare" OutputProperty="*" Verb="New" Noun="MarketplaceRevenueShare" ShouldProcessTarget="ProductId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateMarketplaceRevenueShare" OutputProperty="*" Verb="New" Noun="MarketplaceRevenueShare" ShouldProcessTarget="Catalog" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMarketplaceRevenueShareAllocation" OutputProperty="*" Verb="New" Noun="MarketplaceRevenueShareAllocation" ShouldProcessTarget="ProductId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateMarketplaceRevenueShareAllocation" OutputProperty="*" Verb="New" Noun="MarketplaceRevenueShareAllocation" ShouldProcessTarget="MarketplaceRevenueShareIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -80,6 +80,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMarketplaceRevenueShare" OutputProperty="*" Verb="Update" Noun="MarketplaceRevenueShare" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

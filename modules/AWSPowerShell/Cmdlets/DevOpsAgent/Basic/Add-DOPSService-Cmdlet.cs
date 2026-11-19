@@ -75,6 +75,23 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_SourceAws_AccountId { get; set; }
         #endregion
         
+        #region Parameter Configuration_SourceAwsOrg_OrganizationalUnit_AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account IDs that belong to this organizational unit and are
+        /// targeted for source monitoring.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_SourceAwsOrg_OrganizationalUnit_AccountIds")]
+        public System.String[] Configuration_SourceAwsOrg_OrganizationalUnit_AccountId { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Aws_AccountType
         /// <summary>
         /// <para>
@@ -95,6 +112,18 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DevOpsAgent.SourceAccountType")]
         public Amazon.DevOpsAgent.SourceAccountType Configuration_SourceAws_AccountType { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_SourceAwsOrg_AccountType
+        /// <summary>
+        /// <para>
+        /// <para>The account type for this configuration. For Amazon Web Services Organization-level
+        /// configurations, this value is <c>source</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.SourceAccountType")]
+        public Amazon.DevOpsAgent.SourceAccountType Configuration_SourceAwsOrg_AccountType { get; set; }
         #endregion
         
         #region Parameter Configuration_Aws_AgentElevatedRoleArn
@@ -313,6 +342,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_Pagerduty_CustomerEmail { get; set; }
         #endregion
         
+        #region Parameter Configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of accounts in the targeted Amazon Web Services Organization or organizational
+        /// unit that have successfully been deployed to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Msteams_Bidirectional_Enabled
         /// <summary>
         /// <para>
@@ -452,6 +492,33 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_Gitlab_InstanceIdentifier { get; set; }
         #endregion
         
+        #region Parameter Configuration_SourceAwsOrg_DeploymentState_Issue
+        /// <summary>
+        /// <para>
+        /// <para>The issues encountered while deploying the source configuration across the accounts
+        /// in the Amazon Web Services Organization.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_SourceAwsOrg_DeploymentState_Issues")]
+        public Amazon.DevOpsAgent.Model.OrgSourceIssue[] Configuration_SourceAwsOrg_DeploymentState_Issue { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp of the most recent evaluation of the organization-wide deployment state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? Configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Mcpserversplunk
         /// <summary>
         /// <para>
@@ -470,6 +537,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Configuration_ReleaseManagement_Name { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Organizations organizational unit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId { get; set; }
         #endregion
         
         #region Parameter Configuration_Mcpservergrafana_OrganizationId
@@ -689,6 +766,18 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServiceId { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Aws_ServiceManagementRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Organizations service-managed role that AIDevOps
+        /// uses to deploy and manage resources across the accounts in your Amazon Web Services
+        /// Organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Aws_ServiceManagementRoleArn { get; set; }
         #endregion
         
         #region Parameter Configuration_Pagerduty_Service
@@ -931,6 +1020,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.Configuration_Aws_AgentElevatedRoleArn = this.Configuration_Aws_AgentElevatedRoleArn;
             context.Configuration_Aws_AgentElevatedRoleArnStatus = this.Configuration_Aws_AgentElevatedRoleArnStatus;
             context.Configuration_Aws_AssumableRoleArn = this.Configuration_Aws_AssumableRoleArn;
+            context.Configuration_Aws_ServiceManagementRoleArn = this.Configuration_Aws_ServiceManagementRoleArn;
             context.Configuration_Azure_SubscriptionId = this.Configuration_Azure_SubscriptionId;
             context.Configuration_Azuredevops_OrganizationName = this.Configuration_Azuredevops_OrganizationName;
             context.Configuration_Azuredevops_ProjectId = this.Configuration_Azuredevops_ProjectId;
@@ -1023,6 +1113,18 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.Configuration_SourceAws_AgentElevatedRoleArnStatus = this.Configuration_SourceAws_AgentElevatedRoleArnStatus;
             context.Configuration_SourceAws_AssumableRoleArn = this.Configuration_SourceAws_AssumableRoleArn;
             context.Configuration_SourceAws_ExternalId = this.Configuration_SourceAws_ExternalId;
+            context.Configuration_SourceAwsOrg_AccountType = this.Configuration_SourceAwsOrg_AccountType;
+            context.Configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount = this.Configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount;
+            if (this.Configuration_SourceAwsOrg_DeploymentState_Issue != null)
+            {
+                context.Configuration_SourceAwsOrg_DeploymentState_Issue = new List<Amazon.DevOpsAgent.Model.OrgSourceIssue>(this.Configuration_SourceAwsOrg_DeploymentState_Issue);
+            }
+            context.Configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt = this.Configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt;
+            if (this.Configuration_SourceAwsOrg_OrganizationalUnit_AccountId != null)
+            {
+                context.Configuration_SourceAwsOrg_OrganizationalUnit_AccountId = new List<System.String>(this.Configuration_SourceAwsOrg_OrganizationalUnit_AccountId);
+            }
+            context.Configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId = this.Configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId;
             context.ServiceId = this.ServiceId;
             #if MODULAR
             if (this.ServiceId == null && ParameterWasBound(nameof(this.ServiceId)))
@@ -1478,6 +1580,111 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Azuredevops = requestConfiguration_configuration_Azuredevops;
                 requestConfigurationIsNull = false;
             }
+            Amazon.DevOpsAgent.Model.SourceAwsOrgConfiguration requestConfiguration_configuration_SourceAwsOrg = null;
+            
+             // populate SourceAwsOrg
+            var requestConfiguration_configuration_SourceAwsOrgIsNull = true;
+            requestConfiguration_configuration_SourceAwsOrg = new Amazon.DevOpsAgent.Model.SourceAwsOrgConfiguration();
+            Amazon.DevOpsAgent.SourceAccountType requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_AccountType = null;
+            if (cmdletContext.Configuration_SourceAwsOrg_AccountType != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_AccountType = cmdletContext.Configuration_SourceAwsOrg_AccountType;
+            }
+            if (requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_AccountType != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg.AccountType = requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_AccountType;
+                requestConfiguration_configuration_SourceAwsOrgIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.SourceAwsOrgUnit requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit = null;
+            
+             // populate OrganizationalUnit
+            var requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnitIsNull = true;
+            requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit = new Amazon.DevOpsAgent.Model.SourceAwsOrgUnit();
+            List<System.String> requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit_configuration_SourceAwsOrg_OrganizationalUnit_AccountId = null;
+            if (cmdletContext.Configuration_SourceAwsOrg_OrganizationalUnit_AccountId != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit_configuration_SourceAwsOrg_OrganizationalUnit_AccountId = cmdletContext.Configuration_SourceAwsOrg_OrganizationalUnit_AccountId;
+            }
+            if (requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit_configuration_SourceAwsOrg_OrganizationalUnit_AccountId != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit.AccountIds = requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit_configuration_SourceAwsOrg_OrganizationalUnit_AccountId;
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnitIsNull = false;
+            }
+            System.String requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit_configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId = null;
+            if (cmdletContext.Configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit_configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId = cmdletContext.Configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId;
+            }
+            if (requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit_configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit.OrganizationalUnitId = requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit_configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId;
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnitIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit should be set to null
+            if (requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnitIsNull)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit = null;
+            }
+            if (requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg.OrganizationalUnit = requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_OrganizationalUnit;
+                requestConfiguration_configuration_SourceAwsOrgIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.OrgSourceDeploymentState requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState = null;
+            
+             // populate DeploymentState
+            var requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentStateIsNull = true;
+            requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState = new Amazon.DevOpsAgent.Model.OrgSourceDeploymentState();
+            System.Int32? requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount = null;
+            if (cmdletContext.Configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount = cmdletContext.Configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount.Value;
+            }
+            if (requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState.DeployedAccountCount = requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount.Value;
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentStateIsNull = false;
+            }
+            List<Amazon.DevOpsAgent.Model.OrgSourceIssue> requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_Issue = null;
+            if (cmdletContext.Configuration_SourceAwsOrg_DeploymentState_Issue != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_Issue = cmdletContext.Configuration_SourceAwsOrg_DeploymentState_Issue;
+            }
+            if (requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_Issue != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState.Issues = requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_Issue;
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentStateIsNull = false;
+            }
+            System.DateTime? requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt = null;
+            if (cmdletContext.Configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt = cmdletContext.Configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt.Value;
+            }
+            if (requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState.LastEvaluatedAt = requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState_configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt.Value;
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentStateIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState should be set to null
+            if (requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentStateIsNull)
+            {
+                requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState = null;
+            }
+            if (requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState != null)
+            {
+                requestConfiguration_configuration_SourceAwsOrg.DeploymentState = requestConfiguration_configuration_SourceAwsOrg_configuration_SourceAwsOrg_DeploymentState;
+                requestConfiguration_configuration_SourceAwsOrgIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_SourceAwsOrg should be set to null
+            if (requestConfiguration_configuration_SourceAwsOrgIsNull)
+            {
+                requestConfiguration_configuration_SourceAwsOrg = null;
+            }
+            if (requestConfiguration_configuration_SourceAwsOrg != null)
+            {
+                request.Configuration.SourceAwsOrg = requestConfiguration_configuration_SourceAwsOrg;
+                requestConfigurationIsNull = false;
+            }
             Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration requestConfiguration_configuration_Mcpservergrafana = null;
             
              // populate Mcpservergrafana
@@ -1843,71 +2050,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Slack = requestConfiguration_configuration_Slack;
                 requestConfigurationIsNull = false;
             }
-            Amazon.DevOpsAgent.Model.AWSConfiguration requestConfiguration_configuration_Aws = null;
-            
-             // populate Aws
-            var requestConfiguration_configuration_AwsIsNull = true;
-            requestConfiguration_configuration_Aws = new Amazon.DevOpsAgent.Model.AWSConfiguration();
-            System.String requestConfiguration_configuration_Aws_configuration_Aws_AccountId = null;
-            if (cmdletContext.Configuration_Aws_AccountId != null)
-            {
-                requestConfiguration_configuration_Aws_configuration_Aws_AccountId = cmdletContext.Configuration_Aws_AccountId;
-            }
-            if (requestConfiguration_configuration_Aws_configuration_Aws_AccountId != null)
-            {
-                requestConfiguration_configuration_Aws.AccountId = requestConfiguration_configuration_Aws_configuration_Aws_AccountId;
-                requestConfiguration_configuration_AwsIsNull = false;
-            }
-            Amazon.DevOpsAgent.MonitorAccountType requestConfiguration_configuration_Aws_configuration_Aws_AccountType = null;
-            if (cmdletContext.Configuration_Aws_AccountType != null)
-            {
-                requestConfiguration_configuration_Aws_configuration_Aws_AccountType = cmdletContext.Configuration_Aws_AccountType;
-            }
-            if (requestConfiguration_configuration_Aws_configuration_Aws_AccountType != null)
-            {
-                requestConfiguration_configuration_Aws.AccountType = requestConfiguration_configuration_Aws_configuration_Aws_AccountType;
-                requestConfiguration_configuration_AwsIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn = null;
-            if (cmdletContext.Configuration_Aws_AgentElevatedRoleArn != null)
-            {
-                requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn = cmdletContext.Configuration_Aws_AgentElevatedRoleArn;
-            }
-            if (requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn != null)
-            {
-                requestConfiguration_configuration_Aws.AgentElevatedRoleArn = requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn;
-                requestConfiguration_configuration_AwsIsNull = false;
-            }
-            Amazon.DevOpsAgent.ValidationStatus requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus = null;
-            if (cmdletContext.Configuration_Aws_AgentElevatedRoleArnStatus != null)
-            {
-                requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus = cmdletContext.Configuration_Aws_AgentElevatedRoleArnStatus;
-            }
-            if (requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus != null)
-            {
-                requestConfiguration_configuration_Aws.AgentElevatedRoleArnStatus = requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus;
-                requestConfiguration_configuration_AwsIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn = null;
-            if (cmdletContext.Configuration_Aws_AssumableRoleArn != null)
-            {
-                requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn = cmdletContext.Configuration_Aws_AssumableRoleArn;
-            }
-            if (requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn != null)
-            {
-                requestConfiguration_configuration_Aws.AssumableRoleArn = requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn;
-                requestConfiguration_configuration_AwsIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Aws should be set to null
-            if (requestConfiguration_configuration_AwsIsNull)
-            {
-                requestConfiguration_configuration_Aws = null;
-            }
-            if (requestConfiguration_configuration_Aws != null)
-            {
-                request.Configuration.Aws = requestConfiguration_configuration_Aws;
-                requestConfigurationIsNull = false;
-            }
             Amazon.DevOpsAgent.Model.GitLabConfiguration requestConfiguration_configuration_Gitlab = null;
             
              // populate Gitlab
@@ -1971,6 +2113,81 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_Gitlab != null)
             {
                 request.Configuration.Gitlab = requestConfiguration_configuration_Gitlab;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.AWSConfiguration requestConfiguration_configuration_Aws = null;
+            
+             // populate Aws
+            var requestConfiguration_configuration_AwsIsNull = true;
+            requestConfiguration_configuration_Aws = new Amazon.DevOpsAgent.Model.AWSConfiguration();
+            System.String requestConfiguration_configuration_Aws_configuration_Aws_AccountId = null;
+            if (cmdletContext.Configuration_Aws_AccountId != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_AccountId = cmdletContext.Configuration_Aws_AccountId;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_AccountId != null)
+            {
+                requestConfiguration_configuration_Aws.AccountId = requestConfiguration_configuration_Aws_configuration_Aws_AccountId;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+            Amazon.DevOpsAgent.MonitorAccountType requestConfiguration_configuration_Aws_configuration_Aws_AccountType = null;
+            if (cmdletContext.Configuration_Aws_AccountType != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_AccountType = cmdletContext.Configuration_Aws_AccountType;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_AccountType != null)
+            {
+                requestConfiguration_configuration_Aws.AccountType = requestConfiguration_configuration_Aws_configuration_Aws_AccountType;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn = null;
+            if (cmdletContext.Configuration_Aws_AgentElevatedRoleArn != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn = cmdletContext.Configuration_Aws_AgentElevatedRoleArn;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn != null)
+            {
+                requestConfiguration_configuration_Aws.AgentElevatedRoleArn = requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+            Amazon.DevOpsAgent.ValidationStatus requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus = null;
+            if (cmdletContext.Configuration_Aws_AgentElevatedRoleArnStatus != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus = cmdletContext.Configuration_Aws_AgentElevatedRoleArnStatus;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus != null)
+            {
+                requestConfiguration_configuration_Aws.AgentElevatedRoleArnStatus = requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn = null;
+            if (cmdletContext.Configuration_Aws_AssumableRoleArn != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn = cmdletContext.Configuration_Aws_AssumableRoleArn;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn != null)
+            {
+                requestConfiguration_configuration_Aws.AssumableRoleArn = requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Aws_configuration_Aws_ServiceManagementRoleArn = null;
+            if (cmdletContext.Configuration_Aws_ServiceManagementRoleArn != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_ServiceManagementRoleArn = cmdletContext.Configuration_Aws_ServiceManagementRoleArn;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_ServiceManagementRoleArn != null)
+            {
+                requestConfiguration_configuration_Aws.ServiceManagementRoleArn = requestConfiguration_configuration_Aws_configuration_Aws_ServiceManagementRoleArn;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Aws should be set to null
+            if (requestConfiguration_configuration_AwsIsNull)
+            {
+                requestConfiguration_configuration_Aws = null;
+            }
+            if (requestConfiguration_configuration_Aws != null)
+            {
+                request.Configuration.Aws = requestConfiguration_configuration_Aws;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.SourceAwsConfiguration requestConfiguration_configuration_SourceAws = null;
@@ -2204,6 +2421,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String Configuration_Aws_AgentElevatedRoleArn { get; set; }
             public Amazon.DevOpsAgent.ValidationStatus Configuration_Aws_AgentElevatedRoleArnStatus { get; set; }
             public System.String Configuration_Aws_AssumableRoleArn { get; set; }
+            public System.String Configuration_Aws_ServiceManagementRoleArn { get; set; }
             public System.String Configuration_Azure_SubscriptionId { get; set; }
             public System.String Configuration_Azuredevops_OrganizationName { get; set; }
             public System.String Configuration_Azuredevops_ProjectId { get; set; }
@@ -2268,6 +2486,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public Amazon.DevOpsAgent.ValidationStatus Configuration_SourceAws_AgentElevatedRoleArnStatus { get; set; }
             public System.String Configuration_SourceAws_AssumableRoleArn { get; set; }
             public System.String Configuration_SourceAws_ExternalId { get; set; }
+            public Amazon.DevOpsAgent.SourceAccountType Configuration_SourceAwsOrg_AccountType { get; set; }
+            public System.Int32? Configuration_SourceAwsOrg_DeploymentState_DeployedAccountCount { get; set; }
+            public List<Amazon.DevOpsAgent.Model.OrgSourceIssue> Configuration_SourceAwsOrg_DeploymentState_Issue { get; set; }
+            public System.DateTime? Configuration_SourceAwsOrg_DeploymentState_LastEvaluatedAt { get; set; }
+            public List<System.String> Configuration_SourceAwsOrg_OrganizationalUnit_AccountId { get; set; }
+            public System.String Configuration_SourceAwsOrg_OrganizationalUnit_OrganizationalUnitId { get; set; }
             public System.String ServiceId { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.AssociateServiceResponse, AddDOPSServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

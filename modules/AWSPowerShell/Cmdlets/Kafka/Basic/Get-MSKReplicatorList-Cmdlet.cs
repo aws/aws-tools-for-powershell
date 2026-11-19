@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKReplicatorList")]
     [OutputType("Amazon.Kafka.Model.ReplicatorSummary")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) ListReplicators API operation.", Operation = new[] {"ListReplicators"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListReplicatorsResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka ListReplicators API operation.", Operation = new[] {"ListReplicators"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListReplicatorsResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.ReplicatorSummary or Amazon.Kafka.Model.ListReplicatorsResponse",
         "This cmdlet returns a collection of Amazon.Kafka.Model.ReplicatorSummary objects.",
         "The service call response (type Amazon.Kafka.Model.ListReplicatorsResponse) can be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.ListReplicatorsResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.ListReplicatorsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "ListReplicators");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "ListReplicators");
             try
             {
                 return client.ListReplicatorsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

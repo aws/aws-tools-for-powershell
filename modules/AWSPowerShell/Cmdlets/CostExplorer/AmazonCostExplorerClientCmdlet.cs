@@ -28,7 +28,7 @@ using Amazon.CostExplorer.Model;
 
 namespace Amazon.PowerShell.Cmdlets.CE
 {
-    [AWSClientCmdlet("AWS Cost Explorer", "CE", "2017-10-25", "CostExplorer")]
+    [AWSClientCmdlet("AWS Cost Explorer Service", "CE", "2017-10-25", "CostExplorer")]
     public abstract partial class AmazonCostExplorerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCostExplorer Client { get; private set; }

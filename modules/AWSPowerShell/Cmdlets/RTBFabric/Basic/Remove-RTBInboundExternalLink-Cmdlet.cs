@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Remove", "RTBInboundExternalLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RTBFabric.Model.DeleteInboundExternalLinkResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric DeleteInboundExternalLink API operation.", Operation = new[] {"DeleteInboundExternalLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.DeleteInboundExternalLinkResponse))]
+    [AWSCmdlet("Calls the RTBFabric DeleteInboundExternalLink API operation.", Operation = new[] {"DeleteInboundExternalLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.DeleteInboundExternalLinkResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.DeleteInboundExternalLinkResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.DeleteInboundExternalLinkResponse object containing multiple properties."
     )]
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.DeleteInboundExternalLinkResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.DeleteInboundExternalLinkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "DeleteInboundExternalLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "DeleteInboundExternalLink");
             try
             {
                 return client.DeleteInboundExternalLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

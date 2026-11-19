@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
 {
     /// <summary>
     /// Delete commitment that you have created in a Bill Scenario. You can only delete a
-    /// commitment that you had added and cannot model deletion (or removal) of a existing
+    /// commitment that you had added and can't model deletion (or removal) of a existing
     /// commitment. If you want model deletion of an existing commitment, see the negate <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BillScenarioCommitmentModificationAction.html">
     /// BillScenarioCommitmentModificationAction</a> of <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchCreateBillScenarioUsageModification.html">
     /// BatchCreateBillScenarioCommitmentModification</a> operation. 
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("New", "BCMPCDeleteBillScenarioCommitmentModification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioCommitmentModificationError")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator BatchDeleteBillScenarioCommitmentModification API operation.", Operation = new[] {"BatchDeleteBillScenarioCommitmentModification"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioCommitmentModificationResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator BatchDeleteBillScenarioCommitmentModification API operation.", Operation = new[] {"BatchDeleteBillScenarioCommitmentModification"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioCommitmentModificationResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioCommitmentModificationError or Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioCommitmentModificationResponse",
         "This cmdlet returns a collection of Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioCommitmentModificationError objects.",
         "The service call response (type Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioCommitmentModificationResponse) can be returned by specifying '-Select *'."
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioCommitmentModificationResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.BatchDeleteBillScenarioCommitmentModificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "BatchDeleteBillScenarioCommitmentModification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "BatchDeleteBillScenarioCommitmentModification");
             try
             {
                 return client.BatchDeleteBillScenarioCommitmentModificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

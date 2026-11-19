@@ -5,7 +5,7 @@
     <C2jFilename>kafka</C2jFilename>
     <AssemblyName>Kafka</AssemblyName>
     <ServiceNounPrefix>MSK</ServiceNounPrefix>
-    <ServiceName>Amazon Managed Streaming for Apache Kafka (MSK)</ServiceName>
+    <ServiceName>Managed Streaming for Kafka</ServiceName>
     <ServiceId>Kafka</ServiceId>
     <ServiceClientInterface>IAmazonKafka</ServiceClientInterface>
     <ServiceClient>AmazonKafkaClient</ServiceClient>
@@ -25,6 +25,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchDisassociateScramSecret" OutputProperty="*" Verb="Unregister" Noun="DisassociateScramSecret" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssessment" OutputProperty="*" Verb="New" Noun="Assessment" ShouldProcessTarget="ClusterArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -96,6 +100,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessment" OutputProperty="*" Verb="Remove" Noun="Assessment" ShouldProcessTarget="AssessmentArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteChannel" OutputProperty="*" Verb="Remove" Noun="Channel" ShouldProcessTarget="ChannelArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -121,6 +129,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVpcConnection" OutputProperty="*" Verb="Remove" Noun="VpcConnection" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssessment" OutputProperty="*" Verb="Get" Noun="AssessmentDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -164,6 +176,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTopicReassignment" OutputProperty="*" Verb="Get" Noun="TopicReassignmentDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeVpcConnection" OutputProperty="*" Verb="Get" Noun="VpcConnection" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -177,6 +193,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCompatibleKafkaVersions" OutputProperty="CompatibleKafkaVersions" Verb="Get" Noun="CompatibleKafkaVersion" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentFindings" OutputProperty="Findings" Verb="Get" Noun="AssessmentFindingList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessments" OutputProperty="Assessments" Verb="Get" Noun="AssessmentList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -232,6 +256,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTopicReassignments" OutputProperty="Reassignments" Verb="Get" Noun="TopicReassignmentList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTopics" OutputProperty="Topics" Verb="Get" Noun="TopicList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -249,6 +277,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RejectClientVpcConnection" Verb="Deny" Noun="ClientVpcConnection" ShouldProcessTarget="VpcConnectionArn" PipelineParameter="VpcConnectionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTopicReassignment" OutputProperty="*" Verb="Start" Noun="TopicReassignment" ShouldProcessTarget="ClusterArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTopicReassignment" OutputProperty="*" Verb="Stop" Noun="TopicReassignment" ShouldProcessTarget="TopicReassignmentOperationArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

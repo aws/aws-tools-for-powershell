@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Get", "BCMPCBillEstimateInputCommitmentModificationList")]
     [OutputType("Amazon.BCMPricingCalculator.Model.BillEstimateInputCommitmentModificationSummary")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator ListBillEstimateInputCommitmentModifications API operation.", Operation = new[] {"ListBillEstimateInputCommitmentModifications"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.ListBillEstimateInputCommitmentModificationsResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator ListBillEstimateInputCommitmentModifications API operation.", Operation = new[] {"ListBillEstimateInputCommitmentModifications"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.ListBillEstimateInputCommitmentModificationsResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BillEstimateInputCommitmentModificationSummary or Amazon.BCMPricingCalculator.Model.ListBillEstimateInputCommitmentModificationsResponse",
         "This cmdlet returns a collection of Amazon.BCMPricingCalculator.Model.BillEstimateInputCommitmentModificationSummary objects.",
         "The service call response (type Amazon.BCMPricingCalculator.Model.ListBillEstimateInputCommitmentModificationsResponse) can be returned by specifying '-Select *'."
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.ListBillEstimateInputCommitmentModificationsResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.ListBillEstimateInputCommitmentModificationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "ListBillEstimateInputCommitmentModifications");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "ListBillEstimateInputCommitmentModifications");
             try
             {
                 return client.ListBillEstimateInputCommitmentModificationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

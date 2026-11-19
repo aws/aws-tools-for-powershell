@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CESavingsPlansUtilizationDetail")]
     [OutputType("Amazon.CostExplorer.Model.SavingsPlansUtilizationDetail")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetSavingsPlansUtilizationDetails API operation.", Operation = new[] {"GetSavingsPlansUtilizationDetails"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetSavingsPlansUtilizationDetailsResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetSavingsPlansUtilizationDetails API operation.", Operation = new[] {"GetSavingsPlansUtilizationDetails"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetSavingsPlansUtilizationDetailsResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.SavingsPlansUtilizationDetail or Amazon.CostExplorer.Model.GetSavingsPlansUtilizationDetailsResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.SavingsPlansUtilizationDetail objects.",
         "The service call response (type Amazon.CostExplorer.Model.GetSavingsPlansUtilizationDetailsResponse) can be returned by specifying '-Select *'."
@@ -462,7 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetSavingsPlansUtilizationDetailsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetSavingsPlansUtilizationDetailsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetSavingsPlansUtilizationDetails");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetSavingsPlansUtilizationDetails");
             try
             {
                 return client.GetSavingsPlansUtilizationDetailsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

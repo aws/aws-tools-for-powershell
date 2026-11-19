@@ -36,6 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
+    /// To change the VPC networking configuration of an Aurora PostgreSQL DB cluster, see
+    /// <c>EnableVPCNetworking</c>. To move an Aurora MySQL or Aurora PostgreSQL DB cluster
+    /// to a different DB subnet group, in the same VPC or a different VPC, see <c>DBSubnetGroupName</c>.
+    /// </para><para>
     /// For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
     /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para><para>
@@ -252,6 +256,41 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBInstanceParameterGroupName { get; set; }
         #endregion
         
+        #region Parameter DBSubnetGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The DB subnet group for the DB cluster.</para><para>Specify this parameter for one of these purposes:</para><ul><li><para>To move an Aurora MySQL or Aurora PostgreSQL DB cluster that uses VPC networking to
+        /// a different DB subnet group. The new DB subnet group can be in the same VPC or in
+        /// a different VPC.</para></li><li><para>To enable VPC networking for an Aurora PostgreSQL DB cluster that uses an internet
+        /// access gateway. Set <c>EnableVPCNetworking</c> to <c>true</c> and <c>EnableInternetAccessGateway</c>
+        /// to <c>false</c>.</para></li></ul><para>When you move a DB cluster to a different DB subnet group, you don't need to set <c>EnableVPCNetworking</c>.
+        /// If you set it to <c>false</c>, Aurora rejects the request. Security groups in <c>VpcSecurityGroupIds</c>
+        /// must belong to the VPC of the new DB subnet group. If you don't specify <c>VpcSecurityGroupIds</c>,
+        /// the DB cluster uses the default security group of that VPC. If you don't specify <c>NetworkType</c>,
+        /// the DB cluster uses <c>IPV4</c>. Both defaults apply even if the DB cluster stays
+        /// in the same VPC.</para><para>An outage occurs during the move. The DB cluster uses VPC networking before, during,
+        /// and after the move, and the move doesn't turn on an internet access gateway. If you
+        /// specify the DB subnet group that the DB cluster already uses, the DB cluster isn't
+        /// moved. The change is applied during the next maintenance window unless <c>ApplyImmediately</c>
+        /// is enabled.</para><para>Aurora rejects the move if the DB cluster:</para><ul><li><para>Is a member of an Aurora global database.</para></li><li><para>Uses Aurora Limitless Database.</para></li><li><para>Is a cross-Region or in-Region read replica, or is the source of one. Aurora Replicas
+        /// in the DB cluster don't block the move.</para></li><li><para>Has enhanced binlog (Aurora MySQL), enhanced logical replication (Aurora PostgreSQL),
+        /// or Babelfish turned on.</para></li><li><para>Is a target of an RDS Proxy.</para></li><li><para>Is part of a blue/green deployment.</para></li><li><para>Is the source of a zero-ETL integration.</para></li><li><para>Has a database activity stream that isn't stopped.</para></li></ul><para>The move also fails if the DB cluster is switching to a different DB cluster parameter
+        /// group, or if a change to enhanced binlog, enhanced logical replication, or Babelfish
+        /// is pending in its DB cluster parameter group. Apply the change, and reboot if required,
+        /// before you move the DB cluster.</para><para>If the move fails, Aurora returns the DB cluster to its original DB subnet group and
+        /// cancels the change. To try again, call <c>ModifyDBCluster</c> again.</para><para>Aurora can't always return the DB cluster. If the move fails after Aurora starts to
+        /// update the DB cluster endpoints, or if the rollback fails, the change doesn't complete.
+        /// If Aurora can't restore the original network configuration, the DB instances in the
+        /// DB cluster enter the <c>incompatible-network</c> state. In these cases, contact Amazon
+        /// Web Services Support.</para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Default: If you don't specify this parameter when you enable VPC networking, the DB
+        /// cluster uses the default DB subnet group for your Amazon Web Services account.</para><para>Constraints: The DB subnet group must contain a subnet in each Availability Zone that
+        /// the DB instances in the DB cluster are located in.</para><para>Example: <c>mydbsubnetgroup</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
@@ -351,6 +390,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EnableInternetAccessGateway
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the DB cluster uses an internet access gateway. With an internet
+        /// access gateway, you connect to the DB cluster over the internet without a VPC.</para><para>Set to <c>true</c> together with <c>EnableVPCNetworking</c> set to <c>false</c> to
+        /// move the DB cluster out of its VPC. Set to <c>false</c> together with <c>EnableVPCNetworking</c>
+        /// set to <c>true</c> to move the DB cluster into a VPC. A DB cluster can't use VPC networking
+        /// and an internet access gateway at the same time.</para><para>Valid for Cluster Type: Aurora PostgreSQL DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableInternetAccessGateway { get; set; }
+        #endregion
+        
         #region Parameter EnableLimitlessDatabase
         /// <summary>
         /// <para>
@@ -400,6 +453,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnablePerformanceInsights")]
         public System.Boolean? EnablePerformanceInsight { get; set; }
+        #endregion
+        
+        #region Parameter EnableVPCNetworking
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether VPC networking is enabled for the DB cluster. Set to <c>false</c>
+        /// to disable VPC networking for the DB cluster.</para><para>A DB cluster without VPC networking needs an internet access gateway and IAM database
+        /// authentication. Set <c>EnableInternetAccessGateway</c> and <c>EnableIAMDatabaseAuthentication</c>
+        /// to <c>true</c>, and set <c>MasterUserAuthenticationType</c> to <c>iam-db-auth</c>.</para><para>Set to <c>true</c> to re-enable VPC networking for a DB cluster that uses an internet
+        /// access gateway. You can also specify <c>DBSubnetGroupName</c>, <c>VpcSecurityGroupIds</c>,
+        /// and <c>NetworkType</c>.</para><para>The change is applied during the next maintenance window unless <c>ApplyImmediately</c>
+        /// is enabled.</para><para>To move a DB cluster that already uses VPC networking to a different DB subnet group,
+        /// you don't need to set this parameter. Specify <c>DBSubnetGroupName</c> instead.</para><para>Valid for Cluster Type: Aurora PostgreSQL DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableVPCNetworking { get; set; }
         #endregion
         
         #region Parameter EngineLifecycleSupport
@@ -603,7 +673,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The network type of the DB cluster.</para><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the DB cluster.
         /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
-        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+        /// protocols (<c>DUAL</c>).</para><para>If the subnets in the DB subnet group support only the IPv4 protocol, you can't set
+        /// this parameter to <c>DUAL</c>.</para><para>If you don't specify this parameter when you move the DB cluster to a different DB
+        /// subnet group with <c>DBSubnetGroupName</c>, the DB cluster uses <c>IPV4</c>, even
+        /// if it currently uses <c>DUAL</c>. To keep dual-stack mode, specify <c>DUAL</c>. The
+        /// new DB subnet group must support the network type.</para><para>Don't specify it when you set <c>EnableVPCNetworking</c> to <c>false</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
         /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Valid Values: <c>IPV4 | DUAL</c></para>
         /// </para>
         /// </summary>
@@ -780,7 +854,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para />
+        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para><para>Valid only for DB clusters inside a VPC. For a DB cluster that uses an internet access
+        /// gateway, specify this parameter only when you re-enable VPC networking. Set <c>EnableVPCNetworking</c>
+        /// to <c>true</c> and <c>EnableInternetAccessGateway</c> to <c>false</c>.</para><para>When you move the DB cluster to a different DB subnet group with <c>DBSubnetGroupName</c>,
+        /// or re-enable VPC networking, the security groups must belong to the VPC of the DB
+        /// subnet group. If you leave out this parameter in those requests, the DB cluster uses
+        /// the default security group of that VPC, even for a move within the same VPC. To keep
+        /// the current security groups, specify their IDs. If the VPC is a shared VPC, you must
+        /// specify this parameter.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -867,6 +948,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterInstanceClass = this.DBClusterInstanceClass;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBInstanceParameterGroupName = this.DBInstanceParameterGroupName;
+            context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.DatabaseInsightsMode = this.DatabaseInsightsMode;
             context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
@@ -874,9 +956,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnableGlobalWriteForwarding = this.EnableGlobalWriteForwarding;
             context.EnableHttpEndpoint = this.EnableHttpEndpoint;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            context.EnableInternetAccessGateway = this.EnableInternetAccessGateway;
             context.EnableLimitlessDatabase = this.EnableLimitlessDatabase;
             context.EnableLocalWriteForwarding = this.EnableLocalWriteForwarding;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
+            context.EnableVPCNetworking = this.EnableVPCNetworking;
             context.EngineLifecycleSupport = this.EngineLifecycleSupport;
             context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
@@ -1011,6 +1095,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.DBInstanceParameterGroupName = cmdletContext.DBInstanceParameterGroupName;
             }
+            if (cmdletContext.DBSubnetGroupName != null)
+            {
+                request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
             if (cmdletContext.DatabaseInsightsMode != null)
             {
                 request.DatabaseInsightsMode = cmdletContext.DatabaseInsightsMode;
@@ -1039,6 +1127,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
+            if (cmdletContext.EnableInternetAccessGateway != null)
+            {
+                request.EnableInternetAccessGateway = cmdletContext.EnableInternetAccessGateway.Value;
+            }
             if (cmdletContext.EnableLimitlessDatabase != null)
             {
                 request.EnableLimitlessDatabase = cmdletContext.EnableLimitlessDatabase.Value;
@@ -1050,6 +1142,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnablePerformanceInsight != null)
             {
                 request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsight.Value;
+            }
+            if (cmdletContext.EnableVPCNetworking != null)
+            {
+                request.EnableVPCNetworking = cmdletContext.EnableVPCNetworking.Value;
             }
             if (cmdletContext.EngineLifecycleSupport != null)
             {
@@ -1314,6 +1410,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBClusterInstanceClass { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBInstanceParameterGroupName { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
             public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
@@ -1321,9 +1418,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnableGlobalWriteForwarding { get; set; }
             public System.Boolean? EnableHttpEndpoint { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.Boolean? EnableInternetAccessGateway { get; set; }
             public System.Boolean? EnableLimitlessDatabase { get; set; }
             public System.Boolean? EnableLocalWriteForwarding { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
+            public System.Boolean? EnableVPCNetworking { get; set; }
             public System.String EngineLifecycleSupport { get; set; }
             public System.String EngineMode { get; set; }
             public System.String EngineVersion { get; set; }

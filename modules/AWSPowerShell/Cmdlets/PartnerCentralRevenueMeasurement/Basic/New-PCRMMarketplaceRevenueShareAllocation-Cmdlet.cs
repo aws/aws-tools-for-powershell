@@ -30,7 +30,7 @@ using Amazon.PartnerCentralRevenueMeasurement.Model;
 namespace Amazon.PowerShell.Cmdlets.PCRM
 {
     /// <summary>
-    /// Creates a new marketplace revenue share allocation for the specified product.
+    /// Creates a new allocation under the specified marketplace revenue share.
     /// </summary>
     [Cmdlet("New", "PCRMMarketplaceRevenueShareAllocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PartnerCentralRevenueMeasurement.Model.CreateMarketplaceRevenueShareAllocationResponse")]
@@ -81,18 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         #region Parameter EffectiveUntil
         /// <summary>
         /// <para>
-        /// <para>The effective end date for the allocation. Must be the last day of a month (YYYY-MM-DD).
-        /// Omit for open-ended allocations.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EffectiveUntil { get; set; }
-        #endregion
-        
-        #region Parameter ProductId
-        /// <summary>
-        /// <para>
-        /// <para>The AWS Marketplace product identifier for the parent revenue share.</para>
+        /// <para>The effective end date for the allocation. Must be the last day of a month (YYYY-MM-DD).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,7 +92,43 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProductId { get; set; }
+        public System.String EffectiveUntil { get; set; }
+        #endregion
+        
+        #region Parameter MarketplaceRevenueShareIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The parent marketplace revenue share, by ID (mrs-...) or ARN.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MarketplaceRevenueShareIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter MarketplaceRevenueShareRevision
+        /// <summary>
+        /// <para>
+        /// <para>The revision of the parent marketplace revenue share that the caller last read, for
+        /// optimistic concurrency control. A stale value returns ConflictException with Reason
+        /// REVISION_MISMATCH.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MarketplaceRevenueShareRevision { get; set; }
         #endregion
         
         #region Parameter RevenueSharePercent
@@ -163,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProductId), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MarketplaceRevenueShareIdentifier), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PCRMMarketplaceRevenueShareAllocation (CreateMarketplaceRevenueShareAllocation)"))
             {
                 return;
@@ -195,11 +220,24 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             }
             #endif
             context.EffectiveUntil = this.EffectiveUntil;
-            context.ProductId = this.ProductId;
             #if MODULAR
-            if (this.ProductId == null && ParameterWasBound(nameof(this.ProductId)))
+            if (this.EffectiveUntil == null && ParameterWasBound(nameof(this.EffectiveUntil)))
             {
-                WriteWarning("You are passing $null as a value for parameter ProductId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EffectiveUntil which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MarketplaceRevenueShareIdentifier = this.MarketplaceRevenueShareIdentifier;
+            #if MODULAR
+            if (this.MarketplaceRevenueShareIdentifier == null && ParameterWasBound(nameof(this.MarketplaceRevenueShareIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MarketplaceRevenueShareIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MarketplaceRevenueShareRevision = this.MarketplaceRevenueShareRevision;
+            #if MODULAR
+            if (this.MarketplaceRevenueShareRevision == null && ParameterWasBound(nameof(this.MarketplaceRevenueShareRevision)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MarketplaceRevenueShareRevision which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.RevenueSharePercent = this.RevenueSharePercent;
@@ -241,9 +279,13 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             {
                 request.EffectiveUntil = cmdletContext.EffectiveUntil;
             }
-            if (cmdletContext.ProductId != null)
+            if (cmdletContext.MarketplaceRevenueShareIdentifier != null)
             {
-                request.ProductId = cmdletContext.ProductId;
+                request.MarketplaceRevenueShareIdentifier = cmdletContext.MarketplaceRevenueShareIdentifier;
+            }
+            if (cmdletContext.MarketplaceRevenueShareRevision != null)
+            {
+                request.MarketplaceRevenueShareRevision = cmdletContext.MarketplaceRevenueShareRevision;
             }
             if (cmdletContext.RevenueSharePercent != null)
             {
@@ -308,7 +350,8 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             public System.String ClientToken { get; set; }
             public System.String EffectiveFrom { get; set; }
             public System.String EffectiveUntil { get; set; }
-            public System.String ProductId { get; set; }
+            public System.String MarketplaceRevenueShareIdentifier { get; set; }
+            public System.String MarketplaceRevenueShareRevision { get; set; }
             public System.String RevenueSharePercent { get; set; }
             public System.Func<Amazon.PartnerCentralRevenueMeasurement.Model.CreateMarketplaceRevenueShareAllocationResponse, NewPCRMMarketplaceRevenueShareAllocationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

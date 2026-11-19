@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CESavingsPlansPurchaseRecommendationGenerationList")]
     [OutputType("Amazon.CostExplorer.Model.GenerationSummary")]
-    [AWSCmdlet("Calls the AWS Cost Explorer ListSavingsPlansPurchaseRecommendationGeneration API operation.", Operation = new[] {"ListSavingsPlansPurchaseRecommendationGeneration"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListSavingsPlansPurchaseRecommendationGenerationResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service ListSavingsPlansPurchaseRecommendationGeneration API operation.", Operation = new[] {"ListSavingsPlansPurchaseRecommendationGeneration"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListSavingsPlansPurchaseRecommendationGenerationResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GenerationSummary or Amazon.CostExplorer.Model.ListSavingsPlansPurchaseRecommendationGenerationResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.GenerationSummary objects.",
         "The service call response (type Amazon.CostExplorer.Model.ListSavingsPlansPurchaseRecommendationGenerationResponse) can be returned by specifying '-Select *'."
@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.ListSavingsPlansPurchaseRecommendationGenerationResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.ListSavingsPlansPurchaseRecommendationGenerationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "ListSavingsPlansPurchaseRecommendationGeneration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "ListSavingsPlansPurchaseRecommendationGeneration");
             try
             {
                 return client.ListSavingsPlansPurchaseRecommendationGenerationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

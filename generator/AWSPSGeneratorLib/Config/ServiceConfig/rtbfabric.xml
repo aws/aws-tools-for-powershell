@@ -5,7 +5,7 @@
     <C2jFilename>rtbfabric</C2jFilename>
     <AssemblyName>RTBFabric</AssemblyName>
     <ServiceNounPrefix>RTB</ServiceNounPrefix>
-    <ServiceName>Amazon RTBFabric</ServiceName>
+    <ServiceName>RTBFabric</ServiceName>
     <ServiceId>RTBFabric</ServiceId>
     <ServiceClientInterface>IAmazonRTBFabric</ServiceClientInterface>
     <ServiceClient>AmazonRTBFabricClient</ServiceClient>
@@ -100,6 +100,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAvailableModule" OutputProperty="*" Verb="Get" Noun="AvailableModule" PipelineParameter="ModuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAvailableModuleVersion" OutputProperty="*" Verb="Get" Noun="AvailableModuleVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCertificateAssociation" OutputProperty="*" Verb="Get" Noun="CertificateAssociation" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -128,6 +136,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetUpdate" OutputProperty="Update" Verb="Get" Noun="Update" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableModules" OutputProperty="Modules" Verb="Get" Noun="AvailableModuleList" PipelineParameter="SubscriptionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableModuleVersions" OutputProperty="*" Verb="Get" Noun="AvailableModuleVersionList" PipelineParameter="ModuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCertificateAssociations" OutputProperty="CertificateAssociations" Verb="Get" Noun="CertificateAssociationList" PipelineParameter="GatewayId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -149,6 +169,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUpdates" OutputProperty="Updates" Verb="Get" Noun="UpdateList" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLinkFlows" OutputProperty="*" Verb="Write" Noun="LinkFlow" ShouldProcessTarget="GatewayId,LinkId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

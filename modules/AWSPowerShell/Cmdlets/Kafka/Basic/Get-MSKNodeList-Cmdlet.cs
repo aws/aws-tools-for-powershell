@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKNodeList")]
     [OutputType("Amazon.Kafka.Model.NodeInfo")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) ListNodes API operation.", Operation = new[] {"ListNodes"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListNodesResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka ListNodes API operation.", Operation = new[] {"ListNodes"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListNodesResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.NodeInfo or Amazon.Kafka.Model.ListNodesResponse",
         "This cmdlet returns a collection of Amazon.Kafka.Model.NodeInfo objects.",
         "The service call response (type Amazon.Kafka.Model.ListNodesResponse) can be returned by specifying '-Select *'."
@@ -332,7 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.ListNodesResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.ListNodesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "ListNodes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "ListNodes");
             try
             {
                 return client.ListNodesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

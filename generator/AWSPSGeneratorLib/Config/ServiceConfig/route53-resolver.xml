@@ -196,6 +196,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallRuleDomains" OutputProperty="Domains" Verb="Get" Noun="FirewallRuleDomainList" PipelineParameter="FirewallRuleGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFirewallRuleGroupAssociations" OutputProperty="FirewallRuleGroupAssociations" Verb="Get" Noun="FirewallRuleGroupAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

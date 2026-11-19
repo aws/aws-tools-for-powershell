@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Remove", "MSKResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Kafka.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Kafka.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Kafka.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Kafka.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

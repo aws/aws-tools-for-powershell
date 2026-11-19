@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Remove", "RTBLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RTBFabric.Model.DeleteLinkResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric DeleteLink API operation.", Operation = new[] {"DeleteLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.DeleteLinkResponse))]
+    [AWSCmdlet("Calls the RTBFabric DeleteLink API operation.", Operation = new[] {"DeleteLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.DeleteLinkResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.DeleteLinkResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.DeleteLinkResponse object containing multiple properties."
     )]
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.DeleteLinkResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.DeleteLinkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "DeleteLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "DeleteLink");
             try
             {
                 return client.DeleteLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

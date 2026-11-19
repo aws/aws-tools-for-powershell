@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// a cluster with a writer instance and feature specific values set to all other input
     /// parameters of this API. 
     /// </para><para>
+    /// To create an Aurora PostgreSQL DB cluster without VPC networking, see <c>EnableVPCNetworking</c>.
+    /// </para><para>
     /// You can use the <c>AssociatedRoles</c> parameter to associate one or more Amazon Web
     /// Services Identity and Access Management (IAM) roles with an Aurora DB cluster. Each
     /// associated role lets the DB cluster access other Amazon Web Services on your behalf,
@@ -291,7 +293,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>A DB subnet group to associate with this DB cluster.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must match the name of an existing DB subnet group.</para></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
+        /// <para>A DB subnet group to associate with this DB cluster.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>Valid only for DB clusters inside a VPC. Don't specify it when you set <c>EnableVPCNetworking</c>
+        /// to <c>false</c>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must match the name of an existing DB subnet group.</para></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -406,6 +409,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EnableInternetAccessGateway
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the DB cluster uses an internet access gateway. With an internet
+        /// access gateway, you connect to the DB cluster over the internet without a VPC.</para><para>Set to <c>true</c> only when you set <c>EnableVPCNetworking</c> to <c>false</c>. A
+        /// DB cluster can't use VPC networking and an internet access gateway at the same time.</para><para>Default: <c>false</c>. With <c>WithExpressConfiguration</c>, the default is <c>true</c>.
+        /// To create a DB cluster with express configuration in a VPC, set this parameter to
+        /// <c>false</c>.</para><para>Valid for Cluster Type: Aurora PostgreSQL DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableInternetAccessGateway { get; set; }
+        #endregion
+        
         #region Parameter EnableLimitlessDatabase
         /// <summary>
         /// <para>
@@ -438,6 +455,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnablePerformanceInsights")]
         public System.Boolean? EnablePerformanceInsight { get; set; }
+        #endregion
+        
+        #region Parameter EnableVPCNetworking
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether VPC networking is enabled for the DB cluster. Set to <c>false</c>
+        /// to create a DB cluster without VPC networking.</para><para>A DB cluster without VPC networking needs an internet access gateway and IAM database
+        /// authentication. Set <c>EnableInternetAccessGateway</c> and <c>EnableIAMDatabaseAuthentication</c>
+        /// to <c>true</c>, and set <c>MasterUserAuthenticationType</c> to <c>iam-db-auth</c>.</para><para>Default: <c>true</c>. With <c>WithExpressConfiguration</c>, the default is <c>false</c>.</para><para>Valid for Cluster Type: Aurora PostgreSQL DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableVPCNetworking { get; set; }
         #endregion
         
         #region Parameter Engine
@@ -712,7 +742,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The network type of the DB cluster.</para><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the DB cluster.
         /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
         /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
-        /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Valid Values: <c>IPV4 | DUAL</c></para>
+        /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para><para>Don't specify it when you set <c>EnableVPCNetworking</c> to <c>false</c>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Valid Values: <c>IPV4 | DUAL</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -998,7 +1028,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para />
+        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para><para>Valid only for DB clusters inside a VPC. Don't specify it when you set <c>EnableVPCNetworking</c>
+        /// to <c>false</c>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -1016,7 +1047,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies to create an Aurora DB Cluster with express configuration in seconds. Express
         /// configuration provides a cluster with a writer instance and feature specific values
-        /// set to all other input parameters of this API. </para><para>Valid for Cluster Type: Aurora DB clusters</para>
+        /// set to all other input parameters of this API. </para><para>By default, a DB cluster with express configuration doesn't use VPC networking. You
+        /// connect to it over the internet through an internet access gateway.</para><para>To create the DB cluster in a VPC instead, set <c>EnableVPCNetworking</c> to <c>true</c>
+        /// and <c>EnableInternetAccessGateway</c> to <c>false</c>. You can also specify <c>DBSubnetGroupName</c>,
+        /// <c>VpcSecurityGroupIds</c>, and <c>NetworkType</c>. If you don't specify <c>DBSubnetGroupName</c>,
+        /// the DB cluster uses the default DB subnet group for your Amazon Web Services account,
+        /// in your default VPC.</para><para>A DB cluster with express configuration in a VPC takes longer to become available
+        /// than one without VPC networking.</para><para>Valid for Cluster Type: Aurora DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1109,9 +1146,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnableGlobalWriteForwarding = this.EnableGlobalWriteForwarding;
             context.EnableHttpEndpoint = this.EnableHttpEndpoint;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            context.EnableInternetAccessGateway = this.EnableInternetAccessGateway;
             context.EnableLimitlessDatabase = this.EnableLimitlessDatabase;
             context.EnableLocalWriteForwarding = this.EnableLocalWriteForwarding;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
+            context.EnableVPCNetworking = this.EnableVPCNetworking;
             context.Engine = this.Engine;
             #if MODULAR
             if (this.Engine == null && ParameterWasBound(nameof(this.Engine)))
@@ -1285,6 +1324,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
+            if (cmdletContext.EnableInternetAccessGateway != null)
+            {
+                request.EnableInternetAccessGateway = cmdletContext.EnableInternetAccessGateway.Value;
+            }
             if (cmdletContext.EnableLimitlessDatabase != null)
             {
                 request.EnableLimitlessDatabase = cmdletContext.EnableLimitlessDatabase.Value;
@@ -1296,6 +1339,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnablePerformanceInsight != null)
             {
                 request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsight.Value;
+            }
+            if (cmdletContext.EnableVPCNetworking != null)
+            {
+                request.EnableVPCNetworking = cmdletContext.EnableVPCNetworking.Value;
             }
             if (cmdletContext.Engine != null)
             {
@@ -1644,9 +1691,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnableGlobalWriteForwarding { get; set; }
             public System.Boolean? EnableHttpEndpoint { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.Boolean? EnableInternetAccessGateway { get; set; }
             public System.Boolean? EnableLimitlessDatabase { get; set; }
             public System.Boolean? EnableLocalWriteForwarding { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
+            public System.Boolean? EnableVPCNetworking { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineLifecycleSupport { get; set; }
             public System.String EngineMode { get; set; }

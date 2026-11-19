@@ -61,21 +61,28 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
         #endregion
         
-        #region Parameter ProductId
+        #region Parameter Product
         /// <summary>
         /// <para>
-        /// <para>The AWS Marketplace product identifier for this revenue share.</para>
+        /// <para>The products in the marketplace revenue share, each with its typed account lists.
+        /// 1 to 25 products.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProductId { get; set; }
+        [Alias("Products")]
+        public Amazon.PartnerCentralRevenueMeasurement.Model.MarketplaceRevenueShareProductEntry[] Product { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -134,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProductId), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Catalog), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PCRMMarketplaceRevenueShare (CreateMarketplaceRevenueShare)"))
             {
                 return;
@@ -158,11 +165,14 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             }
             #endif
             context.ClientToken = this.ClientToken;
-            context.ProductId = this.ProductId;
-            #if MODULAR
-            if (this.ProductId == null && ParameterWasBound(nameof(this.ProductId)))
+            if (this.Product != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ProductId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Product = new List<Amazon.PartnerCentralRevenueMeasurement.Model.MarketplaceRevenueShareProductEntry>(this.Product);
+            }
+            #if MODULAR
+            if (this.Product == null && ParameterWasBound(nameof(this.Product)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Product which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.Tag != null)
@@ -193,9 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.ProductId != null)
+            if (cmdletContext.Product != null)
             {
-                request.ProductId = cmdletContext.ProductId;
+                request.Products = cmdletContext.Product;
             }
             if (cmdletContext.Tag != null)
             {
@@ -258,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         {
             public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
             public System.String ClientToken { get; set; }
-            public System.String ProductId { get; set; }
+            public List<Amazon.PartnerCentralRevenueMeasurement.Model.MarketplaceRevenueShareProductEntry> Product { get; set; }
             public List<Amazon.PartnerCentralRevenueMeasurement.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.PartnerCentralRevenueMeasurement.Model.CreateMarketplaceRevenueShareResponse, NewPCRMMarketplaceRevenueShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

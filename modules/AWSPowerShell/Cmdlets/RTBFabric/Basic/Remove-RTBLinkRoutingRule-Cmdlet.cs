@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Remove", "RTBLinkRoutingRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RTBFabric.Model.DeleteLinkRoutingRuleResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric DeleteLinkRoutingRule API operation.", Operation = new[] {"DeleteLinkRoutingRule"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.DeleteLinkRoutingRuleResponse))]
+    [AWSCmdlet("Calls the RTBFabric DeleteLinkRoutingRule API operation.", Operation = new[] {"DeleteLinkRoutingRule"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.DeleteLinkRoutingRuleResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.DeleteLinkRoutingRuleResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.DeleteLinkRoutingRuleResponse object containing multiple properties."
     )]
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.DeleteLinkRoutingRuleResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.DeleteLinkRoutingRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "DeleteLinkRoutingRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "DeleteLinkRoutingRule");
             try
             {
                 return client.DeleteLinkRoutingRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

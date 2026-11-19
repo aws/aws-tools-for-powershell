@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Update", "RTBLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RTBFabric.Model.UpdateLinkResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric UpdateLink API operation.", Operation = new[] {"UpdateLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.UpdateLinkResponse))]
+    [AWSCmdlet("Calls the RTBFabric UpdateLink API operation.", Operation = new[] {"UpdateLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.UpdateLinkResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.UpdateLinkResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.UpdateLinkResponse object containing multiple properties."
     )]
@@ -116,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         public System.Int64? TimeoutInMilli { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier for the request. The SDK generates one when you
+        /// don't.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -162,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
                 context.Select = CreateSelectDelegate<Amazon.RTBFabric.Model.UpdateLinkResponse, UpdateRTBLinkCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             context.GatewayId = this.GatewayId;
             #if MODULAR
             if (this.GatewayId == null && ParameterWasBound(nameof(this.GatewayId)))
@@ -195,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             // create request
             var request = new Amazon.RTBFabric.Model.UpdateLinkRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.GatewayId != null)
             {
                 request.GatewayId = cmdletContext.GatewayId;
@@ -301,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.UpdateLinkResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.UpdateLinkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "UpdateLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "UpdateLink");
             try
             {
                 return client.UpdateLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -321,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String GatewayId { get; set; }
             public System.String LinkId { get; set; }
             public System.Double? Sampling_ErrorLog { get; set; }

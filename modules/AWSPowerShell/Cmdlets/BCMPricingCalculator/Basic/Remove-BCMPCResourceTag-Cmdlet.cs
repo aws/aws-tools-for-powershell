@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Remove", "BCMPCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.BCMPricingCalculator.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BCMPricingCalculator.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

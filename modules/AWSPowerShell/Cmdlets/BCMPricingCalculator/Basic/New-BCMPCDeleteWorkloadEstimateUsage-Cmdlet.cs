@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
 {
     /// <summary>
     /// Delete usage that you have created in a Workload estimate. You can only delete usage
-    /// that you had added and cannot model deletion (or removal) of a existing usage. If
-    /// you want model removal of an existing usage, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateWorkloadEstimateUsage.html">
+    /// that you had added and can't model deletion (or removal) of a existing usage. If you
+    /// want model removal of an existing usage, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateWorkloadEstimateUsage.html">
     /// BatchUpdateWorkloadEstimateUsage</a>. 
     /// 
     ///  <note><para>
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("New", "BCMPCDeleteWorkloadEstimateUsage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.BatchDeleteWorkloadEstimateUsageError")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator BatchDeleteWorkloadEstimateUsage API operation.", Operation = new[] {"BatchDeleteWorkloadEstimateUsage"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchDeleteWorkloadEstimateUsageResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator BatchDeleteWorkloadEstimateUsage API operation.", Operation = new[] {"BatchDeleteWorkloadEstimateUsage"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchDeleteWorkloadEstimateUsageResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BatchDeleteWorkloadEstimateUsageError or Amazon.BCMPricingCalculator.Model.BatchDeleteWorkloadEstimateUsageResponse",
         "This cmdlet returns a collection of Amazon.BCMPricingCalculator.Model.BatchDeleteWorkloadEstimateUsageError objects.",
         "The service call response (type Amazon.BCMPricingCalculator.Model.BatchDeleteWorkloadEstimateUsageResponse) can be returned by specifying '-Select *'."
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.BatchDeleteWorkloadEstimateUsageResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.BatchDeleteWorkloadEstimateUsageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "BatchDeleteWorkloadEstimateUsage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "BatchDeleteWorkloadEstimateUsage");
             try
             {
                 return client.BatchDeleteWorkloadEstimateUsageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

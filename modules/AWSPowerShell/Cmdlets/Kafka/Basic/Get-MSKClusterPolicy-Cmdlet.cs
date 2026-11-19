@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKClusterPolicy")]
     [OutputType("Amazon.Kafka.Model.GetClusterPolicyResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) GetClusterPolicy API operation.", Operation = new[] {"GetClusterPolicy"}, SelectReturnType = typeof(Amazon.Kafka.Model.GetClusterPolicyResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka GetClusterPolicy API operation.", Operation = new[] {"GetClusterPolicy"}, SelectReturnType = typeof(Amazon.Kafka.Model.GetClusterPolicyResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.GetClusterPolicyResponse",
         "This cmdlet returns an Amazon.Kafka.Model.GetClusterPolicyResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.GetClusterPolicyResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.GetClusterPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "GetClusterPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "GetClusterPolicy");
             try
             {
                 return client.GetClusterPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

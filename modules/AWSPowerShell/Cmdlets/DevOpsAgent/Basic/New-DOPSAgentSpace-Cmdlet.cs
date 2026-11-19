@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AwsSourceMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the AgentSpace's Amazon Web Services source configuration targets
+        /// an individual Amazon Web Services account or an Amazon Web Services Organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.AwsSourceMode")]
+        public Amazon.DevOpsAgent.AwsSourceMode AwsSourceMode { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -183,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 context.Select = CreateSelectDelegate<Amazon.DevOpsAgent.Model.CreateAgentSpaceResponse, NewDOPSAgentSpaceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AwsSourceMode = this.AwsSourceMode;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.KmsKeyArn = this.KmsKeyArn;
@@ -226,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             // create request
             var request = new Amazon.DevOpsAgent.Model.CreateAgentSpaceRequest();
             
+            if (cmdletContext.AwsSourceMode != null)
+            {
+                request.AwsSourceMode = cmdletContext.AwsSourceMode;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -309,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DevOpsAgent.AwsSourceMode AwsSourceMode { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String KmsKeyArn { get; set; }

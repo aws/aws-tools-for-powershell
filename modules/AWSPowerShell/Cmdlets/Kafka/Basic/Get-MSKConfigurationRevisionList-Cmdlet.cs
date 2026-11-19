@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKConfigurationRevisionList")]
     [OutputType("Amazon.Kafka.Model.ConfigurationRevision")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) ListConfigurationRevisions API operation.", Operation = new[] {"ListConfigurationRevisions"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListConfigurationRevisionsResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka ListConfigurationRevisions API operation.", Operation = new[] {"ListConfigurationRevisions"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListConfigurationRevisionsResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.ConfigurationRevision or Amazon.Kafka.Model.ListConfigurationRevisionsResponse",
         "This cmdlet returns a collection of Amazon.Kafka.Model.ConfigurationRevision objects.",
         "The service call response (type Amazon.Kafka.Model.ListConfigurationRevisionsResponse) can be returned by specifying '-Select *'."
@@ -333,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.ListConfigurationRevisionsResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.ListConfigurationRevisionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "ListConfigurationRevisions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "ListConfigurationRevisions");
             try
             {
                 return client.ListConfigurationRevisionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

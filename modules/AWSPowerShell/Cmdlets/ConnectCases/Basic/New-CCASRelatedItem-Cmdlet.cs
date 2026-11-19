@@ -37,6 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// There's a quota for the number of fields allowed in a Custom type related item. See
     /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas">Connect
     /// Customer Cases quotas</a>.
+    /// </para><para>
+    /// There's a quota for the number of SLAs that can be attached to a case. See <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas">Connect
+    /// Customer Cases quotas</a>.
     /// </para><para><b>Use cases</b></para><para>
     /// Following are examples of related items that you may want to associate with a case:
     /// </para><ul><li><para>
@@ -175,7 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter SlaInputConfiguration_FieldId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of a field.</para>
+        /// <para>Unique identifier of the case field that the SLA tracks. The field must be a single-select
+        /// field, such as the system <c>status</c> field or a custom single-select field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

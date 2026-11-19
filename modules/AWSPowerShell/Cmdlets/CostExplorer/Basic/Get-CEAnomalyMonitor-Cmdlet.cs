@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CEAnomalyMonitor")]
     [OutputType("Amazon.CostExplorer.Model.AnomalyMonitor")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetAnomalyMonitors API operation.", Operation = new[] {"GetAnomalyMonitors"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetAnomalyMonitorsResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetAnomalyMonitors API operation.", Operation = new[] {"GetAnomalyMonitors"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetAnomalyMonitorsResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.AnomalyMonitor or Amazon.CostExplorer.Model.GetAnomalyMonitorsResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.AnomalyMonitor objects.",
         "The service call response (type Amazon.CostExplorer.Model.GetAnomalyMonitorsResponse) can be returned by specifying '-Select *'."
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetAnomalyMonitorsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetAnomalyMonitorsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetAnomalyMonitors");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetAnomalyMonitors");
             try
             {
                 return client.GetAnomalyMonitorsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -105,6 +105,26 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public Amazon.ElasticLoadBalancingV2.Model.Certificate[] Certificate { get; set; }
         #endregion
         
+        #region Parameter MutualAuthentication_ClientCertificateIdentityFilter
+        /// <summary>
+        /// <para>
+        /// <para>[Network Load Balancers] The client certificate identity filters. The load balancer
+        /// admits a connection only if the client certificate matches at least one filter. If
+        /// you don't specify any filters, the load balancer admits every client certificate that
+        /// passes trust store validation and revocation checks.</para><para>You can specify filters only when the mode is <c>verify</c>. You can specify up to
+        /// 100 filters per listener.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MutualAuthentication_ClientCertificateIdentityFilters")]
+        public Amazon.ElasticLoadBalancingV2.Model.ClientCertificateIdentityFilter[] MutualAuthentication_ClientCertificateIdentityFilter { get; set; }
+        #endregion
+        
         #region Parameter DefaultAction
         /// <summary>
         /// <para>
@@ -151,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter MutualAuthentication_Mode
         /// <summary>
         /// <para>
-        /// <para>The client certificate handling method. Options are <c>off</c>, <c>passthrough</c>
-        /// or <c>verify</c>. The default value is <c>off</c>.</para>
+        /// <para>The client certificate handling method. The default value is <c>off</c>.</para><para>[Application Load Balancers] The possible values are <c>off</c>, <c>passthrough</c>,
+        /// and <c>verify</c>.</para><para>[Network Load Balancers] The possible values are <c>off</c> and <c>verify</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -285,6 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             }
             #endif
             context.MutualAuthentication_AdvertiseTrustStoreCaName = this.MutualAuthentication_AdvertiseTrustStoreCaName;
+            if (this.MutualAuthentication_ClientCertificateIdentityFilter != null)
+            {
+                context.MutualAuthentication_ClientCertificateIdentityFilter = new List<Amazon.ElasticLoadBalancingV2.Model.ClientCertificateIdentityFilter>(this.MutualAuthentication_ClientCertificateIdentityFilter);
+            }
             context.MutualAuthentication_IgnoreClientCertificateExpiry = this.MutualAuthentication_IgnoreClientCertificateExpiry;
             context.MutualAuthentication_Mode = this.MutualAuthentication_Mode;
             context.MutualAuthentication_TrustStoreArn = this.MutualAuthentication_TrustStoreArn;
@@ -336,6 +360,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (requestMutualAuthentication_mutualAuthentication_AdvertiseTrustStoreCaName != null)
             {
                 request.MutualAuthentication.AdvertiseTrustStoreCaNames = requestMutualAuthentication_mutualAuthentication_AdvertiseTrustStoreCaName;
+                requestMutualAuthenticationIsNull = false;
+            }
+            List<Amazon.ElasticLoadBalancingV2.Model.ClientCertificateIdentityFilter> requestMutualAuthentication_mutualAuthentication_ClientCertificateIdentityFilter = null;
+            if (cmdletContext.MutualAuthentication_ClientCertificateIdentityFilter != null)
+            {
+                requestMutualAuthentication_mutualAuthentication_ClientCertificateIdentityFilter = cmdletContext.MutualAuthentication_ClientCertificateIdentityFilter;
+            }
+            if (requestMutualAuthentication_mutualAuthentication_ClientCertificateIdentityFilter != null)
+            {
+                request.MutualAuthentication.ClientCertificateIdentityFilters = requestMutualAuthentication_mutualAuthentication_ClientCertificateIdentityFilter;
                 requestMutualAuthenticationIsNull = false;
             }
             System.Boolean? requestMutualAuthentication_mutualAuthentication_IgnoreClientCertificateExpiry = null;
@@ -455,6 +489,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public List<Amazon.ElasticLoadBalancingV2.Model.Action> DefaultAction { get; set; }
             public System.String ListenerArn { get; set; }
             public Amazon.ElasticLoadBalancingV2.AdvertiseTrustStoreCaNamesEnum MutualAuthentication_AdvertiseTrustStoreCaName { get; set; }
+            public List<Amazon.ElasticLoadBalancingV2.Model.ClientCertificateIdentityFilter> MutualAuthentication_ClientCertificateIdentityFilter { get; set; }
             public System.Boolean? MutualAuthentication_IgnoreClientCertificateExpiry { get; set; }
             public System.String MutualAuthentication_Mode { get; set; }
             public System.String MutualAuthentication_TrustStoreArn { get; set; }

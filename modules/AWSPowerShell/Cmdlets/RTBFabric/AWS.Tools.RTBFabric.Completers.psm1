@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon RTBFabric
+# Argument completions for service RTBFabric
 
 
 $RTB_Completers = {
@@ -97,6 +97,13 @@ $RTB_Completers = {
             break
         }
 
+        # Amazon.RTBFabric.ModuleVersionStatus
+        "Get-RTBAvailableModuleVersionList/Status"
+        {
+            $v = "ACTIVE","CREATE_FAILED","CREATING","DEPRECATED"
+            break
+        }
+
         # Amazon.RTBFabric.Protocol
         {
             ($_ -eq "New-RTBResponderGateway/ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol") -Or
@@ -106,6 +113,27 @@ $RTB_Completers = {
         }
         {
             $v = "HTTP","HTTPS"
+            break
+        }
+
+        # Amazon.RTBFabric.SubscriptionType
+        "Get-RTBAvailableModuleList/SubscriptionType"
+        {
+            $v = "AWS_BUILT_IN","MARKETPLACE","PRIVATE"
+            break
+        }
+
+        # Amazon.RTBFabric.UpdateStatus
+        "Get-RTBUpdateList/Status"
+        {
+            $v = "FAILED","IN_PROGRESS","SUCCESSFUL"
+            break
+        }
+
+        # Amazon.RTBFabric.UpdateType
+        "Get-RTBUpdateList/Type"
+        {
+            $v = "GATEWAY_CONFIG_UPDATE","LINK_CONFIG_UPDATE","LINK_FLOW_UPDATE","ROUTING_RULE_UPDATE"
             break
         }
 
@@ -122,6 +150,9 @@ $RTB_map = @{
     "GatewayType"=@("New-RTBResponderGateway")
     "ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
     "Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
+    "Status"=@("Get-RTBAvailableModuleVersionList","Get-RTBUpdateList")
+    "SubscriptionType"=@("Get-RTBAvailableModuleList")
+    "Type"=@("Get-RTBUpdateList")
 }
 
 _awsArgumentCompleterRegistration $RTB_Completers $RTB_map
@@ -189,6 +220,8 @@ $RTB_SelectMap = @{
                "Remove-RTBRequesterGateway",
                "Remove-RTBResponderGateway",
                "Remove-RTBCertificate",
+               "Get-RTBAvailableModule",
+               "Get-RTBAvailableModuleVersion",
                "Get-RTBCertificateAssociation",
                "Get-RTBInboundExternalLink",
                "Get-RTBLink",
@@ -196,12 +229,17 @@ $RTB_SelectMap = @{
                "Get-RTBOutboundExternalLink",
                "Get-RTBRequesterGateway",
                "Get-RTBResponderGateway",
+               "Get-RTBUpdate",
+               "Get-RTBAvailableModuleList",
+               "Get-RTBAvailableModuleVersionList",
                "Get-RTBCertificateAssociationList",
                "Get-RTBLinkRoutingRuleList",
                "Get-RTBLinkList",
                "Get-RTBRequesterGatewayList",
                "Get-RTBResponderGatewayList",
                "Get-RTBResourceTag",
+               "Get-RTBUpdateList",
+               "Write-RTBLinkFlow",
                "Deny-RTBLink",
                "Add-RTBResourceTag",
                "Remove-RTBResourceTag",

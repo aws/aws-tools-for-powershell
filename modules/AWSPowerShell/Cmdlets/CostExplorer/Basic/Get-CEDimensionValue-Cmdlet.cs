@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CEDimensionValue")]
     [OutputType("Amazon.CostExplorer.Model.GetDimensionValuesResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetDimensionValues API operation.", Operation = new[] {"GetDimensionValues"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetDimensionValuesResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetDimensionValues API operation.", Operation = new[] {"GetDimensionValues"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetDimensionValuesResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GetDimensionValuesResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.GetDimensionValuesResponse object containing multiple properties."
     )]
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The value that you want to sort the data by.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><c>BlendedCost</c></para></li><li><para><c>UnblendedCost</c></para></li><li><para><c>AmortizedCost</c></para></li><li><para><c>NetAmortizedCost</c></para></li><li><para><c>NetUnblendedCost</c></para></li><li><para><c>UsageQuantity</c></para></li><li><para><c>NormalizedUsageAmount</c></para></li></ul><para>The supported values for the <c>SortOrder</c> key are <c>ASCENDING</c> or <c>DESCENDING</c>.</para><para>When you specify a <c>SortBy</c> paramater, the context must be <c>COST_AND_USAGE</c>.
+        /// <para>The value that you want to sort the data by.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><c>BlendedCost</c></para></li><li><para><c>UnblendedCost</c></para></li><li><para><c>AmortizedCost</c></para></li><li><para><c>NetAmortizedCost</c></para></li><li><para><c>NetUnblendedCost</c></para></li><li><para><c>UsageQuantity</c></para></li><li><para><c>NormalizedUsageAmount</c></para></li><li><para><c>BilledCost</c></para></li><li><para><c>ContractedCost</c></para></li><li><para><c>ListCost</c></para></li><li><para><c>PublicEquivalentBilledCost</c></para></li><li><para><c>PublicOnDemandCost</c></para></li></ul><para>The supported values for the <c>SortOrder</c> key are <c>ASCENDING</c> or <c>DESCENDING</c>.</para><para>When you specify a <c>SortBy</c> paramater, the context must be <c>COST_AND_USAGE</c>.
         /// Further, when using <c>SortBy</c>, <c>NextPageToken</c> and <c>SearchString</c> aren't
         /// supported.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
@@ -479,7 +479,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetDimensionValuesResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetDimensionValuesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetDimensionValues");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetDimensionValues");
             try
             {
                 return client.GetDimensionValuesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

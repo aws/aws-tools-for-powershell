@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// You cannot call any IAM API operations unless MFA authentication information is included
     /// in the request.
     /// </para></li><li><para>
-    /// You cannot call any STS API <i>except</i><c>AssumeRole</c> or <c>GetCallerIdentity</c>.
+    /// You cannot call any STS API <i>except</i><c>AssumeRole</c>, <c>GetCallerIdentity</c>,
+    /// <c>GetScopedCredentials</c>, <c>GetWebIdentityToken</c>, or <c>GetDelegatedAccessToken</c>.
     /// </para></li></ul><para>
     /// The credentials that <c>GetSessionToken</c> returns are based on permissions associated
     /// with the IAM user whose credentials were used to call the operation. The temporary
@@ -84,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </summary>
     [Cmdlet("Get", "STSSessionToken")]
     [OutputType("Amazon.SecurityToken.Model.Credentials")]
-    [AWSCmdlet("Calls the AWS Security Token Service (STS) GetSessionToken API operation.", Operation = new[] {"GetSessionToken"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetSessionTokenResponse))]
+    [AWSCmdlet("Calls the AWS Security Token Service GetSessionToken API operation.", Operation = new[] {"GetSessionToken"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetSessionTokenResponse))]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.Credentials or Amazon.SecurityToken.Model.GetSessionTokenResponse",
         "This cmdlet returns an Amazon.SecurityToken.Model.Credentials object.",
         "The service call response (type Amazon.SecurityToken.Model.GetSessionTokenResponse) can be returned by specifying '-Select *'."
@@ -255,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         private Amazon.SecurityToken.Model.GetSessionTokenResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.GetSessionTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service (STS)", "GetSessionToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "GetSessionToken");
             try
             {
                 return client.GetSessionTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Cost Explorer
+# Argument completions for service AWS Cost Explorer Service
 
 
 $CE_Completers = {
@@ -210,7 +210,7 @@ $CE_Completers = {
             ($_ -eq "Get-CEUsageForecast/Metric")
         }
         {
-            $v = "AMORTIZED_COST","BLENDED_COST","NET_AMORTIZED_COST","NET_UNBLENDED_COST","NORMALIZED_USAGE_AMOUNT","UNBLENDED_COST","USAGE_QUANTITY"
+            $v = "AMORTIZED_COST","BILLED_COST","BLENDED_COST","CONTRACTED_COST","LIST_COST","NET_AMORTIZED_COST","NET_UNBLENDED_COST","NORMALIZED_USAGE_AMOUNT","PUBLIC_EQUIVALENT_BILLED_COST","PUBLIC_ON_DEMAND_COST","UNBLENDED_COST","USAGE_QUANTITY"
             break
         }
 

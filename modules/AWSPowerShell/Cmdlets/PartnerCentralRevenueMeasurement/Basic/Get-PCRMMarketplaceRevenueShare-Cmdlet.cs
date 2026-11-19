@@ -61,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
         #endregion
         
-        #region Parameter ProductId
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The AWS Marketplace product identifier of the revenue share to retrieve.</para>
+        /// <para>The marketplace revenue share to retrieve, by ID (mrs-...) or ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProductId { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Revision
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Revision { get; set; }
+        public System.String Revision { get; set; }
         #endregion
         
         #region Parameter Select
@@ -126,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
                 WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ProductId = this.ProductId;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.ProductId == null && ParameterWasBound(nameof(this.ProductId)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ProductId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.Revision = this.Revision;
@@ -154,13 +154,13 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             {
                 request.Catalog = cmdletContext.Catalog;
             }
-            if (cmdletContext.ProductId != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.ProductId = cmdletContext.ProductId;
+                request.Identifier = cmdletContext.Identifier;
             }
             if (cmdletContext.Revision != null)
             {
-                request.Revision = cmdletContext.Revision.Value;
+                request.Revision = cmdletContext.Revision;
             }
             
             CmdletOutput output;
@@ -218,8 +218,8 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
-            public System.String ProductId { get; set; }
-            public System.Int32? Revision { get; set; }
+            public System.String Identifier { get; set; }
+            public System.String Revision { get; set; }
             public System.Func<Amazon.PartnerCentralRevenueMeasurement.Model.GetMarketplaceRevenueShareResponse, GetPCRMMarketplaceRevenueShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

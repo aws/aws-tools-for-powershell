@@ -80,6 +80,13 @@ $POL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Polly.CustomVoiceLanguageCode
+        "New-POLVoice/LanguageCode"
+        {
+            $v = "de-DE","en-US","es-US","fr-FR","hi-IN","it-IT","pt-BR"
+            break
+        }
+
         # Amazon.Polly.Engine
         {
             ($_ -eq "Get-POLSpeech/Engine") -Or
@@ -149,7 +156,7 @@ $POL_Completers = {
 
 $POL_map = @{
     "Engine"=@("Get-POLSpeech","Get-POLVoice","Start-POLSpeechSynthesisTask")
-    "LanguageCode"=@("Get-POLSpeech","Get-POLVoice","Start-POLSpeechSynthesisTask")
+    "LanguageCode"=@("Get-POLSpeech","Get-POLVoice","New-POLVoice","Start-POLSpeechSynthesisTask")
     "OutputFormat"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
     "Status"=@("Get-POLSpeechSynthesisTaskList")
     "TextType"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
@@ -206,10 +213,13 @@ $POL_SelectCompleters = {
 }
 
 $POL_SelectMap = @{
-    "Select"=@("Remove-POLLexicon",
+    "Select"=@("New-POLVoice",
+               "Remove-POLLexicon",
+               "Remove-POLVoice",
                "Get-POLVoice",
                "Get-POLLexicon",
                "Get-POLSpeechSynthesisTask",
+               "Get-POLVoiceDetail",
                "Get-POLLexiconList",
                "Get-POLSpeechSynthesisTaskList",
                "Get-POLResourceTag",

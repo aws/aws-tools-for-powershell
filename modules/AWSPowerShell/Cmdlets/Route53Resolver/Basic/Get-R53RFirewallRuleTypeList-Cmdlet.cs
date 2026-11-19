@@ -45,6 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// identifying the Amazon Web Services Marketplace product that backs it; absence of
     /// <c>SubscriptionInfo</c> means the variant is fully managed by Amazon Web Services
     /// and requires no separate subscription.
+    /// </para><para>
+    /// This operation doesn't return the <c>AutoAllowlist</c> variant. Configure an AutoAllowlist
+    /// rule with <a>AutoAllowlistConfig</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RFirewallRuleTypeList")]

@@ -67,6 +67,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateHealthCheckSource" OutputProperty="*" Verb="New" Noun="HealthCheckSource" ShouldProcessTarget="HealthCheckSourceConfig_VpcId" PipelineParameter="HealthCheckSourceConfig_VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateHostedZone" OutputProperty="*" Verb="New" Noun="HostedZone" ShouldProcessTarget="Name" PositionalParameters="CallerReference;HostedZoneConfig_Comment" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -114,6 +118,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteHealthCheck" Verb="Remove" Noun="HealthCheck" ShouldProcessTarget="HealthCheckId" PipelineParameter="HealthCheckId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHealthCheckSource" OutputProperty="*" Verb="Remove" Noun="HealthCheckSource" ShouldProcessTarget="HealthCheckSourceId" PipelineParameter="HealthCheckSourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -195,6 +203,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetHealthCheckSource" OutputProperty="HealthCheckSource" Verb="Get" Noun="HealthCheckSource" PipelineParameter="HealthCheckSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetHealthCheckStatus" OutputProperty="HealthCheckObservations" Verb="Get" Noun="HealthCheckStatus" PipelineParameter="HealthCheckId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -252,6 +264,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListHealthChecks" OutputProperty="HealthChecks" Verb="Get" Noun="HealthCheckList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53HealthChecks">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHealthChecksBySource" OutputProperty="HealthChecks" Verb="Get" Noun="HealthChecksBySourceList" PipelineParameter="HealthCheckSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHealthCheckSources" OutputProperty="HealthCheckSources" Verb="Get" Noun="HealthCheckSourceList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

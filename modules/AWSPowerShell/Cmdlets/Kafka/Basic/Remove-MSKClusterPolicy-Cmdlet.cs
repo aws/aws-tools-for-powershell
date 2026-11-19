@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Remove", "MSKClusterPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DeleteClusterPolicy API operation.", Operation = new[] {"DeleteClusterPolicy"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteClusterPolicyResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka DeleteClusterPolicy API operation.", Operation = new[] {"DeleteClusterPolicy"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteClusterPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Kafka.Model.DeleteClusterPolicyResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Kafka.Model.DeleteClusterPolicyResponse) be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.DeleteClusterPolicyResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DeleteClusterPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DeleteClusterPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "DeleteClusterPolicy");
             try
             {
                 return client.DeleteClusterPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

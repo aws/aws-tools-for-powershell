@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Update", "BCMPCBillScenario", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.UpdateBillScenarioResponse")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator UpdateBillScenario API operation.", Operation = new[] {"UpdateBillScenario"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.UpdateBillScenarioResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator UpdateBillScenario API operation.", Operation = new[] {"UpdateBillScenario"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.UpdateBillScenarioResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.UpdateBillScenarioResponse",
         "This cmdlet returns an Amazon.BCMPricingCalculator.Model.UpdateBillScenarioResponse object containing multiple properties."
     )]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         #region Parameter GroupSharingPreference
         /// <summary>
         /// <para>
-        /// <para>The setting for the reserved instance and savings plan group sharing used in this
+        /// <para>The setting for the reserved instance and savings plans group sharing used in this
         /// estimate.</para>
         /// </para>
         /// </summary>
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.UpdateBillScenarioResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.UpdateBillScenarioRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "UpdateBillScenario");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "UpdateBillScenario");
             try
             {
                 return client.UpdateBillScenarioAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -72,8 +72,34 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Security Token Service (STS)
+# Argument completions for service AWS Security Token Service
 
+
+$STS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SecurityToken.WebIdentityTokenSubjectModeType
+        "Get-STSWebIdentityToken/SubjectMode"
+        {
+            $v = "AWSIdentity","OriginIdentity"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$STS_map = @{
+    "SubjectMode"=@("Get-STSWebIdentityToken")
+}
+
+_awsArgumentCompleterRegistration $STS_Completers $STS_map
 
 $STS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -130,6 +156,7 @@ $STS_SelectMap = @{
                "Get-STSCallerIdentity",
                "Get-STSDelegatedAccessToken",
                "Get-STSFederationToken",
+               "Get-STSScopedCredential",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
                "Use-STSWebIdentityRole",

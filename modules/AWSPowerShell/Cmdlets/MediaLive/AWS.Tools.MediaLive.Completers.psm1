@@ -177,10 +177,12 @@ $EML_Completers = {
         # Amazon.MediaLive.InputCodec
         {
             ($_ -eq "New-EMLChannel/InputSpecification_Codec") -Or
-            ($_ -eq "Update-EMLChannel/InputSpecification_Codec")
+            ($_ -eq "Update-EMLChannel/InputSpecification_Codec") -Or
+            ($_ -eq "New-EMLChannel/JpegXsInputSpecification_Codec") -Or
+            ($_ -eq "Update-EMLChannel/JpegXsInputSpecification_Codec")
         }
         {
-            $v = "AVC","HEVC","MPEG2"
+            $v = "AVC","HEVC","JPEGXS","MPEG2"
             break
         }
 
@@ -235,6 +237,26 @@ $EML_Completers = {
         "New-EMLInput/Type"
         {
             $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MEDIACONNECT_ROUTER","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SDI","SMPTE_2110_RECEIVER_GROUP","SRT_CALLER","SRT_LISTENER","TS_FILE","UDP_PUSH","URL_PULL"
+            break
+        }
+
+        # Amazon.MediaLive.JpegXsInputMaximumBitrate
+        {
+            ($_ -eq "New-EMLChannel/JpegXsInputSpecification_MaximumBitrate") -Or
+            ($_ -eq "Update-EMLChannel/JpegXsInputSpecification_MaximumBitrate")
+        }
+        {
+            $v = "MAX_500_MBPS"
+            break
+        }
+
+        # Amazon.MediaLive.JpegXsInputResolution
+        {
+            ($_ -eq "New-EMLChannel/JpegXsInputSpecification_Resolution") -Or
+            ($_ -eq "Update-EMLChannel/JpegXsInputSpecification_Resolution")
+        }
+        {
+            $v = "HD"
             break
         }
 
@@ -364,6 +386,9 @@ $EML_map = @{
     "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
+    "JpegXsInputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
+    "JpegXsInputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
+    "JpegXsInputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType"=@("New-EMLChannel","Update-EMLChannel")
     "LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType"=@("New-EMLChannel","Update-EMLChannel")
     "LogLevel"=@("New-EMLChannel","Update-EMLChannel")

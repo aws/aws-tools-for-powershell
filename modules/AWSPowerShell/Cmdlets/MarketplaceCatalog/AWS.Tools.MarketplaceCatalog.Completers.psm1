@@ -132,7 +132,7 @@ $MCAT_Completers = {
         # Amazon.MarketplaceCatalog.OfferSortBy
         "Get-MCATEntityList/OfferSort_SortBy"
         {
-            $v = "AvailabilityEndDate","BuyerAccounts","CreatedBySource","EntityId","LastModifiedDate","Name","OfferSetId","ProductId","ReleaseDate","ResaleAuthorizationId","State","TargetAgreementId","TargetAgreementIntent","Targeting"
+            $v = "AvailabilityEndDate","BuyerAccounts","CreatedBySource","EntityId","LastModifiedDate","Name","OfferSetId","ProductId","ReleaseDate","ResaleAuthorizationId","State","SubsidiaryAuthorizationId","TargetAgreementId","TargetAgreementIntent","Targeting"
             break
         }
 
@@ -280,6 +280,7 @@ $MCAT_SelectMap = @{
                "Get-MCATEntityList",
                "Get-MCATResourceTag",
                "Write-MCATResourcePolicy",
+               "Start-MCATAssessment",
                "Start-MCATChangeSet",
                "Add-MCATResourceTag",
                "Remove-MCATResourceTag")

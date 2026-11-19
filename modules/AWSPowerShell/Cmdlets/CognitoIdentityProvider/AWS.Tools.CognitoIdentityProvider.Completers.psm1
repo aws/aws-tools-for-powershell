@@ -131,6 +131,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.CIMDCacheActionType
+        "Update-CGIPClientMetadataURLState/Action"
+        {
+            $v = "INVALIDATE","REFRESH"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.ClientTypeType
         "Get-CGIPUserPoolClientList/ClientType"
         {
@@ -446,6 +453,7 @@ $CGIP_Completers = {
 }
 
 $CGIP_map = @{
+    "Action"=@("Update-CGIPClientMetadataURLState")
     "Actions_EventAction"=@("Set-CGIPRiskConfiguration")
     "ActorTokenType"=@("Get-CGIPDerivedToken")
     "AdvancedSecurityAdditionalFlows_CustomAuthMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
@@ -580,6 +588,7 @@ $CGIP_SelectMap = @{
                "Approve-CGIPDevice",
                "Confirm-CGIPForgotPassword",
                "Confirm-CGIPUserRegistration",
+               "New-CGIPCIMDPolicy",
                "New-CGIPGroup",
                "New-CGIPIdentityProvider",
                "New-CGIPManagedLoginBranding",
@@ -590,6 +599,7 @@ $CGIP_SelectMap = @{
                "New-CGIPUserPoolClient",
                "New-CGIPUserPoolDomain",
                "New-CGIPUserPoolReplica",
+               "Remove-CGIPCIMDPolicy",
                "Remove-CGIPGroup",
                "Remove-CGIPIdentityProvider",
                "Remove-CGIPManagedLoginBranding",
@@ -603,6 +613,7 @@ $CGIP_SelectMap = @{
                "Remove-CGIPUserPoolDomain",
                "Remove-CGIPUserPoolReplica",
                "Remove-CGIPWebAuthnCredential",
+               "Get-CGIPCIMDPolicyDetail",
                "Get-CGIPIdentityProvider",
                "Get-CGIPManagedLoginBranding",
                "Get-CGIPManagedLoginBrandingByClient",
@@ -637,6 +648,8 @@ $CGIP_SelectMap = @{
                "Disconnect-CGIPDeviceGlobal",
                "Start-CGIPAuth",
                "Initialize-CGIPPointInTimeRecovery",
+               "Get-CGIPCIMDPolicyList",
+               "Get-CGIPClientMetadataURLsList",
                "Get-CGIPDeviceList",
                "Get-CGIPGroupList",
                "Get-CGIPIdentityProviderList",
@@ -673,6 +686,8 @@ $CGIP_SelectMap = @{
                "Add-CGIPResourceTag",
                "Remove-CGIPResourceTag",
                "Update-CGIPAuthEventFeedback",
+               "Update-CGIPCIMDPolicy",
+               "Update-CGIPClientMetadataURLState",
                "Edit-CGIPDeviceStatus",
                "Update-CGIPGroup",
                "Update-CGIPIdentityProvider",

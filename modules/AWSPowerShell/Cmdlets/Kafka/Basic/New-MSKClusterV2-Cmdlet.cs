@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("New", "MSKClusterV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.CreateClusterV2Response")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) CreateClusterV2 API operation.", Operation = new[] {"CreateClusterV2"}, SelectReturnType = typeof(Amazon.Kafka.Model.CreateClusterV2Response))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka CreateClusterV2 API operation.", Operation = new[] {"CreateClusterV2"}, SelectReturnType = typeof(Amazon.Kafka.Model.CreateClusterV2Response))]
     [AWSCmdletOutput("Amazon.Kafka.Model.CreateClusterV2Response",
         "This cmdlet returns an Amazon.Kafka.Model.CreateClusterV2Response object containing multiple properties."
     )]
@@ -1382,7 +1382,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.CreateClusterV2Response CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.CreateClusterV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "CreateClusterV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "CreateClusterV2");
             try
             {
                 return client.CreateClusterV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

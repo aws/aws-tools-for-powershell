@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Get", "BCMPCBillScenarioCommitmentModificationList")]
     [OutputType("Amazon.BCMPricingCalculator.Model.BillScenarioCommitmentModificationItem")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator ListBillScenarioCommitmentModifications API operation.", Operation = new[] {"ListBillScenarioCommitmentModifications"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.ListBillScenarioCommitmentModificationsResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator ListBillScenarioCommitmentModifications API operation.", Operation = new[] {"ListBillScenarioCommitmentModifications"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.ListBillScenarioCommitmentModificationsResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BillScenarioCommitmentModificationItem or Amazon.BCMPricingCalculator.Model.ListBillScenarioCommitmentModificationsResponse",
         "This cmdlet returns a collection of Amazon.BCMPricingCalculator.Model.BillScenarioCommitmentModificationItem objects.",
         "The service call response (type Amazon.BCMPricingCalculator.Model.ListBillScenarioCommitmentModificationsResponse) can be returned by specifying '-Select *'."
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.ListBillScenarioCommitmentModificationsResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.ListBillScenarioCommitmentModificationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "ListBillScenarioCommitmentModifications");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "ListBillScenarioCommitmentModifications");
             try
             {
                 return client.ListBillScenarioCommitmentModificationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

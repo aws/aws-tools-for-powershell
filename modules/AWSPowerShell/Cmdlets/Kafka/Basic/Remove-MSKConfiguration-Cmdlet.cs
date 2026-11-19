@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Remove", "MSKConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Kafka.Model.DeleteConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DeleteConfiguration API operation.", Operation = new[] {"DeleteConfiguration"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteConfigurationResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka DeleteConfiguration API operation.", Operation = new[] {"DeleteConfiguration"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.DeleteConfigurationResponse",
         "This cmdlet returns an Amazon.Kafka.Model.DeleteConfigurationResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.DeleteConfigurationResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DeleteConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DeleteConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "DeleteConfiguration");
             try
             {
                 return client.DeleteConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

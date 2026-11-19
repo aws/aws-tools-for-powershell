@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String AnycastIpListId { get; set; }
         #endregion
         
+        #region Parameter ViewerFallback_DistributionId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the distribution whose certificate CloudFront uses to establish TLS connections
+        /// for viewer requests that don't include SNI.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ViewerFallback_DistributionId { get; set; }
+        #endregion
+        
         #region Parameter Enabled
         /// <summary>
         /// <para>
@@ -174,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             #endif
             context.Ipv6Enabled = this.Ipv6Enabled;
+            context.ViewerFallback_DistributionId = this.ViewerFallback_DistributionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,6 +221,25 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (cmdletContext.Ipv6Enabled != null)
             {
                 request.Ipv6Enabled = cmdletContext.Ipv6Enabled.Value;
+            }
+            
+             // populate ViewerFallback
+            var requestViewerFallbackIsNull = true;
+            request.ViewerFallback = new Amazon.CloudFront.Model.ViewerFallback();
+            System.String requestViewerFallback_viewerFallback_DistributionId = null;
+            if (cmdletContext.ViewerFallback_DistributionId != null)
+            {
+                requestViewerFallback_viewerFallback_DistributionId = cmdletContext.ViewerFallback_DistributionId;
+            }
+            if (requestViewerFallback_viewerFallback_DistributionId != null)
+            {
+                request.ViewerFallback.DistributionId = requestViewerFallback_viewerFallback_DistributionId;
+                requestViewerFallbackIsNull = false;
+            }
+             // determine if request.ViewerFallback should be set to null
+            if (requestViewerFallbackIsNull)
+            {
+                request.ViewerFallback = null;
             }
             
             CmdletOutput output;
@@ -270,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.String Id { get; set; }
             public System.String IfMatch { get; set; }
             public System.Boolean? Ipv6Enabled { get; set; }
+            public System.String ViewerFallback_DistributionId { get; set; }
             public System.Func<Amazon.CloudFront.Model.UpdateConnectionGroupResponse, UpdateCFConnectionGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConnectionGroup;
         }

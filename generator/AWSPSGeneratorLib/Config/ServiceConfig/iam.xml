@@ -709,6 +709,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOpenIDConnectProvider" Verb="Update" Noun="OpenIDConnectProvider" ShouldProcessTarget="OpenIDConnectProviderArn" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateOpenIDConnectProviderThumbprint" Verb="Update" Noun="OpenIDConnectProviderThumbprint" ShouldProcessTarget="OpenIDConnectProviderArn" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

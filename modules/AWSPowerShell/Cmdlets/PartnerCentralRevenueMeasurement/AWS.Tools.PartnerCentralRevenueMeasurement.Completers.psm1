@@ -82,8 +82,8 @@ $PCRM_Completers = {
     {
         # Amazon.PartnerCentralRevenueMeasurement.AllocationStatus
         {
-            ($_ -eq "Get-PCRMMarketplaceRevenueShareAllocationList/Status") -Or
             ($_ -eq "Update-PCRMMarketplaceRevenueShareAllocation/Status") -Or
+            ($_ -eq "Get-PCRMMarketplaceRevenueShareAllocationList/StatusFilter") -Or
             ($_ -eq "Get-PCRMRevenueAttributionAllocationList/StatusFilter")
         }
         {
@@ -113,6 +113,7 @@ $PCRM_Completers = {
             ($_ -eq "New-PCRMMarketplaceRevenueShareAllocation/Catalog") -Or
             ($_ -eq "New-PCRMRevenueAttribution/Catalog") -Or
             ($_ -eq "Start-PCRMRevenueAttributionAllocationsTask/Catalog") -Or
+            ($_ -eq "Update-PCRMMarketplaceRevenueShare/Catalog") -Or
             ($_ -eq "Update-PCRMMarketplaceRevenueShareAllocation/Catalog") -Or
             ($_ -eq "Update-PCRMRevenueAttribution/Catalog")
         }
@@ -170,11 +171,11 @@ $PCRM_Completers = {
 }
 
 $PCRM_map = @{
-    "Catalog"=@("Get-PCRMMarketplaceRevenueShare","Get-PCRMMarketplaceRevenueShareAllocation","Get-PCRMMarketplaceRevenueShareAllocationList","Get-PCRMMarketplaceRevenueShareList","Get-PCRMRevenueAttribution","Get-PCRMRevenueAttributionAllocation","Get-PCRMRevenueAttributionAllocationList","Get-PCRMRevenueAttributionAllocationsTask","Get-PCRMRevenueAttributionList","New-PCRMMarketplaceRevenueShare","New-PCRMMarketplaceRevenueShareAllocation","New-PCRMRevenueAttribution","Start-PCRMRevenueAttributionAllocationsTask","Update-PCRMMarketplaceRevenueShareAllocation","Update-PCRMRevenueAttribution")
+    "Catalog"=@("Get-PCRMMarketplaceRevenueShare","Get-PCRMMarketplaceRevenueShareAllocation","Get-PCRMMarketplaceRevenueShareAllocationList","Get-PCRMMarketplaceRevenueShareList","Get-PCRMRevenueAttribution","Get-PCRMRevenueAttributionAllocation","Get-PCRMRevenueAttributionAllocationList","Get-PCRMRevenueAttributionAllocationsTask","Get-PCRMRevenueAttributionList","New-PCRMMarketplaceRevenueShare","New-PCRMMarketplaceRevenueShareAllocation","New-PCRMRevenueAttribution","Start-PCRMRevenueAttributionAllocationsTask","Update-PCRMMarketplaceRevenueShare","Update-PCRMMarketplaceRevenueShareAllocation","Update-PCRMRevenueAttribution")
     "SortBy"=@("Get-PCRMMarketplaceRevenueShareAllocationList","Get-PCRMMarketplaceRevenueShareList","Get-PCRMRevenueAttributionAllocationList","Get-PCRMRevenueAttributionList")
     "SortOrder"=@("Get-PCRMMarketplaceRevenueShareAllocationList","Get-PCRMMarketplaceRevenueShareList","Get-PCRMRevenueAttributionAllocationList","Get-PCRMRevenueAttributionList")
-    "Status"=@("Get-PCRMMarketplaceRevenueShareAllocationList","Update-PCRMMarketplaceRevenueShareAllocation")
-    "StatusFilter"=@("Get-PCRMRevenueAttributionAllocationList")
+    "Status"=@("Update-PCRMMarketplaceRevenueShareAllocation")
+    "StatusFilter"=@("Get-PCRMMarketplaceRevenueShareAllocationList","Get-PCRMRevenueAttributionAllocationList")
     "TenancyModel"=@("New-PCRMRevenueAttribution")
 }
 
@@ -244,6 +245,7 @@ $PCRM_SelectMap = @{
                "Start-PCRMRevenueAttributionAllocationsTask",
                "Add-PCRMResourceTag",
                "Remove-PCRMResourceTag",
+               "Update-PCRMMarketplaceRevenueShare",
                "Update-PCRMMarketplaceRevenueShareAllocation",
                "Update-PCRMRevenueAttribution")
 }

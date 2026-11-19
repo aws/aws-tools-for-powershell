@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CECostAllocationTagBackfillHistoryList")]
     [OutputType("Amazon.CostExplorer.Model.CostAllocationTagBackfillRequest")]
-    [AWSCmdlet("Calls the AWS Cost Explorer ListCostAllocationTagBackfillHistory API operation.", Operation = new[] {"ListCostAllocationTagBackfillHistory"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostAllocationTagBackfillHistoryResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service ListCostAllocationTagBackfillHistory API operation.", Operation = new[] {"ListCostAllocationTagBackfillHistory"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostAllocationTagBackfillHistoryResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.CostAllocationTagBackfillRequest or Amazon.CostExplorer.Model.ListCostAllocationTagBackfillHistoryResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.CostAllocationTagBackfillRequest objects.",
         "The service call response (type Amazon.CostExplorer.Model.ListCostAllocationTagBackfillHistoryResponse) can be returned by specifying '-Select *'."
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.ListCostAllocationTagBackfillHistoryResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.ListCostAllocationTagBackfillHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "ListCostAllocationTagBackfillHistory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "ListCostAllocationTagBackfillHistory");
             try
             {
                 return client.ListCostAllocationTagBackfillHistoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

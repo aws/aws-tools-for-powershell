@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CERightsizingRecommendation")]
     [OutputType("Amazon.CostExplorer.Model.GetRightsizingRecommendationResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetRightsizingRecommendation API operation.", Operation = new[] {"GetRightsizingRecommendation"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetRightsizingRecommendationResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetRightsizingRecommendation API operation.", Operation = new[] {"GetRightsizingRecommendation"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetRightsizingRecommendationResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GetRightsizingRecommendationResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.GetRightsizingRecommendationResponse object containing multiple properties."
     )]
@@ -380,7 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetRightsizingRecommendationResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetRightsizingRecommendationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetRightsizingRecommendation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetRightsizingRecommendation");
             try
             {
                 return client.GetRightsizingRecommendationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

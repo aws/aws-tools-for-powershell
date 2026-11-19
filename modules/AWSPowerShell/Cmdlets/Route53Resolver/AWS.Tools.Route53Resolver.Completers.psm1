@@ -157,10 +157,17 @@ $R53R_Completers = {
             break
         }
 
+        # Amazon.Route53Resolver.FirewallDomainStatusFilter
+        "Get-R53RFirewallRuleDomainList/QueryOptions_DomainStatus"
+        {
+            $v = "ALLOWED","DENIED","OBSERVED"
+            break
+        }
+
         # Amazon.Route53Resolver.FirewallDomainUpdateOperation
         "Edit-R53RFirewallDomain/Operation"
         {
-            $v = "ADD","REMOVE","REPLACE"
+            $v = "ADD","DENY","REMOVE","REPLACE"
             break
         }
 
@@ -168,6 +175,20 @@ $R53R_Completers = {
         "Edit-R53RFirewallConfig/FirewallFailOpen"
         {
             $v = "DISABLED","ENABLED","USE_LOCAL_RESOURCE_SETTING"
+            break
+        }
+
+        # Amazon.Route53Resolver.FirewallRuleDomainSortBy
+        "Get-R53RFirewallRuleDomainList/QueryOptions_SortBy"
+        {
+            $v = "DAILY_TOTAL","TIME_ADDED","TOTAL_REQUESTS"
+            break
+        }
+
+        # Amazon.Route53Resolver.FirewallRuleDomainSortOrder
+        "Get-R53RFirewallRuleDomainList/QueryOptions_SortOrder"
+        {
+            $v = "ASC","DESC"
             break
         }
 
@@ -250,6 +271,9 @@ $R53R_map = @{
     "FirewallRuleType_DnsThreatProtection_ConfidenceThreshold"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "MutationProtection"=@("Edit-R53RFirewallRuleGroupAssociation","New-R53RFirewallRuleGroupAssociation")
     "Operation"=@("Edit-R53RFirewallDomain","Import-R53RFirewallDomainList")
+    "QueryOptions_DomainStatus"=@("Get-R53RFirewallRuleDomainList")
+    "QueryOptions_SortBy"=@("Get-R53RFirewallRuleDomainList")
+    "QueryOptions_SortOrder"=@("Get-R53RFirewallRuleDomainList")
     "ResolverEndpointType"=@("New-R53RResolverEndpoint","Update-R53RResolverEndpoint")
     "RuleType"=@("New-R53RResolverRule")
     "SortOrder"=@("Get-R53RResolverQueryLogConfigAssociationList","Get-R53RResolverQueryLogConfigList")
@@ -351,6 +375,7 @@ $R53R_SelectMap = @{
                "Get-R53RFirewallConfigList",
                "Get-R53RFirewallDomainListList",
                "Get-R53RFirewallDomain",
+               "Get-R53RFirewallRuleDomainList",
                "Get-R53RFirewallRuleGroupAssociationList",
                "Get-R53RFirewallRuleGroupList",
                "Get-R53RFirewallRuleList",

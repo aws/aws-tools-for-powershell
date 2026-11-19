@@ -75,6 +75,37 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Marketplace Deployment Service
 
 
+$MD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MarketplaceDeployment.DeliveryOptionType
+        {
+            ($_ -eq "Get-MDDeploymentConfiguration/DeliveryOptionType") -Or
+            ($_ -eq "Get-MDDeploymentConfigurationJob/DeliveryOptionType") -Or
+            ($_ -eq "Get-MDDeploymentConfigurationJobList/DeliveryOptionType") -Or
+            ($_ -eq "Start-MDDeploymentConfigurationJob/DeliveryOptionType")
+        }
+        {
+            $v = "data-as-a-service"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MD_map = @{
+    "DeliveryOptionType"=@("Get-MDDeploymentConfiguration","Get-MDDeploymentConfigurationJob","Get-MDDeploymentConfigurationJobList","Start-MDDeploymentConfigurationJob")
+}
+
+_awsArgumentCompleterRegistration $MD_Completers $MD_map
+
 $MD_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,8 +154,12 @@ $MD_SelectCompleters = {
 }
 
 $MD_SelectMap = @{
-    "Select"=@("Get-MDResourceTag",
+    "Select"=@("Get-MDDeploymentConfiguration",
+               "Get-MDDeploymentConfigurationJob",
+               "Get-MDDeploymentConfigurationJobList",
+               "Get-MDResourceTag",
                "Write-MDDeploymentParameter",
+               "Start-MDDeploymentConfigurationJob",
                "Add-MDResourceTag",
                "Remove-MDResourceTag")
 }

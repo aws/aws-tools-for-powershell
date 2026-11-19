@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Update", "MSKRebalancing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.UpdateRebalancingResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) UpdateRebalancing API operation.", Operation = new[] {"UpdateRebalancing"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateRebalancingResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka UpdateRebalancing API operation.", Operation = new[] {"UpdateRebalancing"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateRebalancingResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.UpdateRebalancingResponse",
         "This cmdlet returns an Amazon.Kafka.Model.UpdateRebalancingResponse object containing multiple properties."
     )]
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.UpdateRebalancingResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.UpdateRebalancingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "UpdateRebalancing");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "UpdateRebalancing");
             try
             {
                 return client.UpdateRebalancingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

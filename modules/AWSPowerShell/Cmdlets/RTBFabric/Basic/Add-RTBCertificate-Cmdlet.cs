@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Add", "RTBCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RTBFabric.Model.AssociateCertificateResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric AssociateCertificate API operation.", Operation = new[] {"AssociateCertificate"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.AssociateCertificateResponse))]
+    [AWSCmdlet("Calls the RTBFabric AssociateCertificate API operation.", Operation = new[] {"AssociateCertificate"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.AssociateCertificateResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.AssociateCertificateResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.AssociateCertificateResponse object containing multiple properties."
     )]
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.AssociateCertificateResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.AssociateCertificateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "AssociateCertificate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "AssociateCertificate");
             try
             {
                 return client.AssociateCertificateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

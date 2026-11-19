@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Update", "RTBResponderGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RTBFabric.Model.UpdateResponderGatewayResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric UpdateResponderGateway API operation.", Operation = new[] {"UpdateResponderGateway"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.UpdateResponderGatewayResponse))]
+    [AWSCmdlet("Calls the RTBFabric UpdateResponderGateway API operation.", Operation = new[] {"UpdateResponderGateway"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.UpdateResponderGatewayResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.UpdateResponderGatewayResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.UpdateResponderGatewayResponse object containing multiple properties."
     )]
@@ -806,7 +806,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.UpdateResponderGatewayResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.UpdateResponderGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "UpdateResponderGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "UpdateResponderGateway");
             try
             {
                 return client.UpdateResponderGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

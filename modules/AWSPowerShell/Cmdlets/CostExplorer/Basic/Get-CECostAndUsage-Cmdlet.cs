@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CECostAndUsage")]
     [OutputType("Amazon.CostExplorer.Model.GetCostAndUsageResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetCostAndUsage API operation.", Operation = new[] {"GetCostAndUsage"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetCostAndUsageResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetCostAndUsage API operation.", Operation = new[] {"GetCostAndUsage"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetCostAndUsageResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GetCostAndUsageResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.GetCostAndUsageResponse object containing multiple properties."
     )]
@@ -143,8 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>Which metrics are returned in the query. For more information about blended and unblended
         /// rates, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
         /// does the "blended" annotation appear on some line items in my bill?</a>. </para><para>Valid values are <c>AmortizedCost</c>, <c>BlendedCost</c>, <c>NetAmortizedCost</c>,
-        /// <c>NetUnblendedCost</c>, <c>NormalizedUsageAmount</c>, <c>UnblendedCost</c>, and <c>UsageQuantity</c>.
-        /// </para><note><para>If you return the <c>UsageQuantity</c> metric, the service aggregates all usage numbers
+        /// <c>NetUnblendedCost</c>, <c>NormalizedUsageAmount</c>, <c>UnblendedCost</c>, <c>UsageQuantity</c>,
+        /// <c>BilledCost</c>, <c>ContractedCost</c>, <c>ListCost</c>, <c>PublicEquivalentBilledCost</c>,
+        /// and <c>PublicOnDemandCost</c>. </para><para><c>BilledCost</c>, <c>ContractedCost</c>, <c>ListCost</c>, <c>PublicEquivalentBilledCost</c>,
+        /// and <c>PublicOnDemandCost</c> are cost analytics metrics. They use the same definitions
+        /// as the cost analytics columns in Cost and Usage Report (CUR) 2.0.</para><note><para>If you return the <c>UsageQuantity</c> metric, the service aggregates all usage numbers
         /// without taking into account the units. For example, if you aggregate <c>usageQuantity</c>
         /// across all of Amazon EC2, the results aren't meaningful because Amazon EC2 compute
         /// hours and data transfer are measured in different units (for example, hours and GB).
@@ -439,7 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetCostAndUsageResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetCostAndUsageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetCostAndUsage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetCostAndUsage");
             try
             {
                 return client.GetCostAndUsageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

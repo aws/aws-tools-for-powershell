@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Register", "MSKAssociateScramSecret", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.BatchAssociateScramSecretResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) BatchAssociateScramSecret API operation.", Operation = new[] {"BatchAssociateScramSecret"}, SelectReturnType = typeof(Amazon.Kafka.Model.BatchAssociateScramSecretResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka BatchAssociateScramSecret API operation.", Operation = new[] {"BatchAssociateScramSecret"}, SelectReturnType = typeof(Amazon.Kafka.Model.BatchAssociateScramSecretResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.BatchAssociateScramSecretResponse",
         "This cmdlet returns an Amazon.Kafka.Model.BatchAssociateScramSecretResponse object containing multiple properties."
     )]
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.BatchAssociateScramSecretResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.BatchAssociateScramSecretRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "BatchAssociateScramSecret");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "BatchAssociateScramSecret");
             try
             {
                 return client.BatchAssociateScramSecretAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

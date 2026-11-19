@@ -78,21 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         public System.String MarketplaceRevenueShareAllocationId { get; set; }
         #endregion
         
-        #region Parameter MarketplaceRevenueShareRevision
+        #region Parameter MarketplaceRevenueShareIdentifier
         /// <summary>
         /// <para>
-        /// <para>The revision of the parent marketplace revenue share at which to retrieve the allocation.
-        /// Omit to return the latest.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String MarketplaceRevenueShareRevision { get; set; }
-        #endregion
-        
-        #region Parameter ProductId
-        /// <summary>
-        /// <para>
-        /// <para>The AWS Marketplace product identifier of the parent revenue share.</para>
+        /// <para>The parent marketplace revenue share, by ID (mrs-...) or ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,7 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProductId { get; set; }
+        public System.String MarketplaceRevenueShareIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter MarketplaceRevenueShareRevision
+        /// <summary>
+        /// <para>
+        /// <para>The revision of the parent marketplace revenue share at which to retrieve the allocation.
+        /// Omit to return the latest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MarketplaceRevenueShareRevision { get; set; }
         #endregion
         
         #region Parameter Select
@@ -150,14 +150,14 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
                 WriteWarning("You are passing $null as a value for parameter MarketplaceRevenueShareAllocationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MarketplaceRevenueShareRevision = this.MarketplaceRevenueShareRevision;
-            context.ProductId = this.ProductId;
+            context.MarketplaceRevenueShareIdentifier = this.MarketplaceRevenueShareIdentifier;
             #if MODULAR
-            if (this.ProductId == null && ParameterWasBound(nameof(this.ProductId)))
+            if (this.MarketplaceRevenueShareIdentifier == null && ParameterWasBound(nameof(this.MarketplaceRevenueShareIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ProductId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MarketplaceRevenueShareIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MarketplaceRevenueShareRevision = this.MarketplaceRevenueShareRevision;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,13 +182,13 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             {
                 request.MarketplaceRevenueShareAllocationId = cmdletContext.MarketplaceRevenueShareAllocationId;
             }
+            if (cmdletContext.MarketplaceRevenueShareIdentifier != null)
+            {
+                request.MarketplaceRevenueShareIdentifier = cmdletContext.MarketplaceRevenueShareIdentifier;
+            }
             if (cmdletContext.MarketplaceRevenueShareRevision != null)
             {
                 request.MarketplaceRevenueShareRevision = cmdletContext.MarketplaceRevenueShareRevision;
-            }
-            if (cmdletContext.ProductId != null)
-            {
-                request.ProductId = cmdletContext.ProductId;
             }
             
             CmdletOutput output;
@@ -247,8 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         {
             public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
             public System.String MarketplaceRevenueShareAllocationId { get; set; }
+            public System.String MarketplaceRevenueShareIdentifier { get; set; }
             public System.String MarketplaceRevenueShareRevision { get; set; }
-            public System.String ProductId { get; set; }
             public System.Func<Amazon.PartnerCentralRevenueMeasurement.Model.GetMarketplaceRevenueShareAllocationResponse, GetPCRMMarketplaceRevenueShareAllocationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Deny", "MSKClientVpcConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) RejectClientVpcConnection API operation.", Operation = new[] {"RejectClientVpcConnection"}, SelectReturnType = typeof(Amazon.Kafka.Model.RejectClientVpcConnectionResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka RejectClientVpcConnection API operation.", Operation = new[] {"RejectClientVpcConnection"}, SelectReturnType = typeof(Amazon.Kafka.Model.RejectClientVpcConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.Kafka.Model.RejectClientVpcConnectionResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Kafka.Model.RejectClientVpcConnectionResponse) be returned by specifying '-Select *'."
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.RejectClientVpcConnectionResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.RejectClientVpcConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "RejectClientVpcConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "RejectClientVpcConnection");
             try
             {
                 return client.RejectClientVpcConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

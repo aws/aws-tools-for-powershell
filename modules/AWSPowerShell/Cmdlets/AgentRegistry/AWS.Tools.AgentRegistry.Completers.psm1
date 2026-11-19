@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Agent Registry
 
 
+$AGRG_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AgentRegistry.SearchType
+        "Search-AGRGDiscoverableRegistryRecord/SearchType"
+        {
+            $v = "HYBRID","KEYWORD","SEMANTIC"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AGRG_map = @{
+    "SearchType"=@("Search-AGRGDiscoverableRegistryRecord")
+}
+
+_awsArgumentCompleterRegistration $AGRG_Completers $AGRG_map
+
 $AGRG_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

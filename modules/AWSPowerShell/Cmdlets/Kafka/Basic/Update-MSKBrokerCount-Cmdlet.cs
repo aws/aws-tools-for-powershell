@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Update", "MSKBrokerCount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.UpdateBrokerCountResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) UpdateBrokerCount API operation.", Operation = new[] {"UpdateBrokerCount"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateBrokerCountResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka UpdateBrokerCount API operation.", Operation = new[] {"UpdateBrokerCount"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateBrokerCountResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.UpdateBrokerCountResponse",
         "This cmdlet returns an Amazon.Kafka.Model.UpdateBrokerCountResponse object containing multiple properties."
     )]
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.UpdateBrokerCountResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.UpdateBrokerCountRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "UpdateBrokerCount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "UpdateBrokerCount");
             try
             {
                 return client.UpdateBrokerCountAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

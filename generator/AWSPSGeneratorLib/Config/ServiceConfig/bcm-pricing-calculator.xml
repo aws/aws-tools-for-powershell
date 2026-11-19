@@ -5,7 +5,7 @@
     <C2jFilename>bcm-pricing-calculator</C2jFilename>
     <AssemblyName>BCMPricingCalculator</AssemblyName>
     <ServiceNounPrefix>BCMPC</ServiceNounPrefix>
-    <ServiceName>AWS Pricing Calculator</ServiceName>
+    <ServiceName>AWS Billing and Cost Management Pricing Calculator</ServiceName>
     <ServiceId>BCM Pricing Calculator</ServiceId>
     <ServiceClientInterface>IAmazonBCMPricingCalculator</ServiceClientInterface>
     <ServiceClient>AmazonBCMPricingCalculatorClient</ServiceClient>
@@ -88,6 +88,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPreferences" OutputProperty="*" Verb="Get" Noun="Preference" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUsageLinesEstimatedCost" OutputProperty="*" Verb="Get" Noun="UsageLinesEstimatedCost" PipelineParameter="RateType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

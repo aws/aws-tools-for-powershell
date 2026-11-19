@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter EngagementIdentifier
         /// <summary>
         /// <para>
-        /// <para> Retrieves a list of engagement invitation summaries based on specified filters. The
+        /// <para>Retrieves a list of engagement invitation summaries based on specified filters. The
         /// ListEngagementInvitations operation allows you to view all invitations that you have
         /// sent or received. You must specify the ParticipantType to filter invitations where
         /// you are either the SENDER or the RECEIVER. Invitations will automatically expire if
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter SenderAwsAccountId
         /// <summary>
         /// <para>
-        /// <para> List of sender AWS account IDs to filter the invitations. </para><para />
+        /// <para>List of sender AWS account IDs to filter the invitations.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

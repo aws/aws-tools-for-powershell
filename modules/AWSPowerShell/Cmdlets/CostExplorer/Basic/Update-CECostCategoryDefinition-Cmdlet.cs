@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Update", "CECostCategoryDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CostExplorer.Model.UpdateCostCategoryDefinitionResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer UpdateCostCategoryDefinition API operation.", Operation = new[] {"UpdateCostCategoryDefinition"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.UpdateCostCategoryDefinitionResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service UpdateCostCategoryDefinition API operation.", Operation = new[] {"UpdateCostCategoryDefinition"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.UpdateCostCategoryDefinitionResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.UpdateCostCategoryDefinitionResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.UpdateCostCategoryDefinitionResponse object containing multiple properties."
     )]
@@ -294,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.UpdateCostCategoryDefinitionResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.UpdateCostCategoryDefinitionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "UpdateCostCategoryDefinition");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "UpdateCostCategoryDefinition");
             try
             {
                 return client.UpdateCostCategoryDefinitionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

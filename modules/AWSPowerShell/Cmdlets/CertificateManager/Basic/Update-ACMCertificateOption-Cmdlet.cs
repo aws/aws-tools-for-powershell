@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para>This parameter has been deprecated. Certificate transparency logging opt-out is no
-        /// longer available. All public certificates are recorded in a certificate transparency
-        /// log.</para>
+        /// longer available. ACM records all public certificates other than Amazon N2 certificates
+        /// in a certificate transparency log.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

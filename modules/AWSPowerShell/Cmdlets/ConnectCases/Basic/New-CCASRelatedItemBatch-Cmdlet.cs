@@ -168,7 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter Content_Sla_SlaInputConfiguration_FieldId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of a field.</para>
+        /// <para>Unique identifier of the case field that the SLA tracks. The field must be a single-select
+        /// field, such as the system <c>status</c> field or a custom single-select field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

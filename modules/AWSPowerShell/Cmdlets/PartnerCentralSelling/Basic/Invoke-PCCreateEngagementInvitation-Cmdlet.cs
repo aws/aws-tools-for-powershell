@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Invitation_Payload_AccountPlanningInvitation_AccountIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the customer account that the plan concerns, as an Amazon Resource
+        /// Name (ARN) or a customer account identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Invitation_Payload_AccountPlanningInvitation_AccountIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Account_Alias
         /// <summary>
         /// <para>
@@ -96,9 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog related to the engagement. Accepted values are <c>AWS</c> and
-        /// <c>Sandbox</c>, which determine the environment in which the engagement is managed.
-        /// </para>
+        /// <para>Specifies the catalog related to the engagement. Accepted values are <c>AWS</c> and
+        /// <c>Sandbox</c>, which determine the environment in which the engagement is managed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,6 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Catalog { get; set; }
+        #endregion
+        
+        #region Parameter Invitation_Payload_AccountPlanningInvitation_Customer_CompanyName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the customer company.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Invitation_Payload_AccountPlanningInvitation_Customer_CompanyName { get; set; }
         #endregion
         
         #region Parameter LeadInvitation_Customer_CompanyName
@@ -149,6 +169,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Interaction_ContactBusinessTitle { get; set; }
         #endregion
         
+        #region Parameter Invitation_Payload_AccountPlanningInvitation_Customer_CountryCode
+        /// <summary>
+        /// <para>
+        /// <para>The country of the customer company, as an ISO 3166-1 alpha-2 country code.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.CountryCode")]
+        public Amazon.PartnerCentralSelling.CountryCode Invitation_Payload_AccountPlanningInvitation_Customer_CountryCode { get; set; }
+        #endregion
+        
         #region Parameter LeadInvitation_Customer_CountryCode
         /// <summary>
         /// <para>
@@ -178,9 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter EngagementIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the <c>Engagement</c> associated with the invitation. This
-        /// parameter ensures the invitation is created within the correct <c>Engagement</c> context.
-        /// </para>
+        /// <para>The unique identifier of the <c>Engagement</c> associated with the invitation. This
+        /// parameter ensures the invitation is created within the correct <c>Engagement</c> context.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -209,6 +239,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Invitation_Payload_OpportunityInvitation_Project_ExpectedCustomerSpend")]
         public Amazon.PartnerCentralSelling.Model.ExpectedCustomerSpend[] Project_ExpectedCustomerSpend { get; set; }
+        #endregion
+        
+        #region Parameter Invitation_Payload_AccountPlanningInvitation_Customer_Industry
+        /// <summary>
+        /// <para>
+        /// <para>The industry classification of the customer company.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Invitation_Payload_AccountPlanningInvitation_Customer_Industry { get; set; }
         #endregion
         
         #region Parameter LeadInvitation_Customer_Industry
@@ -253,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Invitation_Message
         /// <summary>
         /// <para>
-        /// <para> A message accompanying the invitation. </para>
+        /// <para>A message accompanying the invitation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -265,6 +305,22 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Invitation_Message { get; set; }
+        #endregion
+        
+        #region Parameter Invitation_Payload_OpportunityInvitation_OpportunityType
+        /// <summary>
+        /// <para>
+        /// <para>The type of the opportunity being shared. The sender of the invitation sets it. Valid
+        /// values:</para><ul><li><para><c>Net New Business</c>: A new business opportunity with a potential customer that's
+        /// not previously engaged with your solutions or services.</para></li><li><para><c>Flat Renewal</c>: An opportunity to renew an existing contract or subscription
+        /// with a current customer, ensuring continuity of service.</para></li><li><para><c>Expansion</c>: An opportunity to expand the scope of an existing contract or subscription,
+        /// either by adding new services or increasing the volume of existing services for a
+        /// current customer.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.OpportunityType")]
+        public Amazon.PartnerCentralSelling.OpportunityType Invitation_Payload_OpportunityInvitation_OpportunityType { get; set; }
         #endregion
         
         #region Parameter OpportunityInvitation_ReceiverResponsibility
@@ -282,6 +338,22 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Invitation_Payload_OpportunityInvitation_ReceiverResponsibilities")]
         public System.String[] OpportunityInvitation_ReceiverResponsibility { get; set; }
+        #endregion
+        
+        #region Parameter Invitation_Payload_AccountPlanningInvitation_SenderContact
+        /// <summary>
+        /// <para>
+        /// <para>The sender's contact information for this account plan.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Invitation_Payload_AccountPlanningInvitation_SenderContacts")]
+        public Amazon.PartnerCentralSelling.Model.SenderContact[] Invitation_Payload_AccountPlanningInvitation_SenderContact { get; set; }
         #endregion
         
         #region Parameter OpportunityInvitation_SenderContact
@@ -352,6 +424,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Project_TargetCompletionDate { get; set; }
         #endregion
         
+        #region Parameter Invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone
+        /// <summary>
+        /// <para>
+        /// <para>The IANA time zone name that the window is expressed in, for example <c>America/Chicago</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone { get; set; }
+        #endregion
+        
         #region Parameter Project_Title
         /// <summary>
         /// <para>
@@ -375,6 +457,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Invitation_Payload_LeadInvitation_Interaction_Usecase")]
         public System.String Interaction_Usecase { get; set; }
+        #endregion
+        
+        #region Parameter Invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl
+        /// <summary>
+        /// <para>
+        /// <para>The website URL of the customer company.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl { get; set; }
         #endregion
         
         #region Parameter LeadInvitation_Customer_WebsiteUrl
@@ -402,11 +494,22 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Invitation_Payload_OpportunityInvitation_Customer_WebsiteUrl { get; set; }
         #endregion
         
+        #region Parameter Invitation_Payload_AccountPlanningInvitation_PreferredContact_Window
+        /// <summary>
+        /// <para>
+        /// <para>The preferred time-of-day band for contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.ContactWindow")]
+        public Amazon.PartnerCentralSelling.ContactWindow Invitation_Payload_AccountPlanningInvitation_PreferredContact_Window { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> Specifies a unique, client-generated UUID to ensure that the request is handled exactly
-        /// once. This token helps prevent duplicate invitation creations. </para>
+        /// <para>Specifies a unique, client-generated UUID to ensure that the request is handled exactly
+        /// once. This token helps prevent duplicate invitation creations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -481,6 +584,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter Invitation_Message which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Invitation_Payload_AccountPlanningInvitation_AccountIdentifier = this.Invitation_Payload_AccountPlanningInvitation_AccountIdentifier;
+            context.Invitation_Payload_AccountPlanningInvitation_Customer_CompanyName = this.Invitation_Payload_AccountPlanningInvitation_Customer_CompanyName;
+            context.Invitation_Payload_AccountPlanningInvitation_Customer_CountryCode = this.Invitation_Payload_AccountPlanningInvitation_Customer_CountryCode;
+            context.Invitation_Payload_AccountPlanningInvitation_Customer_Industry = this.Invitation_Payload_AccountPlanningInvitation_Customer_Industry;
+            context.Invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl = this.Invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl;
+            context.Invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone = this.Invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone;
+            context.Invitation_Payload_AccountPlanningInvitation_PreferredContact_Window = this.Invitation_Payload_AccountPlanningInvitation_PreferredContact_Window;
+            if (this.Invitation_Payload_AccountPlanningInvitation_SenderContact != null)
+            {
+                context.Invitation_Payload_AccountPlanningInvitation_SenderContact = new List<Amazon.PartnerCentralSelling.Model.SenderContact>(this.Invitation_Payload_AccountPlanningInvitation_SenderContact);
+            }
             context.Customer_AwsMaturity = this.Customer_AwsMaturity;
             context.LeadInvitation_Customer_CompanyName = this.LeadInvitation_Customer_CompanyName;
             context.LeadInvitation_Customer_CountryCode = this.LeadInvitation_Customer_CountryCode;
@@ -496,6 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             context.Invitation_Payload_OpportunityInvitation_Customer_CountryCode = this.Invitation_Payload_OpportunityInvitation_Customer_CountryCode;
             context.Invitation_Payload_OpportunityInvitation_Customer_Industry = this.Invitation_Payload_OpportunityInvitation_Customer_Industry;
             context.Invitation_Payload_OpportunityInvitation_Customer_WebsiteUrl = this.Invitation_Payload_OpportunityInvitation_Customer_WebsiteUrl;
+            context.Invitation_Payload_OpportunityInvitation_OpportunityType = this.Invitation_Payload_OpportunityInvitation_OpportunityType;
             context.Project_BusinessProblem = this.Project_BusinessProblem;
             if (this.Project_ExpectedCustomerSpend != null)
             {
@@ -765,11 +880,146 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 requestInvitation_invitation_Payload.LeadInvitation = requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation;
                 requestInvitation_invitation_PayloadIsNull = false;
             }
+            Amazon.PartnerCentralSelling.Model.AccountPlanningInvitationPayload requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation = null;
+            
+             // populate AccountPlanningInvitation
+            var requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitationIsNull = true;
+            requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation = new Amazon.PartnerCentralSelling.Model.AccountPlanningInvitationPayload();
+            System.String requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_AccountIdentifier = null;
+            if (cmdletContext.Invitation_Payload_AccountPlanningInvitation_AccountIdentifier != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_AccountIdentifier = cmdletContext.Invitation_Payload_AccountPlanningInvitation_AccountIdentifier;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_AccountIdentifier != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation.AccountIdentifier = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_AccountIdentifier;
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitationIsNull = false;
+            }
+            List<Amazon.PartnerCentralSelling.Model.SenderContact> requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_SenderContact = null;
+            if (cmdletContext.Invitation_Payload_AccountPlanningInvitation_SenderContact != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_SenderContact = cmdletContext.Invitation_Payload_AccountPlanningInvitation_SenderContact;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_SenderContact != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation.SenderContacts = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_SenderContact;
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitationIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.Model.PreferredContactWindow requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact = null;
+            
+             // populate PreferredContact
+            var requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContactIsNull = true;
+            requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact = new Amazon.PartnerCentralSelling.Model.PreferredContactWindow();
+            System.String requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact_invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone = null;
+            if (cmdletContext.Invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact_invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone = cmdletContext.Invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact_invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact.Timezone = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact_invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone;
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContactIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.ContactWindow requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact_invitation_Payload_AccountPlanningInvitation_PreferredContact_Window = null;
+            if (cmdletContext.Invitation_Payload_AccountPlanningInvitation_PreferredContact_Window != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact_invitation_Payload_AccountPlanningInvitation_PreferredContact_Window = cmdletContext.Invitation_Payload_AccountPlanningInvitation_PreferredContact_Window;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact_invitation_Payload_AccountPlanningInvitation_PreferredContact_Window != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact.Window = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact_invitation_Payload_AccountPlanningInvitation_PreferredContact_Window;
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContactIsNull = false;
+            }
+             // determine if requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact should be set to null
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContactIsNull)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact = null;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation.PreferredContact = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_PreferredContact;
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitationIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.Model.AccountCustomer requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer = null;
+            
+             // populate Customer
+            var requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_CustomerIsNull = true;
+            requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer = new Amazon.PartnerCentralSelling.Model.AccountCustomer();
+            System.String requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_CompanyName = null;
+            if (cmdletContext.Invitation_Payload_AccountPlanningInvitation_Customer_CompanyName != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_CompanyName = cmdletContext.Invitation_Payload_AccountPlanningInvitation_Customer_CompanyName;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_CompanyName != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer.CompanyName = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_CompanyName;
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_CustomerIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.CountryCode requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_CountryCode = null;
+            if (cmdletContext.Invitation_Payload_AccountPlanningInvitation_Customer_CountryCode != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_CountryCode = cmdletContext.Invitation_Payload_AccountPlanningInvitation_Customer_CountryCode;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_CountryCode != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer.CountryCode = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_CountryCode;
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_CustomerIsNull = false;
+            }
+            System.String requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_Industry = null;
+            if (cmdletContext.Invitation_Payload_AccountPlanningInvitation_Customer_Industry != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_Industry = cmdletContext.Invitation_Payload_AccountPlanningInvitation_Customer_Industry;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_Industry != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer.Industry = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_Industry;
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_CustomerIsNull = false;
+            }
+            System.String requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl = null;
+            if (cmdletContext.Invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl = cmdletContext.Invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer.WebsiteUrl = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer_invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl;
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_CustomerIsNull = false;
+            }
+             // determine if requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer should be set to null
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_CustomerIsNull)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer = null;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation.Customer = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation_invitation_Payload_AccountPlanningInvitation_Customer;
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitationIsNull = false;
+            }
+             // determine if requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation should be set to null
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitationIsNull)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation = null;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation != null)
+            {
+                requestInvitation_invitation_Payload.AccountPlanningInvitation = requestInvitation_invitation_Payload_invitation_Payload_AccountPlanningInvitation;
+                requestInvitation_invitation_PayloadIsNull = false;
+            }
             Amazon.PartnerCentralSelling.Model.OpportunityInvitationPayload requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation = null;
             
              // populate OpportunityInvitation
             var requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitationIsNull = true;
             requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation = new Amazon.PartnerCentralSelling.Model.OpportunityInvitationPayload();
+            Amazon.PartnerCentralSelling.OpportunityType requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation_invitation_Payload_OpportunityInvitation_OpportunityType = null;
+            if (cmdletContext.Invitation_Payload_OpportunityInvitation_OpportunityType != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation_invitation_Payload_OpportunityInvitation_OpportunityType = cmdletContext.Invitation_Payload_OpportunityInvitation_OpportunityType;
+            }
+            if (requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation_invitation_Payload_OpportunityInvitation_OpportunityType != null)
+            {
+                requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation.OpportunityType = requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation_invitation_Payload_OpportunityInvitation_OpportunityType;
+                requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitationIsNull = false;
+            }
             List<System.String> requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation_opportunityInvitation_ReceiverResponsibility = null;
             if (cmdletContext.OpportunityInvitation_ReceiverResponsibility != null)
             {
@@ -984,6 +1234,14 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String ClientToken { get; set; }
             public System.String EngagementIdentifier { get; set; }
             public System.String Invitation_Message { get; set; }
+            public System.String Invitation_Payload_AccountPlanningInvitation_AccountIdentifier { get; set; }
+            public System.String Invitation_Payload_AccountPlanningInvitation_Customer_CompanyName { get; set; }
+            public Amazon.PartnerCentralSelling.CountryCode Invitation_Payload_AccountPlanningInvitation_Customer_CountryCode { get; set; }
+            public System.String Invitation_Payload_AccountPlanningInvitation_Customer_Industry { get; set; }
+            public System.String Invitation_Payload_AccountPlanningInvitation_Customer_WebsiteUrl { get; set; }
+            public System.String Invitation_Payload_AccountPlanningInvitation_PreferredContact_Timezone { get; set; }
+            public Amazon.PartnerCentralSelling.ContactWindow Invitation_Payload_AccountPlanningInvitation_PreferredContact_Window { get; set; }
+            public List<Amazon.PartnerCentralSelling.Model.SenderContact> Invitation_Payload_AccountPlanningInvitation_SenderContact { get; set; }
             public System.String Customer_AwsMaturity { get; set; }
             public System.String LeadInvitation_Customer_CompanyName { get; set; }
             public System.String LeadInvitation_Customer_CountryCode { get; set; }
@@ -999,6 +1257,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public Amazon.PartnerCentralSelling.CountryCode Invitation_Payload_OpportunityInvitation_Customer_CountryCode { get; set; }
             public Amazon.PartnerCentralSelling.Industry Invitation_Payload_OpportunityInvitation_Customer_Industry { get; set; }
             public System.String Invitation_Payload_OpportunityInvitation_Customer_WebsiteUrl { get; set; }
+            public Amazon.PartnerCentralSelling.OpportunityType Invitation_Payload_OpportunityInvitation_OpportunityType { get; set; }
             public System.String Project_BusinessProblem { get; set; }
             public List<Amazon.PartnerCentralSelling.Model.ExpectedCustomerSpend> Project_ExpectedCustomerSpend { get; set; }
             public System.String Project_TargetCompletionDate { get; set; }

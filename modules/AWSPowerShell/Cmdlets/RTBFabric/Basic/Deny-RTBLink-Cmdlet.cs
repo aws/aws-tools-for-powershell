@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Deny", "RTBLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RTBFabric.Model.RejectLinkResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric RejectLink API operation.", Operation = new[] {"RejectLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.RejectLinkResponse))]
+    [AWSCmdlet("Calls the RTBFabric RejectLink API operation.", Operation = new[] {"RejectLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.RejectLinkResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.RejectLinkResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.RejectLinkResponse object containing multiple properties."
     )]
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.RejectLinkResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.RejectLinkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "RejectLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "RejectLink");
             try
             {
                 return client.RejectLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

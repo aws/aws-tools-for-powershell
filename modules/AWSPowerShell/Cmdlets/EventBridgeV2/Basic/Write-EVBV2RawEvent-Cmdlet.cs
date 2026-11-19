@@ -31,6 +31,16 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
 {
     /// <summary>
     /// Publishes pre-shaped events to an event bus.
+    /// 
+    ///  
+    /// <para>
+    /// The total size of all event entries in a request must not exceed 1 MB (1,048,576 bytes),
+    /// including the <c>Data</c> payload and the keys and values of <c>Metadata</c> for each
+    /// entry. The limit applies to the request as a whole, not to individual entries.
+    /// </para><para>
+    /// If you exceed the limit, the request fails with <c>InvalidInputException</c>, and
+    /// the service doesn't publish any of the entries in the request.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "EVBV2RawEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EventBridgeV2.Model.PutRawEventsResponse")]
@@ -47,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter SchemaRegistryConfiguration_ConfluentPublicRegistryConfiguration_ConnectionArn
         /// <summary>
         /// <para>
-        /// EventBridge Connection ARN that provides
-        /// API Key or OAuth credentials for the registry.
+        /// <para>EventBridge Connection ARN that provides API Key or OAuth credentials for the registry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter DeduplicationConfiguration_DeduplicationType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>How duplicate events are detected: by a hash of the event content (CONTENT_BASED).
+        /// To deduplicate by a caller-supplied token instead, omit DeduplicationConfiguration
+        /// and set DeduplicationId on each entry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Entry
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>List of event entries to publish. Must contain at least one entry.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -92,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter EventBusArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies an event bus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,8 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter SchemaRegistryConfiguration_RegistryUri
         /// <summary>
         /// <para>
-        /// Glue Schema Registry ARN, or Confluent Cloud
-        /// HTTPS URL.
+        /// <para>Glue Schema Registry ARN, or Confluent Cloud HTTPS URL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

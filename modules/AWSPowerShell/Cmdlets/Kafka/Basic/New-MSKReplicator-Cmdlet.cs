@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("New", "MSKReplicator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.CreateReplicatorResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) CreateReplicator API operation.", Operation = new[] {"CreateReplicator"}, SelectReturnType = typeof(Amazon.Kafka.Model.CreateReplicatorResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka CreateReplicator API operation.", Operation = new[] {"CreateReplicator"}, SelectReturnType = typeof(Amazon.Kafka.Model.CreateReplicatorResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.CreateReplicatorResponse",
         "This cmdlet returns an Amazon.Kafka.Model.CreateReplicatorResponse object containing multiple properties."
     )]
@@ -531,7 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.CreateReplicatorResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.CreateReplicatorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "CreateReplicator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "CreateReplicator");
             try
             {
                 return client.CreateReplicatorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

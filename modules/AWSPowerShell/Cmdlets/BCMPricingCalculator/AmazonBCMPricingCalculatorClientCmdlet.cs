@@ -28,7 +28,7 @@ using Amazon.BCMPricingCalculator.Model;
 
 namespace Amazon.PowerShell.Cmdlets.BCMPC
 {
-    [AWSClientCmdlet("AWS Pricing Calculator", "BCMPC", "2024-06-19", "BCMPricingCalculator")]
+    [AWSClientCmdlet("AWS Billing and Cost Management Pricing Calculator", "BCMPC", "2024-06-19", "BCMPricingCalculator")]
     public abstract partial class AmazonBCMPricingCalculatorClientCmdlet : ServiceCmdlet
     {
         protected IAmazonBCMPricingCalculator Client { get; private set; }

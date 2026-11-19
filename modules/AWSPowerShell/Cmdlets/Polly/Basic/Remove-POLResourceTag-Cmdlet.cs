@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource from which to remove tags. Currently,
-        /// the only supported resource is an Amazon Polly lexicon.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to remove tags from. You can tag Amazon
+        /// Polly lexicons and custom voices.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

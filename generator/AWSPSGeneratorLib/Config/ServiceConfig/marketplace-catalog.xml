@@ -49,7 +49,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAssessments" OutputProperty="AssessmentSummaryList" Verb="Get" Noun="AssessmentList" PipelineParameter="Catalog" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="AssessmentTargetFilter_EntityIds" AutoRename="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListChangeSets" OutputProperty="ChangeSetSummaryList" Verb="Get" Noun="ChangeSetList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -203,6 +205,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAssessment" OutputProperty="AssessmentId" Verb="Start" Noun="Assessment" ShouldProcessTarget="EntityId,FrameworkId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

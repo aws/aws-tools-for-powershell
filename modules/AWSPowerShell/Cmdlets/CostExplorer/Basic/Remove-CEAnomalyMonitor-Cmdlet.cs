@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Remove", "CEAnomalyMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Cost Explorer DeleteAnomalyMonitor API operation.", Operation = new[] {"DeleteAnomalyMonitor"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.DeleteAnomalyMonitorResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service DeleteAnomalyMonitor API operation.", Operation = new[] {"DeleteAnomalyMonitor"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.DeleteAnomalyMonitorResponse))]
     [AWSCmdletOutput("None or Amazon.CostExplorer.Model.DeleteAnomalyMonitorResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.CostExplorer.Model.DeleteAnomalyMonitorResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.DeleteAnomalyMonitorResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.DeleteAnomalyMonitorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "DeleteAnomalyMonitor");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "DeleteAnomalyMonitor");
             try
             {
                 return client.DeleteAnomalyMonitorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

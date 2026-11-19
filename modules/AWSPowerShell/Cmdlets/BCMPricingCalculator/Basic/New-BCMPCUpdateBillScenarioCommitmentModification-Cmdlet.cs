@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("New", "BCMPCUpdateBillScenarioCommitmentModification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.BatchUpdateBillScenarioCommitmentModificationResponse")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator BatchUpdateBillScenarioCommitmentModification API operation.", Operation = new[] {"BatchUpdateBillScenarioCommitmentModification"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchUpdateBillScenarioCommitmentModificationResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator BatchUpdateBillScenarioCommitmentModification API operation.", Operation = new[] {"BatchUpdateBillScenarioCommitmentModification"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchUpdateBillScenarioCommitmentModificationResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BatchUpdateBillScenarioCommitmentModificationResponse",
         "This cmdlet returns an Amazon.BCMPricingCalculator.Model.BatchUpdateBillScenarioCommitmentModificationResponse object containing multiple properties."
     )]
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.BatchUpdateBillScenarioCommitmentModificationResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.BatchUpdateBillScenarioCommitmentModificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "BatchUpdateBillScenarioCommitmentModification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "BatchUpdateBillScenarioCommitmentModification");
             try
             {
                 return client.BatchUpdateBillScenarioCommitmentModificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

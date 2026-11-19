@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKCompatibleKafkaVersion")]
     [OutputType("Amazon.Kafka.Model.CompatibleKafkaVersion")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) GetCompatibleKafkaVersions API operation.", Operation = new[] {"GetCompatibleKafkaVersions"}, SelectReturnType = typeof(Amazon.Kafka.Model.GetCompatibleKafkaVersionsResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka GetCompatibleKafkaVersions API operation.", Operation = new[] {"GetCompatibleKafkaVersions"}, SelectReturnType = typeof(Amazon.Kafka.Model.GetCompatibleKafkaVersionsResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.CompatibleKafkaVersion or Amazon.Kafka.Model.GetCompatibleKafkaVersionsResponse",
         "This cmdlet returns a collection of Amazon.Kafka.Model.CompatibleKafkaVersion objects.",
         "The service call response (type Amazon.Kafka.Model.GetCompatibleKafkaVersionsResponse) can be returned by specifying '-Select *'."
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.GetCompatibleKafkaVersionsResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.GetCompatibleKafkaVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "GetCompatibleKafkaVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "GetCompatibleKafkaVersions");
             try
             {
                 return client.GetCompatibleKafkaVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

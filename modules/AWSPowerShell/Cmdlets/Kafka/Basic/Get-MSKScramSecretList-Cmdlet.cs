@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKScramSecretList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) ListScramSecrets API operation.", Operation = new[] {"ListScramSecrets"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListScramSecretsResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka ListScramSecrets API operation.", Operation = new[] {"ListScramSecrets"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListScramSecretsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Kafka.Model.ListScramSecretsResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.Kafka.Model.ListScramSecretsResponse) can be returned by specifying '-Select *'."
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.ListScramSecretsResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.ListScramSecretsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "ListScramSecrets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "ListScramSecrets");
             try
             {
                 return client.ListScramSecretsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKTopicPartition")]
     [OutputType("Amazon.Kafka.Model.TopicPartitionInfo")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DescribeTopicPartitions API operation.", Operation = new[] {"DescribeTopicPartitions"}, SelectReturnType = typeof(Amazon.Kafka.Model.DescribeTopicPartitionsResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka DescribeTopicPartitions API operation.", Operation = new[] {"DescribeTopicPartitions"}, SelectReturnType = typeof(Amazon.Kafka.Model.DescribeTopicPartitionsResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.TopicPartitionInfo or Amazon.Kafka.Model.DescribeTopicPartitionsResponse",
         "This cmdlet returns a collection of Amazon.Kafka.Model.TopicPartitionInfo objects.",
         "The service call response (type Amazon.Kafka.Model.DescribeTopicPartitionsResponse) can be returned by specifying '-Select *'."
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.DescribeTopicPartitionsResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DescribeTopicPartitionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DescribeTopicPartitions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "DescribeTopicPartitions");
             try
             {
                 return client.DescribeTopicPartitionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

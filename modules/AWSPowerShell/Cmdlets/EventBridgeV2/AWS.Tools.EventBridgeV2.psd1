@@ -97,6 +97,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EVBV2ResourceTag', 
         'Get-EVBV2SubscriberDetail', 
         'Get-EVBV2SubscriberList', 
+        'Invoke-EVBV2WebhookCredentialRotation', 
         'New-EVBV2EventBus', 
         'New-EVBV2EventSource', 
         'New-EVBV2Subscriber', 

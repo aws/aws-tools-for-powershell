@@ -38,6 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// and remove fields from a custom related item. There's a quota for the number of fields
     /// allowed in a Custom type related item. See <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas">Connect
     /// Customer Cases quotas</a>.
+    /// </para></li><li><para><b>Sla</b> - Update the target duration (<c>targetSlaMinutes</c>) of an SLA. The
+    /// new deadline is counted from when the SLA was created. The SLA status is recalculated
+    /// against the new deadline: an open SLA becomes Active or Overdue, and a completed SLA
+    /// becomes Met or NotMet.
     /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
     /// When updating a Custom related item, all existing and new fields, and their associated
     /// values should be included in the request. Fields not included as part of this request
@@ -166,6 +170,18 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String RelatedItemId { get; set; }
         #endregion
         
+        #region Parameter Content_Sla_SlaUpdateConfiguration_TargetSlaMinute
+        /// <summary>
+        /// <para>
+        /// <para>New target duration in minutes within which an SLA should be completed. The new deadline
+        /// is counted from when the SLA was created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Sla_SlaUpdateConfiguration_TargetSlaMinutes")]
+        public System.Int64? Content_Sla_SlaUpdateConfiguration_TargetSlaMinute { get; set; }
+        #endregion
+        
         #region Parameter PerformedBy_UserArn
         /// <summary>
         /// <para>
@@ -235,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             {
                 context.Content_Custom_Field = new List<Amazon.ConnectCases.Model.FieldValue>(this.Content_Custom_Field);
             }
+            context.Content_Sla_SlaUpdateConfiguration_TargetSlaMinute = this.Content_Sla_SlaUpdateConfiguration_TargetSlaMinute;
             context.DomainId = this.DomainId;
             #if MODULAR
             if (this.DomainId == null && ParameterWasBound(nameof(this.DomainId)))
@@ -298,6 +315,46 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestContent_content_Custom != null)
             {
                 request.Content.Custom = requestContent_content_Custom;
+                requestContentIsNull = false;
+            }
+            Amazon.ConnectCases.Model.SlaUpdateContent requestContent_content_Sla = null;
+            
+             // populate Sla
+            var requestContent_content_SlaIsNull = true;
+            requestContent_content_Sla = new Amazon.ConnectCases.Model.SlaUpdateContent();
+            Amazon.ConnectCases.Model.SlaUpdateConfiguration requestContent_content_Sla_content_Sla_SlaUpdateConfiguration = null;
+            
+             // populate SlaUpdateConfiguration
+            var requestContent_content_Sla_content_Sla_SlaUpdateConfigurationIsNull = true;
+            requestContent_content_Sla_content_Sla_SlaUpdateConfiguration = new Amazon.ConnectCases.Model.SlaUpdateConfiguration();
+            System.Int64? requestContent_content_Sla_content_Sla_SlaUpdateConfiguration_content_Sla_SlaUpdateConfiguration_TargetSlaMinute = null;
+            if (cmdletContext.Content_Sla_SlaUpdateConfiguration_TargetSlaMinute != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaUpdateConfiguration_content_Sla_SlaUpdateConfiguration_TargetSlaMinute = cmdletContext.Content_Sla_SlaUpdateConfiguration_TargetSlaMinute.Value;
+            }
+            if (requestContent_content_Sla_content_Sla_SlaUpdateConfiguration_content_Sla_SlaUpdateConfiguration_TargetSlaMinute != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaUpdateConfiguration.TargetSlaMinutes = requestContent_content_Sla_content_Sla_SlaUpdateConfiguration_content_Sla_SlaUpdateConfiguration_TargetSlaMinute.Value;
+                requestContent_content_Sla_content_Sla_SlaUpdateConfigurationIsNull = false;
+            }
+             // determine if requestContent_content_Sla_content_Sla_SlaUpdateConfiguration should be set to null
+            if (requestContent_content_Sla_content_Sla_SlaUpdateConfigurationIsNull)
+            {
+                requestContent_content_Sla_content_Sla_SlaUpdateConfiguration = null;
+            }
+            if (requestContent_content_Sla_content_Sla_SlaUpdateConfiguration != null)
+            {
+                requestContent_content_Sla.SlaUpdateConfiguration = requestContent_content_Sla_content_Sla_SlaUpdateConfiguration;
+                requestContent_content_SlaIsNull = false;
+            }
+             // determine if requestContent_content_Sla should be set to null
+            if (requestContent_content_SlaIsNull)
+            {
+                requestContent_content_Sla = null;
+            }
+            if (requestContent_content_Sla != null)
+            {
+                request.Content.Sla = requestContent_content_Sla;
                 requestContentIsNull = false;
             }
             Amazon.ConnectCases.Model.CommentUpdateContent requestContent_content_Comment = null;
@@ -436,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.String Content_Comment_Body { get; set; }
             public Amazon.ConnectCases.CommentBodyTextType Content_Comment_ContentType { get; set; }
             public List<Amazon.ConnectCases.Model.FieldValue> Content_Custom_Field { get; set; }
+            public System.Int64? Content_Sla_SlaUpdateConfiguration_TargetSlaMinute { get; set; }
             public System.String DomainId { get; set; }
             public System.String PerformedBy_CustomEntity { get; set; }
             public System.String PerformedBy_UserArn { get; set; }

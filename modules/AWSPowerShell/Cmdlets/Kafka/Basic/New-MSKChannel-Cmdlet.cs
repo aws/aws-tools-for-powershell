@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("New", "MSKChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.CreateChannelResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) CreateChannel API operation.", Operation = new[] {"CreateChannel"}, SelectReturnType = typeof(Amazon.Kafka.Model.CreateChannelResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka CreateChannel API operation.", Operation = new[] {"CreateChannel"}, SelectReturnType = typeof(Amazon.Kafka.Model.CreateChannelResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.CreateChannelResponse",
         "This cmdlet returns an Amazon.Kafka.Model.CreateChannelResponse object containing multiple properties."
     )]
@@ -1108,7 +1108,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.CreateChannelResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.CreateChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "CreateChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "CreateChannel");
             try
             {
                 return client.CreateChannelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

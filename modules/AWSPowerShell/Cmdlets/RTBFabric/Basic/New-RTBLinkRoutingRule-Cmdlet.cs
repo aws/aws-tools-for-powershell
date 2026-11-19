@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("New", "RTBLinkRoutingRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RTBFabric.Model.CreateLinkRoutingRuleResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric CreateLinkRoutingRule API operation.", Operation = new[] {"CreateLinkRoutingRule"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.CreateLinkRoutingRuleResponse))]
+    [AWSCmdlet("Calls the RTBFabric CreateLinkRoutingRule API operation.", Operation = new[] {"CreateLinkRoutingRule"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.CreateLinkRoutingRuleResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.CreateLinkRoutingRuleResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.CreateLinkRoutingRuleResponse object containing multiple properties."
     )]
@@ -461,7 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.CreateLinkRoutingRuleResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.CreateLinkRoutingRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "CreateLinkRoutingRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "CreateLinkRoutingRule");
             try
             {
                 return client.CreateLinkRoutingRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

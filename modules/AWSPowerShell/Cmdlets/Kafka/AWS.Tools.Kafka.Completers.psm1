@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Managed Streaming for Apache Kafka (MSK)
+# Argument completions for service Managed Streaming for Kafka
 
 
 $MSK_Completers = {
@@ -80,6 +80,13 @@ $MSK_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Kafka.AssessmentType
+        "New-MSKAssessment/AssessmentType"
+        {
+            $v = "UPDATE_BROKER_TYPE"
+            break
+        }
+
         # Amazon.Kafka.ClientBroker
         {
             ($_ -eq "New-MSKCluster/EncryptionInTransit_ClientBroker") -Or
@@ -152,6 +159,13 @@ $MSK_Completers = {
             break
         }
 
+        # Amazon.Kafka.TopicReassignment
+        "Update-MSKBrokerType/TopicReassignment"
+        {
+            $v = "AUTO","MANUAL"
+            break
+        }
+
 
     }
 
@@ -161,6 +175,7 @@ $MSK_Completers = {
 }
 
 $MSK_map = @{
+    "AssessmentType"=@("New-MSKAssessment")
     "ConnectivityInfo_NetworkType"=@("Update-MSKConnectivity")
     "EncryptionInTransit_ClientBroker"=@("New-MSKCluster","New-MSKClusterV2","Update-MSKSecurity")
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
@@ -171,6 +186,7 @@ $MSK_map = @{
     "S3DestinationConfiguration_Storage_CompressionType"=@("New-MSKChannel")
     "S3DestinationConfiguration_Storage_StorageClass"=@("New-MSKChannel")
     "StorageMode"=@("New-MSKCluster","Update-MSKStorage")
+    "TopicReassignment"=@("Update-MSKBrokerType")
 }
 
 _awsArgumentCompleterRegistration $MSK_Completers $MSK_map
@@ -225,6 +241,7 @@ $MSK_SelectCompleters = {
 $MSK_SelectMap = @{
     "Select"=@("Register-MSKAssociateScramSecret",
                "Unregister-MSKDisassociateScramSecret",
+               "New-MSKAssessment",
                "New-MSKChannel",
                "New-MSKCluster",
                "New-MSKClusterV2",
@@ -232,6 +249,7 @@ $MSK_SelectMap = @{
                "New-MSKReplicator",
                "New-MSKTopic",
                "New-MSKVpcConnection",
+               "Remove-MSKAssessment",
                "Remove-MSKChannel",
                "Remove-MSKCluster",
                "Remove-MSKClusterPolicy",
@@ -239,6 +257,7 @@ $MSK_SelectMap = @{
                "Remove-MSKReplicator",
                "Remove-MSKTopic",
                "Remove-MSKVpcConnection",
+               "Get-MSKAssessmentDetail",
                "Get-MSKChannelDetail",
                "Get-MSKCluster",
                "Get-MSKClusterOperation",
@@ -249,10 +268,13 @@ $MSK_SelectMap = @{
                "Get-MSKReplicator",
                "Get-MSKTopic",
                "Get-MSKTopicPartition",
+               "Get-MSKTopicReassignmentDetail",
                "Get-MSKVpcConnection",
                "Get-MSKBootstrapBroker",
                "Get-MSKClusterPolicy",
                "Get-MSKCompatibleKafkaVersion",
+               "Get-MSKAssessmentFindingList",
+               "Get-MSKAssessmentList",
                "Get-MSKChannelList",
                "Get-MSKClientVpcConnectionList",
                "Get-MSKClusterOperationList",
@@ -266,11 +288,14 @@ $MSK_SelectMap = @{
                "Get-MSKReplicatorList",
                "Get-MSKScramSecretList",
                "Get-MSKResourceTag",
+               "Get-MSKTopicReassignmentList",
                "Get-MSKTopicList",
                "Get-MSKVpcConnectionList",
                "Write-MSKClusterPolicy",
                "Restart-MSKBroker",
                "Deny-MSKClientVpcConnection",
+               "Start-MSKTopicReassignment",
+               "Stop-MSKTopicReassignment",
                "Add-MSKResourceTag",
                "Remove-MSKResourceTag",
                "Update-MSKBrokerCount",

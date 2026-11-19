@@ -62,6 +62,19 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String AgentSpaceId { get; set; }
         #endregion
         
+        #region Parameter AwsSourceMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the AgentSpace's Amazon Web Services source configuration targets
+        /// an individual Amazon Web Services account or an Amazon Web Services Organization.
+        /// Use this parameter to switch an existing AgentSpace between source modes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.AwsSourceMode")]
+        public Amazon.DevOpsAgent.AwsSourceMode AwsSourceMode { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -164,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AwsSourceMode = this.AwsSourceMode;
             context.Description = this.Description;
             context.Locale = this.Locale;
             context.Name = this.Name;
@@ -194,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (cmdletContext.AgentSpaceId != null)
             {
                 request.AgentSpaceId = cmdletContext.AgentSpaceId;
+            }
+            if (cmdletContext.AwsSourceMode != null)
+            {
+                request.AwsSourceMode = cmdletContext.AwsSourceMode;
             }
             if (cmdletContext.Description != null)
             {
@@ -267,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentSpaceId { get; set; }
+            public Amazon.DevOpsAgent.AwsSourceMode AwsSourceMode { get; set; }
             public System.String Description { get; set; }
             public System.String Locale { get; set; }
             public System.String Name { get; set; }

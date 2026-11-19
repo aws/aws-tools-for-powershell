@@ -74,6 +74,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public System.String Github_Code { get; set; }
         #endregion
         
+        #region Parameter Details_GithubEnterpriseServer_AppInstallation_Code
+        /// <summary>
+        /// <para>
+        /// <para>The authorization code received from GitHub Enterprise Server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GithubEnterpriseServer_AppInstallation_Code { get; set; }
+        #endregion
+        
         #region Parameter Github_InstallationId
         /// <summary>
         /// <para>
@@ -83,6 +93,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_Github_InstallationId")]
         public System.String Github_InstallationId { get; set; }
+        #endregion
+        
+        #region Parameter Details_GithubEnterpriseServer_AppInstallation_InstallationId
+        /// <summary>
+        /// <para>
+        /// <para>The installation ID of the GitHub App associated with the integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GithubEnterpriseServer_AppInstallation_InstallationId { get; set; }
         #endregion
         
         #region Parameter IntegrationArn
@@ -100,6 +120,47 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IntegrationArn { get; set; }
+        #endregion
+        
+        #region Parameter Details_GithubEnterpriseServer_AppRegistration_ManifestCode
+        /// <summary>
+        /// <para>
+        /// <para>The manifest code used to register the GitHub App on the GitHub Enterprise Server
+        /// instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GithubEnterpriseServer_AppRegistration_ManifestCode { get; set; }
+        #endregion
+        
+        #region Parameter Details_Github_StateToken
+        /// <summary>
+        /// <para>
+        /// <para>The PKCE state token used to validate the authorization request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_Github_StateToken { get; set; }
+        #endregion
+        
+        #region Parameter Details_GithubEnterpriseServer_AppInstallation_StateToken
+        /// <summary>
+        /// <para>
+        /// <para>The PKCE state token used to validate the authorization request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GithubEnterpriseServer_AppInstallation_StateToken { get; set; }
+        #endregion
+        
+        #region Parameter Details_GitlabSelfManaged_StateToken
+        /// <summary>
+        /// <para>
+        /// <para>The PKCE state token used to validate the authorization request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GitlabSelfManaged_StateToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -150,7 +211,13 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             context.Github_Code = this.Github_Code;
             context.Github_InstallationId = this.Github_InstallationId;
+            context.Details_Github_StateToken = this.Details_Github_StateToken;
+            context.Details_GithubEnterpriseServer_AppInstallation_Code = this.Details_GithubEnterpriseServer_AppInstallation_Code;
+            context.Details_GithubEnterpriseServer_AppInstallation_InstallationId = this.Details_GithubEnterpriseServer_AppInstallation_InstallationId;
+            context.Details_GithubEnterpriseServer_AppInstallation_StateToken = this.Details_GithubEnterpriseServer_AppInstallation_StateToken;
+            context.Details_GithubEnterpriseServer_AppRegistration_ManifestCode = this.Details_GithubEnterpriseServer_AppRegistration_ManifestCode;
             context.GitlabSelfManaged_AuthCode = this.GitlabSelfManaged_AuthCode;
+            context.Details_GitlabSelfManaged_StateToken = this.Details_GitlabSelfManaged_StateToken;
             context.IntegrationArn = this.IntegrationArn;
             #if MODULAR
             if (this.IntegrationArn == null && ParameterWasBound(nameof(this.IntegrationArn)))
@@ -178,6 +245,91 @@ namespace Amazon.PowerShell.Cmdlets.INS2
              // populate Details
             var requestDetailsIsNull = true;
             request.Details = new Amazon.Inspector2.Model.UpdateIntegrationDetails();
+            Amazon.Inspector2.Model.UpdateGitHubEnterpriseServerIntegrationDetail requestDetails_details_GithubEnterpriseServer = null;
+            
+             // populate GithubEnterpriseServer
+            var requestDetails_details_GithubEnterpriseServerIsNull = true;
+            requestDetails_details_GithubEnterpriseServer = new Amazon.Inspector2.Model.UpdateGitHubEnterpriseServerIntegrationDetail();
+            Amazon.Inspector2.Model.GitHubEnterpriseServerAppRegistrationDetail requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration = null;
+            
+             // populate AppRegistration
+            var requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistrationIsNull = true;
+            requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration = new Amazon.Inspector2.Model.GitHubEnterpriseServerAppRegistrationDetail();
+            System.String requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration_details_GithubEnterpriseServer_AppRegistration_ManifestCode = null;
+            if (cmdletContext.Details_GithubEnterpriseServer_AppRegistration_ManifestCode != null)
+            {
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration_details_GithubEnterpriseServer_AppRegistration_ManifestCode = cmdletContext.Details_GithubEnterpriseServer_AppRegistration_ManifestCode;
+            }
+            if (requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration_details_GithubEnterpriseServer_AppRegistration_ManifestCode != null)
+            {
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration.ManifestCode = requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration_details_GithubEnterpriseServer_AppRegistration_ManifestCode;
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistrationIsNull = false;
+            }
+             // determine if requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration should be set to null
+            if (requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistrationIsNull)
+            {
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration = null;
+            }
+            if (requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration != null)
+            {
+                requestDetails_details_GithubEnterpriseServer.AppRegistration = requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppRegistration;
+                requestDetails_details_GithubEnterpriseServerIsNull = false;
+            }
+            Amazon.Inspector2.Model.UpdateGitHubEnterpriseServerAppInstallationDetail requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation = null;
+            
+             // populate AppInstallation
+            var requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallationIsNull = true;
+            requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation = new Amazon.Inspector2.Model.UpdateGitHubEnterpriseServerAppInstallationDetail();
+            System.String requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_Code = null;
+            if (cmdletContext.Details_GithubEnterpriseServer_AppInstallation_Code != null)
+            {
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_Code = cmdletContext.Details_GithubEnterpriseServer_AppInstallation_Code;
+            }
+            if (requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_Code != null)
+            {
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation.Code = requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_Code;
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallationIsNull = false;
+            }
+            System.String requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_InstallationId = null;
+            if (cmdletContext.Details_GithubEnterpriseServer_AppInstallation_InstallationId != null)
+            {
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_InstallationId = cmdletContext.Details_GithubEnterpriseServer_AppInstallation_InstallationId;
+            }
+            if (requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_InstallationId != null)
+            {
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation.InstallationId = requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_InstallationId;
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallationIsNull = false;
+            }
+            System.String requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_StateToken = null;
+            if (cmdletContext.Details_GithubEnterpriseServer_AppInstallation_StateToken != null)
+            {
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_StateToken = cmdletContext.Details_GithubEnterpriseServer_AppInstallation_StateToken;
+            }
+            if (requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_StateToken != null)
+            {
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation.StateToken = requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation_details_GithubEnterpriseServer_AppInstallation_StateToken;
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallationIsNull = false;
+            }
+             // determine if requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation should be set to null
+            if (requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallationIsNull)
+            {
+                requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation = null;
+            }
+            if (requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation != null)
+            {
+                requestDetails_details_GithubEnterpriseServer.AppInstallation = requestDetails_details_GithubEnterpriseServer_details_GithubEnterpriseServer_AppInstallation;
+                requestDetails_details_GithubEnterpriseServerIsNull = false;
+            }
+             // determine if requestDetails_details_GithubEnterpriseServer should be set to null
+            if (requestDetails_details_GithubEnterpriseServerIsNull)
+            {
+                requestDetails_details_GithubEnterpriseServer = null;
+            }
+            if (requestDetails_details_GithubEnterpriseServer != null)
+            {
+                request.Details.GithubEnterpriseServer = requestDetails_details_GithubEnterpriseServer;
+                requestDetailsIsNull = false;
+            }
             Amazon.Inspector2.Model.UpdateGitLabSelfManagedIntegrationDetail requestDetails_details_GitlabSelfManaged = null;
             
              // populate GitlabSelfManaged
@@ -191,6 +343,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestDetails_details_GitlabSelfManaged_gitlabSelfManaged_AuthCode != null)
             {
                 requestDetails_details_GitlabSelfManaged.AuthCode = requestDetails_details_GitlabSelfManaged_gitlabSelfManaged_AuthCode;
+                requestDetails_details_GitlabSelfManagedIsNull = false;
+            }
+            System.String requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_StateToken = null;
+            if (cmdletContext.Details_GitlabSelfManaged_StateToken != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_StateToken = cmdletContext.Details_GitlabSelfManaged_StateToken;
+            }
+            if (requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_StateToken != null)
+            {
+                requestDetails_details_GitlabSelfManaged.StateToken = requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_StateToken;
                 requestDetails_details_GitlabSelfManagedIsNull = false;
             }
              // determine if requestDetails_details_GitlabSelfManaged should be set to null
@@ -226,6 +388,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestDetails_details_Github_github_InstallationId != null)
             {
                 requestDetails_details_Github.InstallationId = requestDetails_details_Github_github_InstallationId;
+                requestDetails_details_GithubIsNull = false;
+            }
+            System.String requestDetails_details_Github_details_Github_StateToken = null;
+            if (cmdletContext.Details_Github_StateToken != null)
+            {
+                requestDetails_details_Github_details_Github_StateToken = cmdletContext.Details_Github_StateToken;
+            }
+            if (requestDetails_details_Github_details_Github_StateToken != null)
+            {
+                requestDetails_details_Github.StateToken = requestDetails_details_Github_details_Github_StateToken;
                 requestDetails_details_GithubIsNull = false;
             }
              // determine if requestDetails_details_Github should be set to null
@@ -304,7 +476,13 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         {
             public System.String Github_Code { get; set; }
             public System.String Github_InstallationId { get; set; }
+            public System.String Details_Github_StateToken { get; set; }
+            public System.String Details_GithubEnterpriseServer_AppInstallation_Code { get; set; }
+            public System.String Details_GithubEnterpriseServer_AppInstallation_InstallationId { get; set; }
+            public System.String Details_GithubEnterpriseServer_AppInstallation_StateToken { get; set; }
+            public System.String Details_GithubEnterpriseServer_AppRegistration_ManifestCode { get; set; }
             public System.String GitlabSelfManaged_AuthCode { get; set; }
+            public System.String Details_GitlabSelfManaged_StateToken { get; set; }
             public System.String IntegrationArn { get; set; }
             public System.Func<Amazon.Inspector2.Model.UpdateCodeSecurityIntegrationResponse, UpdateINS2CodeSecurityIntegrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

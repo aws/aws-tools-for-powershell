@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Remove", "MSKReplicator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Kafka.Model.DeleteReplicatorResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DeleteReplicator API operation.", Operation = new[] {"DeleteReplicator"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteReplicatorResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka DeleteReplicator API operation.", Operation = new[] {"DeleteReplicator"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteReplicatorResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.DeleteReplicatorResponse",
         "This cmdlet returns an Amazon.Kafka.Model.DeleteReplicatorResponse object containing multiple properties."
     )]
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.DeleteReplicatorResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DeleteReplicatorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DeleteReplicator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "DeleteReplicator");
             try
             {
                 return client.DeleteReplicatorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CEUsageForecast")]
     [OutputType("Amazon.CostExplorer.Model.GetUsageForecastResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetUsageForecast API operation.", Operation = new[] {"GetUsageForecast"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetUsageForecastResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetUsageForecast API operation.", Operation = new[] {"GetUsageForecast"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetUsageForecastResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GetUsageForecastResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.GetUsageForecastResponse object containing multiple properties."
     )]
@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetUsageForecastResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetUsageForecastRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetUsageForecast");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetUsageForecast");
             try
             {
                 return client.GetUsageForecastAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

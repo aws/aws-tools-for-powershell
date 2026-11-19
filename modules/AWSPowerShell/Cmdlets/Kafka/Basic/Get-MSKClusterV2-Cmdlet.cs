@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKClusterV2")]
     [OutputType("Amazon.Kafka.Model.Cluster")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DescribeClusterV2 API operation.", Operation = new[] {"DescribeClusterV2"}, SelectReturnType = typeof(Amazon.Kafka.Model.DescribeClusterV2Response))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka DescribeClusterV2 API operation.", Operation = new[] {"DescribeClusterV2"}, SelectReturnType = typeof(Amazon.Kafka.Model.DescribeClusterV2Response))]
     [AWSCmdletOutput("Amazon.Kafka.Model.Cluster or Amazon.Kafka.Model.DescribeClusterV2Response",
         "This cmdlet returns an Amazon.Kafka.Model.Cluster object.",
         "The service call response (type Amazon.Kafka.Model.DescribeClusterV2Response) can be returned by specifying '-Select *'."
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.DescribeClusterV2Response CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DescribeClusterV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DescribeClusterV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "DescribeClusterV2");
             try
             {
                 return client.DescribeClusterV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

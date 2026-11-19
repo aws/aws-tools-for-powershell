@@ -46,8 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// You can associate health checks with failover resource record sets in a private hosted
     /// zone. Note the following:
     /// </para><ul><li><para>
-    /// Route 53 health checkers are outside the VPC. To check the health of an endpoint within
-    /// a VPC by IP address, you must assign a public IP address to the instance in the VPC.
+    /// For a public health check, Route 53 health checkers are outside the VPC. To check
+    /// the health of an endpoint within a VPC by IP address, you must assign a public IP
+    /// address to the instance in the VPC.
+    /// </para></li><li><para>
+    /// To check the health of an endpoint within a VPC by using a private IP address, use
+    /// a private endpoint health check (<c>EndpointType</c> of <c>PRIVATE</c>). For more
+    /// information, see <c>CreateHealthCheckSource</c>.
     /// </para></li><li><para>
     /// You can configure a health checker to check the health of an external resource that
     /// the instance relies on, such as a database server.
@@ -164,6 +169,22 @@ namespace Amazon.PowerShell.Cmdlets.R53
         public System.Boolean? HealthCheckConfig_EnableSNI { get; set; }
         #endregion
         
+        #region Parameter HealthCheckConfig_EndpointType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the health check targets a public endpoint or a private endpoint
+        /// in a virtual private cloud (VPC). Valid values:</para><ul><li><para><c>PUBLIC</c>: The health check targets an endpoint that is reachable over the internet.
+        /// This is the default.</para></li><li><para><c>PRIVATE</c>: The health check targets a private endpoint in your virtual private
+        /// cloud. You must also specify <c>HealthCheckSourceId</c>. <c>PRIVATE</c> isn't supported
+        /// for health checks with a <c>Type</c> of <c>CALCULATED</c>, <c>CLOUDWATCH_METRIC</c>,
+        /// or <c>RECOVERY_CONTROL</c>.</para></li></ul><important><para>You can't change the value of <c>EndpointType</c> after you create a health check.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53.EndpointType")]
+        public Amazon.Route53.EndpointType HealthCheckConfig_EndpointType { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckConfig_FailureThreshold
         /// <summary>
         /// <para>
@@ -214,6 +235,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HealthCheckConfig_FullyQualifiedDomainName { get; set; }
+        #endregion
+        
+        #region Parameter HealthCheckConfig_HealthCheckSourceId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the health check source that Route 53 uses to send health checks to a private
+        /// endpoint. Required when <c>EndpointType</c> is <c>PRIVATE</c>.</para><para>You can change <c>HealthCheckSourceId</c> on an existing private health check. You
+        /// can't add it to a public health check.</para><para>Each health check source supports a limited number of active health checks. If you
+        /// reach that limit, specify a different health check source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HealthCheckConfig_HealthCheckSourceId { get; set; }
         #endregion
         
         #region Parameter HealthCheckConfig_HealthThreshold
@@ -268,13 +302,17 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// by DNS, Route 53 then checks the health of the endpoint.</para><para>Use one of the following formats for the value of <c>IPAddress</c>: </para><ul><li><para><b>IPv4 address</b>: four values between 0 and 255, separated by periods (.), for
         /// example, <c>192.0.2.44</c>.</para></li><li><para><b>IPv6 address</b>: eight groups of four hexadecimal values, separated by colons
         /// (:), for example, <c>2001:0db8:85a3:0000:0000:abcd:0001:2345</c>. You can also shorten
-        /// IPv6 addresses as described in RFC 5952, for example, <c>2001:db8:85a3::abcd:1:2345</c>.</para></li></ul><para>If the endpoint is an EC2 instance, we recommend that you create an Elastic IP address,
-        /// associate it with your EC2 instance, and specify the Elastic IP address for <c>IPAddress</c>.
-        /// This ensures that the IP address of your instance will never change.</para><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName">FullyQualifiedDomainName</a>.
-        /// </para><para>Constraints: Route 53 can't check the health of endpoints for which the IP address
-        /// is in local, private, non-routable, or multicast ranges. For more information about
-        /// IP addresses for which you can't create health checks, see the following documents:</para><ul><li><para><a href="https://tools.ietf.org/html/rfc5735">RFC 5735, Special Use IPv4 Addresses</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc6598">RFC 6598, IANA-Reserved IPv4 Prefix
-        /// for Shared Address Space</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc5156">RFC 5156, Special-Use IPv6 Addresses</a></para></li></ul><para>When the value of <c>Type</c> is <c>CALCULATED</c> or <c>CLOUDWATCH_METRIC</c>, omit
+        /// IPv6 addresses as described in RFC 5952, for example, <c>2001:db8:85a3::abcd:1:2345</c>.</para></li></ul><para>For a public health check, if the endpoint is an EC2 instance, we recommend that you
+        /// create an Elastic IP address, associate it with your EC2 instance, and specify the
+        /// Elastic IP address for <c>IPAddress</c>. This ensures that the IP address of your
+        /// instance will never change.</para><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName">FullyQualifiedDomainName</a>.
+        /// </para><para>Constraints: For a public health check (<c>EndpointType</c> of <c>PUBLIC</c>, the
+        /// default), Route 53 can't check the health of endpoints for which the IP address is
+        /// in local, private, non-routable, or multicast ranges. For more information about IP
+        /// addresses for which you can't create public health checks, see the following documents:</para><ul><li><para><a href="https://tools.ietf.org/html/rfc5735">RFC 5735, Special Use IPv4 Addresses</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc6598">RFC 6598, IANA-Reserved IPv4 Prefix
+        /// for Shared Address Space</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc5156">RFC 5156, Special-Use IPv6 Addresses</a></para></li></ul><para>For a private endpoint health check (<c>EndpointType</c> of <c>PRIVATE</c>), if you
+        /// specify <c>IPAddress</c>, it must be a private IPv4 or IPv6 address. Route 53 sends
+        /// health checks to it from the health check source that you specify in <c>HealthCheckSourceId</c>.</para><para>When the value of <c>Type</c> is <c>CALCULATED</c> or <c>CLOUDWATCH_METRIC</c>, omit
         /// <c>IPAddress</c>.</para>
         /// </para>
         /// </summary>
@@ -517,6 +555,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             context.AlarmIdentifier_Name = this.AlarmIdentifier_Name;
             context.HealthCheckConfig_InsufficientDataHealthStatus = this.HealthCheckConfig_InsufficientDataHealthStatus;
             context.HealthCheckConfig_RoutingControlArn = this.HealthCheckConfig_RoutingControlArn;
+            context.HealthCheckConfig_EndpointType = this.HealthCheckConfig_EndpointType;
+            context.HealthCheckConfig_HealthCheckSourceId = this.HealthCheckConfig_HealthCheckSourceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -711,6 +751,26 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.RoutingControlArn = requestHealthCheckConfig_healthCheckConfig_RoutingControlArn;
                 requestHealthCheckConfigIsNull = false;
             }
+            Amazon.Route53.EndpointType requestHealthCheckConfig_healthCheckConfig_EndpointType = null;
+            if (cmdletContext.HealthCheckConfig_EndpointType != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_EndpointType = cmdletContext.HealthCheckConfig_EndpointType;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_EndpointType != null)
+            {
+                request.HealthCheckConfig.EndpointType = requestHealthCheckConfig_healthCheckConfig_EndpointType;
+                requestHealthCheckConfigIsNull = false;
+            }
+            System.String requestHealthCheckConfig_healthCheckConfig_HealthCheckSourceId = null;
+            if (cmdletContext.HealthCheckConfig_HealthCheckSourceId != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_HealthCheckSourceId = cmdletContext.HealthCheckConfig_HealthCheckSourceId;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_HealthCheckSourceId != null)
+            {
+                request.HealthCheckConfig.HealthCheckSourceId = requestHealthCheckConfig_healthCheckConfig_HealthCheckSourceId;
+                requestHealthCheckConfigIsNull = false;
+            }
             Amazon.Route53.Model.AlarmIdentifier requestHealthCheckConfig_healthCheckConfig_AlarmIdentifier = null;
             
              // populate AlarmIdentifier
@@ -826,6 +886,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public System.String AlarmIdentifier_Name { get; set; }
             public Amazon.Route53.InsufficientDataHealthStatus HealthCheckConfig_InsufficientDataHealthStatus { get; set; }
             public System.String HealthCheckConfig_RoutingControlArn { get; set; }
+            public Amazon.Route53.EndpointType HealthCheckConfig_EndpointType { get; set; }
+            public System.String HealthCheckConfig_HealthCheckSourceId { get; set; }
             public System.Func<Amazon.Route53.Model.CreateHealthCheckResponse, NewR53HealthCheckCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

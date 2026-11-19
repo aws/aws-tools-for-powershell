@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKKafkaVersionList")]
     [OutputType("Amazon.Kafka.Model.KafkaVersion")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) ListKafkaVersions API operation.", Operation = new[] {"ListKafkaVersions"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListKafkaVersionsResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka ListKafkaVersions API operation.", Operation = new[] {"ListKafkaVersions"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListKafkaVersionsResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.KafkaVersion or Amazon.Kafka.Model.ListKafkaVersionsResponse",
         "This cmdlet returns a collection of Amazon.Kafka.Model.KafkaVersion objects.",
         "The service call response (type Amazon.Kafka.Model.ListKafkaVersionsResponse) can be returned by specifying '-Select *'."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.ListKafkaVersionsResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.ListKafkaVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "ListKafkaVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "ListKafkaVersions");
             try
             {
                 return client.ListKafkaVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

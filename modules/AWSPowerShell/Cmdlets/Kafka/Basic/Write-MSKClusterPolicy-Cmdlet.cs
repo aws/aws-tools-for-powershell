@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Write", "MSKClusterPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) PutClusterPolicy API operation.", Operation = new[] {"PutClusterPolicy"}, SelectReturnType = typeof(Amazon.Kafka.Model.PutClusterPolicyResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka PutClusterPolicy API operation.", Operation = new[] {"PutClusterPolicy"}, SelectReturnType = typeof(Amazon.Kafka.Model.PutClusterPolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.Kafka.Model.PutClusterPolicyResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.Kafka.Model.PutClusterPolicyResponse) can be returned by specifying '-Select *'."
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.PutClusterPolicyResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.PutClusterPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "PutClusterPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "PutClusterPolicy");
             try
             {
                 return client.PutClusterPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Get", "BCMPCBillScenario")]
     [OutputType("Amazon.BCMPricingCalculator.Model.GetBillScenarioResponse")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator GetBillScenario API operation.", Operation = new[] {"GetBillScenario"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.GetBillScenarioResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator GetBillScenario API operation.", Operation = new[] {"GetBillScenario"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.GetBillScenarioResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.GetBillScenarioResponse",
         "This cmdlet returns an Amazon.BCMPricingCalculator.Model.GetBillScenarioResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.GetBillScenarioResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.GetBillScenarioRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "GetBillScenario");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "GetBillScenario");
             try
             {
                 return client.GetBillScenarioAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -95,8 +95,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-POLSpeechSynthesisTask', 
         'Get-POLSpeechSynthesisTaskList', 
         'Get-POLVoice', 
+        'Get-POLVoiceDetail', 
+        'New-POLVoice', 
         'Remove-POLLexicon', 
         'Remove-POLResourceTag', 
+        'Remove-POLVoice', 
         'Start-POLSpeechSynthesisTask', 
         'Write-POLLexicon')
 

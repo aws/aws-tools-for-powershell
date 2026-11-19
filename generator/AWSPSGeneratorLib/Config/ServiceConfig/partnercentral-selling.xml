@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomerAccount" OutputProperty="*" Verb="New" Noun="CustomerAccount" ShouldProcessTarget="Catalog" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEngagement" OutputProperty="*" Verb="Invoke" Noun="CreateEngagement" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -112,6 +116,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomerAccount" Verb="Remove" Noun="CustomerAccount" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteResourceSnapshotJob" Verb="Remove" Noun="ResourceSnapshotJob" ShouldProcessTarget="ResourceSnapshotJobIdentifier" PipelineParameter="ResourceSnapshotJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -124,6 +132,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomerAccount" OutputProperty="*" Verb="Get" Noun="CustomerAccount" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomerAccountBulkJob" OutputProperty="*" Verb="Get" Noun="CustomerAccountBulkJob" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomerAccountBulkJobReportUrl" OutputProperty="*" Verb="Get" Noun="CustomerAccountBulkJobReportUrl" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomerAccountStatistics" OutputProperty="*" Verb="Get" Noun="CustomerAccountStatistic" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEngagement" OutputProperty="*" Verb="Get" Noun="Engagement" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -133,6 +157,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetOpportunity" OutputProperty="*" Verb="Get" Noun="Opportunity" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOpportunityBulkJobReportUrl" OutputProperty="*" Verb="Get" Noun="OpportunityBulkJobReportUrl" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -152,11 +180,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomerAccountBulkJobResults" OutputProperty="Results" Verb="Get" Noun="CustomerAccountBulkJobResultList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomerAccountBulkJobs" OutputProperty="Items" Verb="Get" Noun="CustomerAccountBulkJobList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEngagementByAcceptingInvitationTasks" OutputProperty="TaskSummaries" Verb="Get" Noun="EngagementByAcceptingInvitationTaskList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEngagementFromOpportunityTasks" OutputProperty="TaskSummaries" Verb="Get" Noun="EngagementFromOpportunityTaskList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEngagementGroups" OutputProperty="EngagementGroupSummaries" Verb="Get" Noun="EngagementGroupList" PipelineParameter="Catalog" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -177,6 +217,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListOpportunities" OutputProperty="OpportunitySummaries" Verb="Get" Noun="OpportunityList" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOpportunityBulkJobResults" OutputProperty="Results" Verb="Get" Noun="OpportunityBulkJobResultList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOpportunityBulkJobs" OutputProperty="OpportunityBulkJobSummaries" Verb="Get" Noun="OpportunityBulkJobList" PipelineParameter="Catalog" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -212,11 +260,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchCustomerAccounts" OutputProperty="CustomerAccountSummaries" Verb="Search" Noun="CustomerAccount" ShouldProcessTarget="Catalog" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchEngagements" OutputProperty="EngagementSearchSummaries" Verb="Search" Noun="Engagement" ShouldProcessTarget="Catalog" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchOpportunities" OutputProperty="OpportunitySearchSummaries" Verb="Search" Noun="Opportunity" ShouldProcessTarget="Catalog" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCustomerAccountBulkJob" OutputProperty="*" Verb="Start" Noun="CustomerAccountBulkJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartEngagementByAcceptingInvitationTask" OutputProperty="*" Verb="Invoke" Noun="StartEngagementByAcceptingInvitationTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartEngagementFromOpportunityTask" OutputProperty="*" Verb="Invoke" Noun="StartEngagementFromOpportunityTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartOpportunityBulkJob" OutputProperty="JobId" Verb="Start" Noun="OpportunityBulkJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -245,6 +313,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomerAccount" OutputProperty="*" Verb="Update" Noun="CustomerAccount" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -301,5 +373,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <TypesNotToFlatten />
+    <TypesNotToFlatten>
+        <Type>Amazon.PartnerCentralSelling.Model.Filter</Type>
+        <Type>Amazon.PartnerCentralSelling.Model.EngagementSearchFilter</Type>
+        <Type>Amazon.PartnerCentralSelling.Model.OpportunitySearchFilter</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </summary>
     [Cmdlet("Get", "STSCallerIdentity")]
     [OutputType("Amazon.SecurityToken.Model.GetCallerIdentityResponse")]
-    [AWSCmdlet("Calls the AWS Security Token Service (STS) GetCallerIdentity API operation.", Operation = new[] {"GetCallerIdentity"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetCallerIdentityResponse))]
+    [AWSCmdlet("Calls the AWS Security Token Service GetCallerIdentity API operation.", Operation = new[] {"GetCallerIdentity"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetCallerIdentityResponse))]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.GetCallerIdentityResponse",
         "This cmdlet returns an Amazon.SecurityToken.Model.GetCallerIdentityResponse object containing multiple properties."
     )]
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         private Amazon.SecurityToken.Model.GetCallerIdentityResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.GetCallerIdentityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service (STS)", "GetCallerIdentity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "GetCallerIdentity");
             try
             {
                 return client.GetCallerIdentityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

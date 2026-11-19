@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("New", "BCMPCCreateBillScenarioUsageModification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator BatchCreateBillScenarioUsageModification API operation.", Operation = new[] {"BatchCreateBillScenarioUsageModification"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator BatchCreateBillScenarioUsageModification API operation.", Operation = new[] {"BatchCreateBillScenarioUsageModification"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse",
         "This cmdlet returns an Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse object containing multiple properties."
     )]
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "BatchCreateBillScenarioUsageModification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "BatchCreateBillScenarioUsageModification");
             try
             {
                 return client.BatchCreateBillScenarioUsageModificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

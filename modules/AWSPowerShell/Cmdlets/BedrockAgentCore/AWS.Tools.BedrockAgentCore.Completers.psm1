@@ -181,6 +181,20 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.JwkEllipticCurve
+        "Invoke-BACPayment/PaymentInput_AwsBillingX402_Options_DpopJwk_Crv"
+        {
+            $v = "P-256","P-384","P-521"
+            break
+        }
+
+        # Amazon.BedrockAgentCore.JwkKeyType
+        "Invoke-BACPayment/PaymentInput_AwsBillingX402_Options_DpopJwk_Kty"
+        {
+            $v = "EC"
+            break
+        }
+
         # Amazon.BedrockAgentCore.LanguageRuntime
         "Invoke-BACCodeInterpreter/Arguments_Runtime"
         {
@@ -222,7 +236,7 @@ $BAC_Completers = {
         # Amazon.BedrockAgentCore.PaymentType
         "Invoke-BACPayment/PaymentType"
         {
-            $v = "CRYPTO_X402","MPP"
+            $v = "AWS_BILLING_X402","CRYPTO_X402","MPP"
             break
         }
 
@@ -312,6 +326,8 @@ $BAC_map = @{
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
     "OutputConfig_CloudWatchConfig_ResultDestination"=@("Start-BACBatchEvaluation")
+    "PaymentInput_AwsBillingX402_Options_DpopJwk_Crv"=@("Invoke-BACPayment")
+    "PaymentInput_AwsBillingX402_Options_DpopJwk_Kty"=@("Invoke-BACPayment")
     "PaymentInstrumentDetails_EmbeddedCryptoWallet_Network"=@("New-BACPaymentInstrument")
     "PaymentInstrumentType"=@("New-BACPaymentInstrument")
     "PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestMethod"=@("Get-BACResourcePaymentToken")

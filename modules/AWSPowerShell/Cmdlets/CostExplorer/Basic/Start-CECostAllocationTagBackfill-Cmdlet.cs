@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Start", "CECostAllocationTagBackfill", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CostExplorer.Model.CostAllocationTagBackfillRequest")]
-    [AWSCmdlet("Calls the AWS Cost Explorer StartCostAllocationTagBackfill API operation.", Operation = new[] {"StartCostAllocationTagBackfill"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.StartCostAllocationTagBackfillResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service StartCostAllocationTagBackfill API operation.", Operation = new[] {"StartCostAllocationTagBackfill"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.StartCostAllocationTagBackfillResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.CostAllocationTagBackfillRequest or Amazon.CostExplorer.Model.StartCostAllocationTagBackfillResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.CostAllocationTagBackfillRequest object.",
         "The service call response (type Amazon.CostExplorer.Model.StartCostAllocationTagBackfillResponse) can be returned by specifying '-Select *'."
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.StartCostAllocationTagBackfillResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.StartCostAllocationTagBackfillRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "StartCostAllocationTagBackfill");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "StartCostAllocationTagBackfill");
             try
             {
                 return client.StartCostAllocationTagBackfillAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

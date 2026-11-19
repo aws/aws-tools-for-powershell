@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKVpcConnectionList")]
     [OutputType("Amazon.Kafka.Model.VpcConnection")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) ListVpcConnections API operation.", Operation = new[] {"ListVpcConnections"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListVpcConnectionsResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka ListVpcConnections API operation.", Operation = new[] {"ListVpcConnections"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListVpcConnectionsResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.VpcConnection or Amazon.Kafka.Model.ListVpcConnectionsResponse",
         "This cmdlet returns a collection of Amazon.Kafka.Model.VpcConnection objects.",
         "The service call response (type Amazon.Kafka.Model.ListVpcConnectionsResponse) can be returned by specifying '-Select *'."
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.ListVpcConnectionsResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.ListVpcConnectionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "ListVpcConnections");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "ListVpcConnections");
             try
             {
                 return client.ListVpcConnectionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

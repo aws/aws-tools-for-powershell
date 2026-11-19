@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </summary>
     [Cmdlet("Get", "STSAccessKeyInfo")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Token Service (STS) GetAccessKeyInfo API operation.", Operation = new[] {"GetAccessKeyInfo"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetAccessKeyInfoResponse))]
+    [AWSCmdlet("Calls the AWS Security Token Service GetAccessKeyInfo API operation.", Operation = new[] {"GetAccessKeyInfo"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetAccessKeyInfoResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityToken.Model.GetAccessKeyInfoResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SecurityToken.Model.GetAccessKeyInfoResponse) can be returned by specifying '-Select *'."
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         private Amazon.SecurityToken.Model.GetAccessKeyInfoResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.GetAccessKeyInfoRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service (STS)", "GetAccessKeyInfo");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "GetAccessKeyInfo");
             try
             {
                 return client.GetAccessKeyInfoAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

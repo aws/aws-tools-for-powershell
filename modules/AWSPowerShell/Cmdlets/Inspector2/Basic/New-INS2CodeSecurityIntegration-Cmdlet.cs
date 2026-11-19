@@ -62,6 +62,36 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public System.String GitlabSelfManaged_AccessToken { get; set; }
         #endregion
         
+        #region Parameter Details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS CodeConnections host used for the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn { get; set; }
+        #endregion
+        
+        #region Parameter Details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS CodeConnections host used for the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn { get; set; }
+        #endregion
+        
+        #region Parameter Details_GithubEnterprise_InstanceUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the GitHub Enterprise Server instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GithubEnterprise_InstanceUrl { get; set; }
+        #endregion
+        
         #region Parameter GitlabSelfManaged_InstanceUrl
         /// <summary>
         /// <para>
@@ -90,6 +120,70 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Details_GithubEnterprise_VpcConfiguration_SecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the security groups used for the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_GithubEnterprise_VpcConfiguration_SecurityGroups")]
+        public System.String[] Details_GithubEnterprise_VpcConfiguration_SecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter Details_GitlabSelfManaged_VpcConfiguration_SecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the security groups used for the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_GitlabSelfManaged_VpcConfiguration_SecurityGroups")]
+        public System.String[] Details_GitlabSelfManaged_VpcConfiguration_SecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter Details_GithubEnterprise_VpcConfiguration_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the subnets used for the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_GithubEnterprise_VpcConfiguration_SubnetIds")]
+        public System.String[] Details_GithubEnterprise_VpcConfiguration_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter Details_GitlabSelfManaged_VpcConfiguration_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the subnets used for the connection.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_GitlabSelfManaged_VpcConfiguration_SubnetIds")]
+        public System.String[] Details_GitlabSelfManaged_VpcConfiguration_SubnetId { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -104,6 +198,26 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Details_GithubEnterprise_VpcConfiguration_TlsCertificate
+        /// <summary>
+        /// <para>
+        /// <para>The TLS certificate used to establish a trusted connection to the repository provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GithubEnterprise_VpcConfiguration_TlsCertificate { get; set; }
+        #endregion
+        
+        #region Parameter Details_GitlabSelfManaged_VpcConfiguration_TlsCertificate
+        /// <summary>
+        /// <para>
+        /// <para>The TLS certificate used to establish a trusted connection to the repository provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GitlabSelfManaged_VpcConfiguration_TlsCertificate { get; set; }
         #endregion
         
         #region Parameter Type
@@ -121,6 +235,46 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Inspector2.IntegrationType")]
         public Amazon.Inspector2.IntegrationType Type { get; set; }
+        #endregion
+        
+        #region Parameter Details_GithubEnterprise_VpcConfiguration_VpcEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC endpoint used for the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GithubEnterprise_VpcConfiguration_VpcEndpointId { get; set; }
+        #endregion
+        
+        #region Parameter Details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC endpoint used for the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId { get; set; }
+        #endregion
+        
+        #region Parameter Details_GithubEnterprise_VpcConfiguration_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC that Amazon Inspector connects through to reach the repository provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GithubEnterprise_VpcConfiguration_VpcId { get; set; }
+        #endregion
+        
+        #region Parameter Details_GitlabSelfManaged_VpcConfiguration_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC that Amazon Inspector connects through to reach the repository provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Details_GitlabSelfManaged_VpcConfiguration_VpcId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -169,8 +323,33 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.CreateCodeSecurityIntegrationResponse, NewINS2CodeSecurityIntegrationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Details_GithubEnterprise_InstanceUrl = this.Details_GithubEnterprise_InstanceUrl;
+            context.Details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn = this.Details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn;
+            if (this.Details_GithubEnterprise_VpcConfiguration_SecurityGroup != null)
+            {
+                context.Details_GithubEnterprise_VpcConfiguration_SecurityGroup = new List<System.String>(this.Details_GithubEnterprise_VpcConfiguration_SecurityGroup);
+            }
+            if (this.Details_GithubEnterprise_VpcConfiguration_SubnetId != null)
+            {
+                context.Details_GithubEnterprise_VpcConfiguration_SubnetId = new List<System.String>(this.Details_GithubEnterprise_VpcConfiguration_SubnetId);
+            }
+            context.Details_GithubEnterprise_VpcConfiguration_TlsCertificate = this.Details_GithubEnterprise_VpcConfiguration_TlsCertificate;
+            context.Details_GithubEnterprise_VpcConfiguration_VpcEndpointId = this.Details_GithubEnterprise_VpcConfiguration_VpcEndpointId;
+            context.Details_GithubEnterprise_VpcConfiguration_VpcId = this.Details_GithubEnterprise_VpcConfiguration_VpcId;
             context.GitlabSelfManaged_AccessToken = this.GitlabSelfManaged_AccessToken;
             context.GitlabSelfManaged_InstanceUrl = this.GitlabSelfManaged_InstanceUrl;
+            context.Details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn = this.Details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn;
+            if (this.Details_GitlabSelfManaged_VpcConfiguration_SecurityGroup != null)
+            {
+                context.Details_GitlabSelfManaged_VpcConfiguration_SecurityGroup = new List<System.String>(this.Details_GitlabSelfManaged_VpcConfiguration_SecurityGroup);
+            }
+            if (this.Details_GitlabSelfManaged_VpcConfiguration_SubnetId != null)
+            {
+                context.Details_GitlabSelfManaged_VpcConfiguration_SubnetId = new List<System.String>(this.Details_GitlabSelfManaged_VpcConfiguration_SubnetId);
+            }
+            context.Details_GitlabSelfManaged_VpcConfiguration_TlsCertificate = this.Details_GitlabSelfManaged_VpcConfiguration_TlsCertificate;
+            context.Details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId = this.Details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId;
+            context.Details_GitlabSelfManaged_VpcConfiguration_VpcId = this.Details_GitlabSelfManaged_VpcConfiguration_VpcId;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -213,6 +392,106 @@ namespace Amazon.PowerShell.Cmdlets.INS2
              // populate Details
             var requestDetailsIsNull = true;
             request.Details = new Amazon.Inspector2.Model.CreateIntegrationDetail();
+            Amazon.Inspector2.Model.CreateGitHubEnterpriseIntegrationDetail requestDetails_details_GithubEnterprise = null;
+            
+             // populate GithubEnterprise
+            var requestDetails_details_GithubEnterpriseIsNull = true;
+            requestDetails_details_GithubEnterprise = new Amazon.Inspector2.Model.CreateGitHubEnterpriseIntegrationDetail();
+            System.String requestDetails_details_GithubEnterprise_details_GithubEnterprise_InstanceUrl = null;
+            if (cmdletContext.Details_GithubEnterprise_InstanceUrl != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_InstanceUrl = cmdletContext.Details_GithubEnterprise_InstanceUrl;
+            }
+            if (requestDetails_details_GithubEnterprise_details_GithubEnterprise_InstanceUrl != null)
+            {
+                requestDetails_details_GithubEnterprise.InstanceUrl = requestDetails_details_GithubEnterprise_details_GithubEnterprise_InstanceUrl;
+                requestDetails_details_GithubEnterpriseIsNull = false;
+            }
+            Amazon.Inspector2.Model.CodeSecurityIntegrationVpcConfiguration requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration = null;
+            
+             // populate VpcConfiguration
+            var requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfigurationIsNull = true;
+            requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration = new Amazon.Inspector2.Model.CodeSecurityIntegrationVpcConfiguration();
+            System.String requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn = null;
+            if (cmdletContext.Details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn = cmdletContext.Details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn;
+            }
+            if (requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration.CodeConnectionsHostArn = requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn;
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfigurationIsNull = false;
+            }
+            List<System.String> requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_SecurityGroup = null;
+            if (cmdletContext.Details_GithubEnterprise_VpcConfiguration_SecurityGroup != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_SecurityGroup = cmdletContext.Details_GithubEnterprise_VpcConfiguration_SecurityGroup;
+            }
+            if (requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_SecurityGroup != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration.SecurityGroups = requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_SecurityGroup;
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfigurationIsNull = false;
+            }
+            List<System.String> requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_SubnetId = null;
+            if (cmdletContext.Details_GithubEnterprise_VpcConfiguration_SubnetId != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_SubnetId = cmdletContext.Details_GithubEnterprise_VpcConfiguration_SubnetId;
+            }
+            if (requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_SubnetId != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration.SubnetIds = requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_SubnetId;
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfigurationIsNull = false;
+            }
+            System.String requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_TlsCertificate = null;
+            if (cmdletContext.Details_GithubEnterprise_VpcConfiguration_TlsCertificate != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_TlsCertificate = cmdletContext.Details_GithubEnterprise_VpcConfiguration_TlsCertificate;
+            }
+            if (requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_TlsCertificate != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration.TlsCertificate = requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_TlsCertificate;
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfigurationIsNull = false;
+            }
+            System.String requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_VpcEndpointId = null;
+            if (cmdletContext.Details_GithubEnterprise_VpcConfiguration_VpcEndpointId != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_VpcEndpointId = cmdletContext.Details_GithubEnterprise_VpcConfiguration_VpcEndpointId;
+            }
+            if (requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_VpcEndpointId != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration.VpcEndpointId = requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_VpcEndpointId;
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfigurationIsNull = false;
+            }
+            System.String requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_VpcId = null;
+            if (cmdletContext.Details_GithubEnterprise_VpcConfiguration_VpcId != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_VpcId = cmdletContext.Details_GithubEnterprise_VpcConfiguration_VpcId;
+            }
+            if (requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_VpcId != null)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration.VpcId = requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration_details_GithubEnterprise_VpcConfiguration_VpcId;
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfigurationIsNull = false;
+            }
+             // determine if requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration should be set to null
+            if (requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfigurationIsNull)
+            {
+                requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration = null;
+            }
+            if (requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration != null)
+            {
+                requestDetails_details_GithubEnterprise.VpcConfiguration = requestDetails_details_GithubEnterprise_details_GithubEnterprise_VpcConfiguration;
+                requestDetails_details_GithubEnterpriseIsNull = false;
+            }
+             // determine if requestDetails_details_GithubEnterprise should be set to null
+            if (requestDetails_details_GithubEnterpriseIsNull)
+            {
+                requestDetails_details_GithubEnterprise = null;
+            }
+            if (requestDetails_details_GithubEnterprise != null)
+            {
+                request.Details.GithubEnterprise = requestDetails_details_GithubEnterprise;
+                requestDetailsIsNull = false;
+            }
             Amazon.Inspector2.Model.CreateGitLabSelfManagedIntegrationDetail requestDetails_details_GitlabSelfManaged = null;
             
              // populate GitlabSelfManaged
@@ -236,6 +515,81 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestDetails_details_GitlabSelfManaged_gitlabSelfManaged_InstanceUrl != null)
             {
                 requestDetails_details_GitlabSelfManaged.InstanceUrl = requestDetails_details_GitlabSelfManaged_gitlabSelfManaged_InstanceUrl;
+                requestDetails_details_GitlabSelfManagedIsNull = false;
+            }
+            Amazon.Inspector2.Model.CodeSecurityIntegrationVpcConfiguration requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration = null;
+            
+             // populate VpcConfiguration
+            var requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfigurationIsNull = true;
+            requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration = new Amazon.Inspector2.Model.CodeSecurityIntegrationVpcConfiguration();
+            System.String requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn = null;
+            if (cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn = cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn;
+            }
+            if (requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration.CodeConnectionsHostArn = requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn;
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfigurationIsNull = false;
+            }
+            List<System.String> requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_SecurityGroup = null;
+            if (cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_SecurityGroup != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_SecurityGroup = cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_SecurityGroup;
+            }
+            if (requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_SecurityGroup != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration.SecurityGroups = requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_SecurityGroup;
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfigurationIsNull = false;
+            }
+            List<System.String> requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_SubnetId = null;
+            if (cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_SubnetId != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_SubnetId = cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_SubnetId;
+            }
+            if (requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_SubnetId != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration.SubnetIds = requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_SubnetId;
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfigurationIsNull = false;
+            }
+            System.String requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_TlsCertificate = null;
+            if (cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_TlsCertificate != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_TlsCertificate = cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_TlsCertificate;
+            }
+            if (requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_TlsCertificate != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration.TlsCertificate = requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_TlsCertificate;
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfigurationIsNull = false;
+            }
+            System.String requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId = null;
+            if (cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId = cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId;
+            }
+            if (requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration.VpcEndpointId = requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId;
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfigurationIsNull = false;
+            }
+            System.String requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_VpcId = null;
+            if (cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_VpcId != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_VpcId = cmdletContext.Details_GitlabSelfManaged_VpcConfiguration_VpcId;
+            }
+            if (requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_VpcId != null)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration.VpcId = requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration_details_GitlabSelfManaged_VpcConfiguration_VpcId;
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfigurationIsNull = false;
+            }
+             // determine if requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration should be set to null
+            if (requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfigurationIsNull)
+            {
+                requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration = null;
+            }
+            if (requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration != null)
+            {
+                requestDetails_details_GitlabSelfManaged.VpcConfiguration = requestDetails_details_GitlabSelfManaged_details_GitlabSelfManaged_VpcConfiguration;
                 requestDetails_details_GitlabSelfManagedIsNull = false;
             }
              // determine if requestDetails_details_GitlabSelfManaged should be set to null
@@ -320,8 +674,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Details_GithubEnterprise_InstanceUrl { get; set; }
+            public System.String Details_GithubEnterprise_VpcConfiguration_CodeConnectionsHostArn { get; set; }
+            public List<System.String> Details_GithubEnterprise_VpcConfiguration_SecurityGroup { get; set; }
+            public List<System.String> Details_GithubEnterprise_VpcConfiguration_SubnetId { get; set; }
+            public System.String Details_GithubEnterprise_VpcConfiguration_TlsCertificate { get; set; }
+            public System.String Details_GithubEnterprise_VpcConfiguration_VpcEndpointId { get; set; }
+            public System.String Details_GithubEnterprise_VpcConfiguration_VpcId { get; set; }
             public System.String GitlabSelfManaged_AccessToken { get; set; }
             public System.String GitlabSelfManaged_InstanceUrl { get; set; }
+            public System.String Details_GitlabSelfManaged_VpcConfiguration_CodeConnectionsHostArn { get; set; }
+            public List<System.String> Details_GitlabSelfManaged_VpcConfiguration_SecurityGroup { get; set; }
+            public List<System.String> Details_GitlabSelfManaged_VpcConfiguration_SubnetId { get; set; }
+            public System.String Details_GitlabSelfManaged_VpcConfiguration_TlsCertificate { get; set; }
+            public System.String Details_GitlabSelfManaged_VpcConfiguration_VpcEndpointId { get; set; }
+            public System.String Details_GitlabSelfManaged_VpcConfiguration_VpcId { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Inspector2.IntegrationType Type { get; set; }

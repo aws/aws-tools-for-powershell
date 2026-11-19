@@ -115,11 +115,29 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String AssessmentTargetFilter_EntityId { get; set; }
         #endregion
         
+        #region Parameter AssessmentTargetFilter_EntityIds
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 50 entity IDs whose assessments you want to list. The response includes
+        /// only the latest published assessment of each entity. You must also specify <c>FrameworkId</c>
+        /// in the request, and you can't combine <c>EntityIds</c> with <c>EntityId</c> or <c>ChangeSetId</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AssessmentTargetFilter_EntityIds { get; set; }
+        #endregion
+        
         #region Parameter FrameworkId
         /// <summary>
         /// <para>
         /// <para>The unique identifier of a framework. When specified, only assessments performed against
-        /// this framework are returned. For example, <c>AMISecurity</c>.</para>
+        /// this framework are returned. For example, <c>AMISecurity</c>. Required when you use
+        /// <c>EntityIds</c> in <c>AssessmentTargetFilter</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             }
             context.AssessmentTargetFilter_ChangeSetId = this.AssessmentTargetFilter_ChangeSetId;
             context.AssessmentTargetFilter_EntityId = this.AssessmentTargetFilter_EntityId;
+            if (this.AssessmentTargetFilter_EntityIds != null)
+            {
+                context.AssessmentTargetFilter_EntityIds = new List<System.String>(this.AssessmentTargetFilter_EntityIds);
+            }
             context.Catalog = this.Catalog;
             #if MODULAR
             if (this.Catalog == null && ParameterWasBound(nameof(this.Catalog)))
@@ -260,6 +282,16 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (requestAssessmentTargetFilter_assessmentTargetFilter_EntityId != null)
             {
                 request.AssessmentTargetFilter.EntityId = requestAssessmentTargetFilter_assessmentTargetFilter_EntityId;
+                requestAssessmentTargetFilterIsNull = false;
+            }
+            List<System.String> requestAssessmentTargetFilter_assessmentTargetFilter_EntityIds = null;
+            if (cmdletContext.AssessmentTargetFilter_EntityIds != null)
+            {
+                requestAssessmentTargetFilter_assessmentTargetFilter_EntityIds = cmdletContext.AssessmentTargetFilter_EntityIds;
+            }
+            if (requestAssessmentTargetFilter_assessmentTargetFilter_EntityIds != null)
+            {
+                request.AssessmentTargetFilter.EntityIds = requestAssessmentTargetFilter_assessmentTargetFilter_EntityIds;
                 requestAssessmentTargetFilterIsNull = false;
             }
              // determine if request.AssessmentTargetFilter should be set to null
@@ -419,6 +451,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         {
             public System.String AssessmentTargetFilter_ChangeSetId { get; set; }
             public System.String AssessmentTargetFilter_EntityId { get; set; }
+            public List<System.String> AssessmentTargetFilter_EntityIds { get; set; }
             public System.String Catalog { get; set; }
             public System.String FrameworkFilters_AMISecurityFilters_DeliveryOptionId { get; set; }
             public System.String FrameworkFilters_ContainerSecurityFilters_DeliveryOptionId { get; set; }

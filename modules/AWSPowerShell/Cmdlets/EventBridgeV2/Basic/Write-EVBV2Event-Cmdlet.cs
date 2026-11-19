@@ -31,6 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
 {
     /// <summary>
     /// Publishes events to an event bus.
+    /// 
+    ///  
+    /// <para>
+    /// The total size of all event entries in a request must not exceed 1 MB (1,048,576 bytes).
+    /// The limit applies to the request as a whole, not to individual entries. If you exceed
+    /// the limit, the request fails with <c>InvalidInputException</c> and the service publishes
+    /// none of the entries in the request.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "EVBV2Event", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EventBridgeV2.Model.PutEventsResponse")]
@@ -47,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter DeduplicationConfiguration_DeduplicationType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>How duplicate events are detected: by a hash of the event content (CONTENT_BASED).
+        /// To deduplicate by a caller-supplied token instead, omit DeduplicationConfiguration
+        /// and set DeduplicationId on each entry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Entry
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>List of event entries to publish. Must contain at least one entry.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -81,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter EventBusArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies an event bus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

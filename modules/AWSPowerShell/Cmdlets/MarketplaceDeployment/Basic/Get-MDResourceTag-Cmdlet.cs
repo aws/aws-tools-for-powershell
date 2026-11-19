@@ -30,7 +30,7 @@ using Amazon.MarketplaceDeployment.Model;
 namespace Amazon.PowerShell.Cmdlets.MD
 {
     /// <summary>
-    /// Lists all tags that have been added to a deployment parameter resource.
+    /// Lists all tags that have been added to a resource.
     /// </summary>
     [Cmdlet("Get", "MDResourceTag")]
     [OutputType("System.String")]
@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.MD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) associated with the deployment parameter resource you
-        /// want to list tags on.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource you want to list tags on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

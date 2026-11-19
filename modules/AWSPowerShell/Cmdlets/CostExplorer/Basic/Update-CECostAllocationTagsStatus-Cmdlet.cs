@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Update", "CECostAllocationTagsStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusError")]
-    [AWSCmdlet("Calls the AWS Cost Explorer UpdateCostAllocationTagsStatus API operation.", Operation = new[] {"UpdateCostAllocationTagsStatus"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service UpdateCostAllocationTagsStatus API operation.", Operation = new[] {"UpdateCostAllocationTagsStatus"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusError or Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusError objects.",
         "The service call response (type Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusResponse) can be returned by specifying '-Select *'."
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "UpdateCostAllocationTagsStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "UpdateCostAllocationTagsStatus");
             try
             {
                 return client.UpdateCostAllocationTagsStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

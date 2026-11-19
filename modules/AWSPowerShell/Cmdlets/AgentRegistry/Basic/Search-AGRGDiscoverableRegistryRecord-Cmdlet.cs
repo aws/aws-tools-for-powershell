@@ -32,6 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
     /// <summary>
     /// Searches the discoverable registry records in a registry using a natural language
     /// query. Returns metadata for the matching records ordered by relevance.
+    /// 
+    ///  
+    /// <para>
+    ///  Returns at most 1000 results across all pages when <c>searchType</c> is <c>KEYWORD</c>,
+    /// and at most 20 results when it is <c>HYBRID</c> or <c>SEMANTIC</c>. To retrieve more
+    /// records, refine the query or filters, or use <c>ListDiscoverableRegistryRecords</c>
+    /// to list every record.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "AGRGDiscoverableRegistryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AgentRegistry.Model.RegistryRecordSummary")]
@@ -90,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
         #region Parameter SearchQuery
         /// <summary>
         /// <para>
-        /// <para> The natural language query to search for matching registry records.</para>
+        /// <para> The natural language query to search for matching registry records. If you specify
+        /// an empty string, the operation returns the records that match the <c>filters</c>,
+        /// most recently updated first, up to the result limit for the <c>searchType</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,16 +114,60 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
         public System.String SearchQuery { get; set; }
         #endregion
         
-        #region Parameter MaxResult
+        #region Parameter SearchType
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results to return. Valid values are 1 through 20. The default
-        /// value is 10.</para>
+        /// <para> Specifies how the service ranks registry records against the search query. If you
+        /// omit this parameter, the service uses <c>HYBRID</c> in Amazon Web Services Regions
+        /// that support semantic search and <c>KEYWORD</c> in Regions that do not. The response
+        /// reports the search type that the service used. Valid values are the following:</para><ul><li><para><c>KEYWORD</c> – Ranks records by keyword match between the query terms and the record
+        /// name, description, descriptors, and custom metadata text values. Available in every
+        /// Amazon Web Services Region.</para></li><li><para><c>SEMANTIC</c> – Ranks records by semantic similarity to the query and returns the
+        /// most similar records, up to <c>maxResults</c>, even when none of them closely matches
+        /// the query.</para></li><li><para><c>HYBRID</c> – Combines keyword ranking and semantic ranking.</para></li></ul><para><c>HYBRID</c> and <c>SEMANTIC</c> are available in a limited number of Regions. If
+        /// you specify either one in a Region that does not support semantic search, the request
+        /// fails with a <c>ValidationException</c> that has the reason <c>UnsupportedInRegion</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [AWSConstantClassSource("Amazon.AgentRegistry.SearchType")]
+        public Amazon.AgentRegistry.SearchType SearchType { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para> The maximum number of results to return in one page. Valid values are 1 through 50
+        /// when <c>searchType</c> is <c>KEYWORD</c>, and 1 through 20 when it is <c>HYBRID</c>
+        /// or <c>SEMANTIC</c>. The default value is 10.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para> The pagination token from a previous response. Use it to retrieve the next page of
+        /// results, and send the same <c>searchQuery</c>, <c>registryIds</c>, <c>filters</c>,
+        /// and <c>searchType</c> that you used for the first page. If any of them differ, the
+        /// request fails with a <c>ValidationException</c>. A pagination token expires 15 minutes
+        /// after the service returns the first page.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -135,6 +189,16 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter Force { get; set; }
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -164,6 +228,16 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
             }
             context.Filter = this.Filter;
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
+            context.NextToken = this.NextToken;
             if (this.RegistryId != null)
             {
                 context.RegistryId = new List<System.String>(this.RegistryId);
@@ -181,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
                 WriteWarning("You are passing $null as a value for parameter SearchQuery which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SearchType = this.SearchType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -194,7 +269,9 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            var useParameterSelect = this.Select.StartsWith("^");
+            
+            // create request and set iteration invariants
             var request = new Amazon.AgentRegistry.Model.SearchDiscoverableRegistryRecordsRequest();
             
             if (cmdletContext.Filter != null)
@@ -203,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             if (cmdletContext.RegistryId != null)
             {
@@ -213,28 +290,56 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
             {
                 request.SearchQuery = cmdletContext.SearchQuery;
             }
+            if (cmdletContext.SearchType != null)
+            {
+                request.SearchType = cmdletContext.SearchType;
+            }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -269,9 +374,11 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Management.Automation.PSObject Filter { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public int? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
             public List<System.String> RegistryId { get; set; }
             public System.String SearchQuery { get; set; }
+            public Amazon.AgentRegistry.SearchType SearchType { get; set; }
             public System.Func<Amazon.AgentRegistry.Model.SearchDiscoverableRegistryRecordsResponse, SearchAGRGDiscoverableRegistryRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RegistryRecords;
         }

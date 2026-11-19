@@ -1,0 +1,3 @@
+﻿# PartnerCentralMarketing
+
+Export-ModuleMember -Alias *

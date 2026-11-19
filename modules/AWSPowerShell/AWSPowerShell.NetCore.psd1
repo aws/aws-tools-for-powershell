@@ -361,6 +361,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.PartnerCentralAccount.dll',
         'AWSSDK.PartnerCentralBenefits.dll',
         'AWSSDK.PartnerCentralChannel.dll',
+        'AWSSDK.PartnerCentralMarketing.dll',
         'AWSSDK.PartnerCentralRevenueMeasurement.dll',
         'AWSSDK.PartnerCentralSelling.dll',
         'AWSSDK.PaymentCryptography.dll',

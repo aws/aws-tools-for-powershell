@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("New", "RTBOutboundExternalLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RTBFabric.Model.CreateOutboundExternalLinkResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric CreateOutboundExternalLink API operation.", Operation = new[] {"CreateOutboundExternalLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.CreateOutboundExternalLinkResponse))]
+    [AWSCmdlet("Calls the RTBFabric CreateOutboundExternalLink API operation.", Operation = new[] {"CreateOutboundExternalLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.CreateOutboundExternalLinkResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.CreateOutboundExternalLinkResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.CreateOutboundExternalLinkResponse object containing multiple properties."
     )]
@@ -413,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.CreateOutboundExternalLinkResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.CreateOutboundExternalLinkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "CreateOutboundExternalLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "CreateOutboundExternalLink");
             try
             {
                 return client.CreateOutboundExternalLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

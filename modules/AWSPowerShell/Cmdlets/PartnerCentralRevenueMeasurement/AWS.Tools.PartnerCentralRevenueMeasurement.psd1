@@ -103,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-PCRMRevenueAttribution', 
         'Remove-PCRMResourceTag', 
         'Start-PCRMRevenueAttributionAllocationsTask', 
+        'Update-PCRMMarketplaceRevenueShare', 
         'Update-PCRMMarketplaceRevenueShareAllocation', 
         'Update-PCRMRevenueAttribution')
 

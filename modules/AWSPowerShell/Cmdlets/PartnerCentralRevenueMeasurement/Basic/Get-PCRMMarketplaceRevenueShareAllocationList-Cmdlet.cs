@@ -57,6 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         public System.String AfterEffectiveFrom { get; set; }
         #endregion
         
+        #region Parameter AfterEffectiveUntil
+        /// <summary>
+        /// <para>
+        /// <para>Inclusive lower bound for EffectiveUntil date filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AfterEffectiveUntil { get; set; }
+        #endregion
+        
         #region Parameter BeforeEffectiveFrom
         /// <summary>
         /// <para>
@@ -65,6 +75,16 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String BeforeEffectiveFrom { get; set; }
+        #endregion
+        
+        #region Parameter BeforeEffectiveUntil
+        /// <summary>
+        /// <para>
+        /// <para>Exclusive upper bound for EffectiveUntil date filter (half-open range).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BeforeEffectiveUntil { get; set; }
         #endregion
         
         #region Parameter Catalog
@@ -84,21 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
         #endregion
         
-        #region Parameter MarketplaceRevenueShareRevision
+        #region Parameter MarketplaceRevenueShareIdentifier
         /// <summary>
         /// <para>
-        /// <para>Optional share revision for historical list. Returns allocations as they existed at
-        /// this revision.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String MarketplaceRevenueShareRevision { get; set; }
-        #endregion
-        
-        #region Parameter ProductId
-        /// <summary>
-        /// <para>
-        /// <para>The AWS Marketplace product identifier for the parent revenue share.</para>
+        /// <para>The parent marketplace revenue share, by ID (mrs-...) or ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,7 +118,18 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProductId { get; set; }
+        public System.String MarketplaceRevenueShareIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter MarketplaceRevenueShareRevision
+        /// <summary>
+        /// <para>
+        /// <para>Optional share revision for historical list. Returns allocations as they existed at
+        /// this revision.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MarketplaceRevenueShareRevision { get; set; }
         #endregion
         
         #region Parameter SortBy
@@ -126,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The direction to sort results. Defaults to DESCENDING.</para>
+        /// <para>The direction to sort results. Defaults to ASCENDING.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         public Amazon.PartnerCentralRevenueMeasurement.SortOrder SortOrder { get; set; }
         #endregion
         
-        #region Parameter Status
+        #region Parameter StatusFilter
         /// <summary>
         /// <para>
         /// <para>Filter by allocation status.</para>
@@ -142,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.PartnerCentralRevenueMeasurement.AllocationStatus")]
-        public Amazon.PartnerCentralRevenueMeasurement.AllocationStatus Status { get; set; }
+        public Amazon.PartnerCentralRevenueMeasurement.AllocationStatus StatusFilter { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -216,12 +236,21 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AfterEffectiveFrom = this.AfterEffectiveFrom;
+            context.AfterEffectiveUntil = this.AfterEffectiveUntil;
             context.BeforeEffectiveFrom = this.BeforeEffectiveFrom;
+            context.BeforeEffectiveUntil = this.BeforeEffectiveUntil;
             context.Catalog = this.Catalog;
             #if MODULAR
             if (this.Catalog == null && ParameterWasBound(nameof(this.Catalog)))
             {
                 WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MarketplaceRevenueShareIdentifier = this.MarketplaceRevenueShareIdentifier;
+            #if MODULAR
+            if (this.MarketplaceRevenueShareIdentifier == null && ParameterWasBound(nameof(this.MarketplaceRevenueShareIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MarketplaceRevenueShareIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MarketplaceRevenueShareRevision = this.MarketplaceRevenueShareRevision;
@@ -236,16 +265,9 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             }
             #endif
             context.NextToken = this.NextToken;
-            context.ProductId = this.ProductId;
-            #if MODULAR
-            if (this.ProductId == null && ParameterWasBound(nameof(this.ProductId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProductId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
-            context.Status = this.Status;
+            context.StatusFilter = this.StatusFilter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -268,13 +290,25 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             {
                 request.AfterEffectiveFrom = cmdletContext.AfterEffectiveFrom;
             }
+            if (cmdletContext.AfterEffectiveUntil != null)
+            {
+                request.AfterEffectiveUntil = cmdletContext.AfterEffectiveUntil;
+            }
             if (cmdletContext.BeforeEffectiveFrom != null)
             {
                 request.BeforeEffectiveFrom = cmdletContext.BeforeEffectiveFrom;
             }
+            if (cmdletContext.BeforeEffectiveUntil != null)
+            {
+                request.BeforeEffectiveUntil = cmdletContext.BeforeEffectiveUntil;
+            }
             if (cmdletContext.Catalog != null)
             {
                 request.Catalog = cmdletContext.Catalog;
+            }
+            if (cmdletContext.MarketplaceRevenueShareIdentifier != null)
+            {
+                request.MarketplaceRevenueShareIdentifier = cmdletContext.MarketplaceRevenueShareIdentifier;
             }
             if (cmdletContext.MarketplaceRevenueShareRevision != null)
             {
@@ -284,10 +318,6 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.ProductId != null)
-            {
-                request.ProductId = cmdletContext.ProductId;
-            }
             if (cmdletContext.SortBy != null)
             {
                 request.SortBy = cmdletContext.SortBy;
@@ -296,9 +326,9 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             {
                 request.SortOrder = cmdletContext.SortOrder;
             }
-            if (cmdletContext.Status != null)
+            if (cmdletContext.StatusFilter != null)
             {
-                request.Status = cmdletContext.Status;
+                request.StatusFilter = cmdletContext.StatusFilter;
             }
             
             // Initialize loop variant and commence piping
@@ -380,15 +410,17 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AfterEffectiveFrom { get; set; }
+            public System.String AfterEffectiveUntil { get; set; }
             public System.String BeforeEffectiveFrom { get; set; }
+            public System.String BeforeEffectiveUntil { get; set; }
             public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
+            public System.String MarketplaceRevenueShareIdentifier { get; set; }
             public System.String MarketplaceRevenueShareRevision { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ProductId { get; set; }
             public Amazon.PartnerCentralRevenueMeasurement.MarketplaceRevenueShareAllocationSortField SortBy { get; set; }
             public Amazon.PartnerCentralRevenueMeasurement.SortOrder SortOrder { get; set; }
-            public Amazon.PartnerCentralRevenueMeasurement.AllocationStatus Status { get; set; }
+            public Amazon.PartnerCentralRevenueMeasurement.AllocationStatus StatusFilter { get; set; }
             public System.Func<Amazon.PartnerCentralRevenueMeasurement.Model.ListMarketplaceRevenueShareAllocationsResponse, GetPCRMMarketplaceRevenueShareAllocationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MarketplaceRevenueShareAllocationSummaries;
         }

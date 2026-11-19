@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Get", "RTBLinkList")]
     [OutputType("Amazon.RTBFabric.Model.ListLinksResponseStructure")]
-    [AWSCmdlet("Calls the Amazon RTBFabric ListLinks API operation.", Operation = new[] {"ListLinks"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.ListLinksResponse))]
+    [AWSCmdlet("Calls the RTBFabric ListLinks API operation.", Operation = new[] {"ListLinks"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.ListLinksResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.ListLinksResponseStructure or Amazon.RTBFabric.Model.ListLinksResponse",
         "This cmdlet returns a collection of Amazon.RTBFabric.Model.ListLinksResponseStructure objects.",
         "The service call response (type Amazon.RTBFabric.Model.ListLinksResponse) can be returned by specifying '-Select *'."
@@ -247,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.ListLinksResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.ListLinksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "ListLinks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "ListLinks");
             try
             {
                 return client.ListLinksAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

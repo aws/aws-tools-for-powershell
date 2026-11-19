@@ -271,6 +271,16 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.OnDomainTakeover
+        {
+            ($_ -eq "New-CFDistributionTenant/OnDomainTakeover") -Or
+            ($_ -eq "Update-CFDistributionTenant/OnDomainTakeover")
+        }
+        {
+            $v = "allow","reject"
+            break
+        }
+
         # Amazon.CloudFront.OriginAccessControlOriginTypes
         {
             ($_ -eq "New-CFOriginAccessControl/OriginAccessControlConfig_OriginAccessControlOriginType") -Or
@@ -465,6 +475,7 @@ $CF_map = @{
     "IpAddressType"=@("New-CFAnycastIpList","Update-CFAnycastIpList")
     "ManagedCertificateRequest_CertificateTransparencyLoggingPreference"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
     "ManagedCertificateRequest_ValidationTokenHost"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
+    "OnDomainTakeover"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
     "OriginAccessControlConfig_OriginAccessControlOriginType"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
     "OriginAccessControlConfig_SigningBehavior"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
     "OriginAccessControlConfig_SigningProtocol"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")

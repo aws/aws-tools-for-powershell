@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("New", "CECostCategoryDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CostExplorer.Model.CreateCostCategoryDefinitionResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer CreateCostCategoryDefinition API operation.", Operation = new[] {"CreateCostCategoryDefinition"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.CreateCostCategoryDefinitionResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service CreateCostCategoryDefinition API operation.", Operation = new[] {"CreateCostCategoryDefinition"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.CreateCostCategoryDefinitionResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.CreateCostCategoryDefinitionResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.CreateCostCategoryDefinitionResponse object containing multiple properties."
     )]
@@ -320,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.CreateCostCategoryDefinitionResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.CreateCostCategoryDefinitionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "CreateCostCategoryDefinition");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "CreateCostCategoryDefinition");
             try
             {
                 return client.CreateCostCategoryDefinitionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

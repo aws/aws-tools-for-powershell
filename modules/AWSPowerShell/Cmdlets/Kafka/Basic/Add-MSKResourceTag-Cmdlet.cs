@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Add", "MSKResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Kafka.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Kafka.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Kafka.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Kafka.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.TagResourceResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

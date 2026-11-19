@@ -25,7 +25,7 @@
     Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The Kafka module of AWS Tools for PowerShell lets developers and administrators manage Amazon Managed Streaming for Apache Kafka (MSK) from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The Kafka module of AWS Tools for PowerShell lets developers and administrators manage Managed Streaming for Kafka from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -89,6 +89,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-MSKResourceTag', 
         'Deny-MSKClientVpcConnection', 
+        'Get-MSKAssessmentDetail', 
+        'Get-MSKAssessmentFindingList', 
+        'Get-MSKAssessmentList', 
         'Get-MSKBootstrapBroker', 
         'Get-MSKChannelDetail', 
         'Get-MSKChannelList', 
@@ -116,8 +119,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MSKTopic', 
         'Get-MSKTopicList', 
         'Get-MSKTopicPartition', 
+        'Get-MSKTopicReassignmentDetail', 
+        'Get-MSKTopicReassignmentList', 
         'Get-MSKVpcConnection', 
         'Get-MSKVpcConnectionList', 
+        'New-MSKAssessment', 
         'New-MSKChannel', 
         'New-MSKCluster', 
         'New-MSKClusterV2', 
@@ -126,6 +132,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-MSKTopic', 
         'New-MSKVpcConnection', 
         'Register-MSKAssociateScramSecret', 
+        'Remove-MSKAssessment', 
         'Remove-MSKChannel', 
         'Remove-MSKCluster', 
         'Remove-MSKClusterPolicy', 
@@ -135,6 +142,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-MSKTopic', 
         'Remove-MSKVpcConnection', 
         'Restart-MSKBroker', 
+        'Start-MSKTopicReassignment', 
+        'Stop-MSKTopicReassignment', 
         'Unregister-MSKDisassociateScramSecret', 
         'Update-MSKBrokerCount', 
         'Update-MSKBrokerStorage', 

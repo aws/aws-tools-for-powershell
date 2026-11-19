@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Start", "CECommitmentPurchaseAnalysis", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CostExplorer.Model.StartCommitmentPurchaseAnalysisResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer StartCommitmentPurchaseAnalysis API operation.", Operation = new[] {"StartCommitmentPurchaseAnalysis"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.StartCommitmentPurchaseAnalysisResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service StartCommitmentPurchaseAnalysis API operation.", Operation = new[] {"StartCommitmentPurchaseAnalysis"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.StartCommitmentPurchaseAnalysisResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.StartCommitmentPurchaseAnalysisResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.StartCommitmentPurchaseAnalysisResponse object containing multiple properties."
     )]
@@ -341,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.StartCommitmentPurchaseAnalysisResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.StartCommitmentPurchaseAnalysisRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "StartCommitmentPurchaseAnalysis");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "StartCommitmentPurchaseAnalysis");
             try
             {
                 return client.StartCommitmentPurchaseAnalysisAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

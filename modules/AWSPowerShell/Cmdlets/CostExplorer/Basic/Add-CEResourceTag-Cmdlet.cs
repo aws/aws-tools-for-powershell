@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Add", "CEResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Cost Explorer TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CostExplorer.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.CostExplorer.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.TagResourceResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

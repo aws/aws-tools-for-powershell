@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Get", "RTBRequesterGatewayList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon RTBFabric ListRequesterGateways API operation.", Operation = new[] {"ListRequesterGateways"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.ListRequesterGatewaysResponse))]
+    [AWSCmdlet("Calls the RTBFabric ListRequesterGateways API operation.", Operation = new[] {"ListRequesterGateways"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.ListRequesterGatewaysResponse))]
     [AWSCmdletOutput("System.String or Amazon.RTBFabric.Model.ListRequesterGatewaysResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.RTBFabric.Model.ListRequesterGatewaysResponse) can be returned by specifying '-Select *'."
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.ListRequesterGatewaysResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.ListRequesterGatewaysRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "ListRequesterGateways");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "ListRequesterGateways");
             try
             {
                 return client.ListRequesterGatewaysAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

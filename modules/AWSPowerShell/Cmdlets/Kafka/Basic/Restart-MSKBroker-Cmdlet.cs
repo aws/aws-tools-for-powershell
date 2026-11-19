@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Restart", "MSKBroker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.RebootBrokerResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) RebootBroker API operation.", Operation = new[] {"RebootBroker"}, SelectReturnType = typeof(Amazon.Kafka.Model.RebootBrokerResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka RebootBroker API operation.", Operation = new[] {"RebootBroker"}, SelectReturnType = typeof(Amazon.Kafka.Model.RebootBrokerResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.RebootBrokerResponse",
         "This cmdlet returns an Amazon.Kafka.Model.RebootBrokerResponse object containing multiple properties."
     )]
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.RebootBrokerResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.RebootBrokerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "RebootBroker");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "RebootBroker");
             try
             {
                 return client.RebootBrokerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// You cannot call any IAM operations using the CLI or the Amazon Web Services API. This
     /// limitation does not apply to console sessions.
     /// </para></li><li><para>
-    /// You cannot call any STS operations except <c>GetCallerIdentity</c>.
+    /// You cannot call any STS operations except <c>GetCallerIdentity</c>, <c>GetScopedCredentials</c>,
+    /// or <c>GetDelegatedAccessToken</c>.
     /// </para></li></ul><para>
     /// You can use temporary credentials for single sign-on (SSO) to the console.
     /// </para><para>
@@ -120,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </summary>
     [Cmdlet("Get", "STSFederationToken")]
     [OutputType("Amazon.SecurityToken.Model.GetFederationTokenResponse")]
-    [AWSCmdlet("Calls the AWS Security Token Service (STS) GetFederationToken API operation.", Operation = new[] {"GetFederationToken"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetFederationTokenResponse))]
+    [AWSCmdlet("Calls the AWS Security Token Service GetFederationToken API operation.", Operation = new[] {"GetFederationToken"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetFederationTokenResponse))]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.GetFederationTokenResponse",
         "This cmdlet returns an Amazon.SecurityToken.Model.GetFederationTokenResponse object containing multiple properties."
     )]
@@ -196,11 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// policies.</para><para>The plaintext that you use for both inline and managed session policies can't exceed
         /// 2,048 characters. The JSON policy characters can be any ASCII character from the space
         /// character to the end of the valid character list (\u0020 through \u00FF). It can also
-        /// include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.</para><note><para>An Amazon Web Services conversion compresses the passed inline session policy, managed
-        /// policy ARNs, and session tags into a packed binary format that has a separate limit.
-        /// Your request can fail for this limit even if your plaintext meets the other requirements.
-        /// The <c>PackedPolicySize</c> response element indicates by percentage how close the
-        /// policies and tags for your request are to the upper size limit.</para></note>
+        /// include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -229,11 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// policy. If that policy specifically references the federated user session in the <c>Principal</c>
         /// element of the policy, the session has the permissions allowed by the policy. These
         /// permissions are granted in addition to the permissions that are granted by the session
-        /// policies.</para><note><para>An Amazon Web Services conversion compresses the passed inline session policy, managed
-        /// policy ARNs, and session tags into a packed binary format that has a separate limit.
-        /// Your request can fail for this limit even if your plaintext meets the other requirements.
-        /// The <c>PackedPolicySize</c> response element indicates by percentage how close the
-        /// policies and tags for your request are to the upper size limit.</para></note><para />
+        /// policies.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -254,11 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// Session Tags in STS</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. You can pass up to 50 session tags. The plaintext session
         /// tag keys can’t exceed 128 characters and the values can’t exceed 256 characters. For
         /// these and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
-        /// and STS Character Limits</a> in the <i>IAM User Guide</i>.</para><note><para>An Amazon Web Services conversion compresses the passed inline session policy, managed
-        /// policy ARNs, and session tags into a packed binary format that has a separate limit.
-        /// Your request can fail for this limit even if your plaintext meets the other requirements.
-        /// The <c>PackedPolicySize</c> response element indicates by percentage how close the
-        /// policies and tags for your request are to the upper size limit.</para></note><para>You can pass a session tag with the same key as a tag that is already attached to
+        /// and STS Character Limits</a> in the <i>IAM User Guide</i>.</para><para>You can pass a session tag with the same key as a tag that is already attached to
         /// the user you are federating. When you do, session tags override a user tag with the
         /// same key. </para><para>Tag key–value pairs are not case sensitive, but case is preserved. This means that
         /// you cannot have separate <c>Department</c> and <c>department</c> tag keys. Assume
@@ -400,7 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         private Amazon.SecurityToken.Model.GetFederationTokenResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.GetFederationTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service (STS)", "GetFederationToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "GetFederationToken");
             try
             {
                 return client.GetFederationTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

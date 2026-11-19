@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Free-text description. Used by every resource type that has one: event buses, subscribers,
+        /// and event sources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter EncryptionConfiguration_KmsKeyIdentifier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Identifier of the AWS KMS customer managed key used to encrypt events: a key ID, key
+        /// ARN, alias name, or alias ARN. When absent, events are encrypted with an AWS owned
+        /// key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Name of an event bus. The first character must be alphanumeric; the remaining characters
+        /// may also include '.', '-', and '_'. The grammar matches the name segment of EventBusArn
+        /// (event-busv2/&lt;name&gt;/&lt;id&gt;), so every valid name can be represented in the
+        /// bus's ARN. The same type is used everywhere a bus name appears.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter StorageConfiguration_RetentionPeriodInDay
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Number of days events are retained on the event bus.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>Tags attached to a resource, as key-value pairs.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -113,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Unique, case-sensitive identifier that ensures the idempotency of the request. The
+        /// SDK generates one automatically when the field is omitted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

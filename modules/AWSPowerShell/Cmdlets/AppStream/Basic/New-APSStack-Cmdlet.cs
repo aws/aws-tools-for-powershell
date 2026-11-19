@@ -156,6 +156,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.Boolean? ContentRedirection_HostToClient_Enabled { get; set; }
         #endregion
         
+        #region Parameter WebAuthnRedirection_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether WebAuthn redirection is enabled for the stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WebAuthnRedirection_Enabled { get; set; }
+        #endregion
+        
         #region Parameter FeedbackURL
         /// <summary>
         /// <para>
@@ -206,6 +216,22 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.AppStream.PreferredProtocol")]
         public Amazon.AppStream.PreferredProtocol StreamingExperienceSettings_PreferredProtocol { get; set; }
+        #endregion
+        
+        #region Parameter WebAuthnRedirection_ProcessCompatibilityList
+        /// <summary>
+        /// <para>
+        /// <para>The list of process executable names for which you enable WebAuthn redirection. For
+        /// example, chrome.exe.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] WebAuthnRedirection_ProcessCompatibilityList { get; set; }
         #endregion
         
         #region Parameter RedirectURL
@@ -488,6 +514,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 context.UserSetting = new List<Amazon.AppStream.Model.UserSetting>(this.UserSetting);
             }
+            context.WebAuthnRedirection_Enabled = this.WebAuthnRedirection_Enabled;
+            if (this.WebAuthnRedirection_ProcessCompatibilityList != null)
+            {
+                context.WebAuthnRedirection_ProcessCompatibilityList = new List<System.String>(this.WebAuthnRedirection_ProcessCompatibilityList);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -740,6 +771,35 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 request.UserSettings = cmdletContext.UserSetting;
             }
             
+             // populate WebAuthnRedirection
+            var requestWebAuthnRedirectionIsNull = true;
+            request.WebAuthnRedirection = new Amazon.AppStream.Model.WebAuthnRedirection();
+            System.Boolean? requestWebAuthnRedirection_webAuthnRedirection_Enabled = null;
+            if (cmdletContext.WebAuthnRedirection_Enabled != null)
+            {
+                requestWebAuthnRedirection_webAuthnRedirection_Enabled = cmdletContext.WebAuthnRedirection_Enabled.Value;
+            }
+            if (requestWebAuthnRedirection_webAuthnRedirection_Enabled != null)
+            {
+                request.WebAuthnRedirection.Enabled = requestWebAuthnRedirection_webAuthnRedirection_Enabled.Value;
+                requestWebAuthnRedirectionIsNull = false;
+            }
+            List<System.String> requestWebAuthnRedirection_webAuthnRedirection_ProcessCompatibilityList = null;
+            if (cmdletContext.WebAuthnRedirection_ProcessCompatibilityList != null)
+            {
+                requestWebAuthnRedirection_webAuthnRedirection_ProcessCompatibilityList = cmdletContext.WebAuthnRedirection_ProcessCompatibilityList;
+            }
+            if (requestWebAuthnRedirection_webAuthnRedirection_ProcessCompatibilityList != null)
+            {
+                request.WebAuthnRedirection.ProcessCompatibilityList = requestWebAuthnRedirection_webAuthnRedirection_ProcessCompatibilityList;
+                requestWebAuthnRedirectionIsNull = false;
+            }
+             // determine if request.WebAuthnRedirection should be set to null
+            if (requestWebAuthnRedirectionIsNull)
+            {
+                request.WebAuthnRedirection = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -819,6 +879,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public Amazon.AppStream.PreferredProtocol StreamingExperienceSettings_PreferredProtocol { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public List<Amazon.AppStream.Model.UserSetting> UserSetting { get; set; }
+            public System.Boolean? WebAuthnRedirection_Enabled { get; set; }
+            public List<System.String> WebAuthnRedirection_ProcessCompatibilityList { get; set; }
             public System.Func<Amazon.AppStream.Model.CreateStackResponse, NewAPSStackCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Stack;
         }

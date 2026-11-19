@@ -61,6 +61,22 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
         #endregion
         
+        #region Parameter Context
+        /// <summary>
+        /// <para>
+        /// <para>Full-replacement context map. Omit to leave the stored context unchanged; pass an
+        /// empty map to clear it.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Context { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -170,6 +186,14 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             }
             #endif
             context.ClientToken = this.ClientToken;
+            if (this.Context != null)
+            {
+                context.Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Context.Keys)
+                {
+                    context.Context.Add((String)hashKey, (System.String)(this.Context[hashKey]));
+                }
+            }
             context.Description = this.Description;
             context.Identifier = this.Identifier;
             #if MODULAR
@@ -208,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.Context != null)
+            {
+                request.Context = cmdletContext.Context;
             }
             if (cmdletContext.Description != null)
             {
@@ -278,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         {
             public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
             public System.String ClientToken { get; set; }
+            public Dictionary<System.String, System.String> Context { get; set; }
             public System.String Description { get; set; }
             public System.String Identifier { get; set; }
             public System.String Revision { get; set; }

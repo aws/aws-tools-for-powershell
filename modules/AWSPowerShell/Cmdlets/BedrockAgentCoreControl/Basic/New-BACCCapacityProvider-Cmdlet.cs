@@ -278,6 +278,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether your agents can use hardware virtualization on their instances.
+        /// The following values are possible:</para><ul><li><para><c>ENABLED</c> – Your agents can use hardware virtualization on their instances.
+        /// To use this value, choose the <c>LINUX_X86_64</c> operating system and instance types
+        /// that support nested virtualization.</para></li><li><para><c>DISABLED</c> – Your agents can't use hardware virtualization on their instances.
+        /// This is the default.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.NestedVirtualization")]
+        public Amazon.BedrockAgentCoreControl.NestedVirtualization ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization { get; set; }
+        #endregion
+        
         #region Parameter ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_OperatingSystem
         /// <summary>
         /// <para>
@@ -470,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationPreference = this.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationPreference;
             context.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationId = this.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationId;
             context.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArn = this.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArn;
+            context.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization = this.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization;
             if (this.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_EphemeralVolume != null)
             {
                 context.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_EphemeralVolume = new List<Amazon.BedrockAgentCoreControl.Model.EphemeralBlockDeviceMapping>(this.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_EphemeralVolume);
@@ -654,6 +670,31 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_SshKeyName != null)
             {
                 requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters.SshKeyName = requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_SshKeyName;
+                requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParametersIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.CpuOptions requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions = null;
+            
+             // populate CpuOptions
+            var requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptionsIsNull = true;
+            requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions = new Amazon.BedrockAgentCoreControl.Model.CpuOptions();
+            Amazon.BedrockAgentCoreControl.NestedVirtualization requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization = null;
+            if (cmdletContext.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization != null)
+            {
+                requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization = cmdletContext.ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization;
+            }
+            if (requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization != null)
+            {
+                requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions.NestedVirtualization = requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization;
+                requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptionsIsNull = false;
+            }
+             // determine if requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions should be set to null
+            if (requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptionsIsNull)
+            {
+                requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions = null;
+            }
+            if (requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions != null)
+            {
+                requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters.CpuOptions = requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions;
                 requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParametersIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.InstanceRequirements requestComputeConfiguration_computeConfiguration_Ec2Configuration_computeConfiguration_Ec2Configuration_LaunchTemplateSource_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_computeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_InstanceRequirements = null;
@@ -1011,6 +1052,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public Amazon.BedrockAgentCoreControl.CapacityReservationPreference ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationPreference { get; set; }
             public System.String ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationId { get; set; }
             public System.String ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
+            public Amazon.BedrockAgentCoreControl.NestedVirtualization ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.EphemeralBlockDeviceMapping> ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_EphemeralVolume { get; set; }
             public System.String ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_InstanceProfileArn { get; set; }
             public List<System.String> ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_InstanceRequirements_AllowedInstanceType { get; set; }

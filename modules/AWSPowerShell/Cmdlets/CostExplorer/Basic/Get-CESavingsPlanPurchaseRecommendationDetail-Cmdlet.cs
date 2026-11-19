@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CESavingsPlanPurchaseRecommendationDetail")]
     [OutputType("Amazon.CostExplorer.Model.GetSavingsPlanPurchaseRecommendationDetailsResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetSavingsPlanPurchaseRecommendationDetails API operation.", Operation = new[] {"GetSavingsPlanPurchaseRecommendationDetails"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetSavingsPlanPurchaseRecommendationDetailsResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetSavingsPlanPurchaseRecommendationDetails API operation.", Operation = new[] {"GetSavingsPlanPurchaseRecommendationDetails"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetSavingsPlanPurchaseRecommendationDetailsResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GetSavingsPlanPurchaseRecommendationDetailsResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.GetSavingsPlanPurchaseRecommendationDetailsResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetSavingsPlanPurchaseRecommendationDetailsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetSavingsPlanPurchaseRecommendationDetailsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetSavingsPlanPurchaseRecommendationDetails");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetSavingsPlanPurchaseRecommendationDetails");
             try
             {
                 return client.GetSavingsPlanPurchaseRecommendationDetailsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

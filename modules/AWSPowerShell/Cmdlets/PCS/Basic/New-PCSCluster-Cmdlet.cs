@@ -103,6 +103,25 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public System.Int32? Accounting_DefaultPurgeTimeInDay { get; set; }
         #endregion
         
+        #region Parameter SlurmConfiguration_JobSubmitPlugin
+        /// <summary>
+        /// <para>
+        /// <para>The job submit plugins to run on the cluster controller. Use job submit plugins to
+        /// execute custom scripts during job submission and job modification to validate or modify
+        /// the job's configuration. Custom scripts can accept or reject jobs based on their configuration
+        /// or modify the configuration before job execution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_JobSubmitPlugins")]
+        public Amazon.PCS.Model.JobSubmitPlugin[] SlurmConfiguration_JobSubmitPlugin { get; set; }
+        #endregion
+        
         #region Parameter Accounting_Mode
         /// <summary>
         /// <para>
@@ -394,6 +413,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             {
                 context.SlurmConfiguration_CgroupCustomSetting = new List<Amazon.PCS.Model.CgroupCustomSetting>(this.SlurmConfiguration_CgroupCustomSetting);
             }
+            if (this.SlurmConfiguration_JobSubmitPlugin != null)
+            {
+                context.SlurmConfiguration_JobSubmitPlugin = new List<Amazon.PCS.Model.JobSubmitPlugin>(this.SlurmConfiguration_JobSubmitPlugin);
+            }
             context.SlurmConfiguration_ScaleDownIdleTimeInSecond = this.SlurmConfiguration_ScaleDownIdleTimeInSecond;
             if (this.SlurmConfiguration_SlurmCustomSetting != null)
             {
@@ -520,6 +543,16 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (requestSlurmConfiguration_slurmConfiguration_CgroupCustomSetting != null)
             {
                 request.SlurmConfiguration.CgroupCustomSettings = requestSlurmConfiguration_slurmConfiguration_CgroupCustomSetting;
+                requestSlurmConfigurationIsNull = false;
+            }
+            List<Amazon.PCS.Model.JobSubmitPlugin> requestSlurmConfiguration_slurmConfiguration_JobSubmitPlugin = null;
+            if (cmdletContext.SlurmConfiguration_JobSubmitPlugin != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_JobSubmitPlugin = cmdletContext.SlurmConfiguration_JobSubmitPlugin;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_JobSubmitPlugin != null)
+            {
+                request.SlurmConfiguration.JobSubmitPlugins = requestSlurmConfiguration_slurmConfiguration_JobSubmitPlugin;
                 requestSlurmConfigurationIsNull = false;
             }
             System.Int32? requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond = null;
@@ -687,6 +720,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public System.Int32? Accounting_DefaultPurgeTimeInDay { get; set; }
             public Amazon.PCS.AccountingMode Accounting_Mode { get; set; }
             public List<Amazon.PCS.Model.CgroupCustomSetting> SlurmConfiguration_CgroupCustomSetting { get; set; }
+            public List<Amazon.PCS.Model.JobSubmitPlugin> SlurmConfiguration_JobSubmitPlugin { get; set; }
             public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
             public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
             public Amazon.PCS.SlurmRestMode SlurmRest_Mode { get; set; }

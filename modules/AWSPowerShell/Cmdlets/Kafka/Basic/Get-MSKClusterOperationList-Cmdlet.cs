@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKClusterOperationList")]
     [OutputType("Amazon.Kafka.Model.ClusterOperationInfo")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) ListClusterOperations API operation.", Operation = new[] {"ListClusterOperations"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListClusterOperationsResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka ListClusterOperations API operation.", Operation = new[] {"ListClusterOperations"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListClusterOperationsResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.ClusterOperationInfo or Amazon.Kafka.Model.ListClusterOperationsResponse",
         "This cmdlet returns a collection of Amazon.Kafka.Model.ClusterOperationInfo objects.",
         "The service call response (type Amazon.Kafka.Model.ListClusterOperationsResponse) can be returned by specifying '-Select *'."
@@ -333,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.ListClusterOperationsResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.ListClusterOperationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "ListClusterOperations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "ListClusterOperations");
             try
             {
                 return client.ListClusterOperationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

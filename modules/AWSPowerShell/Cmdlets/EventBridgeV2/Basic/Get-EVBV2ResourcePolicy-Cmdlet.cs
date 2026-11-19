@@ -48,12 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// Which named policy to read. Defaults to "default"
-        /// when omitted (a read AWS Resource Access Manager makes on the owner's behalf resolves
-        /// to "AWS_RAM" instead). Unlike writing, neither name is reserved on a read: the bus
-        /// owner can read both. There is no fallback between the two, so a bus shared only through
-        /// Resource Access Manager fails with ResourceNotFoundException until "AWS_RAM" is named
-        /// explicitly. A well-formed name that is neither of the two fails with InvalidInputException.
+        /// <para>Which named policy to read. Defaults to "default" when omitted (a read AWS Resource
+        /// Access Manager makes on the owner's behalf resolves to "AWS_RAM" instead). Unlike
+        /// writing, neither name is reserved on a read: the bus owner can read both. There is
+        /// no fallback between the two, so a bus shared only through Resource Access Manager
+        /// fails with ResourceNotFoundException until "AWS_RAM" is named explicitly. A well-formed
+        /// name that is neither of the two fails with InvalidInputException.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies an event bus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

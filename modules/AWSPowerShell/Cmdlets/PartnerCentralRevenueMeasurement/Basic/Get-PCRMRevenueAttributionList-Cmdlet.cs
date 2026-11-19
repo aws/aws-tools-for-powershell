@@ -62,6 +62,23 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
         #endregion
         
+        #region Parameter ContextFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filter results by context. Filters are combined with AND; values within a filter are
+        /// combined with OR.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContextFilters")]
+        public Amazon.PartnerCentralRevenueMeasurement.Model.ContextFilter[] ContextFilter { get; set; }
+        #endregion
+        
         #region Parameter CreatedAfter
         /// <summary>
         /// <para>
@@ -198,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
                 WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ContextFilter != null)
+            {
+                context.ContextFilter = new List<Amazon.PartnerCentralRevenueMeasurement.Model.ContextFilter>(this.ContextFilter);
+            }
             context.CreatedAfter = this.CreatedAfter;
             context.CreatedBefore = this.CreatedBefore;
             if (this.Identifier != null)
@@ -238,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
             if (cmdletContext.Catalog != null)
             {
                 request.Catalog = cmdletContext.Catalog;
+            }
+            if (cmdletContext.ContextFilter != null)
+            {
+                request.ContextFilters = cmdletContext.ContextFilter;
             }
             if (cmdletContext.CreatedAfter != null)
             {
@@ -343,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.PCRM
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.PartnerCentralRevenueMeasurement.CatalogName Catalog { get; set; }
+            public List<Amazon.PartnerCentralRevenueMeasurement.Model.ContextFilter> ContextFilter { get; set; }
             public System.DateTime? CreatedAfter { get; set; }
             public System.DateTime? CreatedBefore { get; set; }
             public List<System.String> Identifier { get; set; }

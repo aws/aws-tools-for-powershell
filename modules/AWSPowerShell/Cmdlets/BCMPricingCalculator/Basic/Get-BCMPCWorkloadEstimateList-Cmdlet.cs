@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Get", "BCMPCWorkloadEstimateList")]
     [OutputType("Amazon.BCMPricingCalculator.Model.WorkloadEstimateSummary")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator ListWorkloadEstimates API operation.", Operation = new[] {"ListWorkloadEstimates"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.ListWorkloadEstimatesResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator ListWorkloadEstimates API operation.", Operation = new[] {"ListWorkloadEstimates"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.ListWorkloadEstimatesResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.WorkloadEstimateSummary or Amazon.BCMPricingCalculator.Model.ListWorkloadEstimatesResponse",
         "This cmdlet returns a collection of Amazon.BCMPricingCalculator.Model.WorkloadEstimateSummary objects.",
         "The service call response (type Amazon.BCMPricingCalculator.Model.ListWorkloadEstimatesResponse) can be returned by specifying '-Select *'."
@@ -335,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.ListWorkloadEstimatesResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.ListWorkloadEstimatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "ListWorkloadEstimates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "ListWorkloadEstimates");
             try
             {
                 return client.ListWorkloadEstimatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

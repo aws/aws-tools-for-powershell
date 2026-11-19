@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Remove", "BCMPCBillEstimate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator DeleteBillEstimate API operation.", Operation = new[] {"DeleteBillEstimate"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.DeleteBillEstimateResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator DeleteBillEstimate API operation.", Operation = new[] {"DeleteBillEstimate"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.DeleteBillEstimateResponse))]
     [AWSCmdletOutput("None or Amazon.BCMPricingCalculator.Model.DeleteBillEstimateResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BCMPricingCalculator.Model.DeleteBillEstimateResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.DeleteBillEstimateResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.DeleteBillEstimateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "DeleteBillEstimate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "DeleteBillEstimate");
             try
             {
                 return client.DeleteBillEstimateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

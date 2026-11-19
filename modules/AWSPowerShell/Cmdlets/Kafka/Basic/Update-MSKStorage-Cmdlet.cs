@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Update", "MSKStorage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.UpdateStorageResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) UpdateStorage API operation.", Operation = new[] {"UpdateStorage"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateStorageResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka UpdateStorage API operation.", Operation = new[] {"UpdateStorage"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateStorageResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.UpdateStorageResponse",
         "This cmdlet returns an Amazon.Kafka.Model.UpdateStorageResponse object containing multiple properties."
     )]
@@ -281,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.UpdateStorageResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.UpdateStorageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "UpdateStorage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "UpdateStorage");
             try
             {
                 return client.UpdateStorageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

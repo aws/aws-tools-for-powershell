@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Remove", "RTBRequesterGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RTBFabric.Model.DeleteRequesterGatewayResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric DeleteRequesterGateway API operation.", Operation = new[] {"DeleteRequesterGateway"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.DeleteRequesterGatewayResponse))]
+    [AWSCmdlet("Calls the RTBFabric DeleteRequesterGateway API operation.", Operation = new[] {"DeleteRequesterGateway"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.DeleteRequesterGatewayResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.DeleteRequesterGatewayResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.DeleteRequesterGatewayResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.DeleteRequesterGatewayResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.DeleteRequesterGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "DeleteRequesterGateway");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "DeleteRequesterGateway");
             try
             {
                 return client.DeleteRequesterGatewayAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

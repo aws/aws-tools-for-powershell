@@ -330,6 +330,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.NestedVirtualization
+        "New-BACCCapacityProvider/ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.NetworkMode
         {
             ($_ -eq "New-BACCHarness/Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode") -Or
@@ -399,7 +406,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCPaymentConnector/Type")
         }
         {
-            $v = "CoinbaseCDP","StripePrivy"
+            $v = "AwsBilling","CoinbaseCDP","StripePrivy"
             break
         }
 
@@ -599,6 +606,7 @@ $BACC_map = @{
     "CapacityProviderConfiguration_OperatingSystemConfiguration_Linux_PrivilegeMode"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationPreference"=@("New-BACCCapacityProvider")
+    "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CpuOptions_NestedVirtualization"=@("New-BACCCapacityProvider")
     "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_Monitoring"=@("New-BACCCapacityProvider")
     "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_OperatingSystem"=@("New-BACCCapacityProvider")
     "ComputeConfiguration_Ec2Configuration_RootVolume_VolumeType"=@("New-BACCCapacityProvider")

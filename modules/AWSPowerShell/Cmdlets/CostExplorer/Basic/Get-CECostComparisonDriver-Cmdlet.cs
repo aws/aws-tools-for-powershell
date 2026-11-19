@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CECostComparisonDriver")]
     [OutputType("Amazon.CostExplorer.Model.CostComparisonDriver")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetCostComparisonDrivers API operation.", Operation = new[] {"GetCostComparisonDrivers"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetCostComparisonDriversResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetCostComparisonDrivers API operation.", Operation = new[] {"GetCostComparisonDrivers"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetCostComparisonDriversResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.CostComparisonDriver or Amazon.CostExplorer.Model.GetCostComparisonDriversResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.CostComparisonDriver objects.",
         "The service call response (type Amazon.CostExplorer.Model.GetCostComparisonDriversResponse) can be returned by specifying '-Select *'."
@@ -358,7 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetCostComparisonDriversResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetCostComparisonDriversRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetCostComparisonDrivers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetCostComparisonDrivers");
             try
             {
                 return client.GetCostComparisonDriversAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

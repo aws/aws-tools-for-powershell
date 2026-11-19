@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// <c>MaxResults</c>.
     /// </para><para>
     /// For rules that require asynchronous provisioning, the response includes <c>Status</c>
-    /// (see <a>FirewallRuleStatus</a>) and, on failure, <c>StatusMessage</c> with the reason.
+    /// (see <a>FirewallRule</a>) and, on failure, <c>StatusMessage</c> with the reason.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RFirewallRuleList")]

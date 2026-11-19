@@ -66,6 +66,25 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Customer_AwsMaturity { get; set; }
         #endregion
         
+        #region Parameter Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow
+        /// <summary>
+        /// <para>
+        /// <para>The recommended day-specific outreach windows for the recommended channel, expressed
+        /// in Coordinated Universal Time (UTC). Each window applies to one day, and more than
+        /// one window can fall on the same day. This field is optional and appears only when
+        /// window guidance is available.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindows")]
+        public Amazon.PartnerCentralSelling.Model.BestOutreachWindow[] Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow { get; set; }
+        #endregion
+        
         #region Parameter Project_BusinessProblem
         /// <summary>
         /// <para>
@@ -465,6 +484,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Lead_QualificationStatus { get; set; }
         #endregion
         
+        #region Parameter Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel
+        /// <summary>
+        /// <para>
+        /// <para>The recommended outreach channel for the group of similar leads. Valid values are
+        /// <c>EMAIL</c> and <c>CALL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel { get; set; }
+        #endregion
+        
         #region Parameter Payload_ProspectingResult_Aws_Customer_Region
         /// <summary>
         /// <para>
@@ -800,6 +830,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
             context.Lead_Customer_Industry = this.Lead_Customer_Industry;
             context.Customer_MarketSegment = this.Customer_MarketSegment;
             context.Lead_Customer_WebsiteUrl = this.Lead_Customer_WebsiteUrl;
+            if (this.Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow != null)
+            {
+                context.Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow = new List<Amazon.PartnerCentralSelling.Model.BestOutreachWindow>(this.Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow);
+            }
+            context.Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel = this.Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel;
             context.Payload_Lead_Insights_LeadReadinessScore = this.Payload_Lead_Insights_LeadReadinessScore;
             context.Interaction_BusinessProblem = this.Interaction_BusinessProblem;
             context.Contact_BusinessTitle = this.Contact_BusinessTitle;
@@ -1285,6 +1320,41 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 requestPayload_payload_Lead_payload_Lead_Insights.LeadReadinessScore = requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_LeadReadinessScore;
                 requestPayload_payload_Lead_payload_Lead_InsightsIsNull = false;
             }
+            Amazon.PartnerCentralSelling.Model.ChannelRecommendation requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation = null;
+            
+             // populate ChannelRecommendation
+            var requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendationIsNull = true;
+            requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation = new Amazon.PartnerCentralSelling.Model.ChannelRecommendation();
+            List<Amazon.PartnerCentralSelling.Model.BestOutreachWindow> requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow = null;
+            if (cmdletContext.Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow = cmdletContext.Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow;
+            }
+            if (requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation.BestOutreachWindows = requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow;
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendationIsNull = false;
+            }
+            System.String requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_RecommendedChannel = null;
+            if (cmdletContext.Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_RecommendedChannel = cmdletContext.Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel;
+            }
+            if (requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_RecommendedChannel != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation.RecommendedChannel = requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_RecommendedChannel;
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendationIsNull = false;
+            }
+             // determine if requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation should be set to null
+            if (requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendationIsNull)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation = null;
+            }
+            if (requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights.ChannelRecommendation = requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation;
+                requestPayload_payload_Lead_payload_Lead_InsightsIsNull = false;
+            }
              // determine if requestPayload_payload_Lead_payload_Lead_Insights should be set to null
             if (requestPayload_payload_Lead_payload_Lead_InsightsIsNull)
             {
@@ -1659,6 +1729,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String Lead_Customer_Industry { get; set; }
             public System.String Customer_MarketSegment { get; set; }
             public System.String Lead_Customer_WebsiteUrl { get; set; }
+            public List<Amazon.PartnerCentralSelling.Model.BestOutreachWindow> Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow { get; set; }
+            public System.String Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel { get; set; }
             public System.String Payload_Lead_Insights_LeadReadinessScore { get; set; }
             public System.String Interaction_BusinessProblem { get; set; }
             public System.String Contact_BusinessTitle { get; set; }

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("New", "BCMPCCreateWorkloadEstimateUsage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.BatchCreateWorkloadEstimateUsageResponse")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator BatchCreateWorkloadEstimateUsage API operation.", Operation = new[] {"BatchCreateWorkloadEstimateUsage"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchCreateWorkloadEstimateUsageResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator BatchCreateWorkloadEstimateUsage API operation.", Operation = new[] {"BatchCreateWorkloadEstimateUsage"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchCreateWorkloadEstimateUsageResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BatchCreateWorkloadEstimateUsageResponse",
         "This cmdlet returns an Amazon.BCMPricingCalculator.Model.BatchCreateWorkloadEstimateUsageResponse object containing multiple properties."
     )]
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.BatchCreateWorkloadEstimateUsageResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.BatchCreateWorkloadEstimateUsageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "BatchCreateWorkloadEstimateUsage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "BatchCreateWorkloadEstimateUsage");
             try
             {
                 return client.BatchCreateWorkloadEstimateUsageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

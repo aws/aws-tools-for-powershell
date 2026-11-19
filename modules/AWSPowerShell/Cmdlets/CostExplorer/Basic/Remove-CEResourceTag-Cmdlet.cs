@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Remove", "CEResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Cost Explorer UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CostExplorer.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.CostExplorer.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

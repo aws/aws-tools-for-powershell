@@ -125,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }
         #endregion
         
+        #region Parameter JpegXsInputSpecification_Codec
+        /// <summary>
+        /// <para>
+        /// Input codec. Must be JPEGXS.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.InputCodec")]
+        public Amazon.MediaLive.InputCodec JpegXsInputSpecification_Codec { get; set; }
+        #endregion
+        
         #region Parameter Destination
         /// <summary>
         /// <para>
@@ -278,6 +289,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.InputMaximumBitrate InputSpecification_MaximumBitrate { get; set; }
         #endregion
         
+        #region Parameter JpegXsInputSpecification_MaximumBitrate
+        /// <summary>
+        /// <para>
+        /// Maximum JPEG XS input bitrate
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.JpegXsInputMaximumBitrate")]
+        public Amazon.MediaLive.JpegXsInputMaximumBitrate JpegXsInputSpecification_MaximumBitrate { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -348,6 +370,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaLive.InputResolution")]
         public Amazon.MediaLive.InputResolution InputSpecification_Resolution { get; set; }
+        #endregion
+        
+        #region Parameter JpegXsInputSpecification_Resolution
+        /// <summary>
+        /// <para>
+        /// Maximum JPEG XS input resolution
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.JpegXsInputResolution")]
+        public Amazon.MediaLive.JpegXsInputResolution JpegXsInputSpecification_Resolution { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -516,6 +549,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.InputSpecification_Codec = this.InputSpecification_Codec;
             context.InputSpecification_MaximumBitrate = this.InputSpecification_MaximumBitrate;
             context.InputSpecification_Resolution = this.InputSpecification_Resolution;
+            context.JpegXsInputSpecification_Codec = this.JpegXsInputSpecification_Codec;
+            context.JpegXsInputSpecification_MaximumBitrate = this.JpegXsInputSpecification_MaximumBitrate;
+            context.JpegXsInputSpecification_Resolution = this.JpegXsInputSpecification_Resolution;
             context.LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType = this.LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType;
             context.LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn = this.LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn;
             context.LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType = this.LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType;
@@ -730,6 +766,45 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (requestInputSpecificationIsNull)
             {
                 request.InputSpecification = null;
+            }
+            
+             // populate JpegXsInputSpecification
+            var requestJpegXsInputSpecificationIsNull = true;
+            request.JpegXsInputSpecification = new Amazon.MediaLive.Model.JpegXsInputSpecification();
+            Amazon.MediaLive.InputCodec requestJpegXsInputSpecification_jpegXsInputSpecification_Codec = null;
+            if (cmdletContext.JpegXsInputSpecification_Codec != null)
+            {
+                requestJpegXsInputSpecification_jpegXsInputSpecification_Codec = cmdletContext.JpegXsInputSpecification_Codec;
+            }
+            if (requestJpegXsInputSpecification_jpegXsInputSpecification_Codec != null)
+            {
+                request.JpegXsInputSpecification.Codec = requestJpegXsInputSpecification_jpegXsInputSpecification_Codec;
+                requestJpegXsInputSpecificationIsNull = false;
+            }
+            Amazon.MediaLive.JpegXsInputMaximumBitrate requestJpegXsInputSpecification_jpegXsInputSpecification_MaximumBitrate = null;
+            if (cmdletContext.JpegXsInputSpecification_MaximumBitrate != null)
+            {
+                requestJpegXsInputSpecification_jpegXsInputSpecification_MaximumBitrate = cmdletContext.JpegXsInputSpecification_MaximumBitrate;
+            }
+            if (requestJpegXsInputSpecification_jpegXsInputSpecification_MaximumBitrate != null)
+            {
+                request.JpegXsInputSpecification.MaximumBitrate = requestJpegXsInputSpecification_jpegXsInputSpecification_MaximumBitrate;
+                requestJpegXsInputSpecificationIsNull = false;
+            }
+            Amazon.MediaLive.JpegXsInputResolution requestJpegXsInputSpecification_jpegXsInputSpecification_Resolution = null;
+            if (cmdletContext.JpegXsInputSpecification_Resolution != null)
+            {
+                requestJpegXsInputSpecification_jpegXsInputSpecification_Resolution = cmdletContext.JpegXsInputSpecification_Resolution;
+            }
+            if (requestJpegXsInputSpecification_jpegXsInputSpecification_Resolution != null)
+            {
+                request.JpegXsInputSpecification.Resolution = requestJpegXsInputSpecification_jpegXsInputSpecification_Resolution;
+                requestJpegXsInputSpecificationIsNull = false;
+            }
+             // determine if request.JpegXsInputSpecification should be set to null
+            if (requestJpegXsInputSpecificationIsNull)
+            {
+                request.JpegXsInputSpecification = null;
             }
             
              // populate LinkedChannelSettings
@@ -963,6 +1038,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }
             public Amazon.MediaLive.InputMaximumBitrate InputSpecification_MaximumBitrate { get; set; }
             public Amazon.MediaLive.InputResolution InputSpecification_Resolution { get; set; }
+            public Amazon.MediaLive.InputCodec JpegXsInputSpecification_Codec { get; set; }
+            public Amazon.MediaLive.JpegXsInputMaximumBitrate JpegXsInputSpecification_MaximumBitrate { get; set; }
+            public Amazon.MediaLive.JpegXsInputResolution JpegXsInputSpecification_Resolution { get; set; }
             public Amazon.MediaLive.LinkedChannelType LinkedChannelSettings_FollowerChannelSettings_LinkedChannelType { get; set; }
             public System.String LinkedChannelSettings_FollowerChannelSettings_PrimaryChannelArn { get; set; }
             public Amazon.MediaLive.LinkedChannelType LinkedChannelSettings_PrimaryChannelSettings_LinkedChannelType { get; set; }

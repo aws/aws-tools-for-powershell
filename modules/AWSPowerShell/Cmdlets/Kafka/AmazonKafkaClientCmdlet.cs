@@ -28,7 +28,7 @@ using Amazon.Kafka.Model;
 
 namespace Amazon.PowerShell.Cmdlets.MSK
 {
-    [AWSClientCmdlet("Amazon Managed Streaming for Apache Kafka (MSK)", "MSK", "2018-11-14", "Kafka")]
+    [AWSClientCmdlet("Managed Streaming for Kafka", "MSK", "2018-11-14", "Kafka")]
     public abstract partial class AmazonKafkaClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKafka Client { get; private set; }

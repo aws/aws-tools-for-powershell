@@ -197,6 +197,22 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String[] GeoRestrictions_Location { get; set; }
         #endregion
         
+        #region Parameter OnDomainTakeover
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether CloudFront moves a domain in this request to this distribution tenant
+        /// when the domain is already associated with another standard distribution or distribution
+        /// tenant. Valid values are:</para><ul><li><para><c>allow</c> – CloudFront moves the domain to this distribution tenant when the domain's
+        /// DNS points to this distribution tenant.</para></li><li><para><c>reject</c> – CloudFront doesn't move the domain, and the request fails if the
+        /// domain is associated with another resource. This is the default if you don't specify
+        /// a value.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFront.OnDomainTakeover")]
+        public Amazon.CloudFront.OnDomainTakeover OnDomainTakeover { get; set; }
+        #endregion
+        
         #region Parameter Parameter
         /// <summary>
         /// <para>
@@ -335,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.ManagedCertificateRequest_CertificateTransparencyLoggingPreference = this.ManagedCertificateRequest_CertificateTransparencyLoggingPreference;
             context.ManagedCertificateRequest_PrimaryDomainName = this.ManagedCertificateRequest_PrimaryDomainName;
             context.ManagedCertificateRequest_ValidationTokenHost = this.ManagedCertificateRequest_ValidationTokenHost;
+            context.OnDomainTakeover = this.OnDomainTakeover;
             if (this.Parameter != null)
             {
                 context.Parameter = new List<Amazon.CloudFront.Model.Parameter>(this.Parameter);
@@ -522,6 +539,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             {
                 request.ManagedCertificateRequest = null;
             }
+            if (cmdletContext.OnDomainTakeover != null)
+            {
+                request.OnDomainTakeover = cmdletContext.OnDomainTakeover;
+            }
             if (cmdletContext.Parameter != null)
             {
                 request.Parameters = cmdletContext.Parameter;
@@ -595,6 +616,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public Amazon.CloudFront.CertificateTransparencyLoggingPreference ManagedCertificateRequest_CertificateTransparencyLoggingPreference { get; set; }
             public System.String ManagedCertificateRequest_PrimaryDomainName { get; set; }
             public Amazon.CloudFront.ValidationTokenHost ManagedCertificateRequest_ValidationTokenHost { get; set; }
+            public Amazon.CloudFront.OnDomainTakeover OnDomainTakeover { get; set; }
             public List<Amazon.CloudFront.Model.Parameter> Parameter { get; set; }
             public System.Func<Amazon.CloudFront.Model.UpdateDistributionTenantResponse, UpdateCFDistributionTenantCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DistributionTenant;

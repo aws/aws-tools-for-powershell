@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CECostCategoryDefinitionList")]
     [OutputType("Amazon.CostExplorer.Model.CostCategoryReference")]
-    [AWSCmdlet("Calls the AWS Cost Explorer ListCostCategoryDefinitions API operation.", Operation = new[] {"ListCostCategoryDefinitions"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service ListCostCategoryDefinitions API operation.", Operation = new[] {"ListCostCategoryDefinitions"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.CostCategoryReference or Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.CostCategoryReference objects.",
         "The service call response (type Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse) can be returned by specifying '-Select *'."
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.ListCostCategoryDefinitionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "ListCostCategoryDefinitions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "ListCostCategoryDefinitions");
             try
             {
                 return client.ListCostCategoryDefinitionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

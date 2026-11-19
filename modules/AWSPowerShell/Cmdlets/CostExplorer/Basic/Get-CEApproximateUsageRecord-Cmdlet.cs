@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CEApproximateUsageRecord")]
     [OutputType("Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetApproximateUsageRecords API operation.", Operation = new[] {"GetApproximateUsageRecords"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetApproximateUsageRecords API operation.", Operation = new[] {"GetApproximateUsageRecords"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse object containing multiple properties."
     )]
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetApproximateUsageRecordsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetApproximateUsageRecords");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetApproximateUsageRecords");
             try
             {
                 return client.GetApproximateUsageRecordsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

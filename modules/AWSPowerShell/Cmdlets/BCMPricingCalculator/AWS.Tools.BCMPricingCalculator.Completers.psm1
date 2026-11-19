@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Pricing Calculator
+# Argument completions for service AWS Billing and Cost Management Pricing Calculator
 
 
 $BCMPC_Completers = {
@@ -87,6 +87,13 @@ $BCMPC_Completers = {
         }
         {
             $v = "OPEN","PRIORITIZED","RESTRICTED"
+            break
+        }
+
+        # Amazon.BCMPricingCalculator.RateType
+        "Get-BCMPCUsageLinesEstimatedCost/RateType"
+        {
+            $v = "AFTER_DISCOUNTS","AFTER_DISCOUNTS_AND_COMMITMENTS","BEFORE_DISCOUNTS"
             break
         }
 
@@ -107,7 +114,7 @@ $BCMPC_Completers = {
 
 $BCMPC_map = @{
     "GroupSharingPreference"=@("New-BCMPCBillScenario","Update-BCMPCBillScenario")
-    "RateType"=@("New-BCMPCWorkloadEstimate")
+    "RateType"=@("Get-BCMPCUsageLinesEstimatedCost","New-BCMPCWorkloadEstimate")
 }
 
 _awsArgumentCompleterRegistration $BCMPC_Completers $BCMPC_map
@@ -178,6 +185,7 @@ $BCMPC_SelectMap = @{
                "Get-BCMPCBillEstimate",
                "Get-BCMPCBillScenario",
                "Get-BCMPCPreference",
+               "Get-BCMPCUsageLinesEstimatedCost",
                "Get-BCMPCWorkloadEstimate",
                "Get-BCMPCBillEstimateCommitmentList",
                "Get-BCMPCBillEstimateInputCommitmentModificationList",

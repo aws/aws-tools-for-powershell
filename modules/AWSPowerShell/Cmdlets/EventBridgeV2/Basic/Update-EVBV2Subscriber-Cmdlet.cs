@@ -30,7 +30,10 @@ using Amazon.EventBridgeV2.Model;
 namespace Amazon.PowerShell.Cmdlets.EVBV2
 {
     /// <summary>
-    /// Updates a subscriber. Fields omitted from the request are left unchanged.
+    /// Updates a subscriber. Fields omitted from the request are left unchanged. Changing
+    /// an Amazon MSK subscriber's connectivity can re-provision it; when it does, the subscriber
+    /// resumes delivering once its ConnectivityState returns to ACTIVE (see the MskSubscriberActive
+    /// waiter).
     /// </summary>
     [Cmdlet("Update", "EVBV2Subscriber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EventBridgeV2.Model.UpdateSubscriberResponse")]
@@ -44,22 +47,71 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter InvokeConfiguration_MskParameters_Ack
+        /// <summary>
+        /// <para>
+        /// <para>Producer acknowledgement mode. Defaults to ALL.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InvokeConfiguration_MskParameters_Acks")]
+        [AWSConstantClassSource("Amazon.EventBridgeV2.MskAcks")]
+        public Amazon.EventBridgeV2.MskAcks InvokeConfiguration_MskParameters_Ack { get; set; }
+        #endregion
+        
         #region Parameter OnFailureConfiguration_Arn
         /// <summary>
         /// <para>
-        /// The ARN of the destination that receives events that
-        /// could not be delivered. An Amazon SQS queue is the supported destination.
+        /// <para>The ARN of the destination that receives events that could not be delivered. An Amazon
+        /// SQS queue is the supported destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OnFailureConfiguration_Arn { get; set; }
         #endregion
         
+        #region Parameter InvokeConfiguration_MskParameters_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>Producer client.id passed to the Kafka broker. Identifies the producer in broker-side
+        /// logs, metrics, and quota enforcement. A literal, not a JSONata expression: it is a
+        /// connection-level setting resolved once when the producer is created, not per event.
+        /// If you do not set it, EventBridge uses the subscriber ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InvokeConfiguration_MskParameters_ClientId { get; set; }
+        #endregion
+        
+        #region Parameter InvokeConfiguration_MskParameters_Compression
+        /// <summary>
+        /// <para>
+        /// <para>Producer compression codec applied to the record batch. Defaults to NONE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EventBridgeV2.MskCompression")]
+        public Amazon.EventBridgeV2.MskCompression InvokeConfiguration_MskParameters_Compression { get; set; }
+        #endregion
+        
+        #region Parameter InvokeConfiguration_MskParameters_Connectivity
+        /// <summary>
+        /// <para>
+        /// <para>How the service connects to the cluster. A cluster can have public access and multi-VPC
+        /// private connectivity turned on at the same time, so the subscriber names the one to
+        /// use. That path must be turned on, with IAM access control, on the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EventBridgeV2.MskConnectivity")]
+        public Amazon.EventBridgeV2.MskConnectivity InvokeConfiguration_MskParameters_Connectivity { get; set; }
+        #endregion
+        
         #region Parameter InvokeConfiguration_EventBusV2Parameters_SystemMetadata_DeduplicationId
         /// <summary>
         /// <para>
-        /// Deduplication ID for FIFO deduplication
-        /// on the downstream bus. Accepts a literal or a JSONata expression.
+        /// <para>Deduplication ID for FIFO deduplication on the downstream bus. Accepts a literal or
+        /// a JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_EventBusV2Parameters_DeduplicationConfiguration_DeduplicationType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>How duplicate events are detected: by a hash of the event content (CONTENT_BASED).
+        /// To deduplicate by a caller-supplied token instead, omit DeduplicationConfiguration
+        /// and set DeduplicationId on each entry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SqsParameters_DelaySecond
         /// <summary>
         /// <para>
-        /// Delay in seconds before the message becomes
-        /// visible, standard queues only. Accepts JSONata expression.
+        /// <para>Delay in seconds before the message becomes visible, standard queues only. Accepts
+        /// JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Free-text description. Used by every resource type that has one: event buses, subscribers,
+        /// and event sources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_LambdaParameters_DurableExecutionName
         /// <summary>
         /// <para>
-        /// Durable execution name. Accepts a
-        /// JSONata expression.
+        /// <para>Durable execution name. Accepts a JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_EventBusV2Parameters_SystemMetadata_EventGroupId
         /// <summary>
         /// <para>
-        /// Event group ID for FIFO ordering on the downstream
-        /// bus. Accepts a literal or a JSONata expression.
+        /// <para>Event group ID for FIFO ordering on the downstream bus. Accepts a literal or a JSONata
+        /// expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,8 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_KinesisParameters_ExplicitHashKey
         /// <summary>
         /// <para>
-        /// Explicit hash key forwarded to PutRecords
-        /// unchanged. Accepts JSONata expression.
+        /// <para>Explicit hash key forwarded to PutRecords unchanged. Accepts JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,8 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Transformer_JsonataConfiguration_Expression
         /// <summary>
         /// <para>
-        /// JSONata expression to transform the event.
-        /// Must be wrapped in {% %} delimiters.
+        /// <para>JSONata expression to transform the event. Must be wrapped in {% %} delimiters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter FilterConfiguration_Filter
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>List of filters. An event must match every filter to be delivered.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -162,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_HttpParameters_HeaderParameter
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>Map of HTTP header names to values, sent with the request to an HTTP target.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -175,11 +227,26 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         public System.Collections.Hashtable InvokeConfiguration_HttpParameters_HeaderParameter { get; set; }
         #endregion
         
+        #region Parameter InvokeConfiguration_MskParameters_Header
+        /// <summary>
+        /// <para>
+        /// <para>Kafka record headers attached to each produced record.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InvokeConfiguration_MskParameters_Headers")]
+        public Amazon.EventBridgeV2.Model.MskHeader[] InvokeConfiguration_MskParameters_Header { get; set; }
+        #endregion
+        
         #region Parameter LogConfiguration_IncludePayload
         /// <summary>
         /// <para>
-        /// Whether the customer event payload is embedded
-        /// in log records. Defaults to ON_ERROR_ONLY.
+        /// <para>Whether the customer event payload is embedded in log records. Defaults to ON_ERROR_ONLY.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,9 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_UniversalTargetParameters_Input
         /// <summary>
         /// <para>
-        /// JSON string or JSONata expression that produces
-        /// the API request. Supports {% ... %} JSONata expressions for dynamic values from the
-        /// event.
+        /// <para>JSON string or JSONata expression that produces the API request. Supports {% ... %}
+        /// JSONata expressions for dynamic values from the event.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,8 +268,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_HttpParameters_InvocationTimeoutSecond
         /// <summary>
         /// <para>
-        /// Timeout in seconds for each invocation
-        /// of the target (1-30). String-typed (not integer) so the value may be a JSONata expression.
+        /// <para>Timeout in seconds for each invocation of the target (1-30). String-typed (not integer)
+        /// so the value may be a JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,8 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_LambdaParameters_InvocationTimeoutSecond
         /// <summary>
         /// <para>
-        /// Timeout in seconds for each invocation
-        /// of the target. String-typed so the value may be a JSONata expression.
+        /// <para>Timeout in seconds for each invocation of the target. String-typed so the value may
+        /// be a JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,8 +292,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_StepFunctionsParameters_InvocationTimeoutSecond
         /// <summary>
         /// <para>
-        /// Timeout in seconds for each invocation
-        /// of the target (1-30). String-typed (not integer) so the value may be a JSONata expression.
+        /// <para>Timeout in seconds for each invocation of the target (1-30). String-typed (not integer)
+        /// so the value may be a JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,11 +304,9 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_UniversalTargetParameters_InvocationTimeoutSecond
         /// <summary>
         /// <para>
-        /// Timeout in seconds for each invocation
-        /// of the target (1-30, default 30). Accepts a literal integer or a {% ... %} JSONata
-        /// expression evaluated against the event at invocation time. A JSONata expression is
-        /// syntax-checked at create time. Resolved values outside of the range [1, 30] will be
-        /// constrained to the nearest bound at delivery time. Defaults to 30 seconds when unset.
+        /// <para>Timeout in seconds for each invocation of the target (1-30, default 30). Must be a
+        /// literal integer; JSONata expressions are not supported for this field. String-typed
+        /// to match the other targets' timeout fields. Defaults to 30s when unset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,8 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_LambdaParameters_InvocationType
         /// <summary>
         /// <para>
-        /// Lambda invocation type. EVENT invokes the
-        /// function asynchronously; REQUEST_RESPONSE waits for its result.
+        /// <para>Lambda invocation type. EVENT invokes the function asynchronously; REQUEST_RESPONSE
+        /// waits for its result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,8 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_StepFunctionsParameters_InvocationType
         /// <summary>
         /// <para>
-        /// Selects StartExecution (EVENT) or StartSyncExecution
-        /// (REQUEST_RESPONSE) at delivery.
+        /// <para>Selects StartExecution (EVENT) or StartSyncExecution (REQUEST_RESPONSE) at delivery.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter FilterConfiguration_Language
         /// <summary>
         /// <para>
-        /// Defaults to EVENT_BRIDGE_PATTERN when not specified.
+        /// <para>Defaults to EVENT_BRIDGE_PATTERN when not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -288,8 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter LogConfiguration_Level
         /// <summary>
         /// <para>
-        /// Minimum log level. Records below this level are
-        /// not emitted. Defaults to OFF.
+        /// <para>Minimum log level. Records below this level are not emitted. Defaults to OFF.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -300,12 +362,11 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter BatchConfiguration_MaxBatchSize
         /// <summary>
         /// <para>
-        /// The maximum number of events to include in
-        /// a single batch delivered to the target. The service delivers up to this many events
-        /// per batch; fewer may be delivered when the batch window elapses or the target's per-batch
-        /// limit is smaller. This is a maximum, not a guaranteed count. Valid range is 1-500
-        /// (default: 10, or the target API's per-batch maximum). The resolved value applied by
-        /// the service is returned on read.
+        /// <para>The maximum number of events to include in a single batch delivered to the target.
+        /// The service delivers up to this many events per batch; fewer may be delivered when
+        /// the batch window elapses or the target's per-batch limit is smaller. This is a maximum,
+        /// not a guaranteed count. Valid range is 1-500 (default: 10, or the target API's per-batch
+        /// maximum). The resolved value applied by the service is returned on read.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,11 +376,10 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter BatchConfiguration_MaxBatchWindowInSecond
         /// <summary>
         /// <para>
-        /// The maximum time in seconds to
-        /// wait for a batch to fill before delivering it to the target. This is a maximum; a
-        /// batch may be delivered sooner if it reaches MaxBatchSize or another delivery condition
-        /// is met. Valid range is 0-300 (default: 0, meaning no wait). The resolved value applied
-        /// by the service is always returned on read.
+        /// <para>The maximum time in seconds to wait for a batch to fill before delivering it to the
+        /// target. This is a maximum; a batch may be delivered sooner if it reaches MaxBatchSize
+        /// or another delivery condition is met. Valid range is 0-300 (default: 0, meaning no
+        /// wait). The resolved value applied by the service is always returned on read.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -330,8 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter RetryPolicy_MaxEventAgeInSecond
         /// <summary>
         /// <para>
-        /// Maximum age of an event in seconds
-        /// before it is discarded (60-86400, default: 300).
+        /// <para>Maximum age of an event in seconds before it is discarded (60-86400, default: 300).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -342,8 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter RetryPolicy_MaxRetryAttempt
         /// <summary>
         /// <para>
-        /// Maximum number of retry attempts (0-185,
-        /// default: 5).
+        /// <para>Maximum number of retry attempts (0-185, default: 5).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -354,8 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SnsParameters_MessageAttribute
         /// <summary>
         /// <para>
-        /// Custom message attributes for SNS filtering.
-        /// <para />
+        /// <para>Custom message attributes for SNS filtering.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -371,8 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SqsParameters_MessageAttribute
         /// <summary>
         /// <para>
-        /// Custom message attributes (name/type/value).
-        /// <para />
+        /// <para>Custom message attributes (name/type/value).</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -388,8 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SnsParameters_MessageDeduplicationId
         /// <summary>
         /// <para>
-        /// Message deduplication ID for FIFO
-        /// topics. Accepts JSONata expression.
+        /// <para>Message deduplication ID for FIFO topics. Accepts JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -399,8 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SqsParameters_MessageDeduplicationId
         /// <summary>
         /// <para>
-        /// Message deduplication ID for FIFO
-        /// queues. Accepts JSONata expression.
+        /// <para>Message deduplication ID for FIFO queues. Accepts JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -410,8 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SnsParameters_MessageGroupId
         /// <summary>
         /// <para>
-        /// Message group ID for FIFO topics. Accepts
-        /// JSONata expression.
+        /// <para>Message group ID for FIFO topics. Accepts JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -421,8 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SqsParameters_MessageGroupId
         /// <summary>
         /// <para>
-        /// Message group ID for FIFO queues. Accepts
-        /// JSONata expression.
+        /// <para>Message group ID for FIFO queues. Accepts JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -432,8 +484,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SnsParameters_MessageStructure
         /// <summary>
         /// <para>
-        /// Per-protocol message formatting mode,
-        /// forwarded to SNS Publish unchanged. Accepts JSONata expression.
+        /// <para>Per-protocol message formatting mode, forwarded to SNS Publish unchanged. Accepts
+        /// JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -443,9 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SqsParameters_MessageSystemAttribute
         /// <summary>
         /// <para>
-        /// System message attributes (e.g.,
-        /// AWSTraceHeader).
-        /// <para />
+        /// <para>System message attributes (e.g., AWSTraceHeader).</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -461,9 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_EventBusV2Parameters_Metadata
         /// <summary>
         /// <para>
-        /// Customer-defined metadata forwarded with each
-        /// event.
-        /// <para />
+        /// <para>Customer-defined metadata forwarded with each event.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -478,8 +526,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_StepFunctionsParameters_Name
         /// <summary>
         /// <para>
-        /// Name for the execution. Must be unique per account/region/state
-        /// machine. Accepts JSONata expression.
+        /// <para>Name for the execution. Must be unique per account/region/state machine. Accepts JSONata
+        /// expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -489,18 +537,33 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_KinesisParameters_PartitionKey
         /// <summary>
         /// <para>
-        /// Required by PutRecords even when an explicit
-        /// hash key is supplied. Accepts JSONata expression.
+        /// <para>Required by PutRecords even when an explicit hash key is supplied. Accepts JSONata
+        /// expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String InvokeConfiguration_KinesisParameters_PartitionKey { get; set; }
         #endregion
         
+        #region Parameter InvokeConfiguration_MskParameters_PartitionKey
+        /// <summary>
+        /// <para>
+        /// <para>Kafka record key. Accepts a literal or a JSONata expression (e.g. "{% $events.data.customerId
+        /// %}") resolved once per delivered event; the resolved value selects the destination
+        /// partition. If you omit it, the producer selects the partition; on an ordered (FIFO)
+        /// subscriber, EventBridge instead uses the event group ID as the record key to preserve
+        /// ordering.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InvokeConfiguration_MskParameters_PartitionKey { get; set; }
+        #endregion
+        
         #region Parameter InvokeConfiguration_HttpParameters_PathParameterValue
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>Values substituted, in order, for the path-parameter placeholders in an HTTP target's
+        /// endpoint path.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -516,8 +579,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_LambdaParameters_Qualifier
         /// <summary>
         /// <para>
-        /// Lambda qualifier: $LATEST, $LATEST.PUBLISHED,
-        /// a numeric version, or an alias. Accepts a JSONata expression.
+        /// <para>Lambda qualifier: $LATEST, $LATEST.PUBLISHED, a numeric version, or an alias. Accepts
+        /// a JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -527,7 +590,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_HttpParameters_QueryStringParameter
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>Map of query-string parameter names to values, appended to the request to an HTTP
+        /// target.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -543,7 +607,10 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter ResumePosition
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Position from which delivery resumes when a subscriber is unpaused. Honored only on
+        /// an UpdateSubscriber call that transitions State from STOPPED to RUNNING (unpause);
+        /// ignored on any other call and not accepted on Create. Defaults to LAST_PROCESSED when
+        /// omitted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -554,8 +621,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter RetryPolicy_RetryStrategy
         /// <summary>
         /// <para>
-        /// Strategy for determining which exceptions
-        /// are retried. Default: ALL.
+        /// <para>Strategy for determining which exceptions are retried. Default: ALL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -566,8 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// IAM role the service assumes to invoke the target.
-        /// Must belong to the calling account.
+        /// <para>IAM role the service assumes to invoke the target. Must belong to the calling account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -577,7 +642,9 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter State
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Customer-controlled run state of a subscriber, set on create or update. Distinct from
+        /// the bus lifecycle vocabulary, where ACTIVE means "provisioned and healthy". Delivery
+        /// requires State RUNNING on a subscriber that is not revoked.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -588,8 +655,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_SnsParameters_Subject
         /// <summary>
         /// <para>
-        /// Subject line for email protocol subscriptions.
-        /// Accepts JSONata expression.
+        /// <para>Subject line for email protocol subscriptions. Accepts JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -599,7 +665,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter SubscriberArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies a subscriber.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -616,18 +682,28 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter InvokeConfiguration_LambdaParameters_TenantId
         /// <summary>
         /// <para>
-        /// Tenant identifier. Accepts a JSONata expression.
+        /// <para>Tenant identifier. Accepts a JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String InvokeConfiguration_LambdaParameters_TenantId { get; set; }
         #endregion
         
+        #region Parameter InvokeConfiguration_MskParameters_TopicName
+        /// <summary>
+        /// <para>
+        /// <para>Name of the Kafka topic events are produced to. Accepts a literal or a JSONata expression
+        /// resolved once per delivered event.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InvokeConfiguration_MskParameters_TopicName { get; set; }
+        #endregion
+        
         #region Parameter InvokeConfiguration_StepFunctionsParameters_TraceHeader
         /// <summary>
         /// <para>
-        /// X-Ray trace header for distributed tracing.
-        /// Accepts JSONata expression.
+        /// <para>X-Ray trace header for distributed tracing. Accepts JSONata expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -637,7 +713,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter Transformer_Type
         /// <summary>
         /// <para>
-        /// Transform type.
+        /// <para>Transform type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -738,6 +814,16 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
             context.InvokeConfiguration_LambdaParameters_InvocationType = this.InvokeConfiguration_LambdaParameters_InvocationType;
             context.InvokeConfiguration_LambdaParameters_Qualifier = this.InvokeConfiguration_LambdaParameters_Qualifier;
             context.InvokeConfiguration_LambdaParameters_TenantId = this.InvokeConfiguration_LambdaParameters_TenantId;
+            context.InvokeConfiguration_MskParameters_Ack = this.InvokeConfiguration_MskParameters_Ack;
+            context.InvokeConfiguration_MskParameters_ClientId = this.InvokeConfiguration_MskParameters_ClientId;
+            context.InvokeConfiguration_MskParameters_Compression = this.InvokeConfiguration_MskParameters_Compression;
+            context.InvokeConfiguration_MskParameters_Connectivity = this.InvokeConfiguration_MskParameters_Connectivity;
+            if (this.InvokeConfiguration_MskParameters_Header != null)
+            {
+                context.InvokeConfiguration_MskParameters_Header = new List<Amazon.EventBridgeV2.Model.MskHeader>(this.InvokeConfiguration_MskParameters_Header);
+            }
+            context.InvokeConfiguration_MskParameters_PartitionKey = this.InvokeConfiguration_MskParameters_PartitionKey;
+            context.InvokeConfiguration_MskParameters_TopicName = this.InvokeConfiguration_MskParameters_TopicName;
             context.InvokeConfiguration_RoleArn = this.InvokeConfiguration_RoleArn;
             if (this.InvokeConfiguration_SnsParameters_MessageAttribute != null)
             {
@@ -1345,6 +1431,91 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
                 request.InvokeConfiguration.SqsParameters = requestInvokeConfiguration_invokeConfiguration_SqsParameters;
                 requestInvokeConfigurationIsNull = false;
             }
+            Amazon.EventBridgeV2.Model.MskParameters requestInvokeConfiguration_invokeConfiguration_MskParameters = null;
+            
+             // populate MskParameters
+            var requestInvokeConfiguration_invokeConfiguration_MskParametersIsNull = true;
+            requestInvokeConfiguration_invokeConfiguration_MskParameters = new Amazon.EventBridgeV2.Model.MskParameters();
+            Amazon.EventBridgeV2.MskAcks requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Ack = null;
+            if (cmdletContext.InvokeConfiguration_MskParameters_Ack != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Ack = cmdletContext.InvokeConfiguration_MskParameters_Ack;
+            }
+            if (requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Ack != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters.Acks = requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Ack;
+                requestInvokeConfiguration_invokeConfiguration_MskParametersIsNull = false;
+            }
+            System.String requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_ClientId = null;
+            if (cmdletContext.InvokeConfiguration_MskParameters_ClientId != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_ClientId = cmdletContext.InvokeConfiguration_MskParameters_ClientId;
+            }
+            if (requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_ClientId != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters.ClientId = requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_ClientId;
+                requestInvokeConfiguration_invokeConfiguration_MskParametersIsNull = false;
+            }
+            Amazon.EventBridgeV2.MskCompression requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Compression = null;
+            if (cmdletContext.InvokeConfiguration_MskParameters_Compression != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Compression = cmdletContext.InvokeConfiguration_MskParameters_Compression;
+            }
+            if (requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Compression != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters.Compression = requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Compression;
+                requestInvokeConfiguration_invokeConfiguration_MskParametersIsNull = false;
+            }
+            Amazon.EventBridgeV2.MskConnectivity requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Connectivity = null;
+            if (cmdletContext.InvokeConfiguration_MskParameters_Connectivity != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Connectivity = cmdletContext.InvokeConfiguration_MskParameters_Connectivity;
+            }
+            if (requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Connectivity != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters.Connectivity = requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Connectivity;
+                requestInvokeConfiguration_invokeConfiguration_MskParametersIsNull = false;
+            }
+            List<Amazon.EventBridgeV2.Model.MskHeader> requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Header = null;
+            if (cmdletContext.InvokeConfiguration_MskParameters_Header != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Header = cmdletContext.InvokeConfiguration_MskParameters_Header;
+            }
+            if (requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Header != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters.Headers = requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_Header;
+                requestInvokeConfiguration_invokeConfiguration_MskParametersIsNull = false;
+            }
+            System.String requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_PartitionKey = null;
+            if (cmdletContext.InvokeConfiguration_MskParameters_PartitionKey != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_PartitionKey = cmdletContext.InvokeConfiguration_MskParameters_PartitionKey;
+            }
+            if (requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_PartitionKey != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters.PartitionKey = requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_PartitionKey;
+                requestInvokeConfiguration_invokeConfiguration_MskParametersIsNull = false;
+            }
+            System.String requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_TopicName = null;
+            if (cmdletContext.InvokeConfiguration_MskParameters_TopicName != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_TopicName = cmdletContext.InvokeConfiguration_MskParameters_TopicName;
+            }
+            if (requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_TopicName != null)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters.TopicName = requestInvokeConfiguration_invokeConfiguration_MskParameters_invokeConfiguration_MskParameters_TopicName;
+                requestInvokeConfiguration_invokeConfiguration_MskParametersIsNull = false;
+            }
+             // determine if requestInvokeConfiguration_invokeConfiguration_MskParameters should be set to null
+            if (requestInvokeConfiguration_invokeConfiguration_MskParametersIsNull)
+            {
+                requestInvokeConfiguration_invokeConfiguration_MskParameters = null;
+            }
+            if (requestInvokeConfiguration_invokeConfiguration_MskParameters != null)
+            {
+                request.InvokeConfiguration.MskParameters = requestInvokeConfiguration_invokeConfiguration_MskParameters;
+                requestInvokeConfigurationIsNull = false;
+            }
              // determine if request.InvokeConfiguration should be set to null
             if (requestInvokeConfigurationIsNull)
             {
@@ -1568,6 +1739,13 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
             public Amazon.EventBridgeV2.InvocationType InvokeConfiguration_LambdaParameters_InvocationType { get; set; }
             public System.String InvokeConfiguration_LambdaParameters_Qualifier { get; set; }
             public System.String InvokeConfiguration_LambdaParameters_TenantId { get; set; }
+            public Amazon.EventBridgeV2.MskAcks InvokeConfiguration_MskParameters_Ack { get; set; }
+            public System.String InvokeConfiguration_MskParameters_ClientId { get; set; }
+            public Amazon.EventBridgeV2.MskCompression InvokeConfiguration_MskParameters_Compression { get; set; }
+            public Amazon.EventBridgeV2.MskConnectivity InvokeConfiguration_MskParameters_Connectivity { get; set; }
+            public List<Amazon.EventBridgeV2.Model.MskHeader> InvokeConfiguration_MskParameters_Header { get; set; }
+            public System.String InvokeConfiguration_MskParameters_PartitionKey { get; set; }
+            public System.String InvokeConfiguration_MskParameters_TopicName { get; set; }
             public System.String InvokeConfiguration_RoleArn { get; set; }
             public Dictionary<System.String, Amazon.EventBridgeV2.Model.SnsMessageAttributeValue> InvokeConfiguration_SnsParameters_MessageAttribute { get; set; }
             public System.String InvokeConfiguration_SnsParameters_MessageDeduplicationId { get; set; }

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("New", "BCMPCWorkloadEstimate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.CreateWorkloadEstimateResponse")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator CreateWorkloadEstimate API operation.", Operation = new[] {"CreateWorkloadEstimate"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.CreateWorkloadEstimateResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator CreateWorkloadEstimate API operation.", Operation = new[] {"CreateWorkloadEstimate"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.CreateWorkloadEstimateResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.CreateWorkloadEstimateResponse",
         "This cmdlet returns an Amazon.BCMPricingCalculator.Model.CreateWorkloadEstimateResponse object containing multiple properties."
     )]
@@ -64,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         #region Parameter RateType
         /// <summary>
         /// <para>
-        /// <para> The type of pricing rates to use for the estimate. </para>
+        /// <para> The type of pricing rates for the estimate. You can only use a rate type that your
+        /// Pricing Calculator rate preferences allow. If you use billing transfer as a bill source
+        /// account, you can only use BEFORE_DISCOUNTS. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.CreateWorkloadEstimateResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.CreateWorkloadEstimateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "CreateWorkloadEstimate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "CreateWorkloadEstimate");
             try
             {
                 return client.CreateWorkloadEstimateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

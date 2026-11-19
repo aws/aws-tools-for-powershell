@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKBootstrapBroker")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) GetBootstrapBrokers API operation.", Operation = new[] {"GetBootstrapBrokers"}, SelectReturnType = typeof(Amazon.Kafka.Model.GetBootstrapBrokersResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka GetBootstrapBrokers API operation.", Operation = new[] {"GetBootstrapBrokers"}, SelectReturnType = typeof(Amazon.Kafka.Model.GetBootstrapBrokersResponse))]
     [AWSCmdletOutput("System.String or Amazon.Kafka.Model.GetBootstrapBrokersResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.Kafka.Model.GetBootstrapBrokersResponse) can be returned by specifying '-Select *'."
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.GetBootstrapBrokersResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.GetBootstrapBrokersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "GetBootstrapBrokers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "GetBootstrapBrokers");
             try
             {
                 return client.GetBootstrapBrokersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

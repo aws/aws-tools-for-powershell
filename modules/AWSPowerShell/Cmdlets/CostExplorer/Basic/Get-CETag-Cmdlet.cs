@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CETag")]
     [OutputType("Amazon.CostExplorer.Model.GetTagsResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetTags API operation.", Operation = new[] {"GetTags"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetTagsResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service GetTags API operation.", Operation = new[] {"GetTags"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetTagsResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GetTagsResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.GetTagsResponse object containing multiple properties."
     )]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The value that you want to sort the data by.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><c>BlendedCost</c></para></li><li><para><c>UnblendedCost</c></para></li><li><para><c>AmortizedCost</c></para></li><li><para><c>NetAmortizedCost</c></para></li><li><para><c>NetUnblendedCost</c></para></li><li><para><c>UsageQuantity</c></para></li><li><para><c>NormalizedUsageAmount</c></para></li></ul><para>The supported values for <c>SortOrder</c> are <c>ASCENDING</c> and <c>DESCENDING</c>.</para><para>When you use <c>SortBy</c>, <c>NextPageToken</c> and <c>SearchString</c> aren't supported.</para><para />
+        /// <para>The value that you want to sort the data by.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><c>BlendedCost</c></para></li><li><para><c>UnblendedCost</c></para></li><li><para><c>AmortizedCost</c></para></li><li><para><c>NetAmortizedCost</c></para></li><li><para><c>NetUnblendedCost</c></para></li><li><para><c>UsageQuantity</c></para></li><li><para><c>NormalizedUsageAmount</c></para></li><li><para><c>BilledCost</c></para></li><li><para><c>ContractedCost</c></para></li><li><para><c>ListCost</c></para></li><li><para><c>PublicEquivalentBilledCost</c></para></li><li><para><c>PublicOnDemandCost</c></para></li></ul><para>The supported values for <c>SortOrder</c> are <c>ASCENDING</c> and <c>DESCENDING</c>.</para><para>When you use <c>SortBy</c>, <c>NextPageToken</c> and <c>SearchString</c> aren't supported.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -380,7 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.GetTagsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "GetTags");
             try
             {
                 return client.GetTagsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

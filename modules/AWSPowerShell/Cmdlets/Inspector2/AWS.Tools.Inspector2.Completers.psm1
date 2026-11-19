@@ -338,7 +338,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.IntegrationType
         "New-INS2CodeSecurityIntegration/Type"
         {
-            $v = "GITHUB","GITLAB_SELF_MANAGED"
+            $v = "GITHUB","GITHUB_ENTERPRISE_SERVER","GITLAB_SELF_MANAGED"
             break
         }
 

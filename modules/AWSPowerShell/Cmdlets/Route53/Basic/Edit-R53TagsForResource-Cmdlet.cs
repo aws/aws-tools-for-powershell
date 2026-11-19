@@ -30,7 +30,8 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Adds, edits, or deletes tags for a health check or a hosted zone.
+    /// Adds, edits, or deletes tags for a health check, a health check source, or a hosted
+    /// zone.
     /// 
     ///  
     /// <para>
@@ -55,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>A complex type that contains a list of the tags that you want to add to the specified
-        /// health check or hosted zone and/or the tags that you want to edit <c>Value</c> for.</para><para>You can add a maximum of 10 tags to a health check or a hosted zone.</para><para />
+        /// health check or hosted zone and/or the tags that you want to edit <c>Value</c> for.</para><para>You can add a maximum of 10 tags to a health check, a health check source, or a hosted
+        /// zone.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -105,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resource.</para><ul><li><para>The resource type for health checks is <c>healthcheck</c>.</para></li><li><para>The resource type for hosted zones is <c>hostedzone</c>.</para></li></ul>
+        /// <para>The type of the resource.</para><ul><li><para>The resource type for health checks is <c>healthcheck</c>.</para></li><li><para>The resource type for health check sources is <c>healthchecksource</c>.</para></li><li><para>The resource type for hosted zones is <c>hostedzone</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>ARN for an EventBridge resource that supports tagging: event buses, subscribers, and
+        /// event sources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>List of tag keys.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

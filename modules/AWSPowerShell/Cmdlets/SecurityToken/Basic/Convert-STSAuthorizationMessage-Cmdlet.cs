@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </summary>
     [Cmdlet("Convert", "STSAuthorizationMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Token Service (STS) DecodeAuthorizationMessage API operation.", Operation = new[] {"DecodeAuthorizationMessage"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.DecodeAuthorizationMessageResponse))]
+    [AWSCmdlet("Calls the AWS Security Token Service DecodeAuthorizationMessage API operation.", Operation = new[] {"DecodeAuthorizationMessage"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.DecodeAuthorizationMessageResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityToken.Model.DecodeAuthorizationMessageResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.SecurityToken.Model.DecodeAuthorizationMessageResponse) can be returned by specifying '-Select *'."
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         private Amazon.SecurityToken.Model.DecodeAuthorizationMessageResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.DecodeAuthorizationMessageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service (STS)", "DecodeAuthorizationMessage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "DecodeAuthorizationMessage");
             try
             {
                 return client.DecodeAuthorizationMessageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

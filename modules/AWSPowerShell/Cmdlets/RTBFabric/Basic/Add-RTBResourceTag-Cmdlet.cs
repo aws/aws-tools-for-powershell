@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Add", "RTBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon RTBFabric TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the RTBFabric TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.RTBFabric.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.RTBFabric.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.TagResourceResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

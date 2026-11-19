@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Remove", "BCMPCWorkloadEstimate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator DeleteWorkloadEstimate API operation.", Operation = new[] {"DeleteWorkloadEstimate"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.DeleteWorkloadEstimateResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator DeleteWorkloadEstimate API operation.", Operation = new[] {"DeleteWorkloadEstimate"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.DeleteWorkloadEstimateResponse))]
     [AWSCmdletOutput("None or Amazon.BCMPricingCalculator.Model.DeleteWorkloadEstimateResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.BCMPricingCalculator.Model.DeleteWorkloadEstimateResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.DeleteWorkloadEstimateResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.DeleteWorkloadEstimateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "DeleteWorkloadEstimate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "DeleteWorkloadEstimate");
             try
             {
                 return client.DeleteWorkloadEstimateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

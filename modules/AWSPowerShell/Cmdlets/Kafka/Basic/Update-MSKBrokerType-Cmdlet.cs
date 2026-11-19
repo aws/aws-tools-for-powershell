@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Update", "MSKBrokerType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.UpdateBrokerTypeResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) UpdateBrokerType API operation.", Operation = new[] {"UpdateBrokerType"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateBrokerTypeResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka UpdateBrokerType API operation.", Operation = new[] {"UpdateBrokerType"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateBrokerTypeResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.UpdateBrokerTypeResponse",
         "This cmdlet returns an Amazon.Kafka.Model.UpdateBrokerTypeResponse object containing multiple properties."
     )]
@@ -82,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter TargetInstanceType
         /// <summary>
         /// <para>
-        /// <para>The Amazon MSK broker type that you want all of the brokers in this cluster to be.</para>
+        /// <para>The type of Amazon EC2 instances to use for Kafka brokers. For in-place upgrades to
+        /// Express, use the composite format to initiate mixed mode, the Express instance type
+        /// to complete the upgrade, or the Standard instance type to rollback.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,6 +96,21 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetInstanceType { get; set; }
+        #endregion
+        
+        #region Parameter TopicReassignment
+        /// <summary>
+        /// <para>
+        /// <para>Controls automatic topic reassignment when entering mixed broker mode. When set to
+        /// AUTO, MSK automatically reassigns all topics to the target broker type after adding
+        /// new brokers. When set to MANUAL (default), customers manage topic reassignment using
+        /// the StartTopicReassignment API. Only valid when targetInstanceType is a composite
+        /// mixed-mode value. Must be set to MANUAL before completing the upgrade or rolling back.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kafka.TopicReassignment")]
+        public Amazon.Kafka.TopicReassignment TopicReassignment { get; set; }
         #endregion
         
         #region Parameter Select
@@ -163,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
                 WriteWarning("You are passing $null as a value for parameter TargetInstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TopicReassignment = this.TopicReassignment;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (cmdletContext.TargetInstanceType != null)
             {
                 request.TargetInstanceType = cmdletContext.TargetInstanceType;
+            }
+            if (cmdletContext.TopicReassignment != null)
+            {
+                request.TopicReassignment = cmdletContext.TopicReassignment;
             }
             
             CmdletOutput output;
@@ -226,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.UpdateBrokerTypeResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.UpdateBrokerTypeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "UpdateBrokerType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "UpdateBrokerType");
             try
             {
                 return client.UpdateBrokerTypeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -249,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.String ClusterArn { get; set; }
             public System.String CurrentVersion { get; set; }
             public System.String TargetInstanceType { get; set; }
+            public Amazon.Kafka.TopicReassignment TopicReassignment { get; set; }
             public System.Func<Amazon.Kafka.Model.UpdateBrokerTypeResponse, UpdateMSKBrokerTypeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

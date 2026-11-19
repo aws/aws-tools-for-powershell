@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("New", "MSKVpcConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kafka.Model.CreateVpcConnectionResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) CreateVpcConnection API operation.", Operation = new[] {"CreateVpcConnection"}, SelectReturnType = typeof(Amazon.Kafka.Model.CreateVpcConnectionResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka CreateVpcConnection API operation.", Operation = new[] {"CreateVpcConnection"}, SelectReturnType = typeof(Amazon.Kafka.Model.CreateVpcConnectionResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.CreateVpcConnectionResponse",
         "This cmdlet returns an Amazon.Kafka.Model.CreateVpcConnectionResponse object containing multiple properties."
     )]
@@ -327,7 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.CreateVpcConnectionResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.CreateVpcConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "CreateVpcConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "CreateVpcConnection");
             try
             {
                 return client.CreateVpcConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

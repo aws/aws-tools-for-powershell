@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Get", "RTBResourceTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon RTBFabric ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the RTBFabric ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.RTBFabric.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.RTBFabric.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -69,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para> The <c>Identifier</c> parameter in the <c>AcceptEngagementInvitationRequest</c> specifies
+        /// <para>The <c>Identifier</c> parameter in the <c>AcceptEngagementInvitationRequest</c> specifies
         /// the unique identifier of the <c>EngagementInvitation</c> to be accepted. Providing
-        /// the correct identifier ensures that the intended invitation is accepted. </para>
+        /// the correct identifier ensures that the intended invitation is accepted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

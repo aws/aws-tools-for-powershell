@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>partnercentral-marketing</C2jFilename>
+    <AssemblyName>PartnerCentralMarketing</AssemblyName>
+    <ServiceNounPrefix>PCMG</ServiceNounPrefix>
+    <ServiceName>Partner Central Marketing API</ServiceName>
+    <ServiceId>PartnerCentral Marketing</ServiceId>
+    <ServiceClientInterface>IAmazonPartnerCentralMarketing</ServiceClientInterface>
+    <ServiceClient>AmazonPartnerCentralMarketingClient</ServiceClient>
+    <ServiceModuleGuid>1ad8b717-ebfc-4e8b-becb-fe5bee106893</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchCreateCampaignAsset" OutputProperty="*" Verb="New" Noun="CampaignAssetBatch" ShouldProcessTarget="CampaignIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCampaign" OutputProperty="*" Verb="New" Noun="Campaign" ShouldProcessTarget="CampaignTemplateId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSocialConnectionAuthorizationUrl" OutputProperty="*" Verb="New" Noun="SocialConnectionAuthorizationUrl" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeactivateCampaignAsset" OutputProperty="*" Verb="Disable" Noun="CampaignAsset" ShouldProcessTarget="CampaignAssetIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCampaign" Verb="Remove" Noun="Campaign" ShouldProcessTarget="CampaignIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCampaignAsset" Verb="Remove" Noun="CampaignAsset" ShouldProcessTarget="CampaignAssetIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSocialConnection" Verb="Remove" Noun="SocialConnection" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCampaign" OutputProperty="Campaign" Verb="Get" Noun="Campaign" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCampaignAsset" OutputProperty="Asset" Verb="Get" Noun="CampaignAsset" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCampaignAssetActivationTask" OutputProperty="*" Verb="Get" Noun="CampaignAssetActivationTask" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCampaignAssetExportTask" OutputProperty="*" Verb="Get" Noun="CampaignAssetExportTask" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCampaignTemplate" OutputProperty="CampaignTemplate" Verb="Get" Noun="CampaignTemplate" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCampaignAssets" OutputProperty="Items" Verb="Get" Noun="CampaignAssetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCampaigns" OutputProperty="Items" Verb="Get" Noun="CampaignList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSocialConnections" OutputProperty="Items" Verb="Get" Noun="SocialConnectionList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchCampaignTemplates" OutputProperty="*" Verb="Search" Noun="CampaignTemplate" ShouldProcessTarget="Catalog" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCampaignAssetActivationTask" OutputProperty="*" Verb="Start" Noun="CampaignAssetActivationTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCampaignAssetExportTask" OutputProperty="*" Verb="Start" Noun="CampaignAssetExportTask" ShouldProcessTarget="CampaignIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaign" OutputProperty="Id" Verb="Update" Noun="Campaign" ShouldProcessTarget="CampaignIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaignAsset" OutputProperty="*" Verb="Update" Noun="CampaignAsset" ShouldProcessTarget="CampaignAssetIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

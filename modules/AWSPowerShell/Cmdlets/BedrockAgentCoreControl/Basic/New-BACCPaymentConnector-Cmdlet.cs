@@ -49,7 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The credential provider configurations for the payment connector. These configurations
-        /// specify how the connector authenticates with the payment provider.</para><para />
+        /// specify how the connector authenticates with the payment provider.</para><para>For an <c>AwsBilling</c> payment connector, omit this parameter or specify an empty
+        /// list. The service uses the AWS Marketplace service-linked role in your account, which
+        /// must exist before you create the connector, and you must have permission to call <c>iam:GetRole</c>
+        /// on it.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -57,14 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("CredentialProviderConfigurations")]
         public Amazon.BedrockAgentCoreControl.Model.CredentialsProviderConfiguration[] CredentialProviderConfiguration { get; set; }
         #endregion
@@ -213,12 +209,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 context.CredentialProviderConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.CredentialsProviderConfiguration>(this.CredentialProviderConfiguration);
             }
-            #if MODULAR
-            if (this.CredentialProviderConfiguration == null && ParameterWasBound(nameof(this.CredentialProviderConfiguration)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CredentialProviderConfiguration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR

@@ -30,22 +30,36 @@ using Amazon.Polly.Model;
 namespace Amazon.PowerShell.Cmdlets.POL
 {
     /// <summary>
-    /// Returns the list of voices that are available for use when requesting speech synthesis.
-    /// Each voice speaks a specified language, is either male or female, and is identified
-    /// by an ID, which is the ASCII version of the voice name. 
+    /// Returns the list of voices: the voices that Amazon Polly provides and the custom voices
+    /// in your account. Each voice speaks a specified language and is identified by an ID.
+    /// A voice that Amazon Polly provides is either male or female, and its ID is the ASCII
+    /// version of the voice name.
     /// 
     ///  
     /// <para>
-    /// When synthesizing speech ( <c>SynthesizeSpeech</c> ), you provide the voice ID for
-    /// the voice you want from the list of voices returned by <c>DescribeVoices</c>.
+    /// When synthesizing speech (<c>SynthesizeSpeech</c>), you provide the voice ID for the
+    /// voice you want from the list of voices returned by <c>DescribeVoices</c>.
     /// </para><para>
-    /// For example, you want your news reader application to read news in a specific language,
-    /// but giving a user the option to choose the voice. Using the <c>DescribeVoices</c>
-    /// operation you can provide the user with a list of available voices to select from.
+    /// For example, your news reader application reads news in a specific language, and you
+    /// want to give users the option to choose the voice. With the <c>DescribeVoices</c>
+    /// operation, you can provide a list of available voices for users to choose from.
     /// </para><para>
     ///  You can optionally specify a language code to filter the available voices. For example,
     /// if you specify <c>en-US</c>, the operation returns a list of all available US English
     /// voices. 
+    /// </para><para>
+    /// The list includes custom voices in every status. For each voice, <c>Origin</c> indicates
+    /// whether Amazon Polly provides the voice or you created it. You can use a custom voice
+    /// for synthesis only when its status is <c>active</c>. A voice in <c>failed</c> status
+    /// stays in the list until you delete it.
+    /// </para><para>
+    /// For a custom voice, <c>DescribeVoices</c> returns <c>Origin</c>, <c>Id</c>, <c>Name</c>,
+    /// <c>Status</c>, <c>LanguageCode</c>, <c>LanguageName</c>, <c>SupportedEngines</c>,
+    /// and <c>CreationTime</c>. To get <c>Arn</c>, <c>StatusReason</c>, <c>VoiceCreationData</c>,
+    /// and <c>CustomerManagedEncryption</c>, use <c>GetVoice</c>.
+    /// </para><para>
+    /// The <c>LanguageCode</c> and <c>Engine</c> filters apply to custom voices in the same
+    /// way as to voices that Amazon Polly provides.
     /// </para><para>
     /// This operation requires permissions to perform the <c>polly:DescribeVoices</c> action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

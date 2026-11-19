@@ -1033,6 +1033,22 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String[] State_ValueList { get; set; }
         #endregion
         
+        #region Parameter EntityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>A list of subsidiary authorization IDs to filter offers by. You can include up to
+        /// 10 subsidiary authorization IDs in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList { get; set; }
+        #endregion
+        
         #region Parameter EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList
         /// <summary>
         /// <para>
@@ -1918,6 +1934,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (this.State_ValueList != null)
             {
                 context.State_ValueList = new List<System.String>(this.State_ValueList);
+            }
+            if (this.EntityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList != null)
+            {
+                context.EntityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList = new List<System.String>(this.EntityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList);
             }
             if (this.EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList != null)
             {
@@ -3827,6 +3847,31 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
                 requestEntityTypeFilters_entityTypeFilters_OfferFilters.State = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_State;
                 requestEntityTypeFilters_entityTypeFilters_OfferFiltersIsNull = false;
             }
+            Amazon.MarketplaceCatalog.Model.OfferSubsidiaryAuthorizationIdFilter requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId = null;
+            
+             // populate SubsidiaryAuthorizationId
+            var requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationIdIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId = new Amazon.MarketplaceCatalog.Model.OfferSubsidiaryAuthorizationIdFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList = cmdletContext.EntityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId.ValueList = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationIdIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationIdIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters.SubsidiaryAuthorizationId = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_SubsidiaryAuthorizationId;
+                requestEntityTypeFilters_entityTypeFilters_OfferFiltersIsNull = false;
+            }
             Amazon.MarketplaceCatalog.Model.OfferTargetAgreementIdFilter requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId = null;
             
              // populate TargetAgreementId
@@ -5055,6 +5100,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public System.String EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_BeforeValue { get; set; }
             public List<System.String> ResaleAuthorizationId_ValueList { get; set; }
             public List<System.String> State_ValueList { get; set; }
+            public List<System.String> EntityTypeFilters_OfferFilters_SubsidiaryAuthorizationId_ValueList { get; set; }
             public List<System.String> EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList { get; set; }
             public List<System.String> EntityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList { get; set; }
             public List<System.String> Targeting_ValueList { get; set; }

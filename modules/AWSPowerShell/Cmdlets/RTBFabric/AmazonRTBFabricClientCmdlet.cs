@@ -28,7 +28,7 @@ using Amazon.RTBFabric.Model;
 
 namespace Amazon.PowerShell.Cmdlets.RTB
 {
-    [AWSClientCmdlet("Amazon RTBFabric", "RTB", "2023-05-15", "RTBFabric")]
+    [AWSClientCmdlet("RTBFabric", "RTB", "2023-05-15", "RTBFabric")]
     public abstract partial class AmazonRTBFabricClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRTBFabric Client { get; private set; }

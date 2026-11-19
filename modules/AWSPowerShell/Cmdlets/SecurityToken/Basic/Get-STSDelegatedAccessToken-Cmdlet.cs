@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </summary>
     [Cmdlet("Get", "STSDelegatedAccessToken")]
     [OutputType("Amazon.SecurityToken.Model.GetDelegatedAccessTokenResponse")]
-    [AWSCmdlet("Calls the AWS Security Token Service (STS) GetDelegatedAccessToken API operation.", Operation = new[] {"GetDelegatedAccessToken"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetDelegatedAccessTokenResponse))]
+    [AWSCmdlet("Calls the AWS Security Token Service GetDelegatedAccessToken API operation.", Operation = new[] {"GetDelegatedAccessToken"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetDelegatedAccessTokenResponse))]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.GetDelegatedAccessTokenResponse",
         "This cmdlet returns an Amazon.SecurityToken.Model.GetDelegatedAccessTokenResponse object containing multiple properties."
     )]
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         private Amazon.SecurityToken.Model.GetDelegatedAccessTokenResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.GetDelegatedAccessTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service (STS)", "GetDelegatedAccessToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "GetDelegatedAccessToken");
             try
             {
                 return client.GetDelegatedAccessTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

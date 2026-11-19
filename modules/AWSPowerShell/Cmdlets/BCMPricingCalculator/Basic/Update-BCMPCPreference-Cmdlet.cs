@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Update", "BCMPCPreference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.UpdatePreferencesResponse")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator UpdatePreferences API operation.", Operation = new[] {"UpdatePreferences"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.UpdatePreferencesResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator UpdatePreferences API operation.", Operation = new[] {"UpdatePreferences"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.UpdatePreferencesResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.UpdatePreferencesResponse",
         "This cmdlet returns an Amazon.BCMPricingCalculator.Model.UpdatePreferencesResponse object containing multiple properties."
     )]
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.UpdatePreferencesResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.UpdatePreferencesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "UpdatePreferences");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "UpdatePreferences");
             try
             {
                 return client.UpdatePreferencesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -184,6 +184,47 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         public System.String SessionPolicy { get; set; }
         #endregion
         
+        #region Parameter TipConfiguration_Status
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you use trusted identity propagation (TIP) for the profile. This
+        /// field supports the following values:</para><ul><li><para><c>ENABLED</c> – Sessions from the profile include the <c>aws:OriginIdentity</c>
+        /// condition keys.</para></li><li><para><c>DISABLED</c> – Sessions from the profile don't include these keys.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IAMRolesAnywhere.TipStatus")]
+        public Amazon.IAMRolesAnywhere.TipStatus TipConfiguration_Status { get; set; }
+        #endregion
+        
+        #region Parameter TipConfiguration_SubjectSource
+        /// <summary>
+        /// <para>
+        /// <para>The certificate field whose value becomes the subject, <c>aws:OriginIdentity/Subject</c>.
+        /// This field supports the following values:</para><ul><li><para><c>x509Subject/CN</c> (default) – The common name (CN) in the certificate's Subject.</para></li><li><para><c>x509SAN/URI</c> – The first URI in the certificate's Subject Alternative Name
+        /// (SAN) extension.</para></li></ul><para>The profile's attribute mappings must include a rule for this field, and the default
+        /// attribute mappings include one for each value. If the certificate has no value for
+        /// the field, <c>CreateSession</c> denies the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IAMRolesAnywhere.TipSubjectSource")]
+        public Amazon.IAMRolesAnywhere.TipSubjectSource TipConfiguration_SubjectSource { get; set; }
+        #endregion
+        
+        #region Parameter TipConfiguration_SubjectType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the certificates for the profile identify workloads or people. This
+        /// field supports the following values:</para><ul><li><para><c>workload</c> – The certificates identify workloads.</para></li><li><para><c>user</c> – The certificates identify people.</para></li></ul><para>Sessions include the value in <c>aws:OriginIdentity/SubjectType</c>. If you omit this
+        /// field, sessions don't include that key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IAMRolesAnywhere.TipSubjectType")]
+        public Amazon.IAMRolesAnywhere.TipSubjectType TipConfiguration_SubjectType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -277,6 +318,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             {
                 context.Tag = new List<Amazon.IAMRolesAnywhere.Model.Tag>(this.Tag);
             }
+            context.TipConfiguration_Status = this.TipConfiguration_Status;
+            context.TipConfiguration_SubjectSource = this.TipConfiguration_SubjectSource;
+            context.TipConfiguration_SubjectType = this.TipConfiguration_SubjectType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -332,6 +376,45 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate TipConfiguration
+            var requestTipConfigurationIsNull = true;
+            request.TipConfiguration = new Amazon.IAMRolesAnywhere.Model.TipConfiguration();
+            Amazon.IAMRolesAnywhere.TipStatus requestTipConfiguration_tipConfiguration_Status = null;
+            if (cmdletContext.TipConfiguration_Status != null)
+            {
+                requestTipConfiguration_tipConfiguration_Status = cmdletContext.TipConfiguration_Status;
+            }
+            if (requestTipConfiguration_tipConfiguration_Status != null)
+            {
+                request.TipConfiguration.Status = requestTipConfiguration_tipConfiguration_Status;
+                requestTipConfigurationIsNull = false;
+            }
+            Amazon.IAMRolesAnywhere.TipSubjectSource requestTipConfiguration_tipConfiguration_SubjectSource = null;
+            if (cmdletContext.TipConfiguration_SubjectSource != null)
+            {
+                requestTipConfiguration_tipConfiguration_SubjectSource = cmdletContext.TipConfiguration_SubjectSource;
+            }
+            if (requestTipConfiguration_tipConfiguration_SubjectSource != null)
+            {
+                request.TipConfiguration.SubjectSource = requestTipConfiguration_tipConfiguration_SubjectSource;
+                requestTipConfigurationIsNull = false;
+            }
+            Amazon.IAMRolesAnywhere.TipSubjectType requestTipConfiguration_tipConfiguration_SubjectType = null;
+            if (cmdletContext.TipConfiguration_SubjectType != null)
+            {
+                requestTipConfiguration_tipConfiguration_SubjectType = cmdletContext.TipConfiguration_SubjectType;
+            }
+            if (requestTipConfiguration_tipConfiguration_SubjectType != null)
+            {
+                request.TipConfiguration.SubjectType = requestTipConfiguration_tipConfiguration_SubjectType;
+                requestTipConfigurationIsNull = false;
+            }
+             // determine if request.TipConfiguration should be set to null
+            if (requestTipConfigurationIsNull)
+            {
+                request.TipConfiguration = null;
             }
             
             CmdletOutput output;
@@ -398,6 +481,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             public List<System.String> RoleArn { get; set; }
             public System.String SessionPolicy { get; set; }
             public List<Amazon.IAMRolesAnywhere.Model.Tag> Tag { get; set; }
+            public Amazon.IAMRolesAnywhere.TipStatus TipConfiguration_Status { get; set; }
+            public Amazon.IAMRolesAnywhere.TipSubjectSource TipConfiguration_SubjectSource { get; set; }
+            public Amazon.IAMRolesAnywhere.TipSubjectType TipConfiguration_SubjectType { get; set; }
             public System.Func<Amazon.IAMRolesAnywhere.Model.CreateProfileResponse, NewIAMRAProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Profile;
         }

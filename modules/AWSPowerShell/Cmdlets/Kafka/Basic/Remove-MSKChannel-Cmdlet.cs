@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Remove", "MSKChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Kafka.Model.DeleteChannelResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DeleteChannel API operation.", Operation = new[] {"DeleteChannel"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteChannelResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka DeleteChannel API operation.", Operation = new[] {"DeleteChannel"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteChannelResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.DeleteChannelResponse",
         "This cmdlet returns an Amazon.Kafka.Model.DeleteChannelResponse object containing multiple properties."
     )]
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.DeleteChannelResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DeleteChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DeleteChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "DeleteChannel");
             try
             {
                 return client.DeleteChannelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

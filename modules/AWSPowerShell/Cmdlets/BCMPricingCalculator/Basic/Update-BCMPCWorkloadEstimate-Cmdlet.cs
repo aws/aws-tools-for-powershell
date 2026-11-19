@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Update", "BCMPCWorkloadEstimate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.UpdateWorkloadEstimateResponse")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator UpdateWorkloadEstimate API operation.", Operation = new[] {"UpdateWorkloadEstimate"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.UpdateWorkloadEstimateResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator UpdateWorkloadEstimate API operation.", Operation = new[] {"UpdateWorkloadEstimate"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.UpdateWorkloadEstimateResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.UpdateWorkloadEstimateResponse",
         "This cmdlet returns an Amazon.BCMPricingCalculator.Model.UpdateWorkloadEstimateResponse object containing multiple properties."
     )]
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.UpdateWorkloadEstimateResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.UpdateWorkloadEstimateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "UpdateWorkloadEstimate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "UpdateWorkloadEstimate");
             try
             {
                 return client.UpdateWorkloadEstimateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

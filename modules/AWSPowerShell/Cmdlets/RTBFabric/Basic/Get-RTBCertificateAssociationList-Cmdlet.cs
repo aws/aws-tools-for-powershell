@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Get", "RTBCertificateAssociationList")]
     [OutputType("Amazon.RTBFabric.Model.CertificateAssociationSummary")]
-    [AWSCmdlet("Calls the Amazon RTBFabric ListCertificateAssociations API operation.", Operation = new[] {"ListCertificateAssociations"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.ListCertificateAssociationsResponse))]
+    [AWSCmdlet("Calls the RTBFabric ListCertificateAssociations API operation.", Operation = new[] {"ListCertificateAssociations"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.ListCertificateAssociationsResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.CertificateAssociationSummary or Amazon.RTBFabric.Model.ListCertificateAssociationsResponse",
         "This cmdlet returns a collection of Amazon.RTBFabric.Model.CertificateAssociationSummary objects.",
         "The service call response (type Amazon.RTBFabric.Model.ListCertificateAssociationsResponse) can be returned by specifying '-Select *'."
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.ListCertificateAssociationsResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.ListCertificateAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "ListCertificateAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "ListCertificateAssociations");
             try
             {
                 return client.ListCertificateAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

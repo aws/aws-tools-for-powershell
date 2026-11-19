@@ -184,6 +184,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCIMDPolicy" OutputProperty="CIMDPolicy" Verb="New" Noun="CIMDPolicy" ShouldProcessTarget="ClientId,UserPoolId,PolicyName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -243,6 +247,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCIMDPolicy" Verb="Remove" Noun="CIMDPolicy" ShouldProcessTarget="CIMDPolicyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -292,6 +300,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteWebAuthnCredential" Verb="Remove" Noun="WebAuthnCredential" ShouldProcessTarget="CredentialId" PipelineParameter="CredentialId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCIMDPolicy" OutputProperty="CIMDPolicy" Verb="Get" Noun="CIMDPolicyDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -428,6 +440,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InitiatePointInTimeRecovery" OutputProperty="Restoration" Verb="Initialize" Noun="PointInTimeRecovery" ShouldProcessTarget="UserPoolId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCIMDPolicies" OutputProperty="CIMDPolicies" Verb="Get" Noun="CIMDPolicyList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClientMetadataURLs" OutputProperty="ClientMetadataURLs" Verb="Get" Noun="ClientMetadataURLsList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -597,6 +617,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAuthEventFeedback" Verb="Update" Noun="AuthEventFeedback" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCIMDPolicy" OutputProperty="CIMDPolicy" Verb="Update" Noun="CIMDPolicy" ShouldProcessTarget="CIMDPolicyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateClientMetadataURLState" Verb="Update" Noun="ClientMetadataURLState" ShouldProcessTarget="CIMDPolicyId,UserPoolId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -33,6 +33,32 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Updates the metadata document, SAML encryption settings, and private keys for an existing
     /// SAML provider. To rotate private keys, add your new private key and then remove the
     /// old key in a separate request.
+    /// 
+    ///  
+    /// <para>
+    /// You can also use this operation to set, change, or remove the trusted identity propagation
+    /// context provider, and to associate or disassociate an IAM Identity Center instance
+    /// with the provider. To remove a configuration rather than replace it, use the <c>RemoveContextProvider</c>
+    /// and <c>RemoveIdentityCenterInstance</c> parameters. For each configuration, provide
+    /// either the new value or the corresponding <c>Remove</c> flag in a single request,
+    /// but not both.
+    /// </para><para>
+    /// A single request can change either the context provider or the provider metadata,
+    /// but not both. Provider metadata includes the SAML metadata document, assertion encryption
+    /// mode, private keys, and IAM Identity Center association. To change both, make separate
+    /// <c>UpdateSAMLProvider</c> requests. To remove the context provider, first remove the
+    /// IAM Identity Center association in a separate request.
+    /// </para><para>
+    /// To control who can configure trusted identity propagation on a SAML provider, use
+    /// the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityPropagation">iam:EnableIdentityPropagation</a>,
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityCenterAssociation">iam:EnableIdentityCenterAssociation</a>,
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityProviderIssuers">iam:RequestIdentityProviderIssuers</a>,
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityProviderIssuers">iam:ResourceIdentityProviderIssuers</a>,
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityCenterInstanceArn">iam:RequestIdentityCenterInstanceArn</a>,
+    /// and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityCenterInstanceArn">iam:ResourceIdentityCenterInstanceArn</a>
+    /// condition keys in IAM policies. The <c>Request</c> keys contain the values in the
+    /// request. The <c>Resource</c> keys contain the values stored on the provider.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMSAMLProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -68,6 +94,59 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.IdentityManagement.AssertionEncryptionModeType")]
         public Amazon.IdentityManagement.AssertionEncryptionModeType AssertionEncryptionMode { get; set; }
+        #endregion
+        
+        #region Parameter IdentityCenterInstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM Identity Center instance to associate with
+        /// the SAML provider.</para><para>For the format, see <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_InstanceMetadata.html">InstanceMetadata</a>
+        /// in the <i>IAM Identity Center API Reference</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterInstanceArn { get; set; }
+        #endregion
+        
+        #region Parameter ContextProvider_KeyDefinitionList
+        /// <summary>
+        /// <para>
+        /// <para>A list of source-to-target key mappings that define how keys from the external identity
+        /// provider's assertion or token are mapped into trusted context keys. You can specify
+        /// from 0 to 10 mappings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IdentityManagement.Model.ContextProviderKeyDefinition[] ContextProvider_KeyDefinitionList { get; set; }
+        #endregion
+        
+        #region Parameter RemoveContextProvider
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to remove the existing trusted identity propagation context provider
+        /// configuration from the SAML provider. When set to <c>true</c>, the context provider
+        /// is removed. This parameter is mutually exclusive with <c>ContextProvider</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RemoveContextProvider { get; set; }
+        #endregion
+        
+        #region Parameter RemoveIdentityCenterInstance
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to disassociate the IAM Identity Center instance from the SAML provider.
+        /// When set to <c>true</c>, the instance is disassociated. This parameter is mutually
+        /// exclusive with <c>IdentityCenterInstanceArn</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RemoveIdentityCenterInstance { get; set; }
         #endregion
         
         #region Parameter RemovePrivateKey
@@ -110,6 +189,45 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SAMLProviderArn { get; set; }
+        #endregion
+        
+        #region Parameter ContextProvider_SubjectSourceKey
+        /// <summary>
+        /// <para>
+        /// <para>The source key that is used to derive the subject for the injected trusted context.
+        /// This value identifies the claim or attribute in the external identity provider's assertion
+        /// or token that supplies the subject.</para><para>The key can contain only ASCII letters (A-Z, a-z), numbers (0-9), single spaces, and
+        /// the following characters: <c>_ . : / = + - @ #</c>. It can't start or end with a space
+        /// or contain two spaces in a row.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContextProvider_SubjectSourceKey { get; set; }
+        #endregion
+        
+        #region Parameter ContextProvider_SubjectTypeSourceKey
+        /// <summary>
+        /// <para>
+        /// <para>The source key that supplies the subject type from the external identity provider's
+        /// assertion or token.</para><para>The key can contain only ASCII letters (A-Z, a-z), numbers (0-9), single spaces, and
+        /// the following characters: <c>_ . : / = + - @ #</c>. It can't start or end with a space
+        /// or contain two spaces in a row.</para><para>This parameter is mutually exclusive with <c>SubjectTypeValue</c>. Specify either
+        /// <c>SubjectTypeSourceKey</c> or <c>SubjectTypeValue</c>, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContextProvider_SubjectTypeSourceKey { get; set; }
+        #endregion
+        
+        #region Parameter ContextProvider_SubjectTypeValue
+        /// <summary>
+        /// <para>
+        /// <para>A static value for the subject type, such as <c>user</c> or <c>workload</c>.</para><para>This parameter is optional and is mutually exclusive with <c>SubjectTypeSourceKey</c>.
+        /// Specify either <c>SubjectTypeValue</c> or <c>SubjectTypeSourceKey</c>, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContextProvider_SubjectTypeValue { get; set; }
         #endregion
         
         #region Parameter Select
@@ -160,6 +278,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             context.AddPrivateKey = this.AddPrivateKey;
             context.AssertionEncryptionMode = this.AssertionEncryptionMode;
+            if (this.ContextProvider_KeyDefinitionList != null)
+            {
+                context.ContextProvider_KeyDefinitionList = new List<Amazon.IdentityManagement.Model.ContextProviderKeyDefinition>(this.ContextProvider_KeyDefinitionList);
+            }
+            context.ContextProvider_SubjectSourceKey = this.ContextProvider_SubjectSourceKey;
+            context.ContextProvider_SubjectTypeSourceKey = this.ContextProvider_SubjectTypeSourceKey;
+            context.ContextProvider_SubjectTypeValue = this.ContextProvider_SubjectTypeValue;
+            context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
+            context.RemoveContextProvider = this.RemoveContextProvider;
+            context.RemoveIdentityCenterInstance = this.RemoveIdentityCenterInstance;
             context.RemovePrivateKey = this.RemovePrivateKey;
             context.SAMLMetadataDocument = this.SAMLMetadataDocument;
             context.SAMLProviderArn = this.SAMLProviderArn;
@@ -192,6 +320,67 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.AssertionEncryptionMode != null)
             {
                 request.AssertionEncryptionMode = cmdletContext.AssertionEncryptionMode;
+            }
+            
+             // populate ContextProvider
+            var requestContextProviderIsNull = true;
+            request.ContextProvider = new Amazon.IdentityManagement.Model.ContextProvider();
+            List<Amazon.IdentityManagement.Model.ContextProviderKeyDefinition> requestContextProvider_contextProvider_KeyDefinitionList = null;
+            if (cmdletContext.ContextProvider_KeyDefinitionList != null)
+            {
+                requestContextProvider_contextProvider_KeyDefinitionList = cmdletContext.ContextProvider_KeyDefinitionList;
+            }
+            if (requestContextProvider_contextProvider_KeyDefinitionList != null)
+            {
+                request.ContextProvider.KeyDefinitionList = requestContextProvider_contextProvider_KeyDefinitionList;
+                requestContextProviderIsNull = false;
+            }
+            System.String requestContextProvider_contextProvider_SubjectSourceKey = null;
+            if (cmdletContext.ContextProvider_SubjectSourceKey != null)
+            {
+                requestContextProvider_contextProvider_SubjectSourceKey = cmdletContext.ContextProvider_SubjectSourceKey;
+            }
+            if (requestContextProvider_contextProvider_SubjectSourceKey != null)
+            {
+                request.ContextProvider.SubjectSourceKey = requestContextProvider_contextProvider_SubjectSourceKey;
+                requestContextProviderIsNull = false;
+            }
+            System.String requestContextProvider_contextProvider_SubjectTypeSourceKey = null;
+            if (cmdletContext.ContextProvider_SubjectTypeSourceKey != null)
+            {
+                requestContextProvider_contextProvider_SubjectTypeSourceKey = cmdletContext.ContextProvider_SubjectTypeSourceKey;
+            }
+            if (requestContextProvider_contextProvider_SubjectTypeSourceKey != null)
+            {
+                request.ContextProvider.SubjectTypeSourceKey = requestContextProvider_contextProvider_SubjectTypeSourceKey;
+                requestContextProviderIsNull = false;
+            }
+            System.String requestContextProvider_contextProvider_SubjectTypeValue = null;
+            if (cmdletContext.ContextProvider_SubjectTypeValue != null)
+            {
+                requestContextProvider_contextProvider_SubjectTypeValue = cmdletContext.ContextProvider_SubjectTypeValue;
+            }
+            if (requestContextProvider_contextProvider_SubjectTypeValue != null)
+            {
+                request.ContextProvider.SubjectTypeValue = requestContextProvider_contextProvider_SubjectTypeValue;
+                requestContextProviderIsNull = false;
+            }
+             // determine if request.ContextProvider should be set to null
+            if (requestContextProviderIsNull)
+            {
+                request.ContextProvider = null;
+            }
+            if (cmdletContext.IdentityCenterInstanceArn != null)
+            {
+                request.IdentityCenterInstanceArn = cmdletContext.IdentityCenterInstanceArn;
+            }
+            if (cmdletContext.RemoveContextProvider != null)
+            {
+                request.RemoveContextProvider = cmdletContext.RemoveContextProvider.Value;
+            }
+            if (cmdletContext.RemoveIdentityCenterInstance != null)
+            {
+                request.RemoveIdentityCenterInstance = cmdletContext.RemoveIdentityCenterInstance.Value;
             }
             if (cmdletContext.RemovePrivateKey != null)
             {
@@ -262,6 +451,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             public System.String AddPrivateKey { get; set; }
             public Amazon.IdentityManagement.AssertionEncryptionModeType AssertionEncryptionMode { get; set; }
+            public List<Amazon.IdentityManagement.Model.ContextProviderKeyDefinition> ContextProvider_KeyDefinitionList { get; set; }
+            public System.String ContextProvider_SubjectSourceKey { get; set; }
+            public System.String ContextProvider_SubjectTypeSourceKey { get; set; }
+            public System.String ContextProvider_SubjectTypeValue { get; set; }
+            public System.String IdentityCenterInstanceArn { get; set; }
+            public System.Boolean? RemoveContextProvider { get; set; }
+            public System.Boolean? RemoveIdentityCenterInstance { get; set; }
             public System.String RemovePrivateKey { get; set; }
             public System.String SAMLMetadataDocument { get; set; }
             public System.String SAMLProviderArn { get; set; }

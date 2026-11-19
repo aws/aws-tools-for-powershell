@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Update", "RTBLinkRoutingRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RTBFabric.Model.UpdateLinkRoutingRuleResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric UpdateLinkRoutingRule API operation.", Operation = new[] {"UpdateLinkRoutingRule"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.UpdateLinkRoutingRuleResponse))]
+    [AWSCmdlet("Calls the RTBFabric UpdateLinkRoutingRule API operation.", Operation = new[] {"UpdateLinkRoutingRule"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.UpdateLinkRoutingRuleResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.UpdateLinkRoutingRuleResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.UpdateLinkRoutingRuleResponse object containing multiple properties."
     )]
@@ -186,6 +186,17 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         public System.String Conditions_QueryStringEquals_Value { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier for the request. The SDK generates one when you
+        /// don't.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -238,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
                 context.Select = CreateSelectDelegate<Amazon.RTBFabric.Model.UpdateLinkRoutingRuleResponse, UpdateRTBLinkRoutingRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             context.Conditions_HostHeader = this.Conditions_HostHeader;
             context.Conditions_HostHeaderWildcard = this.Conditions_HostHeaderWildcard;
             context.Conditions_PathExact = this.Conditions_PathExact;
@@ -289,6 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             // create request
             var request = new Amazon.RTBFabric.Model.UpdateLinkRoutingRuleRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             
              // populate Conditions
             var requestConditionsIsNull = true;
@@ -434,7 +450,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.UpdateLinkRoutingRuleResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.UpdateLinkRoutingRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "UpdateLinkRoutingRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "UpdateLinkRoutingRule");
             try
             {
                 return client.UpdateLinkRoutingRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -454,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String Conditions_HostHeader { get; set; }
             public System.String Conditions_HostHeaderWildcard { get; set; }
             public System.String Conditions_PathExact { get; set; }

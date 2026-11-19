@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog where the snapshot is created. Valid values are <c>AWS</c>
-        /// and <c>Sandbox</c>. </para>
+        /// <para>Specifies the catalog where the snapshot is created. Valid values are <c>AWS</c> and
+        /// <c>Sandbox</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter EngagementIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the engagement associated with this snapshot. This field
-        /// links the snapshot to a specific engagement context. </para>
+        /// <para>The unique identifier of the engagement associated with this snapshot. This field
+        /// links the snapshot to a specific engagement context.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the specific resource to be snapshotted. The format and
-        /// constraints of this identifier depend on the <c>ResourceType</c> specified. For example:
-        /// For <c>Opportunity</c> type, it will be an opportunity ID. </para>
+        /// <para>The unique identifier of the specific resource to be snapshotted. The format and constraints
+        /// of this identifier depend on the <c>ResourceType</c> specified. For example: For <c>Opportunity</c>
+        /// type, it will be an opportunity ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,10 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceSnapshotTemplateIdentifier
         /// <summary>
         /// <para>
-        /// <para> The name of the template that defines the schema for the snapshot. This template
-        /// determines which subset of the resource data will be included in the snapshot. Must
-        /// correspond to an existing and valid template for the specified <c>ResourceType</c>.
-        /// </para>
+        /// <para>The name of the template that defines the schema for the snapshot. This template determines
+        /// which subset of the resource data will be included in the snapshot. Must correspond
+        /// to an existing and valid template for the specified <c>ResourceType</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,9 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para> Specifies the type of resource for which the snapshot is being created. This field
+        /// <para>Specifies the type of resource for which the snapshot is being created. This field
         /// determines the structure and content of the snapshot. Must be one of the supported
-        /// resource types, such as: <c>Opportunity</c>. </para>
+        /// resource types, such as: <c>Opportunity</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> Specifies a unique, client-generated UUID to ensure that the request is handled exactly
-        /// once. This token helps prevent duplicate snapshot creations. </para>
+        /// <para>Specifies a unique, client-generated UUID to ensure that the request is handled exactly
+        /// once. This token helps prevent duplicate snapshot creations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

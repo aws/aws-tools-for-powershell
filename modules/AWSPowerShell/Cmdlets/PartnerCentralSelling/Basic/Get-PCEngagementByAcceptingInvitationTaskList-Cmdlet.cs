@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog related to the request. Valid values are: </para><ul><li><para> AWS: Retrieves the request from the production AWS environment. </para></li><li><para> Sandbox: Retrieves the request from a sandbox environment used for testing or development
+        /// <para>Specifies the catalog related to the request. Valid values are:</para><ul><li><para> AWS: Retrieves the request from the production AWS environment. </para></li><li><para> Sandbox: Retrieves the request from a sandbox environment used for testing or development
         /// purposes. </para></li></ul>
         /// </para>
         /// </summary>
@@ -67,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter EngagementInvitationIdentifier
         /// <summary>
         /// <para>
-        /// <para> Filters tasks by the identifiers of the engagement invitations they are processing.
-        /// </para><para />
+        /// <para>Filters tasks by the identifiers of the engagement invitations they are processing.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -83,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter OpportunityIdentifier
         /// <summary>
         /// <para>
-        /// <para> Filters tasks by the identifiers of the opportunities they created or are associated
-        /// with. </para><para />
+        /// <para>Filters tasks by the identifiers of the opportunities they created or are associated
+        /// with.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -99,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para> Specifies the field by which the task list should be sorted. </para>
+        /// <para>Specifies the field by which the task list should be sorted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Sort_SortOrder
         /// <summary>
         /// <para>
-        /// <para> Determines the order in which the sorted results are presented. </para>
+        /// <para>Determines the order in which the sorted results are presented.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter TaskIdentifier
         /// <summary>
         /// <para>
-        /// <para> Filters tasks by their unique identifiers. Use this when you want to retrieve information
+        /// <para>Filters tasks by their unique identifiers. Use this when you want to retrieve information
         /// about specific tasks. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
@@ -153,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> Use this parameter to control the number of items returned in each request, which
+        /// <para>Use this parameter to control the number of items returned in each request, which
         /// can be useful for performance tuning and managing large result sets. </para>
         /// </para>
         /// <para>
@@ -170,9 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> Use this parameter for pagination when the result set spans multiple pages. This
-        /// value is obtained from the NextToken field in the response of a previous call to this
-        /// API. </para>
+        /// <para>Use this parameter for pagination when the result set spans multiple pages. This value
+        /// is obtained from the NextToken field in the response of a previous call to this API.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

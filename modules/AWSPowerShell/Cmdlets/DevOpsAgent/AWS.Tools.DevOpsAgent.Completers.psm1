@@ -100,6 +100,16 @@ $DOPS_Completers = {
             break
         }
 
+        # Amazon.DevOpsAgent.AwsSourceMode
+        {
+            ($_ -eq "New-DOPSAgentSpace/AwsSourceMode") -Or
+            ($_ -eq "Update-DOPSAgentSpace/AwsSourceMode")
+        }
+        {
+            $v = "organization","standalone"
+            break
+        }
+
         # Amazon.DevOpsAgent.ChatArchiveStatus
         {
             ($_ -eq "Get-DOPSChatList/ArchiveStatus") -Or
@@ -251,7 +261,9 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.SourceAccountType
         {
             ($_ -eq "Add-DOPSService/Configuration_SourceAws_AccountType") -Or
-            ($_ -eq "Update-DOPSAssociation/Configuration_SourceAws_AccountType")
+            ($_ -eq "Update-DOPSAssociation/Configuration_SourceAws_AccountType") -Or
+            ($_ -eq "Add-DOPSService/Configuration_SourceAwsOrg_AccountType") -Or
+            ($_ -eq "Update-DOPSAssociation/Configuration_SourceAwsOrg_AccountType")
         }
         {
             $v = "source"
@@ -317,12 +329,14 @@ $DOPS_map = @{
     "Action"=@("Update-DOPSApprovalAction")
     "ArchiveStatus"=@("Get-DOPSChatList","Update-DOPSChat")
     "AuthFlow"=@("Disable-DOPSOperatorApp","Enable-DOPSOperatorApp")
+    "AwsSourceMode"=@("New-DOPSAgentSpace","Update-DOPSAgentSpace")
     "Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek"=@("New-DOPSTrigger")
     "Configuration_Aws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_Aws_AgentElevatedRoleArnStatus"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_Github_OwnerType"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_SourceAws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_SourceAws_AgentElevatedRoleArnStatus"=@("Add-DOPSService","Update-DOPSAssociation")
+    "Configuration_SourceAwsOrg_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
     "Context_ApprovalAction_Action"=@("Send-DOPSMessage")
     "EvaluationSchedule_State"=@("Update-DOPSGoal")
     "FilterServiceType"=@("Get-DOPSServiceList")

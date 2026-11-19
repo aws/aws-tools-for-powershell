@@ -131,6 +131,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Rename-S3TTable', 
         'Start-S3TTableMigration', 
         'Sync-S3TTableMigration', 
+        'Unregister-S3TTableReplication', 
         'Update-S3TTableMetadataLocation', 
         'Update-S3TTableMigration', 
         'Write-S3TTableBucketEncryption', 

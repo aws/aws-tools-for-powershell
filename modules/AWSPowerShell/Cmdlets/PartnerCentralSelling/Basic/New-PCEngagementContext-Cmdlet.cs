@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Payload_CustomerAccount_AccountIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the customer account that the engagement concerns, as an Amazon
+        /// Resource Name (ARN) or a customer account identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_CustomerAccount_AccountIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Payload_ProspectingResult_Aws_Customer_AccountName
         /// <summary>
         /// <para>
@@ -66,6 +77,25 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Payload_Lead_Customer_AwsMaturity")]
         public System.String Customer_AwsMaturity { get; set; }
+        #endregion
+        
+        #region Parameter Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow
+        /// <summary>
+        /// <para>
+        /// <para>The recommended day-specific outreach windows for the recommended channel, expressed
+        /// in Coordinated Universal Time (UTC). Each window applies to one day, and more than
+        /// one window can fall on the same day. This field is optional and appears only when
+        /// window guidance is available.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindows")]
+        public Amazon.PartnerCentralSelling.Model.BestOutreachWindow[] Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow { get; set; }
         #endregion
         
         #region Parameter Project_BusinessProblem
@@ -111,6 +141,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Address_City { get; set; }
         #endregion
         
+        #region Parameter Payload_CustomerAccount_Customer_CompanyName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the customer company.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_CustomerAccount_Customer_CompanyName { get; set; }
+        #endregion
+        
         #region Parameter Payload_CustomerProject_Customer_CompanyName
         /// <summary>
         /// <para>
@@ -154,6 +194,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.PartnerCentralSelling.CountryCode")]
         public Amazon.PartnerCentralSelling.CountryCode Payload_ProspectingResult_Aws_Customer_Country { get; set; }
+        #endregion
+        
+        #region Parameter Payload_CustomerAccount_Customer_CountryCode
+        /// <summary>
+        /// <para>
+        /// <para>The country of the customer company, as an ISO 3166-1 alpha-2 country code.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.CountryCode")]
+        public Amazon.PartnerCentralSelling.CountryCode Payload_CustomerAccount_Customer_CountryCode { get; set; }
         #endregion
         
         #region Parameter Customer_CountryCode
@@ -235,6 +286,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Payload_ProspectingResult_Aws_Customer_Geo { get; set; }
+        #endregion
+        
+        #region Parameter Payload_CustomerAccount_Customer_Industry
+        /// <summary>
+        /// <para>
+        /// <para>The industry classification of the customer company.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_CustomerAccount_Customer_Industry { get; set; }
         #endregion
         
         #region Parameter Payload_CustomerProject_Customer_Industry
@@ -359,6 +420,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Payload_Lead_QualificationStatus")]
         public System.String Lead_QualificationStatus { get; set; }
+        #endregion
+        
+        #region Parameter Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel
+        /// <summary>
+        /// <para>
+        /// <para>The recommended outreach channel for the group of similar leads. Valid values are
+        /// <c>EMAIL</c> and <c>CALL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel { get; set; }
         #endregion
         
         #region Parameter Payload_ProspectingResult_Aws_Customer_Region
@@ -530,6 +602,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public Amazon.PartnerCentralSelling.EngagementContextType Type { get; set; }
         #endregion
         
+        #region Parameter Payload_CustomerAccount_Customer_WebsiteUrl
+        /// <summary>
+        /// <para>
+        /// <para>The website URL of the customer company.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_CustomerAccount_Customer_WebsiteUrl { get; set; }
+        #endregion
+        
         #region Parameter Payload_CustomerProject_Customer_WebsiteUrl
         /// <summary>
         /// <para>
@@ -628,6 +710,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter EngagementIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Payload_CustomerAccount_AccountIdentifier = this.Payload_CustomerAccount_AccountIdentifier;
+            context.Payload_CustomerAccount_Customer_CompanyName = this.Payload_CustomerAccount_Customer_CompanyName;
+            context.Payload_CustomerAccount_Customer_CountryCode = this.Payload_CustomerAccount_Customer_CountryCode;
+            context.Payload_CustomerAccount_Customer_Industry = this.Payload_CustomerAccount_Customer_Industry;
+            context.Payload_CustomerAccount_Customer_WebsiteUrl = this.Payload_CustomerAccount_Customer_WebsiteUrl;
             context.Payload_CustomerProject_Customer_CompanyName = this.Payload_CustomerProject_Customer_CompanyName;
             context.Customer_CountryCode = this.Customer_CountryCode;
             context.Payload_CustomerProject_Customer_Industry = this.Payload_CustomerProject_Customer_Industry;
@@ -644,6 +731,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
             context.Lead_Customer_Industry = this.Lead_Customer_Industry;
             context.Customer_MarketSegment = this.Customer_MarketSegment;
             context.Lead_Customer_WebsiteUrl = this.Lead_Customer_WebsiteUrl;
+            if (this.Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow != null)
+            {
+                context.Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow = new List<Amazon.PartnerCentralSelling.Model.BestOutreachWindow>(this.Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow);
+            }
+            context.Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel = this.Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel;
             context.Payload_Lead_Insights_LeadReadinessScore = this.Payload_Lead_Insights_LeadReadinessScore;
             if (this.Lead_Interaction != null)
             {
@@ -972,6 +1064,86 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 request.Payload.ProspectingResult = requestPayload_payload_ProspectingResult;
                 requestPayloadIsNull = false;
             }
+            Amazon.PartnerCentralSelling.Model.CustomerAccountContext requestPayload_payload_CustomerAccount = null;
+            
+             // populate CustomerAccount
+            var requestPayload_payload_CustomerAccountIsNull = true;
+            requestPayload_payload_CustomerAccount = new Amazon.PartnerCentralSelling.Model.CustomerAccountContext();
+            System.String requestPayload_payload_CustomerAccount_payload_CustomerAccount_AccountIdentifier = null;
+            if (cmdletContext.Payload_CustomerAccount_AccountIdentifier != null)
+            {
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_AccountIdentifier = cmdletContext.Payload_CustomerAccount_AccountIdentifier;
+            }
+            if (requestPayload_payload_CustomerAccount_payload_CustomerAccount_AccountIdentifier != null)
+            {
+                requestPayload_payload_CustomerAccount.AccountIdentifier = requestPayload_payload_CustomerAccount_payload_CustomerAccount_AccountIdentifier;
+                requestPayload_payload_CustomerAccountIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.Model.AccountCustomer requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer = null;
+            
+             // populate Customer
+            var requestPayload_payload_CustomerAccount_payload_CustomerAccount_CustomerIsNull = true;
+            requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer = new Amazon.PartnerCentralSelling.Model.AccountCustomer();
+            System.String requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_CompanyName = null;
+            if (cmdletContext.Payload_CustomerAccount_Customer_CompanyName != null)
+            {
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_CompanyName = cmdletContext.Payload_CustomerAccount_Customer_CompanyName;
+            }
+            if (requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_CompanyName != null)
+            {
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer.CompanyName = requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_CompanyName;
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_CustomerIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.CountryCode requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_CountryCode = null;
+            if (cmdletContext.Payload_CustomerAccount_Customer_CountryCode != null)
+            {
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_CountryCode = cmdletContext.Payload_CustomerAccount_Customer_CountryCode;
+            }
+            if (requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_CountryCode != null)
+            {
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer.CountryCode = requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_CountryCode;
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_CustomerIsNull = false;
+            }
+            System.String requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_Industry = null;
+            if (cmdletContext.Payload_CustomerAccount_Customer_Industry != null)
+            {
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_Industry = cmdletContext.Payload_CustomerAccount_Customer_Industry;
+            }
+            if (requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_Industry != null)
+            {
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer.Industry = requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_Industry;
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_CustomerIsNull = false;
+            }
+            System.String requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_WebsiteUrl = null;
+            if (cmdletContext.Payload_CustomerAccount_Customer_WebsiteUrl != null)
+            {
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_WebsiteUrl = cmdletContext.Payload_CustomerAccount_Customer_WebsiteUrl;
+            }
+            if (requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_WebsiteUrl != null)
+            {
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer.WebsiteUrl = requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer_payload_CustomerAccount_Customer_WebsiteUrl;
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_CustomerIsNull = false;
+            }
+             // determine if requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer should be set to null
+            if (requestPayload_payload_CustomerAccount_payload_CustomerAccount_CustomerIsNull)
+            {
+                requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer = null;
+            }
+            if (requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer != null)
+            {
+                requestPayload_payload_CustomerAccount.Customer = requestPayload_payload_CustomerAccount_payload_CustomerAccount_Customer;
+                requestPayload_payload_CustomerAccountIsNull = false;
+            }
+             // determine if requestPayload_payload_CustomerAccount should be set to null
+            if (requestPayload_payload_CustomerAccountIsNull)
+            {
+                requestPayload_payload_CustomerAccount = null;
+            }
+            if (requestPayload_payload_CustomerAccount != null)
+            {
+                request.Payload.CustomerAccount = requestPayload_payload_CustomerAccount;
+                requestPayloadIsNull = false;
+            }
             Amazon.PartnerCentralSelling.Model.CustomerProjectsContext requestPayload_payload_CustomerProject = null;
             
              // populate CustomerProject
@@ -1125,6 +1297,41 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_LeadReadinessScore != null)
             {
                 requestPayload_payload_Lead_payload_Lead_Insights.LeadReadinessScore = requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_LeadReadinessScore;
+                requestPayload_payload_Lead_payload_Lead_InsightsIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.Model.ChannelRecommendation requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation = null;
+            
+             // populate ChannelRecommendation
+            var requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendationIsNull = true;
+            requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation = new Amazon.PartnerCentralSelling.Model.ChannelRecommendation();
+            List<Amazon.PartnerCentralSelling.Model.BestOutreachWindow> requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow = null;
+            if (cmdletContext.Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow = cmdletContext.Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow;
+            }
+            if (requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation.BestOutreachWindows = requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow;
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendationIsNull = false;
+            }
+            System.String requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_RecommendedChannel = null;
+            if (cmdletContext.Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_RecommendedChannel = cmdletContext.Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel;
+            }
+            if (requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_RecommendedChannel != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation.RecommendedChannel = requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation_payload_Lead_Insights_ChannelRecommendation_RecommendedChannel;
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendationIsNull = false;
+            }
+             // determine if requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation should be set to null
+            if (requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendationIsNull)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation = null;
+            }
+            if (requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights.ChannelRecommendation = requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_ChannelRecommendation;
                 requestPayload_payload_Lead_payload_Lead_InsightsIsNull = false;
             }
              // determine if requestPayload_payload_Lead_payload_Lead_Insights should be set to null
@@ -1334,6 +1541,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String Catalog { get; set; }
             public System.String ClientToken { get; set; }
             public System.String EngagementIdentifier { get; set; }
+            public System.String Payload_CustomerAccount_AccountIdentifier { get; set; }
+            public System.String Payload_CustomerAccount_Customer_CompanyName { get; set; }
+            public Amazon.PartnerCentralSelling.CountryCode Payload_CustomerAccount_Customer_CountryCode { get; set; }
+            public System.String Payload_CustomerAccount_Customer_Industry { get; set; }
+            public System.String Payload_CustomerAccount_Customer_WebsiteUrl { get; set; }
             public System.String Payload_CustomerProject_Customer_CompanyName { get; set; }
             public Amazon.PartnerCentralSelling.CountryCode Customer_CountryCode { get; set; }
             public Amazon.PartnerCentralSelling.Industry Payload_CustomerProject_Customer_Industry { get; set; }
@@ -1350,6 +1562,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String Lead_Customer_Industry { get; set; }
             public System.String Customer_MarketSegment { get; set; }
             public System.String Lead_Customer_WebsiteUrl { get; set; }
+            public List<Amazon.PartnerCentralSelling.Model.BestOutreachWindow> Payload_Lead_Insights_ChannelRecommendation_BestOutreachWindow { get; set; }
+            public System.String Payload_Lead_Insights_ChannelRecommendation_RecommendedChannel { get; set; }
             public System.String Payload_Lead_Insights_LeadReadinessScore { get; set; }
             public List<Amazon.PartnerCentralSelling.Model.LeadInteraction> Lead_Interaction { get; set; }
             public System.String Lead_QualificationStatus { get; set; }

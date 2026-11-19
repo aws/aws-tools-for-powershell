@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Get", "CEResourceTag")]
     [OutputType("Amazon.CostExplorer.Model.ResourceTag")]
-    [AWSCmdlet("Calls the AWS Cost Explorer ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.ResourceTag or Amazon.CostExplorer.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.ResourceTag objects.",
         "The service call response (type Amazon.CostExplorer.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

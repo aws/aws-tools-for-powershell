@@ -88,8 +88,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-MDResourceTag', 
+        'Get-MDDeploymentConfiguration', 
+        'Get-MDDeploymentConfigurationJob', 
+        'Get-MDDeploymentConfigurationJobList', 
         'Get-MDResourceTag', 
         'Remove-MDResourceTag', 
+        'Start-MDDeploymentConfigurationJob', 
         'Write-MDDeploymentParameter')
 
     # Variables to export from this module

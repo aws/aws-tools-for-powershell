@@ -5,7 +5,7 @@
     <C2jFilename>sts</C2jFilename>
     <AssemblyName>SecurityToken</AssemblyName>
     <ServiceNounPrefix>STS</ServiceNounPrefix>
-    <ServiceName>AWS Security Token Service (STS)</ServiceName>
+    <ServiceName>AWS Security Token Service</ServiceName>
     <ServiceId>STS</ServiceId>
     <ServiceClientInterface>IAmazonSecurityTokenService</ServiceClientInterface>
     <ServiceClient>AmazonSecurityTokenServiceClient</ServiceClient>
@@ -68,6 +68,10 @@
             <Params>
                 <Param Name="DurationSeconds" NewName="DurationInSeconds" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetScopedCredentials" OutputProperty="*" Verb="Get" Noun="ScopedCredential" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSessionToken" OutputProperty="Credentials" Verb="Get" Noun="SessionToken" PositionalParameters="SerialNumber;TokenCode" PipelineParameter="DurationSeconds" NoPipelineParameter="false" LegacyV4Pagination="true">

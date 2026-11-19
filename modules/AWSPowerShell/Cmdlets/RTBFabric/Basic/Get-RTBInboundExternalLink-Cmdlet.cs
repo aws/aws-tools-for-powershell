@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Get", "RTBInboundExternalLink")]
     [OutputType("Amazon.RTBFabric.Model.GetInboundExternalLinkResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric GetInboundExternalLink API operation.", Operation = new[] {"GetInboundExternalLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.GetInboundExternalLinkResponse))]
+    [AWSCmdlet("Calls the RTBFabric GetInboundExternalLink API operation.", Operation = new[] {"GetInboundExternalLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.GetInboundExternalLinkResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.GetInboundExternalLinkResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.GetInboundExternalLinkResponse object containing multiple properties."
     )]
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.GetInboundExternalLinkResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.GetInboundExternalLinkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "GetInboundExternalLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "GetInboundExternalLink");
             try
             {
                 return client.GetInboundExternalLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

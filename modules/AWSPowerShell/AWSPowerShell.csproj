@@ -989,6 +989,9 @@
     <Reference Include="AWSSDK.PartnerCentralChannel">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PartnerCentralChannel.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.PartnerCentralMarketing">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PartnerCentralMarketing.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.PartnerCentralRevenueMeasurement">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PartnerCentralRevenueMeasurement.dll</HintPath>
     </Reference>
@@ -2305,6 +2308,9 @@
     </Reference>
     <Reference Include="AWSSDK.PartnerCentralChannel">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PartnerCentralMarketing">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralMarketing.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PartnerCentralRevenueMeasurement">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralRevenueMeasurement.dll</HintPath>

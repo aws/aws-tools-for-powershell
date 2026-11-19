@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     /// </summary>
     [Cmdlet("Get", "MSKConfiguration")]
     [OutputType("Amazon.Kafka.Model.DescribeConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DescribeConfiguration API operation.", Operation = new[] {"DescribeConfiguration"}, SelectReturnType = typeof(Amazon.Kafka.Model.DescribeConfigurationResponse))]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka DescribeConfiguration API operation.", Operation = new[] {"DescribeConfiguration"}, SelectReturnType = typeof(Amazon.Kafka.Model.DescribeConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.DescribeConfigurationResponse",
         "This cmdlet returns an Amazon.Kafka.Model.DescribeConfigurationResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         private Amazon.Kafka.Model.DescribeConfigurationResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.DescribeConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DescribeConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka", "DescribeConfiguration");
             try
             {
                 return client.DescribeConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

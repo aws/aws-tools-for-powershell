@@ -80,6 +80,16 @@ $AGRC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AgentRegistryControl.AgentSkillsRepositoryProvider
+        {
+            ($_ -eq "New-AGRCRegistryRecord/Descriptors_AgentSkillsDefinition_AdditionalData_RepositoryProvider") -Or
+            ($_ -eq "Update-AGRCRegistryRecord/Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_RepositoryProvider_OptionalValue")
+        }
+        {
+            $v = "GITHUB"
+            break
+        }
+
         # Amazon.AgentRegistryControl.AutoDetectionScope
         {
             ($_ -eq "Update-AGRCRegistry/AutoDetectionConfiguration_OptionalValue_Scope") -Or
@@ -120,7 +130,7 @@ $AGRC_Completers = {
         # Amazon.AgentRegistryControl.RegistryRecordStatus
         "Update-AGRCRegistryRecordStatus/Status"
         {
-            $v = "APPROVED","CREATE_FAILED","CREATING","DEPRECATED","DRAFT","PENDING_APPROVAL","REJECTED","UPDATE_FAILED","UPDATING"
+            $v = "APPROVED","CREATE_FAILED","CREATE_PENDING_AUTH","CREATING","DEPRECATED","DRAFT","PENDING_APPROVAL","REJECTED","UPDATE_FAILED","UPDATE_PENDING_AUTH","UPDATING"
             break
         }
 
@@ -135,6 +145,8 @@ $AGRC_Completers = {
 $AGRC_map = @{
     "AutoDetectionConfiguration_OptionalValue_Scope"=@("Update-AGRCRegistry")
     "AutoDetectionConfiguration_Scope"=@("New-AGRCRegistry")
+    "Descriptors_AgentSkillsDefinition_AdditionalData_RepositoryProvider"=@("New-AGRCRegistryRecord")
+    "Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_RepositoryProvider_OptionalValue"=@("Update-AGRCRegistryRecord")
     "DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-AGRCRegistry")
     "DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-AGRCRegistry")
     "DiscoveryConfiguration_AuthorizerType"=@("New-AGRCRegistry")

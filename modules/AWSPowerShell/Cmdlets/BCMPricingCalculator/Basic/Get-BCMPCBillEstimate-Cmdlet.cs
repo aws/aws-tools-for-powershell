@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Get", "BCMPCBillEstimate")]
     [OutputType("Amazon.BCMPricingCalculator.Model.GetBillEstimateResponse")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator GetBillEstimate API operation.", Operation = new[] {"GetBillEstimate"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.GetBillEstimateResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator GetBillEstimate API operation.", Operation = new[] {"GetBillEstimate"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.GetBillEstimateResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.GetBillEstimateResponse",
         "This cmdlet returns an Amazon.BCMPricingCalculator.Model.GetBillEstimateResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.GetBillEstimateResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.GetBillEstimateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "GetBillEstimate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "GetBillEstimate");
             try
             {
                 return client.GetBillEstimateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

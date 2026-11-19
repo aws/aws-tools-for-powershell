@@ -35,7 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html">Mutual
-    /// TLS for Application Load Balancers</a>.
+    /// TLS for Application Load Balancers</a> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/mutual-authentication.html">Mutual
+    /// TLS for Network Load Balancers</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELB2TrustStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

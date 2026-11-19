@@ -54,13 +54,13 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter ExpectedRevisionId
         /// <summary>
         /// <para>
-        /// The write succeeds only if the named
-        /// policy's current revision ID matches this value; a policy that does not exist yet
-        /// matches only the sentinel "NO_POLICY" (create-only). On mismatch the operation fails
-        /// with ConflictException. When omitted, the write is unconditional. Every attempt stores
-        /// a newly generated revision ID, so retrying an unanswered request can conflict with
-        /// the caller's own earlier attempt; read the policy back and compare it with the one
-        /// you intended before treating a conflict as another writer's change.
+        /// <para>The write succeeds only if the named policy's current revision ID matches this value;
+        /// a policy that does not exist yet matches only the sentinel "NO_POLICY" (create-only).
+        /// On mismatch the operation fails with ConflictException. When omitted, the write is
+        /// unconditional. Every attempt stores a newly generated revision ID, so retrying an
+        /// unanswered request can conflict with the caller's own earlier attempt; read the policy
+        /// back and compare it with the one you intended before treating a conflict as another
+        /// writer's change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A resource policy document, as a JSON string. The maximum size is 389,120 bytes of
+        /// UTF-8; the byte limit is enforced by the service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,12 +88,12 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// Which named policy to write. Defaults to "default",
-        /// the customer-managed policy, when omitted (a write AWS Resource Access Manager makes
-        /// on the owner's behalf resolves to "AWS_RAM" instead). The two writers are exclusive
-        /// in both directions — only Resource Access Manager can write "AWS_RAM", and only the
-        /// bus owner can write "default" — so naming the other party's policy fails with AccessDeniedException.
-        /// A well-formed name that is neither of the two fails with InvalidInputException.
+        /// <para>Which named policy to write. Defaults to "default", the customer-managed policy, when
+        /// omitted (a write AWS Resource Access Manager makes on the owner's behalf resolves
+        /// to "AWS_RAM" instead). The two writers are exclusive in both directions — only Resource
+        /// Access Manager can write "AWS_RAM", and only the bus owner can write "default" — so
+        /// naming the other party's policy fails with AccessDeniedException. A well-formed name
+        /// that is neither of the two fails with InvalidInputException.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies an event bus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

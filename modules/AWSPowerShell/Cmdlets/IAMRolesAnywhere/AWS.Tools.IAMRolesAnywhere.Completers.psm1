@@ -90,6 +90,36 @@ $IAMRA_Completers = {
             break
         }
 
+        # Amazon.IAMRolesAnywhere.TipStatus
+        {
+            ($_ -eq "New-IAMRAProfile/TipConfiguration_Status") -Or
+            ($_ -eq "Update-IAMRAProfile/TipConfiguration_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.IAMRolesAnywhere.TipSubjectSource
+        {
+            ($_ -eq "New-IAMRAProfile/TipConfiguration_SubjectSource") -Or
+            ($_ -eq "Update-IAMRAProfile/TipConfiguration_SubjectSource")
+        }
+        {
+            $v = "x509SAN/URI","x509Subject/CN"
+            break
+        }
+
+        # Amazon.IAMRolesAnywhere.TipSubjectType
+        {
+            ($_ -eq "New-IAMRAProfile/TipConfiguration_SubjectType") -Or
+            ($_ -eq "Update-IAMRAProfile/TipConfiguration_SubjectType")
+        }
+        {
+            $v = "user","workload"
+            break
+        }
+
         # Amazon.IAMRolesAnywhere.TrustAnchorType
         {
             ($_ -eq "New-IAMRATrustAnchor/Source_SourceType") -Or
@@ -111,6 +141,9 @@ $IAMRA_Completers = {
 $IAMRA_map = @{
     "CertificateField"=@("Remove-IAMRAAttributeMapping","Write-IAMRAAttributeMapping")
     "Source_SourceType"=@("New-IAMRATrustAnchor","Update-IAMRATrustAnchor")
+    "TipConfiguration_Status"=@("New-IAMRAProfile","Update-IAMRAProfile")
+    "TipConfiguration_SubjectSource"=@("New-IAMRAProfile","Update-IAMRAProfile")
+    "TipConfiguration_SubjectType"=@("New-IAMRAProfile","Update-IAMRAProfile")
 }
 
 _awsArgumentCompleterRegistration $IAMRA_Completers $IAMRA_map

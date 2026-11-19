@@ -101,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-R53RFirewallDomain', 
         'Get-R53RFirewallDomainList', 
         'Get-R53RFirewallDomainListList', 
+        'Get-R53RFirewallRuleDomainList', 
         'Get-R53RFirewallRuleGroup', 
         'Get-R53RFirewallRuleGroupAssociation', 
         'Get-R53RFirewallRuleGroupAssociationList', 

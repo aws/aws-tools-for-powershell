@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
     /// </summary>
     [Cmdlet("Get", "BCMPCBillScenarioUsageModificationList")]
     [OutputType("Amazon.BCMPricingCalculator.Model.BillScenarioUsageModificationItem")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator ListBillScenarioUsageModifications API operation.", Operation = new[] {"ListBillScenarioUsageModifications"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.ListBillScenarioUsageModificationsResponse))]
+    [AWSCmdlet("Calls the AWS Billing and Cost Management Pricing Calculator ListBillScenarioUsageModifications API operation.", Operation = new[] {"ListBillScenarioUsageModifications"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.ListBillScenarioUsageModificationsResponse))]
     [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BillScenarioUsageModificationItem or Amazon.BCMPricingCalculator.Model.ListBillScenarioUsageModificationsResponse",
         "This cmdlet returns a collection of Amazon.BCMPricingCalculator.Model.BillScenarioUsageModificationItem objects.",
         "The service call response (type Amazon.BCMPricingCalculator.Model.ListBillScenarioUsageModificationsResponse) can be returned by specifying '-Select *'."
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         private Amazon.BCMPricingCalculator.Model.ListBillScenarioUsageModificationsResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.ListBillScenarioUsageModificationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "ListBillScenarioUsageModifications");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing and Cost Management Pricing Calculator", "ListBillScenarioUsageModifications");
             try
             {
                 return client.ListBillScenarioUsageModificationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -100,6 +100,46 @@ $PC_Completers = {
             break
         }
 
+        # Amazon.PartnerCentralSelling.BulkFileFormat
+        {
+            ($_ -eq "Start-PCOpportunityBulkJob/FileFormat") -Or
+            ($_ -eq "Get-PCOpportunityBulkJobReportUrl/ReportFormat")
+        }
+        {
+            $v = "CSV"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.BulkJobStatus
+        {
+            ($_ -eq "Get-PCCustomerAccountBulkJobList/Filter_Status") -Or
+            ($_ -eq "Get-PCOpportunityBulkJobList/Status")
+        }
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS","SUBMITTED"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.BulkRecordStatus
+        {
+            ($_ -eq "Get-PCCustomerAccountBulkJobResultList/Status") -Or
+            ($_ -eq "Get-PCOpportunityBulkJobResultList/Status")
+        }
+        {
+            $v = "FAILED","SUCCEEDED"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.BulkReportType
+        {
+            ($_ -eq "Get-PCCustomerAccountBulkJobReportUrl/ReportType") -Or
+            ($_ -eq "Get-PCOpportunityBulkJobReportUrl/ReportType")
+        }
+        {
+            $v = "ALL_RECORDS","FAILED_RECORDS"
+            break
+        }
+
         # Amazon.PartnerCentralSelling.ClosedLostReason
         {
             ($_ -eq "Invoke-PCCreateOpportunity/LifeCycle_ClosedLostReason") -Or
@@ -120,13 +160,24 @@ $PC_Completers = {
             break
         }
 
+        # Amazon.PartnerCentralSelling.ContactWindow
+        "Invoke-PCCreateEngagementInvitation/Invitation_Payload_AccountPlanningInvitation_PreferredContact_Window"
+        {
+            $v = "AFTERNOON","EVENING","MORNING"
+            break
+        }
+
         # Amazon.PartnerCentralSelling.CountryCode
         {
+            ($_ -eq "New-PCCustomerAccount/Account_Address_CountryCode") -Or
+            ($_ -eq "Update-PCCustomerAccount/Account_Address_CountryCode") -Or
             ($_ -eq "Invoke-PCCreateOpportunity/Address_CountryCode") -Or
             ($_ -eq "Update-PCOpportunity/Address_CountryCode") -Or
             ($_ -eq "New-PCEngagementContext/Customer_CountryCode") -Or
             ($_ -eq "Update-PCEngagementContext/Customer_CountryCode") -Or
+            ($_ -eq "Invoke-PCCreateEngagementInvitation/Invitation_Payload_AccountPlanningInvitation_Customer_CountryCode") -Or
             ($_ -eq "Invoke-PCCreateEngagementInvitation/Invitation_Payload_OpportunityInvitation_Customer_CountryCode") -Or
+            ($_ -eq "New-PCEngagementContext/Payload_CustomerAccount_Customer_CountryCode") -Or
             ($_ -eq "New-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Country") -Or
             ($_ -eq "Update-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Country")
         }
@@ -151,7 +202,21 @@ $PC_Completers = {
             ($_ -eq "Update-PCEngagementContext/Type")
         }
         {
-            $v = "CustomerProject","Lead","ProspectingResult"
+            $v = "CustomerAccount","CustomerProject","Lead","ProspectingResult"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.EngagementGroupSortName
+        "Get-PCEngagementGroupList/Sort_SortBy"
+        {
+            $v = "Count","UpdatedAt"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.EngagementSearchSortName
+        "Search-PCEngagement/Sort_SortBy"
+        {
+            $v = "CreatedAt","EngagementId","LastModifiedAt","LeadCustomerAwsMaturity","LeadCustomerCompanyName","LeadCustomerCountryCode","LeadCustomerIndustry","LeadCustomerMarketSegment","LeadInteractionsContactBusinessTitle","LeadInteractionsContactFirstName","LeadInteractionsContactLastName","LeadInteractionsUsecase","LeadQualificationStatus","LeadReadinessScore","MemberCount","PartnerId","ProspectingCustomerCompanySize","ProspectingCustomerCountry","ProspectingCustomerGeo","ProspectingCustomerIndustry","ProspectingCustomerRegion","ProspectingCustomerSegment","ProspectingInsightsMarketplaceEngagementScore","ProspectingInsightsSolutionCategory","ProspectingInsightsSolutionSubCategory","Title"
             break
         }
 
@@ -232,6 +297,13 @@ $PC_Completers = {
             break
         }
 
+        # Amazon.PartnerCentralSelling.OpportunitySearchSortName
+        "Search-PCOpportunity/Sort_SortBy"
+        {
+            $v = "ApnPrograms","AwsAccountId","CosellMotion","CountryCode","CreatedDate","CustomerCompanyName","EngagementScore","EstimatedMrr","Industry","LastModifiedDate","NextStep","OfferId","OfferSetId","OpportunityId","OpportunityOwner","OpportunityType","Origin","PartnerOpportunityIdentifier","PartnerProjectTitle","ReviewStatus","Stage","Tags","TargetCloseDate"
+            break
+        }
+
         # Amazon.PartnerCentralSelling.OpportunitySortName
         "Get-PCOpportunityList/Sort_SortBy"
         {
@@ -241,6 +313,7 @@ $PC_Completers = {
 
         # Amazon.PartnerCentralSelling.OpportunityType
         {
+            ($_ -eq "Invoke-PCCreateEngagementInvitation/Invitation_Payload_OpportunityInvitation_OpportunityType") -Or
             ($_ -eq "Invoke-PCCreateOpportunity/OpportunityType") -Or
             ($_ -eq "Update-PCOpportunity/OpportunityType")
         }
@@ -260,6 +333,13 @@ $PC_Completers = {
         "Get-PCProspectingFromEngagementTaskList/Sort_SortBy"
         {
             $v = "FailedEngagementCount","StartTime","TaskName"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.ReadinessLevel
+        "Get-PCEngagementGroupList/ReadinessLevel"
+        {
+            $v = "LowPotential","MarketingReady","SalesReady"
             break
         }
 
@@ -330,6 +410,13 @@ $PC_Completers = {
             break
         }
 
+        # Amazon.PartnerCentralSelling.SortableField
+        "Search-PCCustomerAccount/Sort_SortBy"
+        {
+            $v = "COMPANY_NAME","CREATED_DATE","LAST_MODIFIED_DATE","MARKETPLACE_ENGAGEMENT_SCORE","SOLUTION_SCORE"
+            break
+        }
+
         # Amazon.PartnerCentralSelling.SortBy
         "Get-PCResourceSnapshotJobList/Sort_SortBy"
         {
@@ -341,13 +428,17 @@ $PC_Completers = {
         {
             ($_ -eq "Get-PCEngagementByAcceptingInvitationTaskList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCEngagementFromOpportunityTaskList/Sort_SortOrder") -Or
+            ($_ -eq "Get-PCEngagementGroupList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCEngagementInvitationList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCEngagementList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCOpportunityFromEngagementTaskList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCOpportunityList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCProspectingFromEngagementTaskList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCResourceSnapshotJobList/Sort_SortOrder") -Or
-            ($_ -eq "Get-PCSolutionList/Sort_SortOrder")
+            ($_ -eq "Get-PCSolutionList/Sort_SortOrder") -Or
+            ($_ -eq "Search-PCCustomerAccount/Sort_SortOrder") -Or
+            ($_ -eq "Search-PCEngagement/Sort_SortOrder") -Or
+            ($_ -eq "Search-PCOpportunity/Sort_SortOrder")
         }
         {
             $v = "ASCENDING","DESCENDING"
@@ -383,13 +474,19 @@ $PC_Completers = {
 }
 
 $PC_map = @{
+    "Account_Address_CountryCode"=@("New-PCCustomerAccount","Update-PCCustomerAccount")
     "Account_Industry"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Address_CountryCode"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "AwsSubmission_InvolvementType"=@("Invoke-PCStartEngagementFromOpportunityTask")
     "AwsSubmission_Visibility"=@("Invoke-PCStartEngagementFromOpportunityTask")
     "Customer_CountryCode"=@("New-PCEngagementContext","Update-PCEngagementContext")
+    "FileFormat"=@("Start-PCOpportunityBulkJob")
+    "Filter_Status"=@("Get-PCCustomerAccountBulkJobList")
+    "Invitation_Payload_AccountPlanningInvitation_Customer_CountryCode"=@("Invoke-PCCreateEngagementInvitation")
+    "Invitation_Payload_AccountPlanningInvitation_PreferredContact_Window"=@("Invoke-PCCreateEngagementInvitation")
     "Invitation_Payload_OpportunityInvitation_Customer_CountryCode"=@("Invoke-PCCreateEngagementInvitation")
     "Invitation_Payload_OpportunityInvitation_Customer_Industry"=@("Invoke-PCCreateEngagementInvitation")
+    "Invitation_Payload_OpportunityInvitation_OpportunityType"=@("Invoke-PCCreateEngagementInvitation")
     "InvolvementType"=@("Submit-PCOpportunity")
     "LifeCycle_ClosedLostReason"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "LifeCycle_ReviewStatus"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
@@ -400,18 +497,22 @@ $PC_map = @{
     "OpportunityType"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Origin"=@("Invoke-PCCreateOpportunity")
     "ParticipantType"=@("Get-PCEngagementInvitationList")
+    "Payload_CustomerAccount_Customer_CountryCode"=@("New-PCEngagementContext")
     "Payload_CustomerProject_Customer_Industry"=@("New-PCEngagementContext","Update-PCEngagementContext")
     "Payload_ProspectingResult_Aws_Customer_Country"=@("New-PCEngagementContext","Update-PCEngagementContext")
     "Payload_ProspectingResult_Aws_Customer_Industry"=@("New-PCEngagementContext","Update-PCEngagementContext")
     "Project_AwsPartition"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Project_CompetitorName"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Project_ExpectedContractDuration_Term"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "ReadinessLevel"=@("Get-PCEngagementGroupList")
     "RelatedEntityType"=@("Invoke-PCAssociateOpportunity","Invoke-PCDisassociateOpportunity")
+    "ReportFormat"=@("Get-PCOpportunityBulkJobReportUrl")
+    "ReportType"=@("Get-PCCustomerAccountBulkJobReportUrl","Get-PCOpportunityBulkJobReportUrl")
     "ResourceType"=@("Get-PCEngagementResourceAssociationList","Get-PCResourceSnapshot","Get-PCResourceSnapshotList","Invoke-PCResourceSnapshot","Invoke-PCResourceSnapshotJob")
     "SoftwareRevenue_DeliveryModel"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
-    "Sort_SortBy"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityFromEngagementTaskList","Get-PCOpportunityList","Get-PCProspectingFromEngagementTaskList","Get-PCResourceSnapshotJobList","Get-PCSolutionList")
-    "Sort_SortOrder"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityFromEngagementTaskList","Get-PCOpportunityList","Get-PCProspectingFromEngagementTaskList","Get-PCResourceSnapshotJobList","Get-PCSolutionList")
-    "Status"=@("Get-PCResourceSnapshotJobList")
+    "Sort_SortBy"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementGroupList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityFromEngagementTaskList","Get-PCOpportunityList","Get-PCProspectingFromEngagementTaskList","Get-PCResourceSnapshotJobList","Get-PCSolutionList","Search-PCCustomerAccount","Search-PCEngagement","Search-PCOpportunity")
+    "Sort_SortOrder"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementGroupList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityFromEngagementTaskList","Get-PCOpportunityList","Get-PCProspectingFromEngagementTaskList","Get-PCResourceSnapshotJobList","Get-PCSolutionList","Search-PCCustomerAccount","Search-PCEngagement","Search-PCOpportunity")
+    "Status"=@("Get-PCCustomerAccountBulkJobResultList","Get-PCOpportunityBulkJobList","Get-PCOpportunityBulkJobResultList","Get-PCResourceSnapshotJobList")
     "Type"=@("New-PCEngagementContext","Update-PCEngagementContext")
     "Value_CurrencyCode"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Visibility"=@("Submit-PCOpportunity")
@@ -470,29 +571,41 @@ $PC_SelectMap = @{
     "Select"=@("Invoke-PCAcceptEngagementInvitation",
                "Invoke-PCAssignOpportunity",
                "Invoke-PCAssociateOpportunity",
+               "New-PCCustomerAccount",
                "Invoke-PCCreateEngagement",
                "New-PCEngagementContext",
                "Invoke-PCCreateEngagementInvitation",
                "Invoke-PCCreateOpportunity",
                "Invoke-PCResourceSnapshot",
                "Invoke-PCResourceSnapshotJob",
+               "Remove-PCCustomerAccount",
                "Remove-PCResourceSnapshotJob",
                "Invoke-PCDisassociateOpportunity",
                "Get-PCAwsOpportunitySummary",
+               "Get-PCCustomerAccount",
+               "Get-PCCustomerAccountBulkJob",
+               "Get-PCCustomerAccountBulkJobReportUrl",
+               "Get-PCCustomerAccountStatistic",
                "Get-PCEngagement",
                "Get-PCEngagementInvitation",
                "Get-PCOpportunity",
+               "Get-PCOpportunityBulkJobReportUrl",
                "Get-PCProspectingFromEngagementTask",
                "Get-PCResourceSnapshot",
                "Get-PCResourceSnapshotJob",
                "Get-PCSellingSystemSetting",
+               "Get-PCCustomerAccountBulkJobResultList",
+               "Get-PCCustomerAccountBulkJobList",
                "Get-PCEngagementByAcceptingInvitationTaskList",
                "Get-PCEngagementFromOpportunityTaskList",
+               "Get-PCEngagementGroupList",
                "Get-PCEngagementInvitationList",
                "Get-PCEngagementMemberList",
                "Get-PCEngagementResourceAssociationList",
                "Get-PCEngagementList",
                "Get-PCOpportunityList",
+               "Get-PCOpportunityBulkJobResultList",
+               "Get-PCOpportunityBulkJobList",
                "Get-PCOpportunityFromEngagementTaskList",
                "Get-PCProspectingFromEngagementTaskList",
                "Get-PCResourceSnapshotJobList",
@@ -501,8 +614,13 @@ $PC_SelectMap = @{
                "Get-PCResourceTag",
                "Write-PCSellingSystemSetting",
                "Invoke-PCRejectEngagementInvitation",
+               "Search-PCCustomerAccount",
+               "Search-PCEngagement",
+               "Search-PCOpportunity",
+               "Start-PCCustomerAccountBulkJob",
                "Invoke-PCStartEngagementByAcceptingInvitationTask",
                "Invoke-PCStartEngagementFromOpportunityTask",
+               "Start-PCOpportunityBulkJob",
                "Start-PCOpportunityFromEngagementTask",
                "Start-PCProspectingFromEngagementTask",
                "Start-PCResourceSnapshotJob",
@@ -510,6 +628,7 @@ $PC_SelectMap = @{
                "Submit-PCOpportunity",
                "Add-PCResourceTag",
                "Remove-PCResourceTag",
+               "Update-PCCustomerAccount",
                "Update-PCEngagementContext",
                "Update-PCOpportunity")
 }

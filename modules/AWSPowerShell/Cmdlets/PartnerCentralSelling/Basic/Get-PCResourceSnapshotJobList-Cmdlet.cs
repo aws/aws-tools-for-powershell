@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter EngagementIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the engagement to filter the response. </para>
+        /// <para>The identifier of the engagement to filter the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para> Specifies the field by which to sort the resource snapshot jobs. </para>
+        /// <para>Specifies the field by which to sort the resource snapshot jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Sort_SortOrder
         /// <summary>
         /// <para>
-        /// <para> Determines the order in which the sorted results are presented. </para>
+        /// <para>Determines the order in which the sorted results are presented.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results to return in a single call. If omitted, defaults to
-        /// 50. </para>
+        /// <para>The maximum number of results to return in a single call. If omitted, defaults to
+        /// 50.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The token for the next set of results. </para>
+        /// <para>The token for the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

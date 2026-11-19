@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EVBV2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>ARN for an EventBridge resource that supports tagging: event buses, subscribers, and
+        /// event sources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

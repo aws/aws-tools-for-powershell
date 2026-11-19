@@ -400,6 +400,7 @@ $IAM_SelectMap = @{
                "Update-IAMDelegationRequest",
                "Update-IAMGroup",
                "Update-IAMLoginProfile",
+               "Update-IAMOpenIDConnectProvider",
                "Update-IAMOpenIDConnectProviderThumbprint",
                "Update-IAMRole",
                "Update-IAMRoleDescription",

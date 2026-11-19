@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
     /// </summary>
     [Cmdlet("Get", "RTBLink")]
     [OutputType("Amazon.RTBFabric.Model.GetLinkResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric GetLink API operation.", Operation = new[] {"GetLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.GetLinkResponse))]
+    [AWSCmdlet("Calls the RTBFabric GetLink API operation.", Operation = new[] {"GetLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.GetLinkResponse))]
     [AWSCmdletOutput("Amazon.RTBFabric.Model.GetLinkResponse",
         "This cmdlet returns an Amazon.RTBFabric.Model.GetLinkResponse object containing multiple properties."
     )]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         private Amazon.RTBFabric.Model.GetLinkResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.GetLinkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "GetLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "RTBFabric", "GetLink");
             try
             {
                 return client.GetLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

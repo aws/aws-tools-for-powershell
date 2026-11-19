@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para> Specifies the field by which the task list should be sorted. </para>
+        /// <para>Specifies the field by which the task list should be sorted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Sort_SortOrder
         /// <summary>
         /// <para>
-        /// <para> Determines the order in which the sorted results are presented. </para>
+        /// <para>Determines the order in which the sorted results are presented.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

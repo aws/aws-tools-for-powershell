@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </summary>
     [Cmdlet("Use", "STSRoot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityToken.Model.AssumeRootResponse")]
-    [AWSCmdlet("Calls the AWS Security Token Service (STS) AssumeRoot API operation.", Operation = new[] {"AssumeRoot"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.AssumeRootResponse))]
+    [AWSCmdlet("Calls the AWS Security Token Service AssumeRoot API operation.", Operation = new[] {"AssumeRoot"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.AssumeRootResponse))]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRootResponse",
         "This cmdlet returns an Amazon.SecurityToken.Model.AssumeRootResponse object containing multiple properties."
     )]
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         private Amazon.SecurityToken.Model.AssumeRootResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.AssumeRootRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service (STS)", "AssumeRoot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "AssumeRoot");
             try
             {
                 return client.AssumeRootAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

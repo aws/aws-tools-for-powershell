@@ -83,7 +83,7 @@ $R53_Completers = {
         # Amazon.Route53.AccountLimitType
         "Get-R53AccountLimit/Type"
         {
-            $v = "MAX_HEALTH_CHECKS_BY_OWNER","MAX_HOSTED_ZONES_BY_OWNER","MAX_REUSABLE_DELEGATION_SETS_BY_OWNER","MAX_TRAFFIC_POLICIES_BY_OWNER","MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
+            $v = "MAX_HEALTH_CHECKS_BY_OWNER","MAX_HEALTH_CHECK_SOURCES_BY_OWNER","MAX_HOSTED_ZONES_BY_OWNER","MAX_REUSABLE_DELEGATION_SETS_BY_OWNER","MAX_TRAFFIC_POLICIES_BY_OWNER","MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
             break
         }
 
@@ -94,6 +94,13 @@ $R53_Completers = {
         }
         {
             $v = "af-south-1","ap-east-1","ap-east-2","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-6","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-isoe-west-1","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","eusc-de-east-1","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-isob-west-1","us-isof-east-1","us-isof-south-1","us-west-1","us-west-2"
+            break
+        }
+
+        # Amazon.Route53.EndpointType
+        "New-R53HealthCheck/HealthCheckConfig_EndpointType"
+        {
+            $v = "PRIVATE","PUBLIC"
             break
         }
 
@@ -156,7 +163,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53TagsForResourceList/ResourceType")
         }
         {
-            $v = "healthcheck","hostedzone"
+            $v = "healthcheck","healthchecksource","hostedzone"
             break
         }
 
@@ -184,6 +191,7 @@ $R53_Completers = {
 
 $R53_map = @{
     "AlarmIdentifier_Region"=@("New-R53HealthCheck","Update-R53HealthCheck")
+    "HealthCheckConfig_EndpointType"=@("New-R53HealthCheck")
     "HealthCheckConfig_InsufficientDataHealthStatus"=@("New-R53HealthCheck")
     "HealthCheckConfig_Type"=@("New-R53HealthCheck")
     "HostedZoneType"=@("Get-R53HostedZoneList")
@@ -254,6 +262,7 @@ $R53_SelectMap = @{
                "Edit-R53TagsForResource",
                "New-R53CidrCollection",
                "New-R53HealthCheck",
+               "New-R53HealthCheckSource",
                "New-R53HostedZone",
                "New-R53KeySigningKey",
                "New-R53QueryLoggingConfig",
@@ -266,6 +275,7 @@ $R53_SelectMap = @{
                "Disable-R53KeySigningKey",
                "Remove-R53CidrCollection",
                "Remove-R53HealthCheck",
+               "Remove-R53HealthCheckSource",
                "Remove-R53HostedZone",
                "Remove-R53KeySigningKey",
                "Remove-R53QueryLoggingConfig",
@@ -285,6 +295,7 @@ $R53_SelectMap = @{
                "Get-R53HealthCheck",
                "Get-R53HealthCheckCount",
                "Get-R53HealthCheckLastFailureReason",
+               "Get-R53HealthCheckSource",
                "Get-R53HealthCheckStatus",
                "Get-R53HostedZone",
                "Get-R53HostedZoneCount",
@@ -300,6 +311,8 @@ $R53_SelectMap = @{
                "Get-R53CidrLocationList",
                "Get-R53GeoLocationList",
                "Get-R53HealthCheckList",
+               "Get-R53HealthChecksBySourceList",
+               "Get-R53HealthCheckSourceList",
                "Get-R53HostedZoneList",
                "Get-R53HostedZonesByVPC",
                "Get-R53QueryLoggingConfigList",

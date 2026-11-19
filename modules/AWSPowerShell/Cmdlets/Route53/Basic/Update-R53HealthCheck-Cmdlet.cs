@@ -189,6 +189,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
         public System.String HealthCheckId { get; set; }
         #endregion
         
+        #region Parameter HealthCheckSourceId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the health check source from which Route 53 sends requests to the endpoint.
+        /// Applies only to health checks that have an <c>EndpointType</c> of <c>PRIVATE</c>.
+        /// The health check source must be in the same account and have a status of <c>CREATE_COMPLETED</c>.</para><para>Each health check source supports a limited number of active health checks. If you
+        /// reach that limit, specify a different health check source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HealthCheckSourceId { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckVersion
         /// <summary>
         /// <para>
@@ -258,18 +271,21 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// is returned by DNS, Route 53 then checks the health of the endpoint.</para><para>Use one of the following formats for the value of <c>IPAddress</c>: </para><ul><li><para><b>IPv4 address</b>: four values between 0 and 255, separated by periods (.), for
         /// example, <c>192.0.2.44</c>.</para></li><li><para><b>IPv6 address</b>: eight groups of four hexadecimal values, separated by colons
         /// (:), for example, <c>2001:0db8:85a3:0000:0000:abcd:0001:2345</c>. You can also shorten
-        /// IPv6 addresses as described in RFC 5952, for example, <c>2001:db8:85a3::abcd:1:2345</c>.</para></li></ul><para>If the endpoint is an EC2 instance, we recommend that you create an Elastic IP address,
-        /// associate it with your EC2 instance, and specify the Elastic IP address for <c>IPAddress</c>.
-        /// This ensures that the IP address of your instance never changes. For more information,
-        /// see the applicable documentation:</para><ul><li><para>Linux: <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+        /// IPv6 addresses as described in RFC 5952, for example, <c>2001:db8:85a3::abcd:1:2345</c>.</para></li></ul><para>For a public health check, if the endpoint is an EC2 instance, we recommend that you
+        /// create an Elastic IP address, associate it with your EC2 instance, and specify the
+        /// Elastic IP address for <c>IPAddress</c>. This ensures that the IP address of your
+        /// instance never changes. For more information, see the applicable documentation:</para><ul><li><para>Linux: <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
         /// IP Addresses (EIP)</a> in the <i>Amazon EC2 User Guide for Linux Instances</i></para></li><li><para>Windows: <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-ip-addresses-eip.html">Elastic
         /// IP Addresses (EIP)</a> in the <i>Amazon EC2 User Guide for Windows Instances</i></para></li></ul><note><para>If a health check already has a value for <c>IPAddress</c>, you can change the value.
         /// However, you can't update an existing health check to add or remove the value of <c>IPAddress</c>.
         /// </para></note><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName">FullyQualifiedDomainName</a>.
-        /// </para><para>Constraints: Route 53 can't check the health of endpoints for which the IP address
-        /// is in local, private, non-routable, or multicast ranges. For more information about
-        /// IP addresses for which you can't create health checks, see the following documents:</para><ul><li><para><a href="https://tools.ietf.org/html/rfc5735">RFC 5735, Special Use IPv4 Addresses</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc6598">RFC 6598, IANA-Reserved IPv4 Prefix
-        /// for Shared Address Space</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc5156">RFC 5156, Special-Use IPv6 Addresses</a></para></li></ul>
+        /// </para><para>Constraints: For a public health check (<c>EndpointType</c> of <c>PUBLIC</c>, the
+        /// default), Route 53 can't check the health of endpoints for which the IP address is
+        /// in local, private, non-routable, or multicast ranges. For more information about IP
+        /// addresses for which you can't create public health checks, see the following documents:</para><ul><li><para><a href="https://tools.ietf.org/html/rfc5735">RFC 5735, Special Use IPv4 Addresses</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc6598">RFC 6598, IANA-Reserved IPv4 Prefix
+        /// for Shared Address Space</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc5156">RFC 5156, Special-Use IPv6 Addresses</a></para></li></ul><para>For a private endpoint health check (<c>EndpointType</c> of <c>PRIVATE</c>), if you
+        /// specify <c>IPAddress</c>, it must be a private IPv4 or IPv6 address. Route 53 sends
+        /// health checks to it from the health check source that you specify in <c>HealthCheckSourceId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -459,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 context.ResetElement = new List<System.String>(this.ResetElement);
             }
+            context.HealthCheckSourceId = this.HealthCheckSourceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -568,6 +585,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 request.ResetElements = cmdletContext.ResetElement;
             }
+            if (cmdletContext.HealthCheckSourceId != null)
+            {
+                request.HealthCheckSourceId = cmdletContext.HealthCheckSourceId;
+            }
             
             CmdletOutput output;
             
@@ -641,6 +662,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public System.String AlarmIdentifier_Name { get; set; }
             public Amazon.Route53.InsufficientDataHealthStatus InsufficientDataHealthStatus { get; set; }
             public List<System.String> ResetElement { get; set; }
+            public System.String HealthCheckSourceId { get; set; }
             public System.Func<Amazon.Route53.Model.UpdateHealthCheckResponse, UpdateR53HealthCheckCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.HealthCheck;
         }

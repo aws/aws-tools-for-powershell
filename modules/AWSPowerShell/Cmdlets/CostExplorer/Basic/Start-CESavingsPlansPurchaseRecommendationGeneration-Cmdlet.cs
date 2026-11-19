@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </summary>
     [Cmdlet("Start", "CESavingsPlansPurchaseRecommendationGeneration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer StartSavingsPlansPurchaseRecommendationGeneration API operation.", Operation = new[] {"StartSavingsPlansPurchaseRecommendationGeneration"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse))]
+    [AWSCmdlet("Calls the AWS Cost Explorer Service StartSavingsPlansPurchaseRecommendationGeneration API operation.", Operation = new[] {"StartSavingsPlansPurchaseRecommendationGeneration"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse object containing multiple properties."
     )]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         private Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "StartSavingsPlansPurchaseRecommendationGeneration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer Service", "StartSavingsPlansPurchaseRecommendationGeneration");
             try
             {
                 return client.StartSavingsPlansPurchaseRecommendationGenerationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

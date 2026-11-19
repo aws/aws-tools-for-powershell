@@ -5,7 +5,7 @@
     <C2jFilename>ce</C2jFilename>
     <AssemblyName>CostExplorer</AssemblyName>
     <ServiceNounPrefix>CE</ServiceNounPrefix>
-    <ServiceName>AWS Cost Explorer</ServiceName>
+    <ServiceName>AWS Cost Explorer Service</ServiceName>
     <ServiceId>Cost Explorer</ServiceId>
     <ServiceClientInterface>IAmazonCostExplorer</ServiceClientInterface>
     <ServiceClient>AmazonCostExplorerClient</ServiceClient>
