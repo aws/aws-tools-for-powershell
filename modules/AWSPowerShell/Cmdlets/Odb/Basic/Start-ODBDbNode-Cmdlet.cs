@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Start", "ODBDbNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.StartDbNodeResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services StartDbNode API operation.", Operation = new[] {"StartDbNode"}, SelectReturnType = typeof(Amazon.Odb.Model.StartDbNodeResponse))]
+    [AWSCmdlet("Calls the odb StartDbNode API operation.", Operation = new[] {"StartDbNode"}, SelectReturnType = typeof(Amazon.Odb.Model.StartDbNodeResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.StartDbNodeResponse",
         "This cmdlet returns an Amazon.Odb.Model.StartDbNodeResponse object containing multiple properties."
     )]
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.StartDbNodeResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.StartDbNodeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "StartDbNode");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "StartDbNode");
             try
             {
                 return client.StartDbNodeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

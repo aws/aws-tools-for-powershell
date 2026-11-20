@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </summary>
     [Cmdlet("Get", "TSABatchTaxExemption")]
     [OutputType("Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse")]
-    [AWSCmdlet("Calls the AWS Tax Settings BatchGetTaxExemptions API operation.", Operation = new[] {"BatchGetTaxExemptions"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse))]
+    [AWSCmdlet("Calls the Tax Settings BatchGetTaxExemptions API operation.", Operation = new[] {"BatchGetTaxExemptions"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse))]
     [AWSCmdletOutput("Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse",
         "This cmdlet returns an Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse object containing multiple properties."
     )]
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         
         private Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.BatchGetTaxExemptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "BatchGetTaxExemptions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Tax Settings", "BatchGetTaxExemptions");
             try
             {
                 return client.BatchGetTaxExemptionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

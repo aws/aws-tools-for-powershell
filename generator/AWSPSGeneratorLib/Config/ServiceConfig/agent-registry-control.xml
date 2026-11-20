@@ -19,11 +19,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociatePublisher" OutputProperty="*" Verb="Add" Noun="Publisher" ShouldProcessTarget="PublisherArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePublisher" OutputProperty="*" Verb="New" Noun="Publisher" ShouldProcessTarget="Value_Domain" PipelineParameter="Value_Domain" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRegistry" OutputProperty="RegistryArn" Verb="New" Noun="Registry" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRegistryRecord" OutputProperty="*" Verb="New" Noun="RegistryRecord" ShouldProcessTarget="RegistryId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePublisher" Verb="Remove" Noun="Publisher" ShouldProcessTarget="PublisherArn" PipelineParameter="PublisherArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -35,11 +47,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociatePublisher" Verb="Unregister" Noun="Publisher" ShouldProcessTarget="RecordArn" PipelineParameter="RecordArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPublisher" OutputProperty="*" Verb="Get" Noun="Publisher" PipelineParameter="PublisherArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRegistry" OutputProperty="*" Verb="Get" Noun="Registry" PipelineParameter="RegistryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetRegistryRecord" OutputProperty="*" Verb="Get" Noun="RegistryRecord" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPublisherAssociations" OutputProperty="Items" Verb="Get" Noun="PublisherAssociationList" PipelineParameter="PublisherArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPublishers" OutputProperty="Items" Verb="Get" Noun="PublisherList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,6 +95,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePublisherAssociationApprovalStatus" Verb="Update" Noun="PublisherAssociationApprovalStatus" ShouldProcessTarget="RecordArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateRegistry" OutputProperty="*" Verb="Update" Noun="Registry" ShouldProcessTarget="RegistryId" PipelineParameter="RegistryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -76,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRegistryRecordStatus" OutputProperty="*" Verb="Update" Noun="RegistryRecordStatus" ShouldProcessTarget="RecordId,RegistryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidatePublisher" OutputProperty="*" Verb="Test" Noun="Publisher" PipelineParameter="PublisherArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Restore", "ODBAutonomousDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.RestoreAutonomousDatabaseResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services RestoreAutonomousDatabase API operation.", Operation = new[] {"RestoreAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.RestoreAutonomousDatabaseResponse))]
+    [AWSCmdlet("Calls the odb RestoreAutonomousDatabase API operation.", Operation = new[] {"RestoreAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.RestoreAutonomousDatabaseResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.RestoreAutonomousDatabaseResponse",
         "This cmdlet returns an Amazon.Odb.Model.RestoreAutonomousDatabaseResponse object containing multiple properties."
     )]
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.RestoreAutonomousDatabaseResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.RestoreAutonomousDatabaseRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "RestoreAutonomousDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "RestoreAutonomousDatabase");
             try
             {
                 return client.RestoreAutonomousDatabaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

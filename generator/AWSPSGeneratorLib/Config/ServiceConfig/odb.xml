@@ -5,7 +5,7 @@
     <C2jFilename>odb</C2jFilename>
     <AssemblyName>Odb</AssemblyName>
     <ServiceNounPrefix>ODB</ServiceNounPrefix>
-    <ServiceName>Oracle Database@Amazon Web Services</ServiceName>
+    <ServiceName>odb</ServiceName>
     <ServiceId>odb</ServiceId>
     <ServiceClientInterface>IAmazonOdb</ServiceClientInterface>
     <ServiceClient>AmazonOdbClient</ServiceClient>
@@ -203,6 +203,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAutonomousDatabaseRefreshableClones" OutputProperty="AutonomousDatabaseRefreshableClones" Verb="Get" Noun="AutonomousDatabaseRefreshableCloneList" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAutonomousDatabases" OutputProperty="AutonomousDatabases" Verb="Get" Noun="AutonomousDatabaseList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -292,6 +296,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAutonomousDatabase" OutputProperty="*" Verb="Start" Noun="AutonomousDatabase" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAutonomousDatabaseRefresh" OutputProperty="*" Verb="Start" Noun="AutonomousDatabaseRefresh" ShouldProcessTarget="AutonomousDatabaseId" PipelineParameter="AutonomousDatabaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

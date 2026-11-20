@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBAutonomousVirtualMachineList")]
     [OutputType("Amazon.Odb.Model.AutonomousVirtualMachineSummary")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListAutonomousVirtualMachines API operation.", Operation = new[] {"ListAutonomousVirtualMachines"}, SelectReturnType = typeof(Amazon.Odb.Model.ListAutonomousVirtualMachinesResponse))]
+    [AWSCmdlet("Calls the odb ListAutonomousVirtualMachines API operation.", Operation = new[] {"ListAutonomousVirtualMachines"}, SelectReturnType = typeof(Amazon.Odb.Model.ListAutonomousVirtualMachinesResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.AutonomousVirtualMachineSummary or Amazon.Odb.Model.ListAutonomousVirtualMachinesResponse",
         "This cmdlet returns a collection of Amazon.Odb.Model.AutonomousVirtualMachineSummary objects.",
         "The service call response (type Amazon.Odb.Model.ListAutonomousVirtualMachinesResponse) can be returned by specifying '-Select *'."
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ListAutonomousVirtualMachinesResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListAutonomousVirtualMachinesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListAutonomousVirtualMachines");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ListAutonomousVirtualMachines");
             try
             {
                 return client.ListAutonomousVirtualMachinesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

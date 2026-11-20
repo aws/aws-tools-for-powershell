@@ -152,6 +152,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.OverallDeploymentStatus EnvironmentDeploymentDetails_OverallDeploymentStatus { get; set; }
         #endregion
         
+        #region Parameter ProjectProfileAction
+        /// <summary>
+        /// <para>
+        /// <para>The action to perform on the project profile of the project. Specify <c>DISASSOCIATE</c>
+        /// to disassociate the project from its project profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.ProjectProfileAction")]
+        public Amazon.DataZone.ProjectProfileAction ProjectProfileAction { get; set; }
+        #endregion
+        
         #region Parameter ProjectProfileVersion
         /// <summary>
         /// <para>
@@ -283,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.Name = this.Name;
+            context.ProjectProfileAction = this.ProjectProfileAction;
             context.ProjectProfileVersion = this.ProjectProfileVersion;
             if (this.ResourceTag != null)
             {
@@ -365,6 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.ProjectProfileAction != null)
+            {
+                request.ProjectProfileAction = cmdletContext.ProjectProfileAction;
+            }
             if (cmdletContext.ProjectProfileVersion != null)
             {
                 request.ProjectProfileVersion = cmdletContext.ProjectProfileVersion;
@@ -440,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Identifier { get; set; }
             public System.String Name { get; set; }
+            public Amazon.DataZone.ProjectProfileAction ProjectProfileAction { get; set; }
             public System.String ProjectProfileVersion { get; set; }
             public Dictionary<System.String, System.String> ResourceTag { get; set; }
             public List<Amazon.DataZone.Model.EnvironmentConfigurationUserParameter> UserParameter { get; set; }

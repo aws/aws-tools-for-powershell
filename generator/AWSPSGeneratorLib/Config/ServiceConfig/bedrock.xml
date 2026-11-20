@@ -20,6 +20,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="ArchiveProject" OutputProperty="*" Verb="Set" Noun="ProjectAsArchived" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteAdvancedPromptOptimizationJob" OutputProperty="*" Verb="Remove" Noun="AdvancedPromptOptimizationJobBatch" ShouldProcessTarget="JobIdentifiers" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -144,11 +148,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePromptRouter" OutputProperty="PromptRouterArn" Verb="New" Noun="PromptRouter" ShouldProcessTarget="PromptRouterName" PipelineParameter="PromptRouterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProvisionedModelThroughput" OutputProperty="ProvisionedModelArn" Verb="New" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ModelId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccountDataRetentionStorage" Verb="Remove" Noun="AccountDataRetentionStorage" ShouldProcessTarget="ModelProvider" PipelineParameter="ModelProvider" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -202,6 +214,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOrganizationDataRetentionStorage" Verb="Remove" Noun="OrganizationDataRetentionStorage" ShouldProcessTarget="ModelProvider" PipelineParameter="ModelProvider" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProjectDataRetentionStorage" Verb="Remove" Noun="ProjectDataRetentionStorage" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePromptRouter" Verb="Remove" Noun="PromptRouter" ShouldProcessTarget="PromptRouterArn" PipelineParameter="PromptRouterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -223,6 +243,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAccountDataRetention" OutputProperty="*" Verb="Get" Noun="AccountDataRetention" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountDataRetentionStorage" OutputProperty="*" Verb="Get" Noun="AccountDataRetentionStorage" PipelineParameter="ModelProvider" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -314,6 +338,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetOrganizationDataRetentionStorage" OutputProperty="*" Verb="Get" Noun="OrganizationDataRetentionStorage" PipelineParameter="ModelProvider" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProjectDataRetentionStorage" OutputProperty="*" Verb="Get" Noun="ProjectDataRetentionStorage" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPromptRouter" OutputProperty="*" Verb="Get" Noun="PromptRouter" PipelineParameter="PromptRouterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -323,6 +359,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrustedAccessProgram" OutputProperty="*" Verb="Get" Noun="TrustedAccessProgram" PipelineParameter="ProgramIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrustedAccessProgramAccountEnrollment" OutputProperty="*" Verb="Get" Noun="TrustedAccessProgramAccountEnrollment" PipelineParameter="ProgramIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrustedAccessProgramOrganizationEnrollment" OutputProperty="*" Verb="Get" Noun="TrustedAccessProgramOrganizationEnrollment" PipelineParameter="ProgramIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrustedAccessProgramProjectEnrollment" OutputProperty="*" Verb="Get" Noun="TrustedAccessProgramProjectEnrollment" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -406,6 +458,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListProjects" OutputProperty="ProjectSummaries" Verb="Get" Noun="ProjectList" PipelineParameter="StatusFilter" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPromptRouters" OutputProperty="PromptRouterSummaries" Verb="Get" Noun="PromptRouterList" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -418,7 +474,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTrustedAccessPrograms" OutputProperty="ProgramSummaries" Verb="Get" Noun="TrustedAccessProgramList" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutAccountDataRetention" OutputProperty="*" Verb="Write" Noun="AccountDataRetention" ShouldProcessTarget="Mode" PipelineParameter="Mode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAccountDataRetentionStorage" OutputProperty="*" Verb="Write" Noun="AccountDataRetentionStorage" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -437,7 +501,27 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutOrganizationDataRetentionStorage" OutputProperty="*" Verb="Write" Noun="OrganizationDataRetentionStorage" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutProjectDataRetentionStorage" OutputProperty="*" Verb="Write" Noun="ProjectDataRetentionStorage" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourceArn" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourcePolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTrustedAccessProgramAccountEnrollment" OutputProperty="*" Verb="Write" Noun="TrustedAccessProgramAccountEnrollment" ShouldProcessTarget="ProgramIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTrustedAccessProgramOrganizationEnrollment" OutputProperty="*" Verb="Write" Noun="TrustedAccessProgramOrganizationEnrollment" ShouldProcessTarget="ProgramIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTrustedAccessProgramProjectEnrollment" OutputProperty="*" Verb="Write" Noun="TrustedAccessProgramProjectEnrollment" ShouldProcessTarget="ProgramIdentifier,ProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -461,6 +545,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAutomatedReasoningPolicyTestWorkflow" OutputProperty="PolicyArn" Verb="Start" Noun="AutomatedReasoningPolicyTestWorkflow" ShouldProcessTarget="BuildWorkflowId" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTrustedAccessProgramAccountApplication" OutputProperty="Result" Verb="Start" Noun="TrustedAccessProgramAccountApplication" ShouldProcessTarget="ProgramIdentifier" PipelineParameter="ProgramIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTrustedAccessProgramOrganizationApplication" OutputProperty="Result" Verb="Start" Noun="TrustedAccessProgramOrganizationApplication" ShouldProcessTarget="ProgramIdentifier" PipelineParameter="ProgramIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTrustedAccessProgramProjectApplication" OutputProperty="Result" Verb="Start" Noun="TrustedAccessProgramProjectApplication" ShouldProcessTarget="ProgramIdentifier,ProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -520,6 +616,10 @@
                 <Param Name="EndpointConfig_SageMaker_Vpc_SecurityGroupIds" NewName="Vpc_SecurityGroupId" />
                 <Param Name="EndpointConfig_SageMaker_Vpc_SubnetIds" NewName="Vpc_SubnetId" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProject" OutputProperty="*" Verb="Update" Noun="Project" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProvisionedModelThroughput" Verb="Update" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ProvisionedModelId" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false" LegacyV4Pagination="true">

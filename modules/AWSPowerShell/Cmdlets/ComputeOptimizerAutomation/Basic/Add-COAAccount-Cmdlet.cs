@@ -39,13 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// member account has not previously enabled the Automation feature, the association
     /// process automatically enables it.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Requests that include an account to which an organization enrollment configuration
+    /// applies are rejected.
+    /// </para><note><para>
     /// Only the management account or a delegated administrator can perform this action.
     /// </para></note>
     /// </summary>
     [Cmdlet("Add", "COAAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.AssociateAccountsResponse")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service AssociateAccounts API operation.", Operation = new[] {"AssociateAccounts"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.AssociateAccountsResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation AssociateAccounts API operation.", Operation = new[] {"AssociateAccounts"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.AssociateAccountsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.AssociateAccountsResponse",
         "This cmdlet returns an Amazon.ComputeOptimizerAutomation.Model.AssociateAccountsResponse object containing multiple properties."
     )]
@@ -82,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> A unique identifier to ensure idempotency of the request. Valid for 24 hours after
+        /// <para> A unique identifier to ensure idempotency of the request. Valid for 30 minutes after
         /// creation. </para>
         /// </para>
         /// </summary>
@@ -206,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.AssociateAccountsResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.AssociateAccountsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "AssociateAccounts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "AssociateAccounts");
             try
             {
                 return client.AssociateAccountsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

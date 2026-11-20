@@ -117,6 +117,26 @@ namespace Amazon.PowerShell.Cmdlets.R53
         public System.String CallerReference { get; set; }
         #endregion
         
+        #region Parameter ChangeGuardrail
+        /// <summary>
+        /// <para>
+        /// <para>Specify the optional Change Guardrails to turn on for the hosted zone. Each entry
+        /// specifies the name and status of a guardrail. For the guardrail names and statuses,
+        /// see <c>ChangeGuardrail</c>.</para><para>Route 53 turns on the guardrails that the tier of the hosted zone includes, so you
+        /// don't need to specify them. If you turn on a guardrail that the tier doesn't offer,
+        /// Route 53 returns an <c>InvalidInput</c> error.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChangeGuardrails")]
+        public Amazon.Route53.Model.ChangeGuardrail[] ChangeGuardrail { get; set; }
+        #endregion
+        
         #region Parameter HostedZoneConfig_Comment
         /// <summary>
         /// <para>
@@ -140,6 +160,36 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DelegationSetId { get; set; }
+        #endregion
+        
+        #region Parameter EnablePublicDNSFallback
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable public DNS fallback for the hosted zone. When public DNS
+        /// fallback is enabled and a query for a domain name in the private hosted zone matches
+        /// no existing name (<c>NXDOMAIN</c>), Route 53 retries the query against public DNS
+        /// instead of returning a negative response. Fallback does not occur when the name exists
+        /// but has no record of the requested type.</para><para>Set to <c>true</c> to enable public DNS fallback, or <c>false</c> to disable it. The
+        /// default is <c>false</c>.</para><para>Public DNS fallback is supported only for private hosted zones. If you specify <c>true</c>
+        /// for a public hosted zone, the request fails with an <c>InvalidInput</c> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnablePublicDNSFallback { get; set; }
+        #endregion
+        
+        #region Parameter HostedZoneConfig_HostedZoneTier
+        /// <summary>
+        /// <para>
+        /// <para>The tier of the hosted zone. The tier controls which features you get and which optional
+        /// features you can turn on. Valid values are the following:</para><dl><dt>STANDARD</dt><dd><para><c>STANDARD</c> is the default tier for new hosted zones.</para></dd><dt>ADVANCED</dt><dd><para><c>ADVANCED</c> is a tier that includes Change History and offers more optional features.</para></dd></dl><para>If you don't specify a tier when you create a hosted zone, Route 53 uses <c>STANDARD</c>.
+        /// Route 53 always returns this value. For pricing information, see Amazon Route 53 pricing
+        /// on the <a href="https://aws.amazon.com/route53/pricing/">AWS website</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53.HostedZoneTier")]
+        public Amazon.Route53.HostedZoneTier HostedZoneConfig_HostedZoneTier { get; set; }
         #endregion
         
         #region Parameter Name
@@ -260,7 +310,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
             #endif
             context.HostedZoneConfig_Comment = this.HostedZoneConfig_Comment;
             context.HostedZoneConfig_PrivateZone = this.HostedZoneConfig_PrivateZone;
+            context.HostedZoneConfig_HostedZoneTier = this.HostedZoneConfig_HostedZoneTier;
             context.DelegationSetId = this.DelegationSetId;
+            context.EnablePublicDNSFallback = this.EnablePublicDNSFallback;
+            if (this.ChangeGuardrail != null)
+            {
+                context.ChangeGuardrail = new List<Amazon.Route53.Model.ChangeGuardrail>(this.ChangeGuardrail);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -338,6 +394,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HostedZoneConfig.PrivateZone = requestHostedZoneConfig_hostedZoneConfig_PrivateZone.Value;
                 requestHostedZoneConfigIsNull = false;
             }
+            Amazon.Route53.HostedZoneTier requestHostedZoneConfig_hostedZoneConfig_HostedZoneTier = null;
+            if (cmdletContext.HostedZoneConfig_HostedZoneTier != null)
+            {
+                requestHostedZoneConfig_hostedZoneConfig_HostedZoneTier = cmdletContext.HostedZoneConfig_HostedZoneTier;
+            }
+            if (requestHostedZoneConfig_hostedZoneConfig_HostedZoneTier != null)
+            {
+                request.HostedZoneConfig.HostedZoneTier = requestHostedZoneConfig_hostedZoneConfig_HostedZoneTier;
+                requestHostedZoneConfigIsNull = false;
+            }
              // determine if request.HostedZoneConfig should be set to null
             if (requestHostedZoneConfigIsNull)
             {
@@ -346,6 +412,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
             if (cmdletContext.DelegationSetId != null)
             {
                 request.DelegationSetId = cmdletContext.DelegationSetId;
+            }
+            if (cmdletContext.EnablePublicDNSFallback != null)
+            {
+                request.EnablePublicDNSFallback = cmdletContext.EnablePublicDNSFallback.Value;
+            }
+            if (cmdletContext.ChangeGuardrail != null)
+            {
+                request.ChangeGuardrails = cmdletContext.ChangeGuardrail;
             }
             
             CmdletOutput output;
@@ -408,7 +482,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public System.String CallerReference { get; set; }
             public System.String HostedZoneConfig_Comment { get; set; }
             public System.Boolean? HostedZoneConfig_PrivateZone { get; set; }
+            public Amazon.Route53.HostedZoneTier HostedZoneConfig_HostedZoneTier { get; set; }
             public System.String DelegationSetId { get; set; }
+            public System.Boolean? EnablePublicDNSFallback { get; set; }
+            public List<Amazon.Route53.Model.ChangeGuardrail> ChangeGuardrail { get; set; }
             public System.Func<Amazon.Route53.Model.CreateHostedZoneResponse, NewR53HostedZoneCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

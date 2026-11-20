@@ -457,6 +457,13 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.ProjectProfileAction
+        "Update-DZProject/ProjectProfileAction"
+        {
+            $v = "DISASSOCIATE"
+            break
+        }
+
         # Amazon.DataZone.RejectRuleBehavior
         "Deny-DZPrediction/RejectRule_Rule"
         {
@@ -734,6 +741,7 @@ $DZ_map = @{
     "PolicyType"=@("Add-DZPolicyGrant","Get-DZPolicyGrantList","Remove-DZPolicyGrant")
     "ProcessingStatus"=@("Get-DZLineageEventList")
     "Project_ProjectDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
+    "ProjectProfileAction"=@("Update-DZProject")
     "Props_GlueProperties_GlueConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"=@("Update-DZConnection")
     "Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_AuthenticationType"=@("New-DZConnection")
     "Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"=@("New-DZConnection")
@@ -984,6 +992,7 @@ $DZ_SelectMap = @{
                "Remove-DZResourceTag",
                "Update-DZAccountPool",
                "Update-DZAssetFilter",
+               "Update-DZAssetOwner",
                "Update-DZConnection",
                "Update-DZDataSource",
                "Update-DZDesignation",

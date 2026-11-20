@@ -114,6 +114,23 @@ $WAF2_Completers = {
             break
         }
 
+        # Amazon.WAFV2.EventActorSortBy
+        "Get-WAF2EventActorList/SortBy"
+        {
+            $v = "EVENT_COUNT"
+            break
+        }
+
+        # Amazon.WAFV2.EventSortBy
+        {
+            ($_ -eq "Get-WAF2EventList/SortBy") -Or
+            ($_ -eq "Get-WAF2EventsByWebACLList/SortBy")
+        }
+        {
+            $v = "CONFIDENCE","END_TIME","START_TIME"
+            break
+        }
+
         # Amazon.WAFV2.FilterBehavior
         "Write-WAF2LoggingConfiguration/LoggingFilter_DefaultBehavior"
         {
@@ -217,6 +234,11 @@ $WAF2_Completers = {
             ($_ -eq "Get-WAF2AvailableManagedRuleGroupList/Scope") -Or
             ($_ -eq "Get-WAF2AvailableManagedRuleGroupVersionList/Scope") -Or
             ($_ -eq "Get-WAF2DecryptedAPIKey/Scope") -Or
+            ($_ -eq "Get-WAF2Event/Scope") -Or
+            ($_ -eq "Get-WAF2EventActor/Scope") -Or
+            ($_ -eq "Get-WAF2EventActorList/Scope") -Or
+            ($_ -eq "Get-WAF2EventList/Scope") -Or
+            ($_ -eq "Get-WAF2EventsByWebACLList/Scope") -Or
             ($_ -eq "Get-WAF2IPSet/Scope") -Or
             ($_ -eq "Get-WAF2IPSetList/Scope") -Or
             ($_ -eq "Get-WAF2LoggingConfigurationList/Scope") -Or
@@ -269,6 +291,8 @@ $WAF2_Completers = {
 
         # Amazon.WAFV2.SortOrder
         {
+            ($_ -eq "Get-WAF2EventList/SortOrder") -Or
+            ($_ -eq "Get-WAF2EventsByWebACLList/SortOrder") -Or
             ($_ -eq "Get-WAF2RevenueStatistic/SortOrder") -Or
             ($_ -eq "Get-WAF2SettlementRecordList/SortOrder")
         }
@@ -307,9 +331,9 @@ $WAF2_map = @{
     "OnSourceDDoSProtectionConfig_ALBLowReputationMode"=@("New-WAF2WebACL","Update-WAF2WebACL")
     "Platform"=@("Get-WAF2MobileSdkRelease","Get-WAF2MobileSdkReleaseList","New-WAF2MobileSdkReleaseUrl")
     "ResourceType"=@("Get-WAF2ResourcesForWebACLList")
-    "Scope"=@("Get-WAF2AllManagedProduct","Get-WAF2APIKeyList","Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2DecryptedAPIKey","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedProductsByVendor","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsSummary","Get-WAF2RevenueStatisticsTimeSeries","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2SettlementRecordList","Get-WAF2TopPathStatisticsByTraffic","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2APIKey","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2APIKey","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")
-    "SortBy"=@("Get-WAF2RevenueStatistic","Get-WAF2SettlementRecordList")
-    "SortOrder"=@("Get-WAF2RevenueStatistic","Get-WAF2SettlementRecordList")
+    "Scope"=@("Get-WAF2AllManagedProduct","Get-WAF2APIKeyList","Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2DecryptedAPIKey","Get-WAF2Event","Get-WAF2EventActor","Get-WAF2EventActorList","Get-WAF2EventList","Get-WAF2EventsByWebACLList","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedProductsByVendor","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsSummary","Get-WAF2RevenueStatisticsTimeSeries","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2SettlementRecordList","Get-WAF2TopPathStatisticsByTraffic","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2APIKey","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2APIKey","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")
+    "SortBy"=@("Get-WAF2EventActorList","Get-WAF2EventList","Get-WAF2EventsByWebACLList","Get-WAF2RevenueStatistic","Get-WAF2SettlementRecordList")
+    "SortOrder"=@("Get-WAF2EventList","Get-WAF2EventsByWebACLList","Get-WAF2RevenueStatistic","Get-WAF2SettlementRecordList")
     "StatisticType"=@("Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsTimeSeries")
 }
 
@@ -384,6 +408,8 @@ $WAF2_SelectMap = @{
                "Remove-WAF2WebACLFromResource",
                "New-WAF2MobileSdkReleaseUrl",
                "Get-WAF2DecryptedAPIKey",
+               "Get-WAF2Event",
+               "Get-WAF2EventActor",
                "Get-WAF2IPSet",
                "Get-WAF2LoggingConfiguration",
                "Get-WAF2ManagedRuleSet",
@@ -402,6 +428,9 @@ $WAF2_SelectMap = @{
                "Get-WAF2APIKeyList",
                "Get-WAF2AvailableManagedRuleGroupList",
                "Get-WAF2AvailableManagedRuleGroupVersionList",
+               "Get-WAF2EventActorList",
+               "Get-WAF2EventList",
+               "Get-WAF2EventsByWebACLList",
                "Get-WAF2IPSetList",
                "Get-WAF2LoggingConfigurationList",
                "Get-WAF2ManagedRuleSetList",

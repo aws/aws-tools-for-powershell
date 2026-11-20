@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Get", "COAAutomationEventStepList")]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.AutomationEventStep")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service ListAutomationEventSteps API operation.", Operation = new[] {"ListAutomationEventSteps"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventStepsResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation ListAutomationEventSteps API operation.", Operation = new[] {"ListAutomationEventSteps"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventStepsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.AutomationEventStep or Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventStepsResponse",
         "This cmdlet returns a collection of Amazon.ComputeOptimizerAutomation.Model.AutomationEventStep objects.",
         "The service call response (type Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventStepsResponse) can be returned by specifying '-Select *'."
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.COA
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of automation event steps to return in a single response. Valid
-        /// range is 1-1000.</para>
+        /// <para>The maximum number of automation event steps to return in a single response. If you
+        /// don't specify a value, the default is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventStepsResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventStepsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "ListAutomationEventSteps");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "ListAutomationEventSteps");
             try
             {
                 return client.ListAutomationEventStepsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

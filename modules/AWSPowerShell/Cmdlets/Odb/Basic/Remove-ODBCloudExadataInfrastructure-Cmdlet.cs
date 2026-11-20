@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Remove", "ODBCloudExadataInfrastructure", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services DeleteCloudExadataInfrastructure API operation.", Operation = new[] {"DeleteCloudExadataInfrastructure"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteCloudExadataInfrastructureResponse))]
+    [AWSCmdlet("Calls the odb DeleteCloudExadataInfrastructure API operation.", Operation = new[] {"DeleteCloudExadataInfrastructure"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteCloudExadataInfrastructureResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.DeleteCloudExadataInfrastructureResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.DeleteCloudExadataInfrastructureResponse) be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.DeleteCloudExadataInfrastructureResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.DeleteCloudExadataInfrastructureRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "DeleteCloudExadataInfrastructure");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "DeleteCloudExadataInfrastructure");
             try
             {
                 return client.DeleteCloudExadataInfrastructureAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

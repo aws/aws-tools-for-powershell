@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBAutonomousDatabaseCloneList")]
     [OutputType("Amazon.Odb.Model.AutonomousDatabaseSummary")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListAutonomousDatabaseClones API operation.", Operation = new[] {"ListAutonomousDatabaseClones"}, SelectReturnType = typeof(Amazon.Odb.Model.ListAutonomousDatabaseClonesResponse))]
+    [AWSCmdlet("Calls the odb ListAutonomousDatabaseClones API operation.", Operation = new[] {"ListAutonomousDatabaseClones"}, SelectReturnType = typeof(Amazon.Odb.Model.ListAutonomousDatabaseClonesResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.AutonomousDatabaseSummary or Amazon.Odb.Model.ListAutonomousDatabaseClonesResponse",
         "This cmdlet returns a collection of Amazon.Odb.Model.AutonomousDatabaseSummary objects.",
         "The service call response (type Amazon.Odb.Model.ListAutonomousDatabaseClonesResponse) can be returned by specifying '-Select *'."
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ListAutonomousDatabaseClonesResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListAutonomousDatabaseClonesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListAutonomousDatabaseClones");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ListAutonomousDatabaseClones");
             try
             {
                 return client.ListAutonomousDatabaseClonesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

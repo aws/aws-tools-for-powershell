@@ -127,6 +127,34 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.EnforcementMode
+        "New-NWFWFirewall/IgwFirewallConfiguration_EnforcementMode"
+        {
+            $v = "POLICY_CONTROLLED"
+            break
+        }
+
+        # Amazon.NetworkFirewall.FirewallType
+        {
+            ($_ -eq "Get-NWFWFirewall/FirewallType") -Or
+            ($_ -eq "Get-NWFWFirewallList/FirewallType") -Or
+            ($_ -eq "Get-NWFWLoggingConfiguration/FirewallType") -Or
+            ($_ -eq "Join-NWFWAvailabilityZone/FirewallType") -Or
+            ($_ -eq "Register-NWFWFirewallPolicy/FirewallType") -Or
+            ($_ -eq "Remove-NWFWAvailabilityZone/FirewallType") -Or
+            ($_ -eq "Remove-NWFWFirewall/FirewallType") -Or
+            ($_ -eq "Update-NWFWFirewallAnalysisSetting/FirewallType") -Or
+            ($_ -eq "Update-NWFWFirewallDeleteProtection/FirewallType") -Or
+            ($_ -eq "Update-NWFWFirewallDescription/FirewallType") -Or
+            ($_ -eq "Update-NWFWFirewallEncryptionConfiguration/FirewallType") -Or
+            ($_ -eq "Update-NWFWFirewallPolicyChangeProtection/FirewallType") -Or
+            ($_ -eq "Update-NWFWLoggingConfiguration/FirewallType")
+        }
+        {
+            $v = "FIREWALL","IGW_FIREWALL"
+            break
+        }
+
         # Amazon.NetworkFirewall.FlowOperationType
         "Get-NWFWFlowOperationList/FlowOperationType"
         {
@@ -297,7 +325,9 @@ $NWFW_map = @{
     "FirewallPolicyV2_Route53ResolvedIPValidation_DNSExpiryExceptionPolicy"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
     "FirewallPolicyV2_StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicyV2","Update-NWFWFirewallPolicyV2")
     "FirewallRuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "FirewallType"=@("Get-NWFWFirewall","Get-NWFWFirewallList","Get-NWFWLoggingConfiguration","Join-NWFWAvailabilityZone","Register-NWFWFirewallPolicy","Remove-NWFWAvailabilityZone","Remove-NWFWFirewall","Update-NWFWFirewallAnalysisSetting","Update-NWFWFirewallDeleteProtection","Update-NWFWFirewallDescription","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicyChangeProtection","Update-NWFWLoggingConfiguration")
     "FlowOperationType"=@("Get-NWFWFlowOperationList")
+    "IgwFirewallConfiguration_EnforcementMode"=@("New-NWFWFirewall")
     "ManagedType"=@("Get-NWFWRuleGroupList")
     "RuleOutputFormat"=@("Get-NWFWFirewallPolicyV2Detail","Get-NWFWRuleGroup")
     "RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")

@@ -90,6 +90,52 @@ $TXT_Completers = {
             break
         }
 
+        # Amazon.Textract.PIIRedactionMaskMode
+        {
+            ($_ -eq "New-TXTProject/SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "Update-TXTProject/SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode")
+        }
+        {
+            $v = "ENTITY_TYPE","PII"
+            break
+        }
+
+        # Amazon.Textract.ResourceOwner
+        "Get-TXTBlueprintList/ResourceOwner"
+        {
+            $v = "ACCOUNT","SERVICE"
+            break
+        }
+
+        # Amazon.Textract.SensitiveDataDetectionMode
+        {
+            ($_ -eq "New-TXTProject/SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "Update-TXTProject/SensitiveDataConfiguration_DetectionMode")
+        }
+        {
+            $v = "DETECTION","DETECTION_AND_REDACTION","DISABLED"
+            break
+        }
+
+        # Amazon.Textract.State
+        {
+            ($_ -eq "New-TXTProject/ExtractionConfiguration_BoundingBox_State") -Or
+            ($_ -eq "Update-TXTProject/ExtractionConfiguration_BoundingBox_State") -Or
+            ($_ -eq "New-TXTProject/ExtractionConfiguration_OutputFormat_AdditionalFileFormat_State") -Or
+            ($_ -eq "Update-TXTProject/ExtractionConfiguration_OutputFormat_AdditionalFileFormat_State") -Or
+            ($_ -eq "New-TXTProject/GenerativeConfiguration_FigureCaption_State") -Or
+            ($_ -eq "Update-TXTProject/GenerativeConfiguration_FigureCaption_State") -Or
+            ($_ -eq "New-TXTProject/GenerativeConfiguration_Summarization_State") -Or
+            ($_ -eq "Update-TXTProject/GenerativeConfiguration_Summarization_State") -Or
+            ($_ -eq "Start-TXTDocumentInsight/NotificationConfiguration_EventBridgeConfiguration_State") -Or
+            ($_ -eq "New-TXTProject/SplitterConfiguration_State") -Or
+            ($_ -eq "Update-TXTProject/SplitterConfiguration_State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -100,6 +146,15 @@ $TXT_Completers = {
 
 $TXT_map = @{
     "AutoUpdate"=@("New-TXTAdapter","Update-TXTAdapter")
+    "ExtractionConfiguration_BoundingBox_State"=@("New-TXTProject","Update-TXTProject")
+    "ExtractionConfiguration_OutputFormat_AdditionalFileFormat_State"=@("New-TXTProject","Update-TXTProject")
+    "GenerativeConfiguration_FigureCaption_State"=@("New-TXTProject","Update-TXTProject")
+    "GenerativeConfiguration_Summarization_State"=@("New-TXTProject","Update-TXTProject")
+    "NotificationConfiguration_EventBridgeConfiguration_State"=@("Start-TXTDocumentInsight")
+    "ResourceOwner"=@("Get-TXTBlueprintList")
+    "SensitiveDataConfiguration_DetectionMode"=@("New-TXTProject","Update-TXTProject")
+    "SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-TXTProject","Update-TXTProject")
+    "SplitterConfiguration_State"=@("New-TXTProject","Update-TXTProject")
 }
 
 _awsArgumentCompleterRegistration $TXT_Completers $TXT_map
@@ -157,26 +212,39 @@ $TXT_SelectMap = @{
                "Invoke-TXTAnalyzeID",
                "New-TXTAdapter",
                "New-TXTAdapterVersion",
+               "New-TXTBlueprint",
+               "New-TXTBlueprintVersion",
+               "New-TXTProject",
                "Remove-TXTAdapter",
                "Remove-TXTAdapterVersion",
+               "Remove-TXTBlueprint",
+               "Remove-TXTProject",
                "Find-TXTDocumentText",
                "Get-TXTAdapter",
                "Get-TXTAdapterVersion",
+               "Get-TXTBlueprint",
                "Get-TXTDocumentAnalysis",
+               "Get-TXTDocumentInsight",
                "Get-TXTDocumentTextDetection",
                "Get-TXTExpenseAnalysis",
                "Get-TXTLendingAnalysis",
                "Get-TXTLendingAnalysisSummary",
+               "Get-TXTProject",
                "Get-TXTAdapterList",
                "Get-TXTAdapterVersionList",
+               "Get-TXTBlueprintList",
+               "Get-TXTProjectList",
                "Get-TXTResourceTag",
                "Start-TXTDocumentAnalysis",
+               "Start-TXTDocumentInsight",
                "Start-TXTDocumentTextDetection",
                "Start-TXTExpenseAnalysis",
                "Start-TXTLendingAnalysis",
                "Add-TXTResourceTag",
                "Remove-TXTResourceTag",
-               "Update-TXTAdapter")
+               "Update-TXTAdapter",
+               "Update-TXTBlueprint",
+               "Update-TXTProject")
 }
 
 _awsArgumentCompleterRegistration $TXT_SelectCompleters $TXT_SelectMap

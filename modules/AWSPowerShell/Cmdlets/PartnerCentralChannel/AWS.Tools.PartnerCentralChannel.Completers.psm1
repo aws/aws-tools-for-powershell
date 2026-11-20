@@ -80,10 +80,27 @@ $PCC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.PartnerCentralChannel.AccountScope
+        "New-PCCRelationship/AccountScope"
+        {
+            $v = "ENTIRE_ORGANIZATION","SPECIFIC_MEMBER_ACCOUNTS"
+            break
+        }
+
         # Amazon.PartnerCentralChannel.AssociationType
         "New-PCCRelationship/AssociationType"
         {
-            $v = "DOWNSTREAM_SELLER","END_CUSTOMER","INTERNAL"
+            $v = "DOWNSTREAM_SELLER","END_CUSTOMER","INTERNAL","MANAGED_SERVICES_END_CUSTOMER"
+            break
+        }
+
+        # Amazon.PartnerCentralChannel.ChannelContractType
+        {
+            ($_ -eq "Get-PCCChannelContractList/ContractType") -Or
+            ($_ -eq "New-PCCChannelContract/ContractType")
+        }
+        {
+            $v = "MANAGED_SERVICES_ATTESTATION"
             break
         }
 
@@ -125,6 +142,13 @@ $PCC_Completers = {
             break
         }
 
+        # Amazon.PartnerCentralChannel.ManagedServicesAttestationTypeSortName
+        "Get-PCCChannelContractList/ContractTypeSort_ManagedServicesAttestationTypeSort_SortBy"
+        {
+            $v = "UpdatedAt"
+            break
+        }
+
         # Amazon.PartnerCentralChannel.ParticipantType
         "Get-PCCChannelHandshakeList/ParticipantType"
         {
@@ -135,7 +159,17 @@ $PCC_Completers = {
         # Amazon.PartnerCentralChannel.Program
         "New-PCCProgramManagementAccount/Program"
         {
-            $v = "DISTRIBUTION","DISTRIBUTION_SELLER","SOLUTION_PROVIDER"
+            $v = "DISTRIBUTION","DISTRIBUTION_SELLER","MANAGED_SERVICES_PROVIDER","SOLUTION_PROVIDER"
+            break
+        }
+
+        # Amazon.PartnerCentralChannel.ProgramManagementAccountType
+        {
+            ($_ -eq "Get-PCCProgramManagementAccountList/Type") -Or
+            ($_ -eq "New-PCCProgramManagementAccount/Type")
+        }
+        {
+            $v = "MANAGED_SERVICES","RESALE_BILLING_TRANSFER"
             break
         }
 
@@ -186,6 +220,7 @@ $PCC_Completers = {
 
         # Amazon.PartnerCentralChannel.SortOrder
         {
+            ($_ -eq "Get-PCCChannelContractList/ContractTypeSort_ManagedServicesAttestationTypeSort_SortOrder") -Or
             ($_ -eq "Get-PCCChannelHandshakeList/ProgramManagementAccountTypeSort_SortOrder") -Or
             ($_ -eq "Get-PCCChannelHandshakeList/RevokeServicePeriodTypeSort_SortOrder") -Or
             ($_ -eq "Get-PCCProgramManagementAccountList/Sort_SortOrder") -Or
@@ -213,7 +248,11 @@ $PCC_Completers = {
 }
 
 $PCC_map = @{
+    "AccountScope"=@("New-PCCRelationship")
     "AssociationType"=@("New-PCCRelationship")
+    "ContractType"=@("Get-PCCChannelContractList","New-PCCChannelContract")
+    "ContractTypeSort_ManagedServicesAttestationTypeSort_SortBy"=@("Get-PCCChannelContractList")
+    "ContractTypeSort_ManagedServicesAttestationTypeSort_SortOrder"=@("Get-PCCChannelContractList")
     "HandshakeType"=@("Get-PCCChannelHandshakeList","New-PCCChannelHandshake")
     "ParticipantType"=@("Get-PCCChannelHandshakeList")
     "PartnerLedSupport_Coverage"=@("New-PCCRelationship","Update-PCCRelationship")
@@ -232,6 +271,7 @@ $PCC_map = @{
     "StartServicePeriodPayload_ServicePeriodType"=@("New-PCCChannelHandshake")
     "StartServicePeriodTypeSort_SortBy"=@("Get-PCCChannelHandshakeList")
     "StartServicePeriodTypeSort_SortOrder"=@("Get-PCCChannelHandshakeList")
+    "Type"=@("Get-PCCProgramManagementAccountList","New-PCCProgramManagementAccount")
 }
 
 _awsArgumentCompleterRegistration $PCC_Completers $PCC_map
@@ -285,13 +325,17 @@ $PCC_SelectCompleters = {
 
 $PCC_SelectMap = @{
     "Select"=@("Approve-PCCChannelHandshake",
+               "Stop-PCCChannelContract",
                "Stop-PCCChannelHandshake",
+               "New-PCCChannelContract",
                "New-PCCChannelHandshake",
                "New-PCCProgramManagementAccount",
                "New-PCCRelationship",
                "Remove-PCCProgramManagementAccount",
                "Remove-PCCRelationship",
+               "Get-PCCChannelContract",
                "Get-PCCRelationship",
+               "Get-PCCChannelContractList",
                "Get-PCCChannelHandshakeList",
                "Get-PCCProgramManagementAccountList",
                "Get-PCCRelationshipList",

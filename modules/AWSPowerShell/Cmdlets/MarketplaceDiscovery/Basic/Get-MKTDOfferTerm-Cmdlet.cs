@@ -30,9 +30,10 @@ using Amazon.MarketplaceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.MKTD
 {
     /// <summary>
-    /// Returns the terms attached to an offer, such as pricing terms (usage-based, contract,
-    /// BYOL, free trial), legal terms, payment schedules, validity terms, support terms,
-    /// and renewal terms.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the terms attached to an offer, such as pricing terms (usage-based, contract,
+    /// Bring Your Own License (BYOL), free trial), legal terms, payment schedules, validity
+    /// terms, support terms, and renewal terms. The operation returns results in pages. Use
+    /// <c>nextToken</c> to retrieve the next page.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MKTDOfferTerm")]
     [OutputType("Amazon.MarketplaceDiscovery.Model.OfferTerm")]
@@ -50,10 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>A BCP 47 language tag or comma-separated priority list specifying the preferred locale
-        /// for response content. See <c>Locale</c> for supported values, constraints, fallback
-        /// behavior, and the default locale. If omitted, the service returns content in the default
-        /// locale.</para>
+        /// <para>The preferred locale for response content, as a Best Current Practice 47 (BCP 47)
+        /// language tag or a comma-separated priority list of language tags. See <c>Locale</c>
+        /// for supported values, constraints, fallback behavior, and the default locale. If you
+        /// omit this field, the service returns content in the default locale.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned per call. You can use <c>nextToken</c>
-        /// to get more results.</para>
+        /// <para>The maximum number of terms to return in each call. If you omit this field, the default
+        /// is 10. Use <c>nextToken</c> to retrieve the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -97,8 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <c>nextToken</c> is returned, there are more results available. Make the call again
-        /// using the returned token to retrieve the next page.</para>
+        /// <para>If the service returns <c>nextToken</c>, more results are available. The value of
+        /// <c>nextToken</c> is a unique pagination token for each page. Make the call again with
+        /// the returned token to retrieve the next page. Keep all other arguments unchanged.
+        /// Each pagination token expires after 24 hours. An expired pagination token returns
+        /// a <c>ValidationException</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

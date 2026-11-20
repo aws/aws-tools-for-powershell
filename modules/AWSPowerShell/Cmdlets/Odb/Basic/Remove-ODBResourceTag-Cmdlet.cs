@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Remove", "ODBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Odb.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the odb UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Odb.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

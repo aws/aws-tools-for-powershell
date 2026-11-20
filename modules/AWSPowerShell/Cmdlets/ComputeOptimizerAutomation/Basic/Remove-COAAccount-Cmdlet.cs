@@ -33,15 +33,19 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// Disassociates member accounts from your organization's management account, removing
     /// centralized automation capabilities. Once disassociated, organization rules no longer
     /// apply to the member account, and the management account (or delegated administrator)
-    /// cannot create Automation rules for that account. 
+    /// can't create automation rules for that account. 
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Requests that include an account to which an organization enrollment configuration
+    /// applies are rejected.
+    /// </para><note><para>
     /// Only the management account or a delegated administrator can perform this action.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "COAAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.DisassociateAccountsResponse")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service DisassociateAccounts API operation.", Operation = new[] {"DisassociateAccounts"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.DisassociateAccountsResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation DisassociateAccounts API operation.", Operation = new[] {"DisassociateAccounts"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.DisassociateAccountsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.DisassociateAccountsResponse",
         "This cmdlet returns an Amazon.ComputeOptimizerAutomation.Model.DisassociateAccountsResponse object containing multiple properties."
     )]
@@ -200,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.DisassociateAccountsResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.DisassociateAccountsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "DisassociateAccounts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "DisassociateAccounts");
             try
             {
                 return client.DisassociateAccountsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Invoke", "ODBAutonomousDatabaseShrink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.ShrinkAutonomousDatabaseResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ShrinkAutonomousDatabase API operation.", Operation = new[] {"ShrinkAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.ShrinkAutonomousDatabaseResponse))]
+    [AWSCmdlet("Calls the odb ShrinkAutonomousDatabase API operation.", Operation = new[] {"ShrinkAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.ShrinkAutonomousDatabaseResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.ShrinkAutonomousDatabaseResponse",
         "This cmdlet returns an Amazon.Odb.Model.ShrinkAutonomousDatabaseResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ShrinkAutonomousDatabaseResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ShrinkAutonomousDatabaseRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ShrinkAutonomousDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ShrinkAutonomousDatabase");
             try
             {
                 return client.ShrinkAutonomousDatabaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -1,4 +1,173 @@
-﻿### 5.0.340 (2026-11-19 20:20Z)
+﻿### 5.0.341 (2026-11-20 20:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.7.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Agent Discovery. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AGDS and can be listed using the command 'Get-AWSCmdletName -Service AGDS'.
+  * Agent Registry Control
+    * Added cmdlet Add-AGRCPublisher leveraging the AssociatePublisher service API.
+    * Added cmdlet Get-AGRCPublisher leveraging the GetPublisher service API.
+    * Added cmdlet Get-AGRCPublisherAssociationList leveraging the ListPublisherAssociations service API.
+    * Added cmdlet Get-AGRCPublisherList leveraging the ListPublishers service API.
+    * Added cmdlet New-AGRCPublisher leveraging the CreatePublisher service API.
+    * Added cmdlet Remove-AGRCPublisher leveraging the DeletePublisher service API.
+    * Added cmdlet Test-AGRCPublisher leveraging the ValidatePublisher service API.
+    * Added cmdlet Unregister-AGRCPublisher leveraging the DisassociatePublisher service API.
+    * Added cmdlet Update-AGRCPublisherAssociationApprovalStatus leveraging the UpdatePublisherAssociationApprovalStatus service API.
+    * Modified cmdlet New-AGRCRegistryRecord: added parameters Descriptors_SignatureAgentCard_AdditionalData_Category, Descriptors_SignatureAgentCard_Data, Descriptors_SignatureAgentCard_DataSchemaVersion, Descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration and Descriptors_SignatureAgentCard_Source_FromUrl_Url.
+    * Modified cmdlet Update-AGRCRegistryRecord: added parameters Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue, Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue, Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue, Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration and Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRAccountDataRetentionStorage leveraging the GetAccountDataRetentionStorage service API.
+    * Added cmdlet Get-BDROrganizationDataRetentionStorage leveraging the GetOrganizationDataRetentionStorage service API.
+    * Added cmdlet Get-BDRProject leveraging the GetProject service API.
+    * Added cmdlet Get-BDRProjectDataRetentionStorage leveraging the GetProjectDataRetentionStorage service API.
+    * Added cmdlet Get-BDRProjectList leveraging the ListProjects service API.
+    * Added cmdlet Get-BDRTrustedAccessProgram leveraging the GetTrustedAccessProgram service API.
+    * Added cmdlet Get-BDRTrustedAccessProgramAccountEnrollment leveraging the GetTrustedAccessProgramAccountEnrollment service API.
+    * Added cmdlet Get-BDRTrustedAccessProgramList leveraging the ListTrustedAccessPrograms service API.
+    * Added cmdlet Get-BDRTrustedAccessProgramOrganizationEnrollment leveraging the GetTrustedAccessProgramOrganizationEnrollment service API.
+    * Added cmdlet Get-BDRTrustedAccessProgramProjectEnrollment leveraging the GetTrustedAccessProgramProjectEnrollment service API.
+    * Added cmdlet New-BDRProject leveraging the CreateProject service API.
+    * Added cmdlet Remove-BDRAccountDataRetentionStorage leveraging the DeleteAccountDataRetentionStorage service API.
+    * Added cmdlet Remove-BDROrganizationDataRetentionStorage leveraging the DeleteOrganizationDataRetentionStorage service API.
+    * Added cmdlet Remove-BDRProjectDataRetentionStorage leveraging the DeleteProjectDataRetentionStorage service API.
+    * Added cmdlet Set-BDRProjectAsArchived leveraging the ArchiveProject service API.
+    * Added cmdlet Start-BDRTrustedAccessProgramAccountApplication leveraging the StartTrustedAccessProgramAccountApplication service API.
+    * Added cmdlet Start-BDRTrustedAccessProgramOrganizationApplication leveraging the StartTrustedAccessProgramOrganizationApplication service API.
+    * Added cmdlet Start-BDRTrustedAccessProgramProjectApplication leveraging the StartTrustedAccessProgramProjectApplication service API.
+    * Added cmdlet Update-BDRProject leveraging the UpdateProject service API.
+    * Added cmdlet Write-BDRAccountDataRetentionStorage leveraging the PutAccountDataRetentionStorage service API.
+    * Added cmdlet Write-BDROrganizationDataRetentionStorage leveraging the PutOrganizationDataRetentionStorage service API.
+    * Added cmdlet Write-BDRProjectDataRetentionStorage leveraging the PutProjectDataRetentionStorage service API.
+    * Added cmdlet Write-BDRTrustedAccessProgramAccountEnrollment leveraging the PutTrustedAccessProgramAccountEnrollment service API.
+    * Added cmdlet Write-BDRTrustedAccessProgramOrganizationEnrollment leveraging the PutTrustedAccessProgramOrganizationEnrollment service API.
+    * Added cmdlet Write-BDRTrustedAccessProgramProjectEnrollment leveraging the PutTrustedAccessProgramProjectEnrollment service API.
+    * Modified cmdlet Get-BDRFoundationModel: added parameter ProjectIdentifier.
+    * Modified cmdlet Get-BDRFoundationModelList: added parameter ProjectIdentifier.
+    * Modified cmdlet Get-BDRInferenceProfile: added parameter ProjectIdentifier.
+    * Modified cmdlet Get-BDRInferenceProfileList: added parameter ProjectIdentifier.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Invoke-BDRRConverse: added parameter ProjectIdentifier.
+    * Modified cmdlet Invoke-BDRRConverseStream: added parameter ProjectIdentifier.
+    * Modified cmdlet Invoke-BDRRModel: added parameter ProjectIdentifier.
+    * Modified cmdlet Invoke-BDRRModelWithResponseStream: added parameter ProjectIdentifier.
+  * Amazon DataZone
+    * Added cmdlet Update-DZAssetOwner leveraging the UpdateAssetOwner service API.
+    * Modified cmdlet Update-DZProject: added parameter ProjectProfileAction.
+  * Amazon Omics
+    * Modified cmdlet Start-OMICSRun: added parameters ParametersUri and RequesterPaysEnabled.
+    * Modified cmdlet Start-OMICSRunBatch: added parameter DefaultRunSetting_RequesterPaysEnabled.
+  * Amazon Route 53
+    * Added cmdlet Get-R53HostedZoneChangeBatch leveraging the GetHostedZoneChangeBatch service API.
+    * Added cmdlet Get-R53HostedZoneChangeBatchList leveraging the ListHostedZoneChangeBatches service API.
+    * Added cmdlet Get-R53ResourceRecordSetChangeList leveraging the ListResourceRecordSetChanges service API.
+    * Added cmdlet Update-R53HostedZoneTier leveraging the UpdateHostedZoneTier service API.
+    * Modified cmdlet New-R53HostedZone: added parameters ChangeGuardrail, EnablePublicDNSFallback and HostedZoneConfig_HostedZoneTier.
+    * Modified cmdlet Update-R53HostedZoneFeature: added parameters ChangeGuardrail, DryRun and EnablePublicDNSFallback.
+  * Amazon SageMaker Gateway Runtime. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SMGWR and can be listed using the command 'Get-AWSCmdletName -Service SMGWR'.
+  * Amazon SageMaker Service
+    * Added cmdlet Add-SMInferenceGateway leveraging the AddInferenceGateway service API.
+    * Added cmdlet Get-SMGlobalInferenceGatewayDetail leveraging the DescribeGlobalInferenceGateway service API.
+    * Added cmdlet Get-SMGlobalInferenceGatewayList leveraging the ListGlobalInferenceGateways service API.
+    * Added cmdlet Get-SMInferenceGatewayList leveraging the ListInferenceGateways service API.
+    * Added cmdlet Move-SMClusterNode leveraging the MoveClusterNodes service API.
+    * Added cmdlet New-SMGlobalInferenceGateway leveraging the CreateGlobalInferenceGateway service API.
+    * Added cmdlet Remove-SMGlobalInferenceGateway leveraging the DeleteGlobalInferenceGateway service API.
+    * Added cmdlet Remove-SMInferenceGateway leveraging the RemoveInferenceGateway service API.
+    * Added cmdlet Update-SMGlobalInferenceGateway leveraging the UpdateGlobalInferenceGateway service API.
+  * Amazon Simple Systems Manager (SSM)
+    * Modified cmdlet New-SSMDocument: added parameter CloudProvider.
+    * Modified cmdlet Update-SSMDocument: added parameter CloudProvider.
+  * Amazon Textract
+    * Added cmdlet Get-TXTBlueprint leveraging the GetBlueprint service API.
+    * Added cmdlet Get-TXTBlueprintList leveraging the ListBlueprints service API.
+    * Added cmdlet Get-TXTDocumentInsight leveraging the GetDocumentInsights service API.
+    * Added cmdlet Get-TXTProject leveraging the GetProject service API.
+    * Added cmdlet Get-TXTProjectList leveraging the ListProjects service API.
+    * Added cmdlet New-TXTBlueprint leveraging the CreateBlueprint service API.
+    * Added cmdlet New-TXTBlueprintVersion leveraging the CreateBlueprintVersion service API.
+    * Added cmdlet New-TXTProject leveraging the CreateProject service API.
+    * Added cmdlet Remove-TXTBlueprint leveraging the DeleteBlueprint service API.
+    * Added cmdlet Remove-TXTProject leveraging the DeleteProject service API.
+    * Added cmdlet Start-TXTDocumentInsight leveraging the StartDocumentInsights service API.
+    * Added cmdlet Update-TXTBlueprint leveraging the UpdateBlueprint service API.
+    * Added cmdlet Update-TXTProject leveraging the UpdateProject service API.
+  * Amazon Transcribe Service
+    * Added cmdlet Invoke-TRSTranscribeAudio leveraging the TranscribeAudio service API.
+  * APIPortal. Added cmdlets to support the service. Cmdlets for the service have the noun prefix APIP and can be listed using the command 'Get-AWSCmdletName -Service APIP'.
+  * AWS Backup
+    * Modified cmdlet Update-BAKRegionSetting: added parameter ResourceTypeOptInIncremental.
+  * GLUE
+    * [Breaking Change] Removed cmdlets Remove-GLUEAssetType and Write-GLUEAssetType.
+    * [Breaking Change] Modified cmdlet Search-GLUEAsset: removed parameter FilterClause_AttributeFilter_Operator; added parameter FilterClause_AttributeFilter_Comparator.
+    * [Breaking Change] Modified cmdlet Write-GLUEAttachment: removed parameter FormTypeId; added parameter FormTypeIdentifier.
+  * AWS Marketplace Discovery
+    * Added cmdlet Get-MKTDListingAttributeList leveraging the ListListingAttributes service API.
+  * AWS Network Firewall
+    * Modified cmdlet Get-NWFWFirewall: added parameter FirewallType.
+    * Modified cmdlet Get-NWFWFirewallList: added parameter FirewallType.
+    * Modified cmdlet Get-NWFWLoggingConfiguration: added parameter FirewallType.
+    * Modified cmdlet Join-NWFWAvailabilityZone: added parameter FirewallType.
+    * Modified cmdlet New-NWFWFirewall: added parameter IgwFirewallConfiguration_EnforcementMode.
+    * Modified cmdlet Register-NWFWFirewallPolicy: added parameter FirewallType.
+    * Modified cmdlet Remove-NWFWAvailabilityZone: added parameter FirewallType.
+    * Modified cmdlet Remove-NWFWFirewall: added parameter FirewallType.
+    * Modified cmdlet Update-NWFWFirewallAnalysisSetting: added parameter FirewallType.
+    * Modified cmdlet Update-NWFWFirewallDeleteProtection: added parameter FirewallType.
+    * Modified cmdlet Update-NWFWFirewallDescription: added parameter FirewallType.
+    * Modified cmdlet Update-NWFWFirewallEncryptionConfiguration: added parameter FirewallType.
+    * Modified cmdlet Update-NWFWFirewallPolicyChangeProtection: added parameter FirewallType.
+    * Modified cmdlet Update-NWFWLoggingConfiguration: added parameter FirewallType.
+  * AWS Network Security Manager Customer API
+    * Added cmdlet Get-NSMEntityCoverageList leveraging the ListEntityCoverages service API.
+    * Added cmdlet Get-NSMProtectedResourceCoverageList leveraging the ListProtectedResourceCoverages service API.
+    * Modified cmdlet Get-NSMTemplateList: added parameter TemplateOwner.
+    * Modified cmdlet New-NSMPolicy: added parameters PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity and PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride.
+    * Modified cmdlet New-NSMScope: added parameter SpecializedScopeType.
+    * Modified cmdlet Update-NSMPolicy: added parameters PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity and PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride.
+  * AWS Parallel Computing Service
+    * Modified cmdlet New-PCSComputeNodeGroup: added parameters InstanceHealthChecks_DeepHealthChecks_OnStart_Profile, InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction, InstanceHealthChecks_HealthMonitoring_Mode and InstanceHealthChecks_HealthMonitoring_RepairAction.
+    * Modified cmdlet Update-PCSComputeNodeGroup: added parameters InstanceHealthChecks_DeepHealthChecks_OnStart_Profile, InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction, InstanceHealthChecks_HealthMonitoring_Mode and InstanceHealthChecks_HealthMonitoring_RepairAction.
+  * AWS Payments. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PAYM and can be listed using the command 'Get-AWSCmdletName -Service PAYM'.
+  * AWS WAFV2
+    * Added cmdlet Get-WAF2Event leveraging the GetEvent service API.
+    * Added cmdlet Get-WAF2EventActor leveraging the GetEventActor service API.
+    * Added cmdlet Get-WAF2EventActorList leveraging the ListEventActors service API.
+    * Added cmdlet Get-WAF2EventList leveraging the ListEvents service API.
+    * Added cmdlet Get-WAF2EventsByWebACLList leveraging the ListEventsByWebACL service API.
+  * CloudWatch Observability Admin Service
+    * Modified cmdlet New-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection.
+    * Modified cmdlet Update-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection.
+  * Compute Optimizer Automation
+    * Added cmdlet Get-COAOrganizationalUnitList leveraging the ListOrganizationalUnits service API.
+    * Added cmdlet Get-COAOrganizationEnrollmentConfigurationList leveraging the ListOrganizationEnrollmentConfigurations service API.
+    * Added cmdlet Remove-COAOrganizationEnrollmentConfiguration leveraging the DeleteOrganizationEnrollmentConfiguration service API.
+    * Added cmdlet Write-COAOrganizationEnrollmentConfiguration leveraging the PutOrganizationEnrollmentConfiguration service API.
+    * Modified cmdlet Get-COAAutomationEventList: added parameter OrganizationalUnitId.
+    * Modified cmdlet Get-COAAutomationEventSummaryList: added parameter OrganizationalUnitId.
+    * Modified cmdlet Get-COAAutomationRulePreviewList: added parameters OrganizationScope_ExcludedAccountId, OrganizationScope_ExcludedOrganizationalUnitId and OrganizationScope_OrganizationalUnitId.
+    * Modified cmdlet Get-COAAutomationRulePreviewSummaryList: added parameters OrganizationScope_ExcludedAccountId, OrganizationScope_ExcludedOrganizationalUnitId and OrganizationScope_OrganizationalUnitId.
+    * Modified cmdlet Get-COARecommendedActionList: added parameter OrganizationalUnitId.
+    * Modified cmdlet Get-COARecommendedActionSummaryList: added parameter OrganizationalUnitId.
+    * Modified cmdlet New-COAAutomationRule: added parameters OrganizationConfiguration_ExcludedAccountId, OrganizationConfiguration_ExcludedOrganizationalUnitId and OrganizationConfiguration_OrganizationalUnitId.
+    * Modified cmdlet Update-COAAutomationRule: added parameters OrganizationConfiguration_ExcludedAccountId, OrganizationConfiguration_ExcludedOrganizationalUnitId and OrganizationConfiguration_OrganizationalUnitId.
+  * Lambda MicroVMs
+    * Modified cmdlet Invoke-LMVM2MicrovmRun: added parameter KmsKeyIdentifier.
+    * Modified cmdlet New-LMVM2MicrovmImage: added parameter KmsKeyIdentifier.
+    * Modified cmdlet Update-LMVM2MicrovmImage: added parameter KmsKeyIdentifier.
+  * odb
+    * Added cmdlet Get-ODBAutonomousDatabaseRefreshableCloneList leveraging the ListAutonomousDatabaseRefreshableClones service API.
+    * Added cmdlet Start-ODBAutonomousDatabaseRefresh leveraging the StartAutonomousDatabaseRefresh service API.
+  * Partner Central Channel API
+    * Added cmdlet Get-PCCChannelContract leveraging the GetChannelContract service API.
+    * Added cmdlet Get-PCCChannelContractList leveraging the ListChannelContracts service API.
+    * Added cmdlet New-PCCChannelContract leveraging the CreateChannelContract service API.
+    * Added cmdlet Stop-PCCChannelContract leveraging the CancelChannelContract service API.
+    * Modified cmdlet Get-PCCProgramManagementAccountList: added parameter Type.
+    * Modified cmdlet New-PCCProgramManagementAccount: added parameter Type.
+    * Modified cmdlet New-PCCRelationship: added parameters AccountScope and StartDate.
+  * Tax Settings
+    * Modified cmdlet Write-TSATaxRegistration: added parameters TaxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId, TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId, TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType, TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId, TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId, TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType, TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber and TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod.
+    * Modified cmdlet Write-TSATaxRegistrationBatch: added parameters TaxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId, TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId, TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType, TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId, TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId, TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType, TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber and TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod.
+
+### 5.0.340 (2026-11-19 20:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.6.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Agent Registry
     * Modified cmdlet Search-AGRGDiscoverableRegistryRecord: added parameters NextToken, NoAutoIteration and SearchType.

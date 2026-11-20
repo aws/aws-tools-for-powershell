@@ -163,6 +163,7 @@ $MKTD_SelectMap = @{
                "Get-MKTDOfferTerm",
                "Get-MKTDProduct",
                "Get-MKTDFulfillmentOptionList",
+               "Get-MKTDListingAttributeList",
                "Get-MKTDPurchaseOptionList",
                "Search-MKTDFacet",
                "Search-MKTDListing")

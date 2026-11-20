@@ -89,6 +89,9 @@
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AgentDiscovery">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AgentDiscovery.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AgentRegistry">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AgentRegistry.dll</HintPath>
     </Reference>
@@ -115,6 +118,9 @@
     </Reference>
     <Reference Include="AWSSDK.ApiGatewayV2">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ApiGatewayV2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.APIPortal">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.APIPortal.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppConfig">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AppConfig.dll</HintPath>
@@ -1004,6 +1010,9 @@
     <Reference Include="AWSSDK.PaymentCryptographyData">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PaymentCryptographyData.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Payments">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Payments.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.PcaConnectorAd">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PcaConnectorAd.dll</HintPath>
     </Reference>
@@ -1159,6 +1168,9 @@
     </Reference>
     <Reference Include="AWSSDK.SageMakerFeatureStoreRuntime">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerFeatureStoreRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SageMakerGatewayRuntime">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerGatewayRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerGeospatial">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SageMakerGeospatial.dll</HintPath>
@@ -1409,6 +1421,9 @@
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AgentDiscovery">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AgentDiscovery.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AgentRegistry">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AgentRegistry.dll</HintPath>
     </Reference>
@@ -1435,6 +1450,9 @@
     </Reference>
     <Reference Include="AWSSDK.ApiGatewayV2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ApiGatewayV2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.APIPortal">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.APIPortal.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppConfig">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppConfig.dll</HintPath>
@@ -2324,6 +2342,9 @@
     <Reference Include="AWSSDK.PaymentCryptographyData">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PaymentCryptographyData.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Payments">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Payments.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.PcaConnectorAd">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PcaConnectorAd.dll</HintPath>
     </Reference>
@@ -2479,6 +2500,9 @@
     </Reference>
     <Reference Include="AWSSDK.SageMakerFeatureStoreRuntime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerFeatureStoreRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SageMakerGatewayRuntime">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerGatewayRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerGeospatial">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerGeospatial.dll</HintPath>

@@ -47,6 +47,23 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ProjectIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID or Amazon Resource Name (ARN) of a project. Amazon Bedrock uses the project's
+        /// trusted access program participation when determining which system-defined inference
+        /// profiles to return. The project must belong to your account in the same AWS Region
+        /// and partition as the request.</para><para>If you omit this parameter or specify <c>default</c>, Amazon Bedrock uses your account's
+        /// participation, including organization inheritance.</para><para>A project that doesn't exist or is archived causes a <c>ValidationException</c>. Specifying
+        /// a project other than <c>default</c> with <c>typeEquals</c> set to <c>APPLICATION</c>
+        /// also causes a <c>ValidationException</c>. Omit <c>typeEquals</c> or set it to <c>SYSTEM_DEFINED</c>
+        /// to list system-defined inference profiles for the project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectIdentifier { get; set; }
+        #endregion
+        
         #region Parameter TypeEqual
         /// <summary>
         /// <para>
@@ -133,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ProjectIdentifier = this.ProjectIdentifier;
             context.TypeEqual = this.TypeEqual;
             
             // allow further manipulation of loaded context prior to processing
@@ -155,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.ProjectIdentifier != null)
+            {
+                request.ProjectIdentifier = cmdletContext.ProjectIdentifier;
             }
             if (cmdletContext.TypeEqual != null)
             {
@@ -241,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ProjectIdentifier { get; set; }
             public Amazon.Bedrock.InferenceProfileType TypeEqual { get; set; }
             public System.Func<Amazon.Bedrock.Model.ListInferenceProfilesResponse, GetBDRInferenceProfileListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InferenceProfileSummaries;

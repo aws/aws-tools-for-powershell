@@ -34,13 +34,15 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// 
     /// 
     ///  <note><para>
-    /// Management accounts and delegated administrators can only initiate recommended actions
-    /// for associated member accounts. You can associate a member account using <c>AssociateAccounts</c>.
+    /// Management accounts and delegated administrators can initiate recommended actions
+    /// for member accounts that are associated using <c>AssociateAccounts</c> or have an
+    /// applicable organization enrollment configuration with <c>organizationRuleMode</c>
+    /// set to <c>AnyAllowed</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "COAAutomationEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.StartAutomationEventResponse")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service StartAutomationEvent API operation.", Operation = new[] {"StartAutomationEvent"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.StartAutomationEventResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation StartAutomationEvent API operation.", Operation = new[] {"StartAutomationEvent"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.StartAutomationEventResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.StartAutomationEventResponse",
         "This cmdlet returns an Amazon.ComputeOptimizerAutomation.Model.StartAutomationEventResponse object containing multiple properties."
     )]
@@ -192,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.StartAutomationEventResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.StartAutomationEventRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "StartAutomationEvent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "StartAutomationEvent");
             try
             {
                 return client.StartAutomationEventAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

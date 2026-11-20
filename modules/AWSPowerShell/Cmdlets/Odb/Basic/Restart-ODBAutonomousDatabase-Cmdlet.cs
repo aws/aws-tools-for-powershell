@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Restart", "ODBAutonomousDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.RebootAutonomousDatabaseResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services RebootAutonomousDatabase API operation.", Operation = new[] {"RebootAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.RebootAutonomousDatabaseResponse))]
+    [AWSCmdlet("Calls the odb RebootAutonomousDatabase API operation.", Operation = new[] {"RebootAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.RebootAutonomousDatabaseResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.RebootAutonomousDatabaseResponse",
         "This cmdlet returns an Amazon.Odb.Model.RebootAutonomousDatabaseResponse object containing multiple properties."
     )]
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.RebootAutonomousDatabaseResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.RebootAutonomousDatabaseRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "RebootAutonomousDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "RebootAutonomousDatabase");
             try
             {
                 return client.RebootAutonomousDatabaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

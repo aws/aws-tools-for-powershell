@@ -28,7 +28,7 @@ using Amazon.Odb.Model;
 
 namespace Amazon.PowerShell.Cmdlets.ODB
 {
-    [AWSClientCmdlet("Oracle Database@Amazon Web Services", "ODB", "2024-08-20", "Odb")]
+    [AWSClientCmdlet("odb", "ODB", "2024-08-20", "Odb")]
     public abstract partial class AmazonOdbClientCmdlet : ServiceCmdlet
     {
         protected IAmazonOdb Client { get; private set; }

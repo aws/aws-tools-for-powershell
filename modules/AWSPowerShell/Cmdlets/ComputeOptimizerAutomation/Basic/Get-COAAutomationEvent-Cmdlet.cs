@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Get", "COAAutomationEvent")]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.GetAutomationEventResponse")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service GetAutomationEvent API operation.", Operation = new[] {"GetAutomationEvent"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.GetAutomationEventResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation GetAutomationEvent API operation.", Operation = new[] {"GetAutomationEvent"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.GetAutomationEventResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.GetAutomationEventResponse",
         "This cmdlet returns an Amazon.ComputeOptimizerAutomation.Model.GetAutomationEventResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.GetAutomationEventResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.GetAutomationEventRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "GetAutomationEvent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "GetAutomationEvent");
             try
             {
                 return client.GetAutomationEventAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

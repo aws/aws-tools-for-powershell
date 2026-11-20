@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBOdbPeeringConnection")]
     [OutputType("Amazon.Odb.Model.OdbPeeringConnection")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services GetOdbPeeringConnection API operation.", Operation = new[] {"GetOdbPeeringConnection"}, SelectReturnType = typeof(Amazon.Odb.Model.GetOdbPeeringConnectionResponse))]
+    [AWSCmdlet("Calls the odb GetOdbPeeringConnection API operation.", Operation = new[] {"GetOdbPeeringConnection"}, SelectReturnType = typeof(Amazon.Odb.Model.GetOdbPeeringConnectionResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.OdbPeeringConnection or Amazon.Odb.Model.GetOdbPeeringConnectionResponse",
         "This cmdlet returns an Amazon.Odb.Model.OdbPeeringConnection object.",
         "The service call response (type Amazon.Odb.Model.GetOdbPeeringConnectionResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.GetOdbPeeringConnectionResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.GetOdbPeeringConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "GetOdbPeeringConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "GetOdbPeeringConnection");
             try
             {
                 return client.GetOdbPeeringConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -165,7 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// The leading forward slash in the name is required. Two data repository associations
         /// cannot have overlapping file system paths. For example, if a data repository is associated
         /// with file system path <c>/ns1/</c>, then you cannot link another data repository with
-        /// file system path <c>/ns1/ns2</c>.</para><para>This path specifies where in your file system files will be exported from or imported
+        /// file system path <c>/ns1/ns2</c>.</para><para>You must specify this path when you create a data repository association. There is
+        /// no default value; a request that omits it fails with a <c>BadRequest</c> error.</para><para>This path specifies where in your file system files will be exported from or imported
         /// to. This file system directory can be linked to only one Amazon S3 bucket, and no
         /// other S3 bucket can be linked to the directory.</para><note><para>If you specify only a forward slash (<c>/</c>) as the file system path, you can link
         /// only one data repository to the file system. You can only specify "/" as the file

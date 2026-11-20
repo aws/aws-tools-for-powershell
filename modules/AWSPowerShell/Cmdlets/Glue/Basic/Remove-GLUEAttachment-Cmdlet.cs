@@ -104,13 +104,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AssetIdentifier'.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AssetId'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.DeleteAttachmentResponse).
         /// Specifying the name of a property of type Amazon.Glue.Model.DeleteAttachmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AssetIdentifier";
+        public string Select { get; set; } = "AssetId";
         #endregion
         
         #region Parameter Force
@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String ItemIdentifier { get; set; }
             public System.String IterableFormName { get; set; }
             public System.Func<Amazon.Glue.Model.DeleteAttachmentResponse, RemoveGLUEAttachmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AssetIdentifier;
+                (response, cmdlet) => response.AssetId;
         }
         
     }

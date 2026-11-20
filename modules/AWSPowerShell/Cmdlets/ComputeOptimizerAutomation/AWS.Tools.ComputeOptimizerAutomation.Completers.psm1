@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Compute Optimizer Automation Service
+# Argument completions for service Compute Optimizer Automation
 
 
 $COA_Completers = {
@@ -84,6 +84,20 @@ $COA_Completers = {
         "Update-COAEnrollmentConfiguration/Status"
         {
             $v = "Active","Failed","Inactive","Pending"
+            break
+        }
+
+        # Amazon.ComputeOptimizerAutomation.OrganizationRuleMode
+        "Write-COAOrganizationEnrollmentConfiguration/OrganizationRuleMode"
+        {
+            $v = "AnyAllowed","NoneAllowed"
+            break
+        }
+
+        # Amazon.ComputeOptimizerAutomation.OrganizationTargetType
+        "Get-COAOrganizationEnrollmentConfigurationList/TargetType"
+        {
+            $v = "Account","OrganizationalUnit"
             break
         }
 
@@ -129,8 +143,10 @@ $COA_Completers = {
 
 $COA_map = @{
     "OrganizationConfiguration_RuleApplyOrder"=@("New-COAAutomationRule","Update-COAAutomationRule")
+    "OrganizationRuleMode"=@("Write-COAOrganizationEnrollmentConfiguration")
     "RuleType"=@("Get-COAAutomationRulePreviewList","Get-COAAutomationRulePreviewSummaryList","New-COAAutomationRule","Update-COAAutomationRule")
     "Status"=@("New-COAAutomationRule","Update-COAAutomationRule","Update-COAEnrollmentConfiguration")
+    "TargetType"=@("Get-COAOrganizationEnrollmentConfigurationList")
 }
 
 _awsArgumentCompleterRegistration $COA_Completers $COA_map
@@ -186,6 +202,7 @@ $COA_SelectMap = @{
     "Select"=@("Add-COAAccount",
                "New-COAAutomationRule",
                "Remove-COAAutomationRule",
+               "Remove-COAOrganizationEnrollmentConfiguration",
                "Remove-COAAccount",
                "Get-COAAutomationEvent",
                "Get-COAAutomationRule",
@@ -197,9 +214,12 @@ $COA_SelectMap = @{
                "Get-COAAutomationRulePreviewList",
                "Get-COAAutomationRulePreviewSummaryList",
                "Get-COAAutomationRuleList",
+               "Get-COAOrganizationalUnitList",
+               "Get-COAOrganizationEnrollmentConfigurationList",
                "Get-COARecommendedActionList",
                "Get-COARecommendedActionSummaryList",
                "Get-COAResourceTag",
+               "Write-COAOrganizationEnrollmentConfiguration",
                "Restore-COAAutomationEvent",
                "Start-COAAutomationEvent",
                "Add-COAResourceTag",

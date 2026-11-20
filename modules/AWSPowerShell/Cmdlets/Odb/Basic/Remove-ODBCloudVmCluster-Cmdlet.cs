@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Remove", "ODBCloudVmCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services DeleteCloudVmCluster API operation.", Operation = new[] {"DeleteCloudVmCluster"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteCloudVmClusterResponse))]
+    [AWSCmdlet("Calls the odb DeleteCloudVmCluster API operation.", Operation = new[] {"DeleteCloudVmCluster"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteCloudVmClusterResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.DeleteCloudVmClusterResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.DeleteCloudVmClusterResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.DeleteCloudVmClusterResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.DeleteCloudVmClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "DeleteCloudVmCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "DeleteCloudVmCluster");
             try
             {
                 return client.DeleteCloudVmClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

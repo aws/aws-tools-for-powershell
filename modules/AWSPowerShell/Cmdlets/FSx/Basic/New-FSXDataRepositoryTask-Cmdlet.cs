@@ -142,9 +142,13 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>Required if <c>Enabled</c> is set to <c>true</c>. Specifies the location of the report
         /// on the file system's linked S3 data repository. An absolute path that defines where
         /// the completion report will be stored in the destination location. The <c>Path</c>
-        /// you provide must be located within the file system’s ExportPath. An example <c>Path</c>
-        /// value is "s3://amzn-s3-demo-bucket/myExportPath/optionalPrefix". The report provides
-        /// the following information for each file in the report: FilePath, FileStatus, and ErrorCode.</para>
+        /// you provide must be within the Amazon S3 location that the file system is linked to.
+        /// That location depends on how the file system is configured:</para><ul><li><para>The <c>DataRepositoryPath</c> of one of the associations, if the file system has data
+        /// repository associations</para></li><li><para>The <c>ExportPath</c>, if the file system was created with an <c>ImportPath</c> and
+        /// an <c>ExportPath</c></para></li></ul><para>For example, if an association links to <c>s3://amzn-s3-demo-bucket/myPrefix</c>,
+        /// then <c>s3://amzn-s3-demo-bucket/myPrefix/reports</c> is valid. The path <c>s3://amzn-s3-demo-bucket/reports</c>
+        /// is not.</para><para>The report provides the following information for each file in the report: FilePath,
+        /// FileStatus, and ErrorCode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

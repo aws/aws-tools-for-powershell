@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("New", "ODBCloudAutonomousVmCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.CreateCloudAutonomousVmClusterResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services CreateCloudAutonomousVmCluster API operation.", Operation = new[] {"CreateCloudAutonomousVmCluster"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateCloudAutonomousVmClusterResponse))]
+    [AWSCmdlet("Calls the odb CreateCloudAutonomousVmCluster API operation.", Operation = new[] {"CreateCloudAutonomousVmCluster"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateCloudAutonomousVmClusterResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.CreateCloudAutonomousVmClusterResponse",
         "This cmdlet returns an Amazon.Odb.Model.CreateCloudAutonomousVmClusterResponse object containing multiple properties."
     )]
@@ -751,7 +751,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.CreateCloudAutonomousVmClusterResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.CreateCloudAutonomousVmClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "CreateCloudAutonomousVmCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "CreateCloudAutonomousVmCluster");
             try
             {
                 return client.CreateCloudAutonomousVmClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

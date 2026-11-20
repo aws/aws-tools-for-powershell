@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Get", "COAAutomationRule")]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.GetAutomationRuleResponse")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service GetAutomationRule API operation.", Operation = new[] {"GetAutomationRule"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.GetAutomationRuleResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation GetAutomationRule API operation.", Operation = new[] {"GetAutomationRule"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.GetAutomationRuleResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.GetAutomationRuleResponse",
         "This cmdlet returns an Amazon.ComputeOptimizerAutomation.Model.GetAutomationRuleResponse object containing multiple properties."
     )]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.GetAutomationRuleResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.GetAutomationRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "GetAutomationRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "GetAutomationRule");
             try
             {
                 return client.GetAutomationRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

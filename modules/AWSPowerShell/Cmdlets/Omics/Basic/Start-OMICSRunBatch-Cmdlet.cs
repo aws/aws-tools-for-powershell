@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <summary>
         /// <para>
         /// <para>Engine-specific settings for the workflow run. Use this field to specify configuration
-        /// options that are specific to the workflow engine (for example, Nextflow profiles).</para>
+        /// options that are specific to the workflow engine (for example, Nextflow profiles,
+        /// Nextflow runtime configuration).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,6 +203,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? DefaultRunSetting_Priority { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRunSetting_RequesterPaysEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether each workflow run in the batch can read inputs from Amazon Simple
+        /// Storage Service (Amazon S3) buckets that use Requester Pays. Your account pays the
+        /// request and data transfer charges for those reads. The default is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DefaultRunSetting_RequesterPaysEnabled { get; set; }
         #endregion
         
         #region Parameter RequestId
@@ -463,6 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             context.DefaultRunSetting_OutputUri = this.DefaultRunSetting_OutputUri;
             context.DefaultRunSetting_Parameter = this.DefaultRunSetting_Parameter;
             context.DefaultRunSetting_Priority = this.DefaultRunSetting_Priority;
+            context.DefaultRunSetting_RequesterPaysEnabled = this.DefaultRunSetting_RequesterPaysEnabled;
             context.DefaultRunSetting_RetentionMode = this.DefaultRunSetting_RetentionMode;
             context.DefaultRunSetting_RoleArn = this.DefaultRunSetting_RoleArn;
             #if MODULAR
@@ -664,6 +678,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (requestDefaultRunSetting_defaultRunSetting_Priority != null)
             {
                 request.DefaultRunSetting.Priority = requestDefaultRunSetting_defaultRunSetting_Priority.Value;
+                requestDefaultRunSettingIsNull = false;
+            }
+            System.Boolean? requestDefaultRunSetting_defaultRunSetting_RequesterPaysEnabled = null;
+            if (cmdletContext.DefaultRunSetting_RequesterPaysEnabled != null)
+            {
+                requestDefaultRunSetting_defaultRunSetting_RequesterPaysEnabled = cmdletContext.DefaultRunSetting_RequesterPaysEnabled.Value;
+            }
+            if (requestDefaultRunSetting_defaultRunSetting_RequesterPaysEnabled != null)
+            {
+                request.DefaultRunSetting.RequesterPaysEnabled = requestDefaultRunSetting_defaultRunSetting_RequesterPaysEnabled.Value;
                 requestDefaultRunSettingIsNull = false;
             }
             Amazon.Omics.RunRetentionMode requestDefaultRunSetting_defaultRunSetting_RetentionMode = null;
@@ -868,6 +892,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String DefaultRunSetting_OutputUri { get; set; }
             public System.Management.Automation.PSObject DefaultRunSetting_Parameter { get; set; }
             public System.Int32? DefaultRunSetting_Priority { get; set; }
+            public System.Boolean? DefaultRunSetting_RequesterPaysEnabled { get; set; }
             public Amazon.Omics.RunRetentionMode DefaultRunSetting_RetentionMode { get; set; }
             public System.String DefaultRunSetting_RoleArn { get; set; }
             public System.String DefaultRunSetting_RunGroupId { get; set; }

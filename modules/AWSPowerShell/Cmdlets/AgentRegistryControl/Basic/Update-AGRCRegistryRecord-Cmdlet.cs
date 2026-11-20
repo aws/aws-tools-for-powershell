@@ -177,6 +177,23 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration { get; set; }
         #endregion
         
+        #region Parameter Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The credential providers used to authenticate when fetching descriptor content from
+        /// the source URL.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfigurations")]
+        public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ForceAuthentication
         /// <summary>
         /// <para>
@@ -341,6 +358,37 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Descriptors_OptionalValue_McpServer_OptionalValue_DataSchemaVersion_OptionalValue { get; set; }
+        #endregion
+        
+        #region Parameter Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue
+        /// <summary>
+        /// <para>
+        /// <para>The value to set for this field. Omit the wrapper to leave the field unchanged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AgentRegistryControl.BotCategory")]
+        public Amazon.AgentRegistryControl.BotCategory Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue { get; set; }
+        #endregion
+        
+        #region Parameter Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue
+        /// <summary>
+        /// <para>
+        /// <para>The value to set for this field. Omit the wrapper to leave the field unchanged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue { get; set; }
+        #endregion
+        
+        #region Parameter Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue
+        /// <summary>
+        /// <para>
+        /// <para>The value to set for this field. Omit the wrapper to leave the field unchanged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue { get; set; }
         #endregion
         
         #region Parameter DisplayName_OptionalValue
@@ -536,6 +584,20 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
         #endregion
         
+        #region Parameter Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL from which the descriptor content is retrieved. For an agent skill source,
+        /// specify an <c>s3://</c> URL of an object in a bucket in the same Amazon Web Services
+        /// Region as the registry. For a GitHub skill source, specify a GitHub folder URL in
+        /// the form <c>https://host/owner/repo/tree/branch-or-tag/path</c>. Other descriptor
+        /// sources use <c>https://</c> URLs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -634,6 +696,14 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
                 context.Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration = new List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration>(this.Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration);
             }
             context.Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_Url = this.Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_Url;
+            context.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue = this.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue;
+            context.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue = this.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue;
+            context.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue = this.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue;
+            if (this.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration != null)
+            {
+                context.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration = new List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration>(this.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration);
+            }
+            context.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url = this.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url;
             context.DisplayName_OptionalValue = this.DisplayName_OptionalValue;
             context.ForceAuthentication = this.ForceAuthentication;
             context.Name = this.Name;
@@ -1830,6 +1900,206 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
                     requestDescriptors_descriptors_OptionalValue.McpServer = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_McpServer;
                     requestDescriptors_descriptors_OptionalValueIsNull = false;
                 }
+                Amazon.AgentRegistryControl.Model.UpdatedSignatureAgentCardDescriptor requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard = null;
+                
+                 // populate SignatureAgentCard
+                var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCardIsNull = true;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard = new Amazon.AgentRegistryControl.Model.UpdatedSignatureAgentCardDescriptor();
+                Amazon.AgentRegistryControl.Model.UpdatedSignatureAgentCardDescriptorFields requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue = null;
+                
+                 // populate OptionalValue
+                var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValueIsNull = true;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue = new Amazon.AgentRegistryControl.Model.UpdatedSignatureAgentCardDescriptorFields();
+                Amazon.AgentRegistryControl.Model.UpdatedSignatureAgentCardAdditionalData requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData = null;
+                
+                 // populate AdditionalData
+                var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalDataIsNull = true;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData = new Amazon.AgentRegistryControl.Model.UpdatedSignatureAgentCardAdditionalData();
+                Amazon.AgentRegistryControl.Model.UpdatedSignatureAgentCardAdditionalDataFields requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue = null;
+                
+                 // populate OptionalValue
+                var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValueIsNull = true;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue = new Amazon.AgentRegistryControl.Model.UpdatedSignatureAgentCardAdditionalDataFields();
+                Amazon.AgentRegistryControl.Model.UpdatedBotCategory requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category = null;
+                
+                 // populate Category
+                var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_CategoryIsNull = true;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category = new Amazon.AgentRegistryControl.Model.UpdatedBotCategory();
+                Amazon.AgentRegistryControl.BotCategory requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue = null;
+                if (cmdletContext.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue = cmdletContext.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category.OptionalValue = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_CategoryIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category should be set to null
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_CategoryIsNull)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category = null;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue.Category = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValueIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue should be set to null
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValueIsNull)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue = null;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData.OptionalValue = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalDataIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData should be set to null
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalDataIsNull)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData = null;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue.AdditionalData = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValueIsNull = false;
+                }
+                Amazon.AgentRegistryControl.Model.UpdatedDescriptorData requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data = null;
+                
+                 // populate Data
+                var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataIsNull = true;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data = new Amazon.AgentRegistryControl.Model.UpdatedDescriptorData();
+                System.String requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue = null;
+                if (cmdletContext.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue = cmdletContext.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data.OptionalValue = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data should be set to null
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataIsNull)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data = null;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue.Data = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValueIsNull = false;
+                }
+                Amazon.AgentRegistryControl.Model.UpdatedDataSchemaVersion requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion = null;
+                
+                 // populate DataSchemaVersion
+                var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersionIsNull = true;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion = new Amazon.AgentRegistryControl.Model.UpdatedDataSchemaVersion();
+                System.String requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue = null;
+                if (cmdletContext.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue = cmdletContext.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion.OptionalValue = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersionIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion should be set to null
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersionIsNull)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion = null;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue.DataSchemaVersion = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValueIsNull = false;
+                }
+                Amazon.AgentRegistryControl.Model.UpdatedDescriptorSource requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source = null;
+                
+                 // populate Source
+                var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_SourceIsNull = true;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source = new Amazon.AgentRegistryControl.Model.UpdatedDescriptorSource();
+                Amazon.AgentRegistryControl.Model.DescriptorSource requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue = null;
+                
+                 // populate OptionalValue
+                var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValueIsNull = true;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue = new Amazon.AgentRegistryControl.Model.DescriptorSource();
+                Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl = null;
+                
+                 // populate FromUrl
+                var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrlIsNull = true;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl = new Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl();
+                List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration = null;
+                if (cmdletContext.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration = cmdletContext.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl.CredentialProviderConfigurations = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrlIsNull = false;
+                }
+                System.String requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url = null;
+                if (cmdletContext.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url = cmdletContext.Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl.Url = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrlIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl should be set to null
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrlIsNull)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl = null;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue.FromUrl = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValueIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue should be set to null
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValueIsNull)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue = null;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source.OptionalValue = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_SourceIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source should be set to null
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_SourceIsNull)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source = null;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue.Source = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValueIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue should be set to null
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValueIsNull)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue = null;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard.OptionalValue = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard_descriptors_OptionalValue_SignatureAgentCard_OptionalValue;
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCardIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard should be set to null
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCardIsNull)
+                {
+                    requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard = null;
+                }
+                if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard != null)
+                {
+                    requestDescriptors_descriptors_OptionalValue.SignatureAgentCard = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_SignatureAgentCard;
+                    requestDescriptors_descriptors_OptionalValueIsNull = false;
+                }
                  // determine if requestDescriptors_descriptors_OptionalValue should be set to null
                 if (requestDescriptors_descriptors_OptionalValueIsNull)
                 {
@@ -1988,6 +2258,11 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             public System.String Descriptors_OptionalValue_McpServer_OptionalValue_DataSchemaVersion_OptionalValue { get; set; }
             public List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration { get; set; }
             public System.String Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
+            public Amazon.AgentRegistryControl.BotCategory Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue { get; set; }
+            public System.String Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Data_OptionalValue { get; set; }
+            public System.String Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_DataSchemaVersion_OptionalValue { get; set; }
+            public List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration { get; set; }
+            public System.String Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
             public System.String DisplayName_OptionalValue { get; set; }
             public System.Boolean? ForceAuthentication { get; set; }
             public System.String Name { get; set; }

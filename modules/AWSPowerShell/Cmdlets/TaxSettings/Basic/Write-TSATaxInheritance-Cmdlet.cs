@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </summary>
     [Cmdlet("Write", "TSATaxInheritance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Tax Settings PutTaxInheritance API operation.", Operation = new[] {"PutTaxInheritance"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.PutTaxInheritanceResponse))]
+    [AWSCmdlet("Calls the Tax Settings PutTaxInheritance API operation.", Operation = new[] {"PutTaxInheritance"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.PutTaxInheritanceResponse))]
     [AWSCmdletOutput("None or Amazon.TaxSettings.Model.PutTaxInheritanceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.TaxSettings.Model.PutTaxInheritanceResponse) be returned by specifying '-Select *'."
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         
         private Amazon.TaxSettings.Model.PutTaxInheritanceResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.PutTaxInheritanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "PutTaxInheritance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Tax Settings", "PutTaxInheritance");
             try
             {
                 return client.PutTaxInheritanceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

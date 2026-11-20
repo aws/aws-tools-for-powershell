@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Update", "COAEnrollmentConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.UpdateEnrollmentConfigurationResponse")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service UpdateEnrollmentConfiguration API operation.", Operation = new[] {"UpdateEnrollmentConfiguration"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.UpdateEnrollmentConfigurationResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation UpdateEnrollmentConfiguration API operation.", Operation = new[] {"UpdateEnrollmentConfiguration"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.UpdateEnrollmentConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.UpdateEnrollmentConfigurationResponse",
         "This cmdlet returns an Amazon.ComputeOptimizerAutomation.Model.UpdateEnrollmentConfigurationResponse object containing multiple properties."
     )]
@@ -50,11 +50,13 @@ namespace Amazon.PowerShell.Cmdlets.COA
         /// <para>The desired enrollment status. </para><ul><li><para>Active - Enables the Automation feature for your account.</para></li><li><para>Inactive - Disables the Automation feature for your account and stops all of your
         /// automation rules. If you opt in again later, all rules will be inactive, and you must
         /// enable the rules you want to run. You must wait at least 24 hours after opting out
-        /// to opt in again.</para></li></ul><note><para>The <c>Pending</c> and <c>Failed</c> options cannot be used to update the enrollment
+        /// to opt in again.</para></li></ul><note><para>The <c>Pending</c> and <c>Failed</c> options can't be used to update the enrollment
         /// status of an account. They are returned in the response of a request to update the
-        /// enrollment status of an account.</para><para>If you are a member account, your account must be disassociated from your organization’s
-        /// management account before you can disable Automation. Contact your administrator to
-        /// make this change.</para></note>
+        /// enrollment status of an account.</para><para>If you are a member account, you can't disable Automation while an organization enrollment
+        /// configuration applies. If no organization enrollment configuration applies, you also
+        /// can't disable Automation while your organization rule mode is <c>AnyAllowed</c>. Ask
+        /// your administrator to delete the organization enrollment configuration or disassociate
+        /// your account, as applicable.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -193,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.UpdateEnrollmentConfigurationResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.UpdateEnrollmentConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "UpdateEnrollmentConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "UpdateEnrollmentConfiguration");
             try
             {
                 return client.UpdateEnrollmentConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

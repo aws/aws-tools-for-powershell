@@ -30,8 +30,8 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Searches for assets in Glue Data Catalog using full-text search, filters, sorting,
-    /// and aggregations. Returns matching assets with relevance-ranked results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches for assets in Glue Data Catalog using full-text search, filters, and sorting.
+    /// Returns matching assets with relevance-ranked results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "GLUEAsset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Glue.Model.SearchResultItem")]
@@ -92,6 +92,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Sort_Attribute { get; set; }
         #endregion
         
+        #region Parameter FilterClause_AttributeFilter_Comparator
+        /// <summary>
+        /// <para>
+        /// <para>The comparison operator. Valid values are <c>EQUALS</c>, <c>GREATER_THAN</c>, <c>GREATER_THAN_OR_EQUALS</c>,
+        /// <c>LESS_THAN</c>, <c>LESS_THAN_OR_EQUALS</c>, and <c>NOT_EXISTS</c>. This field is
+        /// required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.SearchFilterComparator")]
+        public Amazon.Glue.SearchFilterComparator FilterClause_AttributeFilter_Comparator { get; set; }
+        #endregion
+        
         #region Parameter FilterClause_MapFilter_Key
         /// <summary>
         /// <para>
@@ -110,18 +123,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? FilterClause_AttributeFilter_Value_LongValue { get; set; }
-        #endregion
-        
-        #region Parameter FilterClause_AttributeFilter_Operator
-        /// <summary>
-        /// <para>
-        /// <para>The comparison operator. Valid values are <c>equals</c>, <c>greaterThan</c>, <c>greaterThanOrEquals</c>,
-        /// <c>lessThan</c>, <c>lessThanOrEquals</c>, and <c>notExists</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Glue.SearchFilterOperator")]
-        public Amazon.Glue.SearchFilterOperator FilterClause_AttributeFilter_Operator { get; set; }
         #endregion
         
         #region Parameter FilterClause_OrAnyFilter
@@ -273,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.FilterClause_AndAllFilter = new List<Amazon.Glue.Model.SearchFilterClause>(this.FilterClause_AndAllFilter);
             }
             context.FilterClause_AttributeFilter_Attribute = this.FilterClause_AttributeFilter_Attribute;
-            context.FilterClause_AttributeFilter_Operator = this.FilterClause_AttributeFilter_Operator;
+            context.FilterClause_AttributeFilter_Comparator = this.FilterClause_AttributeFilter_Comparator;
             context.FilterClause_AttributeFilter_Value_LongValue = this.FilterClause_AttributeFilter_Value_LongValue;
             context.FilterClause_AttributeFilter_Value_StringValue = this.FilterClause_AttributeFilter_Value_StringValue;
             context.FilterClause_MapFilter_Attribute = this.FilterClause_MapFilter_Attribute;
@@ -354,14 +355,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestFilterClause_filterClause_AttributeFilter.Attribute = requestFilterClause_filterClause_AttributeFilter_filterClause_AttributeFilter_Attribute;
                 requestFilterClause_filterClause_AttributeFilterIsNull = false;
             }
-            Amazon.Glue.SearchFilterOperator requestFilterClause_filterClause_AttributeFilter_filterClause_AttributeFilter_Operator = null;
-            if (cmdletContext.FilterClause_AttributeFilter_Operator != null)
+            Amazon.Glue.SearchFilterComparator requestFilterClause_filterClause_AttributeFilter_filterClause_AttributeFilter_Comparator = null;
+            if (cmdletContext.FilterClause_AttributeFilter_Comparator != null)
             {
-                requestFilterClause_filterClause_AttributeFilter_filterClause_AttributeFilter_Operator = cmdletContext.FilterClause_AttributeFilter_Operator;
+                requestFilterClause_filterClause_AttributeFilter_filterClause_AttributeFilter_Comparator = cmdletContext.FilterClause_AttributeFilter_Comparator;
             }
-            if (requestFilterClause_filterClause_AttributeFilter_filterClause_AttributeFilter_Operator != null)
+            if (requestFilterClause_filterClause_AttributeFilter_filterClause_AttributeFilter_Comparator != null)
             {
-                requestFilterClause_filterClause_AttributeFilter.Operator = requestFilterClause_filterClause_AttributeFilter_filterClause_AttributeFilter_Operator;
+                requestFilterClause_filterClause_AttributeFilter.Comparator = requestFilterClause_filterClause_AttributeFilter_filterClause_AttributeFilter_Comparator;
                 requestFilterClause_filterClause_AttributeFilterIsNull = false;
             }
             Amazon.Glue.Model.SearchFilterValue requestFilterClause_filterClause_AttributeFilter_filterClause_AttributeFilter_Value = null;
@@ -592,7 +593,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public List<Amazon.Glue.Model.SearchFilterClause> FilterClause_AndAllFilter { get; set; }
             public System.String FilterClause_AttributeFilter_Attribute { get; set; }
-            public Amazon.Glue.SearchFilterOperator FilterClause_AttributeFilter_Operator { get; set; }
+            public Amazon.Glue.SearchFilterComparator FilterClause_AttributeFilter_Comparator { get; set; }
             public System.Int64? FilterClause_AttributeFilter_Value_LongValue { get; set; }
             public System.String FilterClause_AttributeFilter_Value_StringValue { get; set; }
             public System.String FilterClause_MapFilter_Attribute { get; set; }

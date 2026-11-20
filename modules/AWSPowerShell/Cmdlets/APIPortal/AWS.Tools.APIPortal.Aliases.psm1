@@ -1,0 +1,3 @@
+﻿# APIPortal
+
+Export-ModuleMember -Alias *

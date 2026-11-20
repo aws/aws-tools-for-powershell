@@ -126,6 +126,13 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.LanguageDetectionMode
+        "Invoke-TRSTranscribeAudio/LanguageDetectionMode"
+        {
+            $v = "IDENTIFY_LANGUAGE"
+            break
+        }
+
         # Amazon.TranscribeService.MediaFormat
         {
             ($_ -eq "Start-TRSMedicalTranscriptionJob/MediaFormat") -Or
@@ -173,6 +180,7 @@ $TRS_Completers = {
 
         # Amazon.TranscribeService.RedactionOutput
         {
+            ($_ -eq "Invoke-TRSTranscribeAudio/ContentRedaction_RedactionOutput") -Or
             ($_ -eq "Start-TRSCallAnalyticsJob/ContentRedaction_RedactionOutput") -Or
             ($_ -eq "Start-TRSTranscriptionJob/ContentRedaction_RedactionOutput")
         }
@@ -183,6 +191,7 @@ $TRS_Completers = {
 
         # Amazon.TranscribeService.RedactionType
         {
+            ($_ -eq "Invoke-TRSTranscribeAudio/ContentRedaction_RedactionType") -Or
             ($_ -eq "Start-TRSCallAnalyticsJob/ContentRedaction_RedactionType") -Or
             ($_ -eq "Start-TRSTranscriptionJob/ContentRedaction_RedactionType")
         }
@@ -195,6 +204,13 @@ $TRS_Completers = {
         "Start-TRSMedicalTranscriptionJob/Specialty"
         {
             $v = "PRIMARYCARE"
+            break
+        }
+
+        # Amazon.TranscribeService.SyncLanguage
+        "Invoke-TRSTranscribeAudio/Language"
+        {
+            $v = "de","en","es","fr","it","ja","ko","pt","zh-CN","zh-HK","zh-TW"
             break
         }
 
@@ -219,7 +235,8 @@ $TRS_Completers = {
         {
             ($_ -eq "Start-TRSCallAnalyticsJob/Settings_VocabularyFilterMethod") -Or
             ($_ -eq "Start-TRSMedicalScribeJob/Settings_VocabularyFilterMethod") -Or
-            ($_ -eq "Start-TRSTranscriptionJob/Settings_VocabularyFilterMethod")
+            ($_ -eq "Start-TRSTranscriptionJob/Settings_VocabularyFilterMethod") -Or
+            ($_ -eq "Invoke-TRSTranscribeAudio/VocabularyFilterSettings_VocabularyFilterMethod")
         }
         {
             $v = "mask","remove","tag"
@@ -248,10 +265,12 @@ $TRS_map = @{
     "BaseModelName"=@("New-TRSLanguageModel")
     "ClinicalNoteGenerationSettings_NoteTemplate"=@("Start-TRSMedicalScribeJob")
     "ContentIdentificationType"=@("Start-TRSMedicalTranscriptionJob")
-    "ContentRedaction_RedactionOutput"=@("Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
-    "ContentRedaction_RedactionType"=@("Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
+    "ContentRedaction_RedactionOutput"=@("Invoke-TRSTranscribeAudio","Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
+    "ContentRedaction_RedactionType"=@("Invoke-TRSTranscribeAudio","Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
     "InputType"=@("New-TRSCallAnalyticsCategory","Update-TRSCallAnalyticsCategory")
+    "Language"=@("Invoke-TRSTranscribeAudio")
     "LanguageCode"=@("New-TRSLanguageModel","New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
+    "LanguageDetectionMode"=@("Invoke-TRSTranscribeAudio")
     "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
     "PatientContext_Pronoun"=@("Start-TRSMedicalScribeJob")
     "Settings_VocabularyFilterMethod"=@("Start-TRSCallAnalyticsJob","Start-TRSMedicalScribeJob","Start-TRSTranscriptionJob")
@@ -260,6 +279,7 @@ $TRS_map = @{
     "Status"=@("Get-TRSCallAnalyticsJobList","Get-TRSMedicalScribeJobList","Get-TRSMedicalTranscriptionJobList","Get-TRSTranscriptionJobList")
     "StatusEqual"=@("Get-TRSLanguageModelList")
     "Type"=@("Start-TRSMedicalTranscriptionJob")
+    "VocabularyFilterSettings_VocabularyFilterMethod"=@("Invoke-TRSTranscribeAudio")
 }
 
 _awsArgumentCompleterRegistration $TRS_Completers $TRS_map
@@ -350,6 +370,7 @@ $TRS_SelectMap = @{
                "Start-TRSMedicalTranscriptionJob",
                "Start-TRSTranscriptionJob",
                "Add-TRSResourceTag",
+               "Invoke-TRSTranscribeAudio",
                "Remove-TRSResourceTag",
                "Update-TRSCallAnalyticsCategory",
                "Update-TRSLanguageModel",

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>payments</C2jFilename>
+    <AssemblyName>Payments</AssemblyName>
+    <ServiceNounPrefix>PAYM</ServiceNounPrefix>
+    <ServiceName>AWS Payments</ServiceName>
+    <ServiceId>Payments</ServiceId>
+    <ServiceClientInterface>IAmazonPayments</ServiceClientInterface>
+    <ServiceClient>AmazonPaymentsClient</ServiceClient>
+    <ServiceModuleGuid>6eda8a53-13c5-4da8-bf37-85dd63f19543</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetFinancialRecord" OutputProperty="*" Verb="Get" Noun="FinancialRecordBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountBalance" OutputProperty="AccountBalances" Verb="Get" Noun="AccountBalance" PipelineParameter="BalanceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFinancialRecord" OutputProperty="FinancialRecord" Verb="Get" Noun="FinancialRecord" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPaymentInstrument" OutputProperty="PaymentInstrument" Verb="Get" Noun="PaymentInstrument" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFinancialRecords" OutputProperty="FinancialRecordSummaries" Verb="Get" Noun="FinancialRecordList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPaymentInstruments" OutputProperty="PaymentInstrumentSummaries" Verb="Get" Noun="PaymentInstrumentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

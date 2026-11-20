@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Add", "ODBVirtualMachinesToExadbVmCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.AssociateVirtualMachinesToExadbVmClusterResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services AssociateVirtualMachinesToExadbVmCluster API operation.", Operation = new[] {"AssociateVirtualMachinesToExadbVmCluster"}, SelectReturnType = typeof(Amazon.Odb.Model.AssociateVirtualMachinesToExadbVmClusterResponse))]
+    [AWSCmdlet("Calls the odb AssociateVirtualMachinesToExadbVmCluster API operation.", Operation = new[] {"AssociateVirtualMachinesToExadbVmCluster"}, SelectReturnType = typeof(Amazon.Odb.Model.AssociateVirtualMachinesToExadbVmClusterResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.AssociateVirtualMachinesToExadbVmClusterResponse",
         "This cmdlet returns an Amazon.Odb.Model.AssociateVirtualMachinesToExadbVmClusterResponse object containing multiple properties."
     )]
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.AssociateVirtualMachinesToExadbVmClusterResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.AssociateVirtualMachinesToExadbVmClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "AssociateVirtualMachinesToExadbVmCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "AssociateVirtualMachinesToExadbVmCluster");
             try
             {
                 return client.AssociateVirtualMachinesToExadbVmClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

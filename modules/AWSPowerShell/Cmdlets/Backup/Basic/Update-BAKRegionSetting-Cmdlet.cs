@@ -69,6 +69,26 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.Collections.Hashtable ResourceTypeManagementPreference { get; set; }
         #endregion
         
+        #region Parameter ResourceTypeOptInIncremental
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you opt in to incremental backups for each resource type in the
+        /// Region. Opt in when you want to reduce backup storage and backup time for large resources
+        /// that change infrequently. Incremental backup opt-in is currently available for Amazon
+        /// DynamoDB.</para><para>To view your current incremental backup settings, use the <c>DescribeRegionSettings</c>
+        /// API. For the resource types that each Backup feature supports, see the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+        /// availability by resource</a> table.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable ResourceTypeOptInIncremental { get; set; }
+        #endregion
+        
         #region Parameter ResourceTypeOptInPreference
         /// <summary>
         /// <para>
@@ -142,6 +162,14 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                     context.ResourceTypeManagementPreference.Add((String)hashKey, (System.Boolean)(this.ResourceTypeManagementPreference[hashKey]));
                 }
             }
+            if (this.ResourceTypeOptInIncremental != null)
+            {
+                context.ResourceTypeOptInIncremental = new Dictionary<System.String, System.Boolean>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ResourceTypeOptInIncremental.Keys)
+                {
+                    context.ResourceTypeOptInIncremental.Add((String)hashKey, (System.Boolean)(this.ResourceTypeOptInIncremental[hashKey]));
+                }
+            }
             if (this.ResourceTypeOptInPreference != null)
             {
                 context.ResourceTypeOptInPreference = new Dictionary<System.String, System.Boolean>(StringComparer.Ordinal);
@@ -169,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ResourceTypeManagementPreference != null)
             {
                 request.ResourceTypeManagementPreference = cmdletContext.ResourceTypeManagementPreference;
+            }
+            if (cmdletContext.ResourceTypeOptInIncremental != null)
+            {
+                request.ResourceTypeOptInIncremental = cmdletContext.ResourceTypeOptInIncremental;
             }
             if (cmdletContext.ResourceTypeOptInPreference != null)
             {
@@ -230,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.Boolean> ResourceTypeManagementPreference { get; set; }
+            public Dictionary<System.String, System.Boolean> ResourceTypeOptInIncremental { get; set; }
             public Dictionary<System.String, System.Boolean> ResourceTypeOptInPreference { get; set; }
             public System.Func<Amazon.Backup.Model.UpdateRegionSettingsResponse, UpdateBAKRegionSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

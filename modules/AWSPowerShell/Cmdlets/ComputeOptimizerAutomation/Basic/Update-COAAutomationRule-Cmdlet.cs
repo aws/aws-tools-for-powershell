@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Update", "COAAutomationRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.UpdateAutomationRuleResponse")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service UpdateAutomationRule API operation.", Operation = new[] {"UpdateAutomationRule"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.UpdateAutomationRuleResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation UpdateAutomationRule API operation.", Operation = new[] {"UpdateAutomationRule"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.UpdateAutomationRuleResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.UpdateAutomationRuleResponse",
         "This cmdlet returns an Amazon.ComputeOptimizerAutomation.Model.UpdateAutomationRuleResponse object containing multiple properties."
     )]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.COA
         #region Parameter OrganizationConfiguration_AccountId
         /// <summary>
         /// <para>
-        /// <para>List of specific Amazon Web Services account IDs where the organization rule should
-        /// be applied.</para><para />
+        /// <para>The specific Amazon Web Services account IDs where the organization rule should be
+        /// applied. You can specify up to 50 account IDs.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -119,6 +119,42 @@ namespace Amazon.PowerShell.Cmdlets.COA
         public Amazon.ComputeOptimizerAutomation.Model.DoubleCriteriaCondition[] Criteria_EstimatedMonthlySaving { get; set; }
         #endregion
         
+        #region Parameter OrganizationConfiguration_ExcludedAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account IDs to exclude from the organization rule scope. You
+        /// can specify up to 50 account IDs. An excluded account remains excluded even if it
+        /// is in an included OU.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationConfiguration_ExcludedAccountIds")]
+        public System.String[] OrganizationConfiguration_ExcludedAccountId { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationConfiguration_ExcludedOrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The organizational unit (OU) or organization root IDs to exclude from the organization
+        /// rule scope. The rule doesn't apply to accounts in the specified OUs or their child
+        /// OUs. You can specify up to 150 IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationConfiguration_ExcludedOrganizationalUnitIds")]
+        public System.String[] OrganizationConfiguration_ExcludedOrganizationalUnitId { get; set; }
+        #endregion
+        
         #region Parameter Schedule_ExecutionWindowInMinute
         /// <summary>
         /// <para>
@@ -156,6 +192,24 @@ namespace Amazon.PowerShell.Cmdlets.COA
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationConfiguration_OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The organizational unit (OU) or organization root IDs to include in the organization
+        /// rule scope. The rule applies to accounts in the specified OUs and their child OUs.
+        /// You can specify up to 150 IDs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationConfiguration_OrganizationalUnitIds")]
+        public System.String[] OrganizationConfiguration_OrganizationalUnitId { get; set; }
         #endregion
         
         #region Parameter Priority
@@ -234,7 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.COA
         #region Parameter Criteria_RestartNeeded
         /// <summary>
         /// <para>
-        /// <para>Filter criteria indicating whether the recommended action requires a resource restart.</para><para />
+        /// <para>Filter criteria indicating whether the recommended action requires a resource restart.
+        /// Valid values are <c>true</c> and <c>false</c>. Values are case-sensitive unless you
+        /// use an <c>IgnoreCase</c> comparison operator. For example, <c>StringEquals</c> with
+        /// the value <c>False</c> matches no recommended actions.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -433,6 +490,18 @@ namespace Amazon.PowerShell.Cmdlets.COA
             {
                 context.OrganizationConfiguration_AccountId = new List<System.String>(this.OrganizationConfiguration_AccountId);
             }
+            if (this.OrganizationConfiguration_ExcludedAccountId != null)
+            {
+                context.OrganizationConfiguration_ExcludedAccountId = new List<System.String>(this.OrganizationConfiguration_ExcludedAccountId);
+            }
+            if (this.OrganizationConfiguration_ExcludedOrganizationalUnitId != null)
+            {
+                context.OrganizationConfiguration_ExcludedOrganizationalUnitId = new List<System.String>(this.OrganizationConfiguration_ExcludedOrganizationalUnitId);
+            }
+            if (this.OrganizationConfiguration_OrganizationalUnitId != null)
+            {
+                context.OrganizationConfiguration_OrganizationalUnitId = new List<System.String>(this.OrganizationConfiguration_OrganizationalUnitId);
+            }
             context.OrganizationConfiguration_RuleApplyOrder = this.OrganizationConfiguration_RuleApplyOrder;
             context.Priority = this.Priority;
             if (this.RecommendedActionType != null)
@@ -589,6 +658,36 @@ namespace Amazon.PowerShell.Cmdlets.COA
                 request.OrganizationConfiguration.AccountIds = requestOrganizationConfiguration_organizationConfiguration_AccountId;
                 requestOrganizationConfigurationIsNull = false;
             }
+            List<System.String> requestOrganizationConfiguration_organizationConfiguration_ExcludedAccountId = null;
+            if (cmdletContext.OrganizationConfiguration_ExcludedAccountId != null)
+            {
+                requestOrganizationConfiguration_organizationConfiguration_ExcludedAccountId = cmdletContext.OrganizationConfiguration_ExcludedAccountId;
+            }
+            if (requestOrganizationConfiguration_organizationConfiguration_ExcludedAccountId != null)
+            {
+                request.OrganizationConfiguration.ExcludedAccountIds = requestOrganizationConfiguration_organizationConfiguration_ExcludedAccountId;
+                requestOrganizationConfigurationIsNull = false;
+            }
+            List<System.String> requestOrganizationConfiguration_organizationConfiguration_ExcludedOrganizationalUnitId = null;
+            if (cmdletContext.OrganizationConfiguration_ExcludedOrganizationalUnitId != null)
+            {
+                requestOrganizationConfiguration_organizationConfiguration_ExcludedOrganizationalUnitId = cmdletContext.OrganizationConfiguration_ExcludedOrganizationalUnitId;
+            }
+            if (requestOrganizationConfiguration_organizationConfiguration_ExcludedOrganizationalUnitId != null)
+            {
+                request.OrganizationConfiguration.ExcludedOrganizationalUnitIds = requestOrganizationConfiguration_organizationConfiguration_ExcludedOrganizationalUnitId;
+                requestOrganizationConfigurationIsNull = false;
+            }
+            List<System.String> requestOrganizationConfiguration_organizationConfiguration_OrganizationalUnitId = null;
+            if (cmdletContext.OrganizationConfiguration_OrganizationalUnitId != null)
+            {
+                requestOrganizationConfiguration_organizationConfiguration_OrganizationalUnitId = cmdletContext.OrganizationConfiguration_OrganizationalUnitId;
+            }
+            if (requestOrganizationConfiguration_organizationConfiguration_OrganizationalUnitId != null)
+            {
+                request.OrganizationConfiguration.OrganizationalUnitIds = requestOrganizationConfiguration_organizationConfiguration_OrganizationalUnitId;
+                requestOrganizationConfigurationIsNull = false;
+            }
             Amazon.ComputeOptimizerAutomation.RuleApplyOrder requestOrganizationConfiguration_organizationConfiguration_RuleApplyOrder = null;
             if (cmdletContext.OrganizationConfiguration_RuleApplyOrder != null)
             {
@@ -702,7 +801,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.UpdateAutomationRuleResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.UpdateAutomationRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "UpdateAutomationRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "UpdateAutomationRule");
             try
             {
                 return client.UpdateAutomationRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -734,6 +833,9 @@ namespace Amazon.PowerShell.Cmdlets.COA
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public List<System.String> OrganizationConfiguration_AccountId { get; set; }
+            public List<System.String> OrganizationConfiguration_ExcludedAccountId { get; set; }
+            public List<System.String> OrganizationConfiguration_ExcludedOrganizationalUnitId { get; set; }
+            public List<System.String> OrganizationConfiguration_OrganizationalUnitId { get; set; }
             public Amazon.ComputeOptimizerAutomation.RuleApplyOrder OrganizationConfiguration_RuleApplyOrder { get; set; }
             public System.String Priority { get; set; }
             public List<System.String> RecommendedActionType { get; set; }

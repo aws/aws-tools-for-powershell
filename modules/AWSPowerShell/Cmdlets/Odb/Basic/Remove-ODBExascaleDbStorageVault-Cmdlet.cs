@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Remove", "ODBExascaleDbStorageVault", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services DeleteExascaleDbStorageVault API operation.", Operation = new[] {"DeleteExascaleDbStorageVault"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteExascaleDbStorageVaultResponse))]
+    [AWSCmdlet("Calls the odb DeleteExascaleDbStorageVault API operation.", Operation = new[] {"DeleteExascaleDbStorageVault"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteExascaleDbStorageVaultResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.DeleteExascaleDbStorageVaultResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.DeleteExascaleDbStorageVaultResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.DeleteExascaleDbStorageVaultResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.DeleteExascaleDbStorageVaultRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "DeleteExascaleDbStorageVault");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "DeleteExascaleDbStorageVault");
             try
             {
                 return client.DeleteExascaleDbStorageVaultAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

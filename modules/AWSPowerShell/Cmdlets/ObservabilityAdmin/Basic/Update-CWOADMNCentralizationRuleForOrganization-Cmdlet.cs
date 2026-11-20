@@ -59,6 +59,25 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public System.String Destination_Account { get; set; }
         #endregion
         
+        #region Parameter Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether this centralization rule centralizes log events with data protection
+        /// applied. If you don't specify this setting, or you set it to <c>DISABLED</c>, the
+        /// rule centralizes the original log events, including any sensitive data that a data
+        /// protection policy on the source log group masks.</para><para>When you set this to <c>ENABLED</c>, the rule centralizes the same masked data that
+        /// anyone in the source account without the <c>logs:Unmask</c> permission sees. The rule
+        /// doesn't copy the original values to the destination, so you can't unmask them in the
+        /// destination account. The rule centralizes log events from source log groups that don't
+        /// have a data protection policy without changes.</para><para>The setting applies only to log events that the rule centralizes after you enable
+        /// it. It doesn't change log events that the rule already centralized.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ObservabilityAdmin.CentralizeWithDataProtection")]
+        public Amazon.ObservabilityAdmin.CentralizeWithDataProtection Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection { get; set; }
+        #endregion
+        
         #region Parameter Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion
         /// <summary>
         /// <para>
@@ -447,6 +466,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             #endif
             context.Source_Scope = this.Source_Scope;
             context.Rule_Source_SourceContextGraphConfiguration = this.Rule_Source_SourceContextGraphConfiguration;
+            context.Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection = this.Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection;
             context.Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion = this.Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion;
             context.SourceLogsConfiguration_EncryptedLogGroupStrategy = this.SourceLogsConfiguration_EncryptedLogGroupStrategy;
             context.SourceLogsConfiguration_LogGroupSelectionCriterion = this.SourceLogsConfiguration_LogGroupSelectionCriterion;
@@ -859,6 +879,16 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
              // populate SourceLogsConfiguration
             var requestRule_rule_Source_rule_Source_SourceLogsConfigurationIsNull = true;
             requestRule_rule_Source_rule_Source_SourceLogsConfiguration = new Amazon.ObservabilityAdmin.Model.SourceLogsConfiguration();
+            Amazon.ObservabilityAdmin.CentralizeWithDataProtection requestRule_rule_Source_rule_Source_SourceLogsConfiguration_rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection = null;
+            if (cmdletContext.Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection != null)
+            {
+                requestRule_rule_Source_rule_Source_SourceLogsConfiguration_rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection = cmdletContext.Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection;
+            }
+            if (requestRule_rule_Source_rule_Source_SourceLogsConfiguration_rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection != null)
+            {
+                requestRule_rule_Source_rule_Source_SourceLogsConfiguration.CentralizeWithDataProtection = requestRule_rule_Source_rule_Source_SourceLogsConfiguration_rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection;
+                requestRule_rule_Source_rule_Source_SourceLogsConfigurationIsNull = false;
+            }
             System.String requestRule_rule_Source_rule_Source_SourceLogsConfiguration_rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion = null;
             if (cmdletContext.Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion != null)
             {
@@ -990,6 +1020,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public List<System.String> Source_Region { get; set; }
             public System.String Source_Scope { get; set; }
             public Amazon.ObservabilityAdmin.Model.SourceContextGraphConfiguration Rule_Source_SourceContextGraphConfiguration { get; set; }
+            public Amazon.ObservabilityAdmin.CentralizeWithDataProtection Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection { get; set; }
             public System.String Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion { get; set; }
             public Amazon.ObservabilityAdmin.EncryptedLogGroupStrategy SourceLogsConfiguration_EncryptedLogGroupStrategy { get; set; }
             public System.String SourceLogsConfiguration_LogGroupSelectionCriterion { get; set; }

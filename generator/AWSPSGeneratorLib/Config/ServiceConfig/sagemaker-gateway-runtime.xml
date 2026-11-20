@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sagemaker-gateway-runtime</C2jFilename>
+    <AssemblyName>SageMakerGatewayRuntime</AssemblyName>
+    <ServiceNounPrefix>SMGWR</ServiceNounPrefix>
+    <ServiceName>Amazon SageMaker Gateway Runtime</ServiceName>
+    <ServiceId>SageMaker Gateway Runtime</ServiceId>
+    <ServiceClientInterface>IAmazonSageMakerGatewayRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonSageMakerGatewayRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>b9f9191b-82c6-4d6b-8588-df6beec52538</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="InvokeGlobalInferenceGateway" OutputProperty="Body" Verb="Invoke" Noun="GlobalInferenceGateway" ShouldProcessTarget="GatewayId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InvokeGlobalInferenceGatewayWithResponseStream" OutputProperty="Body" Verb="Invoke" Noun="GlobalInferenceGatewayWithResponseStream" ShouldProcessTarget="GatewayId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

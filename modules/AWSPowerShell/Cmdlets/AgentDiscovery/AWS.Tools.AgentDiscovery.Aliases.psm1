@@ -1,0 +1,3 @@
+﻿# AgentDiscovery
+
+Export-ModuleMember -Alias *

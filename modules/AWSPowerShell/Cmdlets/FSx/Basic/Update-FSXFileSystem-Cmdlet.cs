@@ -94,7 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_AutomaticBackupRetentionDay
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The number of days to retain automatic backups. Setting this property to <c>0</c>
+        /// disables automatic backups and deletes all existing automatic backups for the file
+        /// system's volumes. You can retain automatic backups for a maximum of 90 days. The default
+        /// is <c>30</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,10 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_HAPair
         /// <summary>
         /// <para>
-        /// <para>Use to update the number of high-availability (HA) pairs for a second-generation single-AZ
-        /// file system. If you increase the number of HA pairs for your file system, you must
-        /// specify proportional increases for <c>StorageCapacity</c>, <c>Iops</c>, and <c>ThroughputCapacity</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/administering-file-systems.html#HA-pairs">High-availability
+        /// <para>Use to update the number of high-availability (HA) pairs for a second-generation or
+        /// third-generation single-AZ file system. If you increase the number of HA pairs for
+        /// your file system, you must specify proportional increases for <c>StorageCapacity</c>,
+        /// <c>Iops</c>, and <c>ThroughputCapacity</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/administering-file-systems.html#HA-pairs">High-availability
         /// (HA) pairs</a> in the FSx for ONTAP user guide. Block storage protocol support (iSCSI
         /// and NVMe over TCP) is disabled on file systems with more than 6 HA pairs. For more
         /// information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/supported-fsx-clients.html#using-block-storage">Using
@@ -406,9 +409,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Use this parameter to increase the storage capacity of an FSx for Windows File Server,
         /// FSx for Lustre, FSx for OpenZFS, or FSx for ONTAP file system. For second-generation
-        /// FSx for ONTAP file systems, you can also decrease the storage capacity. Specifies
-        /// the storage capacity target value, in GiB, for the file system that you're updating.
-        /// </para><note><para>You can't make a storage capacity increase request if there is an existing storage
+        /// and third-generation FSx for ONTAP file systems, you can also decrease the storage
+        /// capacity. Specifies the storage capacity target value, in GiB, for the file system
+        /// that you're updating. </para><note><para>You can't make a storage capacity increase request if there is an existing storage
         /// capacity increase request in progress.</para></note><para>For Lustre file systems, the storage capacity target value can be the following:</para><ul><li><para>For <c>SCRATCH_2</c>, <c>PERSISTENT_1</c>, and <c>PERSISTENT_2 SSD</c> deployment
         /// types, valid values are in multiples of 2400 GiB. The value must be greater than the
         /// current storage capacity.</para></li><li><para>For <c>PERSISTENT HDD</c> file systems, valid values are multiples of 6000 GiB for
@@ -423,9 +426,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
         /// storage capacity</a> in the <i>Amazon FSxfor Windows File Server User Guide</i>.</para><para>For ONTAP file systems, when increasing storage capacity, the storage capacity target
         /// value must be at least 10 percent greater than the current storage capacity value.
-        /// When decreasing storage capacity on second-generation file systems, the target value
-        /// must be at least 9 percent smaller than the current SSD storage capacity. For more
-        /// information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.html">File
+        /// If that increase would reach or exceed the maximum SSD storage capacity for your file
+        /// system's configuration, you can specify any greater value up to that maximum. When
+        /// decreasing storage capacity on second-generation and third-generation file systems,
+        /// the target value must be at least 9 percent smaller than the current SSD storage capacity.
+        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.html">File
         /// system storage capacity and IOPS</a> in the Amazon FSx for NetApp ONTAP User Guide.</para>
         /// </para>
         /// </summary>
@@ -478,9 +483,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// for the file system. </para><para>This field and <c>ThroughputCapacity</c> cannot be defined in the same API call, but
         /// one is required.</para><para>This field and <c>ThroughputCapacity</c> are the same for file systems with one HA
         /// pair.</para><ul><li><para>For <c>SINGLE_AZ_1</c> and <c>MULTI_AZ_1</c> file systems, valid values are 128, 256,
-        /// 512, 1024, 2048, or 4096 MBps.</para></li><li><para>For <c>SINGLE_AZ_2</c>, valid values are 1536, 3072, or 6144 MBps.</para></li><li><para>For <c>MULTI_AZ_2</c>, valid values are 384, 768, 1536, 3072, or 6144 MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>ThroughputCapacity</c> and <c>ThroughputCapacityPerHAPair</c> are
-        /// not the same value for file systems with one HA pair.</para></li><li><para>The value of deployment type is <c>SINGLE_AZ_2</c> and <c>ThroughputCapacity</c> /
-        /// <c>ThroughputCapacityPerHAPair</c> is not a valid HA pair (a value between 1 and 12).</para></li><li><para>The value of <c>ThroughputCapacityPerHAPair</c> is not a valid value.</para></li></ul>
+        /// 512, 1024, 2048, or 4096 MBps.</para></li><li><para>For <c>SINGLE_AZ_2</c>, valid values are 1536, 3072, or 6144 MBps.</para></li><li><para>For <c>MULTI_AZ_2</c>, valid values are 384, 768, 1536, 3072, or 6144 MBps.</para></li><li><para>For <c>SINGLE_AZ_3</c>, valid values are 1536, 3072, 6144, 12288, or 18432 MBps.</para></li><li><para>For <c>MULTI_AZ_3</c>, valid values are 384, 768, 1536, 3072, 6144, 12288, or 18432
+        /// MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>ThroughputCapacity</c> and <c>ThroughputCapacityPerHAPair</c> are
+        /// not the same value for file systems with one HA pair.</para></li><li><para>The value of deployment type is <c>SINGLE_AZ_2</c> or <c>SINGLE_AZ_3</c> and <c>ThroughputCapacity</c>
+        /// / <c>ThroughputCapacityPerHAPair</c> is not a valid HA pair (a value between 1 and
+        /// 12).</para></li><li><para>The value of <c>ThroughputCapacityPerHAPair</c> is not a valid value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

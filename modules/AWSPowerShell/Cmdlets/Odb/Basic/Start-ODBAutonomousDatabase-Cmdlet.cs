@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Start", "ODBAutonomousDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.StartAutonomousDatabaseResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services StartAutonomousDatabase API operation.", Operation = new[] {"StartAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.StartAutonomousDatabaseResponse))]
+    [AWSCmdlet("Calls the odb StartAutonomousDatabase API operation.", Operation = new[] {"StartAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.StartAutonomousDatabaseResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.StartAutonomousDatabaseResponse",
         "This cmdlet returns an Amazon.Odb.Model.StartAutonomousDatabaseResponse object containing multiple properties."
     )]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.StartAutonomousDatabaseResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.StartAutonomousDatabaseRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "StartAutonomousDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "StartAutonomousDatabase");
             try
             {
                 return client.StartAutonomousDatabaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

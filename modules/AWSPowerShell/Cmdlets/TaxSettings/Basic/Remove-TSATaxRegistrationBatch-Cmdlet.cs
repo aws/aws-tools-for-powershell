@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </summary>
     [Cmdlet("Remove", "TSATaxRegistrationBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationError")]
-    [AWSCmdlet("Calls the AWS Tax Settings BatchDeleteTaxRegistration API operation.", Operation = new[] {"BatchDeleteTaxRegistration"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationResponse))]
+    [AWSCmdlet("Calls the Tax Settings BatchDeleteTaxRegistration API operation.", Operation = new[] {"BatchDeleteTaxRegistration"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationResponse))]
     [AWSCmdletOutput("Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationError or Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationResponse",
         "This cmdlet returns a collection of Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationError objects.",
         "The service call response (type Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationResponse) can be returned by specifying '-Select *'."
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         
         private Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "BatchDeleteTaxRegistration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Tax Settings", "BatchDeleteTaxRegistration");
             try
             {
                 return client.BatchDeleteTaxRegistrationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

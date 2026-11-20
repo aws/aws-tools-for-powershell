@@ -120,7 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>Represents the rules to modify for the device pool. Updating rules is optional. If
-        /// you update rules for your request, the update replaces the existing rules.</para><para />
+        /// you update rules for your request, the update replaces the existing rules.</para><note><para>A device pool contains either physical devices or virtual devices, but not both. If
+        /// you define the pool with attribute rules and those rules do not include a <c>DEVICE_TYPE</c>
+        /// rule, the pool contains only physical devices. If you define the pool by listing device
+        /// ARNs, the pool contains the devices you list.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Update", "ODBExadbVmCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.UpdateExadbVmClusterResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services UpdateExadbVmCluster API operation.", Operation = new[] {"UpdateExadbVmCluster"}, SelectReturnType = typeof(Amazon.Odb.Model.UpdateExadbVmClusterResponse))]
+    [AWSCmdlet("Calls the odb UpdateExadbVmCluster API operation.", Operation = new[] {"UpdateExadbVmCluster"}, SelectReturnType = typeof(Amazon.Odb.Model.UpdateExadbVmClusterResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.UpdateExadbVmClusterResponse",
         "This cmdlet returns an Amazon.Odb.Model.UpdateExadbVmClusterResponse object containing multiple properties."
     )]
@@ -388,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.UpdateExadbVmClusterResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.UpdateExadbVmClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "UpdateExadbVmCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "UpdateExadbVmCluster");
             try
             {
                 return client.UpdateExadbVmClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

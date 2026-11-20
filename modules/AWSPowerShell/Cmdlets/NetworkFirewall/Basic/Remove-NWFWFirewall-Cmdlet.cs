@@ -99,6 +99,21 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String FirewallName { get; set; }
         #endregion
         
+        #region Parameter FirewallType
+        /// <summary>
+        /// <para>
+        /// <para>The type of firewall that the request targets. Network Firewall supports the following
+        /// firewall types:</para><ul><li><para><c>IGW_FIREWALL</c> - An internet gateway firewall, which Amazon Web Services Network
+        /// Security Manager creates and manages for a VPC.</para></li><li><para><c>FIREWALL</c> - A standard Network Firewall firewall.</para></li></ul><para>If you specify the firewall ARN, the type must match the resource type in the ARN.
+        /// If you specify only the firewall name, Network Firewall uses this value to identify
+        /// the firewall. If you don't specify a type, the default is <c>FIREWALL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.FirewallType")]
+        public Amazon.NetworkFirewall.FirewallType FirewallType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -148,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             context.DeleteAssociatedNatGateway = this.DeleteAssociatedNatGateway;
             context.FirewallArn = this.FirewallArn;
             context.FirewallName = this.FirewallName;
+            context.FirewallType = this.FirewallType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.FirewallName != null)
             {
                 request.FirewallName = cmdletContext.FirewallName;
+            }
+            if (cmdletContext.FirewallType != null)
+            {
+                request.FirewallType = cmdletContext.FirewallType;
             }
             
             CmdletOutput output;
@@ -234,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.Boolean? DeleteAssociatedNatGateway { get; set; }
             public System.String FirewallArn { get; set; }
             public System.String FirewallName { get; set; }
+            public Amazon.NetworkFirewall.FirewallType FirewallType { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.DeleteFirewallResponse, RemoveNWFWFirewallCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

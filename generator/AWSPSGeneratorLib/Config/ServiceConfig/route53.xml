@@ -215,6 +215,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetHostedZoneChangeBatch" OutputProperty="*" Verb="Get" Noun="HostedZoneChangeBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetHostedZoneCount" OutputProperty="HostedZoneCount" Verb="Get" Noun="HostedZoneCount" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -275,6 +279,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListHostedZoneChangeBatches" OutputProperty="ChangeBatchSummaries" Verb="Get" Noun="HostedZoneChangeBatchList" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListHostedZones" OutputProperty="HostedZones" Verb="Get" Noun="HostedZoneList" PipelineParameter="DelegationSetId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53HostedZones">
             <Params />
             <TypesNotToFlatten />
@@ -293,6 +301,10 @@
         <ServiceOperation MethodName="ListQueryLoggingConfigs" OutputProperty="QueryLoggingConfigs" Verb="Get" Noun="QueryLoggingConfigList" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceRecordSetChanges" OutputProperty="ResourceRecordSetChanges" Verb="Get" Noun="ResourceRecordSetChangeList" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListResourceRecordSetProtections" OutputProperty="ResourceRecordSetProtections" Verb="Get" Noun="ResourceRecordSetProtectionList" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
@@ -362,6 +374,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateHostedZoneFeatures" Verb="Update" Noun="HostedZoneFeature" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHostedZoneTier" Verb="Update" Noun="HostedZoneTier" ShouldProcessTarget="HostedZoneTier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

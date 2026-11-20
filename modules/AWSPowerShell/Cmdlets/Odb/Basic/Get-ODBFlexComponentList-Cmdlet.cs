@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBFlexComponentList")]
     [OutputType("Amazon.Odb.Model.FlexComponentSummary")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListFlexComponents API operation.", Operation = new[] {"ListFlexComponents"}, SelectReturnType = typeof(Amazon.Odb.Model.ListFlexComponentsResponse))]
+    [AWSCmdlet("Calls the odb ListFlexComponents API operation.", Operation = new[] {"ListFlexComponents"}, SelectReturnType = typeof(Amazon.Odb.Model.ListFlexComponentsResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.FlexComponentSummary or Amazon.Odb.Model.ListFlexComponentsResponse",
         "This cmdlet returns a collection of Amazon.Odb.Model.FlexComponentSummary objects.",
         "The service call response (type Amazon.Odb.Model.ListFlexComponentsResponse) can be returned by specifying '-Select *'."
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ListFlexComponentsResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListFlexComponentsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListFlexComponents");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ListFlexComponents");
             try
             {
                 return client.ListFlexComponentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

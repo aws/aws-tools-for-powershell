@@ -317,11 +317,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAssetType" Verb="Remove" Noun="AssetType" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAttachment" OutputProperty="AssetIdentifier" Verb="Remove" Noun="Attachment" ShouldProcessTarget="AttachmentName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteAttachment" OutputProperty="AssetId" Verb="Remove" Noun="Attachment" ShouldProcessTarget="AttachmentName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1063,12 +1059,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAsset" OutputProperty="*" Verb="Write" Noun="Asset" ShouldProcessTarget="AssetTypeId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="PutAssetType" OutputProperty="*" Verb="Write" Noun="AssetType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+        <ServiceOperation MethodName="PutAsset" OutputProperty="*" Verb="Write" Noun="Asset" ShouldProcessTarget="AssetTypeIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="AssetTypeIdentifier" NewName="AssetTypeId" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAttachment" OutputProperty="*" Verb="Write" Noun="Attachment" ShouldProcessTarget="AttachmentName" PipelineParameter="" NoPipelineParameter="true">
@@ -1085,8 +1079,12 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDataCatalogExportConfiguration" OutputProperty="*" Verb="Write" Noun="DataCatalogExportConfiguration" ShouldProcessTarget="ExportSetting" PipelineParameter="ExportSetting" NoPipelineParameter="false">
-            <Params />
+        <ServiceOperation MethodName="PutDataCatalogExportConfiguration" OutputProperty="*" Verb="Write" Noun="DataCatalogExportConfiguration" ShouldProcessTarget="Assets_S3TablesExport" PipelineParameter="Assets_S3TablesExport" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Assets_S3TablesExport" NewName="ExportSetting" />
+                <Param Name="S3TablesConfiguration_EncryptionConfiguration_KmsKeyArn" NewName="EncryptionConfiguration_KmsKeyArn" />
+                <Param Name="S3TablesConfiguration_EncryptionConfiguration_SseAlgorithm" NewName="EncryptionConfiguration_SseAlgorithm" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDataQualityProfileAnnotation" Verb="Write" Noun="DataQualityProfileAnnotation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">

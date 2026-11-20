@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Remove", "ODBAutonomousDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services DeleteAutonomousDatabase API operation.", Operation = new[] {"DeleteAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteAutonomousDatabaseResponse))]
+    [AWSCmdlet("Calls the odb DeleteAutonomousDatabase API operation.", Operation = new[] {"DeleteAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteAutonomousDatabaseResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.DeleteAutonomousDatabaseResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.DeleteAutonomousDatabaseResponse) be returned by specifying '-Select *'."
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.DeleteAutonomousDatabaseResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.DeleteAutonomousDatabaseRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "DeleteAutonomousDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "DeleteAutonomousDatabase");
             try
             {
                 return client.DeleteAutonomousDatabaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -129,6 +129,18 @@ namespace Amazon.PowerShell.Cmdlets.PCC
         public Amazon.PartnerCentralChannel.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of the program management account (for example, resale billing transfer,
+        /// managed services), required for the managed services provider program.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralChannel.ProgramManagementAccountType")]
+        public Amazon.PartnerCentralChannel.ProgramManagementAccountType Type { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -223,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             {
                 context.Tag = new List<Amazon.PartnerCentralChannel.Model.Tag>(this.Tag);
             }
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -262,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -324,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             public System.String DisplayName { get; set; }
             public Amazon.PartnerCentralChannel.Program Program { get; set; }
             public List<Amazon.PartnerCentralChannel.Model.Tag> Tag { get; set; }
+            public Amazon.PartnerCentralChannel.ProgramManagementAccountType Type { get; set; }
             public System.Func<Amazon.PartnerCentralChannel.Model.CreateProgramManagementAccountResponse, NewPCCProgramManagementAccountCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProgramManagementAccountDetail;
         }

@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated description of the glossary.</para>
+        /// The new description. Omit it to keep the current
+        /// description; set it to an empty string to clear it.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

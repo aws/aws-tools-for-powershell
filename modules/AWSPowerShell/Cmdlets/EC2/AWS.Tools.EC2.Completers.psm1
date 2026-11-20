@@ -840,7 +840,7 @@ $EC2_Completers = {
             ($_ -eq "Get-EC2IpamPolicyAllocationRule/ResourceType")
         }
         {
-            $v = "alb","eip","rds","rnat"
+            $v = "alb","eip","igw-firewall","lambda-network-connector","rds","rnat"
             break
         }
 
@@ -1520,7 +1520,7 @@ $EC2_Completers = {
             ($_ -eq "Get-EC2DefaultCreditSpecification/InstanceFamily")
         }
         {
-            $v = "t2","t3","t3a","t4g","t8i"
+            $v = "t2","t3","t3a","t4g","t8i","t9g"
             break
         }
 

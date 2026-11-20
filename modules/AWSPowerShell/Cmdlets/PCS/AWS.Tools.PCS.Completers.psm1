@@ -90,6 +90,46 @@ $PCS_Completers = {
             break
         }
 
+        # Amazon.PCS.DeepHealthCheckOnStartProfile
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/InstanceHealthChecks_DeepHealthChecks_OnStart_Profile") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/InstanceHealthChecks_DeepHealthChecks_OnStart_Profile")
+        }
+        {
+            $v = "LONG","MEDIUM","NONE","QUICK"
+            break
+        }
+
+        # Amazon.PCS.DeepHealthCheckOnStartRepairAction
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction")
+        }
+        {
+            $v = "AUTO","ISOLATE","NONE","REPLACE"
+            break
+        }
+
+        # Amazon.PCS.HealthMonitoringMode
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/InstanceHealthChecks_HealthMonitoring_Mode") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/InstanceHealthChecks_HealthMonitoring_Mode")
+        }
+        {
+            $v = "NONE","STANDARD"
+            break
+        }
+
+        # Amazon.PCS.HealthMonitoringRepairAction
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/InstanceHealthChecks_HealthMonitoring_RepairAction") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/InstanceHealthChecks_HealthMonitoring_RepairAction")
+        }
+        {
+            $v = "AUTO","ISOLATE","NONE","REPLACE"
+            break
+        }
+
         # Amazon.PCS.LaunchTemplateMode
         {
             ($_ -eq "New-PCSComputeNodeGroup/LaunchTemplateMode") -Or
@@ -171,6 +211,10 @@ $PCS_Completers = {
 
 $PCS_map = @{
     "Accounting_Mode"=@("New-PCSCluster","Update-PCSCluster")
+    "InstanceHealthChecks_DeepHealthChecks_OnStart_Profile"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
+    "InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
+    "InstanceHealthChecks_HealthMonitoring_Mode"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
+    "InstanceHealthChecks_HealthMonitoring_RepairAction"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "LaunchTemplateMode"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Networking_NetworkType"=@("New-PCSCluster")
     "NodeLifecycleActions_ScriptCachingPolicy"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")

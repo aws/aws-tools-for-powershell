@@ -112,6 +112,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-R53HealthCheckSourceList', 
         'Get-R53HealthCheckStatus', 
         'Get-R53HostedZone', 
+        'Get-R53HostedZoneChangeBatch', 
+        'Get-R53HostedZoneChangeBatchList', 
         'Get-R53HostedZoneCount', 
         'Get-R53HostedZoneLimit', 
         'Get-R53HostedZoneList', 
@@ -120,6 +122,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-R53QueryLoggingConfig', 
         'Get-R53QueryLoggingConfigList', 
         'Get-R53ResourceRecordSet', 
+        'Get-R53ResourceRecordSetChangeList', 
         'Get-R53ResourceRecordSetProtectionList', 
         'Get-R53ReusableDelegationSet', 
         'Get-R53ReusableDelegationSetLimit', 
@@ -164,6 +167,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-R53HealthCheck', 
         'Update-R53HostedZoneComment', 
         'Update-R53HostedZoneFeature', 
+        'Update-R53HostedZoneTier', 
         'Update-R53TrafficPolicyComment', 
         'Update-R53TrafficPolicyInstance')
 

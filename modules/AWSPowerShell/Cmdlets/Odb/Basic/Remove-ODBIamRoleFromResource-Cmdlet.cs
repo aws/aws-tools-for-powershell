@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Remove", "ODBIamRoleFromResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services DisassociateIamRoleFromResource API operation.", Operation = new[] {"DisassociateIamRoleFromResource"}, SelectReturnType = typeof(Amazon.Odb.Model.DisassociateIamRoleFromResourceResponse))]
+    [AWSCmdlet("Calls the odb DisassociateIamRoleFromResource API operation.", Operation = new[] {"DisassociateIamRoleFromResource"}, SelectReturnType = typeof(Amazon.Odb.Model.DisassociateIamRoleFromResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.DisassociateIamRoleFromResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.DisassociateIamRoleFromResourceResponse) be returned by specifying '-Select *'."
@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.DisassociateIamRoleFromResourceResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.DisassociateIamRoleFromResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "DisassociateIamRoleFromResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "DisassociateIamRoleFromResource");
             try
             {
                 return client.DisassociateIamRoleFromResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

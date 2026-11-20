@@ -23,49 +23,33 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.APIPortal;
+using Amazon.APIPortal.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.APIP
 {
     /// <summary>
-    /// Deletes an asset type from Glue Data Catalog.
+    /// Deletes the organization-wide discovery configuration and stops any running discovery
+    /// across the organization. Only the organization management account may call this operation.
     /// </summary>
-    [Cmdlet("Remove", "GLUEAssetType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "APIPOrganizationDiscoveryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Glue DeleteAssetType API operation.", Operation = new[] {"DeleteAssetType"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteAssetTypeResponse))]
-    [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteAssetTypeResponse",
+    [AWSCmdlet("Calls the APIPortal DeleteOrganizationDiscoveryConfiguration API operation.", Operation = new[] {"DeleteOrganizationDiscoveryConfiguration"}, SelectReturnType = typeof(Amazon.APIPortal.Model.DeleteOrganizationDiscoveryConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.APIPortal.Model.DeleteOrganizationDiscoveryConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.DeleteAssetTypeResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.APIPortal.Model.DeleteOrganizationDiscoveryConfigurationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveGLUEAssetTypeCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemoveAPIPOrganizationDiscoveryConfigurationCmdlet : AmazonAPIPortalClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Identifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the asset type to delete.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.DeleteAssetTypeResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.APIPortal.Model.DeleteOrganizationDiscoveryConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GLUEAssetType (DeleteAssetType)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-APIPOrganizationDiscoveryConfiguration (DeleteOrganizationDiscoveryConfiguration)"))
             {
                 return;
             }
@@ -104,16 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.DeleteAssetTypeResponse, RemoveGLUEAssetTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.APIPortal.Model.DeleteOrganizationDiscoveryConfigurationResponse, RemoveAPIPOrganizationDiscoveryConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Identifier = this.Identifier;
-            #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -128,12 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.DeleteAssetTypeRequest();
+            var request = new Amazon.APIPortal.Model.DeleteOrganizationDiscoveryConfigurationRequest();
             
-            if (cmdletContext.Identifier != null)
-            {
-                request.Identifier = cmdletContext.Identifier;
-            }
             
             CmdletOutput output;
             
@@ -167,12 +140,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.DeleteAssetTypeResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.DeleteAssetTypeRequest request)
+        private Amazon.APIPortal.Model.DeleteOrganizationDiscoveryConfigurationResponse CallAWSServiceOperation(IAmazonAPIPortal client, Amazon.APIPortal.Model.DeleteOrganizationDiscoveryConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "DeleteAssetType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "APIPortal", "DeleteOrganizationDiscoveryConfiguration");
             try
             {
-                return client.DeleteAssetTypeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteOrganizationDiscoveryConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -189,8 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.Glue.Model.DeleteAssetTypeResponse, RemoveGLUEAssetTypeCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.APIPortal.Model.DeleteOrganizationDiscoveryConfigurationResponse, RemoveAPIPOrganizationDiscoveryConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

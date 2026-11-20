@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter LongDescription
         /// <summary>
         /// <para>
-        /// <para>The updated long description of the glossary term.</para>
+        /// The new long description. Omit it to keep
+        /// the current one; set it to an empty string to clear it.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ShortDescription
         /// <summary>
         /// <para>
-        /// <para>The updated short description of the glossary term.</para>
+        /// The new short description. Omit it to
+        /// keep the current one; set it to an empty string to clear it.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

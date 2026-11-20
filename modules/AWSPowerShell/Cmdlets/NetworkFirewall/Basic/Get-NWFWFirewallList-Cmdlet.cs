@@ -52,6 +52,19 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter FirewallType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the firewall type to filter the results by. You can specify one of the following
+        /// values:</para><ul><li><para><c>IGW_FIREWALL</c> - Returns only internet gateway firewalls, which Amazon Web Services
+        /// Network Security Manager creates and manages for your VPCs.</para></li><li><para><c>FIREWALL</c> - Returns only standard Network Firewall firewalls.</para></li></ul><para>If you don't specify a type, the default is to return firewalls of both types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.FirewallType")]
+        public Amazon.NetworkFirewall.FirewallType FirewallType { get; set; }
+        #endregion
+        
         #region Parameter VpcId
         /// <summary>
         /// <para>
@@ -146,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.ListFirewallsResponse, GetNWFWFirewallListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.FirewallType = this.FirewallType;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -179,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             // create request and set iteration invariants
             var request = new Amazon.NetworkFirewall.Model.ListFirewallsRequest();
             
+            if (cmdletContext.FirewallType != null)
+            {
+                request.FirewallType = cmdletContext.FirewallType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -267,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.NetworkFirewall.FirewallType FirewallType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> VpcId { get; set; }

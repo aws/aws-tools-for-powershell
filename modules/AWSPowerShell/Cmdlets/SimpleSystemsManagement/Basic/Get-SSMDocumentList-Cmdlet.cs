@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>One or more <c>DocumentKeyValuesFilter</c> objects. Use a filter to return a more
         /// specific list of results. For keys, you can specify one or more key-value pair tags
         /// that have been applied to a document. Other valid keys include <c>Owner</c>, <c>Name</c>,
-        /// <c>PlatformTypes</c>, <c>DocumentType</c>, and <c>TargetType</c>. For example, to
-        /// return documents you own use <c>Key=Owner,Values=Self</c>. To specify a custom key-value
-        /// pair, use the format <c>Key=tag:tagName,Values=valueName</c>.</para><note><para>This API operation only supports filtering documents by using a single tag key and
+        /// <c>PlatformTypes</c>, <c>DocumentType</c>, <c>TargetType</c>, and <c>CloudProviders</c>.
+        /// For example, to return documents you own use <c>Key=Owner,Values=Self</c>. To specify
+        /// a custom key-value pair, use the format <c>Key=tag:tagName,Values=valueName</c>.</para><note><para>This API operation only supports filtering documents by using a single tag key and
         /// one or more tag values. For example: <c>Key=tag:tagName,Values=valueName1,valueName2</c></para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This

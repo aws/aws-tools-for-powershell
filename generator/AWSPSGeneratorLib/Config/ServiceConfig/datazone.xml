@@ -938,6 +938,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssetOwner" OutputProperty="*" Verb="Update" Noun="AssetOwner" ShouldProcessTarget="DomainIdentifier,Identifier,TargetProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnection" OutputProperty="*" Verb="Update" Noun="Connection" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Props_AmazonQProperties_AuthMode" NewName="AmazonQProperties_AuthMode" />

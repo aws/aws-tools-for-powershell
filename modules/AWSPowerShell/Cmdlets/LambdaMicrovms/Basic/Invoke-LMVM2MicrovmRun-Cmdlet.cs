@@ -136,6 +136,18 @@ namespace Amazon.PowerShell.Cmdlets.LMVM2
         public System.String[] IngressNetworkConnector { get; set; }
         #endregion
         
+        #region Parameter KmsKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The customer managed Amazon Web Services Key Management Service (Amazon Web Services
+        /// KMS) key that encrypts your MicroVM configuration at rest. To use this operation,
+        /// you must have permission to use the key. Specify the key ARN or the alias ARN.</para><para>If you don't specify a key, your MicroVM uses an Amazon Web Services owned key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Logging_CloudWatch_LogGroup
         /// <summary>
         /// <para>
@@ -281,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.LMVM2
             {
                 context.IngressNetworkConnector = new List<System.String>(this.IngressNetworkConnector);
             }
+            context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.Logging_CloudWatch_LogGroup = this.Logging_CloudWatch_LogGroup;
             context.Logging_CloudWatch_LogStream = this.Logging_CloudWatch_LogStream;
             context.Logging_Disabled = this.Logging_Disabled;
@@ -364,6 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.LMVM2
             if (cmdletContext.IngressNetworkConnector != null)
             {
                 request.IngressNetworkConnectors = cmdletContext.IngressNetworkConnector;
+            }
+            if (cmdletContext.KmsKeyIdentifier != null)
+            {
+                request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
             }
             
              // populate Logging
@@ -491,6 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.LMVM2
             public System.String ImageIdentifier { get; set; }
             public System.String ImageVersion { get; set; }
             public List<System.String> IngressNetworkConnector { get; set; }
+            public System.String KmsKeyIdentifier { get; set; }
             public System.String Logging_CloudWatch_LogGroup { get; set; }
             public System.String Logging_CloudWatch_LogStream { get; set; }
             public Amazon.LambdaMicrovms.Model.LoggingDisabled Logging_Disabled { get; set; }

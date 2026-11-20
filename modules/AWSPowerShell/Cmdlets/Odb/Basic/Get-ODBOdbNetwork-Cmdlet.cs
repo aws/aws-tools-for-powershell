@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBOdbNetwork")]
     [OutputType("Amazon.Odb.Model.OdbNetwork")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services GetOdbNetwork API operation.", Operation = new[] {"GetOdbNetwork"}, SelectReturnType = typeof(Amazon.Odb.Model.GetOdbNetworkResponse))]
+    [AWSCmdlet("Calls the odb GetOdbNetwork API operation.", Operation = new[] {"GetOdbNetwork"}, SelectReturnType = typeof(Amazon.Odb.Model.GetOdbNetworkResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.OdbNetwork or Amazon.Odb.Model.GetOdbNetworkResponse",
         "This cmdlet returns an Amazon.Odb.Model.OdbNetwork object.",
         "The service call response (type Amazon.Odb.Model.GetOdbNetworkResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.GetOdbNetworkResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.GetOdbNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "GetOdbNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "GetOdbNetwork");
             try
             {
                 return client.GetOdbNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

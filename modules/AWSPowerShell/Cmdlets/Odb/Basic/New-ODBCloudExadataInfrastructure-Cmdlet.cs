@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("New", "ODBCloudExadataInfrastructure", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.CreateCloudExadataInfrastructureResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services CreateCloudExadataInfrastructure API operation.", Operation = new[] {"CreateCloudExadataInfrastructure"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateCloudExadataInfrastructureResponse))]
+    [AWSCmdlet("Calls the odb CreateCloudExadataInfrastructure API operation.", Operation = new[] {"CreateCloudExadataInfrastructure"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateCloudExadataInfrastructureResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.CreateCloudExadataInfrastructureResponse",
         "This cmdlet returns an Amazon.Odb.Model.CreateCloudExadataInfrastructureResponse object containing multiple properties."
     )]
@@ -646,7 +646,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.CreateCloudExadataInfrastructureResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.CreateCloudExadataInfrastructureRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "CreateCloudExadataInfrastructure");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "CreateCloudExadataInfrastructure");
             try
             {
                 return client.CreateCloudExadataInfrastructureAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

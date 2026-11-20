@@ -58,8 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SelfManagedActiveDirectoryConfiguration_DnsIp
         /// <summary>
         /// <para>
-        /// <para>A list of up to three IP addresses of DNS servers or domain controllers in the self-managed
-        /// AD directory. </para><para />
+        /// <para>A list of IP addresses of DNS servers or domain controllers in the self-managed AD
+        /// directory. FSx for ONTAP SVMs support up to three IP addresses, FSx for Windows supports
+        /// up to two. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

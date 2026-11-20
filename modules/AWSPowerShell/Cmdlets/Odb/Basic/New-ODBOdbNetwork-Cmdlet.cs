@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("New", "ODBOdbNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.CreateOdbNetworkResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services CreateOdbNetwork API operation.", Operation = new[] {"CreateOdbNetwork"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateOdbNetworkResponse))]
+    [AWSCmdlet("Calls the odb CreateOdbNetwork API operation.", Operation = new[] {"CreateOdbNetwork"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateOdbNetworkResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.CreateOdbNetworkResponse",
         "This cmdlet returns an Amazon.Odb.Model.CreateOdbNetworkResponse object containing multiple properties."
     )]
@@ -456,7 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.CreateOdbNetworkResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.CreateOdbNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "CreateOdbNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "CreateOdbNetwork");
             try
             {
                 return client.CreateOdbNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

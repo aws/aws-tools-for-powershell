@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Add", "COAResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ComputeOptimizerAutomation.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ComputeOptimizerAutomation.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.TagResourceResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

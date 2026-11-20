@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Get", "COAEnrollmentConfiguration")]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.GetEnrollmentConfigurationResponse")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service GetEnrollmentConfiguration API operation.", Operation = new[] {"GetEnrollmentConfiguration"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.GetEnrollmentConfigurationResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation GetEnrollmentConfiguration API operation.", Operation = new[] {"GetEnrollmentConfiguration"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.GetEnrollmentConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.GetEnrollmentConfigurationResponse",
         "This cmdlet returns an Amazon.ComputeOptimizerAutomation.Model.GetEnrollmentConfigurationResponse object containing multiple properties."
     )]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.GetEnrollmentConfigurationResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.GetEnrollmentConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "GetEnrollmentConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "GetEnrollmentConfiguration");
             try
             {
                 return client.GetEnrollmentConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

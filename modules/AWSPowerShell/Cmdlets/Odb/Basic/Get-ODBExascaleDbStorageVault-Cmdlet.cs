@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBExascaleDbStorageVault")]
     [OutputType("Amazon.Odb.Model.ExascaleDbStorageVault")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services GetExascaleDbStorageVault API operation.", Operation = new[] {"GetExascaleDbStorageVault"}, SelectReturnType = typeof(Amazon.Odb.Model.GetExascaleDbStorageVaultResponse))]
+    [AWSCmdlet("Calls the odb GetExascaleDbStorageVault API operation.", Operation = new[] {"GetExascaleDbStorageVault"}, SelectReturnType = typeof(Amazon.Odb.Model.GetExascaleDbStorageVaultResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.ExascaleDbStorageVault or Amazon.Odb.Model.GetExascaleDbStorageVaultResponse",
         "This cmdlet returns an Amazon.Odb.Model.ExascaleDbStorageVault object.",
         "The service call response (type Amazon.Odb.Model.GetExascaleDbStorageVaultResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.GetExascaleDbStorageVaultResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.GetExascaleDbStorageVaultRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "GetExascaleDbStorageVault");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "GetExascaleDbStorageVault");
             try
             {
                 return client.GetExascaleDbStorageVaultAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

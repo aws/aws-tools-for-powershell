@@ -96,21 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Content { get; set; }
         #endregion
         
-        #region Parameter FormTypeId
+        #region Parameter FormTypeIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the form type for this attachment.</para>
+        /// <para>The identifier of the form type for this attachment. This field is required.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FormTypeId { get; set; }
+        public System.String FormTypeIdentifier { get; set; }
         #endregion
         
         #region Parameter ItemIdentifier
@@ -214,13 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.FormTypeId = this.FormTypeId;
-            #if MODULAR
-            if (this.FormTypeId == null && ParameterWasBound(nameof(this.FormTypeId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FormTypeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.FormTypeIdentifier = this.FormTypeIdentifier;
             context.ItemIdentifier = this.ItemIdentifier;
             context.IterableFormName = this.IterableFormName;
             
@@ -255,9 +242,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.Content = cmdletContext.Content;
             }
-            if (cmdletContext.FormTypeId != null)
+            if (cmdletContext.FormTypeIdentifier != null)
             {
-                request.FormTypeId = cmdletContext.FormTypeId;
+                request.FormTypeIdentifier = cmdletContext.FormTypeIdentifier;
             }
             if (cmdletContext.ItemIdentifier != null)
             {
@@ -326,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String AttachmentName { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Content { get; set; }
-            public System.String FormTypeId { get; set; }
+            public System.String FormTypeIdentifier { get; set; }
             public System.String ItemIdentifier { get; set; }
             public System.String IterableFormName { get; set; }
             public System.Func<Amazon.Glue.Model.PutAttachmentResponse, WriteGLUEAttachmentCmdlet, object> Select { get; set; } =

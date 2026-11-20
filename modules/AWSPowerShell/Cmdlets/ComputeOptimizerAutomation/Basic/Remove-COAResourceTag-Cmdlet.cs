@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Remove", "COAResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.UntagResourceResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ComputeOptimizerAutomation.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ComputeOptimizerAutomation.Model.UntagResourceResponse) be returned by specifying '-Select *'."
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "UntagResource");
             try
             {
                 return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

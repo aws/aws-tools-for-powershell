@@ -87,18 +87,27 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-AGRCPublisher', 
         'Add-AGRCResourceTag', 
+        'Get-AGRCPublisher', 
+        'Get-AGRCPublisherAssociationList', 
+        'Get-AGRCPublisherList', 
         'Get-AGRCRegistry', 
         'Get-AGRCRegistryList', 
         'Get-AGRCRegistryRecord', 
         'Get-AGRCRegistryRecordList', 
         'Get-AGRCResourceTag', 
+        'New-AGRCPublisher', 
         'New-AGRCRegistry', 
         'New-AGRCRegistryRecord', 
+        'Remove-AGRCPublisher', 
         'Remove-AGRCRegistry', 
         'Remove-AGRCRegistryRecord', 
         'Remove-AGRCResourceTag', 
         'Submit-AGRCRegistryRecordForApproval', 
+        'Test-AGRCPublisher', 
+        'Unregister-AGRCPublisher', 
+        'Update-AGRCPublisherAssociationApprovalStatus', 
         'Update-AGRCRegistry', 
         'Update-AGRCRegistryRecord', 
         'Update-AGRCRegistryRecordStatus')

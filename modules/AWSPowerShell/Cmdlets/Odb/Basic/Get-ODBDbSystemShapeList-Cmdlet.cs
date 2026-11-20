@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBDbSystemShapeList")]
     [OutputType("Amazon.Odb.Model.DbSystemShapeSummary")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListDbSystemShapes API operation.", Operation = new[] {"ListDbSystemShapes"}, SelectReturnType = typeof(Amazon.Odb.Model.ListDbSystemShapesResponse))]
+    [AWSCmdlet("Calls the odb ListDbSystemShapes API operation.", Operation = new[] {"ListDbSystemShapes"}, SelectReturnType = typeof(Amazon.Odb.Model.ListDbSystemShapesResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.DbSystemShapeSummary or Amazon.Odb.Model.ListDbSystemShapesResponse",
         "This cmdlet returns a collection of Amazon.Odb.Model.DbSystemShapeSummary objects.",
         "The service call response (type Amazon.Odb.Model.ListDbSystemShapesResponse) can be returned by specifying '-Select *'."
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ListDbSystemShapesResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListDbSystemShapesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListDbSystemShapes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ListDbSystemShapes");
             try
             {
                 return client.ListDbSystemShapesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -45,25 +45,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ExportSetting
-        /// <summary>
-        /// <para>
-        /// <para>The export setting for the data catalog. Specify <c>ENABLED</c> to start exporting
-        /// catalog metadata to S3 Tables, or <c>DISABLED</c> to stop exporting. This field is
-        /// required.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Glue.ExportSetting")]
-        public Amazon.Glue.ExportSetting ExportSetting { get; set; }
-        #endregion
-        
         #region Parameter EncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
@@ -71,7 +52,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("S3TablesConfiguration_EncryptionConfiguration_KmsKeyArn")]
         public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter ExportSetting
+        /// <summary>
+        /// <para>
+        /// <para>Whether asset metadata is exported to S3 Tables. Valid values are <c>ENABLED</c> and
+        /// <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [Alias("Assets_S3TablesExport")]
+        [AWSConstantClassSource("Amazon.Glue.ExportSetting")]
+        public Amazon.Glue.ExportSetting ExportSetting { get; set; }
         #endregion
         
         #region Parameter EncryptionConfiguration_SseAlgorithm
@@ -82,6 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("S3TablesConfiguration_EncryptionConfiguration_SseAlgorithm")]
         public System.String EncryptionConfiguration_SseAlgorithm { get; set; }
         #endregion
         
@@ -142,16 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.PutDataCatalogExportConfigurationResponse, WriteGLUEDataCatalogExportConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ExportSetting = this.ExportSetting;
             context.ClientToken = this.ClientToken;
             context.EncryptionConfiguration_KmsKeyArn = this.EncryptionConfiguration_KmsKeyArn;
             context.EncryptionConfiguration_SseAlgorithm = this.EncryptionConfiguration_SseAlgorithm;
-            context.ExportSetting = this.ExportSetting;
-            #if MODULAR
-            if (this.ExportSetting == null && ParameterWasBound(nameof(this.ExportSetting)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ExportSetting which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,42 +158,72 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.PutDataCatalogExportConfigurationRequest();
             
+            
+             // populate Assets
+            var requestAssetsIsNull = true;
+            request.Assets = new Amazon.Glue.Model.AssetsExport();
+            Amazon.Glue.ExportSetting requestAssets_exportSetting = null;
+            if (cmdletContext.ExportSetting != null)
+            {
+                requestAssets_exportSetting = cmdletContext.ExportSetting;
+            }
+            if (requestAssets_exportSetting != null)
+            {
+                request.Assets.S3TablesExport = requestAssets_exportSetting;
+                requestAssetsIsNull = false;
+            }
+             // determine if request.Assets should be set to null
+            if (requestAssetsIsNull)
+            {
+                request.Assets = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
             
+             // populate S3TablesConfiguration
+            var requestS3TablesConfigurationIsNull = true;
+            request.S3TablesConfiguration = new Amazon.Glue.Model.S3TablesConfiguration();
+            Amazon.Glue.Model.ExportEncryptionConfiguration requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration = null;
+            
              // populate EncryptionConfiguration
-            var requestEncryptionConfigurationIsNull = true;
-            request.EncryptionConfiguration = new Amazon.Glue.Model.ExportEncryptionConfiguration();
-            System.String requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn = null;
+            var requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfigurationIsNull = true;
+            requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration = new Amazon.Glue.Model.ExportEncryptionConfiguration();
+            System.String requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration_encryptionConfiguration_KmsKeyArn = null;
             if (cmdletContext.EncryptionConfiguration_KmsKeyArn != null)
             {
-                requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn = cmdletContext.EncryptionConfiguration_KmsKeyArn;
+                requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration_encryptionConfiguration_KmsKeyArn = cmdletContext.EncryptionConfiguration_KmsKeyArn;
             }
-            if (requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn != null)
+            if (requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration_encryptionConfiguration_KmsKeyArn != null)
             {
-                request.EncryptionConfiguration.KmsKeyArn = requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn;
-                requestEncryptionConfigurationIsNull = false;
+                requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration.KmsKeyArn = requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration_encryptionConfiguration_KmsKeyArn;
+                requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfigurationIsNull = false;
             }
-            System.String requestEncryptionConfiguration_encryptionConfiguration_SseAlgorithm = null;
+            System.String requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration_encryptionConfiguration_SseAlgorithm = null;
             if (cmdletContext.EncryptionConfiguration_SseAlgorithm != null)
             {
-                requestEncryptionConfiguration_encryptionConfiguration_SseAlgorithm = cmdletContext.EncryptionConfiguration_SseAlgorithm;
+                requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration_encryptionConfiguration_SseAlgorithm = cmdletContext.EncryptionConfiguration_SseAlgorithm;
             }
-            if (requestEncryptionConfiguration_encryptionConfiguration_SseAlgorithm != null)
+            if (requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration_encryptionConfiguration_SseAlgorithm != null)
             {
-                request.EncryptionConfiguration.SseAlgorithm = requestEncryptionConfiguration_encryptionConfiguration_SseAlgorithm;
-                requestEncryptionConfigurationIsNull = false;
+                requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration.SseAlgorithm = requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration_encryptionConfiguration_SseAlgorithm;
+                requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfigurationIsNull = false;
             }
-             // determine if request.EncryptionConfiguration should be set to null
-            if (requestEncryptionConfigurationIsNull)
+             // determine if requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration should be set to null
+            if (requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfigurationIsNull)
             {
-                request.EncryptionConfiguration = null;
+                requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration = null;
             }
-            if (cmdletContext.ExportSetting != null)
+            if (requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration != null)
             {
-                request.ExportSetting = cmdletContext.ExportSetting;
+                request.S3TablesConfiguration.EncryptionConfiguration = requestS3TablesConfiguration_s3TablesConfiguration_EncryptionConfiguration;
+                requestS3TablesConfigurationIsNull = false;
+            }
+             // determine if request.S3TablesConfiguration should be set to null
+            if (requestS3TablesConfigurationIsNull)
+            {
+                request.S3TablesConfiguration = null;
             }
             
             CmdletOutput output;
@@ -260,10 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Glue.ExportSetting ExportSetting { get; set; }
             public System.String ClientToken { get; set; }
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public System.String EncryptionConfiguration_SseAlgorithm { get; set; }
-            public Amazon.Glue.ExportSetting ExportSetting { get; set; }
             public System.Func<Amazon.Glue.Model.PutDataCatalogExportConfigurationResponse, WriteGLUEDataCatalogExportConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

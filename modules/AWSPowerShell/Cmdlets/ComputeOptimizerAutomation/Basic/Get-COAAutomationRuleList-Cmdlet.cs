@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Get", "COAAutomationRuleList")]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.AutomationRule")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service ListAutomationRules API operation.", Operation = new[] {"ListAutomationRules"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListAutomationRulesResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation ListAutomationRules API operation.", Operation = new[] {"ListAutomationRules"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListAutomationRulesResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.AutomationRule or Amazon.ComputeOptimizerAutomation.Model.ListAutomationRulesResponse",
         "This cmdlet returns a collection of Amazon.ComputeOptimizerAutomation.Model.AutomationRule objects.",
         "The service call response (type Amazon.ComputeOptimizerAutomation.Model.ListAutomationRulesResponse) can be returned by specifying '-Select *'."
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.COA
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of automation rules to return in a single response. Valid range
-        /// is 1-1000.</para>
+        /// <para>The maximum number of automation rules to return in a single response. If you don't
+        /// specify a value, the default is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.ListAutomationRulesResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.ListAutomationRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "ListAutomationRules");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "ListAutomationRules");
             try
             {
                 return client.ListAutomationRulesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

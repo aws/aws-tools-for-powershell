@@ -136,9 +136,41 @@ $BDR_Completers = {
         }
 
         # Amazon.Bedrock.DataRetentionMode
-        "Write-BDRAccountDataRetention/Mode"
+        {
+            ($_ -eq "New-BDRProject/DataRetention_Mode") -Or
+            ($_ -eq "Update-BDRProject/DataRetention_Mode") -Or
+            ($_ -eq "Write-BDRAccountDataRetention/Mode")
+        }
         {
             $v = "aws_review","default","inherit","none","provider_data_share"
+            break
+        }
+
+        # Amazon.Bedrock.DataRetentionStorageDestination
+        {
+            ($_ -eq "Write-BDRAccountDataRetentionStorage/StorageDestination") -Or
+            ($_ -eq "Write-BDROrganizationDataRetentionStorage/StorageDestination") -Or
+            ($_ -eq "Write-BDRProjectDataRetentionStorage/StorageDestination")
+        }
+        {
+            $v = "amazon_managed","customer_managed"
+            break
+        }
+
+        # Amazon.Bedrock.DataRetentionStorageModelProvider
+        {
+            ($_ -eq "Get-BDRAccountDataRetentionStorage/ModelProvider") -Or
+            ($_ -eq "Get-BDROrganizationDataRetentionStorage/ModelProvider") -Or
+            ($_ -eq "Get-BDRProjectDataRetentionStorage/ModelProvider") -Or
+            ($_ -eq "Remove-BDRAccountDataRetentionStorage/ModelProvider") -Or
+            ($_ -eq "Remove-BDROrganizationDataRetentionStorage/ModelProvider") -Or
+            ($_ -eq "Remove-BDRProjectDataRetentionStorage/ModelProvider") -Or
+            ($_ -eq "Write-BDRAccountDataRetentionStorage/ModelProvider") -Or
+            ($_ -eq "Write-BDROrganizationDataRetentionStorage/ModelProvider") -Or
+            ($_ -eq "Write-BDRProjectDataRetentionStorage/ModelProvider")
+        }
+        {
+            $v = "anthropic","openai"
             break
         }
 
@@ -256,6 +288,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.ProjectStatus
+        "Get-BDRProjectList/StatusFilter"
+        {
+            $v = "active","archived"
+            break
+        }
+
         # Amazon.Bedrock.PromptRouterType
         "Get-BDRPromptRouterList/Type"
         {
@@ -344,6 +383,17 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.TrustedAccessProgramOptIn
+        {
+            ($_ -eq "Write-BDRTrustedAccessProgramAccountEnrollment/OptIn") -Or
+            ($_ -eq "Write-BDRTrustedAccessProgramOrganizationEnrollment/OptIn") -Or
+            ($_ -eq "Write-BDRTrustedAccessProgramProjectEnrollment/OptIn")
+        }
+        {
+            $v = "disabled","enabled","inherit"
+            break
+        }
+
 
     }
 
@@ -364,18 +414,23 @@ $BDR_map = @{
     "ContentPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "ContextualGroundingPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
+    "DataRetention_Mode"=@("New-BDRProject","Update-BDRProject")
     "ExpectedAggregatedFindingsResult"=@("New-BDRAutomatedReasoningPolicyTestCase","Update-BDRAutomatedReasoningPolicyTestCase")
     "GuardrailInferenceConfig_SelectiveContentGuarding_Message"=@("Write-BDREnforcedGuardrailConfiguration")
     "GuardrailInferenceConfig_SelectiveContentGuarding_System"=@("Write-BDREnforcedGuardrailConfiguration")
     "HyperParameters_ReasoningEffort"=@("New-BDRModelCustomizationJob")
     "Mode"=@("Write-BDRAccountDataRetention")
     "ModelInvocationType"=@("New-BDRModelInvocationJob")
+    "ModelProvider"=@("Get-BDRAccountDataRetentionStorage","Get-BDROrganizationDataRetentionStorage","Get-BDRProjectDataRetentionStorage","Remove-BDRAccountDataRetentionStorage","Remove-BDROrganizationDataRetentionStorage","Remove-BDRProjectDataRetentionStorage","Write-BDRAccountDataRetentionStorage","Write-BDROrganizationDataRetentionStorage","Write-BDRProjectDataRetentionStorage")
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
+    "OptIn"=@("Write-BDRTrustedAccessProgramAccountEnrollment","Write-BDRTrustedAccessProgramOrganizationEnrollment","Write-BDRTrustedAccessProgramProjectEnrollment")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
     "SortBy"=@("Get-BDRAdvancedPromptOptimizationJobList","Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRAdvancedPromptOptimizationJobList","Get-BDRCustomModelDeploymentList","Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "StatusEqual"=@("Get-BDRCustomModelDeploymentList","Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "StatusFilter"=@("Get-BDRProjectList")
+    "StorageDestination"=@("Write-BDRAccountDataRetentionStorage","Write-BDROrganizationDataRetentionStorage","Write-BDRProjectDataRetentionStorage")
     "TopicPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "Type"=@("Get-BDRPromptRouterList")
     "TypeEqual"=@("Get-BDRInferenceProfileList")
@@ -431,7 +486,8 @@ $BDR_SelectCompleters = {
 }
 
 $BDR_SelectMap = @{
-    "Select"=@("Remove-BDRAdvancedPromptOptimizationJobBatch",
+    "Select"=@("Set-BDRProjectAsArchived",
+               "Remove-BDRAdvancedPromptOptimizationJobBatch",
                "Set-BDRBatchDeleteEvaluationJob",
                "Stop-BDRAutomatedReasoningPolicyBuildWorkflow",
                "New-BDRAdvancedPromptOptimizationJob",
@@ -450,8 +506,10 @@ $BDR_SelectMap = @{
                "New-BDRModelCustomizationJob",
                "New-BDRModelImportJob",
                "New-BDRModelInvocationJob",
+               "New-BDRProject",
                "New-BDRPromptRouter",
                "New-BDRProvisionedModelThroughput",
+               "Remove-BDRAccountDataRetentionStorage",
                "Remove-BDRAutomatedReasoningPolicy",
                "Remove-BDRAutomatedReasoningPolicyBuildWorkflow",
                "Remove-BDRAutomatedReasoningPolicyTestCase",
@@ -464,12 +522,15 @@ $BDR_SelectMap = @{
                "Remove-BDRInferenceProfile",
                "Remove-BDRMarketplaceModelEndpoint",
                "Remove-BDRModelInvocationLoggingConfiguration",
+               "Remove-BDROrganizationDataRetentionStorage",
+               "Remove-BDRProjectDataRetentionStorage",
                "Remove-BDRPromptRouter",
                "Remove-BDRProvisionedModelThroughput",
                "Remove-BDRResourcePolicy",
                "Unregister-BDRMarketplaceModelEndpoint",
                "Export-BDRAutomatedReasoningPolicyVersion",
                "Get-BDRAccountDataRetention",
+               "Get-BDRAccountDataRetentionStorage",
                "Get-BDRAdvancedPromptOptimizationJob",
                "Get-BDRAutomatedReasoningPolicy",
                "Get-BDRAutomatedReasoningPolicyAnnotation",
@@ -492,9 +553,16 @@ $BDR_SelectMap = @{
                "Get-BDRModelImportJob",
                "Get-BDRModelInvocationJob",
                "Get-BDRModelInvocationLoggingConfiguration",
+               "Get-BDROrganizationDataRetentionStorage",
+               "Get-BDRProject",
+               "Get-BDRProjectDataRetentionStorage",
                "Get-BDRPromptRouter",
                "Get-BDRProvisionedModelThroughput",
                "Get-BDRResourcePolicy",
+               "Get-BDRTrustedAccessProgram",
+               "Get-BDRTrustedAccessProgramAccountEnrollment",
+               "Get-BDRTrustedAccessProgramOrganizationEnrollment",
+               "Get-BDRTrustedAccessProgramProjectEnrollment",
                "Get-BDRUseCaseForModelAccess",
                "Get-BDRAdvancedPromptOptimizationJobList",
                "Get-BDRAutomatedReasoningPolicyList",
@@ -515,17 +583,28 @@ $BDR_SelectMap = @{
                "Get-BDRModelCustomizationJobList",
                "Get-BDRModelImportJobList",
                "Get-BDRModelInvocationJobList",
+               "Get-BDRProjectList",
                "Get-BDRPromptRouterList",
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
+               "Get-BDRTrustedAccessProgramList",
                "Write-BDRAccountDataRetention",
+               "Write-BDRAccountDataRetentionStorage",
                "Write-BDREnforcedGuardrailConfiguration",
                "Write-BDRModelInvocationLoggingConfiguration",
+               "Write-BDROrganizationDataRetentionStorage",
+               "Write-BDRProjectDataRetentionStorage",
                "Write-BDRResourcePolicy",
+               "Write-BDRTrustedAccessProgramAccountEnrollment",
+               "Write-BDRTrustedAccessProgramOrganizationEnrollment",
+               "Write-BDRTrustedAccessProgramProjectEnrollment",
                "Write-BDRUseCaseForModelAccess",
                "Register-BDRMarketplaceModelEndpoint",
                "Start-BDRAutomatedReasoningPolicyBuildWorkflow",
                "Start-BDRAutomatedReasoningPolicyTestWorkflow",
+               "Start-BDRTrustedAccessProgramAccountApplication",
+               "Start-BDRTrustedAccessProgramOrganizationApplication",
+               "Start-BDRTrustedAccessProgramProjectApplication",
                "Stop-BDRAdvancedPromptOptimizationJob",
                "Stop-BDREvaluationJob",
                "Stop-BDRModelCustomizationJob",
@@ -538,6 +617,7 @@ $BDR_SelectMap = @{
                "Update-BDRCustomModelDeployment",
                "Update-BDRGuardrail",
                "Update-BDRMarketplaceModelEndpoint",
+               "Update-BDRProject",
                "Update-BDRProvisionedModelThroughput")
 }
 

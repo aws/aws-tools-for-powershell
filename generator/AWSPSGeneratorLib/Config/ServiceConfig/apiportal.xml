@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>apiportal</C2jFilename>
+    <AssemblyName>APIPortal</AssemblyName>
+    <ServiceNounPrefix>APIP</ServiceNounPrefix>
+    <ServiceName>APIPortal</ServiceName>
+    <ServiceId>APIPortal</ServiceId>
+    <ServiceClientInterface>IAmazonAPIPortal</ServiceClientInterface>
+    <ServiceClient>AmazonAPIPortalClient</ServiceClient>
+    <ServiceModuleGuid>3cb6fdad-ac83-444b-8b2c-bc337967234f</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateManagedApis" OutputProperty="FailedItems" Verb="Add" Noun="ManagedApi" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateManagedApi" OutputProperty="*" Verb="New" Noun="ManagedApi" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="PortalContent_DisplayName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePortalPreview" Verb="New" Noun="PortalPreview" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProduct" OutputProperty="*" Verb="New" Noun="Product" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProductApiPage" OutputProperty="*" Verb="New" Noun="ProductApiPage" ShouldProcessTarget="ManagedApiId,ProductId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProductPage" OutputProperty="*" Verb="New" Noun="ProductPage" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDiscoveryConfiguration" Verb="Remove" Noun="DiscoveryConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteManagedApi" Verb="Remove" Noun="ManagedApi" ShouldProcessTarget="ManagedApiId" PipelineParameter="ManagedApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOrganizationDiscoveryConfiguration" Verb="Remove" Noun="OrganizationDiscoveryConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePortal" Verb="Remove" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProduct" Verb="Remove" Noun="Product" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProductApiPage" Verb="Remove" Noun="ProductApiPage" ShouldProcessTarget="ProductApiPageId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProductPage" Verb="Remove" Noun="ProductPage" ShouldProcessTarget="ProductPageId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProductSharingPolicy" Verb="Remove" Noun="ProductSharingPolicy" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateManagedApis" OutputProperty="FailedItems" Verb="Unregister" Noun="ManagedApi" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApiInventoryItem" OutputProperty="Item" Verb="Get" Noun="ApiInventoryItem" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Host" NewName="HostName" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDiscoveryConfiguration" OutputProperty="*" Verb="Get" Noun="DiscoveryConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedApi" OutputProperty="*" Verb="Get" Noun="ManagedApi" PipelineParameter="ManagedApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOrganizationDiscoveryConfiguration" OutputProperty="*" Verb="Get" Noun="OrganizationDiscoveryConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPortal" OutputProperty="*" Verb="Get" Noun="Portal" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProduct" OutputProperty="*" Verb="Get" Noun="Product" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProductApiPage" OutputProperty="*" Verb="Get" Noun="ProductApiPage" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProductPage" OutputProperty="*" Verb="Get" Noun="ProductPage" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProductSharingPolicy" OutputProperty="*" Verb="Get" Noun="ProductSharingPolicy" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApiInventoryItems" OutputProperty="Items" Verb="Get" Noun="ApiInventoryItemList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDiscoveryStatuses" OutputProperty="Items" Verb="Get" Noun="DiscoveryStatusList" PipelineParameter="DiscoverySource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedApiEvents" OutputProperty="Items" Verb="Get" Noun="ManagedApiEventList" PipelineParameter="ManagedApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedApis" OutputProperty="Items" Verb="Get" Noun="ManagedApiList" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPortals" OutputProperty="Items" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProductApiPages" OutputProperty="Items" Verb="Get" Noun="ProductApiPageList" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProductPages" OutputProperty="Items" Verb="Get" Noun="ProductPageList" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProducts" OutputProperty="Items" Verb="Get" Noun="ProductList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDiscoveryConfiguration" OutputProperty="*" Verb="Write" Noun="DiscoveryConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutOrganizationDiscoveryConfiguration" OutputProperty="*" Verb="Write" Noun="OrganizationDiscoveryConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutProductSharingPolicy" Verb="Write" Noun="ProductSharingPolicy" ShouldProcessTarget="ProductId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDiscovery" Verb="Start" Noun="Discovery" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDiscovery" Verb="Stop" Noun="Discovery" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePortal" OutputProperty="*" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePortalPublishStatus" Verb="Update" Noun="PortalPublishStatus" ShouldProcessTarget="PortalId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProduct" OutputProperty="*" Verb="Update" Noun="Product" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProductApiPage" OutputProperty="*" Verb="Update" Noun="ProductApiPage" ShouldProcessTarget="ProductApiPageId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProductPage" OutputProperty="*" Verb="Update" Noun="ProductPage" ShouldProcessTarget="ProductPageId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBOciOnboardingStatus")]
     [OutputType("Amazon.Odb.Model.GetOciOnboardingStatusResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services GetOciOnboardingStatus API operation.", Operation = new[] {"GetOciOnboardingStatus"}, SelectReturnType = typeof(Amazon.Odb.Model.GetOciOnboardingStatusResponse))]
+    [AWSCmdlet("Calls the odb GetOciOnboardingStatus API operation.", Operation = new[] {"GetOciOnboardingStatus"}, SelectReturnType = typeof(Amazon.Odb.Model.GetOciOnboardingStatusResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.GetOciOnboardingStatusResponse",
         "This cmdlet returns an Amazon.Odb.Model.GetOciOnboardingStatusResponse object containing multiple properties."
     )]
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.GetOciOnboardingStatusResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.GetOciOnboardingStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "GetOciOnboardingStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "GetOciOnboardingStatus");
             try
             {
                 return client.GetOciOnboardingStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

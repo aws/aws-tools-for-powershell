@@ -529,10 +529,10 @@ $GLUE_Completers = {
             break
         }
 
-        # Amazon.Glue.SearchFilterOperator
-        "Search-GLUEAsset/FilterClause_AttributeFilter_Operator"
+        # Amazon.Glue.SearchFilterComparator
+        "Search-GLUEAsset/FilterClause_AttributeFilter_Comparator"
         {
-            $v = "equals","greaterThan","greaterThanOrEquals","lessThan","lessThanOrEquals","notExists"
+            $v = "EQUALS","GREATER_THAN","GREATER_THAN_OR_EQUALS","LESS_THAN","LESS_THAN_OR_EQUALS","NOT_EXISTS"
             break
         }
 
@@ -781,7 +781,7 @@ $GLUE_map = @{
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
-    "FilterClause_AttributeFilter_Operator"=@("Search-GLUEAsset")
+    "FilterClause_AttributeFilter_Comparator"=@("Search-GLUEAsset")
     "FunctionType"=@("Get-GLUEUserDefinedFunctionList")
     "IcebergConfiguration_Strategy"=@("New-GLUETableOptimizer","Update-GLUETableOptimizer")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
@@ -944,7 +944,6 @@ $GLUE_SelectMap = @{
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
                "Remove-GLUEAsset",
-               "Remove-GLUEAssetType",
                "Remove-GLUEAttachment",
                "Remove-GLUEBlueprint",
                "Remove-GLUECatalog",
@@ -1120,7 +1119,6 @@ $GLUE_SelectMap = @{
                "Edit-GLUEIntegration",
                "Publish-GLUEDataQualityResultV2",
                "Write-GLUEAsset",
-               "Write-GLUEAssetType",
                "Write-GLUEAttachment",
                "Set-GLUEDataCatalogEncryptionSetting",
                "Write-GLUEDataCatalogExportConfiguration",

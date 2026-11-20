@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBAutonomousDatabaseWalletDetail")]
     [OutputType("Amazon.Odb.Model.AutonomousDatabaseWalletDetails")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services GetAutonomousDatabaseWalletDetails API operation.", Operation = new[] {"GetAutonomousDatabaseWalletDetails"}, SelectReturnType = typeof(Amazon.Odb.Model.GetAutonomousDatabaseWalletDetailsResponse))]
+    [AWSCmdlet("Calls the odb GetAutonomousDatabaseWalletDetails API operation.", Operation = new[] {"GetAutonomousDatabaseWalletDetails"}, SelectReturnType = typeof(Amazon.Odb.Model.GetAutonomousDatabaseWalletDetailsResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.AutonomousDatabaseWalletDetails or Amazon.Odb.Model.GetAutonomousDatabaseWalletDetailsResponse",
         "This cmdlet returns an Amazon.Odb.Model.AutonomousDatabaseWalletDetails object.",
         "The service call response (type Amazon.Odb.Model.GetAutonomousDatabaseWalletDetailsResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.GetAutonomousDatabaseWalletDetailsResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.GetAutonomousDatabaseWalletDetailsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "GetAutonomousDatabaseWalletDetails");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "GetAutonomousDatabaseWalletDetails");
             try
             {
                 return client.GetAutonomousDatabaseWalletDetailsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

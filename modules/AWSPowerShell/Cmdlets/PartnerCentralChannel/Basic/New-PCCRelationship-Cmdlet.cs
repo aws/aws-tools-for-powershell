@@ -45,20 +45,25 @@ namespace Amazon.PowerShell.Cmdlets.PCC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AccountScope
+        /// <summary>
+        /// <para>
+        /// <para>The account scope for a managed services relationship (for example, entire organization,
+        /// specific member accounts). Applies only to managed services relationships.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralChannel.AccountScope")]
+        public Amazon.PartnerCentralChannel.AccountScope AccountScope { get; set; }
+        #endregion
+        
         #region Parameter AssociatedAccountId
         /// <summary>
         /// <para>
         /// <para>The AWS account ID to associate in this relationship.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AssociatedAccountId { get; set; }
         #endregion
         
@@ -201,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.PCC
         #region Parameter ResaleAccountModel
         /// <summary>
         /// <para>
-        /// <para>The resale account model for the relationship.</para>
+        /// <para>The resale account model for the relationship. Applies only to billing transfer relationships.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,6 +229,17 @@ namespace Amazon.PowerShell.Cmdlets.PCC
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.PartnerCentralChannel.Sector")]
         public Amazon.PartnerCentralChannel.Sector Sector { get; set; }
+        #endregion
+        
+        #region Parameter StartDate
+        /// <summary>
+        /// <para>
+        /// <para>The start date of the managed services relationship. Applies only to managed services
+        /// relationships.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? StartDate { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -336,13 +352,8 @@ namespace Amazon.PowerShell.Cmdlets.PCC
                 context.Select = CreateSelectDelegate<Amazon.PartnerCentralChannel.Model.CreateRelationshipResponse, NewPCCRelationshipCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccountScope = this.AccountScope;
             context.AssociatedAccountId = this.AssociatedAccountId;
-            #if MODULAR
-            if (this.AssociatedAccountId == null && ParameterWasBound(nameof(this.AssociatedAccountId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AssociatedAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.AssociationType = this.AssociationType;
             #if MODULAR
             if (this.AssociationType == null && ParameterWasBound(nameof(this.AssociationType)))
@@ -389,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.PCC
                 WriteWarning("You are passing $null as a value for parameter Sector which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StartDate = this.StartDate;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.PartnerCentralChannel.Model.Tag>(this.Tag);
@@ -409,6 +421,10 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             // create request
             var request = new Amazon.PartnerCentralChannel.Model.CreateRelationshipRequest();
             
+            if (cmdletContext.AccountScope != null)
+            {
+                request.AccountScope = cmdletContext.AccountScope;
+            }
             if (cmdletContext.AssociatedAccountId != null)
             {
                 request.AssociatedAccountId = cmdletContext.AssociatedAccountId;
@@ -585,6 +601,10 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             {
                 request.Sector = cmdletContext.Sector;
             }
+            if (cmdletContext.StartDate != null)
+            {
+                request.StartDate = cmdletContext.StartDate.Value;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -644,6 +664,7 @@ namespace Amazon.PowerShell.Cmdlets.PCC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.PartnerCentralChannel.AccountScope AccountScope { get; set; }
             public System.String AssociatedAccountId { get; set; }
             public Amazon.PartnerCentralChannel.AssociationType AssociationType { get; set; }
             public System.String Catalog { get; set; }
@@ -661,6 +682,7 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             public System.String RequestedSupportPlan_ResoldUnifiedOperations_TamLocation { get; set; }
             public Amazon.PartnerCentralChannel.ResaleAccountModel ResaleAccountModel { get; set; }
             public Amazon.PartnerCentralChannel.Sector Sector { get; set; }
+            public System.DateTime? StartDate { get; set; }
             public List<Amazon.PartnerCentralChannel.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.PartnerCentralChannel.Model.CreateRelationshipResponse, NewPCCRelationshipCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RelationshipDetail;

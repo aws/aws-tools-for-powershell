@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBResourceTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Odb.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the odb ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Odb.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Odb.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.Odb.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

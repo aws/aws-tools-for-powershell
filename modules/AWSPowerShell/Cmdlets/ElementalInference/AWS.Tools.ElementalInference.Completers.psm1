@@ -103,7 +103,7 @@ $EMI_Completers = {
             ($_ -eq "Update-EMIDictionary/Language")
         }
         {
-            $v = "deu","eng","fra","ita","por","spa"
+            $v = "ara","deu","eng","fra","ita","por","spa"
             break
         }
 

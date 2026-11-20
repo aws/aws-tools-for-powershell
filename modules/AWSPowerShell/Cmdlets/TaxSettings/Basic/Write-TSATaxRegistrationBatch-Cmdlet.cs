@@ -140,6 +140,22 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// your tax registration number.
     /// </para></li></ul><para><b>Nepal</b></para><ul><li><para>
     /// The sector valid values are <c>Business</c> and <c>Individual</c>.
+    /// </para></li></ul><para><b>New Zealand</b></para><ul><li><para>
+    /// You can optionally specify the <c>sector</c>. Valid values are <c>Government</c> and
+    /// <c>Business</c>. Non-government customers use <c>Business</c>.
+    /// </para></li><li><para>
+    /// If your <c>sector</c> is <c>Government</c>, you can optionally specify the <c>peppolId</c>
+    /// in the <c>newZealandAdditionalInfo</c> field of the <c>additionalTaxInformation</c>
+    /// object.
+    /// </para></li></ul><para><b>Norway</b></para><ul><li><para>
+    /// You can optionally specify the <c>taxRegistrationNumberType</c> in the <c>norwayAdditionalInfo</c>
+    /// field of the <c>additionalTaxInformation</c> object. Valid values are <c>TaxRegistrationNumber</c>
+    /// and <c>LocalRegistrationNumber</c>. Use <c>LocalRegistrationNumber</c> to register
+    /// a Norwegian Organisation Number for a business that isn't VAT registered. In that
+    /// case, the <c>registrationId</c> must be the 9-digit Organisation Number.
+    /// </para></li><li><para>
+    /// You can optionally specify the <c>peppolId</c> in the <c>norwayAdditionalInfo</c>
+    /// field of the <c>additionalTaxInformation</c> object.
     /// </para></li></ul><para><b>Saudi Arabia</b></para><ul><li><para>
     /// For <c>address</c>, you must specify <c>addressLine3</c>.
     /// </para></li></ul><para><b>South Korea</b></para><ul><li><para>
@@ -179,8 +195,26 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// For <c>address</c>, you must specify <c>districtOrCounty</c>.
     /// </para></li></ul><para><b>Ukraine</b></para><ul><li><para>
     /// The sector valid values are <c>Business</c> and <c>Individual</c>.
+    /// </para></li></ul><para><b>United Arab Emirates</b></para><ul><li><para>
+    /// You must specify the <c>taxRegistrationNumberType</c> in the <c>unitedArabEmiratesAdditionalInfo</c>
+    /// field of the <c>additionalTaxInformation</c> object. Valid values are <c>VATTaxRegistrationNumber</c>
+    /// and <c>LocalTaxRegistrationNumber</c> (Corporate Tax).
+    /// </para></li><li><para>
+    /// You can optionally specify the <c>peppolId</c>, <c>tradeLicenseNumber</c>, and <c>emiratesId</c>
+    /// in the <c>unitedArabEmiratesAdditionalInfo</c> field.
     /// </para></li></ul><para><b>Uruguay</b></para><ul><li><para><c>RegistrationType</c> valid values are <c>RUT</c> (Registro Único Tributario),
     /// <c>NIE</c> (Numero de Identificacion del Extranjero), and <c>CI</c> (Cedula Identidad).
+    /// </para></li></ul><para><b>Vietnam</b></para><ul><li><para>
+    /// You must specify the <c>vatCreditMethod</c> in the <c>vietnamAdditionalInfo</c> field
+    /// of the <c>additionalTaxInformation</c> object.
+    /// </para></li><li><para>
+    /// If <c>vatCreditMethod</c> is <c>true</c>, the sector must be <c>Business</c>, and
+    /// you must specify the <c>enterpriseIdentificationNumber</c>, <c>electronicTransactionCodeNumber</c>,
+    /// <c>paymentVoucherNumber</c>, and <c>paymentVoucherNumberDate</c>.
+    /// </para></li><li><para>
+    /// If <c>vatCreditMethod</c> is <c>false</c>, the sector must be <c>Individual</c>, and
+    /// you must not specify those four fields. The tax registration number can also be 12
+    /// digits.
     /// </para></li></ul><para><b>Philippines</b></para><ul><li><para>
     /// You can optionally specify the <c>isVatRegistered</c> in the <c>philippinesAdditionalInfo</c>
     /// field of the <c>additionalTaxInformation</c> object to indicate your VAT registration
@@ -215,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </summary>
     [Cmdlet("Write", "TSATaxRegistrationBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TaxSettings.Model.BatchPutTaxRegistrationResponse")]
-    [AWSCmdlet("Calls the AWS Tax Settings BatchPutTaxRegistration API operation.", Operation = new[] {"BatchPutTaxRegistration"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.BatchPutTaxRegistrationResponse))]
+    [AWSCmdlet("Calls the Tax Settings BatchPutTaxRegistration API operation.", Operation = new[] {"BatchPutTaxRegistration"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.BatchPutTaxRegistrationResponse))]
     [AWSCmdletOutput("Amazon.TaxSettings.Model.BatchPutTaxRegistrationResponse",
         "This cmdlet returns an Amazon.TaxSettings.Model.BatchPutTaxRegistrationResponse object containing multiple properties."
     )]
@@ -553,8 +587,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         #region Parameter VietnamAdditionalInfo_ElectronicTransactionCodeNumber
         /// <summary>
         /// <para>
-        /// <para>The electronic transaction code number on the tax return document. This field must
-        /// be provided for successful API operation.</para>
+        /// <para>The electronic transaction code number on the tax return document. Required when <c>vatCreditMethod</c>
+        /// is <c>true</c>; must not be specified when it is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -562,11 +596,21 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         public System.String VietnamAdditionalInfo_ElectronicTransactionCodeNumber { get; set; }
         #endregion
         
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId
+        /// <summary>
+        /// <para>
+        /// <para>Your Emirates ID. Optional. Must be in the format <c>784-YYYY-NNNNNNN-N</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId { get; set; }
+        #endregion
+        
         #region Parameter VietnamAdditionalInfo_EnterpriseIdentificationNumber
         /// <summary>
         /// <para>
-        /// <para>The enterprise identification number for tax registration. This field must be provided
-        /// for successful API operation.</para>
+        /// <para>The enterprise identification number for tax registration. Required when <c>vatCreditMethod</c>
+        /// is <c>true</c>; must not be specified when it is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -700,8 +744,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         #region Parameter VietnamAdditionalInfo_PaymentVoucherNumber
         /// <summary>
         /// <para>
-        /// <para>The payment voucher number on the tax return payment document. This field must be
-        /// provided for successful API operation.</para>
+        /// <para>The payment voucher number on the tax return payment document. Required when <c>vatCreditMethod</c>
+        /// is <c>true</c>; must not be specified when it is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -712,8 +756,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         #region Parameter VietnamAdditionalInfo_PaymentVoucherNumberDate
         /// <summary>
         /// <para>
-        /// <para>The date on the tax return payment document. This field must be provided for successful
-        /// API operation.</para>
+        /// <para>The date on the tax return payment document. Required when <c>vatCreditMethod</c>
+        /// is <c>true</c>; must not be specified when it is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -729,6 +773,40 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TaxRegistrationEntry_AdditionalTaxInformation_BelgiumAdditionalInfo_PeppolId { get; set; }
+        #endregion
+        
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId
+        /// <summary>
+        /// <para>
+        /// <para>The Peppol ID used for electronic invoicing (e-invoicing) in New Zealand. Must be
+        /// your 13-digit New Zealand Business Number (NZBN), without the <c>0088</c> scheme prefix.
+        /// Only accepted when the <c>sector</c> is <c>Government</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId { get; set; }
+        #endregion
+        
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId
+        /// <summary>
+        /// <para>
+        /// <para>The Peppol ID used for electronic invoicing (e-invoicing) in Norway. Must be a valid
+        /// 9-digit Norwegian Organisation Number, without the <c>0192</c> scheme prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId { get; set; }
+        #endregion
+        
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId
+        /// <summary>
+        /// <para>
+        /// <para>The Peppol ID used for electronic invoicing (e-invoicing) in the United Arab Emirates.
+        /// Optional. Must be a 10-digit number.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId { get; set; }
         #endregion
         
         #region Parameter GeorgiaAdditionalInfo_PersonType
@@ -1034,6 +1112,18 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         public Amazon.TaxSettings.IndonesiaTaxRegistrationNumberType IndonesiaAdditionalInfo_TaxRegistrationNumberType { get; set; }
         #endregion
         
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType
+        /// <summary>
+        /// <para>
+        /// Treated as TaxRegistrationNumber
+        /// when absent.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TaxSettings.NorwayTaxRegistrationNumberType")]
+        public Amazon.TaxSettings.NorwayTaxRegistrationNumberType TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType { get; set; }
+        #endregion
+        
         #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_TaxRegistrationNumberType
         /// <summary>
         /// <para>
@@ -1071,6 +1161,18 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         public Amazon.TaxSettings.SaudiArabiaTaxRegistrationNumberType SaudiArabiaAdditionalInfo_TaxRegistrationNumberType { get; set; }
         #endregion
         
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType
+        /// <summary>
+        /// <para>
+        /// <para>The type of your TRN in the United Arab Emirates. Valid values are <c>VATTaxRegistrationNumber</c>
+        /// and <c>LocalTaxRegistrationNumber</c> (Corporate Tax). This field must be provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TaxSettings.UaeTaxRegistrationNumberType")]
+        public Amazon.TaxSettings.UaeTaxRegistrationNumberType TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType { get; set; }
+        #endregion
+        
         #region Parameter UzbekistanAdditionalInfo_TaxRegistrationNumberType
         /// <summary>
         /// <para>
@@ -1082,6 +1184,17 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         [Alias("TaxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_TaxRegistrationNumberType")]
         [AWSConstantClassSource("Amazon.TaxSettings.UzbekistanTaxRegistrationNumberType")]
         public Amazon.TaxSettings.UzbekistanTaxRegistrationNumberType UzbekistanAdditionalInfo_TaxRegistrationNumberType { get; set; }
+        #endregion
+        
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber
+        /// <summary>
+        /// <para>
+        /// <para>Your trade license number in the United Arab Emirates. Optional. Must be a 10-digit
+        /// number.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber { get; set; }
         #endregion
         
         #region Parameter UkraineAdditionalInfo_UkraineTrnType
@@ -1117,6 +1230,18 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TaxRegistrationEntry_AdditionalTaxInformation_EgyptAdditionalInfo_UniqueIdentificationNumberExpirationDate")]
         public System.String EgyptAdditionalInfo_UniqueIdentificationNumberExpirationDate { get; set; }
+        #endregion
+        
+        #region Parameter TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod
+        /// <summary>
+        /// <para>
+        /// <para>Whether your business applies the VAT credit method in Vietnam. Specify <c>true</c>
+        /// for a business (sector <c>Business</c>) or <c>false</c> for an individual (sector
+        /// <c>Individual</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod { get; set; }
         #endregion
         
         #region Parameter UzbekistanAdditionalInfo_VatRegistrationNumber
@@ -1225,6 +1350,9 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             context.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime = this.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime;
             context.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName = this.TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName;
             context.TaxRegistrationEntry_AdditionalTaxInformation_MonacoAdditionalInfo_BusinessNumber = this.TaxRegistrationEntry_AdditionalTaxInformation_MonacoAdditionalInfo_BusinessNumber;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId = this.TaxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId = this.TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType = this.TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType;
             context.TaxRegistrationEntry_AdditionalTaxInformation_PhilippinesAdditionalInfo_IsVatRegistered = this.TaxRegistrationEntry_AdditionalTaxInformation_PhilippinesAdditionalInfo_IsVatRegistered;
             context.PolandAdditionalInfo_IndividualRegistrationNumber = this.PolandAdditionalInfo_IndividualRegistrationNumber;
             context.PolandAdditionalInfo_IsGroupVatEnabled = this.PolandAdditionalInfo_IsGroupVatEnabled;
@@ -1240,12 +1368,17 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             context.TurkeyAdditionalInfo_SecondaryTaxId = this.TurkeyAdditionalInfo_SecondaryTaxId;
             context.TurkeyAdditionalInfo_TaxOffice = this.TurkeyAdditionalInfo_TaxOffice;
             context.UkraineAdditionalInfo_UkraineTrnType = this.UkraineAdditionalInfo_UkraineTrnType;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId = this.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId = this.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType = this.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber = this.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber;
             context.UzbekistanAdditionalInfo_TaxRegistrationNumberType = this.UzbekistanAdditionalInfo_TaxRegistrationNumberType;
             context.UzbekistanAdditionalInfo_VatRegistrationNumber = this.UzbekistanAdditionalInfo_VatRegistrationNumber;
             context.VietnamAdditionalInfo_ElectronicTransactionCodeNumber = this.VietnamAdditionalInfo_ElectronicTransactionCodeNumber;
             context.VietnamAdditionalInfo_EnterpriseIdentificationNumber = this.VietnamAdditionalInfo_EnterpriseIdentificationNumber;
             context.VietnamAdditionalInfo_PaymentVoucherNumber = this.VietnamAdditionalInfo_PaymentVoucherNumber;
             context.VietnamAdditionalInfo_PaymentVoucherNumberDate = this.VietnamAdditionalInfo_PaymentVoucherNumberDate;
+            context.TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod = this.TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod;
             context.TaxRegistrationEntry_CertifiedEmailId = this.TaxRegistrationEntry_CertifiedEmailId;
             context.LegalAddress_AddressLine1 = this.LegalAddress_AddressLine1;
             context.LegalAddress_AddressLine2 = this.LegalAddress_AddressLine2;
@@ -1610,6 +1743,31 @@ namespace Amazon.PowerShell.Cmdlets.TSA
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.MonacoAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MonacoAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
+            Amazon.TaxSettings.Model.NewZealandAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo = null;
+            
+             // populate NewZealandAdditionalInfo
+            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfoIsNull = true;
+            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo = new Amazon.TaxSettings.Model.NewZealandAdditionalInfo();
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo.PeppolId = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfoIsNull = false;
+            }
+             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo should be set to null
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfoIsNull)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo = null;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.NewZealandAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
+            }
             Amazon.TaxSettings.Model.PhilippinesAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_PhilippinesAdditionalInfo = null;
             
              // populate PhilippinesAdditionalInfo
@@ -1943,6 +2101,41 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IsraelAdditionalInfo != null)
             {
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.IsraelAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IsraelAdditionalInfo;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
+            }
+            Amazon.TaxSettings.Model.NorwayAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo = null;
+            
+             // populate NorwayAdditionalInfo
+            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfoIsNull = true;
+            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo = new Amazon.TaxSettings.Model.NorwayAdditionalInfo();
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo.PeppolId = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfoIsNull = false;
+            }
+            Amazon.TaxSettings.NorwayTaxRegistrationNumberType requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo.TaxRegistrationNumberType = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfoIsNull = false;
+            }
+             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo should be set to null
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfoIsNull)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo = null;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.NorwayAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
             Amazon.TaxSettings.Model.UzbekistanAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo = null;
@@ -2315,59 +2508,59 @@ namespace Amazon.PowerShell.Cmdlets.TSA
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.TurkeyAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_TurkeyAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
-            Amazon.TaxSettings.Model.VietnamAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo = null;
+            Amazon.TaxSettings.Model.UnitedArabEmiratesAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo = null;
             
-             // populate VietnamAdditionalInfo
-            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = true;
-            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo = new Amazon.TaxSettings.Model.VietnamAdditionalInfo();
-            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_ElectronicTransactionCodeNumber = null;
-            if (cmdletContext.VietnamAdditionalInfo_ElectronicTransactionCodeNumber != null)
+             // populate UnitedArabEmiratesAdditionalInfo
+            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfoIsNull = true;
+            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo = new Amazon.TaxSettings.Model.UnitedArabEmiratesAdditionalInfo();
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId != null)
             {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_ElectronicTransactionCodeNumber = cmdletContext.VietnamAdditionalInfo_ElectronicTransactionCodeNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId;
             }
-            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_ElectronicTransactionCodeNumber != null)
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId != null)
             {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo.ElectronicTransactionCodeNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_ElectronicTransactionCodeNumber;
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = false;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo.EmiratesId = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfoIsNull = false;
             }
-            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_EnterpriseIdentificationNumber = null;
-            if (cmdletContext.VietnamAdditionalInfo_EnterpriseIdentificationNumber != null)
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId != null)
             {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_EnterpriseIdentificationNumber = cmdletContext.VietnamAdditionalInfo_EnterpriseIdentificationNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId;
             }
-            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_EnterpriseIdentificationNumber != null)
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId != null)
             {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo.EnterpriseIdentificationNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_EnterpriseIdentificationNumber;
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = false;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo.PeppolId = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfoIsNull = false;
             }
-            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumber = null;
-            if (cmdletContext.VietnamAdditionalInfo_PaymentVoucherNumber != null)
+            Amazon.TaxSettings.UaeTaxRegistrationNumberType requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType != null)
             {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumber = cmdletContext.VietnamAdditionalInfo_PaymentVoucherNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType;
             }
-            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumber != null)
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType != null)
             {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo.PaymentVoucherNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumber;
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = false;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo.TaxRegistrationNumberType = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfoIsNull = false;
             }
-            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumberDate = null;
-            if (cmdletContext.VietnamAdditionalInfo_PaymentVoucherNumberDate != null)
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber != null)
             {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumberDate = cmdletContext.VietnamAdditionalInfo_PaymentVoucherNumberDate;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber;
             }
-            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumberDate != null)
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber != null)
             {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo.PaymentVoucherNumberDate = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumberDate;
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = false;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo.TradeLicenseNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfoIsNull = false;
             }
-             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo should be set to null
-            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull)
+             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo should be set to null
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfoIsNull)
             {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo = null;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo = null;
             }
-            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo != null)
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo != null)
             {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.VietnamAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.UnitedArabEmiratesAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
             Amazon.TaxSettings.Model.ItalyAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo = null;
@@ -2435,6 +2628,71 @@ namespace Amazon.PowerShell.Cmdlets.TSA
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.ItalyAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
+            Amazon.TaxSettings.Model.VietnamAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo = null;
+            
+             // populate VietnamAdditionalInfo
+            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = true;
+            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo = new Amazon.TaxSettings.Model.VietnamAdditionalInfo();
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_ElectronicTransactionCodeNumber = null;
+            if (cmdletContext.VietnamAdditionalInfo_ElectronicTransactionCodeNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_ElectronicTransactionCodeNumber = cmdletContext.VietnamAdditionalInfo_ElectronicTransactionCodeNumber;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_ElectronicTransactionCodeNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo.ElectronicTransactionCodeNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_ElectronicTransactionCodeNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = false;
+            }
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_EnterpriseIdentificationNumber = null;
+            if (cmdletContext.VietnamAdditionalInfo_EnterpriseIdentificationNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_EnterpriseIdentificationNumber = cmdletContext.VietnamAdditionalInfo_EnterpriseIdentificationNumber;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_EnterpriseIdentificationNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo.EnterpriseIdentificationNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_EnterpriseIdentificationNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = false;
+            }
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumber = null;
+            if (cmdletContext.VietnamAdditionalInfo_PaymentVoucherNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumber = cmdletContext.VietnamAdditionalInfo_PaymentVoucherNumber;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo.PaymentVoucherNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = false;
+            }
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumberDate = null;
+            if (cmdletContext.VietnamAdditionalInfo_PaymentVoucherNumberDate != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumberDate = cmdletContext.VietnamAdditionalInfo_PaymentVoucherNumberDate;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumberDate != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo.PaymentVoucherNumberDate = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_vietnamAdditionalInfo_PaymentVoucherNumberDate;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = false;
+            }
+            System.Boolean? requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod = null;
+            if (cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod = cmdletContext.TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod.Value;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo.VatCreditMethod = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod.Value;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull = false;
+            }
+             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo should be set to null
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfoIsNull)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo = null;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.VietnamAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
+            }
              // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation should be set to null
             if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull)
             {
@@ -2485,7 +2743,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         
         private Amazon.TaxSettings.Model.BatchPutTaxRegistrationResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.BatchPutTaxRegistrationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "BatchPutTaxRegistration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Tax Settings", "BatchPutTaxRegistration");
             try
             {
                 return client.BatchPutTaxRegistrationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -2541,6 +2799,9 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             public System.String TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegime { get; set; }
             public System.String TaxRegistrationEntry_AdditionalTaxInformation_MexicoAdditionalInfo_TaxRegimeFullName { get; set; }
             public System.String TaxRegistrationEntry_AdditionalTaxInformation_MonacoAdditionalInfo_BusinessNumber { get; set; }
+            public System.String TaxRegistrationEntry_AdditionalTaxInformation_NewZealandAdditionalInfo_PeppolId { get; set; }
+            public System.String TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_PeppolId { get; set; }
+            public Amazon.TaxSettings.NorwayTaxRegistrationNumberType TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType { get; set; }
             public System.Boolean? TaxRegistrationEntry_AdditionalTaxInformation_PhilippinesAdditionalInfo_IsVatRegistered { get; set; }
             public System.String PolandAdditionalInfo_IndividualRegistrationNumber { get; set; }
             public System.Boolean? PolandAdditionalInfo_IsGroupVatEnabled { get; set; }
@@ -2556,12 +2817,17 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             public System.String TurkeyAdditionalInfo_SecondaryTaxId { get; set; }
             public System.String TurkeyAdditionalInfo_TaxOffice { get; set; }
             public Amazon.TaxSettings.UkraineTrnType UkraineAdditionalInfo_UkraineTrnType { get; set; }
+            public System.String TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_EmiratesId { get; set; }
+            public System.String TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_PeppolId { get; set; }
+            public Amazon.TaxSettings.UaeTaxRegistrationNumberType TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType { get; set; }
+            public System.String TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TradeLicenseNumber { get; set; }
             public Amazon.TaxSettings.UzbekistanTaxRegistrationNumberType UzbekistanAdditionalInfo_TaxRegistrationNumberType { get; set; }
             public System.String UzbekistanAdditionalInfo_VatRegistrationNumber { get; set; }
             public System.String VietnamAdditionalInfo_ElectronicTransactionCodeNumber { get; set; }
             public System.String VietnamAdditionalInfo_EnterpriseIdentificationNumber { get; set; }
             public System.String VietnamAdditionalInfo_PaymentVoucherNumber { get; set; }
             public System.String VietnamAdditionalInfo_PaymentVoucherNumberDate { get; set; }
+            public System.Boolean? TaxRegistrationEntry_AdditionalTaxInformation_VietnamAdditionalInfo_VatCreditMethod { get; set; }
             public System.String TaxRegistrationEntry_CertifiedEmailId { get; set; }
             public System.String LegalAddress_AddressLine1 { get; set; }
             public System.String LegalAddress_AddressLine2 { get; set; }

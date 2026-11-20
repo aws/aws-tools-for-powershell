@@ -66,6 +66,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public Amazon.SimpleSystemsManagement.Model.AttachmentsSource[] Attachment { get; set; }
         #endregion
         
+        #region Parameter CloudProvider
+        /// <summary>
+        /// <para>
+        /// <para>The cloud providers that the document can run against. Valid values include the following:</para><ul><li><para><c>AWS</c> - The document runs against Amazon Web Services resources.</para></li><li><para><c>Azure</c> - The document runs against Microsoft Azure resources.</para></li><li><para><c>GCP</c> - The document runs against Google Cloud resources.</para></li></ul><para>If you don't specify a value, the default is <c>AWS</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CloudProviders")]
+        public System.String[] CloudProvider { get; set; }
+        #endregion
+        
         #region Parameter Content
         /// <summary>
         /// <para>
@@ -262,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.Attachment = new List<Amazon.SimpleSystemsManagement.Model.AttachmentsSource>(this.Attachment);
             }
+            if (this.CloudProvider != null)
+            {
+                context.CloudProvider = new List<System.String>(this.CloudProvider);
+            }
             context.Content = this.Content;
             #if MODULAR
             if (this.Content == null && ParameterWasBound(nameof(this.Content)))
@@ -308,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Attachment != null)
             {
                 request.Attachments = cmdletContext.Attachment;
+            }
+            if (cmdletContext.CloudProvider != null)
+            {
+                request.CloudProviders = cmdletContext.CloudProvider;
             }
             if (cmdletContext.Content != null)
             {
@@ -401,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.SimpleSystemsManagement.Model.AttachmentsSource> Attachment { get; set; }
+            public List<System.String> CloudProvider { get; set; }
             public System.String Content { get; set; }
             public System.String DisplayName { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentFormat DocumentFormat { get; set; }

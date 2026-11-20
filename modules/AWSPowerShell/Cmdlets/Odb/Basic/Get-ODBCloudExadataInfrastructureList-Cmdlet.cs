@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBCloudExadataInfrastructureList")]
     [OutputType("Amazon.Odb.Model.CloudExadataInfrastructureSummary")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListCloudExadataInfrastructures API operation.", Operation = new[] {"ListCloudExadataInfrastructures"}, SelectReturnType = typeof(Amazon.Odb.Model.ListCloudExadataInfrastructuresResponse))]
+    [AWSCmdlet("Calls the odb ListCloudExadataInfrastructures API operation.", Operation = new[] {"ListCloudExadataInfrastructures"}, SelectReturnType = typeof(Amazon.Odb.Model.ListCloudExadataInfrastructuresResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.CloudExadataInfrastructureSummary or Amazon.Odb.Model.ListCloudExadataInfrastructuresResponse",
         "This cmdlet returns a collection of Amazon.Odb.Model.CloudExadataInfrastructureSummary objects.",
         "The service call response (type Amazon.Odb.Model.ListCloudExadataInfrastructuresResponse) can be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ListCloudExadataInfrastructuresResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListCloudExadataInfrastructuresRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListCloudExadataInfrastructures");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ListCloudExadataInfrastructures");
             try
             {
                 return client.ListCloudExadataInfrastructuresAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

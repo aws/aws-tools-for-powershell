@@ -5,7 +5,7 @@
     <C2jFilename>compute-optimizer-automation</C2jFilename>
     <AssemblyName>ComputeOptimizerAutomation</AssemblyName>
     <ServiceNounPrefix>COA</ServiceNounPrefix>
-    <ServiceName>Compute Optimizer Automation Service</ServiceName>
+    <ServiceName>Compute Optimizer Automation</ServiceName>
     <ServiceId>Compute Optimizer Automation</ServiceId>
     <ServiceClientInterface>IAmazonComputeOptimizerAutomation</ServiceClientInterface>
     <ServiceClient>AmazonComputeOptimizerAutomationClient</ServiceClient>
@@ -28,6 +28,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAutomationRule" Verb="Remove" Noun="AutomationRule" ShouldProcessTarget="RuleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOrganizationEnrollmentConfiguration" Verb="Remove" Noun="OrganizationEnrollmentConfiguration" ShouldProcessTarget="ConfigurationTypes" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,6 +79,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOrganizationalUnits" OutputProperty="OrganizationalUnits" Verb="Get" Noun="OrganizationalUnitList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOrganizationEnrollmentConfigurations" OutputProperty="OrganizationEnrollmentConfigurations" Verb="Get" Noun="OrganizationEnrollmentConfigurationList" PipelineParameter="TargetType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRecommendedActions" OutputProperty="RecommendedActions" Verb="Get" Noun="RecommendedActionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -84,6 +96,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutOrganizationEnrollmentConfiguration" Verb="Write" Noun="OrganizationEnrollmentConfiguration" ShouldProcessTarget="OrganizationRuleMode" PipelineParameter="OrganizationRuleMode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The resource type for which to get the allocation rules.</para><para>The Amazon Web Services service or resource type that can use IP addresses through
-        /// IPAM policies. Supported services and resource types include:</para><ul><li><para>Elastic IP addresses</para></li></ul>
+        /// IPAM policies. Supported services and resource types include:</para><ul><li><para>Elastic IP addresses</para></li><li><para>Application Load Balancers</para></li><li><para>Amazon RDS</para></li><li><para>NAT gateways in regional availability mode</para></li><li><para>Lambda Network Connector</para></li><li><para>Automated Internet Firewall</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

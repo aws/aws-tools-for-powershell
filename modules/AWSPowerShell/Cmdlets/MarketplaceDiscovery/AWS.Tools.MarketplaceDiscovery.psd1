@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Get-MKTDFulfillmentOptionList', 
         'Get-MKTDListing', 
+        'Get-MKTDListingAttributeList', 
         'Get-MKTDOffer', 
         'Get-MKTDOfferSet', 
         'Get-MKTDOfferTerm', 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>agent-discovery</C2jFilename>
+    <AssemblyName>AgentDiscovery</AssemblyName>
+    <ServiceNounPrefix>AGDS</ServiceNounPrefix>
+    <ServiceName>Agent Discovery</ServiceName>
+    <ServiceId>Agent Discovery</ServiceId>
+    <ServiceClientInterface>IAmazonAgentDiscovery</ServiceClientInterface>
+    <ServiceClient>AmazonAgentDiscoveryClient</ServiceClient>
+    <ServiceModuleGuid>171caa05-3869-48b7-9c61-8c99c821597c</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="SearchPublicRecords" OutputProperty="Records" Verb="Search" Noun="PublicRecord" ShouldProcessTarget="SearchQuery" PipelineParameter="SearchQuery" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

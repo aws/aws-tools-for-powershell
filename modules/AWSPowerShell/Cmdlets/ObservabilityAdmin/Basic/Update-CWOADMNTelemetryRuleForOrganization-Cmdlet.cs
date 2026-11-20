@@ -284,7 +284,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         /// <para> The type of Amazon Web Services resource to configure telemetry for (for example,
         /// <c>AWS::EC2::VPC</c>, <c>AWS::EKS::Cluster</c>, <c>AWS::ElasticLoadBalancingV2::LoadBalancer</c>,
         /// <c>AWS::Bedrock::KnowledgeBase</c>, <c>AWS::BedrockAgentCore::PaymentManager</c>,
-        /// or <c>AWS::XRay::TransactionSearchConfig</c>). </para>
+        /// <c>AWS::XRay::TransactionSearchConfig</c>, <c>AWS::CloudWatchOmni</c>, or <c>AWS::NetworkFirewall::Firewall</c>).
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

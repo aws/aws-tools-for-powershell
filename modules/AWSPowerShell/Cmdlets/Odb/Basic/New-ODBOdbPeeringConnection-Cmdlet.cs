@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("New", "ODBOdbPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.CreateOdbPeeringConnectionResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services CreateOdbPeeringConnection API operation.", Operation = new[] {"CreateOdbPeeringConnection"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateOdbPeeringConnectionResponse))]
+    [AWSCmdlet("Calls the odb CreateOdbPeeringConnection API operation.", Operation = new[] {"CreateOdbPeeringConnection"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateOdbPeeringConnectionResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.CreateOdbPeeringConnectionResponse",
         "This cmdlet returns an Amazon.Odb.Model.CreateOdbPeeringConnectionResponse object containing multiple properties."
     )]
@@ -311,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.CreateOdbPeeringConnectionResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.CreateOdbPeeringConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "CreateOdbPeeringConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "CreateOdbPeeringConnection");
             try
             {
                 return client.CreateOdbPeeringConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

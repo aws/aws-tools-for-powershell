@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Filters the pipelines by who manages them. Specify <c>AWS</c> to return pipelines
         /// that Amazon Web Services manages, or <c>CUSTOMER</c> to return pipelines that you
-        /// created. If you don't specify a value, the response includes both.</para>
+        /// created. If you don't specify a value, the response includes only pipelines that you
+        /// created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -148,6 +148,17 @@ namespace Amazon.PowerShell.Cmdlets.PCC
         public System.String[] Status { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>Filter by program management account type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralChannel.ProgramManagementAccountType")]
+        public Amazon.PartnerCentralChannel.ProgramManagementAccountType Type { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -254,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             {
                 context.Status = new List<System.String>(this.Status);
             }
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -324,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             if (cmdletContext.Status != null)
             {
                 request.Statuses = cmdletContext.Status;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             // Initialize loop variant and commence piping
@@ -413,6 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.PCC
             public Amazon.PartnerCentralChannel.ListProgramManagementAccountsSortName Sort_SortBy { get; set; }
             public Amazon.PartnerCentralChannel.SortOrder Sort_SortOrder { get; set; }
             public List<System.String> Status { get; set; }
+            public Amazon.PartnerCentralChannel.ProgramManagementAccountType Type { get; set; }
             public System.Func<Amazon.PartnerCentralChannel.Model.ListProgramManagementAccountsResponse, GetPCCProgramManagementAccountListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }

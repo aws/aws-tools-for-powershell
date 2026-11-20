@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Add", "ODBIamRoleToResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services AssociateIamRoleToResource API operation.", Operation = new[] {"AssociateIamRoleToResource"}, SelectReturnType = typeof(Amazon.Odb.Model.AssociateIamRoleToResourceResponse))]
+    [AWSCmdlet("Calls the odb AssociateIamRoleToResource API operation.", Operation = new[] {"AssociateIamRoleToResource"}, SelectReturnType = typeof(Amazon.Odb.Model.AssociateIamRoleToResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.AssociateIamRoleToResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.AssociateIamRoleToResourceResponse) be returned by specifying '-Select *'."
@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.AssociateIamRoleToResourceResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.AssociateIamRoleToResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "AssociateIamRoleToResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "AssociateIamRoleToResource");
             try
             {
                 return client.AssociateIamRoleToResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

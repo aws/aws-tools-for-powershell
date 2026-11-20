@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBGiMinorVersionList")]
     [OutputType("Amazon.Odb.Model.GiMinorVersionSummary")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListGiMinorVersions API operation.", Operation = new[] {"ListGiMinorVersions"}, SelectReturnType = typeof(Amazon.Odb.Model.ListGiMinorVersionsResponse))]
+    [AWSCmdlet("Calls the odb ListGiMinorVersions API operation.", Operation = new[] {"ListGiMinorVersions"}, SelectReturnType = typeof(Amazon.Odb.Model.ListGiMinorVersionsResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.GiMinorVersionSummary or Amazon.Odb.Model.ListGiMinorVersionsResponse",
         "This cmdlet returns a collection of Amazon.Odb.Model.GiMinorVersionSummary objects.",
         "The service call response (type Amazon.Odb.Model.ListGiMinorVersionsResponse) can be returned by specifying '-Select *'."
@@ -283,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ListGiMinorVersionsResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListGiMinorVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListGiMinorVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ListGiMinorVersions");
             try
             {
                 return client.ListGiMinorVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -87,6 +87,16 @@ $R53_Completers = {
             break
         }
 
+        # Amazon.Route53.ChangeHistorySortOrder
+        {
+            ($_ -eq "Get-R53HostedZoneChangeBatchList/SortOrder") -Or
+            ($_ -eq "Get-R53ResourceRecordSetChangeList/SortOrder")
+        }
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.Route53.CloudWatchRegion
         {
             ($_ -eq "New-R53HealthCheck/AlarmIdentifier_Region") -Or
@@ -118,6 +128,16 @@ $R53_Completers = {
             break
         }
 
+        # Amazon.Route53.HostedZoneTier
+        {
+            ($_ -eq "New-R53HostedZone/HostedZoneConfig_HostedZoneTier") -Or
+            ($_ -eq "Update-R53HostedZoneTier/HostedZoneTier")
+        }
+        {
+            $v = "ADVANCED","STANDARD"
+            break
+        }
+
         # Amazon.Route53.HostedZoneType
         "Get-R53HostedZoneList/HostedZoneType"
         {
@@ -144,6 +164,7 @@ $R53_Completers = {
 
         # Amazon.Route53.RRType
         {
+            ($_ -eq "Get-R53ResourceRecordSetChangeList/RecordType") -Or
             ($_ -eq "Test-R53DNSAnswer/RecordType") -Or
             ($_ -eq "Get-R53ResourceRecordSet/StartRecordType") -Or
             ($_ -eq "Get-R53ResourceRecordSetProtectionList/StartRecordType") -Or
@@ -194,10 +215,13 @@ $R53_map = @{
     "HealthCheckConfig_EndpointType"=@("New-R53HealthCheck")
     "HealthCheckConfig_InsufficientDataHealthStatus"=@("New-R53HealthCheck")
     "HealthCheckConfig_Type"=@("New-R53HealthCheck")
+    "HostedZoneConfig_HostedZoneTier"=@("New-R53HostedZone")
+    "HostedZoneTier"=@("Update-R53HostedZoneTier")
     "HostedZoneType"=@("Get-R53HostedZoneList")
     "InsufficientDataHealthStatus"=@("Update-R53HealthCheck")
-    "RecordType"=@("Test-R53DNSAnswer")
+    "RecordType"=@("Get-R53ResourceRecordSetChangeList","Test-R53DNSAnswer")
     "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResourceList")
+    "SortOrder"=@("Get-R53HostedZoneChangeBatchList","Get-R53ResourceRecordSetChangeList")
     "StartRecordType"=@("Get-R53ResourceRecordSet","Get-R53ResourceRecordSetProtectionList")
     "TrafficPolicyInstanceTypeMarker"=@("Get-R53TrafficPolicyInstanceList","Get-R53TrafficPolicyInstancesByHostedZone","Get-R53TrafficPolicyInstancesByPolicy")
     "Type"=@("Get-R53AccountLimit","Get-R53HostedZoneLimit","Get-R53ReusableDelegationSetLimit")
@@ -298,6 +322,7 @@ $R53_SelectMap = @{
                "Get-R53HealthCheckSource",
                "Get-R53HealthCheckStatus",
                "Get-R53HostedZone",
+               "Get-R53HostedZoneChangeBatch",
                "Get-R53HostedZoneCount",
                "Get-R53HostedZoneLimit",
                "Get-R53QueryLoggingConfig",
@@ -313,9 +338,11 @@ $R53_SelectMap = @{
                "Get-R53HealthCheckList",
                "Get-R53HealthChecksBySourceList",
                "Get-R53HealthCheckSourceList",
+               "Get-R53HostedZoneChangeBatchList",
                "Get-R53HostedZoneList",
                "Get-R53HostedZonesByVPC",
                "Get-R53QueryLoggingConfigList",
+               "Get-R53ResourceRecordSetChangeList",
                "Get-R53ResourceRecordSetProtectionList",
                "Get-R53ResourceRecordSet",
                "Get-R53ReusableDelegationSetList",
@@ -331,6 +358,7 @@ $R53_SelectMap = @{
                "Update-R53HealthCheck",
                "Update-R53HostedZoneComment",
                "Update-R53HostedZoneFeature",
+               "Update-R53HostedZoneTier",
                "Update-R53TrafficPolicyComment",
                "Update-R53TrafficPolicyInstance",
                "Get-R53HostedZonesByName")

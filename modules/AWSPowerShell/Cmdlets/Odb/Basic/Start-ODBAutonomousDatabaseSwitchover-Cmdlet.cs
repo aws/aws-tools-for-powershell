@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Start", "ODBAutonomousDatabaseSwitchover", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.SwitchoverAutonomousDatabaseResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services SwitchoverAutonomousDatabase API operation.", Operation = new[] {"SwitchoverAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.SwitchoverAutonomousDatabaseResponse))]
+    [AWSCmdlet("Calls the odb SwitchoverAutonomousDatabase API operation.", Operation = new[] {"SwitchoverAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.SwitchoverAutonomousDatabaseResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.SwitchoverAutonomousDatabaseResponse",
         "This cmdlet returns an Amazon.Odb.Model.SwitchoverAutonomousDatabaseResponse object containing multiple properties."
     )]
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.SwitchoverAutonomousDatabaseResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.SwitchoverAutonomousDatabaseRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "SwitchoverAutonomousDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "SwitchoverAutonomousDatabase");
             try
             {
                 return client.SwitchoverAutonomousDatabaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

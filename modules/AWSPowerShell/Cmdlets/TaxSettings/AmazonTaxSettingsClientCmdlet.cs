@@ -28,7 +28,7 @@ using Amazon.TaxSettings.Model;
 
 namespace Amazon.PowerShell.Cmdlets.TSA
 {
-    [AWSClientCmdlet("AWS Tax Settings", "TSA", "2018-05-10", "TaxSettings")]
+    [AWSClientCmdlet("Tax Settings", "TSA", "2018-05-10", "TaxSettings")]
     public abstract partial class AmazonTaxSettingsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonTaxSettings Client { get; private set; }

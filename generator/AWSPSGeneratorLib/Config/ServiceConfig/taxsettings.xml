@@ -5,7 +5,7 @@
     <C2jFilename>taxsettings</C2jFilename>
     <AssemblyName>TaxSettings</AssemblyName>
     <ServiceNounPrefix>TSA</ServiceNounPrefix>
-    <ServiceName>AWS Tax Settings</ServiceName>
+    <ServiceName>Tax Settings</ServiceName>
     <ServiceId>TaxSettings</ServiceId>
     <ServiceClientInterface>IAmazonTaxSettings</ServiceClientInterface>
     <ServiceClient>AmazonTaxSettingsClient</ServiceClient>

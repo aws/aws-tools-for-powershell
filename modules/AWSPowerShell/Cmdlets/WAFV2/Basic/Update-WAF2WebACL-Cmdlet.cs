@@ -417,12 +417,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter AssociationConfig_RequestBody
         /// <summary>
         /// <para>
-        /// <para>Customizes the maximum size of the request body that your protected CloudFront, API
-        /// Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to WAF
-        /// for inspection. The default size is 16 KB (16,384 bytes). You can change the setting
-        /// for any of the available resource types. </para><note><para>You are charged additional fees when your protected resources forward body sizes that
+        /// <para>Customizes the maximum size of the request body that your protected Application Load
+        /// Balancer, CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access
+        /// resources forward to WAF for inspection. The default size is 8 KB (8,192 bytes) for
+        /// Application Load Balancer and 16 KB (16,384 bytes) for the other resource types. You
+        /// can change the setting for any of the available resource types. </para><note><para>You are charged additional fees when your protected resources forward body sizes that
         /// are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF
-        /// Pricing</a>.</para></note><para>Example JSON: <c> { "API_GATEWAY": "KB_48", "APP_RUNNER_SERVICE": "KB_32" }</c></para><para>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</para><para />
+        /// Pricing</a>.</para></note><para>Example JSON: <c> { "API_GATEWAY": "KB_48", "APP_RUNNER_SERVICE": "KB_32", "APPLICATION_LOAD_BALANCER":
+        /// "KB_16" }</c></para><para>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

@@ -80,6 +80,16 @@ $NSM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.NetworkSecurityManager.DefaultSubnetConnectivity
+        {
+            ($_ -eq "New-NSMPolicy/PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity") -Or
+            ($_ -eq "Update-NSMPolicy/PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity")
+        }
+        {
+            $v = "bidirectional","flexible","outbound-only"
+            break
+        }
+
         # Amazon.NetworkSecurityManager.EntityStatusFilter
         {
             ($_ -eq "Get-NSMDeploymentList/Status") -Or
@@ -106,7 +116,7 @@ $NSM_Completers = {
         # Amazon.NetworkSecurityManager.PolicyFirewallType
         "New-NSMPolicy/FirewallType"
         {
-            $v = "SHIELD_ADVANCED","WAF"
+            $v = "IGW_FIREWALL","SHIELD_ADVANCED","WAF"
             break
         }
 
@@ -116,7 +126,7 @@ $NSM_Completers = {
             ($_ -eq "New-NSMRuleConfiguration/RuleFirewallType")
         }
         {
-            $v = "WAF"
+            $v = "IGW_FIREWALL","WAF"
             break
         }
 
@@ -128,6 +138,20 @@ $NSM_Completers = {
         }
         {
             $v = "CONFIGURATION","INSPECTION"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.ServiceResourceType
+        "Get-NSMProtectedResourceCoverageList/EntityType"
+        {
+            $v = "Deployment","Policy","Rule","Scope","Template"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.SpecializedScopeType
+        "New-NSMScope/SpecializedScopeType"
+        {
+            $v = "IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE"
             break
         }
 
@@ -144,7 +168,14 @@ $NSM_Completers = {
         # Amazon.NetworkSecurityManager.TemplateFirewallType
         "New-NSMTemplate/FirewallType"
         {
-            $v = "WAF"
+            $v = "IGW_FIREWALL","WAF"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.TemplateOwner
+        "Get-NSMTemplateList/TemplateOwner"
+        {
+            $v = "AWS","CUSTOMER"
             break
         }
 
@@ -174,13 +205,17 @@ $NSM_Completers = {
 }
 
 $NSM_map = @{
+    "EntityType"=@("Get-NSMProtectedResourceCoverageList")
     "FirewallType"=@("New-NSMPolicy","New-NSMRule","New-NSMTemplate")
+    "PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity"=@("New-NSMPolicy","Update-NSMPolicy")
     "PolicyConfiguration_WafConfig_ConflictResolution"=@("New-NSMPolicy","Update-NSMPolicy")
     "PolicyConfiguration_WafConfig_ExistingCustomerWebACLResolution"=@("New-NSMPolicy","Update-NSMPolicy")
     "RuleFirewallType"=@("New-NSMRuleConfiguration")
     "RuleType"=@("New-NSMRule","New-NSMRuleConfiguration","Update-NSMRule")
+    "SpecializedScopeType"=@("New-NSMScope")
     "Status"=@("Get-NSMDeploymentList","Get-NSMPolicyList","Get-NSMRuleList","Get-NSMScopeList","Get-NSMTemplateList")
     "SynchronizationStatus"=@("Get-NSMAggregateResourceSynchronizationStatusList","Get-NSMResourceSynchronizationStatusList")
+    "TemplateOwner"=@("Get-NSMTemplateList")
     "WafConfigDataType"=@("New-NSMRuleConfiguration")
 }
 
@@ -261,8 +296,10 @@ $NSM_SelectMap = @{
                "Get-NSMAggregateResourceSynchronizationStatusList",
                "Get-NSMDeploymentList",
                "Get-NSMDeploymentSnapshotList",
+               "Get-NSMEntityCoverageList",
                "Get-NSMPolicyList",
                "Get-NSMPolicySnapshotList",
+               "Get-NSMProtectedResourceCoverageList",
                "Get-NSMResourceAssociationList",
                "Get-NSMResourceSynchronizationStatusList",
                "Get-NSMRuleList",

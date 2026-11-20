@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBCloudExadataInfrastructure")]
     [OutputType("Amazon.Odb.Model.CloudExadataInfrastructure")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services GetCloudExadataInfrastructure API operation.", Operation = new[] {"GetCloudExadataInfrastructure"}, SelectReturnType = typeof(Amazon.Odb.Model.GetCloudExadataInfrastructureResponse))]
+    [AWSCmdlet("Calls the odb GetCloudExadataInfrastructure API operation.", Operation = new[] {"GetCloudExadataInfrastructure"}, SelectReturnType = typeof(Amazon.Odb.Model.GetCloudExadataInfrastructureResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.CloudExadataInfrastructure or Amazon.Odb.Model.GetCloudExadataInfrastructureResponse",
         "This cmdlet returns an Amazon.Odb.Model.CloudExadataInfrastructure object.",
         "The service call response (type Amazon.Odb.Model.GetCloudExadataInfrastructureResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.GetCloudExadataInfrastructureResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.GetCloudExadataInfrastructureRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "GetCloudExadataInfrastructure");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "GetCloudExadataInfrastructure");
             try
             {
                 return client.GetCloudExadataInfrastructureAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

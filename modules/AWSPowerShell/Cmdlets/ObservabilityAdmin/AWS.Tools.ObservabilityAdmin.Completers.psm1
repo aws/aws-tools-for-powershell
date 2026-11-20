@@ -80,6 +80,16 @@ $CWOADMN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ObservabilityAdmin.CentralizeWithDataProtection
+        {
+            ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection") -Or
+            ($_ -eq "Update-CWOADMNCentralizationRuleForOrganization/Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.DeletionProtection
         {
             ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_LogGroupDeletionProtection") -Or
@@ -186,7 +196,7 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
         }
         {
-            $v = "AWS::Bedrock::KnowledgeBase","AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::PaymentManager","AWS::BedrockAgentCore::Runtime","AWS::BedrockAgentCore::WorkloadIdentity","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::CloudWatch::OTelEnrichment","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::Route53Resolver::ResolverEndpoint","AWS::S3::Bucket","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL","AWS::XRay::TransactionSearchConfig"
+            $v = "AWS::Bedrock::KnowledgeBase","AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::PaymentManager","AWS::BedrockAgentCore::Runtime","AWS::BedrockAgentCore::WorkloadIdentity","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::CloudWatch::OTelEnrichment","AWS::CloudWatchOmni","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::NetworkFirewall::Firewall","AWS::Route53Resolver::ResolverEndpoint","AWS::S3::Bucket","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL","AWS::XRay::TransactionSearchConfig"
             break
         }
 
@@ -280,6 +290,7 @@ $CWOADMN_map = @{
     "Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "Rule_Source_SourceLogsConfiguration_CentralizeWithDataProtection"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "SignalType"=@("Test-CWOADMNTelemetryPipeline")
     "SourceLogsConfiguration_EncryptedLogGroupStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")

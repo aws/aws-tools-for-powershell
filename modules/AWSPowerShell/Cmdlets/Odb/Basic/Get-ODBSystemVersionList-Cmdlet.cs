@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBSystemVersionList")]
     [OutputType("Amazon.Odb.Model.SystemVersionSummary")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListSystemVersions API operation.", Operation = new[] {"ListSystemVersions"}, SelectReturnType = typeof(Amazon.Odb.Model.ListSystemVersionsResponse))]
+    [AWSCmdlet("Calls the odb ListSystemVersions API operation.", Operation = new[] {"ListSystemVersions"}, SelectReturnType = typeof(Amazon.Odb.Model.ListSystemVersionsResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.SystemVersionSummary or Amazon.Odb.Model.ListSystemVersionsResponse",
         "This cmdlet returns a collection of Amazon.Odb.Model.SystemVersionSummary objects.",
         "The service call response (type Amazon.Odb.Model.ListSystemVersionsResponse) can be returned by specifying '-Select *'."
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ListSystemVersionsResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListSystemVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListSystemVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ListSystemVersions");
             try
             {
                 return client.ListSystemVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

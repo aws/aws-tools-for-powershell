@@ -24,6 +24,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AddInferenceGateway" OutputProperty="*" Verb="Add" Noun="InferenceGateway" ShouldProcessTarget="Name,ClusterArn,Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AddTags" OutputProperty="Tags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="Tags" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -405,6 +409,10 @@
                 <Param Name="HumanLoopConfig_PublicWorkforceTaskPrice_AmountInUsd_Dollars" NewName="AmountInUsd_Dollar" />
                 <Param Name="HumanLoopConfig_PublicWorkforceTaskPrice_AmountInUsd_TenthFractionsOfACent" NewName="AmountInUsd_TenthFractionsOfACent" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlobalInferenceGateway" OutputProperty="*" Verb="New" Noun="GlobalInferenceGateway" ShouldProcessTarget="Name,ExecutionRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateHub" OutputProperty="HubArn" Verb="New" Noun="Hub" ShouldProcessTarget="HubName" PipelineParameter="HubName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -991,6 +999,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGlobalInferenceGateway" OutputProperty="*" Verb="Remove" Noun="GlobalInferenceGateway" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteHub" Verb="Remove" Noun="Hub" ShouldProcessTarget="HubName" PipelineParameter="HubName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1276,6 +1288,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFlowDefinition" OutputProperty="*" Verb="Get" Noun="FlowDefinition" PipelineParameter="FlowDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGlobalInferenceGateway" OutputProperty="*" Verb="Get" Noun="GlobalInferenceGatewayDetail" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1661,6 +1677,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListGlobalInferenceGateways" OutputProperty="GlobalInferenceGatewaySummaries" Verb="Get" Noun="GlobalInferenceGatewayList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListHubContents" OutputProperty="HubContentSummaries" Verb="Get" Noun="HubContentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1694,6 +1714,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInferenceExperiments" OutputProperty="InferenceExperiments" Verb="Get" Noun="InferenceExperimentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInferenceGateways" OutputProperty="InferenceGatewaySummaries" Verb="Get" Noun="InferenceGatewayList" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1905,6 +1929,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="MoveClusterNodes" OutputProperty="*" Verb="Move" Noun="ClusterNode" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutEndpointPolicy" OutputProperty="EndpointArn" Verb="Write" Noun="EndpointPolicy" ShouldProcessTarget="EndpointName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1918,6 +1946,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterDevices" Verb="Register" Noun="Device" ShouldProcessTarget="DeviceFleetName" PipelineParameter="DeviceFleetName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveInferenceGateway" OutputProperty="*" Verb="Remove" Noun="InferenceGateway" ShouldProcessTarget="Name,ClusterArn,Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2225,6 +2257,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFeatureMetadata" Verb="Update" Noun="FeatureMetadata" ShouldProcessTarget="FeatureGroupName" PipelineParameter="FeatureGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlobalInferenceGateway" OutputProperty="*" Verb="Update" Noun="GlobalInferenceGateway" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

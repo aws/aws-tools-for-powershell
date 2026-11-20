@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Get", "COAAccountList")]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.AccountInfo")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service ListAccounts API operation.", Operation = new[] {"ListAccounts"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListAccountsResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation ListAccounts API operation.", Operation = new[] {"ListAccounts"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListAccountsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.AccountInfo or Amazon.ComputeOptimizerAutomation.Model.ListAccountsResponse",
         "This cmdlet returns a collection of Amazon.ComputeOptimizerAutomation.Model.AccountInfo objects.",
         "The service call response (type Amazon.ComputeOptimizerAutomation.Model.ListAccountsResponse) can be returned by specifying '-Select *'."
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.ListAccountsResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.ListAccountsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "ListAccounts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "ListAccounts");
             try
             {
                 return client.ListAccountsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

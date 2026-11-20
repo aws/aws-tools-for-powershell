@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Remove", "COAAutomationRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service DeleteAutomationRule API operation.", Operation = new[] {"DeleteAutomationRule"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.DeleteAutomationRuleResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation DeleteAutomationRule API operation.", Operation = new[] {"DeleteAutomationRule"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.DeleteAutomationRuleResponse))]
     [AWSCmdletOutput("None or Amazon.ComputeOptimizerAutomation.Model.DeleteAutomationRuleResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ComputeOptimizerAutomation.Model.DeleteAutomationRuleResponse) be returned by specifying '-Select *'."
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.DeleteAutomationRuleResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.DeleteAutomationRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "DeleteAutomationRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "DeleteAutomationRule");
             try
             {
                 return client.DeleteAutomationRuleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

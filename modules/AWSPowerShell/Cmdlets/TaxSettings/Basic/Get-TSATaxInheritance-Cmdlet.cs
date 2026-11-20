@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </summary>
     [Cmdlet("Get", "TSATaxInheritance")]
     [OutputType("Amazon.TaxSettings.HeritageStatus")]
-    [AWSCmdlet("Calls the AWS Tax Settings GetTaxInheritance API operation.", Operation = new[] {"GetTaxInheritance"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.GetTaxInheritanceResponse))]
+    [AWSCmdlet("Calls the Tax Settings GetTaxInheritance API operation.", Operation = new[] {"GetTaxInheritance"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.GetTaxInheritanceResponse))]
     [AWSCmdletOutput("Amazon.TaxSettings.HeritageStatus or Amazon.TaxSettings.Model.GetTaxInheritanceResponse",
         "This cmdlet returns an Amazon.TaxSettings.HeritageStatus object.",
         "The service call response (type Amazon.TaxSettings.Model.GetTaxInheritanceResponse) can be returned by specifying '-Select *'."
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         
         private Amazon.TaxSettings.Model.GetTaxInheritanceResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.GetTaxInheritanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "GetTaxInheritance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Tax Settings", "GetTaxInheritance");
             try
             {
                 return client.GetTaxInheritanceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

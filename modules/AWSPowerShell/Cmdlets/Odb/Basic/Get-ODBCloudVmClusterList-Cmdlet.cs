@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBCloudVmClusterList")]
     [OutputType("Amazon.Odb.Model.CloudVmClusterSummary")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListCloudVmClusters API operation.", Operation = new[] {"ListCloudVmClusters"}, SelectReturnType = typeof(Amazon.Odb.Model.ListCloudVmClustersResponse))]
+    [AWSCmdlet("Calls the odb ListCloudVmClusters API operation.", Operation = new[] {"ListCloudVmClusters"}, SelectReturnType = typeof(Amazon.Odb.Model.ListCloudVmClustersResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.CloudVmClusterSummary or Amazon.Odb.Model.ListCloudVmClustersResponse",
         "This cmdlet returns a collection of Amazon.Odb.Model.CloudVmClusterSummary objects.",
         "The service call response (type Amazon.Odb.Model.ListCloudVmClustersResponse) can be returned by specifying '-Select *'."
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ListCloudVmClustersResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListCloudVmClustersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListCloudVmClusters");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ListCloudVmClusters");
             try
             {
                 return client.ListCloudVmClustersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

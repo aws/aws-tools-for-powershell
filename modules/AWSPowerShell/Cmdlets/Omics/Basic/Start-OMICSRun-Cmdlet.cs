@@ -137,7 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <summary>
         /// <para>
         /// <para>Engine-specific settings for the workflow run. Use this field to specify configuration
-        /// options that are specific to the workflow engine (for example, Nextflow profiles).</para>
+        /// options that are specific to the workflow engine (for example, Nextflow profiles,
+        /// Nextflow runtime configuration).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,12 +216,32 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <para>
         /// <para>Parameters for the run. The run needs all required parameters and can include optional
         /// parameters. The run cannot include any parameters that are not defined in the parameter
-        /// template. To retrieve parameters from the run, use the GetRun API operation.</para>
+        /// template. To retrieve parameters from the run, use the GetRun API operation. To supply
+        /// the parameters in a file in S3 instead, use <c>parametersUri</c>. Specify either <c>parameters</c>
+        /// or <c>parametersUri</c>, not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Parameters")]
         public System.Management.Automation.PSObject Parameter { get; set; }
+        #endregion
+        
+        #region Parameter ParametersUri
+        /// <summary>
+        /// <para>
+        /// <para>The S3 URI of a JSON file that contains the run parameters. Use this field instead
+        /// of <c>parameters</c> when your parameters are too large for the request. Specify either
+        /// <c>parameters</c> or <c>parametersUri</c>, not both.</para><para>Amazon Web Services HealthOmics validates the file after <c>StartRun</c> returns.
+        /// If the file isn't valid, Amazon Web Services HealthOmics fails the run with the failure
+        /// reason <c>INVALID_RUN_PARAMETERS</c>. For more information about permissions, limits,
+        /// and other requirements, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-inputs.html">Amazon
+        /// Web Services HealthOmics run inputs</a> and <a href="https://docs.aws.amazon.com/omics/latest/dev/fixed-quotas.html">Amazon
+        /// Web Services HealthOmics service quotas</a> in the <i>Amazon Web Services HealthOmics
+        /// User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ParametersUri { get; set; }
         #endregion
         
         #region Parameter Priority
@@ -236,6 +257,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Priority { get; set; }
+        #endregion
+        
+        #region Parameter RequesterPaysEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the workflow run that this request starts can read inputs from Amazon
+        /// S3 buckets that use Requester Pays. Your account pays the request and data transfer
+        /// charges for those reads. The default is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RequesterPaysEnabled { get; set; }
         #endregion
         
         #region Parameter RequestId
@@ -490,8 +523,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             #endif
             context.OutputUriPrefixMode = this.OutputUriPrefixMode;
             context.Parameter = this.Parameter;
+            context.ParametersUri = this.ParametersUri;
             context.Priority = this.Priority;
             context.RequestId = this.RequestId;
+            context.RequesterPaysEnabled = this.RequesterPaysEnabled;
             context.RetentionMode = this.RetentionMode;
             context.RoleArn = this.RoleArn;
             #if MODULAR
@@ -574,6 +609,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             {
                 request.Parameters = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.Parameter);
             }
+            if (cmdletContext.ParametersUri != null)
+            {
+                request.ParametersUri = cmdletContext.ParametersUri;
+            }
             if (cmdletContext.Priority != null)
             {
                 request.Priority = cmdletContext.Priority.Value;
@@ -581,6 +620,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.RequestId != null)
             {
                 request.RequestId = cmdletContext.RequestId;
+            }
+            if (cmdletContext.RequesterPaysEnabled != null)
+            {
+                request.RequesterPaysEnabled = cmdletContext.RequesterPaysEnabled.Value;
             }
             if (cmdletContext.RetentionMode != null)
             {
@@ -699,8 +742,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String OutputUri { get; set; }
             public Amazon.Omics.RunOutputUriPrefixMode OutputUriPrefixMode { get; set; }
             public System.Management.Automation.PSObject Parameter { get; set; }
+            public System.String ParametersUri { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String RequestId { get; set; }
+            public System.Boolean? RequesterPaysEnabled { get; set; }
             public Amazon.Omics.RunRetentionMode RetentionMode { get; set; }
             public System.String RoleArn { get; set; }
             public System.String RunGroupId { get; set; }

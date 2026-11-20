@@ -192,6 +192,20 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public System.Int32? ScalingConfiguration_MinInstanceCount { get; set; }
         #endregion
         
+        #region Parameter InstanceHealthChecks_HealthMonitoring_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The health monitoring mode. This value is required when you specify <c>healthMonitoring</c>.
+        /// There is no default value. Valid values:</para><ul><li><para><c>NONE</c> – Turns off health monitoring. You can't specify <c>repairAction</c>
+        /// with this mode.</para></li><li><para><c>STANDARD</c> – Continuously checks running instances for hardware and software
+        /// faults.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PCS.HealthMonitoringMode")]
+        public Amazon.PCS.HealthMonitoringMode InstanceHealthChecks_HealthMonitoring_Mode { get; set; }
+        #endregion
+        
         #region Parameter NodeLifecycleActions_Stages_NodeBootstrapped
         /// <summary>
         /// <para>
@@ -227,6 +241,24 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public Amazon.PCS.Model.NodeLifecycleScript[] NodeLifecycleActions_Stages_NodeReady { get; set; }
         #endregion
         
+        #region Parameter InstanceHealthChecks_DeepHealthChecks_OnStart_Profile
+        /// <summary>
+        /// <para>
+        /// <para>The deep health check profile to run. Each profile other than <c>NONE</c> runs NVIDIA
+        /// Data Center GPU Manager (DCGM) diagnostics. More thorough profiles run more tests
+        /// and add more time to instance launch. A profile other than <c>NONE</c> requires instance
+        /// types with NVIDIA GPUs. This value is required when you specify <c>onStart</c>. There
+        /// is no default value. Valid values:</para><ul><li><para><c>NONE</c> – Turns off the deep health check. You can't specify <c>repairAction</c>
+        /// with this profile.</para></li><li><para><c>QUICK</c> – Runs basic GPU tests (DCGM diagnostics level 1). This profile adds
+        /// the least time to instance launch.</para></li><li><para><c>MEDIUM</c> – Runs extended GPU tests (DCGM diagnostics level 2).</para></li><li><para><c>LONG</c> – Runs GPU stress and diagnostic tests (DCGM diagnostics level 3). This
+        /// profile adds the most time to instance launch.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PCS.DeepHealthCheckOnStartProfile")]
+        public Amazon.PCS.DeepHealthCheckOnStartProfile InstanceHealthChecks_DeepHealthChecks_OnStart_Profile { get; set; }
+        #endregion
+        
         #region Parameter PurchaseOption
         /// <summary>
         /// <para>
@@ -245,6 +277,36 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.PCS.PurchaseOption")]
         public Amazon.PCS.PurchaseOption PurchaseOption { get; set; }
+        #endregion
+        
+        #region Parameter InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction
+        /// <summary>
+        /// <para>
+        /// <para>The action that PCS takes when an instance fails the deep health check. You can't
+        /// specify this value when <c>profile</c> is <c>NONE</c>. If you don't specify this value
+        /// and <c>profile</c> isn't <c>NONE</c>, PCS uses <c>AUTO</c>. <c>GetComputeNodeGroup</c>
+        /// doesn't return a <c>repairAction</c> that you didn't specify. Valid values:</para><ul><li><para><c>AUTO</c> – PCS chooses the repair action based on the fault.</para></li><li><para><c>REPLACE</c> – Replaces the instance before it accepts jobs.</para></li><li><para><c>ISOLATE</c> – Stops new jobs on the instance and keeps the instance running until
+        /// you investigate.</para></li><li><para><c>NONE</c> – Records the fault in Slurm and leaves the instance available for jobs.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PCS.DeepHealthCheckOnStartRepairAction")]
+        public Amazon.PCS.DeepHealthCheckOnStartRepairAction InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction { get; set; }
+        #endregion
+        
+        #region Parameter InstanceHealthChecks_HealthMonitoring_RepairAction
+        /// <summary>
+        /// <para>
+        /// <para>The action that PCS takes when health monitoring finds a fault on an instance. You
+        /// can't specify this value when <c>mode</c> is <c>NONE</c>. If you don't specify this
+        /// value and <c>mode</c> isn't <c>NONE</c>, PCS uses <c>AUTO</c>. <c>GetComputeNodeGroup</c>
+        /// doesn't return a <c>repairAction</c> that you didn't specify. Valid values:</para><ul><li><para><c>AUTO</c> – PCS chooses the repair action based on the fault.</para></li><li><para><c>REPLACE</c> – Replaces the instance after running jobs finish.</para></li><li><para><c>ISOLATE</c> – Stops new jobs on the instance and keeps the instance running until
+        /// you investigate.</para></li><li><para><c>NONE</c> – Records the fault in Slurm and leaves the instance available for jobs.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PCS.HealthMonitoringRepairAction")]
+        public Amazon.PCS.HealthMonitoringRepairAction InstanceHealthChecks_HealthMonitoring_RepairAction { get; set; }
         #endregion
         
         #region Parameter SlurmConfiguration_ScaleDownIdleTimeInSecond
@@ -435,6 +497,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             context.CustomLaunchTemplate_Id = this.CustomLaunchTemplate_Id;
             context.CustomLaunchTemplate_Version = this.CustomLaunchTemplate_Version;
             context.IamInstanceProfileArn = this.IamInstanceProfileArn;
+            context.InstanceHealthChecks_DeepHealthChecks_OnStart_Profile = this.InstanceHealthChecks_DeepHealthChecks_OnStart_Profile;
+            context.InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction = this.InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction;
+            context.InstanceHealthChecks_HealthMonitoring_Mode = this.InstanceHealthChecks_HealthMonitoring_Mode;
+            context.InstanceHealthChecks_HealthMonitoring_RepairAction = this.InstanceHealthChecks_HealthMonitoring_RepairAction;
             context.LaunchTemplateMode = this.LaunchTemplateMode;
             context.NodeLifecycleActions_ScriptCachingPolicy = this.NodeLifecycleActions_ScriptCachingPolicy;
             if (this.NodeLifecycleActions_Stages_NodeBootstrapped != null)
@@ -540,6 +606,100 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (cmdletContext.IamInstanceProfileArn != null)
             {
                 request.IamInstanceProfileArn = cmdletContext.IamInstanceProfileArn;
+            }
+            
+             // populate InstanceHealthChecks
+            var requestInstanceHealthChecksIsNull = true;
+            request.InstanceHealthChecks = new Amazon.PCS.Model.UpdateInstanceHealthChecksRequest();
+            Amazon.PCS.Model.DeepHealthChecks requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks = null;
+            
+             // populate DeepHealthChecks
+            var requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecksIsNull = true;
+            requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks = new Amazon.PCS.Model.DeepHealthChecks();
+            Amazon.PCS.Model.DeepHealthCheckOnStart requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart = null;
+            
+             // populate OnStart
+            var requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStartIsNull = true;
+            requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart = new Amazon.PCS.Model.DeepHealthCheckOnStart();
+            Amazon.PCS.DeepHealthCheckOnStartProfile requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart_instanceHealthChecks_DeepHealthChecks_OnStart_Profile = null;
+            if (cmdletContext.InstanceHealthChecks_DeepHealthChecks_OnStart_Profile != null)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart_instanceHealthChecks_DeepHealthChecks_OnStart_Profile = cmdletContext.InstanceHealthChecks_DeepHealthChecks_OnStart_Profile;
+            }
+            if (requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart_instanceHealthChecks_DeepHealthChecks_OnStart_Profile != null)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart.Profile = requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart_instanceHealthChecks_DeepHealthChecks_OnStart_Profile;
+                requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStartIsNull = false;
+            }
+            Amazon.PCS.DeepHealthCheckOnStartRepairAction requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart_instanceHealthChecks_DeepHealthChecks_OnStart_RepairAction = null;
+            if (cmdletContext.InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction != null)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart_instanceHealthChecks_DeepHealthChecks_OnStart_RepairAction = cmdletContext.InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction;
+            }
+            if (requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart_instanceHealthChecks_DeepHealthChecks_OnStart_RepairAction != null)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart.RepairAction = requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart_instanceHealthChecks_DeepHealthChecks_OnStart_RepairAction;
+                requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStartIsNull = false;
+            }
+             // determine if requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart should be set to null
+            if (requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStartIsNull)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart = null;
+            }
+            if (requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart != null)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks.OnStart = requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks_instanceHealthChecks_DeepHealthChecks_OnStart;
+                requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecksIsNull = false;
+            }
+             // determine if requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks should be set to null
+            if (requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecksIsNull)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks = null;
+            }
+            if (requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks != null)
+            {
+                request.InstanceHealthChecks.DeepHealthChecks = requestInstanceHealthChecks_instanceHealthChecks_DeepHealthChecks;
+                requestInstanceHealthChecksIsNull = false;
+            }
+            Amazon.PCS.Model.HealthMonitoring requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring = null;
+            
+             // populate HealthMonitoring
+            var requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoringIsNull = true;
+            requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring = new Amazon.PCS.Model.HealthMonitoring();
+            Amazon.PCS.HealthMonitoringMode requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring_instanceHealthChecks_HealthMonitoring_Mode = null;
+            if (cmdletContext.InstanceHealthChecks_HealthMonitoring_Mode != null)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring_instanceHealthChecks_HealthMonitoring_Mode = cmdletContext.InstanceHealthChecks_HealthMonitoring_Mode;
+            }
+            if (requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring_instanceHealthChecks_HealthMonitoring_Mode != null)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring.Mode = requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring_instanceHealthChecks_HealthMonitoring_Mode;
+                requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoringIsNull = false;
+            }
+            Amazon.PCS.HealthMonitoringRepairAction requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring_instanceHealthChecks_HealthMonitoring_RepairAction = null;
+            if (cmdletContext.InstanceHealthChecks_HealthMonitoring_RepairAction != null)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring_instanceHealthChecks_HealthMonitoring_RepairAction = cmdletContext.InstanceHealthChecks_HealthMonitoring_RepairAction;
+            }
+            if (requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring_instanceHealthChecks_HealthMonitoring_RepairAction != null)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring.RepairAction = requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring_instanceHealthChecks_HealthMonitoring_RepairAction;
+                requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoringIsNull = false;
+            }
+             // determine if requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring should be set to null
+            if (requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoringIsNull)
+            {
+                requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring = null;
+            }
+            if (requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring != null)
+            {
+                request.InstanceHealthChecks.HealthMonitoring = requestInstanceHealthChecks_instanceHealthChecks_HealthMonitoring;
+                requestInstanceHealthChecksIsNull = false;
+            }
+             // determine if request.InstanceHealthChecks should be set to null
+            if (requestInstanceHealthChecksIsNull)
+            {
+                request.InstanceHealthChecks = null;
             }
             if (cmdletContext.LaunchTemplateMode != null)
             {
@@ -764,6 +924,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public System.String CustomLaunchTemplate_Id { get; set; }
             public System.String CustomLaunchTemplate_Version { get; set; }
             public System.String IamInstanceProfileArn { get; set; }
+            public Amazon.PCS.DeepHealthCheckOnStartProfile InstanceHealthChecks_DeepHealthChecks_OnStart_Profile { get; set; }
+            public Amazon.PCS.DeepHealthCheckOnStartRepairAction InstanceHealthChecks_DeepHealthChecks_OnStart_RepairAction { get; set; }
+            public Amazon.PCS.HealthMonitoringMode InstanceHealthChecks_HealthMonitoring_Mode { get; set; }
+            public Amazon.PCS.HealthMonitoringRepairAction InstanceHealthChecks_HealthMonitoring_RepairAction { get; set; }
             public Amazon.PCS.LaunchTemplateMode LaunchTemplateMode { get; set; }
             public Amazon.PCS.ScriptCachingPolicy NodeLifecycleActions_ScriptCachingPolicy { get; set; }
             public List<Amazon.PCS.Model.NodeLifecycleScript> NodeLifecycleActions_Stages_NodeBootstrapped { get; set; }

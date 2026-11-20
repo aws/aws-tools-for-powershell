@@ -189,6 +189,19 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String[] EnabledAnalysisType { get; set; }
         #endregion
         
+        #region Parameter IgwFirewallConfiguration_EnforcementMode
+        /// <summary>
+        /// <para>
+        /// <para>How the internet gateway firewall enforces its rules. The only supported value is
+        /// <c>POLICY_CONTROLLED</c>, which means that the enforcement mode is set by the firewall
+        /// policy that Amazon Web Services Network Security Manager associates with the firewall.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.EnforcementMode")]
+        public Amazon.NetworkFirewall.EnforcementMode IgwFirewallConfiguration_EnforcementMode { get; set; }
+        #endregion
+        
         #region Parameter FirewallName
         /// <summary>
         /// <para>
@@ -502,6 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             }
             #endif
             context.FirewallPolicyChangeProtection = this.FirewallPolicyChangeProtection;
+            context.IgwFirewallConfiguration_EnforcementMode = this.IgwFirewallConfiguration_EnforcementMode;
             if (this.NatGatewayCreateMapping != null)
             {
                 context.NatGatewayCreateMapping = new List<Amazon.NetworkFirewall.Model.NatGatewayCreateMapping>(this.NatGatewayCreateMapping);
@@ -605,6 +619,25 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.FirewallPolicyChangeProtection != null)
             {
                 request.FirewallPolicyChangeProtection = cmdletContext.FirewallPolicyChangeProtection.Value;
+            }
+            
+             // populate IgwFirewallConfiguration
+            var requestIgwFirewallConfigurationIsNull = true;
+            request.IgwFirewallConfiguration = new Amazon.NetworkFirewall.Model.IgwFirewallConfiguration();
+            Amazon.NetworkFirewall.EnforcementMode requestIgwFirewallConfiguration_igwFirewallConfiguration_EnforcementMode = null;
+            if (cmdletContext.IgwFirewallConfiguration_EnforcementMode != null)
+            {
+                requestIgwFirewallConfiguration_igwFirewallConfiguration_EnforcementMode = cmdletContext.IgwFirewallConfiguration_EnforcementMode;
+            }
+            if (requestIgwFirewallConfiguration_igwFirewallConfiguration_EnforcementMode != null)
+            {
+                request.IgwFirewallConfiguration.EnforcementMode = requestIgwFirewallConfiguration_igwFirewallConfiguration_EnforcementMode;
+                requestIgwFirewallConfigurationIsNull = false;
+            }
+             // determine if request.IgwFirewallConfiguration should be set to null
+            if (requestIgwFirewallConfigurationIsNull)
+            {
+                request.IgwFirewallConfiguration = null;
             }
             if (cmdletContext.NatGatewayCreateMapping != null)
             {
@@ -767,6 +800,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.String FirewallName { get; set; }
             public System.String FirewallPolicyArn { get; set; }
             public System.Boolean? FirewallPolicyChangeProtection { get; set; }
+            public Amazon.NetworkFirewall.EnforcementMode IgwFirewallConfiguration_EnforcementMode { get; set; }
             public List<Amazon.NetworkFirewall.Model.NatGatewayCreateMapping> NatGatewayCreateMapping { get; set; }
             public System.String ProxySettings_CertificateArn { get; set; }
             public System.String ProxySettings_DomainName { get; set; }

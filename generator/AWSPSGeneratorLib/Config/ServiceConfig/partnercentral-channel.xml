@@ -23,7 +23,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelChannelContract" OutputProperty="ChannelContractDetail" Verb="Stop" Noun="ChannelContract" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelChannelHandshake" OutputProperty="ChannelHandshakeDetail" Verb="Stop" Noun="ChannelHandshake" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannelContract" OutputProperty="ChannelContractDetail" Verb="New" Noun="ChannelContract" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,7 +71,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetChannelContract" OutputProperty="ChannelContractDetail" Verb="Get" Noun="ChannelContract" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRelationship" OutputProperty="RelationshipDetail" Verb="Get" Noun="Relationship" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelContracts" OutputProperty="Items" Verb="Get" Noun="ChannelContractList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

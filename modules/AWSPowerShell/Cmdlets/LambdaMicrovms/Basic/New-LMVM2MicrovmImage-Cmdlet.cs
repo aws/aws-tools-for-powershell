@@ -176,6 +176,19 @@ namespace Amazon.PowerShell.Cmdlets.LMVM2
         public System.Collections.Hashtable EnvironmentVariable { get; set; }
         #endregion
         
+        #region Parameter KmsKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The customer managed Amazon Web Services Key Management Service (Amazon Web Services
+        /// KMS) key that encrypts the contents and metadata of your MicroVM image version. You
+        /// must have permission to use the key. Specify the key in one of the following formats:</para><ul><li><para>Key ARN</para></li><li><para>Alias ARN</para></li></ul><para>If you don't specify a key, your MicroVM image version uses an Amazon Web Services
+        /// owned key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Logging_CloudWatch_LogGroup
         /// <summary>
         /// <para>
@@ -513,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.LMVM2
             context.Hooks_MicrovmImageHooks_Validate = this.Hooks_MicrovmImageHooks_Validate;
             context.Hooks_MicrovmImageHooks_ValidateTimeoutInSecond = this.Hooks_MicrovmImageHooks_ValidateTimeoutInSecond;
             context.Hooks_Port = this.Hooks_Port;
+            context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.Logging_CloudWatch_LogGroup = this.Logging_CloudWatch_LogGroup;
             context.Logging_CloudWatch_LogStream = this.Logging_CloudWatch_LogStream;
             context.Logging_Disabled = this.Logging_Disabled;
@@ -775,6 +789,10 @@ namespace Amazon.PowerShell.Cmdlets.LMVM2
             {
                 request.Hooks = null;
             }
+            if (cmdletContext.KmsKeyIdentifier != null)
+            {
+                request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
+            }
             
              // populate Logging
             var requestLoggingIsNull = true;
@@ -919,6 +937,7 @@ namespace Amazon.PowerShell.Cmdlets.LMVM2
             public Amazon.LambdaMicrovms.HookState Hooks_MicrovmImageHooks_Validate { get; set; }
             public System.Int32? Hooks_MicrovmImageHooks_ValidateTimeoutInSecond { get; set; }
             public System.Int32? Hooks_Port { get; set; }
+            public System.String KmsKeyIdentifier { get; set; }
             public System.String Logging_CloudWatch_LogGroup { get; set; }
             public System.String Logging_CloudWatch_LogStream { get; set; }
             public Amazon.LambdaMicrovms.Model.LoggingDisabled Logging_Disabled { get; set; }

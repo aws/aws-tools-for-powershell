@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Remove", "ODBOdbPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services DeleteOdbPeeringConnection API operation.", Operation = new[] {"DeleteOdbPeeringConnection"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteOdbPeeringConnectionResponse))]
+    [AWSCmdlet("Calls the odb DeleteOdbPeeringConnection API operation.", Operation = new[] {"DeleteOdbPeeringConnection"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteOdbPeeringConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.DeleteOdbPeeringConnectionResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.DeleteOdbPeeringConnectionResponse) be returned by specifying '-Select *'."
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.DeleteOdbPeeringConnectionResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.DeleteOdbPeeringConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "DeleteOdbPeeringConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "DeleteOdbPeeringConnection");
             try
             {
                 return client.DeleteOdbPeeringConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

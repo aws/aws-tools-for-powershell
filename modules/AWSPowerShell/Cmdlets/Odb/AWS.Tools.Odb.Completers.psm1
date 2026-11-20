@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Oracle Database@Amazon Web Services
+# Argument completions for service odb
 
 
 $ODB_Completers = {
@@ -494,6 +494,7 @@ $ODB_SelectMap = @{
                "Get-ODBAutonomousDatabaseCharacterSetList",
                "Get-ODBAutonomousDatabaseCloneList",
                "Get-ODBAutonomousDatabasePeerList",
+               "Get-ODBAutonomousDatabaseRefreshableCloneList",
                "Get-ODBAutonomousDatabaseList",
                "Get-ODBAutonomousDatabaseVersionList",
                "Get-ODBAutonomousVirtualMachineList",
@@ -517,6 +518,7 @@ $ODB_SelectMap = @{
                "Restore-ODBAutonomousDatabase",
                "Invoke-ODBAutonomousDatabaseShrink",
                "Start-ODBAutonomousDatabase",
+               "Start-ODBAutonomousDatabaseRefresh",
                "Start-ODBDbNode",
                "Stop-ODBAutonomousDatabase",
                "Stop-ODBDbNode",

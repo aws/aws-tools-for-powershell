@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Stop", "ODBDbNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.StopDbNodeResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services StopDbNode API operation.", Operation = new[] {"StopDbNode"}, SelectReturnType = typeof(Amazon.Odb.Model.StopDbNodeResponse))]
+    [AWSCmdlet("Calls the odb StopDbNode API operation.", Operation = new[] {"StopDbNode"}, SelectReturnType = typeof(Amazon.Odb.Model.StopDbNodeResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.StopDbNodeResponse",
         "This cmdlet returns an Amazon.Odb.Model.StopDbNodeResponse object containing multiple properties."
     )]
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.StopDbNodeResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.StopDbNodeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "StopDbNode");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "StopDbNode");
             try
             {
                 return client.StopDbNodeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

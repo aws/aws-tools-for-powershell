@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Approve", "ODBMarketplaceRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services AcceptMarketplaceRegistration API operation.", Operation = new[] {"AcceptMarketplaceRegistration"}, SelectReturnType = typeof(Amazon.Odb.Model.AcceptMarketplaceRegistrationResponse))]
+    [AWSCmdlet("Calls the odb AcceptMarketplaceRegistration API operation.", Operation = new[] {"AcceptMarketplaceRegistration"}, SelectReturnType = typeof(Amazon.Odb.Model.AcceptMarketplaceRegistrationResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.AcceptMarketplaceRegistrationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.AcceptMarketplaceRegistrationResponse) be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.AcceptMarketplaceRegistrationResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.AcceptMarketplaceRegistrationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "AcceptMarketplaceRegistration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "AcceptMarketplaceRegistration");
             try
             {
                 return client.AcceptMarketplaceRegistrationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

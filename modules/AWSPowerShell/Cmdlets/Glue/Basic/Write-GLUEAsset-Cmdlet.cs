@@ -48,17 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter AssetTypeId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the asset type for the asset.</para>
+        /// <para>The identifier of the asset type for the asset. This field is required.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("AssetTypeIdentifier")]
         public System.String AssetTypeId { get; set; }
         #endregion
         
@@ -189,20 +183,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AssetTypeId = this.AssetTypeId;
-            #if MODULAR
-            if (this.AssetTypeId == null && ParameterWasBound(nameof(this.AssetTypeId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AssetTypeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.Form != null)
             {
-                context.Form = new Dictionary<System.String, Amazon.Glue.Model.AssetFormEntry>(StringComparer.Ordinal);
+                context.Form = new Dictionary<System.String, Amazon.Glue.Model.AssetFormInput>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Form.Keys)
                 {
-                    context.Form.Add((String)hashKey, (Amazon.Glue.Model.AssetFormEntry)(this.Form[hashKey]));
+                    context.Form.Add((String)hashKey, (Amazon.Glue.Model.AssetFormInput)(this.Form[hashKey]));
                 }
             }
             #if MODULAR
@@ -243,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (cmdletContext.AssetTypeId != null)
             {
-                request.AssetTypeId = cmdletContext.AssetTypeId;
+                request.AssetTypeIdentifier = cmdletContext.AssetTypeId;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -323,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String AssetTypeId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
-            public Dictionary<System.String, Amazon.Glue.Model.AssetFormEntry> Form { get; set; }
+            public Dictionary<System.String, Amazon.Glue.Model.AssetFormInput> Form { get; set; }
             public System.String Identifier { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.Glue.Model.PutAssetResponse, WriteGLUEAssetCmdlet, object> Select { get; set; } =

@@ -53,11 +53,31 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBlueprint" OutputProperty="BlueprintArn" Verb="New" Noun="Blueprint" ShouldProcessTarget="BlueprintName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBlueprintVersion" OutputProperty="*" Verb="New" Noun="BlueprintVersion" ShouldProcessTarget="BlueprintArn" PipelineParameter="BlueprintArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAdapter" Verb="Remove" Noun="Adapter" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAdapterVersion" Verb="Remove" Noun="AdapterVersion" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBlueprint" Verb="Remove" Noun="Blueprint" ShouldProcessTarget="BlueprintArn" PipelineParameter="BlueprintArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -77,7 +97,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBlueprint" OutputProperty="*" Verb="Get" Noun="Blueprint" PipelineParameter="BlueprintArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDocumentAnalysis" OutputProperty="*" Verb="Get" Noun="DocumentAnalysis" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDocumentInsights" OutputProperty="*" Verb="Get" Noun="DocumentInsight" PipelineParameter="JobArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -97,11 +125,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAdapters" OutputProperty="Adapters" Verb="Get" Noun="AdapterList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAdapterVersions" OutputProperty="AdapterVersions" Verb="Get" Noun="AdapterVersionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="BlueprintList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,6 +155,10 @@
                 <Param Name="DocumentLocation_S3Object_Name" NewName="S3Object_Name" />
                 <Param Name="DocumentLocation_S3Object_Version" NewName="S3Object_Version" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDocumentInsights" OutputProperty="JobArn" Verb="Start" Noun="DocumentInsight" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDocumentTextDetection" OutputProperty="JobId" Verb="Start" Noun="DocumentTextDetection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -150,6 +194,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAdapter" OutputProperty="*" Verb="Update" Noun="Adapter" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBlueprint" OutputProperty="BlueprintArn" Verb="Update" Noun="Blueprint" ShouldProcessTarget="BlueprintArn" PipelineParameter="BlueprintArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProject" OutputProperty="*" Verb="Update" Noun="Project" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

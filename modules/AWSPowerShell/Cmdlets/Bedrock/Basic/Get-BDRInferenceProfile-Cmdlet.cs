@@ -63,6 +63,22 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String InferenceProfileIdentifier { get; set; }
         #endregion
         
+        #region Parameter ProjectIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID or Amazon Resource Name (ARN) of a project. Amazon Bedrock uses the project's
+        /// trusted access program participation when determining whether to return a system-defined
+        /// inference profile. The project must belong to your account in the same AWS Region
+        /// and partition as the request.</para><para>If you omit this parameter or specify <c>default</c>, Amazon Bedrock uses your account's
+        /// participation, including organization inheritance.</para><para>A project that doesn't exist or is archived causes a <c>ValidationException</c>. Specifying
+        /// a project other than <c>default</c> for an application inference profile also causes
+        /// a <c>ValidationException</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -100,6 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 WriteWarning("You are passing $null as a value for parameter InferenceProfileIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ProjectIdentifier = this.ProjectIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,6 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.InferenceProfileIdentifier != null)
             {
                 request.InferenceProfileIdentifier = cmdletContext.InferenceProfileIdentifier;
+            }
+            if (cmdletContext.ProjectIdentifier != null)
+            {
+                request.ProjectIdentifier = cmdletContext.ProjectIdentifier;
             }
             
             CmdletOutput output;
@@ -176,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InferenceProfileIdentifier { get; set; }
+            public System.String ProjectIdentifier { get; set; }
             public System.Func<Amazon.Bedrock.Model.GetInferenceProfileResponse, GetBDRInferenceProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -86,7 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_AutomaticBackupRetentionDay
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The number of days to retain automatic backups. Setting this property to <c>0</c>
+        /// disables automatic backups and deletes all existing automatic backups for the file
+        /// system's volumes. You can retain automatic backups for a maximum of 90 days. The default
+        /// is <c>30</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// to tolerate temporary AZ unavailability. This is a second-generation FSx for ONTAP
         /// file system.</para></li><li><para><c>SINGLE_AZ_1</c> - A file system configured for Single-AZ redundancy. This is a
         /// first-generation FSx for ONTAP file system.</para></li><li><para><c>SINGLE_AZ_2</c> - A file system configured with multiple high-availability (HA)
-        /// pairs for Single-AZ redundancy. This is a second-generation FSx for ONTAP file system.</para></li></ul><para>For information about the use cases for Multi-AZ and Single-AZ deployments, refer
+        /// pairs for Single-AZ redundancy. This is a second-generation FSx for ONTAP file system.</para></li><li><para><c>MULTI_AZ_3</c> - A high availability file system configured for Multi-AZ redundancy
+        /// to tolerate temporary AZ unavailability. This is a third-generation FSx for ONTAP
+        /// file system.</para></li><li><para><c>SINGLE_AZ_3</c> - A file system configured with multiple high-availability (HA)
+        /// pairs for Single-AZ redundancy. This is a third-generation FSx for ONTAP file system.</para></li></ul><para>For information about the use cases for Multi-AZ and Single-AZ deployments, refer
         /// to <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html">Choosing
         /// a file system deployment type</a>. </para>
         /// </para>
@@ -354,15 +360,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Specifies how many high-availability (HA) pairs of file servers will power your file
         /// system. First-generation file systems are powered by 1 HA pair. Second-generation
-        /// multi-AZ file systems are powered by 1 HA pair. Second generation single-AZ file systems
-        /// are powered by up to 12 HA pairs. The default value is 1. The value of this property
-        /// affects the values of <c>StorageCapacity</c>, <c>Iops</c>, and <c>ThroughputCapacity</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/administering-file-systems.html#HA-pairs">High-availability
+        /// and third-generation multi-AZ file systems are powered by 1 HA pair. Second-generation
+        /// and third-generation single-AZ file systems are powered by up to 12 HA pairs. The
+        /// default value is 1. The value of this property affects the values of <c>StorageCapacity</c>,
+        /// <c>Iops</c>, and <c>ThroughputCapacity</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/administering-file-systems.html#HA-pairs">High-availability
         /// (HA) pairs</a> in the FSx for ONTAP user guide. Block storage protocol support (iSCSI
         /// and NVMe over TCP) is disabled on file systems with more than 6 HA pairs. For more
         /// information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/supported-fsx-clients.html#using-block-storage">Using
         /// block storage protocols</a>. </para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>HAPairs</c> is less than 1 or greater than 12.</para></li><li><para>The value of <c>HAPairs</c> is greater than 1 and the value of <c>DeploymentType</c>
-        /// is <c>SINGLE_AZ_1</c>, <c>MULTI_AZ_1</c>, or <c>MULTI_AZ_2</c>.</para></li></ul>
+        /// is <c>SINGLE_AZ_1</c>, <c>MULTI_AZ_1</c>, <c>MULTI_AZ_2</c>, or <c>MULTI_AZ_3</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -475,8 +481,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_PreferredSubnetId
         /// <summary>
         /// <para>
-        /// <para>Required when <c>DeploymentType</c> is set to <c>MULTI_AZ_1</c> or <c>MULTI_AZ_2</c>.
-        /// This specifies the subnet in which you want the preferred file server to be located.</para>
+        /// <para>Required when <c>DeploymentType</c> is set to <c>MULTI_AZ_1</c>, <c>MULTI_AZ_2</c>,
+        /// or <c>MULTI_AZ_3</c>. This specifies the subnet in which you want the preferred file
+        /// server to be located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -736,9 +743,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// for the file system. </para><para>You can define either the <c>ThroughputCapacityPerHAPair</c> or the <c>ThroughputCapacity</c>
         /// when creating a file system, but not both.</para><para>This field and <c>ThroughputCapacity</c> are the same for file systems powered by
         /// one HA pair.</para><ul><li><para>For <c>SINGLE_AZ_1</c> and <c>MULTI_AZ_1</c> file systems, valid values are 128, 256,
-        /// 512, 1024, 2048, or 4096 MBps.</para></li><li><para>For <c>SINGLE_AZ_2</c>, valid values are 1536, 3072, or 6144 MBps.</para></li><li><para>For <c>MULTI_AZ_2</c>, valid values are 384, 768, 1536, 3072, or 6144 MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>ThroughputCapacity</c> and <c>ThroughputCapacityPerHAPair</c> are
-        /// not the same value for file systems with one HA pair.</para></li><li><para>The value of deployment type is <c>SINGLE_AZ_2</c> and <c>ThroughputCapacity</c> /
-        /// <c>ThroughputCapacityPerHAPair</c> is not a valid HA pair (a value between 1 and 12).</para></li><li><para>The value of <c>ThroughputCapacityPerHAPair</c> is not a valid value.</para></li></ul>
+        /// 512, 1024, 2048, or 4096 MBps.</para></li><li><para>For <c>SINGLE_AZ_2</c>, valid values are 1536, 3072, or 6144 MBps.</para></li><li><para>For <c>MULTI_AZ_2</c>, valid values are 384, 768, 1536, 3072, or 6144 MBps.</para></li><li><para>For <c>SINGLE_AZ_3</c>, valid values are 1536, 3072, 6144, 12288, or 18432 MBps.</para></li><li><para>For <c>MULTI_AZ_3</c>, valid values are 384, 768, 1536, 3072, 6144, 12288, or 18432
+        /// MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>ThroughputCapacity</c> and <c>ThroughputCapacityPerHAPair</c> are
+        /// not the same value for file systems with one HA pair.</para></li><li><para>The value of deployment type is <c>SINGLE_AZ_2</c> or <c>SINGLE_AZ_3</c> and <c>ThroughputCapacity</c>
+        /// / <c>ThroughputCapacityPerHAPair</c> is not a valid HA pair (a value between 1 and
+        /// 12).</para></li><li><para>The value of <c>ThroughputCapacityPerHAPair</c> is not a valid value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

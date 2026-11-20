@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Add", "ODBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Odb.Model.TagResourceResponse))]
+    [AWSCmdlet("Calls the odb TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Odb.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.TagResourceResponse) be returned by specifying '-Select *'."
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.TagResourceResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "TagResource");
             try
             {
                 return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

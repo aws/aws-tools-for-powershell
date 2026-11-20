@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     /// 
     ///  
     /// <para>
-    /// Amazon Bedrock doesn't store any text, images, or documents that you provide as content.
-    /// The data is only used to generate the response.
+    /// Data retention for this request depends on the applicable account or project configuration
+    /// and the model's data retention policy.
     /// </para><para>
     /// You can submit a prompt by including it in the <c>messages</c> field, specifying the
     /// <c>modelId</c> of a foundation model or inference profile to run inference on it,
@@ -60,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     /// For example code, see <i>Converse API examples</i> in the <i>Amazon Bedrock User Guide</i>.
     /// 
     /// </para><para>
-    /// This operation requires permission for the <c>bedrock:InvokeModel</c> action. 
+    /// This operation requires permission for the <c>bedrock:InvokeModel</c> action on both
+    /// the inference target and the project. If you omit <c>projectIdentifier</c> or specify
+    /// <c>default</c>, this includes permission on the default project for your account.
     /// </para><important><para>
     /// To deny all inference access to resources that you specify in the modelId field, you
     /// need to deny access to the <c>bedrock:InvokeModel</c> and <c>bedrock:InvokeModelWithResponseStream</c>
@@ -277,6 +279,21 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ToolConfig_ToolChoice_Tool_Name")]
         public System.String Tool_Name { get; set; }
+        #endregion
+        
+        #region Parameter ProjectIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the project to use for this invocation. The
+        /// project must be active and belong to your AWS account and the AWS Region to which
+        /// you send the request. Specify <c>default</c> or omit this field to use the default
+        /// project for your account.</para><para>For a non-default project, the inference target must resolve to a foundation model
+        /// or system-defined inference profile. Application inference profiles don't support
+        /// non-default projects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectIdentifier { get; set; }
         #endregion
         
         #region Parameter PromptVariable
@@ -512,6 +529,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             context.OutputConfig_TextFormat_Structure_JsonSchema_Schema = this.OutputConfig_TextFormat_Structure_JsonSchema_Schema;
             context.OutputConfig_TextFormat_Type = this.OutputConfig_TextFormat_Type;
             context.PerformanceConfig_Latency = this.PerformanceConfig_Latency;
+            context.ProjectIdentifier = this.ProjectIdentifier;
             if (this.PromptVariable != null)
             {
                 context.PromptVariable = new Dictionary<System.String, Amazon.BedrockRuntime.Model.PromptVariableValues>(StringComparer.Ordinal);
@@ -783,6 +801,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             {
                 request.PerformanceConfig = null;
             }
+            if (cmdletContext.ProjectIdentifier != null)
+            {
+                request.ProjectIdentifier = cmdletContext.ProjectIdentifier;
+            }
             if (cmdletContext.PromptVariable != null)
             {
                 request.PromptVariables = cmdletContext.PromptVariable;
@@ -965,6 +987,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public System.String OutputConfig_TextFormat_Structure_JsonSchema_Schema { get; set; }
             public Amazon.BedrockRuntime.OutputFormatType OutputConfig_TextFormat_Type { get; set; }
             public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
+            public System.String ProjectIdentifier { get; set; }
             public Dictionary<System.String, Amazon.BedrockRuntime.Model.PromptVariableValues> PromptVariable { get; set; }
             public Dictionary<System.String, System.String> RequestMetadata { get; set; }
             public Amazon.BedrockRuntime.ServiceTierType ServiceTier_Type { get; set; }

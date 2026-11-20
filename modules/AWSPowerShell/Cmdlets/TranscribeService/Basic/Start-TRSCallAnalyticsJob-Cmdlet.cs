@@ -301,7 +301,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Specify if you want only a redacted transcript, or if you want a redacted and an unredacted
         /// transcript.</para><para>When you choose <c>redacted</c> Amazon Transcribe creates only a redacted transcript.</para><para>When you choose <c>redacted_and_unredacted</c> Amazon Transcribe creates a redacted
-        /// and an unredacted transcript (as two separate files).</para>
+        /// and an unredacted transcript. For batch jobs, Amazon Transcribe creates two separate
+        /// files. For <c>TranscribeAudio</c>, Amazon Transcribe returns them in <c>RedactedResults</c>
+        /// and <c>Results</c>, or writes them as two separate files if you use <c>OutputConfiguration</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

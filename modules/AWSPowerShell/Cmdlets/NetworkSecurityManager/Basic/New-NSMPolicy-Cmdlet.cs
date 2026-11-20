@@ -74,6 +74,29 @@ namespace Amazon.PowerShell.Cmdlets.NSM
         public Amazon.NetworkSecurityManager.WAFConflictResolutionOptions PolicyConfiguration_WafConfig_ConflictResolution { get; set; }
         #endregion
         
+        #region Parameter PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity
+        /// <summary>
+        /// <para>
+        /// <para>The default internet connectivity treatment that AWS Network Security Manager applies
+        /// to subnets in scope, unless a subnet connectivity override applies. Required for Network
+        /// Firewall automated internet firewall policies. Valid values:</para><ul><li><para><c>flexible</c> – Sets the connectivity for each network interface in the subnet
+        /// based on whether it is associated with a public IP address. A network interface with
+        /// a public IP address gets bidirectional internet connectivity. A network interface
+        /// without a public IP address gets outbound-only connectivity. All traffic is inspected
+        /// against your firewall rules.</para></li><li><para><c>bidirectional</c> – Provides bidirectional internet connectivity to every network
+        /// interface that has a public IP association. Any network interface without a public
+        /// IP cannot communicate with the internet unless a NAT device is explicitly inserted
+        /// in the path. All inbound and outbound traffic is inspected against your firewall rules.</para></li><li><para><c>outbound-only</c> – Provides egress-only connectivity for all network interfaces
+        /// in the subnet. All outbound traffic and inbound responses are inspected against your
+        /// firewall rules. Unsolicited inbound connections are dropped. For IPv4 traffic, the
+        /// Network Firewall automated internet firewall performs NAT.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkSecurityManager.DefaultSubnetConnectivity")]
+        public Amazon.NetworkSecurityManager.DefaultSubnetConnectivity PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity { get; set; }
+        #endregion
+        
         #region Parameter PolicyConfiguration_WafConfig_ExistingCustomerWebACLResolution
         /// <summary>
         /// <para>
@@ -179,7 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.NSM
         /// <summary>
         /// <para>
         /// <para>Specifies whether AWS Network Security Manager automatically removes the resources
-        /// it created when they are no longer needed. Default: <c>false</c>.</para>
+        /// it created when they are no longer needed. This member is required, and the only supported
+        /// value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -190,6 +214,25 @@ namespace Amazon.PowerShell.Cmdlets.NSM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? PolicyConfiguration_ResourcesCleanUp { get; set; }
+        #endregion
+        
+        #region Parameter PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride
+        /// <summary>
+        /// <para>
+        /// <para>An ordered list of overrides that apply a different connectivity treatment to the
+        /// subnets that a scope selects. When a subnet matches more than one override, the first
+        /// matching override in the list applies. You can specify at most one override for each
+        /// connectivity type.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverrides")]
+        public Amazon.NetworkSecurityManager.Model.SubnetConnectivityOverride[] PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -279,6 +322,11 @@ namespace Amazon.PowerShell.Cmdlets.NSM
             }
             #endif
             context.IsPublished = this.IsPublished;
+            context.PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity = this.PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity;
+            if (this.PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride != null)
+            {
+                context.PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride = new List<Amazon.NetworkSecurityManager.Model.SubnetConnectivityOverride>(this.PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride);
+            }
             context.PolicyConfiguration_RemediationEnabled = this.PolicyConfiguration_RemediationEnabled;
             #if MODULAR
             if (this.PolicyConfiguration_RemediationEnabled == null && ParameterWasBound(nameof(this.PolicyConfiguration_RemediationEnabled)))
@@ -372,6 +420,41 @@ namespace Amazon.PowerShell.Cmdlets.NSM
             if (requestPolicyConfiguration_policyConfiguration_ResourcesCleanUp != null)
             {
                 request.PolicyConfiguration.ResourcesCleanUp = requestPolicyConfiguration_policyConfiguration_ResourcesCleanUp.Value;
+                requestPolicyConfigurationIsNull = false;
+            }
+            Amazon.NetworkSecurityManager.Model.IgwFirewallConfig requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig = null;
+            
+             // populate IgwFirewallConfig
+            var requestPolicyConfiguration_policyConfiguration_IgwFirewallConfigIsNull = true;
+            requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig = new Amazon.NetworkSecurityManager.Model.IgwFirewallConfig();
+            Amazon.NetworkSecurityManager.DefaultSubnetConnectivity requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig_policyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity = null;
+            if (cmdletContext.PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity != null)
+            {
+                requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig_policyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity = cmdletContext.PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity;
+            }
+            if (requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig_policyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity != null)
+            {
+                requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig.DefaultSubnetConnectivity = requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig_policyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity;
+                requestPolicyConfiguration_policyConfiguration_IgwFirewallConfigIsNull = false;
+            }
+            List<Amazon.NetworkSecurityManager.Model.SubnetConnectivityOverride> requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig_policyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride = null;
+            if (cmdletContext.PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride != null)
+            {
+                requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig_policyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride = cmdletContext.PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride;
+            }
+            if (requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig_policyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride != null)
+            {
+                requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig.SubnetConnectivityOverrides = requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig_policyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride;
+                requestPolicyConfiguration_policyConfiguration_IgwFirewallConfigIsNull = false;
+            }
+             // determine if requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig should be set to null
+            if (requestPolicyConfiguration_policyConfiguration_IgwFirewallConfigIsNull)
+            {
+                requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig = null;
+            }
+            if (requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig != null)
+            {
+                request.PolicyConfiguration.IgwFirewallConfig = requestPolicyConfiguration_policyConfiguration_IgwFirewallConfig;
                 requestPolicyConfigurationIsNull = false;
             }
             Amazon.NetworkSecurityManager.Model.WafConfig requestPolicyConfiguration_policyConfiguration_WafConfig = null;
@@ -489,6 +572,8 @@ namespace Amazon.PowerShell.Cmdlets.NSM
             public System.String ClientToken { get; set; }
             public Amazon.NetworkSecurityManager.PolicyFirewallType FirewallType { get; set; }
             public System.Boolean? IsPublished { get; set; }
+            public Amazon.NetworkSecurityManager.DefaultSubnetConnectivity PolicyConfiguration_IgwFirewallConfig_DefaultSubnetConnectivity { get; set; }
+            public List<Amazon.NetworkSecurityManager.Model.SubnetConnectivityOverride> PolicyConfiguration_IgwFirewallConfig_SubnetConnectivityOverride { get; set; }
             public System.Boolean? PolicyConfiguration_RemediationEnabled { get; set; }
             public System.Boolean? PolicyConfiguration_ResourcesCleanUp { get; set; }
             public Amazon.NetworkSecurityManager.WAFConflictResolutionOptions PolicyConfiguration_WafConfig_ConflictResolution { get; set; }

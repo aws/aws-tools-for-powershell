@@ -23,86 +23,73 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Creates or updates an asset type in Glue Data Catalog. An asset type defines the structure
-    /// of assets by specifying which forms they include. If an asset type with the given
-    /// name already exists, it is updated.
+    /// Deletes a project's retention storage configuration for a model provider. Deleting
+    /// an absent configuration on an active project succeeds. If the project does not exist
+    /// or your account does not own it, the operation returns <c>ResourceNotFoundException</c>.
+    /// For an archived project, the operation returns <c>ValidationException</c>. You can
+    /// read the archived project's stored configuration until Amazon Bedrock purges the project.
+    /// You do not need to participate in the program to delete the configuration.
     /// </summary>
-    [Cmdlet("Write", "GLUEAssetType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Glue.Model.PutAssetTypeResponse")]
-    [AWSCmdlet("Calls the AWS Glue PutAssetType API operation.", Operation = new[] {"PutAssetType"}, SelectReturnType = typeof(Amazon.Glue.Model.PutAssetTypeResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.PutAssetTypeResponse",
-        "This cmdlet returns an Amazon.Glue.Model.PutAssetTypeResponse object containing multiple properties."
+    [Cmdlet("Remove", "BDRProjectDataRetentionStorage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Bedrock DeleteProjectDataRetentionStorage API operation.", Operation = new[] {"DeleteProjectDataRetentionStorage"}, SelectReturnType = typeof(Amazon.Bedrock.Model.DeleteProjectDataRetentionStorageResponse))]
+    [AWSCmdletOutput("None or Amazon.Bedrock.Model.DeleteProjectDataRetentionStorageResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Bedrock.Model.DeleteProjectDataRetentionStorageResponse) be returned by specifying '-Select *'."
     )]
-    public partial class WriteGLUEAssetTypeCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemoveBDRProjectDataRetentionStorageCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Form
+        #region Parameter ModelProvider
         /// <summary>
         /// <para>
-        /// <para>The forms that make up the asset type, keyed by form name. Each entry references the
-        /// form type that defines the form's schema.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data
-        /// for this property is returned from the service the property will also be null. This
-        /// was changed to improve performance and allow the SDK and caller to distinguish between
-        /// a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The model provider whose retention storage configuration is addressed by this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Forms")]
-        public System.Collections.Hashtable Form { get; set; }
+        [AWSConstantClassSource("Amazon.Bedrock.DataRetentionStorageModelProvider")]
+        public Amazon.Bedrock.DataRetentionStorageModelProvider ModelProvider { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter ProjectIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the asset type.</para>
+        /// <para>The ID or ARN of a named project owned by the calling account in this AWS Region.
+        /// The default project is not supported; use the account-level retention storage operations
+        /// instead.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String ProjectIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.PutAssetTypeResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.PutAssetTypeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.DeleteProjectDataRetentionStorageResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-GLUEAssetType (PutAssetType)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProjectIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BDRProjectDataRetentionStorage (DeleteProjectDataRetentionStorage)"))
             {
                 return;
             }
@@ -141,29 +128,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.PutAssetTypeResponse, WriteGLUEAssetTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.DeleteProjectDataRetentionStorageResponse, RemoveBDRProjectDataRetentionStorageCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ClientToken = this.ClientToken;
-            if (this.Form != null)
-            {
-                context.Form = new Dictionary<System.String, Amazon.Glue.Model.AssetTypeFormReference>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Form.Keys)
-                {
-                    context.Form.Add((String)hashKey, (Amazon.Glue.Model.AssetTypeFormReference)(this.Form[hashKey]));
-                }
-            }
+            context.ModelProvider = this.ModelProvider;
             #if MODULAR
-            if (this.Form == null && ParameterWasBound(nameof(this.Form)))
+            if (this.ModelProvider == null && ParameterWasBound(nameof(this.ModelProvider)))
             {
-                WriteWarning("You are passing $null as a value for parameter Form which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ModelProvider which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
+            context.ProjectIdentifier = this.ProjectIdentifier;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.ProjectIdentifier == null && ParameterWasBound(nameof(this.ProjectIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -180,19 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.PutAssetTypeRequest();
+            var request = new Amazon.Bedrock.Model.DeleteProjectDataRetentionStorageRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.ModelProvider != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.ModelProvider = cmdletContext.ModelProvider;
             }
-            if (cmdletContext.Form != null)
+            if (cmdletContext.ProjectIdentifier != null)
             {
-                request.Forms = cmdletContext.Form;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.ProjectIdentifier = cmdletContext.ProjectIdentifier;
             }
             
             CmdletOutput output;
@@ -227,12 +202,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.PutAssetTypeResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.PutAssetTypeRequest request)
+        private Amazon.Bedrock.Model.DeleteProjectDataRetentionStorageResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.DeleteProjectDataRetentionStorageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "PutAssetType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "DeleteProjectDataRetentionStorage");
             try
             {
-                return client.PutAssetTypeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteProjectDataRetentionStorageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -249,11 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public Dictionary<System.String, Amazon.Glue.Model.AssetTypeFormReference> Form { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.Glue.Model.PutAssetTypeResponse, WriteGLUEAssetTypeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.Bedrock.DataRetentionStorageModelProvider ModelProvider { get; set; }
+            public System.String ProjectIdentifier { get; set; }
+            public System.Func<Amazon.Bedrock.Model.DeleteProjectDataRetentionStorageResponse, RemoveBDRProjectDataRetentionStorageCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

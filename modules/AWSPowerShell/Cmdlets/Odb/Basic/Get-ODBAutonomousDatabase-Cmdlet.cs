@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBAutonomousDatabase")]
     [OutputType("Amazon.Odb.Model.AutonomousDatabase")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services GetAutonomousDatabase API operation.", Operation = new[] {"GetAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.GetAutonomousDatabaseResponse))]
+    [AWSCmdlet("Calls the odb GetAutonomousDatabase API operation.", Operation = new[] {"GetAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.GetAutonomousDatabaseResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.AutonomousDatabase or Amazon.Odb.Model.GetAutonomousDatabaseResponse",
         "This cmdlet returns an Amazon.Odb.Model.AutonomousDatabase object.",
         "The service call response (type Amazon.Odb.Model.GetAutonomousDatabaseResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.GetAutonomousDatabaseResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.GetAutonomousDatabaseRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "GetAutonomousDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "GetAutonomousDatabase");
             try
             {
                 return client.GetAutonomousDatabaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

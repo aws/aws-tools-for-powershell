@@ -64,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String Descriptors_AgentSkillsDefinition_AdditionalData_SourceConfiguration_S3_BucketOwnerAccountId { get; set; }
         #endregion
         
+        #region Parameter Descriptors_SignatureAgentCard_AdditionalData_Category
+        /// <summary>
+        /// <para>
+        /// <para>The bot category that describes the purpose of the web bot identified by the signature
+        /// agent card descriptor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AgentRegistryControl.BotCategory")]
+        public Amazon.AgentRegistryControl.BotCategory Descriptors_SignatureAgentCard_AdditionalData_Category { get; set; }
+        #endregion
+        
         #region Parameter Artifact_Content
         /// <summary>
         /// <para>
@@ -179,6 +191,23 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_McpServer_Source_FromUrl_CredentialProviderConfiguration { get; set; }
         #endregion
         
+        #region Parameter Descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The credential providers used to authenticate when fetching descriptor content from
+        /// the source URL.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfigurations")]
+        public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration { get; set; }
+        #endregion
+        
         #region Parameter CustomMetadata
         /// <summary>
         /// <para>
@@ -249,6 +278,16 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String Descriptors_McpServer_Data { get; set; }
         #endregion
         
+        #region Parameter Descriptors_SignatureAgentCard_Data
+        /// <summary>
+        /// <para>
+        /// <para>The signature agent card content, serialized as descriptor payload data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptors_SignatureAgentCard_Data { get; set; }
+        #endregion
+        
         #region Parameter Descriptors_A2aAgentCard_DataSchemaVersion
         /// <summary>
         /// <para>
@@ -297,6 +336,16 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Descriptors_McpServer_DataSchemaVersion { get; set; }
+        #endregion
+        
+        #region Parameter Descriptors_SignatureAgentCard_DataSchemaVersion
+        /// <summary>
+        /// <para>
+        /// <para>The schema version of the descriptor payload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptors_SignatureAgentCard_DataSchemaVersion { get; set; }
         #endregion
         
         #region Parameter Description
@@ -523,6 +572,20 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String Descriptors_McpServer_Source_FromUrl_Url { get; set; }
         #endregion
         
+        #region Parameter Descriptors_SignatureAgentCard_Source_FromUrl_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL from which the descriptor content is retrieved. For an agent skill source,
+        /// specify an <c>s3://</c> URL of an object in a bucket in the same Amazon Web Services
+        /// Region as the registry. For a GitHub skill source, specify a GitHub folder URL in
+        /// the form <c>https://host/owner/repo/tree/branch-or-tag/path</c>. Other descriptor
+        /// sources use <c>https://</c> URLs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptors_SignatureAgentCard_Source_FromUrl_Url { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -632,6 +695,14 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
                 context.Descriptors_McpServer_Source_FromUrl_CredentialProviderConfiguration = new List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration>(this.Descriptors_McpServer_Source_FromUrl_CredentialProviderConfiguration);
             }
             context.Descriptors_McpServer_Source_FromUrl_Url = this.Descriptors_McpServer_Source_FromUrl_Url;
+            context.Descriptors_SignatureAgentCard_AdditionalData_Category = this.Descriptors_SignatureAgentCard_AdditionalData_Category;
+            context.Descriptors_SignatureAgentCard_Data = this.Descriptors_SignatureAgentCard_Data;
+            context.Descriptors_SignatureAgentCard_DataSchemaVersion = this.Descriptors_SignatureAgentCard_DataSchemaVersion;
+            if (this.Descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration != null)
+            {
+                context.Descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration = new List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration>(this.Descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration);
+            }
+            context.Descriptors_SignatureAgentCard_Source_FromUrl_Url = this.Descriptors_SignatureAgentCard_Source_FromUrl_Url;
             context.DisplayName = this.DisplayName;
             context.Name = this.Name;
             #if MODULAR
@@ -1358,6 +1429,116 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
                     request.Descriptors.McpServer = requestDescriptors_descriptors_McpServer;
                     requestDescriptorsIsNull = false;
                 }
+                Amazon.AgentRegistryControl.Model.SignatureAgentCardDescriptor requestDescriptors_descriptors_SignatureAgentCard = null;
+                
+                 // populate SignatureAgentCard
+                var requestDescriptors_descriptors_SignatureAgentCardIsNull = true;
+                requestDescriptors_descriptors_SignatureAgentCard = new Amazon.AgentRegistryControl.Model.SignatureAgentCardDescriptor();
+                System.String requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Data = null;
+                if (cmdletContext.Descriptors_SignatureAgentCard_Data != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Data = cmdletContext.Descriptors_SignatureAgentCard_Data;
+                }
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Data != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard.Data = requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Data;
+                    requestDescriptors_descriptors_SignatureAgentCardIsNull = false;
+                }
+                System.String requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_DataSchemaVersion = null;
+                if (cmdletContext.Descriptors_SignatureAgentCard_DataSchemaVersion != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_DataSchemaVersion = cmdletContext.Descriptors_SignatureAgentCard_DataSchemaVersion;
+                }
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_DataSchemaVersion != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard.DataSchemaVersion = requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_DataSchemaVersion;
+                    requestDescriptors_descriptors_SignatureAgentCardIsNull = false;
+                }
+                Amazon.AgentRegistryControl.Model.SignatureAgentCardAdditionalData requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData = null;
+                
+                 // populate AdditionalData
+                var requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalDataIsNull = true;
+                requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData = new Amazon.AgentRegistryControl.Model.SignatureAgentCardAdditionalData();
+                Amazon.AgentRegistryControl.BotCategory requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData_descriptors_SignatureAgentCard_AdditionalData_Category = null;
+                if (cmdletContext.Descriptors_SignatureAgentCard_AdditionalData_Category != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData_descriptors_SignatureAgentCard_AdditionalData_Category = cmdletContext.Descriptors_SignatureAgentCard_AdditionalData_Category;
+                }
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData_descriptors_SignatureAgentCard_AdditionalData_Category != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData.Category = requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData_descriptors_SignatureAgentCard_AdditionalData_Category;
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalDataIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData should be set to null
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalDataIsNull)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData = null;
+                }
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard.AdditionalData = requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_AdditionalData;
+                    requestDescriptors_descriptors_SignatureAgentCardIsNull = false;
+                }
+                Amazon.AgentRegistryControl.Model.DescriptorSource requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source = null;
+                
+                 // populate Source
+                var requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_SourceIsNull = true;
+                requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source = new Amazon.AgentRegistryControl.Model.DescriptorSource();
+                Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl = null;
+                
+                 // populate FromUrl
+                var requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrlIsNull = true;
+                requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl = new Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl();
+                List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl_descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration = null;
+                if (cmdletContext.Descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl_descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration = cmdletContext.Descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration;
+                }
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl_descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl.CredentialProviderConfigurations = requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl_descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration;
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrlIsNull = false;
+                }
+                System.String requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl_descriptors_SignatureAgentCard_Source_FromUrl_Url = null;
+                if (cmdletContext.Descriptors_SignatureAgentCard_Source_FromUrl_Url != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl_descriptors_SignatureAgentCard_Source_FromUrl_Url = cmdletContext.Descriptors_SignatureAgentCard_Source_FromUrl_Url;
+                }
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl_descriptors_SignatureAgentCard_Source_FromUrl_Url != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl.Url = requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl_descriptors_SignatureAgentCard_Source_FromUrl_Url;
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrlIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl should be set to null
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrlIsNull)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl = null;
+                }
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source.FromUrl = requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source_descriptors_SignatureAgentCard_Source_FromUrl;
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_SourceIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source should be set to null
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_SourceIsNull)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source = null;
+                }
+                if (requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source != null)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard.Source = requestDescriptors_descriptors_SignatureAgentCard_descriptors_SignatureAgentCard_Source;
+                    requestDescriptors_descriptors_SignatureAgentCardIsNull = false;
+                }
+                 // determine if requestDescriptors_descriptors_SignatureAgentCard should be set to null
+                if (requestDescriptors_descriptors_SignatureAgentCardIsNull)
+                {
+                    requestDescriptors_descriptors_SignatureAgentCard = null;
+                }
+                if (requestDescriptors_descriptors_SignatureAgentCard != null)
+                {
+                    request.Descriptors.SignatureAgentCard = requestDescriptors_descriptors_SignatureAgentCard;
+                    requestDescriptorsIsNull = false;
+                }
                  // determine if request.Descriptors should be set to null
                 if (requestDescriptorsIsNull)
                 {
@@ -1484,6 +1665,11 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             public System.String Descriptors_McpServer_DataSchemaVersion { get; set; }
             public List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> Descriptors_McpServer_Source_FromUrl_CredentialProviderConfiguration { get; set; }
             public System.String Descriptors_McpServer_Source_FromUrl_Url { get; set; }
+            public Amazon.AgentRegistryControl.BotCategory Descriptors_SignatureAgentCard_AdditionalData_Category { get; set; }
+            public System.String Descriptors_SignatureAgentCard_Data { get; set; }
+            public System.String Descriptors_SignatureAgentCard_DataSchemaVersion { get; set; }
+            public List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> Descriptors_SignatureAgentCard_Source_FromUrl_CredentialProviderConfiguration { get; set; }
+            public System.String Descriptors_SignatureAgentCard_Source_FromUrl_Url { get; set; }
             public System.String DisplayName { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.AgentRegistryControl.Model.Provenance> Provenance { get; set; }

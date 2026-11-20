@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.NSM
         public Amazon.NetworkSecurityManager.EntityStatusFilter Status { get; set; }
         #endregion
         
+        #region Parameter TemplateOwner
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which templates to list. The default is <c>CUSTOMER</c>. Valid values:</para><ul><li><para><c>CUSTOMER</c> – Lists the templates in your account.</para></li><li><para><c>AWS</c> – Lists the AWS managed templates.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkSecurityManager.TemplateOwner")]
+        public Amazon.NetworkSecurityManager.TemplateOwner TemplateOwner { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -141,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.NSM
             #endif
             context.NextToken = this.NextToken;
             context.Status = this.Status;
+            context.TemplateOwner = this.TemplateOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.NSM
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.TemplateOwner != null)
+            {
+                request.TemplateOwner = cmdletContext.TemplateOwner;
             }
             
             // Initialize loop variant and commence piping
@@ -249,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.NSM
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.NetworkSecurityManager.EntityStatusFilter Status { get; set; }
+            public Amazon.NetworkSecurityManager.TemplateOwner TemplateOwner { get; set; }
             public System.Func<Amazon.NetworkSecurityManager.Model.ListTemplatesResponse, GetNSMTemplateListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Templates;
         }

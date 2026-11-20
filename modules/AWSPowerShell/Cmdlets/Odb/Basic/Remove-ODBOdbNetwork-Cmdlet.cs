@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Remove", "ODBOdbNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services DeleteOdbNetwork API operation.", Operation = new[] {"DeleteOdbNetwork"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteOdbNetworkResponse))]
+    [AWSCmdlet("Calls the odb DeleteOdbNetwork API operation.", Operation = new[] {"DeleteOdbNetwork"}, SelectReturnType = typeof(Amazon.Odb.Model.DeleteOdbNetworkResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.DeleteOdbNetworkResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.DeleteOdbNetworkResponse) be returned by specifying '-Select *'."
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.DeleteOdbNetworkResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.DeleteOdbNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "DeleteOdbNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "DeleteOdbNetwork");
             try
             {
                 return client.DeleteOdbNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

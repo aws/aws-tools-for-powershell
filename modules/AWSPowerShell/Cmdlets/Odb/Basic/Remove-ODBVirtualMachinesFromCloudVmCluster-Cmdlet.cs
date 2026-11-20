@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Remove", "ODBVirtualMachinesFromCloudVmCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Odb.Model.DisassociateVirtualMachinesFromCloudVmClusterResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services DisassociateVirtualMachinesFromCloudVmCluster API operation.", Operation = new[] {"DisassociateVirtualMachinesFromCloudVmCluster"}, SelectReturnType = typeof(Amazon.Odb.Model.DisassociateVirtualMachinesFromCloudVmClusterResponse))]
+    [AWSCmdlet("Calls the odb DisassociateVirtualMachinesFromCloudVmCluster API operation.", Operation = new[] {"DisassociateVirtualMachinesFromCloudVmCluster"}, SelectReturnType = typeof(Amazon.Odb.Model.DisassociateVirtualMachinesFromCloudVmClusterResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.DisassociateVirtualMachinesFromCloudVmClusterResponse",
         "This cmdlet returns an Amazon.Odb.Model.DisassociateVirtualMachinesFromCloudVmClusterResponse object containing multiple properties."
     )]
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.DisassociateVirtualMachinesFromCloudVmClusterResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.DisassociateVirtualMachinesFromCloudVmClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "DisassociateVirtualMachinesFromCloudVmCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "DisassociateVirtualMachinesFromCloudVmCluster");
             try
             {
                 return client.DisassociateVirtualMachinesFromCloudVmClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

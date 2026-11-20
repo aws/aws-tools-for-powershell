@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBCloudExadataInfrastructureUnallocatedResource")]
     [OutputType("Amazon.Odb.Model.CloudExadataInfrastructureUnallocatedResources")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services GetCloudExadataInfrastructureUnallocatedResources API operation.", Operation = new[] {"GetCloudExadataInfrastructureUnallocatedResources"}, SelectReturnType = typeof(Amazon.Odb.Model.GetCloudExadataInfrastructureUnallocatedResourcesResponse))]
+    [AWSCmdlet("Calls the odb GetCloudExadataInfrastructureUnallocatedResources API operation.", Operation = new[] {"GetCloudExadataInfrastructureUnallocatedResources"}, SelectReturnType = typeof(Amazon.Odb.Model.GetCloudExadataInfrastructureUnallocatedResourcesResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.CloudExadataInfrastructureUnallocatedResources or Amazon.Odb.Model.GetCloudExadataInfrastructureUnallocatedResourcesResponse",
         "This cmdlet returns an Amazon.Odb.Model.CloudExadataInfrastructureUnallocatedResources object.",
         "The service call response (type Amazon.Odb.Model.GetCloudExadataInfrastructureUnallocatedResourcesResponse) can be returned by specifying '-Select *'."
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.GetCloudExadataInfrastructureUnallocatedResourcesResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.GetCloudExadataInfrastructureUnallocatedResourcesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "GetCloudExadataInfrastructureUnallocatedResources");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "GetCloudExadataInfrastructureUnallocatedResources");
             try
             {
                 return client.GetCloudExadataInfrastructureUnallocatedResourcesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

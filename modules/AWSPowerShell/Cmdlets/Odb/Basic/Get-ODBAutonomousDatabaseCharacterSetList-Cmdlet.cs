@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Get", "ODBAutonomousDatabaseCharacterSetList")]
     [OutputType("Amazon.Odb.Model.AutonomousDatabaseCharacterSetSummary")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListAutonomousDatabaseCharacterSets API operation.", Operation = new[] {"ListAutonomousDatabaseCharacterSets"}, SelectReturnType = typeof(Amazon.Odb.Model.ListAutonomousDatabaseCharacterSetsResponse))]
+    [AWSCmdlet("Calls the odb ListAutonomousDatabaseCharacterSets API operation.", Operation = new[] {"ListAutonomousDatabaseCharacterSets"}, SelectReturnType = typeof(Amazon.Odb.Model.ListAutonomousDatabaseCharacterSetsResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.AutonomousDatabaseCharacterSetSummary or Amazon.Odb.Model.ListAutonomousDatabaseCharacterSetsResponse",
         "This cmdlet returns a collection of Amazon.Odb.Model.AutonomousDatabaseCharacterSetSummary objects.",
         "The service call response (type Amazon.Odb.Model.ListAutonomousDatabaseCharacterSetsResponse) can be returned by specifying '-Select *'."
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.ListAutonomousDatabaseCharacterSetsResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListAutonomousDatabaseCharacterSetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListAutonomousDatabaseCharacterSets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "ListAutonomousDatabaseCharacterSets");
             try
             {
                 return client.ListAutonomousDatabaseCharacterSetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

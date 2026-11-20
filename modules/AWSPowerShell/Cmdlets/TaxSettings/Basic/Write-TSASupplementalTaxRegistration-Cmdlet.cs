@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </summary>
     [Cmdlet("Write", "TSASupplementalTaxRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TaxSettings.Model.PutSupplementalTaxRegistrationResponse")]
-    [AWSCmdlet("Calls the AWS Tax Settings PutSupplementalTaxRegistration API operation.", Operation = new[] {"PutSupplementalTaxRegistration"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.PutSupplementalTaxRegistrationResponse))]
+    [AWSCmdlet("Calls the Tax Settings PutSupplementalTaxRegistration API operation.", Operation = new[] {"PutSupplementalTaxRegistration"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.PutSupplementalTaxRegistrationResponse))]
     [AWSCmdletOutput("Amazon.TaxSettings.Model.PutSupplementalTaxRegistrationResponse",
         "This cmdlet returns an Amazon.TaxSettings.Model.PutSupplementalTaxRegistrationResponse object containing multiple properties."
     )]
@@ -476,7 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         
         private Amazon.TaxSettings.Model.PutSupplementalTaxRegistrationResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.PutSupplementalTaxRegistrationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "PutSupplementalTaxRegistration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Tax Settings", "PutSupplementalTaxRegistration");
             try
             {
                 return client.PutSupplementalTaxRegistrationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

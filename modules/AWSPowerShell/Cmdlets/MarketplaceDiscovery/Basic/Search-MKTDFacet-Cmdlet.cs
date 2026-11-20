@@ -30,7 +30,7 @@ using Amazon.MarketplaceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.MKTD
 {
     /// <summary>
-    /// Returns available facet values for filtering listings, such as categories, pricing
+    /// Retrieves the available facet values for filtering listings, such as categories, pricing
     /// models, fulfillment option types, publishers, and customer ratings. Each facet value
     /// includes a count of matching listings.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         #region Parameter FacetType
         /// <summary>
         /// <para>
-        /// <para>A list of specific facet types to retrieve. If empty or null, all available facets
-        /// are returned.</para><para />
+        /// <para>The facet types to retrieve. If you omit this field or leave it empty, the service
+        /// returns all available facets.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters to apply before retrieving facets. Multiple filters are combined with AND
-        /// logic. Multiple values within the same filter are combined with OR logic.</para><para />
+        /// <para>Filters to apply before retrieving facets. A result must match every filter. Within
+        /// one filter, a result matches if it has any of the values.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -83,10 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>A BCP 47 language tag or comma-separated priority list specifying the preferred locale
-        /// for response content. See <c>Locale</c> for supported values, constraints, fallback
-        /// behavior, and the default locale. If omitted, the service returns content in the default
-        /// locale.</para>
+        /// <para>The preferred locale for response content, as a Best Current Practice 47 (BCP 47)
+        /// language tag or a comma-separated priority list of language tags. See <c>Locale</c>
+        /// for supported values, constraints, fallback behavior, and the default locale. If you
+        /// omit this field, the service returns content in the default locale.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,8 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <c>nextToken</c> is returned, there are more results available. Make the call again
-        /// using the returned token to retrieve the next page.</para>
+        /// <para>If the service returns <c>nextToken</c>, more results are available. The value of
+        /// <c>nextToken</c> is a unique pagination token for each page. Make the call again with
+        /// the returned token to retrieve the next page. Keep all other arguments unchanged.
+        /// Each pagination token expires after 24 hours. An expired pagination token returns
+        /// a <c>ValidationException</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

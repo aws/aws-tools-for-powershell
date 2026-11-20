@@ -90,6 +90,13 @@ $AGRC_Completers = {
             break
         }
 
+        # Amazon.AgentRegistryControl.AssociationApprovalStatus
+        "Update-AGRCPublisherAssociationApprovalStatus/ApprovalStatus"
+        {
+            $v = "APPROVED","REJECTED"
+            break
+        }
+
         # Amazon.AgentRegistryControl.AutoDetectionScope
         {
             ($_ -eq "Update-AGRCRegistry/AutoDetectionConfiguration_OptionalValue_Scope") -Or
@@ -97,6 +104,16 @@ $AGRC_Completers = {
         }
         {
             $v = "ORGANIZATION"
+            break
+        }
+
+        # Amazon.AgentRegistryControl.BotCategory
+        {
+            ($_ -eq "Update-AGRCRegistryRecord/Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue") -Or
+            ($_ -eq "New-AGRCRegistryRecord/Descriptors_SignatureAgentCard_AdditionalData_Category")
+        }
+        {
+            $v = "advertising","ai_assistant","ai_content_optimization","ai_search","ai_training","archiver","content_fetcher","email_client","http_library","link_checker","miscellaneous","monitoring","page_preview","scraping_framework","search_engine","security","seo","social_media"
             break
         }
 
@@ -116,7 +133,7 @@ $AGRC_Completers = {
             ($_ -eq "Update-AGRCRegistryRecord/RecordType")
         }
         {
-            $v = "AGENT","CUSTOM","GATEWAY","MCP","SKILL"
+            $v = "AGENT","CUSTOM","GATEWAY","MCP","SKILL","WEB_BOT"
             break
         }
 
@@ -143,10 +160,13 @@ $AGRC_Completers = {
 }
 
 $AGRC_map = @{
+    "ApprovalStatus"=@("Update-AGRCPublisherAssociationApprovalStatus")
     "AutoDetectionConfiguration_OptionalValue_Scope"=@("Update-AGRCRegistry")
     "AutoDetectionConfiguration_Scope"=@("New-AGRCRegistry")
     "Descriptors_AgentSkillsDefinition_AdditionalData_RepositoryProvider"=@("New-AGRCRegistryRecord")
     "Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_RepositoryProvider_OptionalValue"=@("Update-AGRCRegistryRecord")
+    "Descriptors_OptionalValue_SignatureAgentCard_OptionalValue_AdditionalData_OptionalValue_Category_OptionalValue"=@("Update-AGRCRegistryRecord")
+    "Descriptors_SignatureAgentCard_AdditionalData_Category"=@("New-AGRCRegistryRecord")
     "DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-AGRCRegistry")
     "DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-AGRCRegistry")
     "DiscoveryConfiguration_AuthorizerType"=@("New-AGRCRegistry")
@@ -204,21 +224,30 @@ $AGRC_SelectCompleters = {
 }
 
 $AGRC_SelectMap = @{
-    "Select"=@("New-AGRCRegistry",
+    "Select"=@("Add-AGRCPublisher",
+               "New-AGRCPublisher",
+               "New-AGRCRegistry",
                "New-AGRCRegistryRecord",
+               "Remove-AGRCPublisher",
                "Remove-AGRCRegistry",
                "Remove-AGRCRegistryRecord",
+               "Unregister-AGRCPublisher",
+               "Get-AGRCPublisher",
                "Get-AGRCRegistry",
                "Get-AGRCRegistryRecord",
+               "Get-AGRCPublisherAssociationList",
+               "Get-AGRCPublisherList",
                "Get-AGRCRegistryList",
                "Get-AGRCRegistryRecordList",
                "Get-AGRCResourceTag",
                "Submit-AGRCRegistryRecordForApproval",
                "Add-AGRCResourceTag",
                "Remove-AGRCResourceTag",
+               "Update-AGRCPublisherAssociationApprovalStatus",
                "Update-AGRCRegistry",
                "Update-AGRCRegistryRecord",
-               "Update-AGRCRegistryRecordStatus")
+               "Update-AGRCRegistryRecordStatus",
+               "Test-AGRCPublisher")
 }
 
 _awsArgumentCompleterRegistration $AGRC_SelectCompleters $AGRC_SelectMap

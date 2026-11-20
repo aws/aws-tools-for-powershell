@@ -110,6 +110,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEvent" OutputProperty="Event" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventActor" OutputProperty="EventActor" Verb="Get" Noun="EventActor" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetIPSet" OutputProperty="*" Verb="Get" Noun="IPSet" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -179,6 +187,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAvailableManagedRuleGroupVersions" OutputProperty="Versions" Verb="Get" Noun="AvailableManagedRuleGroupVersionList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventActors" OutputProperty="EventActors" Verb="Get" Noun="EventActorList" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEvents" OutputProperty="Events" Verb="Get" Noun="EventList" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventsByWebACL" OutputProperty="Events" Verb="Get" Noun="EventsByWebACLList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

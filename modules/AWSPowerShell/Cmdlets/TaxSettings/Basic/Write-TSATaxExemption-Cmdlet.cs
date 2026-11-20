@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </summary>
     [Cmdlet("Write", "TSATaxExemption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Tax Settings PutTaxExemption API operation.", Operation = new[] {"PutTaxExemption"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.PutTaxExemptionResponse))]
+    [AWSCmdlet("Calls the Tax Settings PutTaxExemption API operation.", Operation = new[] {"PutTaxExemption"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.PutTaxExemptionResponse))]
     [AWSCmdletOutput("System.String or Amazon.TaxSettings.Model.PutTaxExemptionResponse",
         "This cmdlet returns a System.String object.",
         "The service call response (type Amazon.TaxSettings.Model.PutTaxExemptionResponse) can be returned by specifying '-Select *'."
@@ -363,7 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         
         private Amazon.TaxSettings.Model.PutTaxExemptionResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.PutTaxExemptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "PutTaxExemption");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Tax Settings", "PutTaxExemption");
             try
             {
                 return client.PutTaxExemptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -97,6 +97,20 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String ByProvider { get; set; }
         #endregion
         
+        #region Parameter ProjectIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID or Amazon Resource Name (ARN) of a project. Amazon Bedrock uses the project's
+        /// trusted access program participation when determining which models to return. The
+        /// project must belong to your account in the same AWS Region and partition as the request.</para><para>If you omit this parameter or specify <c>default</c>, Amazon Bedrock uses your account's
+        /// participation, including organization inheritance. A project that doesn't exist or
+        /// is archived causes a <c>ValidationException</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ModelSummaries'.
@@ -131,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             context.ByInferenceType = this.ByInferenceType;
             context.ByOutputModality = this.ByOutputModality;
             context.ByProvider = this.ByProvider;
+            context.ProjectIdentifier = this.ProjectIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.ByProvider != null)
             {
                 request.ByProvider = cmdletContext.ByProvider;
+            }
+            if (cmdletContext.ProjectIdentifier != null)
+            {
+                request.ProjectIdentifier = cmdletContext.ProjectIdentifier;
             }
             
             CmdletOutput output;
@@ -222,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public Amazon.Bedrock.InferenceType ByInferenceType { get; set; }
             public Amazon.Bedrock.ModelModality ByOutputModality { get; set; }
             public System.String ByProvider { get; set; }
+            public System.String ProjectIdentifier { get; set; }
             public System.Func<Amazon.Bedrock.Model.ListFoundationModelsResponse, GetBDRFoundationModelListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ModelSummaries;
         }

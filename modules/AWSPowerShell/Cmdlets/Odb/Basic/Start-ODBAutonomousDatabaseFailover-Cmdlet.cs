@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Start", "ODBAutonomousDatabaseFailover", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.FailoverAutonomousDatabaseResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services FailoverAutonomousDatabase API operation.", Operation = new[] {"FailoverAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.FailoverAutonomousDatabaseResponse))]
+    [AWSCmdlet("Calls the odb FailoverAutonomousDatabase API operation.", Operation = new[] {"FailoverAutonomousDatabase"}, SelectReturnType = typeof(Amazon.Odb.Model.FailoverAutonomousDatabaseResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.FailoverAutonomousDatabaseResponse",
         "This cmdlet returns an Amazon.Odb.Model.FailoverAutonomousDatabaseResponse object containing multiple properties."
     )]
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.FailoverAutonomousDatabaseResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.FailoverAutonomousDatabaseRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "FailoverAutonomousDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "FailoverAutonomousDatabase");
             try
             {
                 return client.FailoverAutonomousDatabaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

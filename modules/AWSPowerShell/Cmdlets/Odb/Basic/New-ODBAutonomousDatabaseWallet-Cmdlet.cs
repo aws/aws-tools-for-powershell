@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("New", "ODBAutonomousDatabaseWallet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.IO.MemoryStream")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services CreateAutonomousDatabaseWallet API operation.", Operation = new[] {"CreateAutonomousDatabaseWallet"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateAutonomousDatabaseWalletResponse))]
+    [AWSCmdlet("Calls the odb CreateAutonomousDatabaseWallet API operation.", Operation = new[] {"CreateAutonomousDatabaseWallet"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateAutonomousDatabaseWalletResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.Odb.Model.CreateAutonomousDatabaseWalletResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
         "The service call response (type Amazon.Odb.Model.CreateAutonomousDatabaseWalletResponse) can be returned by specifying '-Select *'."
@@ -327,7 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.CreateAutonomousDatabaseWalletResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.CreateAutonomousDatabaseWalletRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "CreateAutonomousDatabaseWallet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "CreateAutonomousDatabaseWallet");
             try
             {
                 return client.CreateAutonomousDatabaseWalletAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

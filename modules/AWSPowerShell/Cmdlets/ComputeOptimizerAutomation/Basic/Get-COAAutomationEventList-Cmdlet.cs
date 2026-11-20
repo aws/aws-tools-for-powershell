@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Get", "COAAutomationEventList")]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.AutomationEvent")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service ListAutomationEvents API operation.", Operation = new[] {"ListAutomationEvents"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventsResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation ListAutomationEvents API operation.", Operation = new[] {"ListAutomationEvents"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.AutomationEvent or Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventsResponse",
         "This cmdlet returns a collection of Amazon.ComputeOptimizerAutomation.Model.AutomationEvent objects.",
         "The service call response (type Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventsResponse) can be returned by specifying '-Select *'."
@@ -72,6 +72,25 @@ namespace Amazon.PowerShell.Cmdlets.COA
         public Amazon.ComputeOptimizerAutomation.Model.AutomationEventFilter[] Filter { get; set; }
         #endregion
         
+        #region Parameter OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para> The organizational unit (OU) or organization root IDs to use to filter the results.
+        /// The response includes events for accounts in the specified OUs and their child OUs.
+        /// Only the management account or a delegated administrator can specify this parameter.
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationalUnitIds")]
+        public System.String[] OrganizationalUnitId { get; set; }
+        #endregion
+        
         #region Parameter StartTimeInclusive
         /// <summary>
         /// <para>
@@ -85,7 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.COA
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results to return in a single call. </para>
+        /// <para> The maximum number of automation events to return in a single response. If you don't
+        /// specify a value, the default is 100. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -168,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.COA
             }
             #endif
             context.NextToken = this.NextToken;
+            if (this.OrganizationalUnitId != null)
+            {
+                context.OrganizationalUnitId = new List<System.String>(this.OrganizationalUnitId);
+            }
             context.StartTimeInclusive = this.StartTimeInclusive;
             
             // allow further manipulation of loaded context prior to processing
@@ -198,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.COA
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.OrganizationalUnitId != null)
+            {
+                request.OrganizationalUnitIds = cmdletContext.OrganizationalUnitId;
             }
             if (cmdletContext.StartTimeInclusive != null)
             {
@@ -262,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventsResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "ListAutomationEvents");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "ListAutomationEvents");
             try
             {
                 return client.ListAutomationEventsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -286,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
             public List<Amazon.ComputeOptimizerAutomation.Model.AutomationEventFilter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> OrganizationalUnitId { get; set; }
             public System.DateTime? StartTimeInclusive { get; set; }
             public System.Func<Amazon.ComputeOptimizerAutomation.Model.ListAutomationEventsResponse, GetCOAAutomationEventListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AutomationEvents;

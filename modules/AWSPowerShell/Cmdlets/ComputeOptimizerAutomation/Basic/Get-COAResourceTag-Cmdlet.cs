@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// </summary>
     [Cmdlet("Get", "COAResourceTag")]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.Tag")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListTagsForResourceResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.Tag or Amazon.ComputeOptimizerAutomation.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.ComputeOptimizerAutomation.Model.Tag objects.",
         "The service call response (type Amazon.ComputeOptimizerAutomation.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "ListTagsForResource");
             try
             {
                 return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

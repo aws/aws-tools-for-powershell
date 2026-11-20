@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListListingAttributes" OutputProperty="*" Verb="Get" Noun="ListingAttributeList" PipelineParameter="ListingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPurchaseOptions" OutputProperty="PurchaseOptions" Verb="Get" Noun="PurchaseOptionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

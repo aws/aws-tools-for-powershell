@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </summary>
     [Cmdlet("Get", "TSASupplementalTaxRegistrationList")]
     [OutputType("Amazon.TaxSettings.Model.SupplementalTaxRegistration")]
-    [AWSCmdlet("Calls the AWS Tax Settings ListSupplementalTaxRegistrations API operation.", Operation = new[] {"ListSupplementalTaxRegistrations"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.ListSupplementalTaxRegistrationsResponse))]
+    [AWSCmdlet("Calls the Tax Settings ListSupplementalTaxRegistrations API operation.", Operation = new[] {"ListSupplementalTaxRegistrations"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.ListSupplementalTaxRegistrationsResponse))]
     [AWSCmdletOutput("Amazon.TaxSettings.Model.SupplementalTaxRegistration or Amazon.TaxSettings.Model.ListSupplementalTaxRegistrationsResponse",
         "This cmdlet returns a collection of Amazon.TaxSettings.Model.SupplementalTaxRegistration objects.",
         "The service call response (type Amazon.TaxSettings.Model.ListSupplementalTaxRegistrationsResponse) can be returned by specifying '-Select *'."
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         
         private Amazon.TaxSettings.Model.ListSupplementalTaxRegistrationsResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.ListSupplementalTaxRegistrationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "ListSupplementalTaxRegistrations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Tax Settings", "ListSupplementalTaxRegistrations");
             try
             {
                 return client.ListSupplementalTaxRegistrationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

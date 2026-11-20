@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Update", "ODBCloudExadataInfrastructureStorageCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.UpdateCloudExadataInfrastructureStorageCapacityResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services UpdateCloudExadataInfrastructureStorageCapacity API operation.", Operation = new[] {"UpdateCloudExadataInfrastructureStorageCapacity"}, SelectReturnType = typeof(Amazon.Odb.Model.UpdateCloudExadataInfrastructureStorageCapacityResponse))]
+    [AWSCmdlet("Calls the odb UpdateCloudExadataInfrastructureStorageCapacity API operation.", Operation = new[] {"UpdateCloudExadataInfrastructureStorageCapacity"}, SelectReturnType = typeof(Amazon.Odb.Model.UpdateCloudExadataInfrastructureStorageCapacityResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.UpdateCloudExadataInfrastructureStorageCapacityResponse",
         "This cmdlet returns an Amazon.Odb.Model.UpdateCloudExadataInfrastructureStorageCapacityResponse object containing multiple properties."
     )]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.UpdateCloudExadataInfrastructureStorageCapacityResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.UpdateCloudExadataInfrastructureStorageCapacityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "UpdateCloudExadataInfrastructureStorageCapacity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "UpdateCloudExadataInfrastructureStorageCapacity");
             try
             {
                 return client.UpdateCloudExadataInfrastructureStorageCapacityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

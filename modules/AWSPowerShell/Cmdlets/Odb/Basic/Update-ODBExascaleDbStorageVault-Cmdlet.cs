@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Update", "ODBExascaleDbStorageVault", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.UpdateExascaleDbStorageVaultResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services UpdateExascaleDbStorageVault API operation.", Operation = new[] {"UpdateExascaleDbStorageVault"}, SelectReturnType = typeof(Amazon.Odb.Model.UpdateExascaleDbStorageVaultResponse))]
+    [AWSCmdlet("Calls the odb UpdateExascaleDbStorageVault API operation.", Operation = new[] {"UpdateExascaleDbStorageVault"}, SelectReturnType = typeof(Amazon.Odb.Model.UpdateExascaleDbStorageVaultResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.UpdateExascaleDbStorageVaultResponse",
         "This cmdlet returns an Amazon.Odb.Model.UpdateExascaleDbStorageVaultResponse object containing multiple properties."
     )]
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.UpdateExascaleDbStorageVaultResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.UpdateExascaleDbStorageVaultRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "UpdateExascaleDbStorageVault");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "UpdateExascaleDbStorageVault");
             try
             {
                 return client.UpdateExascaleDbStorageVaultAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

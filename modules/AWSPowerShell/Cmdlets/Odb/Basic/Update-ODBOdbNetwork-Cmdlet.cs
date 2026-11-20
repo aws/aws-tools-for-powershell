@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Update", "ODBOdbNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Odb.Model.UpdateOdbNetworkResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services UpdateOdbNetwork API operation.", Operation = new[] {"UpdateOdbNetwork"}, SelectReturnType = typeof(Amazon.Odb.Model.UpdateOdbNetworkResponse))]
+    [AWSCmdlet("Calls the odb UpdateOdbNetwork API operation.", Operation = new[] {"UpdateOdbNetwork"}, SelectReturnType = typeof(Amazon.Odb.Model.UpdateOdbNetworkResponse))]
     [AWSCmdletOutput("Amazon.Odb.Model.UpdateOdbNetworkResponse",
         "This cmdlet returns an Amazon.Odb.Model.UpdateOdbNetworkResponse object containing multiple properties."
     )]
@@ -389,7 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.UpdateOdbNetworkResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.UpdateOdbNetworkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "UpdateOdbNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "UpdateOdbNetwork");
             try
             {
                 return client.UpdateOdbNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

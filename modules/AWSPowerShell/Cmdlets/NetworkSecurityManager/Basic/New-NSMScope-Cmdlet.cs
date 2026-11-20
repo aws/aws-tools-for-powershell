@@ -183,6 +183,21 @@ namespace Amazon.PowerShell.Cmdlets.NSM
         public System.String ScopeName { get; set; }
         #endregion
         
+        #region Parameter SpecializedScopeType
+        /// <summary>
+        /// <para>
+        /// <para>The specialized type of the scope. Omit this value to create a standard scope that
+        /// you can associate with a deployment. Set it to create a scope that is built for one
+        /// specific purpose: a specialized scope can be used only for the purpose that its type
+        /// defines, is validated against that use, and can't be associated with a deployment.
+        /// This value is set when the scope is created and can't be changed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkSecurityManager.SpecializedScopeType")]
+        public Amazon.NetworkSecurityManager.SpecializedScopeType SpecializedScopeType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -298,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.NSM
                 WriteWarning("You are passing $null as a value for parameter ScopeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SpecializedScopeType = this.SpecializedScopeType;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -452,6 +468,10 @@ namespace Amazon.PowerShell.Cmdlets.NSM
             {
                 request.ScopeName = cmdletContext.ScopeName;
             }
+            if (cmdletContext.SpecializedScopeType != null)
+            {
+                request.SpecializedScopeType = cmdletContext.SpecializedScopeType;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -521,6 +541,7 @@ namespace Amazon.PowerShell.Cmdlets.NSM
             public Dictionary<System.String, Amazon.NetworkSecurityManager.Model.ResourceScope> ScopeConfiguration_ResourceScope { get; set; }
             public System.String ScopeDescription { get; set; }
             public System.String ScopeName { get; set; }
+            public Amazon.NetworkSecurityManager.SpecializedScopeType SpecializedScopeType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.NetworkSecurityManager.Model.CreateScopeResponse, NewNSMScopeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

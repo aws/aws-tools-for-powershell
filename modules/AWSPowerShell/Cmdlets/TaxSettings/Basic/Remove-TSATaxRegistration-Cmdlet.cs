@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// </summary>
     [Cmdlet("Remove", "TSATaxRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Tax Settings DeleteTaxRegistration API operation.", Operation = new[] {"DeleteTaxRegistration"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.DeleteTaxRegistrationResponse))]
+    [AWSCmdlet("Calls the Tax Settings DeleteTaxRegistration API operation.", Operation = new[] {"DeleteTaxRegistration"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.DeleteTaxRegistrationResponse))]
     [AWSCmdletOutput("None or Amazon.TaxSettings.Model.DeleteTaxRegistrationResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.TaxSettings.Model.DeleteTaxRegistrationResponse) be returned by specifying '-Select *'."
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         
         private Amazon.TaxSettings.Model.DeleteTaxRegistrationResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.DeleteTaxRegistrationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "DeleteTaxRegistration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Tax Settings", "DeleteTaxRegistration");
             try
             {
                 return client.DeleteTaxRegistrationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

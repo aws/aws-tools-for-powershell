@@ -28,7 +28,7 @@ using Amazon.ComputeOptimizerAutomation.Model;
 
 namespace Amazon.PowerShell.Cmdlets.COA
 {
-    [AWSClientCmdlet("Compute Optimizer Automation Service", "COA", "2025-09-22", "ComputeOptimizerAutomation")]
+    [AWSClientCmdlet("Compute Optimizer Automation", "COA", "2025-09-22", "ComputeOptimizerAutomation")]
     public abstract partial class AmazonComputeOptimizerAutomationClientCmdlet : ServiceCmdlet
     {
         protected IAmazonComputeOptimizerAutomation Client { get; private set; }

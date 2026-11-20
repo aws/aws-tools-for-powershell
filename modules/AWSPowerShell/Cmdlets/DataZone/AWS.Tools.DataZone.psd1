@@ -259,6 +259,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Submit-DZLineageEvent', 
         'Update-DZAccountPool', 
         'Update-DZAssetFilter', 
+        'Update-DZAssetOwner', 
         'Update-DZConnection', 
         'Update-DZDataSource', 
         'Update-DZDesignation', 

@@ -72,7 +72,7 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Tax Settings
+# Argument completions for service Tax Settings
 
 
 $TSA_Completers = {
@@ -144,6 +144,16 @@ $TSA_Completers = {
         }
         {
             $v = "Authorized","Non-authorized"
+            break
+        }
+
+        # Amazon.TaxSettings.NorwayTaxRegistrationNumberType
+        {
+            ($_ -eq "Write-TSATaxRegistration/TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType") -Or
+            ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType")
+        }
+        {
+            $v = "LocalRegistrationNumber","TaxRegistrationNumber"
             break
         }
 
@@ -226,6 +236,16 @@ $TSA_Completers = {
             break
         }
 
+        # Amazon.TaxSettings.UaeTaxRegistrationNumberType
+        {
+            ($_ -eq "Write-TSATaxRegistration/TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType") -Or
+            ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType")
+        }
+        {
+            $v = "LocalTaxRegistrationNumber","VATTaxRegistrationNumber"
+            break
+        }
+
         # Amazon.TaxSettings.UkraineTrnType
         {
             ($_ -eq "Write-TSATaxRegistration/UkraineAdditionalInfo_UkraineTrnType") -Or
@@ -266,7 +286,9 @@ $TSA_map = @{
     "SpainAdditionalInfo_RegistrationType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_AdditionalTaxInformation_ChileAdditionalInfo_DocumentType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_CustomerType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "TaxRegistrationEntry_AdditionalTaxInformation_NorwayAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "TaxRegistrationEntry_AdditionalTaxInformation_UnitedArabEmiratesAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_RegistrationType"=@("Write-TSASupplementalTaxRegistration","Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_Sector"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TurkeyAdditionalInfo_Industry"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")

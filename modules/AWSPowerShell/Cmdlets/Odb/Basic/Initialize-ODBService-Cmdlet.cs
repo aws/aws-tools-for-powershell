@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
     /// </summary>
     [Cmdlet("Initialize", "ODBService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services InitializeService API operation.", Operation = new[] {"InitializeService"}, SelectReturnType = typeof(Amazon.Odb.Model.InitializeServiceResponse))]
+    [AWSCmdlet("Calls the odb InitializeService API operation.", Operation = new[] {"InitializeService"}, SelectReturnType = typeof(Amazon.Odb.Model.InitializeServiceResponse))]
     [AWSCmdletOutput("None or Amazon.Odb.Model.InitializeServiceResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Odb.Model.InitializeServiceResponse) be returned by specifying '-Select *'."
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         private Amazon.Odb.Model.InitializeServiceResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.InitializeServiceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "InitializeService");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "odb", "InitializeService");
             try
             {
                 return client.InitializeServiceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

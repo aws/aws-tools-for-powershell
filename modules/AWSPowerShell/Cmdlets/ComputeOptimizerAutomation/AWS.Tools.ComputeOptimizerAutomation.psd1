@@ -25,7 +25,7 @@
     Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The ComputeOptimizerAutomation module of AWS Tools for PowerShell lets developers and administrators manage Compute Optimizer Automation Service from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The ComputeOptimizerAutomation module of AWS Tools for PowerShell lets developers and administrators manage Compute Optimizer Automation from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -99,17 +99,21 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-COAAutomationRulePreviewList', 
         'Get-COAAutomationRulePreviewSummaryList', 
         'Get-COAEnrollmentConfiguration', 
+        'Get-COAOrganizationalUnitList', 
+        'Get-COAOrganizationEnrollmentConfigurationList', 
         'Get-COARecommendedActionList', 
         'Get-COARecommendedActionSummaryList', 
         'Get-COAResourceTag', 
         'New-COAAutomationRule', 
         'Remove-COAAccount', 
         'Remove-COAAutomationRule', 
+        'Remove-COAOrganizationEnrollmentConfiguration', 
         'Remove-COAResourceTag', 
         'Restore-COAAutomationEvent', 
         'Start-COAAutomationEvent', 
         'Update-COAAutomationRule', 
-        'Update-COAEnrollmentConfiguration')
+        'Update-COAEnrollmentConfiguration', 
+        'Write-COAOrganizationEnrollmentConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

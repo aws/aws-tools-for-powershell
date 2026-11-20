@@ -39,7 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     /// For example code, see <i>Invoke model code examples</i> in the <i>Amazon Bedrock User
     /// Guide</i>. 
     /// </para><para>
-    /// This operation requires permission for the <c>bedrock:InvokeModel</c> action.
+    /// This operation requires permission for the <c>bedrock:InvokeModel</c> action on both
+    /// the inference target and the project. If you omit <c>projectIdentifier</c> or specify
+    /// <c>default</c>, this includes permission on the default project for your account.
     /// </para><important><para>
     /// To deny all inference access to resources that you specify in the modelId field, you
     /// need to deny access to the <c>bedrock:InvokeModel</c> and <c>bedrock:InvokeModelWithResponseStream</c>
@@ -166,6 +168,21 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfigLatency { get; set; }
         #endregion
         
+        #region Parameter ProjectIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the project to use for this invocation. The
+        /// project must be active and belong to your AWS account and the AWS Region to which
+        /// you send the request. Specify <c>default</c> or omit this field to use the default
+        /// project for your account.</para><para>For a non-default project, the inference target must resolve to a foundation model
+        /// or system-defined inference profile. Application inference profiles don't support
+        /// non-default projects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectIdentifier { get; set; }
+        #endregion
+        
         #region Parameter RequestMetadata
         /// <summary>
         /// <para>
@@ -258,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             }
             #endif
             context.PerformanceConfigLatency = this.PerformanceConfigLatency;
+            context.ProjectIdentifier = this.ProjectIdentifier;
             context.RequestMetadata = this.RequestMetadata;
             context.ServiceTier = this.ServiceTier;
             context.Trace = this.Trace;
@@ -309,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 if (cmdletContext.PerformanceConfigLatency != null)
                 {
                     request.PerformanceConfigLatency = cmdletContext.PerformanceConfigLatency;
+                }
+                if (cmdletContext.ProjectIdentifier != null)
+                {
+                    request.ProjectIdentifier = cmdletContext.ProjectIdentifier;
                 }
                 if (cmdletContext.RequestMetadata != null)
                 {
@@ -392,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public System.String GuardrailVersion { get; set; }
             public System.String ModelId { get; set; }
             public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfigLatency { get; set; }
+            public System.String ProjectIdentifier { get; set; }
             public System.String RequestMetadata { get; set; }
             public Amazon.BedrockRuntime.ServiceTierType ServiceTier { get; set; }
             public Amazon.BedrockRuntime.Trace Trace { get; set; }

@@ -127,11 +127,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListEntityCoverages" OutputProperty="ResourceCoverages" Verb="Get" Noun="EntityCoverageList" PipelineParameter="EntityArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="Status" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPolicySnapshots" OutputProperty="Snapshots" Verb="Get" Noun="PolicySnapshotList" PipelineParameter="PolicyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProtectedResourceCoverages" OutputProperty="ResourceCoverages" Verb="Get" Noun="ProtectedResourceCoverageList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

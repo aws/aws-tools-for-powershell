@@ -33,14 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// Initiates a rollback for a completed automation event. 
     /// 
     ///  <note><para>
-    /// Management accounts and delegated administrators can only initiate a rollback for
-    /// events belonging to associated member accounts. You can associate a member account
-    /// using <c>AssociateAccounts</c>.
+    /// Management accounts and delegated administrators can initiate a rollback for events
+    /// belonging to member accounts that are associated using <c>AssociateAccounts</c> or
+    /// have an applicable organization enrollment configuration with <c>organizationRuleMode</c>
+    /// set to <c>AnyAllowed</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Restore", "COAAutomationEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.RollbackAutomationEventResponse")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service RollbackAutomationEvent API operation.", Operation = new[] {"RollbackAutomationEvent"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.RollbackAutomationEventResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation RollbackAutomationEvent API operation.", Operation = new[] {"RollbackAutomationEvent"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.RollbackAutomationEventResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.RollbackAutomationEventResponse",
         "This cmdlet returns an Amazon.ComputeOptimizerAutomation.Model.RollbackAutomationEventResponse object containing multiple properties."
     )]
@@ -192,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.RollbackAutomationEventResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.RollbackAutomationEventRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "RollbackAutomationEvent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "RollbackAutomationEvent");
             try
             {
                 return client.RollbackAutomationEventAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -33,14 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.COA
     /// Provides a summary of recommended actions based on specified filters. 
     /// 
     ///  <note><para>
-    /// Management accounts and delegated administrators can retrieve recommended actions
-    /// that include associated member accounts. You can associate a member account using
-    /// <c>AssociateAccounts</c>.
+    /// Management accounts and delegated administrators can retrieve recommended action summaries
+    /// for member accounts that are associated using <c>AssociateAccounts</c> or have an
+    /// applicable organization enrollment configuration with <c>organizationRuleMode</c>
+    /// set to <c>AnyAllowed</c>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "COARecommendedActionSummaryList")]
     [OutputType("Amazon.ComputeOptimizerAutomation.Model.RecommendedActionSummary")]
-    [AWSCmdlet("Calls the Compute Optimizer Automation Service ListRecommendedActionSummaries API operation.", Operation = new[] {"ListRecommendedActionSummaries"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListRecommendedActionSummariesResponse))]
+    [AWSCmdlet("Calls the Compute Optimizer Automation ListRecommendedActionSummaries API operation.", Operation = new[] {"ListRecommendedActionSummaries"}, SelectReturnType = typeof(Amazon.ComputeOptimizerAutomation.Model.ListRecommendedActionSummariesResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizerAutomation.Model.RecommendedActionSummary or Amazon.ComputeOptimizerAutomation.Model.ListRecommendedActionSummariesResponse",
         "This cmdlet returns a collection of Amazon.ComputeOptimizerAutomation.Model.RecommendedActionSummary objects.",
         "The service call response (type Amazon.ComputeOptimizerAutomation.Model.ListRecommendedActionSummariesResponse) can be returned by specifying '-Select *'."
@@ -68,11 +69,30 @@ namespace Amazon.PowerShell.Cmdlets.COA
         public Amazon.ComputeOptimizerAutomation.Model.RecommendedActionFilter[] Filter { get; set; }
         #endregion
         
+        #region Parameter OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para> The organizational unit (OU) or organization root IDs to use to filter the results.
+        /// The response includes recommended action summaries for accounts in the specified OUs
+        /// and their child OUs. Only the management account or a delegated administrator can
+        /// specify this parameter. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationalUnitIds")]
+        public System.String[] OrganizationalUnitId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of recommended action summaries to return in a single response.
-        /// Valid range is 1-1000.</para>
+        /// If you don't specify a value, the default is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -155,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.COA
             }
             #endif
             context.NextToken = this.NextToken;
+            if (this.OrganizationalUnitId != null)
+            {
+                context.OrganizationalUnitId = new List<System.String>(this.OrganizationalUnitId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.COA
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.OrganizationalUnitId != null)
+            {
+                request.OrganizationalUnitIds = cmdletContext.OrganizationalUnitId;
             }
             
             // Initialize loop variant and commence piping
@@ -240,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
         
         private Amazon.ComputeOptimizerAutomation.Model.ListRecommendedActionSummariesResponse CallAWSServiceOperation(IAmazonComputeOptimizerAutomation client, Amazon.ComputeOptimizerAutomation.Model.ListRecommendedActionSummariesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation Service", "ListRecommendedActionSummaries");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Compute Optimizer Automation", "ListRecommendedActionSummaries");
             try
             {
                 return client.ListRecommendedActionSummariesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -263,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.COA
             public List<Amazon.ComputeOptimizerAutomation.Model.RecommendedActionFilter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> OrganizationalUnitId { get; set; }
             public System.Func<Amazon.ComputeOptimizerAutomation.Model.ListRecommendedActionSummariesResponse, GetCOARecommendedActionSummaryListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RecommendedActionSummaries;
         }
