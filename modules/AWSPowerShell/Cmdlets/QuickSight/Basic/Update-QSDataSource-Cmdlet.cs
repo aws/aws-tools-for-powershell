@@ -665,6 +665,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Boolean? DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation { get; set; }
         #endregion
         
+        #region Parameter DataSourceParameters_RedshiftParameters_FederatedCatalog
+        /// <summary>
+        /// <para>
+        /// <para>The federated database to use for table and schema discovery. Specify the exact database
+        /// name returned by <c>SHOW DATABASES</c>, such as <c>producer_database@catalog_name</c>.
+        /// This value must differ from <c>Database</c>, which specifies the database used for
+        /// the connection.</para><para>For <c>UpdateDataSource</c>, omit this parameter to keep the current catalog, or specify
+        /// an empty string to clear the configured catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_RedshiftParameters_FederatedCatalog { get; set; }
+        #endregion
+        
         #region Parameter AuroraParameters_Host
         /// <summary>
         /// <para>
@@ -1865,6 +1879,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.RdsParameters_InstanceId = this.RdsParameters_InstanceId;
             context.RedshiftParameters_ClusterId = this.RedshiftParameters_ClusterId;
             context.RedshiftParameters_Database = this.RedshiftParameters_Database;
+            context.DataSourceParameters_RedshiftParameters_FederatedCatalog = this.DataSourceParameters_RedshiftParameters_FederatedCatalog;
             context.RedshiftParameters_Host = this.RedshiftParameters_Host;
             context.IAMParameters_AutoCreateDatabaseUser = this.IAMParameters_AutoCreateDatabaseUser;
             if (this.IAMParameters_DatabaseGroup != null)
@@ -3665,141 +3680,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.DatabricksParameters = requestDataSourceParameters_dataSourceParameters_DatabricksParameters;
                 requestDataSourceParametersIsNull = false;
             }
-            Amazon.QuickSight.Model.RedshiftParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters = null;
-            
-             // populate RedshiftParameters
-            var requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_RedshiftParameters = new Amazon.QuickSight.Model.RedshiftParameters();
-            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_ClusterId = null;
-            if (cmdletContext.RedshiftParameters_ClusterId != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_ClusterId = cmdletContext.RedshiftParameters_ClusterId;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_ClusterId != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.ClusterId = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_ClusterId;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Database = null;
-            if (cmdletContext.RedshiftParameters_Database != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Database = cmdletContext.RedshiftParameters_Database;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Database != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.Database = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Database;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Host = null;
-            if (cmdletContext.RedshiftParameters_Host != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Host = cmdletContext.RedshiftParameters_Host;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Host != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.Host = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Host;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
-            }
-            System.Int32? requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Port = null;
-            if (cmdletContext.RedshiftParameters_Port != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Port = cmdletContext.RedshiftParameters_Port.Value;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Port != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.Port = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Port.Value;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
-            }
-            Amazon.QuickSight.Model.IdentityCenterConfiguration requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration = null;
-            
-             // populate IdentityCenterConfiguration
-            var requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration = new Amazon.QuickSight.Model.IdentityCenterConfiguration();
-            System.Boolean? requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation = null;
-            if (cmdletContext.DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation = cmdletContext.DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation.Value;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration.EnableIdentityPropagation = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation.Value;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.IdentityCenterConfiguration = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
-            }
-            Amazon.QuickSight.Model.RedshiftIAMParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters = null;
-            
-             // populate IAMParameters
-            var requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters = new Amazon.QuickSight.Model.RedshiftIAMParameters();
-            System.Boolean? requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser = null;
-            if (cmdletContext.IAMParameters_AutoCreateDatabaseUser != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser = cmdletContext.IAMParameters_AutoCreateDatabaseUser.Value;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.AutoCreateDatabaseUser = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser.Value;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
-            }
-            List<System.String> requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup = null;
-            if (cmdletContext.IAMParameters_DatabaseGroup != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup = cmdletContext.IAMParameters_DatabaseGroup;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.DatabaseGroups = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser = null;
-            if (cmdletContext.IAMParameters_DatabaseUser != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser = cmdletContext.IAMParameters_DatabaseUser;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.DatabaseUser = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn = null;
-            if (cmdletContext.IAMParameters_RoleArn != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn = cmdletContext.IAMParameters_RoleArn;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.RoleArn = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.IAMParameters = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters;
-                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_RedshiftParameters should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_RedshiftParameters = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters != null)
-            {
-                request.DataSourceParameters.RedshiftParameters = requestDataSourceParameters_dataSourceParameters_RedshiftParameters;
-                requestDataSourceParametersIsNull = false;
-            }
             Amazon.QuickSight.Model.SnowflakeParameters requestDataSourceParameters_dataSourceParameters_SnowflakeParameters = null;
             
              // populate SnowflakeParameters
@@ -3943,6 +3823,151 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters != null)
             {
                 request.DataSourceParameters.SnowflakeParameters = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.RedshiftParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters = null;
+            
+             // populate RedshiftParameters
+            var requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_RedshiftParameters = new Amazon.QuickSight.Model.RedshiftParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_ClusterId = null;
+            if (cmdletContext.RedshiftParameters_ClusterId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_ClusterId = cmdletContext.RedshiftParameters_ClusterId;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_ClusterId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.ClusterId = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_ClusterId;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Database = null;
+            if (cmdletContext.RedshiftParameters_Database != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Database = cmdletContext.RedshiftParameters_Database;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Database != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.Database = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Database;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_FederatedCatalog = null;
+            if (cmdletContext.DataSourceParameters_RedshiftParameters_FederatedCatalog != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_FederatedCatalog = cmdletContext.DataSourceParameters_RedshiftParameters_FederatedCatalog;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_FederatedCatalog != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.FederatedCatalog = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_FederatedCatalog;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Host = null;
+            if (cmdletContext.RedshiftParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Host = cmdletContext.RedshiftParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.Host = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Port = null;
+            if (cmdletContext.RedshiftParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Port = cmdletContext.RedshiftParameters_Port.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.Port = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_redshiftParameters_Port.Value;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.IdentityCenterConfiguration requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration = null;
+            
+             // populate IdentityCenterConfiguration
+            var requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration = new Amazon.QuickSight.Model.IdentityCenterConfiguration();
+            System.Boolean? requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation = null;
+            if (cmdletContext.DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation = cmdletContext.DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration.EnableIdentityPropagation = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation.Value;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfigurationIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.IdentityCenterConfiguration = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IdentityCenterConfiguration;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.RedshiftIAMParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters = null;
+            
+             // populate IAMParameters
+            var requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters = new Amazon.QuickSight.Model.RedshiftIAMParameters();
+            System.Boolean? requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser = null;
+            if (cmdletContext.IAMParameters_AutoCreateDatabaseUser != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser = cmdletContext.IAMParameters_AutoCreateDatabaseUser.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.AutoCreateDatabaseUser = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_AutoCreateDatabaseUser.Value;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
+            }
+            List<System.String> requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup = null;
+            if (cmdletContext.IAMParameters_DatabaseGroup != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup = cmdletContext.IAMParameters_DatabaseGroup;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.DatabaseGroups = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseGroup;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser = null;
+            if (cmdletContext.IAMParameters_DatabaseUser != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser = cmdletContext.IAMParameters_DatabaseUser;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.DatabaseUser = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_DatabaseUser;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn = null;
+            if (cmdletContext.IAMParameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn = cmdletContext.IAMParameters_RoleArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters.RoleArn = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters_iAMParameters_RoleArn;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters.IAMParameters = requestDataSourceParameters_dataSourceParameters_RedshiftParameters_dataSourceParameters_RedshiftParameters_IAMParameters;
+                requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_RedshiftParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_RedshiftParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters != null)
+            {
+                request.DataSourceParameters.RedshiftParameters = requestDataSourceParameters_dataSourceParameters_RedshiftParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.StarburstParameters requestDataSourceParameters_dataSourceParameters_StarburstParameters = null;
@@ -4379,6 +4404,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String RdsParameters_InstanceId { get; set; }
             public System.String RedshiftParameters_ClusterId { get; set; }
             public System.String RedshiftParameters_Database { get; set; }
+            public System.String DataSourceParameters_RedshiftParameters_FederatedCatalog { get; set; }
             public System.String RedshiftParameters_Host { get; set; }
             public System.Boolean? IAMParameters_AutoCreateDatabaseUser { get; set; }
             public List<System.String> IAMParameters_DatabaseGroup { get; set; }

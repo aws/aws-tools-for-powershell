@@ -950,6 +950,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateLinearAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_CreateAndUpdateLocalMCPAction
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create and update local Model Context Protocol (MCP) server configurations.
+        /// Denying this capability does not by itself deny use of previously configured local
+        /// MCP servers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateLocalMCPAction { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_CreateAndUpdateMCPAction
         /// <summary>
         /// <para>
@@ -2563,6 +2576,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_LinearAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_LocalMCPAction
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and use local Model Context Protocol (MCP) actions.
+        /// This capability includes <c>CreateAndUpdateLocalMCPAction</c> and <c>UseLocalMCPAction</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_LocalMCPAction { get; set; }
         #endregion
         
         #region Parameter Capabilities_ManageSharedFolder
@@ -5922,6 +5947,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_UseLinearAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_UseLocalMCPAction
+        /// <summary>
+        /// <para>
+        /// <para>The ability to start local Model Context Protocol (MCP) servers and use their actions,
+        /// including actions from previously configured local MCP servers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UseLocalMCPAction { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_UseMCPAction
         /// <summary>
         /// <para>
@@ -6605,6 +6642,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateAndUpdateJiraAction = this.Capabilities_CreateAndUpdateJiraAction;
             context.Capabilities_CreateAndUpdateKnowledgeBases = this.Capabilities_CreateAndUpdateKnowledgeBases;
             context.Capabilities_CreateAndUpdateLinearAction = this.Capabilities_CreateAndUpdateLinearAction;
+            context.Capabilities_CreateAndUpdateLocalMCPAction = this.Capabilities_CreateAndUpdateLocalMCPAction;
             context.Capabilities_CreateAndUpdateMCPAction = this.Capabilities_CreateAndUpdateMCPAction;
             context.Capabilities_CreateAndUpdateMSExchangeAction = this.Capabilities_CreateAndUpdateMSExchangeAction;
             context.Capabilities_CreateAndUpdateMSTeamsAction = this.Capabilities_CreateAndUpdateMSTeamsAction;
@@ -6748,6 +6786,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_JiraDataSource = this.Capabilities_JiraDataSource;
             context.Capabilities_KnowledgeBase = this.Capabilities_KnowledgeBase;
             context.Capabilities_LinearAction = this.Capabilities_LinearAction;
+            context.Capabilities_LocalMCPAction = this.Capabilities_LocalMCPAction;
             context.Capabilities_MCPAction = this.Capabilities_MCPAction;
             context.Capabilities_MSExchangeAction = this.Capabilities_MSExchangeAction;
             context.Capabilities_MSTeamsAction = this.Capabilities_MSTeamsAction;
@@ -7050,6 +7089,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_UseIntercomAction = this.Capabilities_UseIntercomAction;
             context.Capabilities_UseJiraAction = this.Capabilities_UseJiraAction;
             context.Capabilities_UseLinearAction = this.Capabilities_UseLinearAction;
+            context.Capabilities_UseLocalMCPAction = this.Capabilities_UseLocalMCPAction;
             context.Capabilities_UseMCPAction = this.Capabilities_UseMCPAction;
             context.Capabilities_UseMSExchangeAction = this.Capabilities_UseMSExchangeAction;
             context.Capabilities_UseMSTeamsAction = this.Capabilities_UseMSTeamsAction;
@@ -7941,6 +7981,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_CreateAndUpdateLinearAction != null)
             {
                 request.Capabilities.CreateAndUpdateLinearAction = requestCapabilities_capabilities_CreateAndUpdateLinearAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateLocalMCPAction = null;
+            if (cmdletContext.Capabilities_CreateAndUpdateLocalMCPAction != null)
+            {
+                requestCapabilities_capabilities_CreateAndUpdateLocalMCPAction = cmdletContext.Capabilities_CreateAndUpdateLocalMCPAction;
+            }
+            if (requestCapabilities_capabilities_CreateAndUpdateLocalMCPAction != null)
+            {
+                request.Capabilities.CreateAndUpdateLocalMCPAction = requestCapabilities_capabilities_CreateAndUpdateLocalMCPAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateMCPAction = null;
@@ -9371,6 +9421,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_LinearAction != null)
             {
                 request.Capabilities.LinearAction = requestCapabilities_capabilities_LinearAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_LocalMCPAction = null;
+            if (cmdletContext.Capabilities_LocalMCPAction != null)
+            {
+                requestCapabilities_capabilities_LocalMCPAction = cmdletContext.Capabilities_LocalMCPAction;
+            }
+            if (requestCapabilities_capabilities_LocalMCPAction != null)
+            {
+                request.Capabilities.LocalMCPAction = requestCapabilities_capabilities_LocalMCPAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MCPAction = null;
@@ -12393,6 +12453,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.UseLinearAction = requestCapabilities_capabilities_UseLinearAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseLocalMCPAction = null;
+            if (cmdletContext.Capabilities_UseLocalMCPAction != null)
+            {
+                requestCapabilities_capabilities_UseLocalMCPAction = cmdletContext.Capabilities_UseLocalMCPAction;
+            }
+            if (requestCapabilities_capabilities_UseLocalMCPAction != null)
+            {
+                request.Capabilities.UseLocalMCPAction = requestCapabilities_capabilities_UseLocalMCPAction;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseMCPAction = null;
             if (cmdletContext.Capabilities_UseMCPAction != null)
             {
@@ -13061,6 +13131,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateJiraAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateKnowledgeBases { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateLinearAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateLocalMCPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateMCPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateMSExchangeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateMSTeamsAction { get; set; }
@@ -13204,6 +13275,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_JiraDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_KnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_LinearAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_LocalMCPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MCPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MSExchangeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MSTeamsAction { get; set; }
@@ -13506,6 +13578,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_UseIntercomAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseJiraAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseLinearAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseLocalMCPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseMCPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseMSExchangeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseMSTeamsAction { get; set; }

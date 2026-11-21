@@ -469,6 +469,24 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.UniqueKey[] PerformanceConfiguration_UniqueKey { get; set; }
         #endregion
         
+        #region Parameter UnmaterializedCalculatedColumn
+        /// <summary>
+        /// <para>
+        /// <para>A list of unmaterialized calculated columns for the dataset. These columns are computed
+        /// at analysis time and are not stored in the prepared data. You can only use this with
+        /// the new data preparation experience.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UnmaterializedCalculatedColumns")]
+        public Amazon.QuickSight.Model.UnmaterializedCalculatedColumn[] UnmaterializedCalculatedColumn { get; set; }
+        #endregion
+        
         #region Parameter UseAs
         /// <summary>
         /// <para>
@@ -685,6 +703,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.QuickSight.Model.Tag>(this.Tag);
+            }
+            if (this.UnmaterializedCalculatedColumn != null)
+            {
+                context.UnmaterializedCalculatedColumn = new List<Amazon.QuickSight.Model.UnmaterializedCalculatedColumn>(this.UnmaterializedCalculatedColumn);
             }
             context.UseAs = this.UseAs;
             
@@ -969,6 +991,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.UnmaterializedCalculatedColumn != null)
+            {
+                request.UnmaterializedCalculatedColumns = cmdletContext.UnmaterializedCalculatedColumn;
+            }
             if (cmdletContext.UseAs != null)
             {
                 request.UseAs = cmdletContext.UseAs;
@@ -1058,6 +1084,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.DataSetSemanticMetadata> SemanticModelConfiguration_SemanticMetadata { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.SemanticTable> SemanticModelConfiguration_TableMap { get; set; }
             public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
+            public List<Amazon.QuickSight.Model.UnmaterializedCalculatedColumn> UnmaterializedCalculatedColumn { get; set; }
             public Amazon.QuickSight.DataSetUseAs UseAs { get; set; }
             public System.Func<Amazon.QuickSight.Model.CreateDataSetResponse, NewQSDataSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

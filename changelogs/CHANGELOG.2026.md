@@ -1,4 +1,45 @@
-﻿### 5.0.341 (2026-11-20 20:46Z)
+﻿### 5.0.342 (2026-11-21 01:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.8.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSAccessControlApplicationDetail leveraging the DescribeAccessControlApplication service API.
+    * Added cmdlet Get-QSAccessControlApplicationList leveraging the ListAccessControlApplications service API.
+    * Added cmdlet Get-QSInboundConnectorApplicationAssociationList leveraging the ListInboundConnectorApplicationAssociations service API.
+    * Added cmdlet Get-QSInboundConnectorDetail leveraging the DescribeInboundConnector service API.
+    * Added cmdlet Get-QSInboundConnectorList leveraging the ListInboundConnectors service API.
+    * Added cmdlet Get-QSKnowledgeBaseRefreshScheduleDetail leveraging the DescribeKnowledgeBaseRefreshSchedule service API.
+    * Added cmdlet Get-QSKnowledgeBaseRefreshScheduleList leveraging the ListKnowledgeBaseRefreshSchedules service API.
+    * Added cmdlet Get-QSPolicyAssignment leveraging the GetPolicyAssignment service API.
+    * Added cmdlet Get-QSPrincipalsForPolicyList leveraging the ListPrincipalsForPolicy service API.
+    * Added cmdlet New-QSAccessControlApplication leveraging the CreateAccessControlApplication service API.
+    * Added cmdlet New-QSAccessControlApplicationSecret leveraging the CreateAccessControlApplicationSecret service API.
+    * Added cmdlet New-QSInboundConnector leveraging the CreateInboundConnector service API.
+    * Added cmdlet New-QSKnowledgeBaseRefreshSchedule leveraging the CreateKnowledgeBaseRefreshSchedule service API.
+    * Added cmdlet Remove-QSAccessControlApplication leveraging the DeleteAccessControlApplication service API.
+    * Added cmdlet Remove-QSAccessControlApplicationSecret leveraging the DeleteAccessControlApplicationSecret service API.
+    * Added cmdlet Remove-QSInboundConnector leveraging the DeleteInboundConnector service API.
+    * Added cmdlet Remove-QSKnowledgeBaseRefreshSchedule leveraging the DeleteKnowledgeBaseRefreshSchedule service API.
+    * Added cmdlet Remove-QSPolicyAssignment leveraging the DeletePolicyAssignment service API.
+    * Added cmdlet Remove-QSPolicyAssignmentByPolicyBatch leveraging the BatchDeletePolicyAssignmentByPolicy service API.
+    * Added cmdlet Update-QSAccessControlApplication leveraging the UpdateAccessControlApplication service API.
+    * Added cmdlet Update-QSAccessControlApplicationSecret leveraging the UpdateAccessControlApplicationSecret service API.
+    * Added cmdlet Update-QSInboundConnector leveraging the UpdateInboundConnector service API.
+    * Added cmdlet Update-QSInboundConnectorApplicationAssociation leveraging the UpdateInboundConnectorApplicationAssociations service API.
+    * Added cmdlet Update-QSKnowledgeBaseRefreshSchedule leveraging the UpdateKnowledgeBaseRefreshSchedule service API.
+    * Added cmdlet Write-QSPolicyAssignment leveraging the PutPolicyAssignment service API.
+    * Added cmdlet Write-QSPolicyAssignmentByPolicyBatch leveraging the BatchPutPolicyAssignmentByPolicy service API.
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_CreateAndUpdateLocalMCPAction, Capabilities_LocalMCPAction and Capabilities_UseLocalMCPAction.
+    * Modified cmdlet New-QSDataSet: added parameter UnmaterializedCalculatedColumn.
+    * Modified cmdlet New-QSDataSource: added parameter DataSourceParameters_RedshiftParameters_FederatedCatalog.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_CreateAndUpdateLocalMCPAction, Capabilities_LocalMCPAction and Capabilities_UseLocalMCPAction.
+    * Modified cmdlet Update-QSDataSet: added parameter UnmaterializedCalculatedColumn.
+    * Modified cmdlet Update-QSDataSource: added parameter DataSourceParameters_RedshiftParameters_FederatedCatalog.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMCapacityReservationDetail leveraging the DescribeCapacityReservation service API.
+    * Added cmdlet Get-SMCapacityReservationList leveraging the ListCapacityReservations service API.
+    * Added cmdlet Get-SMCapacityReservationUsage leveraging the GetCapacityReservationUsage service API.
+    * Added cmdlet Get-SMResourceAssociationDetail leveraging the DescribeResourceAssociations service API.
+
+### 5.0.341 (2026-11-20 20:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.7.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Agent Discovery. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AGDS and can be listed using the command 'Get-AWSCmdletName -Service AGDS'.
   * Agent Registry Control

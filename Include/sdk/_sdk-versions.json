@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.1.0.0",
-    "ProductVersion"    : "4.1.7.0",
+    "ProductVersion"    : "4.1.8.0",
     "CoreVersion"       : "4.1.1.2",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -892,7 +892,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.1.4.0",
+            "Version" : "4.1.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.1.1.1"
@@ -1140,7 +1140,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "4.1.0.2",
+            "Version" : "4.1.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.1.1.1"

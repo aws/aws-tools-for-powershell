@@ -53,11 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// duration.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding
-    /// Analytics Using GetDashboardEmbedUrl</a> in the <i>Amazon Quick User Guide</i>.
+    /// Analytics Using GetDashboardEmbedUrl</a> in the <i>Quick User Guide</i>.
     /// </para><para>
     /// For more information about the high-level steps for embedding and for an interactive
-    /// demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon
-    /// Quick Developer Portal</a>.
+    /// demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Quick
+    /// Developer Portal</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "QSDashboardEmbedUrl")]
@@ -208,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Quick user's Amazon Resource Name (ARN), for use with <c>QUICKSIGHT</c>
-        /// identity type. You can use this for any Amazon Quick users in your account (readers,
-        /// authors, or admins) authenticated as one of the following:</para><ul><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
+        /// <para>The Quick user's Amazon Resource Name (ARN), for use with <c>QUICKSIGHT</c> identity
+        /// type. You can use this for any Quick users in your account (readers, authors, or admins)
+        /// authenticated as one of the following:</para><ul><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
         /// using SAML, OpenID Connect, or IAM federation.</para></li></ul><para>Omit this parameter for users in the third group – IAM users and IAM role-based sessions.</para>
         /// </para>
         /// </summary>

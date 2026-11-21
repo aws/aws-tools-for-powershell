@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeletePolicyAssignmentByPolicy" OutputProperty="*" Verb="Remove" Noun="PolicyAssignmentByPolicyBatch" ShouldProcessTarget="AccountId,PolicyArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteTopicReviewedAnswer" OutputProperty="*" Verb="Set" Noun="BatchDeleteTopicReviewedAnswer" IgnoreSupportsShouldProcess="true" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -42,7 +46,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutPolicyAssignmentByPolicy" OutputProperty="*" Verb="Write" Noun="PolicyAssignmentByPolicyBatch" ShouldProcessTarget="AccountId,PolicyArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelIngestion" OutputProperty="*" Verb="Stop" Noun="Ingestion" ShouldProcessTarget="IngestionId" PipelineParameter="IngestionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessControlApplication" OutputProperty="*" Verb="New" Noun="AccessControlApplication" ShouldProcessTarget="ApplicationId,AwsAccountId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessControlApplicationSecret" OutputProperty="*" Verb="New" Noun="AccessControlApplicationSecret" ShouldProcessTarget="ApplicationId,AwsAccountId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -337,11 +353,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateInboundConnector" OutputProperty="*" Verb="New" Noun="InboundConnector" ShouldProcessTarget="InboundConnectorId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIngestion" OutputProperty="*" Verb="New" Noun="Ingestion" ShouldProcessTarget="IngestionId" PipelineParameter="IngestionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="*" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateKnowledgeBaseRefreshSchedule" OutputProperty="*" Verb="New" Noun="KnowledgeBaseRefreshSchedule" ShouldProcessTarget="AwsAccountId,KnowledgeBaseId,ScheduleId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -515,6 +539,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessControlApplication" OutputProperty="ApplicationId" Verb="Remove" Noun="AccessControlApplication" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessControlApplicationSecret" OutputProperty="*" Verb="Remove" Noun="AccessControlApplicationSecret" ShouldProcessTarget="ApplicationId,AwsAccountId,ClientSecretId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountCustomization" OutputProperty="*" Verb="Remove" Noun="AccountCustomization" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -611,7 +643,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInboundConnector" OutputProperty="InboundConnectorId" Verb="Remove" Noun="InboundConnector" ShouldProcessTarget="InboundConnectorId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteKnowledgeBase" OutputProperty="*" Verb="Remove" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKnowledgeBaseRefreshSchedule" OutputProperty="*" Verb="Remove" Noun="KnowledgeBaseRefreshSchedule" ShouldProcessTarget="AwsAccountId,KnowledgeBaseId,ScheduleId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -624,6 +664,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteOAuthClientApplication" OutputProperty="*" Verb="Remove" Noun="OAuthClientApplication" ShouldProcessTarget="OAuthClientApplicationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicyAssignment" Verb="Remove" Noun="PolicyAssignment" ShouldProcessTarget="AccountId,PolicyArn,PrincipalArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -684,6 +728,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVPCConnection" OutputProperty="*" Verb="Remove" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccessControlApplication" OutputProperty="AccessControlApplication" Verb="Get" Noun="AccessControlApplicationDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -851,6 +899,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInboundConnector" OutputProperty="InboundConnector" Verb="Get" Noun="InboundConnectorDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeIngestion" OutputProperty="Ingestion" Verb="Get" Noun="Ingestion" PipelineParameter="IngestionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -868,6 +920,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeKnowledgeBasePermissions" OutputProperty="*" Verb="Get" Noun="KnowledgeBasePermissionDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKnowledgeBaseRefreshSchedule" OutputProperty="*" Verb="Get" Noun="KnowledgeBaseRefreshScheduleDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1062,7 +1118,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicyAssignment" OutputProperty="*" Verb="Get" Noun="PolicyAssignment" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSessionEmbedUrl" OutputProperty="EmbedUrl" Verb="Get" Noun="SessionEmbedUrl" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessControlApplications" OutputProperty="AccessControlApplications" Verb="Get" Noun="AccessControlApplicationList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1158,7 +1222,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInboundConnectorApplicationAssociations" OutputProperty="ApplicationAssociations" Verb="Get" Noun="InboundConnectorApplicationAssociationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInboundConnectors" OutputProperty="InboundConnectorSummaries" Verb="Get" Noun="InboundConnectorList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListIngestions" OutputProperty="Ingestions" Verb="Get" Noun="IngestionList" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKnowledgeBaseRefreshSchedules" OutputProperty="*" Verb="Get" Noun="KnowledgeBaseRefreshScheduleList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1175,6 +1251,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListOAuthClientApplications" OutputProperty="OAuthClientApplications" Verb="Get" Noun="OAuthClientApplicationList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPrincipalsForPolicy" OutputProperty="Principals" Verb="Get" Noun="PrincipalsForPolicyList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1269,6 +1349,10 @@
                 <Param Name="DataSetRefreshProperties_RefreshConfiguration_IncrementalRefresh_LookbackWindow_Size" NewName="LookbackWindow_Size" />
                 <Param Name="DataSetRefreshProperties_RefreshConfiguration_IncrementalRefresh_LookbackWindow_SizeUnit" NewName="LookbackWindow_SizeUnit" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutPolicyAssignment" OutputProperty="*" Verb="Write" Noun="PolicyAssignment" ShouldProcessTarget="AccountId,PolicyArn,PrincipalArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterUser" OutputProperty="*" Verb="Register" Noun="User" ShouldProcessTarget="Email" PipelineParameter="Email" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1370,6 +1454,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccessControlApplication" OutputProperty="*" Verb="Update" Noun="AccessControlApplication" ShouldProcessTarget="ApplicationId,AwsAccountId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccessControlApplicationSecret" OutputProperty="*" Verb="Update" Noun="AccessControlApplicationSecret" ShouldProcessTarget="ApplicationId,AwsAccountId,ClientSecretId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1728,6 +1820,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInboundConnector" OutputProperty="*" Verb="Update" Noun="InboundConnector" ShouldProcessTarget="InboundConnectorId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInboundConnectorApplicationAssociations" OutputProperty="*" Verb="Update" Noun="InboundConnectorApplicationAssociation" ShouldProcessTarget="AwsAccountId,InboundConnectorId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateIpRestriction" OutputProperty="AwsAccountId" Verb="Update" Noun="IpRestriction" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1741,6 +1841,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateKnowledgeBasePermissions" OutputProperty="*" Verb="Update" Noun="KnowledgeBasePermission" ShouldProcessTarget="AwsAccountId,KnowledgeBaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKnowledgeBaseRefreshSchedule" OutputProperty="*" Verb="Update" Noun="KnowledgeBaseRefreshSchedule" ShouldProcessTarget="AwsAccountId,KnowledgeBaseId,ScheduleId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

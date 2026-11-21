@@ -16086,8 +16086,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -17252,8 +17252,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
-               "Search-CSDDocument",
+    "Select"=@("Search-CSDDocument",
+               "Write-CSDDocument",
                "Get-CSDSuggestion")
 }
 
@@ -31810,12 +31810,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertTo-DDBItem",
+               "New-DDBTable",
+               "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
                "New-DDBTableSchema",
-               "New-DDBTable",
                "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem")
+               "ConvertTo-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -42610,8 +42610,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -74872,6 +74872,20 @@ $QS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.QuickSight.AccessControlApplicationAuthenticationType
+        "New-QSAccessControlApplication/AuthenticationType"
+        {
+            $v = "OIDC"
+            break
+        }
+
+        # Amazon.QuickSight.AccessControlApplicationStatus
+        "Update-QSAccessControlApplication/Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QuickSight.ActionConnectorType
         "New-QSActionConnector/Type"
         {
@@ -75145,6 +75159,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateKnowledgeBases") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateLinearAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateLinearAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateLocalMCPAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateLocalMCPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateMCPAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateMCPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateMondayAction") -Or
@@ -75431,6 +75447,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_KnowledgeBase") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_LinearAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_LinearAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_LocalMCPAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_LocalMCPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ManageSharedFolder") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ManageSharedFolder") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_MariaDbDataSource") -Or
@@ -76035,6 +76053,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseJiraAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseLinearAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseLinearAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseLocalMCPAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseLocalMCPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseMCPAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseMCPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseMondayAction") -Or
@@ -76148,6 +76168,13 @@ $QS_Completers = {
         }
         {
             $v = "PLAIN_CREDENTIALS"
+            break
+        }
+
+        # Amazon.QuickSight.ClientSecretSourceType
+        "New-QSAccessControlApplicationSecret/ClientSecretConfiguration_ClientSecretSourceType"
+        {
+            $v = "IDP_PROVIDED"
             break
         }
 
@@ -76416,6 +76443,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.IdpAuthorizingType
+        {
+            ($_ -eq "New-QSAccessControlApplication/IdpAuthorizingConfiguration_IdpAuthorizingType") -Or
+            ($_ -eq "Update-QSAccessControlApplication/IdpAuthorizingConfiguration_IdpAuthorizingType")
+        }
+        {
+            $v = "EXTERNAL_IDP_CONFIDENTIAL_AUTH_CODE","EXTERNAL_IDP_PUBLIC_AUTH_CODE","IDC_AUTH_CODE","QUICK_MANAGED_AUTH_CODE"
+            break
+        }
+
         # Amazon.QuickSight.ImageExtractionStatus
         {
             ($_ -eq "New-QSKnowledgeBase/MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus") -Or
@@ -76423,6 +76460,23 @@ $QS_Completers = {
         }
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.QuickSight.InboundConnectorStatus
+        "Update-QSInboundConnector/InboundConnectorStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.QuickSight.InboundConnectorType
+        {
+            ($_ -eq "New-QSInboundConnector/InboundConnectorConfiguration_InboundConnectorType") -Or
+            ($_ -eq "Update-QSInboundConnector/InboundConnectorConfiguration_InboundConnectorType")
+        }
+        {
+            $v = "QUICK_DESKTOP"
             break
         }
 
@@ -76455,6 +76509,26 @@ $QS_Completers = {
         }
         {
             $v = "FULL_REFRESH","INCREMENTAL_REFRESH"
+            break
+        }
+
+        # Amazon.QuickSight.KbDayOfWeek
+        {
+            ($_ -eq "New-QSKnowledgeBaseRefreshSchedule/ScheduleFrequency_RefreshOnDay_DayOfWeek") -Or
+            ($_ -eq "Update-QSKnowledgeBaseRefreshSchedule/ScheduleFrequency_RefreshOnDay_DayOfWeek")
+        }
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
+            break
+        }
+
+        # Amazon.QuickSight.KbRefreshInterval
+        {
+            ($_ -eq "New-QSKnowledgeBaseRefreshSchedule/ScheduleFrequency_Interval") -Or
+            ($_ -eq "Update-QSKnowledgeBaseRefreshSchedule/ScheduleFrequency_Interval")
+        }
+        {
+            $v = "DAILY","HOURLY","MONTHLY","WEEKLY"
             break
         }
 
@@ -76524,6 +76598,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.PolicyType
+        "Get-QSPolicyAssignment/PolicyType"
+        {
+            $v = "CUSTOM_PERMISSIONS","LIMITS_PROFILE"
+            break
+        }
+
+        # Amazon.QuickSight.PrincipalType
+        "Get-QSPrincipalsForPolicyList/PrincipalType"
+        {
+            $v = "ACCOUNT","GROUP","USER"
+            break
+        }
+
         # Amazon.QuickSight.PurchaseMode
         "Update-QSSPICECapacityConfiguration/PurchaseMode"
         {
@@ -76561,6 +76649,16 @@ $QS_Completers = {
         }
         {
             $v = "AUTO","MANUAL"
+            break
+        }
+
+        # Amazon.QuickSight.QuickAuthenticationType
+        {
+            ($_ -eq "New-QSAccessControlApplication/QuickAuthenticationConfiguration_QuickAuthenticationType") -Or
+            ($_ -eq "Update-QSAccessControlApplication/QuickAuthenticationConfiguration_QuickAuthenticationType")
+        }
+        {
+            $v = "QUICK_MANAGED_PUBLIC_AUTH_CODE"
             break
         }
 
@@ -76657,6 +76755,16 @@ $QS_Completers = {
         }
         {
             $v = "DENY_ACCESS","GRANT_ACCESS"
+            break
+        }
+
+        # Amazon.QuickSight.ScheduleState
+        {
+            ($_ -eq "New-QSKnowledgeBaseRefreshSchedule/State") -Or
+            ($_ -eq "Update-QSKnowledgeBaseRefreshSchedule/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -76911,6 +77019,7 @@ $QS_map = @{
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationConfig_AuthenticationType"=@("New-QSActionConnector","Update-QSActionConnector")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
+    "AuthenticationType"=@("New-QSAccessControlApplication")
     "AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsSource"=@("New-QSActionConnector","Update-QSActionConnector")
     "AxisLabelFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
     "AxisLabelFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
@@ -76996,6 +77105,7 @@ $QS_map = @{
     "Capabilities_CreateAndUpdateJiraAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateKnowledgeBases"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateLinearAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateLocalMCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateMCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateMondayAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateMoodysAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -77139,6 +77249,7 @@ $QS_map = @{
     "Capabilities_JiraDataSource"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_KnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_LinearAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_LocalMCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ManageSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_MariaDbDataSource"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_MCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -77441,6 +77552,7 @@ $QS_map = @{
     "Capabilities_UseIntercomAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseJiraAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseLinearAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseLocalMCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseMCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseMondayAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseMoodysAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -77492,6 +77604,7 @@ $QS_map = @{
     "Capabilities_ZoomAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ZoomInfoAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "ClientCredentialsGrantMetadata_ClientCredentialsSource"=@("New-QSActionConnector","Update-QSActionConnector")
+    "ClientSecretConfiguration_ClientSecretSourceType"=@("New-QSAccessControlApplicationSecret")
     "Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
     "Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
     "Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
@@ -77544,7 +77657,10 @@ $QS_map = @{
     "HighlightOperation_Trigger"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
+    "IdpAuthorizingConfiguration_IdpAuthorizingType"=@("New-QSAccessControlApplication","Update-QSAccessControlApplication")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
+    "InboundConnectorConfiguration_InboundConnectorType"=@("New-QSInboundConnector","Update-QSInboundConnector")
+    "InboundConnectorStatus"=@("Update-QSInboundConnector")
     "IncludeFolderMember"=@("Start-QSAssetBundleExportJob")
     "IncludeGeneratedAnswer"=@("Search-QSQAResult")
     "IncludeQuickSightQIndex"=@("Search-QSQAResult")
@@ -77565,6 +77681,8 @@ $QS_map = @{
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PersonalizationMode"=@("Update-QSQPersonalizationConfiguration")
+    "PolicyType"=@("Get-QSPolicyAssignment")
+    "PrincipalType"=@("Get-QSPrincipalsForPolicyList")
     "ProviderConfig_MicrosoftPurview_UnmappedAction"=@("New-QSDlpSetting","Update-QSDlpSetting")
     "ProviderOutageAction"=@("New-QSDlpSetting","Update-QSDlpSetting")
     "ProviderType"=@("New-QSDlpSetting","Update-QSDlpSetting")
@@ -77573,6 +77691,7 @@ $QS_map = @{
     "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
     "QSearchStatus"=@("Update-QSQuickSightQSearchConfiguration")
     "QueryExecutionOptions_QueryExecutionMode"=@("New-QSAnalysis","New-QSTemplate","Update-QSAnalysis","Update-QSTemplate")
+    "QuickAuthenticationConfiguration_QuickAuthenticationType"=@("New-QSAccessControlApplication","Update-QSAccessControlApplication")
     "QuickSuiteActionsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
@@ -77584,7 +77703,8 @@ $QS_map = @{
     "RowLevelPermissionDataSet_Status"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionTagConfiguration_Status"=@("New-QSDataSet","Update-QSDataSet")
     "Schedule_RefreshType"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
-    "ScheduleFrequency_Interval"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
+    "ScheduleFrequency_Interval"=@("New-QSKnowledgeBaseRefreshSchedule","New-QSRefreshSchedule","Update-QSKnowledgeBaseRefreshSchedule","Update-QSRefreshSchedule")
+    "ScheduleFrequency_RefreshOnDay_DayOfWeek"=@("New-QSKnowledgeBaseRefreshSchedule","Update-QSKnowledgeBaseRefreshSchedule")
     "ScreenCanvasSizeOptions_ResizeOption"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "SelfUpgradeStatus"=@("Update-QSSelfUpgradeConfiguration")
     "Service"=@("Remove-QSIdentityPropagationConfig","Update-QSIdentityPropagationConfig")
@@ -77598,6 +77718,8 @@ $QS_map = @{
     "SortOrder"=@("Get-QSUsersIndexCapacityList")
     "StarburstParameters_AuthenticationType"=@("New-QSDataSource","Update-QSDataSource")
     "StarburstParameters_ProductType"=@("New-QSDataSource","Update-QSDataSource")
+    "State"=@("New-QSKnowledgeBaseRefreshSchedule","Update-QSKnowledgeBaseRefreshSchedule")
+    "Status"=@("Update-QSAccessControlApplication")
     "Topic_UserExperienceVersion"=@("New-QSTopic","Update-QSTopic")
     "Type"=@("Get-QSThemeList","New-QSActionConnector","New-QSDataSource")
     "UseAs"=@("New-QSDataSet")
@@ -77665,9 +77787,13 @@ $QS_SelectCompleters = {
 $QS_SelectMap = @{
     "Select"=@("Set-QSBatchCreateTopicReviewedAnswer",
                "Remove-QSKnowledgeBaseBatch",
+               "Remove-QSPolicyAssignmentByPolicyBatch",
                "Set-QSBatchDeleteTopicReviewedAnswer",
                "Get-QSUserLimitDetailBatch",
+               "Write-QSPolicyAssignmentByPolicyBatch",
                "Stop-QSIngestion",
+               "New-QSAccessControlApplication",
+               "New-QSAccessControlApplicationSecret",
                "New-QSAccountCustomization",
                "New-QSAccountSubscription",
                "New-QSActionConnector",
@@ -77686,8 +77812,10 @@ $QS_SelectMap = @{
                "New-QSGroup",
                "New-QSGroupMembership",
                "New-QSIAMPolicyAssignment",
+               "New-QSInboundConnector",
                "New-QSIngestion",
                "New-QSKnowledgeBase",
+               "New-QSKnowledgeBaseRefreshSchedule",
                "New-QSLimitsProfile",
                "New-QSNamespace",
                "New-QSOAuthClientApplication",
@@ -77702,6 +77830,8 @@ $QS_SelectMap = @{
                "New-QSTopicRefreshSchedule",
                "New-QSTopicV2",
                "New-QSVPCConnection",
+               "Remove-QSAccessControlApplication",
+               "Remove-QSAccessControlApplicationSecret",
                "Remove-QSAccountCustomization",
                "Remove-QSAccountCustomPermission",
                "Remove-QSAccountSubscription",
@@ -77726,10 +77856,13 @@ $QS_SelectMap = @{
                "Remove-QSGroupMembership",
                "Remove-QSIAMPolicyAssignment",
                "Remove-QSIdentityPropagationConfig",
+               "Remove-QSInboundConnector",
                "Remove-QSKnowledgeBase",
+               "Remove-QSKnowledgeBaseRefreshSchedule",
                "Remove-QSLimitsProfile",
                "Remove-QSNamespace",
                "Remove-QSOAuthClientApplication",
+               "Remove-QSPolicyAssignment",
                "Remove-QSRefreshSchedule",
                "Remove-QSRoleCustomPermission",
                "Remove-QSRoleMembership",
@@ -77745,6 +77878,7 @@ $QS_SelectMap = @{
                "Remove-QSUserByPrincipalId",
                "Remove-QSUserCustomPermission",
                "Remove-QSVPCConnection",
+               "Get-QSAccessControlApplicationDetail",
                "Get-QSAccountCustomization",
                "Get-QSAccountCustomPermission",
                "Get-QSAccountSetting",
@@ -77786,11 +77920,13 @@ $QS_SelectMap = @{
                "Get-QSGroup",
                "Get-QSGroupMembership",
                "Get-QSIAMPolicyAssignment",
+               "Get-QSInboundConnectorDetail",
                "Get-QSIngestion",
                "Get-QSIpRestriction",
                "Get-QSKeyRegistration",
                "Get-QSKnowledgeBaseDetail",
                "Get-QSKnowledgeBasePermissionDetail",
+               "Get-QSKnowledgeBaseRefreshScheduleDetail",
                "Get-QSLimitsProfileDetail",
                "Get-QSNamespace",
                "Get-QSOAuthClientApplicationDetail",
@@ -77824,7 +77960,9 @@ $QS_SelectMap = @{
                "Get-QSFlowMetadata",
                "Get-QSFlowPermission",
                "Get-QSIdentityContext",
+               "Get-QSPolicyAssignment",
                "Get-QSSessionEmbedUrl",
+               "Get-QSAccessControlApplicationList",
                "Get-QSActionConnectorList",
                "Get-QSAgentList",
                "Get-QSAnalysisList",
@@ -77848,11 +77986,15 @@ $QS_SelectMap = @{
                "Get-QSIAMPolicyAssignmentList",
                "Get-QSIAMPolicyAssignmentsForUserList",
                "Get-QSIdentityPropagationConfigList",
+               "Get-QSInboundConnectorApplicationAssociationList",
+               "Get-QSInboundConnectorList",
                "Get-QSIngestionList",
+               "Get-QSKnowledgeBaseRefreshScheduleList",
                "Get-QSKnowledgeBasisList",
                "Get-QSLimitsProfileList",
                "Get-QSNamespaceList",
                "Get-QSOAuthClientApplicationList",
+               "Get-QSPrincipalsForPolicyList",
                "Get-QSRefreshScheduleList",
                "Get-QSRoleMembershipList",
                "Get-QSSelfUpgradeList",
@@ -77875,6 +78017,7 @@ $QS_SelectMap = @{
                "Get-QSVPCConnectionList",
                "Search-QSQAResult",
                "Write-QSDataSetRefreshProperty",
+               "Write-QSPolicyAssignment",
                "Register-QSUser",
                "Restore-QSAnalysis",
                "Search-QSActionConnector",
@@ -77898,6 +78041,8 @@ $QS_SelectMap = @{
                "Start-QSDashboardSnapshotJobSchedule",
                "Add-QSResourceTag",
                "Remove-QSResourceTag",
+               "Update-QSAccessControlApplication",
+               "Update-QSAccessControlApplicationSecret",
                "Update-QSAccountCustomization",
                "Update-QSAccountCustomPermission",
                "Update-QSAccountSetting",
@@ -77932,10 +78077,13 @@ $QS_SelectMap = @{
                "Update-QSGroup",
                "Update-QSIAMPolicyAssignment",
                "Update-QSIdentityPropagationConfig",
+               "Update-QSInboundConnector",
+               "Update-QSInboundConnectorApplicationAssociation",
                "Update-QSIpRestriction",
                "Update-QSKeyRegistration",
                "Update-QSKnowledgeBase",
                "Update-QSKnowledgeBasePermission",
+               "Update-QSKnowledgeBaseRefreshSchedule",
                "Update-QSLimitsProfile",
                "Update-QSOAuthClientApplication",
                "Update-QSPublicSharingSetting",
@@ -83317,18 +83465,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Test-S3Bucket",
-               "Copy-S3Object",
-               "Dismount-S3PSDrive",
-               "Remove-S3Bucket",
-               "Remove-S3Object",
+               "Write-S3Object",
                "New-S3Bucket",
+               "Copy-S3Object",
+               "Remove-S3Object",
+               "Get-S3MultipartUpload",
                "Get-S3PreSignedURL",
+               "Dismount-S3PSDrive",
+               "Read-S3Object",
+               "Remove-S3Bucket",
                "Remove-S3MultipartUpload",
                "Mount-S3PSDrive",
-               "Get-S3MultipartUpload",
-               "Write-S3Object",
-               "Read-S3Object")
+               "Test-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -87377,6 +87525,7 @@ $SM_SelectMap = @{
                "Get-SMArtifact",
                "Get-SMAutoMLJob",
                "Get-SMAutoMLJobV2",
+               "Get-SMCapacityReservationDetail",
                "Get-SMCluster",
                "Get-SMClusterEvent",
                "Get-SMClusterExtensionDetail",
@@ -87435,6 +87584,7 @@ $SM_SelectMap = @{
                "Get-SMProcessingJob",
                "Get-SMProject",
                "Get-SMReservedCapacity",
+               "Get-SMResourceAssociationDetail",
                "Get-SMSpace",
                "Get-SMStudioLifecycleConfig",
                "Get-SMSubscribedWorkteam",
@@ -87453,6 +87603,7 @@ $SM_SelectMap = @{
                "Unregister-SMTrialComponent",
                "Enable-SMSagemakerServicecatalogPortfolio",
                "Set-SMTrainingPlanExtension",
+               "Get-SMCapacityReservationUsage",
                "Get-SMDeviceFleetReport",
                "Get-SMEndpointPolicy",
                "Get-SMLineageGroupPolicy",
@@ -87473,6 +87624,7 @@ $SM_SelectMap = @{
                "Get-SMAssociationList",
                "Get-SMAutoMLJobList",
                "Get-SMCandidatesForAutoMLJobList",
+               "Get-SMCapacityReservationList",
                "Get-SMClusterEventList",
                "Get-SMClusterExtensionList",
                "Get-SMClusterExtensionVersionList",
@@ -93717,8 +93869,8 @@ $STS_SelectMap = @{
                "Get-STSScopedCredential",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -100686,44 +100838,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -100763,3 +100877,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

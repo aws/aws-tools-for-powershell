@@ -1203,6 +1203,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityReservation" OutputProperty="CapacityReservation" Verb="Get" Noun="CapacityReservationDetail" PipelineParameter="SMCapacityReservationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCluster" OutputProperty="*" Verb="Get" Noun="Cluster" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1435,6 +1439,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourceAssociations" OutputProperty="*" Verb="Get" Noun="ResourceAssociationDetail" PipelineParameter="SMCapacityReservationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSpace" OutputProperty="*" Verb="Get" Noun="Space" PipelineParameter="SpaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1504,6 +1512,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ExtendTrainingPlan" OutputProperty="TrainingPlanExtensions" Verb="Set" Noun="TrainingPlanExtension" ShouldProcessTarget="TrainingPlanExtensionOfferingId" PipelineParameter="TrainingPlanExtensionOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityReservationUsage" OutputProperty="*" Verb="Get" Noun="CapacityReservationUsage" PipelineParameter="SMCapacityReservationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1586,6 +1598,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCandidatesForAutoMLJob" OutputProperty="Candidates" Verb="Get" Noun="CandidatesForAutoMLJobList" PipelineParameter="AutoMLJobName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCapacityReservations" OutputProperty="CapacityReservationSummaries" Verb="Get" Noun="CapacityReservationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
