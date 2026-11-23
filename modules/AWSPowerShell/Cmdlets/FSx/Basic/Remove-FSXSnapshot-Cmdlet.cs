@@ -30,9 +30,9 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
-    /// exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored
-    /// in a file system backup. 
+    /// Deletes an Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP snapshot. After deletion,
+    /// the snapshot no longer exists, and its data is gone. Deleting a snapshot doesn't affect
+    /// snapshots stored in a file system backup.
     /// 
     ///  
     /// <para>

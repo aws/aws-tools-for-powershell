@@ -80,6 +80,13 @@ $FSX_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.FSx.AllowedSvmMode
+        "New-FSXClusterPeer/AllowedSvmMode"
+        {
+            $v = "ALL","NONE","SPECIFIED"
+            break
+        }
+
         # Amazon.FSx.AutocommitPeriodType
         {
             ($_ -eq "New-FSXVolume/AutocommitPeriod_Type") -Or
@@ -88,6 +95,13 @@ $FSX_Completers = {
         }
         {
             $v = "DAYS","HOURS","MINUTES","MONTHS","NONE","YEARS"
+            break
+        }
+
+        # Amazon.FSx.CloneSplitAction
+        "Update-FSXVolume/OntapConfiguration_CloneConfiguration_SplitAction"
+        {
+            $v = "START"
             break
         }
 
@@ -287,6 +301,13 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.SnapmirrorPolicySnapshotCopyMode
+        "New-FSXSnapmirrorPolicy/SnapshotCopyMode"
+        {
+            $v = "COPY_ALL_SOURCE_SNAPSHOTS","COPY_LATEST_SOURCE_SNAPSHOT","NO_CREATE_SNAPSHOT_ON_SOURCE"
+            break
+        }
+
         # Amazon.FSx.StorageType
         {
             ($_ -eq "New-FSXFileSystem/StorageType") -Or
@@ -295,6 +316,13 @@ $FSX_Completers = {
         }
         {
             $v = "HDD","INTELLIGENT_TIERING","SSD"
+            break
+        }
+
+        # Amazon.FSx.StorageVirtualMachinePeerUpdateState
+        "Update-FSXStorageVirtualMachinePeer/State"
+        {
+            $v = "PEERED","REJECTED","SUSPENDED"
             break
         }
 
@@ -320,6 +348,13 @@ $FSX_Completers = {
         "New-FSXDataRepositoryTask/DurationSinceLastAccess_Unit"
         {
             $v = "DAYS"
+            break
+        }
+
+        # Amazon.FSx.UpdatableSnapmirrorRelationshipState
+        "Update-FSXSnapmirrorRelationship/State"
+        {
+            $v = "BROKEN_OFF","PAUSED","SNAPMIRRORED"
             break
         }
 
@@ -349,6 +384,7 @@ $FSX_Completers = {
 }
 
 $FSX_map = @{
+    "AllowedSvmMode"=@("New-FSXClusterPeer")
     "AutocommitPeriod_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "CopyStrategy"=@("Copy-FSXSnapshotAndUpdateVolume")
     "DefaultRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
@@ -360,6 +396,7 @@ $FSX_map = @{
     "MaximumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "MinimumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "NetworkType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
+    "OntapConfiguration_CloneConfiguration_SplitAction"=@("Update-FSXVolume")
     "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
     "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
     "OntapConfiguration_FileSystemIdentity_Type"=@("New-FSXAndAttachS3AccessPoint")
@@ -378,6 +415,8 @@ $FSX_map = @{
     "RootVolumeSecurityStyle"=@("New-FSXStorageVirtualMachine")
     "SnaplockConfiguration_PrivilegedDelete"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "SnaplockConfiguration_SnaplockType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
+    "SnapshotCopyMode"=@("New-FSXSnapmirrorPolicy")
+    "State"=@("Update-FSXSnapmirrorRelationship","Update-FSXStorageVirtualMachinePeer")
     "StorageType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "Type"=@("New-FSXAndAttachS3AccessPoint","New-FSXDataRepositoryTask")
@@ -440,23 +479,34 @@ $FSX_SelectMap = @{
                "Copy-FSXSnapshotAndUpdateVolume",
                "New-FSXAndAttachS3AccessPoint",
                "New-FSXBackup",
+               "New-FSXClusterPeer",
                "New-FSXDataRepositoryAssociation",
                "New-FSXDataRepositoryTask",
                "New-FSXFileCache",
                "New-FSXFileSystem",
                "New-FSXFileSystemFromBackup",
+               "New-FSXSnapmirrorPolicy",
+               "New-FSXSnapmirrorRelationship",
                "New-FSXSnapshot",
+               "New-FSXSnapshotPolicy",
                "New-FSXStorageVirtualMachine",
+               "New-FSXStorageVirtualMachinePeer",
                "New-FSXVolume",
                "New-FSXVolumeFromBackup",
                "Remove-FSXBackup",
+               "Remove-FSXClusterPeer",
                "Remove-FSXDataRepositoryAssociation",
                "Remove-FSXFileCache",
                "Remove-FSXFileSystem",
+               "Remove-FSXSnapmirrorPolicy",
+               "Remove-FSXSnapmirrorRelationship",
                "Remove-FSXSnapshot",
+               "Remove-FSXSnapshotPolicy",
                "Remove-FSXStorageVirtualMachine",
+               "Remove-FSXStorageVirtualMachinePeer",
                "Remove-FSXVolume",
                "Get-FSXBackup",
+               "Get-FSXClusterPeerDetail",
                "Get-FSXDataRepositoryAssociation",
                "Get-FSXDataRepositoryTask",
                "Get-FSXFileCach",
@@ -464,7 +514,11 @@ $FSX_SelectMap = @{
                "Get-FSXFileSystem",
                "Get-FSXS3AccessPointAttachment",
                "Get-FSXSharedVpcConfiguration",
+               "Get-FSXSnapmirrorPolicyDetail",
+               "Get-FSXSnapmirrorRelationshipDetail",
+               "Get-FSXSnapshotPolicyDetail",
                "Get-FSXSnapshot",
+               "Get-FSXStorageVirtualMachinePeerDetail",
                "Get-FSXStorageVirtualMachine",
                "Get-FSXVolume",
                "Dismount-FSXAndDeleteS3AccessPoint",
@@ -475,12 +529,17 @@ $FSX_SelectMap = @{
                "Start-FSXMisconfiguredStateRecovery",
                "Add-FSXResourceTag",
                "Remove-FSXResourceTag",
+               "Update-FSXClusterPeer",
                "Update-FSXDataRepositoryAssociation",
                "Update-FSXFileCache",
                "Update-FSXFileSystem",
                "Update-FSXSharedVpcConfiguration",
+               "Update-FSXSnapmirrorPolicy",
+               "Update-FSXSnapmirrorRelationship",
                "Update-FSXSnapshot",
+               "Update-FSXSnapshotPolicy",
                "Update-FSXStorageVirtualMachine",
+               "Update-FSXStorageVirtualMachinePeer",
                "Update-FSXVolume")
 }
 

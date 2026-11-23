@@ -30,10 +30,10 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Returns the description of specific Amazon FSx for OpenZFS snapshots, if a <c>SnapshotIds</c>
-    /// value is provided. Otherwise, this operation returns all snapshots owned by your Amazon
-    /// Web Services account in the Amazon Web Services Region of the endpoint that you're
-    /// calling.
+    /// Returns the description of specific Amazon FSx for OpenZFS and Amazon FSx for NetApp
+    /// ONTAP snapshots, if a <c>SnapshotIds</c> value is provided. Otherwise, this operation
+    /// returns all snapshots owned by your Amazon Web Services account in the Amazon Web
+    /// Services Region of the endpoint that you're calling.
     /// 
     ///  
     /// <para>
@@ -102,8 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the snapshots that you want to retrieve. This parameter value overrides
-        /// any filters. If any IDs aren't found, a <c>SnapshotNotFound</c> error occurs.</para><para />
+        /// <para>The IDs of the snapshots that you want to retrieve. You can include snapshots of Amazon
+        /// FSx for OpenZFS and Amazon FSx for NetApp ONTAP volumes in the same request. If you
+        /// also specify <c>Filters</c>, only snapshots that match both the IDs and the filters
+        /// are returned. If any IDs aren't found, or if a filter excludes any of them, a <c>SnapshotNotFound</c>
+        /// error occurs.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

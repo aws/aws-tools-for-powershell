@@ -30,7 +30,7 @@ using Amazon.CloudFrontKeyValueStore.Model;
 namespace Amazon.PowerShell.Cmdlets.CFKV
 {
     /// <summary>
-    /// Deletes the key value pair specified by the key.
+    /// Deletes the key-value pair specified by the key.
     /// </summary>
     [Cmdlet("Remove", "CFKVKey")]
     [OutputType("Amazon.CloudFrontKeyValueStore.Model.DeleteKeyResponse")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CFKV
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The current version (ETag) of the Key Value Store that you are deleting keys from,
-        /// which you can get using DescribeKeyValueStore.</para>
+        /// <para>The current version (<c>ETag</c>) of the key value store that you are deleting keys
+        /// from, which you can get by using the <c>DescribeKeyValueStore</c> API operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CFKV
         #region Parameter KvsARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Key Value Store.</para>
+        /// <para>The Amazon Resource Name (ARN) of the key value store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

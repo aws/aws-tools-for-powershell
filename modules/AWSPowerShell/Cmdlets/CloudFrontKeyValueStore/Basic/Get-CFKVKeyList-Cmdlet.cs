@@ -30,7 +30,7 @@ using Amazon.CloudFrontKeyValueStore.Model;
 namespace Amazon.PowerShell.Cmdlets.CFKV
 {
     /// <summary>
-    /// Returns a list of key value pairs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of key-value pairs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFKVKeyList")]
     [OutputType("Amazon.CloudFrontKeyValueStore.Model.ListKeysResponseListItem")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CFKV
         #region Parameter KvsARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Key Value Store.</para>
+        /// <para>The Amazon Resource Name (ARN) of the key value store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CFKV
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If nextToken is returned in the response, there are more results available. Make the
-        /// next call using the returned token to retrieve the next page.</para>
+        /// <para>If <c>nextToken</c> is returned in the response, there are more results available.
+        /// Make the next call using the returned token to retrieve the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

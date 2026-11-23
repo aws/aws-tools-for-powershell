@@ -16086,8 +16086,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -17253,8 +17253,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
-               "Get-CSDSuggestion")
+               "Get-CSDSuggestion",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -17633,7 +17633,7 @@ $CWOM_Completers = {
             ($_ -eq "New-CWOMIntegration/IntegrationType")
         }
         {
-            $v = "AWS_CONFIG_SLREC","AWS_INTEGRATION","EXTERNAL_AGENT","SLACK"
+            $v = "AWS_CONFIG_AZURE_SLREC","AWS_CONFIG_SLREC","AWS_INTEGRATION","EXTERNAL_AGENT","SLACK"
             break
         }
 
@@ -31810,12 +31810,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
-               "ConvertFrom-DDBItem",
-               "Add-DDBKeySchema",
                "New-DDBTableSchema",
+               "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem",
+               "ConvertTo-DDBItem",
                "Add-DDBIndexSchema",
-               "ConvertTo-DDBItem")
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -40783,6 +40783,13 @@ $FSX_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.FSx.AllowedSvmMode
+        "New-FSXClusterPeer/AllowedSvmMode"
+        {
+            $v = "ALL","NONE","SPECIFIED"
+            break
+        }
+
         # Amazon.FSx.AutocommitPeriodType
         {
             ($_ -eq "New-FSXVolume/AutocommitPeriod_Type") -Or
@@ -40791,6 +40798,13 @@ $FSX_Completers = {
         }
         {
             $v = "DAYS","HOURS","MINUTES","MONTHS","NONE","YEARS"
+            break
+        }
+
+        # Amazon.FSx.CloneSplitAction
+        "Update-FSXVolume/OntapConfiguration_CloneConfiguration_SplitAction"
+        {
+            $v = "START"
             break
         }
 
@@ -40990,6 +41004,13 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.SnapmirrorPolicySnapshotCopyMode
+        "New-FSXSnapmirrorPolicy/SnapshotCopyMode"
+        {
+            $v = "COPY_ALL_SOURCE_SNAPSHOTS","COPY_LATEST_SOURCE_SNAPSHOT","NO_CREATE_SNAPSHOT_ON_SOURCE"
+            break
+        }
+
         # Amazon.FSx.StorageType
         {
             ($_ -eq "New-FSXFileSystem/StorageType") -Or
@@ -40998,6 +41019,13 @@ $FSX_Completers = {
         }
         {
             $v = "HDD","INTELLIGENT_TIERING","SSD"
+            break
+        }
+
+        # Amazon.FSx.StorageVirtualMachinePeerUpdateState
+        "Update-FSXStorageVirtualMachinePeer/State"
+        {
+            $v = "PEERED","REJECTED","SUSPENDED"
             break
         }
 
@@ -41023,6 +41051,13 @@ $FSX_Completers = {
         "New-FSXDataRepositoryTask/DurationSinceLastAccess_Unit"
         {
             $v = "DAYS"
+            break
+        }
+
+        # Amazon.FSx.UpdatableSnapmirrorRelationshipState
+        "Update-FSXSnapmirrorRelationship/State"
+        {
+            $v = "BROKEN_OFF","PAUSED","SNAPMIRRORED"
             break
         }
 
@@ -41052,6 +41087,7 @@ $FSX_Completers = {
 }
 
 $FSX_map = @{
+    "AllowedSvmMode"=@("New-FSXClusterPeer")
     "AutocommitPeriod_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "CopyStrategy"=@("Copy-FSXSnapshotAndUpdateVolume")
     "DefaultRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
@@ -41063,6 +41099,7 @@ $FSX_map = @{
     "MaximumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "MinimumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "NetworkType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
+    "OntapConfiguration_CloneConfiguration_SplitAction"=@("Update-FSXVolume")
     "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
     "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
     "OntapConfiguration_FileSystemIdentity_Type"=@("New-FSXAndAttachS3AccessPoint")
@@ -41081,6 +41118,8 @@ $FSX_map = @{
     "RootVolumeSecurityStyle"=@("New-FSXStorageVirtualMachine")
     "SnaplockConfiguration_PrivilegedDelete"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "SnaplockConfiguration_SnaplockType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
+    "SnapshotCopyMode"=@("New-FSXSnapmirrorPolicy")
+    "State"=@("Update-FSXSnapmirrorRelationship","Update-FSXStorageVirtualMachinePeer")
     "StorageType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "Type"=@("New-FSXAndAttachS3AccessPoint","New-FSXDataRepositoryTask")
@@ -41143,23 +41182,34 @@ $FSX_SelectMap = @{
                "Copy-FSXSnapshotAndUpdateVolume",
                "New-FSXAndAttachS3AccessPoint",
                "New-FSXBackup",
+               "New-FSXClusterPeer",
                "New-FSXDataRepositoryAssociation",
                "New-FSXDataRepositoryTask",
                "New-FSXFileCache",
                "New-FSXFileSystem",
                "New-FSXFileSystemFromBackup",
+               "New-FSXSnapmirrorPolicy",
+               "New-FSXSnapmirrorRelationship",
                "New-FSXSnapshot",
+               "New-FSXSnapshotPolicy",
                "New-FSXStorageVirtualMachine",
+               "New-FSXStorageVirtualMachinePeer",
                "New-FSXVolume",
                "New-FSXVolumeFromBackup",
                "Remove-FSXBackup",
+               "Remove-FSXClusterPeer",
                "Remove-FSXDataRepositoryAssociation",
                "Remove-FSXFileCache",
                "Remove-FSXFileSystem",
+               "Remove-FSXSnapmirrorPolicy",
+               "Remove-FSXSnapmirrorRelationship",
                "Remove-FSXSnapshot",
+               "Remove-FSXSnapshotPolicy",
                "Remove-FSXStorageVirtualMachine",
+               "Remove-FSXStorageVirtualMachinePeer",
                "Remove-FSXVolume",
                "Get-FSXBackup",
+               "Get-FSXClusterPeerDetail",
                "Get-FSXDataRepositoryAssociation",
                "Get-FSXDataRepositoryTask",
                "Get-FSXFileCach",
@@ -41167,7 +41217,11 @@ $FSX_SelectMap = @{
                "Get-FSXFileSystem",
                "Get-FSXS3AccessPointAttachment",
                "Get-FSXSharedVpcConfiguration",
+               "Get-FSXSnapmirrorPolicyDetail",
+               "Get-FSXSnapmirrorRelationshipDetail",
+               "Get-FSXSnapshotPolicyDetail",
                "Get-FSXSnapshot",
+               "Get-FSXStorageVirtualMachinePeerDetail",
                "Get-FSXStorageVirtualMachine",
                "Get-FSXVolume",
                "Dismount-FSXAndDeleteS3AccessPoint",
@@ -41178,12 +41232,17 @@ $FSX_SelectMap = @{
                "Start-FSXMisconfiguredStateRecovery",
                "Add-FSXResourceTag",
                "Remove-FSXResourceTag",
+               "Update-FSXClusterPeer",
                "Update-FSXDataRepositoryAssociation",
                "Update-FSXFileCache",
                "Update-FSXFileSystem",
                "Update-FSXSharedVpcConfiguration",
+               "Update-FSXSnapmirrorPolicy",
+               "Update-FSXSnapmirrorRelationship",
                "Update-FSXSnapshot",
+               "Update-FSXSnapshotPolicy",
                "Update-FSXStorageVirtualMachine",
+               "Update-FSXStorageVirtualMachinePeer",
                "Update-FSXVolume")
 }
 
@@ -42610,8 +42669,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -83465,18 +83524,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Write-S3Object",
-               "New-S3Bucket",
-               "Copy-S3Object",
-               "Remove-S3Object",
-               "Get-S3MultipartUpload",
-               "Get-S3PreSignedURL",
-               "Dismount-S3PSDrive",
-               "Read-S3Object",
-               "Remove-S3Bucket",
-               "Remove-S3MultipartUpload",
+               "Test-S3Bucket",
                "Mount-S3PSDrive",
-               "Test-S3Bucket")
+               "Remove-S3MultipartUpload",
+               "Write-S3Object",
+               "Dismount-S3PSDrive",
+               "Get-S3MultipartUpload",
+               "New-S3Bucket",
+               "Remove-S3Bucket",
+               "Read-S3Object",
+               "Get-S3PreSignedURL",
+               "Copy-S3Object",
+               "Remove-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -93869,8 +93928,8 @@ $STS_SelectMap = @{
                "Get-STSScopedCredential",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

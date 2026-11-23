@@ -159,8 +159,8 @@ $STS_SelectMap = @{
                "Get-STSScopedCredential",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

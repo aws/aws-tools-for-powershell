@@ -164,7 +164,7 @@ $CWOM_Completers = {
             ($_ -eq "New-CWOMIntegration/IntegrationType")
         }
         {
-            $v = "AWS_CONFIG_SLREC","AWS_INTEGRATION","EXTERNAL_AGENT","SLACK"
+            $v = "AWS_CONFIG_AZURE_SLREC","AWS_CONFIG_SLREC","AWS_INTEGRATION","EXTERNAL_AGENT","SLACK"
             break
         }
 

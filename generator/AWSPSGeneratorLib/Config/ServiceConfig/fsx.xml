@@ -53,6 +53,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateClusterPeer" OutputProperty="ClusterPeer" Verb="New" Noun="ClusterPeer" ShouldProcessTarget="FileSystemId,PassphraseSecretArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDataRepositoryAssociation" OutputProperty="Association" Verb="New" Noun="DataRepositoryAssociation" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="S3_AutoExportPolicy_Events" NewName="AutoExportPolicy_Event" />
@@ -105,7 +109,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapmirrorPolicy" OutputProperty="SnapmirrorPolicy" Verb="New" Noun="SnapmirrorPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapmirrorRelationship" OutputProperty="SnapmirrorRelationship" Verb="New" Noun="SnapmirrorRelationship" ShouldProcessTarget="Destination_VolumeId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshotPolicy" OutputProperty="SnapshotPolicy" Verb="New" Noun="SnapshotPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,6 +135,10 @@
                 <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_Password" NewName="SelfManagedActiveDirectoryConfiguration_Password" />
                 <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_UserName" NewName="SelfManagedActiveDirectoryConfiguration_UserName" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStorageVirtualMachinePeer" OutputProperty="StorageVirtualMachinePeer" Verb="New" Noun="StorageVirtualMachinePeer" ShouldProcessTarget="StorageVirtualMachineId,PeerSvmName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVolume" OutputProperty="Volume" Verb="New" Noun="Volume" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -169,6 +189,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClusterPeer" OutputProperty="*" Verb="Remove" Noun="ClusterPeer" ShouldProcessTarget="ClusterPeerId" PipelineParameter="ClusterPeerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataRepositoryAssociation" OutputProperty="*" Verb="Remove" Noun="DataRepositoryAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -181,11 +205,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapmirrorPolicy" OutputProperty="*" Verb="Remove" Noun="SnapmirrorPolicy" ShouldProcessTarget="SnapmirrorPolicyId" PipelineParameter="SnapmirrorPolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapmirrorRelationship" OutputProperty="*" Verb="Remove" Noun="SnapmirrorRelationship" ShouldProcessTarget="SnapmirrorRelationshipId" PipelineParameter="SnapmirrorRelationshipId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="*" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapshotPolicy" OutputProperty="*" Verb="Remove" Noun="SnapshotPolicy" ShouldProcessTarget="SnapshotPolicyId" PipelineParameter="SnapshotPolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteStorageVirtualMachine" OutputProperty="*" Verb="Remove" Noun="StorageVirtualMachine" ShouldProcessTarget="StorageVirtualMachineId" PipelineParameter="StorageVirtualMachineId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStorageVirtualMachinePeer" OutputProperty="*" Verb="Remove" Noun="StorageVirtualMachinePeer" ShouldProcessTarget="StorageVirtualMachinePeerId" PipelineParameter="StorageVirtualMachinePeerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -194,6 +234,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeBackups" OutputProperty="Backups" Verb="Get" Noun="Backup" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterPeers" OutputProperty="ClusterPeers" Verb="Get" Noun="ClusterPeerDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -225,7 +269,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapmirrorPolicies" OutputProperty="SnapmirrorPolicies" Verb="Get" Noun="SnapmirrorPolicyDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapmirrorRelationships" OutputProperty="SnapmirrorRelationships" Verb="Get" Noun="SnapmirrorRelationshipDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshotPolicies" OutputProperty="SnapshotPolicies" Verb="Get" Noun="SnapshotPolicyDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStorageVirtualMachinePeers" OutputProperty="StorageVirtualMachinePeers" Verb="Get" Noun="StorageVirtualMachinePeerDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -269,6 +329,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateClusterPeer" OutputProperty="ClusterPeer" Verb="Update" Noun="ClusterPeer" ShouldProcessTarget="ClusterPeerId" PipelineParameter="ClusterPeerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataRepositoryAssociation" OutputProperty="Association" Verb="Update" Noun="DataRepositoryAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="S3_AutoExportPolicy_Events" NewName="AutoExportPolicy_Event" />
@@ -295,7 +359,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSnapmirrorPolicy" OutputProperty="SnapmirrorPolicy" Verb="Update" Noun="SnapmirrorPolicy" ShouldProcessTarget="SnapmirrorPolicyId" PipelineParameter="SnapmirrorPolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSnapmirrorRelationship" OutputProperty="SnapmirrorRelationship" Verb="Update" Noun="SnapmirrorRelationship" ShouldProcessTarget="SnapmirrorRelationshipId" PipelineParameter="SnapmirrorRelationshipId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateSnapshot" OutputProperty="Snapshot" Verb="Update" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSnapshotPolicy" OutputProperty="SnapshotPolicy" Verb="Update" Noun="SnapshotPolicy" ShouldProcessTarget="SnapshotPolicyId" PipelineParameter="SnapshotPolicyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -309,6 +385,10 @@
                 <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_Password" NewName="SelfManagedActiveDirectoryConfiguration_Password" />
                 <Param Name="ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_UserName" NewName="SelfManagedActiveDirectoryConfiguration_UserName" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStorageVirtualMachinePeer" OutputProperty="StorageVirtualMachinePeer" Verb="Update" Noun="StorageVirtualMachinePeer" ShouldProcessTarget="StorageVirtualMachinePeerId" PipelineParameter="StorageVirtualMachinePeerId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVolume" OutputProperty="Volume" Verb="Update" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false" LegacyV4Pagination="true">

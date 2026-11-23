@@ -1,4 +1,33 @@
-﻿### 5.0.342 (2026-11-21 01:22Z)
+﻿### 5.0.343 (2026-11-23 21:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.9.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon FSx
+    * Added cmdlet Get-FSXClusterPeerDetail leveraging the DescribeClusterPeers service API.
+    * Added cmdlet Get-FSXSnapmirrorPolicyDetail leveraging the DescribeSnapmirrorPolicies service API.
+    * Added cmdlet Get-FSXSnapmirrorRelationshipDetail leveraging the DescribeSnapmirrorRelationships service API.
+    * Added cmdlet Get-FSXSnapshotPolicyDetail leveraging the DescribeSnapshotPolicies service API.
+    * Added cmdlet Get-FSXStorageVirtualMachinePeerDetail leveraging the DescribeStorageVirtualMachinePeers service API.
+    * Added cmdlet New-FSXClusterPeer leveraging the CreateClusterPeer service API.
+    * Added cmdlet New-FSXSnapmirrorPolicy leveraging the CreateSnapmirrorPolicy service API.
+    * Added cmdlet New-FSXSnapmirrorRelationship leveraging the CreateSnapmirrorRelationship service API.
+    * Added cmdlet New-FSXSnapshotPolicy leveraging the CreateSnapshotPolicy service API.
+    * Added cmdlet New-FSXStorageVirtualMachinePeer leveraging the CreateStorageVirtualMachinePeer service API.
+    * Added cmdlet Remove-FSXClusterPeer leveraging the DeleteClusterPeer service API.
+    * Added cmdlet Remove-FSXSnapmirrorPolicy leveraging the DeleteSnapmirrorPolicy service API.
+    * Added cmdlet Remove-FSXSnapmirrorRelationship leveraging the DeleteSnapmirrorRelationship service API.
+    * Added cmdlet Remove-FSXSnapshotPolicy leveraging the DeleteSnapshotPolicy service API.
+    * Added cmdlet Remove-FSXStorageVirtualMachinePeer leveraging the DeleteStorageVirtualMachinePeer service API.
+    * Added cmdlet Update-FSXClusterPeer leveraging the UpdateClusterPeer service API.
+    * Added cmdlet Update-FSXSnapmirrorPolicy leveraging the UpdateSnapmirrorPolicy service API.
+    * Added cmdlet Update-FSXSnapmirrorRelationship leveraging the UpdateSnapmirrorRelationship service API.
+    * Added cmdlet Update-FSXSnapshotPolicy leveraging the UpdateSnapshotPolicy service API.
+    * Added cmdlet Update-FSXStorageVirtualMachinePeer leveraging the UpdateStorageVirtualMachinePeer service API.
+    * Modified cmdlet New-FSXSnapshot: added parameters OntapConfiguration_ExpiryTime, OntapConfiguration_SnaplockExpiryTime and OntapConfiguration_SnapmirrorLabel.
+    * Modified cmdlet New-FSXVolume: added parameters OntapConfiguration_CloneConfiguration_ParentVolumeId and OntapConfiguration_CloneConfiguration_SnapshotId.
+    * Modified cmdlet New-FSXVolumeFromBackup: added parameters OntapConfiguration_CloneConfiguration_ParentVolumeId and OntapConfiguration_CloneConfiguration_SnapshotId.
+    * Modified cmdlet Update-FSXSnapshot: added parameters OntapConfiguration_ExpiryTime, OntapConfiguration_SnaplockExpiryTime and OntapConfiguration_SnapmirrorLabel.
+    * Modified cmdlet Update-FSXVolume: added parameter OntapConfiguration_CloneConfiguration_SplitAction.
+
+### 5.0.342 (2026-11-21 01:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.8.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QuickSight
     * Added cmdlet Get-QSAccessControlApplicationDetail leveraging the DescribeAccessControlApplication service API.

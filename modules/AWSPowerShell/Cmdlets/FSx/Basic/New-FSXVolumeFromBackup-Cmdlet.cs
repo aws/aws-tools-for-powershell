@@ -204,6 +204,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.InputOntapVolumeType OntapConfiguration_OntapVolumeType { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_CloneConfiguration_ParentVolumeId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the ID of the volume to clone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_CloneConfiguration_ParentVolumeId { get; set; }
+        #endregion
+        
         #region Parameter SnaplockConfiguration_PrivilegedDelete
         /// <summary>
         /// <para>
@@ -272,6 +282,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [Alias("OntapConfiguration_SnaplockConfiguration_SnaplockType")]
         [AWSConstantClassSource("Amazon.FSx.SnaplockType")]
         public Amazon.FSx.SnaplockType SnaplockConfiguration_SnaplockType { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_CloneConfiguration_SnapshotId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the ID of a snapshot of the parent volume to create the clone from. The
+        /// snapshot's lifecycle state must be <c>AVAILABLE</c>. If you don't specify a snapshot,
+        /// ONTAP creates a new snapshot of the parent volume and creates the clone from it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_CloneConfiguration_SnapshotId { get; set; }
         #endregion
         
         #region Parameter OntapConfiguration_SnapshotPolicy
@@ -547,6 +569,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 context.AggregateConfiguration_Aggregate = new List<System.String>(this.AggregateConfiguration_Aggregate);
             }
             context.AggregateConfiguration_ConstituentsPerAggregate = this.AggregateConfiguration_ConstituentsPerAggregate;
+            context.OntapConfiguration_CloneConfiguration_ParentVolumeId = this.OntapConfiguration_CloneConfiguration_ParentVolumeId;
+            context.OntapConfiguration_CloneConfiguration_SnapshotId = this.OntapConfiguration_CloneConfiguration_SnapshotId;
             context.OntapConfiguration_CopyTagsToBackup = this.OntapConfiguration_CopyTagsToBackup;
             context.OntapConfiguration_JunctionPath = this.OntapConfiguration_JunctionPath;
             context.OntapConfiguration_OntapVolumeType = this.OntapConfiguration_OntapVolumeType;
@@ -740,6 +764,41 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_AggregateConfiguration != null)
             {
                 request.OntapConfiguration.AggregateConfiguration = requestOntapConfiguration_ontapConfiguration_AggregateConfiguration;
+                requestOntapConfigurationIsNull = false;
+            }
+            Amazon.FSx.Model.CreateCloneConfiguration requestOntapConfiguration_ontapConfiguration_CloneConfiguration = null;
+            
+             // populate CloneConfiguration
+            var requestOntapConfiguration_ontapConfiguration_CloneConfigurationIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_CloneConfiguration = new Amazon.FSx.Model.CreateCloneConfiguration();
+            System.String requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_ParentVolumeId = null;
+            if (cmdletContext.OntapConfiguration_CloneConfiguration_ParentVolumeId != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_ParentVolumeId = cmdletContext.OntapConfiguration_CloneConfiguration_ParentVolumeId;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_ParentVolumeId != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_CloneConfiguration.ParentVolumeId = requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_ParentVolumeId;
+                requestOntapConfiguration_ontapConfiguration_CloneConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_SnapshotId = null;
+            if (cmdletContext.OntapConfiguration_CloneConfiguration_SnapshotId != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_SnapshotId = cmdletContext.OntapConfiguration_CloneConfiguration_SnapshotId;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_SnapshotId != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_CloneConfiguration.SnapshotId = requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_SnapshotId;
+                requestOntapConfiguration_ontapConfiguration_CloneConfigurationIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_CloneConfiguration should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_CloneConfigurationIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_CloneConfiguration = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_CloneConfiguration != null)
+            {
+                request.OntapConfiguration.CloneConfiguration = requestOntapConfiguration_ontapConfiguration_CloneConfiguration;
                 requestOntapConfigurationIsNull = false;
             }
             Amazon.FSx.Model.TieringPolicy requestOntapConfiguration_ontapConfiguration_TieringPolicy = null;
@@ -1056,6 +1115,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String Name { get; set; }
             public List<System.String> AggregateConfiguration_Aggregate { get; set; }
             public System.Int32? AggregateConfiguration_ConstituentsPerAggregate { get; set; }
+            public System.String OntapConfiguration_CloneConfiguration_ParentVolumeId { get; set; }
+            public System.String OntapConfiguration_CloneConfiguration_SnapshotId { get; set; }
             public System.Boolean? OntapConfiguration_CopyTagsToBackup { get; set; }
             public System.String OntapConfiguration_JunctionPath { get; set; }
             public Amazon.FSx.InputOntapVolumeType OntapConfiguration_OntapVolumeType { get; set; }

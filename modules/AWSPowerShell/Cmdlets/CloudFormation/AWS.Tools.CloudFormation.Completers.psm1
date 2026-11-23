@@ -526,8 +526,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap

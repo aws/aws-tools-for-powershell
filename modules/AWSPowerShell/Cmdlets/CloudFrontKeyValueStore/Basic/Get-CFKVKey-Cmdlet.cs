@@ -30,7 +30,7 @@ using Amazon.CloudFrontKeyValueStore.Model;
 namespace Amazon.PowerShell.Cmdlets.CFKV
 {
     /// <summary>
-    /// Returns a key value pair.
+    /// Returns a key-value pair.
     /// </summary>
     [Cmdlet("Get", "CFKVKey")]
     [OutputType("Amazon.CloudFrontKeyValueStore.Model.GetKeyResponse")]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CFKV
         #region Parameter KvsARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Key Value Store.</para>
+        /// <para>The Amazon Resource Name (ARN) of the key value store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

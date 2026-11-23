@@ -263,6 +263,27 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String OntapConfiguration_SnapshotPolicy { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_CloneConfiguration_SplitAction
+        /// <summary>
+        /// <para>
+        /// <para>Set to <c>START</c> to split the clone from its parent volume. Splitting copies the
+        /// data that the clone shares with the parent volume, so that the clone becomes an independent
+        /// volume that no longer depends on the parent. After the split, the volume uses storage
+        /// for all of its data.</para><para>When you split a clone, keep the following in mind:</para><ul><li><para><c>SplitAction</c> must be the only property that you change in the <c>UpdateVolume</c>
+        /// request.</para></li><li><para>You can't split a data protection (<c>DP</c>) clone.</para></li><li><para>The split fails if the clone has locked snapshots, such as snapshots that a SnapMirror
+        /// relationship uses or that a retention period protects, or if a backup of the clone
+        /// is in progress. To allow the split, Amazon FSx deletes the snapshots that it created
+        /// for backups of the clone, so the next backup transfers more data. Amazon FSx doesn't
+        /// delete snapshots that you created.</para></li></ul><para>The split runs in the background. To monitor its progress, use the <c>VOLUME_CLONE_SPLIT</c>
+        /// administrative action in the volume's <c>AdministrativeActions</c>. When the split
+        /// completes, the volume no longer has a <c>CloneConfiguration</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.CloneSplitAction")]
+        public Amazon.FSx.CloneSplitAction OntapConfiguration_CloneConfiguration_SplitAction { get; set; }
+        #endregion
+        
         #region Parameter OpenZFSConfiguration_StorageCapacityQuotaGiB
         /// <summary>
         /// <para>
@@ -503,6 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             context.ClientRequestToken = this.ClientRequestToken;
             context.Name = this.Name;
+            context.OntapConfiguration_CloneConfiguration_SplitAction = this.OntapConfiguration_CloneConfiguration_SplitAction;
             context.OntapConfiguration_CopyTagsToBackup = this.OntapConfiguration_CopyTagsToBackup;
             context.OntapConfiguration_JunctionPath = this.OntapConfiguration_JunctionPath;
             context.OntapConfiguration_SecurityStyle = this.OntapConfiguration_SecurityStyle;
@@ -639,6 +661,31 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_StorageEfficiencyEnabled != null)
             {
                 request.OntapConfiguration.StorageEfficiencyEnabled = requestOntapConfiguration_ontapConfiguration_StorageEfficiencyEnabled.Value;
+                requestOntapConfigurationIsNull = false;
+            }
+            Amazon.FSx.Model.UpdateCloneConfiguration requestOntapConfiguration_ontapConfiguration_CloneConfiguration = null;
+            
+             // populate CloneConfiguration
+            var requestOntapConfiguration_ontapConfiguration_CloneConfigurationIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_CloneConfiguration = new Amazon.FSx.Model.UpdateCloneConfiguration();
+            Amazon.FSx.CloneSplitAction requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_SplitAction = null;
+            if (cmdletContext.OntapConfiguration_CloneConfiguration_SplitAction != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_SplitAction = cmdletContext.OntapConfiguration_CloneConfiguration_SplitAction;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_SplitAction != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_CloneConfiguration.SplitAction = requestOntapConfiguration_ontapConfiguration_CloneConfiguration_ontapConfiguration_CloneConfiguration_SplitAction;
+                requestOntapConfiguration_ontapConfiguration_CloneConfigurationIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_CloneConfiguration should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_CloneConfigurationIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_CloneConfiguration = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_CloneConfiguration != null)
+            {
+                request.OntapConfiguration.CloneConfiguration = requestOntapConfiguration_ontapConfiguration_CloneConfiguration;
                 requestOntapConfigurationIsNull = false;
             }
             Amazon.FSx.Model.TieringPolicy requestOntapConfiguration_ontapConfiguration_TieringPolicy = null;
@@ -1021,6 +1068,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Name { get; set; }
+            public Amazon.FSx.CloneSplitAction OntapConfiguration_CloneConfiguration_SplitAction { get; set; }
             public System.Boolean? OntapConfiguration_CopyTagsToBackup { get; set; }
             public System.String OntapConfiguration_JunctionPath { get; set; }
             public Amazon.FSx.SecurityStyle OntapConfiguration_SecurityStyle { get; set; }

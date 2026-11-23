@@ -30,7 +30,13 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Updates the name of an Amazon FSx for OpenZFS snapshot.
+    /// Updates an Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP snapshot.
+    /// 
+    ///  
+    /// <para>
+    /// For Amazon FSx for OpenZFS snapshots, you can update only the name. For Amazon FSx
+    /// for NetApp ONTAP snapshots, you can update the name and the properties in <c>OntapConfiguration</c>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "FSXSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.Snapshot")]
@@ -55,21 +61,49 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_ExpiryTime
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the date and time when the snapshot expires. You can't delete the snapshot
+        /// before this time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? OntapConfiguration_ExpiryTime { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot to update.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_SnaplockExpiryTime
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the date and time until which the snapshot is locked. This setting takes
+        /// effect only if snapshot locking is enabled on the volume. Snapshot locking is separate
+        /// from SnapLock, and enabling SnapLock on a volume doesn't enable snapshot locking.
+        /// You can't delete the snapshot before this time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? OntapConfiguration_SnaplockExpiryTime { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_SnapmirrorLabel
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the SnapMirror label for the snapshot. SnapMirror policies use labels to
+        /// select which snapshots to replicate to a destination volume.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_SnapmirrorLabel { get; set; }
         #endregion
         
         #region Parameter SnapshotId
@@ -137,12 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             context.ClientRequestToken = this.ClientRequestToken;
             context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.OntapConfiguration_ExpiryTime = this.OntapConfiguration_ExpiryTime;
+            context.OntapConfiguration_SnaplockExpiryTime = this.OntapConfiguration_SnaplockExpiryTime;
+            context.OntapConfiguration_SnapmirrorLabel = this.OntapConfiguration_SnapmirrorLabel;
             context.SnapshotId = this.SnapshotId;
             #if MODULAR
             if (this.SnapshotId == null && ParameterWasBound(nameof(this.SnapshotId)))
@@ -173,6 +204,45 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate OntapConfiguration
+            var requestOntapConfigurationIsNull = true;
+            request.OntapConfiguration = new Amazon.FSx.Model.UpdateOntapSnapshotConfiguration();
+            System.DateTime? requestOntapConfiguration_ontapConfiguration_ExpiryTime = null;
+            if (cmdletContext.OntapConfiguration_ExpiryTime != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_ExpiryTime = cmdletContext.OntapConfiguration_ExpiryTime.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_ExpiryTime != null)
+            {
+                request.OntapConfiguration.ExpiryTime = requestOntapConfiguration_ontapConfiguration_ExpiryTime.Value;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.DateTime? requestOntapConfiguration_ontapConfiguration_SnaplockExpiryTime = null;
+            if (cmdletContext.OntapConfiguration_SnaplockExpiryTime != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnaplockExpiryTime = cmdletContext.OntapConfiguration_SnaplockExpiryTime.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnaplockExpiryTime != null)
+            {
+                request.OntapConfiguration.SnaplockExpiryTime = requestOntapConfiguration_ontapConfiguration_SnaplockExpiryTime.Value;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_SnapmirrorLabel = null;
+            if (cmdletContext.OntapConfiguration_SnapmirrorLabel != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnapmirrorLabel = cmdletContext.OntapConfiguration_SnapmirrorLabel;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnapmirrorLabel != null)
+            {
+                request.OntapConfiguration.SnapmirrorLabel = requestOntapConfiguration_ontapConfiguration_SnapmirrorLabel;
+                requestOntapConfigurationIsNull = false;
+            }
+             // determine if request.OntapConfiguration should be set to null
+            if (requestOntapConfigurationIsNull)
+            {
+                request.OntapConfiguration = null;
             }
             if (cmdletContext.SnapshotId != null)
             {
@@ -235,6 +305,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Name { get; set; }
+            public System.DateTime? OntapConfiguration_ExpiryTime { get; set; }
+            public System.DateTime? OntapConfiguration_SnaplockExpiryTime { get; set; }
+            public System.String OntapConfiguration_SnapmirrorLabel { get; set; }
             public System.String SnapshotId { get; set; }
             public System.Func<Amazon.FSx.Model.UpdateSnapshotResponse, UpdateFSXSnapshotCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Snapshot;
