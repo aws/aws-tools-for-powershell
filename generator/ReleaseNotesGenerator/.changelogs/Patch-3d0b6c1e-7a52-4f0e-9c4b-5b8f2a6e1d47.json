@@ -1,0 +1,4 @@
+{
+  "Type": "Patch",
+  "Description": "Cmdlets that run in a PowerShell remoting or job session now write a warning, once per cmdlet per session, when their output contains values the service marks sensitive. The session that receives the output hides those values from display only if it has imported the AWS Tools for PowerShell modules. Cmdlet output is unchanged. To silence the warning, use -WarningAction SilentlyContinue."
+}

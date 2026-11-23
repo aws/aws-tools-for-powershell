@@ -84,7 +84,7 @@ Describe -Tag "Smoke" "IAM" {
             $whatIfMessage = (Get-Content -Path $transcriptPath | Where-Object { $_ -like "What if:*" }) -join "`n"
             try {
                 $whatIfMessage | Should -BeLike "*Edit-IAMPassword (ChangePassword)*"
-                $whatIfMessage | Should -BeLike "*sensitive data redacted*"
+                $whatIfMessage | Should -BeLike "*sensitive data hidden from display*"
                 $whatIfMessage | Should -Not -BeLike "*$oldPasswordCanary*"
             }
             finally {

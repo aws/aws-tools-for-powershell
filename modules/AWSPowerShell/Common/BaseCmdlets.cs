@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Common
         /// Redaction text substituted for a Sensitive parameter's value in ShouldProcess confirmation targets so it is never written to host/transcripts/logs.
         /// Keep in sync with the same literal in AWSPSGeneratorLib FormatGenerator.SensitiveDataRedactionMessage (separate assembly, so it cannot be shared directly).
         /// </summary>
-        public const string SensitiveDataRedactionMessage = "*** sensitive data redacted from host ***";
+        public const string SensitiveDataRedactionMessage = "*** sensitive data hidden from display ***";
 
         /// <summary>
         /// Returns formatted string containing the target of the operation for use in
@@ -494,15 +494,21 @@ namespace Amazon.PowerShell.Common
             }
             else if (cmdletOutput.PipelineOutput != null)
             {
+                // In a remoting or job session, warn before the first value with sensitive data.
+                var warn = SensitiveOutput.WarnsInRemoteSession(this);
                 IEnumerator enumerator = LanguagePrimitives.GetEnumerator(cmdletOutput.PipelineOutput);
                 if (enumerator == null)
                 {
+                    if (warn)
+                        SensitiveOutput.WarnOnSensitiveData(this, cmdletOutput.PipelineOutput);
                     WriteObject(cmdletOutput.PipelineOutput);
                 }
                 else
                 {
                     while (enumerator.MoveNext())
                     {
+                        if (warn && SensitiveOutput.WarnOnSensitiveData(this, enumerator.Current))
+                            warn = false;
                         WriteObject(enumerator.Current);
                     }
                 }       

@@ -17,10 +17,14 @@
 
 using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
+using System.Reflection;
 using System.Runtime.CompilerServices;
+using Amazon.Runtime.Internal;
 
 namespace Amazon.PowerShell.Common
 {
@@ -122,24 +126,26 @@ namespace Amazon.PowerShell.Common
         private static void WriteRedactionNote(PSCmdlet cmdlet, string selectProperty)
         {
             var commandName = cmdlet.MyInvocation.MyCommand.Name;
-            if (!NotedCommands.GetOrCreateValue(Runspace.DefaultRunspace).Add(commandName) || NoteWouldStopOrPrompt(cmdlet))
+            if (!NotedCommands.GetOrCreateValue(Runspace.DefaultRunspace).Add(commandName) ||
+                WouldStopOrPrompt(cmdlet, "InformationAction", "InformationPreference"))
                 return;
 
             // Written as Write-Host writes, so it shows by default and -InformationAction Ignore silences it.
             var note = new HostInformationMessage
             {
-                Message = $"Note: {commandName} output is redacted on display.{Environment.NewLine}" +
+                Message = $"Note: {commandName} output is hidden from display.{Environment.NewLine}" +
                           $"      To see it, use -Select {selectProperty} or{Environment.NewLine}" +
                           "      Set-AWSSensitiveDataConfiguration -ShowSensitiveData $true."
             };
             cmdlet.WriteInformation(note, new[] { "PSHOST" });
         }
 
-        // Under Stop or Inquire, WriteInformation throws or prompts, and the cmdlet would lose its output for a hint.
-        private static bool NoteWouldStopOrPrompt(PSCmdlet cmdlet)
+        // Under Stop or Inquire, writing the note or the warning throws or prompts, and the cmdlet would lose its
+        // output for a hint.
+        private static bool WouldStopOrPrompt(PSCmdlet cmdlet, string actionParameter, string preferenceVariable)
         {
-            if (!cmdlet.MyInvocation.BoundParameters.TryGetValue("InformationAction", out var preference))
-                preference = cmdlet.SessionState.PSVariable.GetValue("InformationPreference");
+            if (!cmdlet.MyInvocation.BoundParameters.TryGetValue(actionParameter, out var preference))
+                preference = cmdlet.SessionState.PSVariable.GetValue(preferenceVariable);
             return LanguagePrimitives.TryConvertTo(preference, out ActionPreference action) &&
                    (action == ActionPreference.Stop || action == ActionPreference.Inquire);
         }
@@ -155,6 +161,81 @@ namespace Amazon.PowerShell.Common
                     .Invoke();
                 return value.Count == 1 && true.Equals(value[0]?.BaseObject);
             }
+        }
+
+        // Host of a remoting or job session (Start-Job, WinRM, SSH, named pipe).
+        private const string RemoteHostName = "ServerRemoteHost";
+
+        // Names of the cmdlets that have written the remote session warning, per session.
+        private static readonly ConditionalWeakTable<Runspace, HashSet<string>> WarnedCommands =
+            new ConditionalWeakTable<Runspace, HashSet<string>>();
+
+        // Whether a type has a property the SDK marks sensitive.
+        private static readonly ConcurrentDictionary<Type, bool> SensitiveTypes = new ConcurrentDictionary<Type, bool>();
+
+        /// <summary>
+        /// True when the cmdlet runs in a remoting or job session and has not yet been checked in this session.
+        /// Its output goes to another session, which redacts it only if it has imported the module.
+        /// Never throws: the warning must not change what the cmdlet returns.
+        /// </summary>
+        internal static bool WarnsInRemoteSession(PSCmdlet cmdlet)
+        {
+            try
+            {
+                return cmdlet.Host?.Name == RemoteHostName &&
+                       !WarnedCommands.GetOrCreateValue(Runspace.DefaultRunspace).Contains(cmdlet.MyInvocation.MyCommand.Name);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Writes the remote session warning when the value has sensitive data. Returns true when the cmdlet needs
+        /// no further checks in this call: it warned, or the check failed. Never throws.
+        /// </summary>
+        internal static bool WarnOnSensitiveData(PSCmdlet cmdlet, object value)
+        {
+            try
+            {
+                if (!HasSensitiveData(value))
+                    return false;
+                WriteRemoteSessionWarning(cmdlet);
+            }
+            catch (Exception)
+            {
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// True when the value carries the AWS.Tools.SensitiveData tag or its type has a property the SDK marks
+        /// sensitive.
+        /// </summary>
+        internal static bool HasSensitiveData(object value)
+        {
+            if (value is PSObject wrapper)
+            {
+                if (wrapper.TypeNames.Contains(TypeName))
+                    return true;
+                value = wrapper.BaseObject;
+            }
+
+            return value != null && SensitiveTypes.GetOrAdd(value.GetType(), type =>
+                type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                    .Any(property => property.GetCustomAttribute<AWSPropertyAttribute>()?.Sensitive == true));
+        }
+
+        // Decided once per cmdlet per session, at its first value with sensitive data, so a script calling the
+        // cmdlet in a loop logs one warning and runs these checks once. No warning when redaction is off.
+        private static void WriteRemoteSessionWarning(PSCmdlet cmdlet)
+        {
+            var commandName = cmdlet.MyInvocation.MyCommand.Name;
+            if (WarnedCommands.GetOrCreateValue(Runspace.DefaultRunspace).Add(commandName) &&
+                !WouldStopOrPrompt(cmdlet, "WarningAction", "WarningPreference") && !ShowSensitiveData())
+                cmdlet.WriteWarning($"{commandName} output contains sensitive values. If it is returned to the calling session, it is " +
+                                    "hidden from display there only when the AWS Tools for PowerShell modules are imported.");
         }
 
         private static PSObject Tag(object item)

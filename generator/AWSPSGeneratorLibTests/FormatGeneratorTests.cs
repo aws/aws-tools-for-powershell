@@ -24,7 +24,7 @@ namespace AWSPSGeneratorLibTests
     public class FormatGeneratorTests
     {
         private const string Secret = "SECRET-7f3a9";
-        private const string Redacted = "*** sensitive data redacted from host ***";
+        private const string Redacted = "*** sensitive data hidden from display ***";
 
         public class FakeItem
         {

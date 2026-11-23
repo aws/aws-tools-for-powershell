@@ -7,7 +7,7 @@ BeforeAll {
   $script:region = 'us-west-2'
   $script:secretName = 'integrationtests-sensitive-data-redaction-' + [DateTime]::Now.ToFileTime()
   $script:secretValue = 'testvalue'
-  $script:redactedValue = [Regex]::Escape('*** sensitive data redacted from host ***')
+  $script:redactedValue = [Regex]::Escape('*** sensitive data hidden from display ***')
   $null = New-SECSecret -Name $script:secretName -SecretString $script:secretValue -Region $script:region }
 
 AfterAll {
@@ -159,7 +159,7 @@ Describe -Tag "Smoke" "Sensitive single-property default output" {
 
     $output.ForEach({ $_.GetType().Name }) | Should -Be @('InformationRecord', $Type, $Type)
     $output[0].Tags | Should -Be @('PSHOST')
-    "$($output[0].MessageData)" | Should -BeLike "Note: $Cmdlet output is redacted on display.*-Select $Property or*"
+    "$($output[0].MessageData)" | Should -BeLike "Note: $Cmdlet output is hidden from display.*-Select $Property or*"
   }
 
   It "Should write one host note per call when the cmdlet selects several pages" {
@@ -252,5 +252,53 @@ Describe -Tag "Smoke" "Sensitive single-property default output" {
 
     $inHost | Should -Not -Match $script:secretValue
     $inHost | Should -Match $script:redactedValue
+  }
+}
+
+Describe -Tag "Smoke" "Sensitive output from a job" {
+  BeforeAll {
+    $script:modulePath = Join-Path (Get-Module AWSPowerShell.NetCore).ModuleBase 'AWSPowerShell.NetCore.psd1'
+
+    function Get-SecretInJob([string]$Setup) {
+      $job = Start-Job -ArgumentList $script:modulePath, $script:secretName, $script:region, $Setup -ScriptBlock {
+        param($ModulePath, $SecretName, $Region, $Setup)
+        Import-Module $ModulePath
+        Set-AWSCredential -ProfileName test-runner
+        . ([scriptblock]::Create($Setup))
+        Get-SECSecretValue -SecretId $SecretName -Region $Region
+        Get-SECSecretValue -SecretId $SecretName -Region $Region
+      }
+      $null = $job | Wait-Job
+      $warnings = @($job.ChildJobs[0].Warning | Where-Object { "$_" -match 'sensitive values' })
+      $errors = $job.ChildJobs[0].Error.Count
+      $secrets = $job | Receive-Job 3>$null
+      $job | Remove-Job
+      [pscustomobject]@{ Secret = $secrets[0]; Warnings = $warnings; Errors = $errors }
+    }
+  }
+
+  It "Should warn once per cmdlet in a job and return the secret unchanged" {
+    $result = Get-SecretInJob -Setup ''
+
+    $result.Warnings.Count | Should -Be 1
+    "$($result.Warnings[0])" | Should -Match '^Get-SECSecretValue output contains sensitive values'
+    $result.Secret.SecretString | Should -BeExactly $script:secretValue
+  }
+
+  It "Should not warn in a job when <Case>" -ForEach @(
+    @{ Case = 'redaction is off'; Setup = 'Set-AWSSensitiveDataConfiguration -ShowSensitiveData $true' }
+    @{ Case = 'the warning preference is Stop'; Setup = '$WarningPreference = "Stop"' }
+  ) {
+    $result = Get-SecretInJob -Setup $Setup
+
+    $result.Warnings.Count | Should -Be 0
+    $result.Errors | Should -Be 0
+    $result.Secret.SecretString | Should -BeExactly $script:secretValue
+  }
+
+  It "Should not warn in a local session" {
+    $null = Get-SECSecretValue -SecretId $script:secretName -Region $script:region -WarningVariable warnings
+
+    @($warnings | Where-Object { "$_" -match 'sensitive values' }).Count | Should -Be 0
   }
 }

@@ -527,11 +527,12 @@ namespace Amazon.PowerShell.Common
 
     /// <summary>
     /// Controls the display of sensitive information in the PowerShell console output.
-    /// When set to false (default), sensitive data is masked in the console display.
+    /// When set to false (default), sensitive data is hidden from display.
     /// When set to true, sensitive data is shown in plain text.
-    /// Redaction applies only when PowerShell displays output. The value and its type are unchanged.
-    /// Out-File, redirection operators, Out-String and piping to a native command also display output, so they write the redaction text.
-    /// A cmdlet whose output is masked writes a note naming its -Select property, which -InformationAction Ignore silences.
+    /// Sensitive data is hidden only when PowerShell displays output. The value and its type are unchanged.
+    /// Out-File, redirection operators, Out-String and piping to a native command also display output, so they write the text shown in place of the value.
+    /// A cmdlet whose output is hidden writes a note naming its -Select property, which -InformationAction Ignore silences.
+    /// In a remoting or job session, a cmdlet that returns sensitive values writes a warning once, because the receiving session hides them from display only if it has imported the AWS Tools for PowerShell modules.
     /// This cmdlet sets a shell variable AWSPowerShell_Show_Sensitive_Data using the scope.
     /// </summary>
     [Cmdlet("Set", "AWSSensitiveDataConfiguration")]
@@ -543,8 +544,8 @@ namespace Amazon.PowerShell.Common
 
         /// <summary>
         /// Controls whether sensitive data appears in PowerShell console output.
-        /// When set to true, displays un-redacted sensitive data in the console.
-        /// When set to false (default), automatically masks sensitive data in console output.
+        /// When set to true, displays sensitive data in the console.
+        /// When set to false (default), automatically hides sensitive data in console output.
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         public bool ShowSensitiveData { get; set; }
@@ -574,7 +575,7 @@ namespace Amazon.PowerShell.Common
 
     /// <summary>
     /// Returns the current configuration value that controls how sensitive data is displayed in the PowerShell console.
-    /// This cmdlet returns a Boolean value for ShowSensitiveData indicating whether sensitive data is shown or redacted in console output.
+    /// This cmdlet returns a Boolean value for ShowSensitiveData indicating whether sensitive data is shown or hidden in console output.
     /// </summary>
     [Cmdlet("Get", "AWSSensitiveDataConfiguration")]
     [AWSCmdlet("Gets the current configuration settings for sensitive data display in PowerShell output.")]

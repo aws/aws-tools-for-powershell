@@ -40,7 +40,7 @@ namespace AWSPowerShellGenerator.Generators
 
         // Keep in sync with Amazon.PowerShell.Common.BaseCmdlet.SensitiveDataRedactionMessage
         // (separate assembly, so it cannot be shared directly).
-        private const string SensitiveDataRedactionMessage = "*** sensitive data redacted from host ***";
+        private const string SensitiveDataRedactionMessage = "*** sensitive data hidden from display ***";
 
         // Keep in sync with Amazon.PowerShell.Common.SensitiveOutput.TypeName.
         public const string SensitiveDataTypeName = "AWS.Tools.SensitiveData";
