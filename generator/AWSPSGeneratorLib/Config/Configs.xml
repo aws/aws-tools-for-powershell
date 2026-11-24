@@ -83,6 +83,7 @@
     <Pattern Verb="Synthesize" TargetVerb="Invoke" NounTransformation="{Noun}Synthesis" />
     <Pattern Verb="Tag" TargetVerb="Add" NounTransformation="{Noun}Tag" />
     <Pattern Verb="Transfer" TargetVerb="Invoke" NounTransformation="{Noun}Transfer" />
+    <Pattern Verb="Traverse" TargetVerb="Invoke" NounTransformation="{Noun}Traversal" />
     <Pattern Verb="Unarchive" TargetVerb="Set" NounTransformation="{Noun}AsUnarchived" />
     <Pattern Verb="Unmonitor" TargetVerb="Stop" NounTransformation="{Noun}Monitoring" />
     <Pattern Verb="Unshare" TargetVerb="Disable" NounTransformation="{Noun}Share" />
