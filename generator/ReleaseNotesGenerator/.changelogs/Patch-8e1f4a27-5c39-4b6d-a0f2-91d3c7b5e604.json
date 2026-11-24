@@ -1,4 +1,0 @@
-{
-  "Type": "Patch",
-  "Description": "The text shown in place of a sensitive value changed from '*** sensitive data redacted from host ***' to '*** sensitive data hidden from display ***'. Scripts that match the old text need to be updated."
-}

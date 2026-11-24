@@ -1,4 +1,11 @@
-﻿### 5.0.343 (2026-11-23 21:05Z)
+﻿### 5.0.344 (2026-11-24 20:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.10.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock AgentCore
+    * Modified cmdlet Invoke-BACWebSearch: added parameter UserLocation_Country.
+  * Cmdlets that run in a PowerShell remoting or job session now write a warning, once per cmdlet per session, when their output contains values the service marks sensitive. The session that receives the output hides those values from display only if it has imported the AWS Tools for PowerShell modules. Cmdlet output is unchanged. To silence the warning, use -WarningAction SilentlyContinue.
+  * The text shown in place of a sensitive value changed from '*** sensitive data redacted from host ***' to '*** sensitive data hidden from display ***'. Scripts that match the old text need to be updated.
+
+### 5.0.343 (2026-11-23 21:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.9.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon FSx
     * Added cmdlet Get-FSXClusterPeerDetail leveraging the DescribeClusterPeers service API.

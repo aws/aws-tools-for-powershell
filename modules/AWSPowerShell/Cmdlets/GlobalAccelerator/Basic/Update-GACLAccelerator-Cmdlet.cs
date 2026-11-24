@@ -99,7 +99,13 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter IpAddress
         /// <summary>
         /// <para>
-        /// <para>The IP addresses for an accelerator.</para><para />
+        /// <para>The IP addresses for an accelerator. Specify one or two IPv4 addresses. Do not include
+        /// the /32 suffix.</para><para>You can update IP addresses only for an accelerator that you created with at least
+        /// one BYOIP address. You can't update an accelerator that has only IP addresses provided
+        /// by Global Accelerator to use BYOIP addresses. Instead, create a new accelerator with
+        /// your BYOIP addresses.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.update-accelerator.html">Update
+        /// an accelerator to change your IP addresses</a> in the <i>Global Accelerator Developer
+        /// Guide</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

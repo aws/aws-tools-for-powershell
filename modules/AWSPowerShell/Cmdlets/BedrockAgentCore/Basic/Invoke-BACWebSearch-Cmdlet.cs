@@ -54,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter UserLocation_Country
+        /// <summary>
+        /// <para>
+        /// <para>The two-letter ISO 3166-1 alpha-2 country code. The code is case-insensitive.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserLocation_Country { get; set; }
+        #endregion
+        
         #region Parameter Filters_DomainFilter_Exclude
         /// <summary>
         /// <para>
@@ -216,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter SearchQuery which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UserLocation_Country = this.UserLocation_Country;
             context.WebSearchId = this.WebSearchId;
             #if MODULAR
             if (this.WebSearchId == null && ParameterWasBound(nameof(this.WebSearchId)))
@@ -326,6 +337,25 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.SearchQuery = cmdletContext.SearchQuery;
             }
+            
+             // populate UserLocation
+            var requestUserLocationIsNull = true;
+            request.UserLocation = new Amazon.BedrockAgentCore.Model.WebSearchUserLocation();
+            System.String requestUserLocation_userLocation_Country = null;
+            if (cmdletContext.UserLocation_Country != null)
+            {
+                requestUserLocation_userLocation_Country = cmdletContext.UserLocation_Country;
+            }
+            if (requestUserLocation_userLocation_Country != null)
+            {
+                request.UserLocation.Country = requestUserLocation_userLocation_Country;
+                requestUserLocationIsNull = false;
+            }
+             // determine if request.UserLocation should be set to null
+            if (requestUserLocationIsNull)
+            {
+                request.UserLocation = null;
+            }
             if (cmdletContext.WebSearchId != null)
             {
                 request.WebSearchId = cmdletContext.WebSearchId;
@@ -391,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.DateTime? Filters_PublishedDateFilter_PublishedBefore { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String SearchQuery { get; set; }
+            public System.String UserLocation_Country { get; set; }
             public System.String WebSearchId { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.InvokeWebSearchResponse, InvokeBACWebSearchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Results;
