@@ -1,0 +1,219 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.ELBProxy;
+using Amazon.ELBProxy.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.ELBP
+{
+    /// <summary>
+    /// Retrieves the configuration file, the configuration archive, or both for the specified
+    /// proxy. This operation is separate from GetProxy so that you can grant access to proxy
+    /// metadata without granting access to the configuration content.
+    /// </summary>
+    [Cmdlet("Get", "ELBPProxyConfigurationContent")]
+    [OutputType("Amazon.ELBProxy.Model.GetProxyConfigurationContentsResponse")]
+    [AWSCmdlet("Calls the Elastic Load Balancing for Envoy GetProxyConfigurationContents API operation.", Operation = new[] {"GetProxyConfigurationContents"}, SelectReturnType = typeof(Amazon.ELBProxy.Model.GetProxyConfigurationContentsResponse))]
+    [AWSCmdletOutput("Amazon.ELBProxy.Model.GetProxyConfigurationContentsResponse",
+        "This cmdlet returns an Amazon.ELBProxy.Model.GetProxyConfigurationContentsResponse object containing multiple properties."
+    )]
+    public partial class GetELBPProxyConfigurationContentCmdlet : AmazonELBProxyClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter IncludeConfigArchive
+        /// <summary>
+        /// <para>
+        /// Indicates whether to include the
+        /// configuration archive contents in the response. The default is `false`.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeConfigArchive { get; set; }
+        #endregion
+        
+        #region Parameter IncludeConfigFile
+        /// <summary>
+        /// <para>
+        /// Indicates whether to include the configuration
+        /// file contents in the response. The default is `false`.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeConfigFile { get; set; }
+        #endregion
+        
+        #region Parameter ProxyIdentifier
+        /// <summary>
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the
+        /// proxy.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ProxyIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ELBProxy.Model.GetProxyConfigurationContentsResponse).
+        /// Specifying the name of a property of type Amazon.ELBProxy.Model.GetProxyConfigurationContentsResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.ELBProxy.Model.GetProxyConfigurationContentsResponse, GetELBPProxyConfigurationContentCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.IncludeConfigArchive = this.IncludeConfigArchive;
+            context.IncludeConfigFile = this.IncludeConfigFile;
+            context.ProxyIdentifier = this.ProxyIdentifier;
+            #if MODULAR
+            if (this.ProxyIdentifier == null && ParameterWasBound(nameof(this.ProxyIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProxyIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.ELBProxy.Model.GetProxyConfigurationContentsRequest();
+            
+            if (cmdletContext.IncludeConfigArchive != null)
+            {
+                request.IncludeConfigArchive = cmdletContext.IncludeConfigArchive.Value;
+            }
+            if (cmdletContext.IncludeConfigFile != null)
+            {
+                request.IncludeConfigFile = cmdletContext.IncludeConfigFile.Value;
+            }
+            if (cmdletContext.ProxyIdentifier != null)
+            {
+                request.ProxyIdentifier = cmdletContext.ProxyIdentifier;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.ELBProxy.Model.GetProxyConfigurationContentsResponse CallAWSServiceOperation(IAmazonELBProxy client, Amazon.ELBProxy.Model.GetProxyConfigurationContentsRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing for Envoy", "GetProxyConfigurationContents");
+            try
+            {
+                return client.GetProxyConfigurationContentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.Boolean? IncludeConfigArchive { get; set; }
+            public System.Boolean? IncludeConfigFile { get; set; }
+            public System.String ProxyIdentifier { get; set; }
+            public System.Func<Amazon.ELBProxy.Model.GetProxyConfigurationContentsResponse, GetELBPProxyConfigurationContentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

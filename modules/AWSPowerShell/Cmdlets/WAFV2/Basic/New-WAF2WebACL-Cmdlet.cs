@@ -41,9 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>,
     /// and managed rule group. You can associate a web ACL with one or more Amazon Web Services
     /// resources to protect. The resource types include Amazon CloudFront distribution, Amazon
-    /// API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito
-    /// user pool, App Runner service, Amplify application, Amazon Web Services Verified Access
-    /// instance, and Amazon Bedrock AgentCore Gateway. 
+    /// API Gateway REST API, Application Load Balancer, Elastic Load Balancing for Envoy
+    /// proxy, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify
+    /// application, Amazon Web Services Verified Access instance, and Amazon Bedrock AgentCore
+    /// Gateway. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "WAF2WebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -348,10 +349,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>Customizes the maximum size of the request body that your protected Application Load
-        /// Balancer, CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access
-        /// resources forward to WAF for inspection. The default size is 8 KB (8,192 bytes) for
-        /// Application Load Balancer and 16 KB (16,384 bytes) for the other resource types. You
-        /// can change the setting for any of the available resource types. </para><note><para>You are charged additional fees when your protected resources forward body sizes that
+        /// Balancer, CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and
+        /// Elastic Load Balancing for Envoy resources forward to WAF for inspection. The default
+        /// size is 8 KB (8,192 bytes) for Application Load Balancer and 16 KB (16,384 bytes)
+        /// for the other resource types. You can change the setting for any of the available
+        /// resource types. </para><note><para>You are charged additional fees when your protected resources forward body sizes that
         /// are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF
         /// Pricing</a>.</para></note><para>Example JSON: <c> { "API_GATEWAY": "KB_48", "APP_RUNNER_SERVICE": "KB_32", "APPLICATION_LOAD_BALANCER":
         /// "KB_16" }</c></para><para>For AppSync, the limit is fixed at 8 KB (8,192 bytes).</para><para />

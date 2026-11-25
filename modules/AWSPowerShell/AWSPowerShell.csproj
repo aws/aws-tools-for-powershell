@@ -566,6 +566,9 @@
     <Reference Include="AWSSDK.Elasticsearch">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Elasticsearch.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ELBProxy">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ELBProxy.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ElementalInference">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ElementalInference.dll</HintPath>
     </Reference>
@@ -1897,6 +1900,9 @@
     </Reference>
     <Reference Include="AWSSDK.Elasticsearch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Elasticsearch.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ELBProxy">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ELBProxy.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElementalInference">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ElementalInference.dll</HintPath>

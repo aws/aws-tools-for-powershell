@@ -128,8 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>Specifies whether the web ACL is for an Amazon Web Services CloudFront distribution
         /// or for a regional application. A regional application can be an Application Load Balancer,
-        /// an AppSync GraphQL API, an Amazon Cognito user pool, an Amazon Web Services App Runner
-        /// service, or an Amazon Web Services Verified Access instance.</para>
+        /// an Elastic Load Balancing for Envoy proxy, an AppSync GraphQL API, an Amazon Cognito
+        /// user pool, an Amazon Web Services App Runner service, or an Amazon Web Services Verified
+        /// Access instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

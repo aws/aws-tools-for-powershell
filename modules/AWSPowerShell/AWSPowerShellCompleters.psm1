@@ -16086,8 +16086,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -17252,9 +17252,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
+    "Select"=@("Search-CSDDocument",
                "Get-CSDSuggestion",
-               "Search-CSDDocument")
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -31810,12 +31810,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertFrom-DDBItem",
                "New-DDBTableSchema",
-               "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem",
                "New-DDBTable",
-               "Add-DDBIndexSchema",
-               "ConvertTo-DDBItem")
+               "ConvertTo-DDBItem",
+               "Add-DDBKeySchema",
+               "Add-DDBIndexSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -37428,6 +37428,123 @@ $EMR_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $EMR_SelectCompleters $EMR_SelectMap
+# Argument completions for service Elastic Load Balancing for Envoy
+
+
+$ELBP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ELBProxy.ProxyIpv4Addressability
+        "New-ELBPProxy/NetworkConfiguration_IpConfiguration_IpAddressingConfiguration_Ipv4Addressability"
+        {
+            $v = "internal","internet-facing","off"
+            break
+        }
+
+        # Amazon.ELBProxy.ProxyIpv6Addressability
+        "New-ELBPProxy/NetworkConfiguration_IpConfiguration_IpAddressingConfiguration_Ipv6Addressability"
+        {
+            $v = "internal","internet-facing","off"
+            break
+        }
+
+        # Amazon.ELBProxy.ProxyType
+        {
+            ($_ -eq "Get-ELBPProxyVersionList/Type") -Or
+            ($_ -eq "New-ELBPProxy/Type")
+        }
+        {
+            $v = "envoy"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ELBP_map = @{
+    "NetworkConfiguration_IpConfiguration_IpAddressingConfiguration_Ipv4Addressability"=@("New-ELBPProxy")
+    "NetworkConfiguration_IpConfiguration_IpAddressingConfiguration_Ipv6Addressability"=@("New-ELBPProxy")
+    "Type"=@("Get-ELBPProxyVersionList","New-ELBPProxy")
+}
+
+_awsArgumentCompleterRegistration $ELBP_Completers $ELBP_map
+
+$ELBP_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.ELBP.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ELBP_SelectMap = @{
+    "Select"=@("Add-ELBPCertificate",
+               "New-ELBPProxy",
+               "Remove-ELBPProxy",
+               "Remove-ELBPCertificate",
+               "Get-ELBPProxy",
+               "Get-ELBPProxyAttribute",
+               "Get-ELBPProxyConfigurationContent",
+               "Get-ELBPProxyUpdate",
+               "Get-ELBPCertificateAssociationList",
+               "Get-ELBPProxyList",
+               "Get-ELBPProxyUpdateList",
+               "Get-ELBPProxyVersionList",
+               "Get-ELBPResourceTag",
+               "Add-ELBPResourceTag",
+               "Remove-ELBPResourceTag",
+               "Update-ELBPProxyAttribute",
+               "Update-ELBPProxyConfiguration",
+               "Update-ELBPProxyNetworkConfiguration")
+}
+
+_awsArgumentCompleterRegistration $ELBP_SelectCompleters $ELBP_SelectMap
 # Argument completions for service AWS Elemental Inference
 
 
@@ -83524,18 +83641,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Copy-S3Object",
-               "Dismount-S3PSDrive",
-               "Write-S3Object",
-               "Get-S3MultipartUpload",
-               "Remove-S3Object",
                "Remove-S3Bucket",
+               "Remove-S3Object",
+               "Test-S3Bucket",
+               "Dismount-S3PSDrive",
                "Mount-S3PSDrive",
                "New-S3Bucket",
+               "Copy-S3Object",
                "Read-S3Object",
                "Get-S3PreSignedURL",
-               "Test-S3Bucket",
-               "Remove-S3MultipartUpload")
+               "Write-S3Object",
+               "Remove-S3MultipartUpload",
+               "Get-S3MultipartUpload")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -98019,7 +98136,7 @@ $WAF2_Completers = {
         # Amazon.WAFV2.ResourceType
         "Get-WAF2ResourcesForWebACLList/ResourceType"
         {
-            $v = "AGENTCORE_GATEWAY","AMPLIFY","API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC","APP_RUNNER_SERVICE","COGNITO_USER_POOL","VERIFIED_ACCESS_INSTANCE"
+            $v = "AGENTCORE_GATEWAY","AMPLIFY","API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC","APP_RUNNER_SERVICE","COGNITO_USER_POOL","ELB_PROXY","VERIFIED_ACCESS_INSTANCE"
             break
         }
 
@@ -100897,44 +101014,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -100974,3 +101053,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

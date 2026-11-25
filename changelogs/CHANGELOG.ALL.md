@@ -1,4 +1,8 @@
-﻿### 5.0.344 (2026-11-24 20:00Z)
+﻿### 5.0.345 (2026-11-25 19:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.11.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Elastic Load Balancing for Envoy. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ELBP and can be listed using the command 'Get-AWSCmdletName -Service ELBP'.
+
+### 5.0.344 (2026-11-24 20:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.10.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock AgentCore
     * Modified cmdlet Invoke-BACWebSearch: added parameter UserLocation_Country.

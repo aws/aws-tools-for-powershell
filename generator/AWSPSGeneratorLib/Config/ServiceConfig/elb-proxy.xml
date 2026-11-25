@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>elb-proxy</C2jFilename>
+    <AssemblyName>ELBProxy</AssemblyName>
+    <ServiceNounPrefix>ELBP</ServiceNounPrefix>
+    <ServiceName>Elastic Load Balancing for Envoy</ServiceName>
+    <ServiceId>ELB Proxy</ServiceId>
+    <ServiceClientInterface>IAmazonELBProxy</ServiceClientInterface>
+    <ServiceClient>AmazonELBProxyClient</ServiceClient>
+    <ServiceModuleGuid>41998f98-4ba5-4fc3-8600-3d9cf6d8c81e</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateCertificate" OutputProperty="CertificateAssociation" Verb="Add" Noun="Certificate" ShouldProcessTarget="CertificateIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProxy" OutputProperty="*" Verb="New" Noun="Proxy" ShouldProcessTarget="Name,RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProxy" OutputProperty="*" Verb="Remove" Noun="Proxy" ShouldProcessTarget="ProxyIdentifier" PipelineParameter="ProxyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateCertificate" OutputProperty="CertificateAssociation" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProxy" OutputProperty="*" Verb="Get" Noun="Proxy" PipelineParameter="ProxyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProxyAttributes" OutputProperty="Attributes" Verb="Get" Noun="ProxyAttribute" PipelineParameter="ProxyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProxyConfigurationContents" OutputProperty="*" Verb="Get" Noun="ProxyConfigurationContent" PipelineParameter="ProxyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProxyUpdate" OutputProperty="*" Verb="Get" Noun="ProxyUpdate" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCertificateAssociations" OutputProperty="Items" Verb="Get" Noun="CertificateAssociationList" PipelineParameter="ProxyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProxies" OutputProperty="Items" Verb="Get" Noun="ProxyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProxyUpdates" OutputProperty="Items" Verb="Get" Noun="ProxyUpdateList" PipelineParameter="ProxyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProxyVersions" OutputProperty="Items" Verb="Get" Noun="ProxyVersionList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxyAttributes" OutputProperty="Attributes" Verb="Update" Noun="ProxyAttribute" ShouldProcessTarget="ProxyIdentifier" PipelineParameter="ProxyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxyConfiguration" OutputProperty="*" Verb="Update" Noun="ProxyConfiguration" ShouldProcessTarget="ProxyIdentifier" PipelineParameter="ProxyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxyNetworkConfiguration" OutputProperty="*" Verb="Update" Noun="ProxyNetworkConfiguration" ShouldProcessTarget="ProxyIdentifier" PipelineParameter="ProxyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>
