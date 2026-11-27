@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESReservedElasticsearchInstanceList")]
     [OutputType("Amazon.Elasticsearch.Model.ReservedElasticsearchInstance")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DescribeReservedElasticsearchInstances API operation.", Operation = new[] {"DescribeReservedElasticsearchInstances"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstancesResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DescribeReservedElasticsearchInstances API operation.", Operation = new[] {"DescribeReservedElasticsearchInstances"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstancesResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ReservedElasticsearchInstance or Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstancesResponse",
         "This cmdlet returns a collection of Amazon.Elasticsearch.Model.ReservedElasticsearchInstance objects.",
         "The service call response (type Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstancesResponse) can be returned by specifying '-Select *'."
@@ -319,7 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstancesResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DescribeReservedElasticsearchInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DescribeReservedElasticsearchInstances");
             try
             {
                 return client.DescribeReservedElasticsearchInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

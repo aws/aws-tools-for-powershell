@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESVersionList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch ListElasticsearchVersions API operation.", Operation = new[] {"ListElasticsearchVersions"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.ListElasticsearchVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service ListElasticsearchVersions API operation.", Operation = new[] {"ListElasticsearchVersions"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.ListElasticsearchVersionsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Elasticsearch.Model.ListElasticsearchVersionsResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.Elasticsearch.Model.ListElasticsearchVersionsResponse) can be returned by specifying '-Select *'."
@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.ListElasticsearchVersionsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.ListElasticsearchVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "ListElasticsearchVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "ListElasticsearchVersions");
             try
             {
                 return client.ListElasticsearchVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

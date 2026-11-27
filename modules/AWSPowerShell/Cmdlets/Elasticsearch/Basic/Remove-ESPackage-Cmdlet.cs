@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Remove", "ESPackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Elasticsearch.Model.PackageDetails")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DeletePackage API operation.", Operation = new[] {"DeletePackage"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeletePackageResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DeletePackage API operation.", Operation = new[] {"DeletePackage"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeletePackageResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.PackageDetails or Amazon.Elasticsearch.Model.DeletePackageResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.PackageDetails object.",
         "The service call response (type Amazon.Elasticsearch.Model.DeletePackageResponse) can be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DeletePackageResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DeletePackageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DeletePackage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DeletePackage");
             try
             {
                 return client.DeletePackageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

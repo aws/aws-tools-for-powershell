@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESVpcEndpoint")]
     [OutputType("Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DescribeVpcEndpoints API operation.", Operation = new[] {"DescribeVpcEndpoints"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DescribeVpcEndpoints API operation.", Operation = new[] {"DescribeVpcEndpoints"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse object containing multiple properties."
     )]
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribeVpcEndpointsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DescribeVpcEndpoints");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DescribeVpcEndpoints");
             try
             {
                 return client.DescribeVpcEndpointsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

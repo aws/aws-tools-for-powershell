@@ -55,6 +55,22 @@ namespace Amazon.PowerShell.Cmdlets.CW
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter EnableTagEnrichment
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether enriched metrics include resource tag labels. If <c>true</c>, enriched
+        /// metrics include resource tag labels. If <c>false</c>, they include resource ARN labels
+        /// but no resource tag labels. If you omit this parameter, the stored value is not changed.
+        /// The operation also replaces the stored filters, so to change only this setting, specify
+        /// the current <c>IncludeFilters</c> and <c>ExcludeFilters</c> in the same request.</para><para>When <c>EnableTagEnrichment</c> is <c>true</c>, enriched metrics that carry resource
+        /// tag labels are charged at the OTel enrichment rate. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
+        /// CloudWatch Pricing</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableTagEnrichment { get; set; }
+        #endregion
+        
         #region Parameter ExcludeFilter
         /// <summary>
         /// <para>
@@ -138,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Select = CreateSelectDelegate<Amazon.CloudWatch.Model.UpdateOTelEnrichmentResponse, UpdateCWOTelEnrichmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.EnableTagEnrichment = this.EnableTagEnrichment;
             if (this.ExcludeFilter != null)
             {
                 context.ExcludeFilter = new List<Amazon.CloudWatch.Model.OTelEnrichmentMetricSelector>(this.ExcludeFilter);
@@ -162,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // create request
             var request = new Amazon.CloudWatch.Model.UpdateOTelEnrichmentRequest();
             
+            if (cmdletContext.EnableTagEnrichment != null)
+            {
+                request.EnableTagEnrichment = cmdletContext.EnableTagEnrichment.Value;
+            }
             if (cmdletContext.ExcludeFilter != null)
             {
                 request.ExcludeFilters = cmdletContext.ExcludeFilter;
@@ -225,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? EnableTagEnrichment { get; set; }
             public List<Amazon.CloudWatch.Model.OTelEnrichmentMetricSelector> ExcludeFilter { get; set; }
             public List<Amazon.CloudWatch.Model.OTelEnrichmentMetricSelector> IncludeFilter { get; set; }
             public System.Func<Amazon.CloudWatch.Model.UpdateOTelEnrichmentResponse, UpdateCWOTelEnrichmentCmdlet, object> Select { get; set; } =

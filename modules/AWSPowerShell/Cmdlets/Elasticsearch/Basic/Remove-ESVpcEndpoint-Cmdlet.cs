@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Remove", "ESVpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Elasticsearch.Model.VpcEndpointSummary")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DeleteVpcEndpoint API operation.", Operation = new[] {"DeleteVpcEndpoint"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeleteVpcEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DeleteVpcEndpoint API operation.", Operation = new[] {"DeleteVpcEndpoint"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeleteVpcEndpointResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.VpcEndpointSummary or Amazon.Elasticsearch.Model.DeleteVpcEndpointResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.VpcEndpointSummary object.",
         "The service call response (type Amazon.Elasticsearch.Model.DeleteVpcEndpointResponse) can be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DeleteVpcEndpointResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DeleteVpcEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DeleteVpcEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DeleteVpcEndpoint");
             try
             {
                 return client.DeleteVpcEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

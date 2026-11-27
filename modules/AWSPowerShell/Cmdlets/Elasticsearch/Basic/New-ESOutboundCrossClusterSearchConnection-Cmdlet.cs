@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("New", "ESOutboundCrossClusterSearchConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch CreateOutboundCrossClusterSearchConnection API operation.", Operation = new[] {"CreateOutboundCrossClusterSearchConnection"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service CreateOutboundCrossClusterSearchConnection API operation.", Operation = new[] {"CreateOutboundCrossClusterSearchConnection"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse object containing multiple properties."
     )]
@@ -340,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "CreateOutboundCrossClusterSearchConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "CreateOutboundCrossClusterSearchConnection");
             try
             {
                 return client.CreateOutboundCrossClusterSearchConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Update", "ESDomainConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.ElasticsearchDomainConfig")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch UpdateElasticsearchDomainConfig API operation.", Operation = new[] {"UpdateElasticsearchDomainConfig"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.UpdateElasticsearchDomainConfigResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service UpdateElasticsearchDomainConfig API operation.", Operation = new[] {"UpdateElasticsearchDomainConfig"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.UpdateElasticsearchDomainConfigResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ElasticsearchDomainConfig or Amazon.Elasticsearch.Model.UpdateElasticsearchDomainConfigResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.ElasticsearchDomainConfig object.",
         "The service call response (type Amazon.Elasticsearch.Model.UpdateElasticsearchDomainConfigResponse) can be returned by specifying '-Select *'."
@@ -266,6 +266,27 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Boolean? AutomatedSnapshotPauseOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether to encrypt the tables with the AWS KMS key specified in <c>KmsKeyArn</c>.
+        /// Accepted values true or false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter CatalogOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether the domain publishes data to the catalog. Accepted values true or false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CatalogOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter CognitoOptions_Enabled
         /// <summary>
         /// <para>
@@ -401,6 +422,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? EBSOptions_Iops { get; set; }
+        #endregion
+        
+        #region Parameter CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the AWS KMS key to encrypt the tables with. Takes the form <c>arn:aws:kms:region:account-id:key/key-id</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn { get; set; }
         #endregion
         
         #region Parameter LogPublishingOption
@@ -792,6 +823,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.AutomatedSnapshotPauseOptions_Enabled = this.AutomatedSnapshotPauseOptions_Enabled;
             context.AutomatedSnapshotPauseOptions_EndTime = this.AutomatedSnapshotPauseOptions_EndTime;
             context.AutomatedSnapshotPauseOptions_StartTime = this.AutomatedSnapshotPauseOptions_StartTime;
+            context.CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled = this.CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled;
+            context.CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn = this.CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn;
+            context.CatalogOptions_Enabled = this.CatalogOptions_Enabled;
             context.CognitoOptions_Enabled = this.CognitoOptions_Enabled;
             context.CognitoOptions_IdentityPoolId = this.CognitoOptions_IdentityPoolId;
             context.CognitoOptions_RoleArn = this.CognitoOptions_RoleArn;
@@ -1142,6 +1176,90 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (requestAutomatedSnapshotPauseOptionsIsNull)
             {
                 request.AutomatedSnapshotPauseOptions = null;
+            }
+            
+             // populate CatalogOptions
+            var requestCatalogOptionsIsNull = true;
+            request.CatalogOptions = new Amazon.Elasticsearch.Model.CatalogOptions();
+            System.Boolean? requestCatalogOptions_catalogOptions_Enabled = null;
+            if (cmdletContext.CatalogOptions_Enabled != null)
+            {
+                requestCatalogOptions_catalogOptions_Enabled = cmdletContext.CatalogOptions_Enabled.Value;
+            }
+            if (requestCatalogOptions_catalogOptions_Enabled != null)
+            {
+                request.CatalogOptions.Enabled = requestCatalogOptions_catalogOptions_Enabled.Value;
+                requestCatalogOptionsIsNull = false;
+            }
+            Amazon.Elasticsearch.Model.CatalogConfiguration requestCatalogOptions_catalogOptions_Catalog = null;
+            
+             // populate Catalog
+            var requestCatalogOptions_catalogOptions_CatalogIsNull = true;
+            requestCatalogOptions_catalogOptions_Catalog = new Amazon.Elasticsearch.Model.CatalogConfiguration();
+            Amazon.Elasticsearch.Model.ServiceManagedS3TablesCatalog requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables = null;
+            
+             // populate ServiceManagedS3Tables
+            var requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3TablesIsNull = true;
+            requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables = new Amazon.Elasticsearch.Model.ServiceManagedS3TablesCatalog();
+            Amazon.Elasticsearch.Model.S3TablesEncryptionConfiguration requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration = null;
+            
+             // populate EncryptionConfiguration
+            var requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfigurationIsNull = true;
+            requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration = new Amazon.Elasticsearch.Model.S3TablesEncryptionConfiguration();
+            System.Boolean? requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled = null;
+            if (cmdletContext.CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled != null)
+            {
+                requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled = cmdletContext.CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled.Value;
+            }
+            if (requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled != null)
+            {
+                requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration.Enabled = requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled.Value;
+                requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfigurationIsNull = false;
+            }
+            System.String requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn = null;
+            if (cmdletContext.CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn != null)
+            {
+                requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn = cmdletContext.CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn;
+            }
+            if (requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn != null)
+            {
+                requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration.KmsKeyArn = requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn;
+                requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfigurationIsNull = false;
+            }
+             // determine if requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration should be set to null
+            if (requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfigurationIsNull)
+            {
+                requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration = null;
+            }
+            if (requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration != null)
+            {
+                requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables.EncryptionConfiguration = requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables_catalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration;
+                requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3TablesIsNull = false;
+            }
+             // determine if requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables should be set to null
+            if (requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3TablesIsNull)
+            {
+                requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables = null;
+            }
+            if (requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables != null)
+            {
+                requestCatalogOptions_catalogOptions_Catalog.ServiceManagedS3Tables = requestCatalogOptions_catalogOptions_Catalog_catalogOptions_Catalog_ServiceManagedS3Tables;
+                requestCatalogOptions_catalogOptions_CatalogIsNull = false;
+            }
+             // determine if requestCatalogOptions_catalogOptions_Catalog should be set to null
+            if (requestCatalogOptions_catalogOptions_CatalogIsNull)
+            {
+                requestCatalogOptions_catalogOptions_Catalog = null;
+            }
+            if (requestCatalogOptions_catalogOptions_Catalog != null)
+            {
+                request.CatalogOptions.Catalog = requestCatalogOptions_catalogOptions_Catalog;
+                requestCatalogOptionsIsNull = false;
+            }
+             // determine if request.CatalogOptions should be set to null
+            if (requestCatalogOptionsIsNull)
+            {
+                request.CatalogOptions = null;
             }
             
              // populate CognitoOptions
@@ -1604,7 +1722,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.UpdateElasticsearchDomainConfigResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.UpdateElasticsearchDomainConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "UpdateElasticsearchDomainConfig");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "UpdateElasticsearchDomainConfig");
             try
             {
                 return client.UpdateElasticsearchDomainConfigAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
@@ -1646,6 +1764,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.Boolean? AutomatedSnapshotPauseOptions_Enabled { get; set; }
             public System.DateTime? AutomatedSnapshotPauseOptions_EndTime { get; set; }
             public System.DateTime? AutomatedSnapshotPauseOptions_StartTime { get; set; }
+            public System.Boolean? CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled { get; set; }
+            public System.String CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn { get; set; }
+            public System.Boolean? CatalogOptions_Enabled { get; set; }
             public System.Boolean? CognitoOptions_Enabled { get; set; }
             public System.String CognitoOptions_IdentityPoolId { get; set; }
             public System.String CognitoOptions_RoleArn { get; set; }

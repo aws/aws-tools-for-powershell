@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("New", "ESReservedElasticsearchInstanceOffering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch PurchaseReservedElasticsearchInstanceOffering API operation.", Operation = new[] {"PurchaseReservedElasticsearchInstanceOffering"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service PurchaseReservedElasticsearchInstanceOffering API operation.", Operation = new[] {"PurchaseReservedElasticsearchInstanceOffering"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse object containing multiple properties."
     )]
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "PurchaseReservedElasticsearchInstanceOffering");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "PurchaseReservedElasticsearchInstanceOffering");
             try
             {
                 return client.PurchaseReservedElasticsearchInstanceOfferingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

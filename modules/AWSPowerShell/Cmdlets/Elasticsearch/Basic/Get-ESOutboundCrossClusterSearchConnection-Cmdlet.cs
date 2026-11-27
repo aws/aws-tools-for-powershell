@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESOutboundCrossClusterSearchConnection")]
     [OutputType("Amazon.Elasticsearch.Model.OutboundCrossClusterSearchConnection")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DescribeOutboundCrossClusterSearchConnections API operation.", Operation = new[] {"DescribeOutboundCrossClusterSearchConnections"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeOutboundCrossClusterSearchConnectionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DescribeOutboundCrossClusterSearchConnections API operation.", Operation = new[] {"DescribeOutboundCrossClusterSearchConnections"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeOutboundCrossClusterSearchConnectionsResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.OutboundCrossClusterSearchConnection or Amazon.Elasticsearch.Model.DescribeOutboundCrossClusterSearchConnectionsResponse",
         "This cmdlet returns a collection of Amazon.Elasticsearch.Model.OutboundCrossClusterSearchConnection objects.",
         "The service call response (type Amazon.Elasticsearch.Model.DescribeOutboundCrossClusterSearchConnectionsResponse) can be returned by specifying '-Select *'."
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DescribeOutboundCrossClusterSearchConnectionsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribeOutboundCrossClusterSearchConnectionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DescribeOutboundCrossClusterSearchConnections");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DescribeOutboundCrossClusterSearchConnections");
             try
             {
                 return client.DescribeOutboundCrossClusterSearchConnectionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

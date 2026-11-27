@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Add", "ESResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch AddTags API operation.", Operation = new[] {"AddTags"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.AddTagsResponse), LegacyAlias="Add-ESTag")]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service AddTags API operation.", Operation = new[] {"AddTags"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.AddTagsResponse), LegacyAlias="Add-ESTag")]
     [AWSCmdletOutput("None or Amazon.Elasticsearch.Model.AddTagsResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Elasticsearch.Model.AddTagsResponse) be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.AddTagsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.AddTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "AddTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "AddTags");
             try
             {
                 return client.AddTagsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESUpgradeStatus")]
     [OutputType("Amazon.Elasticsearch.Model.GetUpgradeStatusResponse")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch GetUpgradeStatus API operation.", Operation = new[] {"GetUpgradeStatus"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetUpgradeStatusResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service GetUpgradeStatus API operation.", Operation = new[] {"GetUpgradeStatus"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetUpgradeStatusResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.GetUpgradeStatusResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.GetUpgradeStatusResponse object containing multiple properties."
     )]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.GetUpgradeStatusResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.GetUpgradeStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "GetUpgradeStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "GetUpgradeStatus");
             try
             {
                 return client.GetUpgradeStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

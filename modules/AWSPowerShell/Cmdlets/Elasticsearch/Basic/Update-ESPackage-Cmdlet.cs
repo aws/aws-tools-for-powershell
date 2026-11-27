@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Update", "ESPackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.PackageDetails")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch UpdatePackage API operation.", Operation = new[] {"UpdatePackage"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.UpdatePackageResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service UpdatePackage API operation.", Operation = new[] {"UpdatePackage"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.UpdatePackageResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.PackageDetails or Amazon.Elasticsearch.Model.UpdatePackageResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.PackageDetails object.",
         "The service call response (type Amazon.Elasticsearch.Model.UpdatePackageResponse) can be returned by specifying '-Select *'."
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.UpdatePackageResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.UpdatePackageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "UpdatePackage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "UpdatePackage");
             try
             {
                 return client.UpdatePackageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

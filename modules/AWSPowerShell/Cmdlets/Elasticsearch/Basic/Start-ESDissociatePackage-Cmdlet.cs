@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Start", "ESDissociatePackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.DomainPackageDetails")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DissociatePackage API operation.", Operation = new[] {"DissociatePackage"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DissociatePackageResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DissociatePackage API operation.", Operation = new[] {"DissociatePackage"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DissociatePackageResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.DomainPackageDetails or Amazon.Elasticsearch.Model.DissociatePackageResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.DomainPackageDetails object.",
         "The service call response (type Amazon.Elasticsearch.Model.DissociatePackageResponse) can be returned by specifying '-Select *'."
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DissociatePackageResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DissociatePackageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DissociatePackage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DissociatePackage");
             try
             {
                 return client.DissociatePackageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

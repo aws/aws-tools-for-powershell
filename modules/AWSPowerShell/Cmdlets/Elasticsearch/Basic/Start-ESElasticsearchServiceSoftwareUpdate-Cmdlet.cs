@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Start", "ESElasticsearchServiceSoftwareUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.ServiceSoftwareOptions")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch StartElasticsearchServiceSoftwareUpdate API operation.", Operation = new[] {"StartElasticsearchServiceSoftwareUpdate"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.StartElasticsearchServiceSoftwareUpdateResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service StartElasticsearchServiceSoftwareUpdate API operation.", Operation = new[] {"StartElasticsearchServiceSoftwareUpdate"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.StartElasticsearchServiceSoftwareUpdateResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ServiceSoftwareOptions or Amazon.Elasticsearch.Model.StartElasticsearchServiceSoftwareUpdateResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.ServiceSoftwareOptions object.",
         "The service call response (type Amazon.Elasticsearch.Model.StartElasticsearchServiceSoftwareUpdateResponse) can be returned by specifying '-Select *'."
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.StartElasticsearchServiceSoftwareUpdateResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.StartElasticsearchServiceSoftwareUpdateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "StartElasticsearchServiceSoftwareUpdate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "StartElasticsearchServiceSoftwareUpdate");
             try
             {
                 return client.StartElasticsearchServiceSoftwareUpdateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

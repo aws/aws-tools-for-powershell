@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Remove", "ESDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Elasticsearch.Model.ElasticsearchDomainStatus")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DeleteElasticsearchDomain API operation.", Operation = new[] {"DeleteElasticsearchDomain"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DeleteElasticsearchDomain API operation.", Operation = new[] {"DeleteElasticsearchDomain"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ElasticsearchDomainStatus or Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.ElasticsearchDomainStatus object.",
         "The service call response (type Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse) can be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DeleteElasticsearchDomainRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DeleteElasticsearchDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DeleteElasticsearchDomain");
             try
             {
                 return client.DeleteElasticsearchDomainAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -39,6 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// If you're deleting a Multi-AZ DB cluster with read replicas, all cluster members are
     /// terminated and read replicas are promoted to standalone instances.
     /// </para><para>
+    /// To delete an Amazon Aurora DB cluster and all of its DB instances in a single call,
+    /// set <c>DeleteDBInstances</c> to <c>true</c>. Otherwise, delete each DB instance in
+    /// the DB cluster before you delete the DB cluster.
+    /// </para><para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
     /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para><para>
@@ -88,6 +92,29 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DeleteAutomatedBackups")]
         public System.Boolean? DeleteAutomatedBackup { get; set; }
+        #endregion
+        
+        #region Parameter DeleteDBInstance
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to delete all DB instances in the DB cluster together with the DB
+        /// cluster. If you set this value to <c>true</c>, RDS deletes every DB instance in the
+        /// DB cluster and then deletes the DB cluster. You don't need to call <c>DeleteDBInstance</c>
+        /// for each DB instance first. If you set this value to <c>false</c> or don't specify
+        /// it, RDS deletes the DB cluster only after you delete each of its DB instances.</para><para>You must have permission to call <c>DeleteDBInstance</c> on every DB instance in the
+        /// DB cluster. If RDS can't delete a DB instance in the DB cluster, the request fails
+        /// and RDS doesn't delete the DB cluster or any of its DB instances.</para><para>Constraints:</para><ul><li><para>You can't specify this parameter for a DB cluster that is a member of an Aurora global
+        /// database. Remove the DB cluster from the global database first.</para></li><li><para>You can't specify this parameter for an Aurora Limitless Database DB cluster.</para></li><li><para>Deletion protection must be turned off for the DB cluster.</para></li><li><para>No DB instance in the DB cluster can be in the <c>deleting</c> state or be switching
+        /// over, be the blue DB instance of an active blue/green deployment, or have an active
+        /// zero-ETL integration.</para></li><li><para>No DB instance in the DB cluster can be the source of an Aurora read replica DB cluster,
+        /// or have a read replica that is being created or a cross-Region read replica that is
+        /// being restored.</para></li><li><para>The DB cluster can't be in the <c>stopping</c> state.</para></li></ul><para>If the DB cluster doesn't contain any DB instances, RDS deletes the DB cluster the
+        /// same way as when you don't specify this parameter.</para><para>Default: <c>false</c></para><para>Valid for Cluster Type: Aurora MySQL and Aurora PostgreSQL DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeleteDBInstances")]
+        public System.Boolean? DeleteDBInstance { get; set; }
         #endregion
         
         #region Parameter FinalDBSnapshotIdentifier
@@ -171,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.DeleteAutomatedBackup = this.DeleteAutomatedBackup;
+            context.DeleteDBInstance = this.DeleteDBInstance;
             context.FinalDBSnapshotIdentifier = this.FinalDBSnapshotIdentifier;
             context.SkipFinalSnapshot = this.SkipFinalSnapshot;
             
@@ -196,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DeleteAutomatedBackup != null)
             {
                 request.DeleteAutomatedBackups = cmdletContext.DeleteAutomatedBackup.Value;
+            }
+            if (cmdletContext.DeleteDBInstance != null)
+            {
+                request.DeleteDBInstances = cmdletContext.DeleteDBInstance.Value;
             }
             if (cmdletContext.FinalDBSnapshotIdentifier != null)
             {
@@ -262,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public System.String DBClusterIdentifier { get; set; }
             public System.Boolean? DeleteAutomatedBackup { get; set; }
+            public System.Boolean? DeleteDBInstance { get; set; }
             public System.String FinalDBSnapshotIdentifier { get; set; }
             public System.Boolean? SkipFinalSnapshot { get; set; }
             public System.Func<Amazon.RDS.Model.DeleteDBClusterResponse, RemoveRDSDBClusterCmdlet, object> Select { get; set; } =

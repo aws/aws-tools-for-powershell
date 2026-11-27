@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESInboundCrossClusterSearchConnection")]
     [OutputType("Amazon.Elasticsearch.Model.InboundCrossClusterSearchConnection")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DescribeInboundCrossClusterSearchConnections API operation.", Operation = new[] {"DescribeInboundCrossClusterSearchConnections"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeInboundCrossClusterSearchConnectionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DescribeInboundCrossClusterSearchConnections API operation.", Operation = new[] {"DescribeInboundCrossClusterSearchConnections"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeInboundCrossClusterSearchConnectionsResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.InboundCrossClusterSearchConnection or Amazon.Elasticsearch.Model.DescribeInboundCrossClusterSearchConnectionsResponse",
         "This cmdlet returns a collection of Amazon.Elasticsearch.Model.InboundCrossClusterSearchConnection objects.",
         "The service call response (type Amazon.Elasticsearch.Model.DescribeInboundCrossClusterSearchConnectionsResponse) can be returned by specifying '-Select *'."
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DescribeInboundCrossClusterSearchConnectionsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribeInboundCrossClusterSearchConnectionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DescribeInboundCrossClusterSearchConnections");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DescribeInboundCrossClusterSearchConnections");
             try
             {
                 return client.DescribeInboundCrossClusterSearchConnectionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

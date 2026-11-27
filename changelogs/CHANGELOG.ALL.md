@@ -1,4 +1,22 @@
-﻿### 5.0.345 (2026-11-25 19:58Z)
+﻿### 5.0.346 (2026-11-27 20:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.1.12.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch
+    * Modified cmdlet Start-CWOTelEnrichment: added parameter EnableTagEnrichment.
+    * Modified cmdlet Update-CWOTelEnrichment: added parameter EnableTagEnrichment.
+  * Amazon Elasticsearch Service
+    * Modified cmdlet New-ESDomain: added parameters CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled, CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn and CatalogOptions_Enabled.
+    * Modified cmdlet Update-ESDomainConfig: added parameters CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled, CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn and CatalogOptions_Enabled.
+  * Amazon Neptune Graph
+    * Modified cmdlet New-NEPTGGraph: added parameters ComputeConfiguration_GraphSession_MinMemory and ComputeConfiguration_ProvisionedGraph_Memory.
+    * Modified cmdlet Restore-NEPTGGraphFromSnapshot: added parameters ComputeConfiguration_GraphSession_MinMemory and ComputeConfiguration_ProvisionedGraph_Memory.
+    * Modified cmdlet Update-NEPTGGraph: added parameters ComputeConfiguration_GraphSession_MinMemory and ComputeConfiguration_ProvisionedGraph_Memory.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameters CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled, CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn and CatalogOptions_Enabled.
+    * Modified cmdlet Update-OSDomainConfig: added parameters CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_Enabled, CatalogOptions_Catalog_ServiceManagedS3Tables_EncryptionConfiguration_KmsKeyArn and CatalogOptions_Enabled.
+  * Amazon Relational Database Service
+    * Modified cmdlet Remove-RDSDBCluster: added parameter DeleteDBInstance.
+
+### 5.0.345 (2026-11-25 19:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.1.11.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Elastic Load Balancing for Envoy. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ELBP and can be listed using the command 'Get-AWSCmdletName -Service ELBP'.
 

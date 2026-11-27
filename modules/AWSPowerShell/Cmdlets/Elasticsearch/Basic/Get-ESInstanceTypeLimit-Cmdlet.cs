@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESInstanceTypeLimit")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DescribeElasticsearchInstanceTypeLimits API operation.", Operation = new[] {"DescribeElasticsearchInstanceTypeLimits"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeElasticsearchInstanceTypeLimitsResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DescribeElasticsearchInstanceTypeLimits API operation.", Operation = new[] {"DescribeElasticsearchInstanceTypeLimits"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeElasticsearchInstanceTypeLimitsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Elasticsearch.Model.DescribeElasticsearchInstanceTypeLimitsResponse",
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.Elasticsearch.Model.DescribeElasticsearchInstanceTypeLimitsResponse) can be returned by specifying '-Select *'."
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DescribeElasticsearchInstanceTypeLimitsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribeElasticsearchInstanceTypeLimitsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DescribeElasticsearchInstanceTypeLimits");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DescribeElasticsearchInstanceTypeLimits");
             try
             {
                 return client.DescribeElasticsearchInstanceTypeLimitsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESReservedElasticsearchInstanceOfferingList")]
     [OutputType("Amazon.Elasticsearch.Model.ReservedElasticsearchInstanceOffering")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DescribeReservedElasticsearchInstanceOfferings API operation.", Operation = new[] {"DescribeReservedElasticsearchInstanceOfferings"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstanceOfferingsResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DescribeReservedElasticsearchInstanceOfferings API operation.", Operation = new[] {"DescribeReservedElasticsearchInstanceOfferings"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstanceOfferingsResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ReservedElasticsearchInstanceOffering or Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstanceOfferingsResponse",
         "This cmdlet returns a collection of Amazon.Elasticsearch.Model.ReservedElasticsearchInstanceOffering objects.",
         "The service call response (type Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstanceOfferingsResponse) can be returned by specifying '-Select *'."
@@ -319,7 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstanceOfferingsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribeReservedElasticsearchInstanceOfferingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DescribeReservedElasticsearchInstanceOfferings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DescribeReservedElasticsearchInstanceOfferings");
             try
             {
                 return client.DescribeReservedElasticsearchInstanceOfferingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

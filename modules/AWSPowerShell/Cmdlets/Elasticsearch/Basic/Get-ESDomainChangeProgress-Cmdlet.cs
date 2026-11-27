@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESDomainChangeProgress")]
     [OutputType("Amazon.Elasticsearch.Model.ChangeProgressStatusDetails")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DescribeDomainChangeProgress API operation.", Operation = new[] {"DescribeDomainChangeProgress"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeDomainChangeProgressResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DescribeDomainChangeProgress API operation.", Operation = new[] {"DescribeDomainChangeProgress"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeDomainChangeProgressResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ChangeProgressStatusDetails or Amazon.Elasticsearch.Model.DescribeDomainChangeProgressResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.ChangeProgressStatusDetails object.",
         "The service call response (type Amazon.Elasticsearch.Model.DescribeDomainChangeProgressResponse) can be returned by specifying '-Select *'."
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DescribeDomainChangeProgressResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribeDomainChangeProgressRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DescribeDomainChangeProgress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DescribeDomainChangeProgress");
             try
             {
                 return client.DescribeDomainChangeProgressAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

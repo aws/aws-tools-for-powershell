@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Remove", "ESElasticsearchServiceRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DeleteElasticsearchServiceRole API operation.", Operation = new[] {"DeleteElasticsearchServiceRole"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DeleteElasticsearchServiceRole API operation.", Operation = new[] {"DeleteElasticsearchServiceRole"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse))]
     [AWSCmdletOutput("None or Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse) be returned by specifying '-Select *'."
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DeleteElasticsearchServiceRole");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DeleteElasticsearchServiceRole");
             try
             {
                 return client.DeleteElasticsearchServiceRoleAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

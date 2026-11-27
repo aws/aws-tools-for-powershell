@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.1.0.0",
-    "ProductVersion"    : "4.1.11.0",
+    "ProductVersion"    : "4.1.12.0",
     "CoreVersion"       : "4.1.1.2",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -80,7 +80,7 @@
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "4.1.1.2",
+            "Version" : "4.1.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.1.1.1"
@@ -252,7 +252,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "4.1.1.1",
+            "Version" : "4.1.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.1.1.1"
@@ -404,7 +404,7 @@
             "InPreview"               : false
         },
         "Elasticsearch"             : {
-            "Version" : "4.1.0.2",
+            "Version" : "4.1.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.1.1.1"
@@ -2028,7 +2028,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "4.1.0.2",
+            "Version" : "4.1.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.1.1.1"
@@ -2748,7 +2748,7 @@
             "InPreview"               : false
         },
         "MarketplaceAgreement"                : {
-            "Version" : "4.1.1.0",
+            "Version" : "4.1.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.1.1.1"
@@ -2756,7 +2756,7 @@
             "InPreview"               : false
         },
         "NeptuneGraph"                        : {
-            "Version" : "4.1.0.2",
+            "Version" : "4.1.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.1.1.1"

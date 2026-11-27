@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESPackageVersionHistory")]
     [OutputType("Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch GetPackageVersionHistory API operation.", Operation = new[] {"GetPackageVersionHistory"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service GetPackageVersionHistory API operation.", Operation = new[] {"GetPackageVersionHistory"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse object containing multiple properties."
     )]
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.GetPackageVersionHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "GetPackageVersionHistory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "GetPackageVersionHistory");
             try
             {
                 return client.GetPackageVersionHistoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

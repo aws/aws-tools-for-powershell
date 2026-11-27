@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESCompatibleElasticsearchVersion")]
     [OutputType("Amazon.Elasticsearch.Model.CompatibleVersionsMap")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch GetCompatibleElasticsearchVersions API operation.", Operation = new[] {"GetCompatibleElasticsearchVersions"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service GetCompatibleElasticsearchVersions API operation.", Operation = new[] {"GetCompatibleElasticsearchVersions"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.CompatibleVersionsMap or Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse",
         "This cmdlet returns a collection of Amazon.Elasticsearch.Model.CompatibleVersionsMap objects.",
         "The service call response (type Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse) can be returned by specifying '-Select *'."
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "GetCompatibleElasticsearchVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "GetCompatibleElasticsearchVersions");
             try
             {
                 return client.GetCompatibleElasticsearchVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

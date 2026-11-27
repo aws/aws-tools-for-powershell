@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Approve", "ESInboundCrossClusterSearchConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.InboundCrossClusterSearchConnection")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch AcceptInboundCrossClusterSearchConnection API operation.", Operation = new[] {"AcceptInboundCrossClusterSearchConnection"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.AcceptInboundCrossClusterSearchConnectionResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service AcceptInboundCrossClusterSearchConnection API operation.", Operation = new[] {"AcceptInboundCrossClusterSearchConnection"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.AcceptInboundCrossClusterSearchConnectionResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.InboundCrossClusterSearchConnection or Amazon.Elasticsearch.Model.AcceptInboundCrossClusterSearchConnectionResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.InboundCrossClusterSearchConnection object.",
         "The service call response (type Amazon.Elasticsearch.Model.AcceptInboundCrossClusterSearchConnectionResponse) can be returned by specifying '-Select *'."
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.AcceptInboundCrossClusterSearchConnectionResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.AcceptInboundCrossClusterSearchConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "AcceptInboundCrossClusterSearchConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "AcceptInboundCrossClusterSearchConnection");
             try
             {
                 return client.AcceptInboundCrossClusterSearchConnectionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

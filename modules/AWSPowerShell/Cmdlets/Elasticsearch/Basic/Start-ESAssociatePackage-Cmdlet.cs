@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Start", "ESAssociatePackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.DomainPackageDetails")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch AssociatePackage API operation.", Operation = new[] {"AssociatePackage"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.AssociatePackageResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service AssociatePackage API operation.", Operation = new[] {"AssociatePackage"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.AssociatePackageResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.DomainPackageDetails or Amazon.Elasticsearch.Model.AssociatePackageResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.DomainPackageDetails object.",
         "The service call response (type Amazon.Elasticsearch.Model.AssociatePackageResponse) can be returned by specifying '-Select *'."
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.AssociatePackageResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.AssociatePackageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "AssociatePackage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "AssociatePackage");
             try
             {
                 return client.AssociatePackageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

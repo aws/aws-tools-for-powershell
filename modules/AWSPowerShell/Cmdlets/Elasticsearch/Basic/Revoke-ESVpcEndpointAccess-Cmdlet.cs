@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Revoke", "ESVpcEndpointAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch RevokeVpcEndpointAccess API operation.", Operation = new[] {"RevokeVpcEndpointAccess"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.RevokeVpcEndpointAccessResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service RevokeVpcEndpointAccess API operation.", Operation = new[] {"RevokeVpcEndpointAccess"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.RevokeVpcEndpointAccessResponse))]
     [AWSCmdletOutput("None or Amazon.Elasticsearch.Model.RevokeVpcEndpointAccessResponse",
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Elasticsearch.Model.RevokeVpcEndpointAccessResponse) be returned by specifying '-Select *'."
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.RevokeVpcEndpointAccessResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.RevokeVpcEndpointAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "RevokeVpcEndpointAccess");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "RevokeVpcEndpointAccess");
             try
             {
                 return client.RevokeVpcEndpointAccessAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

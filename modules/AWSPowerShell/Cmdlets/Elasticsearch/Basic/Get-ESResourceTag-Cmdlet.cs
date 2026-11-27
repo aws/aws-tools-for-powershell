@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESResourceTag")]
     [OutputType("Amazon.Elasticsearch.Model.Tag")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch ListTags API operation.", Operation = new[] {"ListTags"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.ListTagsResponse), LegacyAlias="Get-ESTag")]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service ListTags API operation.", Operation = new[] {"ListTags"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.ListTagsResponse), LegacyAlias="Get-ESTag")]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.Tag or Amazon.Elasticsearch.Model.ListTagsResponse",
         "This cmdlet returns a collection of Amazon.Elasticsearch.Model.Tag objects.",
         "The service call response (type Amazon.Elasticsearch.Model.ListTagsResponse) can be returned by specifying '-Select *'."
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.ListTagsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.ListTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "ListTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "ListTags");
             try
             {
                 return client.ListTagsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

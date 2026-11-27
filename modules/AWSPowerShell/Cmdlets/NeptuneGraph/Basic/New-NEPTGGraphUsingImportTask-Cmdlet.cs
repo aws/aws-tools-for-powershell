@@ -38,7 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     /// The data can be loaded from files in S3 that in either the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin
     /// CSV format</a> or the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher
     /// load format</a>.
-    /// </para>
+    /// </para><note><para>
+    /// Graph session cannot be created using this API. Create an empty Graph Session using
+    /// <a href="https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CreateGraph.html">CreateGraph</a>
+    /// or restore a snapshot as Graph Session using <a href="https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_RestoreGraphFromSnapshot.html">RestoreGraphFromSnapshot</a>
+    /// and use <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/batch-load.html">neptune.load
+    /// CALL procedure</a> to load data into the Graph Session instead.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "NEPTGGraphUsingImportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NeptuneGraph.Model.CreateGraphUsingImportTaskResponse")]

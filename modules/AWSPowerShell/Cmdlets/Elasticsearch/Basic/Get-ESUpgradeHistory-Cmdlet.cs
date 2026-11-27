@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESUpgradeHistory")]
     [OutputType("Amazon.Elasticsearch.Model.UpgradeHistory")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch GetUpgradeHistory API operation.", Operation = new[] {"GetUpgradeHistory"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetUpgradeHistoryResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service GetUpgradeHistory API operation.", Operation = new[] {"GetUpgradeHistory"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetUpgradeHistoryResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.UpgradeHistory or Amazon.Elasticsearch.Model.GetUpgradeHistoryResponse",
         "This cmdlet returns a collection of Amazon.Elasticsearch.Model.UpgradeHistory objects.",
         "The service call response (type Amazon.Elasticsearch.Model.GetUpgradeHistoryResponse) can be returned by specifying '-Select *'."
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.GetUpgradeHistoryResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.GetUpgradeHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "GetUpgradeHistory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "GetUpgradeHistory");
             try
             {
                 return client.GetUpgradeHistoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

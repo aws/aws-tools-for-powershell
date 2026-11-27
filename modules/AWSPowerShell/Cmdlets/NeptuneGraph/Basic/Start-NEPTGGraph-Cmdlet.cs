@@ -31,6 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
 {
     /// <summary>
     /// Starts the specific graph.
+    /// 
+    ///  <note><para>
+    /// Graph sessions are started automatically when a query is sent to the graph. While
+    /// this API is supported for graph sessions, it isn't required.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "NEPTGGraph", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NeptuneGraph.Model.StartGraphResponse")]

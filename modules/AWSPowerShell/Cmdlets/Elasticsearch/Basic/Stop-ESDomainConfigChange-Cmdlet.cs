@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Stop", "ESDomainConfigChange", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch CancelDomainConfigChange API operation.", Operation = new[] {"CancelDomainConfigChange"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service CancelDomainConfigChange API operation.", Operation = new[] {"CancelDomainConfigChange"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse object containing multiple properties."
     )]
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.CancelDomainConfigChangeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "CancelDomainConfigChange");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "CancelDomainConfigChange");
             try
             {
                 return client.CancelDomainConfigChangeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

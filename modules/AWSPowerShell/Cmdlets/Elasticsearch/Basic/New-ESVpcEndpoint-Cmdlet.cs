@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("New", "ESVpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.VpcEndpoint")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch CreateVpcEndpoint API operation.", Operation = new[] {"CreateVpcEndpoint"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.CreateVpcEndpointResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service CreateVpcEndpoint API operation.", Operation = new[] {"CreateVpcEndpoint"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.CreateVpcEndpointResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.VpcEndpoint or Amazon.Elasticsearch.Model.CreateVpcEndpointResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.VpcEndpoint object.",
         "The service call response (type Amazon.Elasticsearch.Model.CreateVpcEndpointResponse) can be returned by specifying '-Select *'."
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.CreateVpcEndpointResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.CreateVpcEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "CreateVpcEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "CreateVpcEndpoint");
             try
             {
                 return client.CreateVpcEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

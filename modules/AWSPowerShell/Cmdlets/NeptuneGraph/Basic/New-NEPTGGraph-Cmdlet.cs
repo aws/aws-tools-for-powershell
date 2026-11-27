@@ -31,6 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
 {
     /// <summary>
     /// Creates a new Neptune Analytics graph.
+    /// 
+    ///  
+    /// <para>
+    /// Neptune Analytics supports two types of graphs, selected using <c>computeConfiguration</c>:
+    /// </para><ul><li><para><i>Provisioned graphs</i> use dedicated compute that is always available. Use provisioned
+    /// graphs for workloads that require higher memory or predictable latency.
+    /// </para></li><li><para><i>Graph sessions</i> use ephemeral compute that is bootstrapped when a query is
+    /// sent to the graph. The compute is automatically stopped after a few minutes with no
+    /// traffic. The next query sent to the graph bootstraps the compute again, so queries
+    /// that bootstrap the compute are subject to cold start latency.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "NEPTGGraph", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NeptuneGraph.Model.CreateGraphResponse")]
@@ -94,21 +105,25 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         public System.String KmsKeyIdentifier { get; set; }
         #endregion
         
-        #region Parameter ProvisionedMemory
+        #region Parameter ComputeConfiguration_ProvisionedGraph_Memory
         /// <summary>
         /// <para>
-        /// <para>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
-        /// Min = 16</para>
+        /// <para>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int32? ProvisionedMemory { get; set; }
+        public System.Int32? ComputeConfiguration_ProvisionedGraph_Memory { get; set; }
+        #endregion
+        
+        #region Parameter ComputeConfiguration_GraphSession_MinMemory
+        /// <summary>
+        /// <para>
+        /// <para>The minimum Session Neptune Capacity Units (s-NCUs) available to the graph session.</para><para>A graph session can burst up to 2x the configured min memory. For example, a <c>minMemory</c>
+        /// of 4 can burst up to 8 s-NCUs, and a <c>minMemory</c> of 8 can burst up to 16 s-NCUs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ComputeConfiguration_GraphSession_MinMemory { get; set; }
         #endregion
         
         #region Parameter PublicConnectivity
@@ -148,6 +163,19 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ProvisionedMemory
+        /// <summary>
+        /// <para>
+        /// <para>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+        /// Min = 16</para><note><para>This field is deprecated. We recommend using <c>computeConfiguration</c> instead.</para></note>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("ProvisionedMemory is deprecated. Use ComputeConfiguration instead.")]
+        public System.Int32? ProvisionedMemory { get; set; }
         #endregion
         
         #region Parameter Select
@@ -196,6 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
                 context.Select = CreateSelectDelegate<Amazon.NeptuneGraph.Model.CreateGraphResponse, NewNEPTGGraphCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ComputeConfiguration_GraphSession_MinMemory = this.ComputeConfiguration_GraphSession_MinMemory;
+            context.ComputeConfiguration_ProvisionedGraph_Memory = this.ComputeConfiguration_ProvisionedGraph_Memory;
             context.DeletionProtection = this.DeletionProtection;
             context.GraphName = this.GraphName;
             #if MODULAR
@@ -206,12 +236,6 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             #endif
             context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.ProvisionedMemory = this.ProvisionedMemory;
-            #if MODULAR
-            if (this.ProvisionedMemory == null && ParameterWasBound(nameof(this.ProvisionedMemory)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProvisionedMemory which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.PublicConnectivity = this.PublicConnectivity;
             context.ReplicaCount = this.ReplicaCount;
             if (this.Tag != null)
@@ -239,6 +263,65 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             // create request
             var request = new Amazon.NeptuneGraph.Model.CreateGraphRequest();
             
+            
+             // populate ComputeConfiguration
+            var requestComputeConfigurationIsNull = true;
+            request.ComputeConfiguration = new Amazon.NeptuneGraph.Model.ComputeConfiguration();
+            Amazon.NeptuneGraph.Model.GraphSessionConfiguration requestComputeConfiguration_computeConfiguration_GraphSession = null;
+            
+             // populate GraphSession
+            var requestComputeConfiguration_computeConfiguration_GraphSessionIsNull = true;
+            requestComputeConfiguration_computeConfiguration_GraphSession = new Amazon.NeptuneGraph.Model.GraphSessionConfiguration();
+            System.Int32? requestComputeConfiguration_computeConfiguration_GraphSession_computeConfiguration_GraphSession_MinMemory = null;
+            if (cmdletContext.ComputeConfiguration_GraphSession_MinMemory != null)
+            {
+                requestComputeConfiguration_computeConfiguration_GraphSession_computeConfiguration_GraphSession_MinMemory = cmdletContext.ComputeConfiguration_GraphSession_MinMemory.Value;
+            }
+            if (requestComputeConfiguration_computeConfiguration_GraphSession_computeConfiguration_GraphSession_MinMemory != null)
+            {
+                requestComputeConfiguration_computeConfiguration_GraphSession.MinMemory = requestComputeConfiguration_computeConfiguration_GraphSession_computeConfiguration_GraphSession_MinMemory.Value;
+                requestComputeConfiguration_computeConfiguration_GraphSessionIsNull = false;
+            }
+             // determine if requestComputeConfiguration_computeConfiguration_GraphSession should be set to null
+            if (requestComputeConfiguration_computeConfiguration_GraphSessionIsNull)
+            {
+                requestComputeConfiguration_computeConfiguration_GraphSession = null;
+            }
+            if (requestComputeConfiguration_computeConfiguration_GraphSession != null)
+            {
+                request.ComputeConfiguration.GraphSession = requestComputeConfiguration_computeConfiguration_GraphSession;
+                requestComputeConfigurationIsNull = false;
+            }
+            Amazon.NeptuneGraph.Model.ProvisionedGraphConfiguration requestComputeConfiguration_computeConfiguration_ProvisionedGraph = null;
+            
+             // populate ProvisionedGraph
+            var requestComputeConfiguration_computeConfiguration_ProvisionedGraphIsNull = true;
+            requestComputeConfiguration_computeConfiguration_ProvisionedGraph = new Amazon.NeptuneGraph.Model.ProvisionedGraphConfiguration();
+            System.Int32? requestComputeConfiguration_computeConfiguration_ProvisionedGraph_computeConfiguration_ProvisionedGraph_Memory = null;
+            if (cmdletContext.ComputeConfiguration_ProvisionedGraph_Memory != null)
+            {
+                requestComputeConfiguration_computeConfiguration_ProvisionedGraph_computeConfiguration_ProvisionedGraph_Memory = cmdletContext.ComputeConfiguration_ProvisionedGraph_Memory.Value;
+            }
+            if (requestComputeConfiguration_computeConfiguration_ProvisionedGraph_computeConfiguration_ProvisionedGraph_Memory != null)
+            {
+                requestComputeConfiguration_computeConfiguration_ProvisionedGraph.Memory = requestComputeConfiguration_computeConfiguration_ProvisionedGraph_computeConfiguration_ProvisionedGraph_Memory.Value;
+                requestComputeConfiguration_computeConfiguration_ProvisionedGraphIsNull = false;
+            }
+             // determine if requestComputeConfiguration_computeConfiguration_ProvisionedGraph should be set to null
+            if (requestComputeConfiguration_computeConfiguration_ProvisionedGraphIsNull)
+            {
+                requestComputeConfiguration_computeConfiguration_ProvisionedGraph = null;
+            }
+            if (requestComputeConfiguration_computeConfiguration_ProvisionedGraph != null)
+            {
+                request.ComputeConfiguration.ProvisionedGraph = requestComputeConfiguration_computeConfiguration_ProvisionedGraph;
+                requestComputeConfigurationIsNull = false;
+            }
+             // determine if request.ComputeConfiguration should be set to null
+            if (requestComputeConfigurationIsNull)
+            {
+                request.ComputeConfiguration = null;
+            }
             if (cmdletContext.DeletionProtection != null)
             {
                 request.DeletionProtection = cmdletContext.DeletionProtection.Value;
@@ -341,9 +424,12 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? ComputeConfiguration_GraphSession_MinMemory { get; set; }
+            public System.Int32? ComputeConfiguration_ProvisionedGraph_Memory { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public System.String GraphName { get; set; }
             public System.String KmsKeyIdentifier { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? ProvisionedMemory { get; set; }
             public System.Boolean? PublicConnectivity { get; set; }
             public System.Int32? ReplicaCount { get; set; }

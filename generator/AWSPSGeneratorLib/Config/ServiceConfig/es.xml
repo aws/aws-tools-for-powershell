@@ -5,7 +5,7 @@
     <C2jFilename>es</C2jFilename>
     <AssemblyName>Elasticsearch</AssemblyName>
     <ServiceNounPrefix>ES</ServiceNounPrefix>
-    <ServiceName>Amazon Elasticsearch</ServiceName>
+    <ServiceName>Amazon Elasticsearch Service</ServiceName>
     <ServiceId>Elasticsearch Service</ServiceId>
     <ServiceClientInterface>IAmazonElasticsearch</ServiceClientInterface>
     <ServiceClient>AmazonElasticsearchClient</ServiceClient>

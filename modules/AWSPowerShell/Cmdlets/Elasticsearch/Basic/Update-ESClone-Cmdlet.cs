@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Update", "ESClone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.UpdateCloneResponse")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch UpdateClone API operation.", Operation = new[] {"UpdateClone"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.UpdateCloneResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service UpdateClone API operation.", Operation = new[] {"UpdateClone"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.UpdateCloneResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.UpdateCloneResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.UpdateCloneResponse object containing multiple properties."
     )]
@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.UpdateCloneResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.UpdateCloneRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "UpdateClone");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "UpdateClone");
             try
             {
                 return client.UpdateCloneAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

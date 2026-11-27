@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     /// <summary>
     /// Import data into existing Neptune Analytics graph from Amazon Simple Storage Service
     /// (S3). The graph needs to be empty and in the AVAILABLE state.
+    /// 
+    ///  <note><para>
+    /// Graph sessions don't support this API. Use <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/batch-load.html">neptune.load
+    /// CALL procedure</a> to load data into the Graph Session instead.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "NEPTGImportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NeptuneGraph.Model.StartImportTaskResponse")]

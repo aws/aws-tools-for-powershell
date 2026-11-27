@@ -28,7 +28,7 @@ using Amazon.Elasticsearch.Model;
 
 namespace Amazon.PowerShell.Cmdlets.ES
 {
-    [AWSClientCmdlet("Amazon Elasticsearch", "ES", "2015-01-01", "Elasticsearch")]
+    [AWSClientCmdlet("Amazon Elasticsearch Service", "ES", "2015-01-01", "Elasticsearch")]
     public abstract partial class AmazonElasticsearchClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticsearch Client { get; private set; }

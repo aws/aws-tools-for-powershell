@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESPackage")]
     [OutputType("Amazon.Elasticsearch.Model.PackageDetails")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch DescribePackages API operation.", Operation = new[] {"DescribePackages"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribePackagesResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service DescribePackages API operation.", Operation = new[] {"DescribePackages"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribePackagesResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.PackageDetails or Amazon.Elasticsearch.Model.DescribePackagesResponse",
         "This cmdlet returns a collection of Amazon.Elasticsearch.Model.PackageDetails objects.",
         "The service call response (type Amazon.Elasticsearch.Model.DescribePackagesResponse) can be returned by specifying '-Select *'."
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.DescribePackagesResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribePackagesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DescribePackages");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "DescribePackages");
             try
             {
                 return client.DescribePackagesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

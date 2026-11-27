@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESVpcEndpointsForDomainList")]
     [OutputType("Amazon.Elasticsearch.Model.VpcEndpointSummary")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch ListVpcEndpointsForDomain API operation.", Operation = new[] {"ListVpcEndpointsForDomain"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.ListVpcEndpointsForDomainResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service ListVpcEndpointsForDomain API operation.", Operation = new[] {"ListVpcEndpointsForDomain"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.ListVpcEndpointsForDomainResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.VpcEndpointSummary or Amazon.Elasticsearch.Model.ListVpcEndpointsForDomainResponse",
         "This cmdlet returns a collection of Amazon.Elasticsearch.Model.VpcEndpointSummary objects.",
         "The service call response (type Amazon.Elasticsearch.Model.ListVpcEndpointsForDomainResponse) can be returned by specifying '-Select *'."
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.ListVpcEndpointsForDomainResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.ListVpcEndpointsForDomainRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "ListVpcEndpointsForDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "ListVpcEndpointsForDomain");
             try
             {
                 return client.ListVpcEndpointsForDomainAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();

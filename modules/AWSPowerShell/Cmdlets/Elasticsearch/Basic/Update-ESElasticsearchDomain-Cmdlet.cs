@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Update", "ESElasticsearchDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse")]
-    [AWSCmdlet("Calls the Amazon Elasticsearch UpgradeElasticsearchDomain API operation.", Operation = new[] {"UpgradeElasticsearchDomain"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse))]
+    [AWSCmdlet("Calls the Amazon Elasticsearch Service UpgradeElasticsearchDomain API operation.", Operation = new[] {"UpgradeElasticsearchDomain"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse object containing multiple properties."
     )]
@@ -324,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "UpgradeElasticsearchDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch Service", "UpgradeElasticsearchDomain");
             try
             {
                 return client.UpgradeElasticsearchDomainAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
